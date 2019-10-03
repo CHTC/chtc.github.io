@@ -1,16 +1,187 @@
-<!--#set var="title" value="Using Gluster for Large Data and Software"-->
 
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<script type="text/javascript">
+
+  function resizeIframe(iframe) {
+    var newheight;
+    var newwidth;
+
+    if(document.getElementById){
+        newwidth=iframe.contentWindow.document.body.scrollWidth;
+        newheight=iframe.contentWindow.document.body.scrollHeight;
+    }
+
+    iframe.height= (newheight) + "px";
+    iframe.width= (newwidth) + "px";
+  }
+</script>
+<title>Using Gluster for Large Data and Software</title>
+
+<link href="/web.css" rel="stylesheet" type="text/css">
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+   <td width="1%" align="left" class="bgred" valign="top">
+      <div align="center">
+      &nbsp;<br>
+      <a href="http://www.wisc.edu">
+
+      <img src="/images/uw-sm-red.png" width="125" height="46" border="0"> </a>
+       </div>
+
+	<ul class="sidebar">
+	<li><a href="/">CHTC Home</a></li>
+	
+	<li>About
+		<ul>
+		<li><a href="/approach.shtml">Our Approach</a></li>
+<!--comment		<li><a href="/resources.shtml">Our Resources</a></li>   -->
+		<li><a href="/projects.shtml">Our Customers</a></li>
+		<li><a href="/people.shtml">Our Staff</a></li>
+		<li><a href="/jobs.shtml">Our Open Positions</a></li>
+		</ul>
+	</li>
+	
+	<li>How To's
+		<ul>
+		<li><a href="/get-started.shtml">Get Started</a></li>
+		<li><a href="/get-help.shtml">Get Help</a></li>
+        	<li><a href="/guides.shtml">All User Guides</a></li>
+                <li><a href="/use-submit-node.shtml">Use an HTC Submit Server</a></li>
+		<li><a href="/helloworld.shtml">Run Your First HTC Jobs</a></li>
+		<li><a href="/howto_overview.shtml">HTC for MatLab, Python or R</a></li>
+		<li><a href="/HPCuseguide.shtml">Use the HPC Cluster</a></li>
+		<li><a href="/cite-chtc.shtml">Cite CHTC Resources</a></li>
+		</ul>
+	</li>
+	<li><a href="/user-news.shtml">User News</a></li>
+	<li>Other Resources
+		<ul>
+		<!--<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Pool Usage Reports</a></li>-->
+<!--comment		<li><a href="/opmetrics.shtml">Operational Metrics</a></li>  -->
+		<li><a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a></li>
+		<li><a href="http://www.neos-server.org/">NEOS Optimization Service</a></li>
+		<li><a href="http://www.opensciencegrid.org/">Open Science Grid</a></li>
+		<li><a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a></li>
+		</ul>
+	</li>
+	</ul>
+
+	</td>
+
+<td width="97%" valign="top"> 
+
+
+	<TABLE SUMMARY="Navigation layout" BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+<TR ALIGN="left"> 
+  <TD WIDTH="100%" height="400" Align="left" VALIGN="top"> 
+    <A  name="body"></a> 
+	<div id = "main">
+
+<!-- Top of Page Body -->
+<table BORDER="0" WIDTH="100%">
+<!-- <h1 align=left valign=center>The Center for High Throughput Computing</h1> -->
+
+	
+
+<div id="osg_power"> <span style="height: 20px">Powered by:</span><br /><a href="http://opensciencegrid.org"><img alt="Open Science Grid" src="/images/Open_Science_Grid_Consortium(Logo).jpg" width="123" height="70" /></a></div>
+
+	
+
+<div id="hours"> <span style="height: 20px">
+	<center><b>Follow us on social media:</b><a href="https://twitter.com/CHTC_UW"><img alt="Twitter" src="/images/twitter.png" width="70" height="70"></center></a></span></div>
+	
+	
+<div id="hours"> <span style="height: 20px">
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a href="http://chtc.cs.wisc.edu/get-help.shtml" style="color:white;">
+<b>Office Hours!</b>
+<br>
+Tues/Thurs, 3-4:30pm<br>
+Wed, 9:30-11:30am</br>
+Click for details
+</a></span></div>	
+
+
+	
+
+
+<div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
+
+<h1>Using Gluster for Large Data and Software</h1>
+
+<h2>Which Option is the Best for Your Files?</h2>
+<br>
+<table class="gtable">
+<tr>
+	<th> </th>	
+	<th>Meant For</th>	
+	<th>Input/Software File Sizes</th>
+	<th>Output File Sizes</th>
+	<th>Available for Jobs Running ...</th>
+	<th>File Security</th>
+	<th>Special Considerations</th>
+</tr>
+
+<tr>
+	<td><a href="file-availability.shtml">HTCondor file transfer</a></td>		
+	<td>basic file delivery and return; see size limits at right</td>
+	<td>0 - 100 MB per file; <500 MB total per job</td>
+	<td>0 - 4 GB total	</td>
+	<td>in CHTC, UW Grid, and OSG</td>
+	<td>available to <i>your</i> jobs, on CHTC and beyond</td>
+	<td><font color="red">DO NOT USE for files in /mnt/gluster OR /squid</font></td>
+</tr>
+
+<tr>
+	<td><a href="file-avail-squid.shtml">SQUID Web Proxy</a></td>
+	<td>large input or software shared by <i>many</i> jobs</td>
+	<td>100 MB - 1 GB per shared file</td>
+	<td>N/A</td>
+	<td>in CHTC, UW Grid, and OSG</td>
+	<td>files will be world-<i>readable</i></td>
+	<td>large files unique to individual jobs are better for Gluster</td>
+</tr>
+
+<tr>
+	<td><a href="file-avail-gluster.shtml">Gluster File Share</a></td>
+	<td>largest software, input, and output</td>
+	<td>100 MB - TBs per unique file; 1GB - TBs per shared file</td>
+	<td>4 GB - TBs</td>
+	<td>in only a portion of CHTC</td>
+	<td>accessible ONLY to your jobs on specific CHTC servers</td>
+	<td>special submit "Requirements"</td>
+</tr>
+</table>
+
+<!--
+<h2>Best Practices for File Delivery</h2>
+
+<p>Remember to review best practices in our File Handling guide, 
+including the following:</p>
+
+<ul>
+<li>Pre-split large input files when each of many jobs will only need a portion of the 
+large input data.</li>
+<li>Remove ALL unwanted/temporary files in the working director of the job that have 
+appeared since the job started.</li>
+<li>Use tar with compression (*.tar.gz) for any relevant input/output files and ALL 
+desired output directories prior to their transfer/delivery.</li>
+</ul>
+-->
+
 
 <p>CHTC maintains a Gluster file share, which should only be used for
 files or software that are too large for HTCondor file transfer or SQUID. 
 The below guide discusses how to use CHTC's Gluster option for jobs that
 use or produce very large files.</p>
 
-<!--#include virtual="/includes/template-file-avail.shtml"-->
 <p><h2>Contents</h2>
 <ol>
   <li><a href="#policy">Policies and Intended Use</a></li> 
@@ -298,4 +469,28 @@ the output will give you a total file count and allow you to navigate between
 subdirectories for even more details. Type <code>q</code> when you're ready to 
 exit the output viewer. More info here: 
 <a href="https://lintut.com/ncdu-check-disk-usage/">https://lintut.com/ncdu-check-disk-usage/</a>
-<!--#include virtual="/includes/template-5-finish.shtml" -->
+
+
+
+<div id = "copyright">
+     <p align = "center"> 
+	  
+     For all user support, questions, and comments:
+     <strong><a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a></strong>
+
+</p>
+</div>
+
+</div>
+
+  </td>
+  </tr>
+
+</TABLE>
+</td>
+</table>
+
+</body>
+</html>
+
+
