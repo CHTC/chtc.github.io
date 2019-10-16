@@ -34,7 +34,7 @@ Software like Matlab, R, and Python may or may not exist on CHTC-accessible
 		<p class="card-text">If you are running Matlab jobs, the following guide will explain how to compile your code and 
 	edit the scripts necessary to run your jobs on the CHTC pool</p>
 -->
-		<a href="http://chtc.cs.wisc.edu/matlab-jobs.shtml" class="btn btn-primary">Running Matlab Jobs in CHTC</a>
+		<a href="/dev_website/matlab-new.shtml" class="btn btn-primary">Running Matlab Jobs in CHTC</a>
 	  </div>
 	</div>
 	<div class="card text-center text-white bg-danger mb-3" style="width: 18rem;">
@@ -44,7 +44,7 @@ Software like Matlab, R, and Python may or may not exist on CHTC-accessible
 		<h5 class="card-title">Running Python Jobs</h5>
 		<p class="card-text">If you are running Python jobs, the following guide will explain how to prepare your code and write a script to run your jobs on the CHTC pool</p>
 -->
-		<a href="http://chtc.cs.wisc.edu/python-jobs.shtml" class="btn btn-primary">Running Python Jobs in CHTC</a>
+		<a href="/dev_website/python-new.shtml" class="btn btn-primary">Running Python Jobs in CHTC</a>
 	  </div>
 	</div>
 	<div class="card text-center text-white bg-danger mb-3" style="width: 18rem;">
@@ -54,7 +54,7 @@ Software like Matlab, R, and Python may or may not exist on CHTC-accessible
 		<h5 class="card-title">Running R Jobs</h5>
 		<p class="card-text">If you are running R jobs, the following guide will explain how to prepare your code and write a script to run your jobs on the CHTC pool</p>
 -->
-		<a href="http://chtc.cs.wisc.edu/r-jobs.shtml" class="btn btn-primary">Running R Jobs in CHTC</a>
+		<a href="/dev_website/r-new.shtml" class="btn btn-primary">Running R Jobs in CHTC</a>
 	  </div>
 	</div>
 </div>
@@ -74,7 +74,7 @@ Software like Matlab, R, and Python may or may not exist on CHTC-accessible
 <p>If your software is complex and hard to setup, please don't hesitate to contact us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> with any questions. 
 </p>
 
-<p>For old guides not shown on this page, see our <a href="http://chtc.cs.wisc.edu/howto_overview.shtml">achieved page</a>.
+<p>For old guides not shown on this page, see our <a href="http://chtc.cs.wisc.edu/howto_overview.shtml">archived page</a>.
 </p>
 
 <!--#include virtual="/includes/template-5-finish.shtml" -->
