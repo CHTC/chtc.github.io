@@ -225,20 +225,20 @@ above.</p>
 
 <p><strong>3.</strong> Now, submit your job to the queue using <code class="highlighter-rouge">condor_submit</code>:</p>
 
-<pre><code class="language-{.term}">[alice@submit]$ condor_submit hello-chtc.sub
+<pre><code class="language-{:.term}">[alice@submit]$ condor_submit hello-chtc.sub
 </code></pre>
 
 <p>The <code class="highlighter-rouge">condor_submit</code> command actually submits your jobs to HTCondor. If
 all goes well, you will see output from the <code class="highlighter-rouge">condor_submit</code> command that
 appears as:</p>
 
-<pre><code class="language-{.term}">Submitting job(s).....
+<pre><code class="language-{:.term}">Submitting job(s).....
 3 job(s) submitted to cluster 436950.
 </code></pre>
 
 <p><strong>4.</strong> To check on the status of your jobs, run the following command:</p>
 
-<pre><code class="language-{.term}">[alice@submit]$ condor_q
+<pre><code class="language-{:.term}">[alice@submit]$ condor_q
 </code></pre>
 
 <p>(If you want to see everyone's jobs, use <code class="highlighter-rouge">condor_q -all</code>.)</p>
@@ -360,9 +360,7 @@ code (as seen in "return value 0"). You can use this code, as well as
 information in your ".err" file and other output files, to determine
 what issues your job(s) may have had, if any.</p>
 
-<ol>
-  <li>
-    <p><strong>Determining Memory
+<p>2. <strong>Determining Memory
 and Disk Requirements.</strong> The log file also indicates how much memory and
 disk each job used, so that you can first test a few jobs before
 submitting many more with more accurate request values. When you request
@@ -371,16 +369,13 @@ running on, and HTCondor will have to try to rerun them (maybe many
 times) until it requests enough for you. When you request too much, your
 jobs may not match to as many available "slots" as they could
 otherwise, and your overall throughput will suffer in that case as well.</p>
-  </li>
-  <li>
-    <p><strong>Determining Run Time.</strong> Depending on how long each of your jobs are
+
+<p>3. <strong>Determining Run Time.</strong> Depending on how long each of your jobs are
 (determined by examining when the job began executing and when it
 completed), you can send your jobs to even more computers than are in
 the CHTC Pool (where your jobs will run, by default). Refer to the table
 below for tips on how to send your jobs to the rest of the UW Grid and
 to the national <a href="http://www.opensciencegrid.org/">Open Science Grid</a>.</p>
-  </li>
-</ol>
 
 <h2 id="c-getting-the-right-resources"><strong>C. Getting the Right Resources</strong></h2>
 
