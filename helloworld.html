@@ -395,24 +395,38 @@ to the national <a href="http://www.opensciencegrid.org/">Open Science Grid</a>.
 <p>Be sure to always add or modify the following lines in your submit
 files, as appropriate, and after running a few tests.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| Submit file entry  | Resources your jobs will run on |
-| --- | --- |
-| request\_cpus = *_cpus_* | Matches each job to a computer \"slot\" with at least this many CPU cores. |
-| git diff | Show file differences that haven't been staged |
-</code></pre></div></div>
+<table>
+  <thead>
+    <tr>
+      <th>Submit file entry</th>
+      <th>Resources your jobs will run on</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">request\_cpus = *_cpus_*</code></td>
+      <td>Matches each job to a computer "slot" with at least this many CPU cores.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">request\_disk = *_kilobytes_*</code></td>
+      <td>Matches each job to a slot with at least this much disk space, in units of KB.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">request\_memory = *_megabytes_*</code></td>
+      <td>Matches each job to a slot with at least this much memory (RAM), in units of MB.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">+WantFlocking = true</code></td>
+      <td>Also send jobs to other HTCondor Pools on campus (UW Grid) <br /> Good for jobs that are less than ~8 hours, or checkpoint at least that frequently.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">+WantGlideIn = true</code></td>
+      <td>Also send jobs to the Open Science Grid (OSG).<br /> Good for jobs that are less than ~8 hours (or checkpoint at least that frequently), and have been tested for portability. (Contact Us for more details).</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>request_cpus = <em>cpus</em>          Matches each job to a computer "slot" with at least this many CPU cores.</p>
-
-<p>request_disk = <em>kilobytes</em>     Matches each job to a slot with at least this much disk space, in units of KB.\</p>
-
-<p>request_memory = <em>megabytes</em>   Matches each job to a slot with at least this much memory (RAM), in units of MB.\</p>
-
-<p>+WantFlocking = true            Also send jobs to other HTCondor Pools on campus (UW Grid)<br />
-                                  Good for jobs that are less than ~8 hours, or checkpoint at least that frequently.</p>
-
-<p>+WantGlideIn = true             Also send jobs to the Open Science Grid (OSG).<br />
-                                  Good for jobs that are less than ~8 hours (or checkpoint at least that frequently), and have been tested for portability. (Contact Us for more details).
-  ——————————————————————————————————————————————————————————————-</p>
+<hr />
 
 <p>Learn more about sending jobs to the UW Grid and OSG in our <a href="/scaling-htc.shtml">Scaling
 Beyond Local HTC Capacity</a> guide.</p>
