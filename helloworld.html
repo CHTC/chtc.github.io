@@ -143,7 +143,9 @@ UW-Madison.</p>
 
 <p>Rather than having you read a bunch of stuff before hand, let's just
 run some jobs so you can see what happens, and we'll provide some
-additional discussion along the way. We are going to run the traditional
+additional discussion along the way.</p>
+
+<p>We are going to run the traditional
 'hello world' program with a CHTC twist. In order to demonstrate the
 distributed resource nature of the CHTC, we will produce a 'Hello
 CHTC' message 3 times, where each time is its own job. Since you are
@@ -331,16 +333,9 @@ like this:</p>
 <pre><code class="language-{.file}">Hello CHTC from Job 0 running on alice@e389.chtc.wisc.edu
 </code></pre>
 
-<p><strong>Congratulations.</strong> You've run your first jobs in the CHTC!<br />
-[]{#else}</p>
+<p><strong>Congratulations.</strong> You've run your first jobs in the CHTC!\</p>
 
-<ol>
-  <li>
-    <h1 id="what-else">What Else?</h1>
-  </li>
-</ol>
-
-<p>[]{#remove}</p>
+<h1 id="2-what-else"><strong>2. What Else?</strong></h1>
 
 <h2 id="a-removing-jobs">A. Removing Jobs</h2>
 
@@ -351,20 +346,23 @@ like this:</p>
 </code></pre>
 
 <p>You can even remove all of the jobs of the same cluster by specifying
-only the Cluster value for that batch. To remove <strong>all of your jobs</strong>:</p>
+only the Cluster value for that batch. 
+To remove <strong>all of your jobs</strong>:</p>
 
 <pre><code class="language-{.term}">[alice@submit]$ condor_rm $USER
 </code></pre>
 
-<p>[]{#importance}</p>
-
-<h2 id="b-the-importance-of-testing">B. The Importance of Testing</h2>
+<h2 id="b-the-importance-of-testing"><strong>B. The Importance of Testing</strong></h2>
 
 <p>1. <strong>Examining Job Success.</strong> Within the log file, you can see
 information about the completion of each job, including a system error
 code (as seen in "return value 0"). You can use this code, as well as
 information in your ".err" file and other output files, to determine
-what issues your job(s) may have had, if any. 2. <strong>Determining Memory
+what issues your job(s) may have had, if any.</p>
+
+<ol>
+  <li>
+    <p><strong>Determining Memory
 and Disk Requirements.</strong> The log file also indicates how much memory and
 disk each job used, so that you can first test a few jobs before
 submitting many more with more accurate request values. When you request
@@ -373,23 +371,23 @@ running on, and HTCondor will have to try to rerun them (maybe many
 times) until it requests enough for you. When you request too much, your
 jobs may not match to as many available "slots" as they could
 otherwise, and your overall throughput will suffer in that case as well.</p>
-<ol>
-  <li><strong>Determining Run Time.</strong> Depending on how long each of your jobs are
+  </li>
+  <li>
+    <p><strong>Determining Run Time.</strong> Depending on how long each of your jobs are
 (determined by examining when the job began executing and when it
 completed), you can send your jobs to even more computers than are in
 the CHTC Pool (where your jobs will run, by default). Refer to the table
 below for tips on how to send your jobs to the rest of the UW Grid and
-to the national <a href="http://www.opensciencegrid.org/">Open Science Grid</a>.</li>
+to the national <a href="http://www.opensciencegrid.org/">Open Science Grid</a>.</p>
+  </li>
 </ol>
 
-<p>[]{#resource}</p>
-
-<h2 id="c-getting-the-right-resources">C. Getting the Right Resources</h2>
+<h2 id="c-getting-the-right-resources"><strong>C. Getting the Right Resources</strong></h2>
 
 <p>Be sure to always add or modify the following lines in your submit
 files, as appropriate, and after running a few tests.</p>
 
-<table>
+<table class="gtable">
   <thead>
     <tr>
       <th>Submit file entry</th>
@@ -420,21 +418,21 @@ files, as appropriate, and after running a few tests.</p>
   </tbody>
 </table>
 
-<p>Learn more about sending jobs to the UW Grid and OSG in our <a href="/scaling-htc.shtml">Scaling
-Beyond Local HTC Capacity</a> guide.</p>
-
-<p>[]{#homework}</p>
+<p>Learn more about sending jobs to the UW Grid and OSG in our <a href="/scaling-htc.shtml">Scaling Beyond Local HTC Capacity</a> guide.</p>
 
 <h2 id="d-now-time-for-a-little-homework">D. Now, time for a little homework</h2>
 
 <p>To get the most of the CHTC, you will want to have a good understanding
 of how HTCondor works. <strong>We HIGHLY recommend browsing the latest
-<a href="https://agenda.hep.wisc.edu/event/1325/other-view?view=standard#20180521.detailed">HTCondor User
-Tutorial</a>
-from the international HTCondor Week conference.</strong> <a href="guides.shtml">Our full set of CHTC
+<a href="https://agenda.hep.wisc.edu/event/1325/other-view?view=standard#20180521.detailed">HTCondor User Tutorial</a>
+from the international HTCondor Week conference.</strong></p>
+
+<p><a href="guides.shtml">Our full set of CHTC
 online guides is available here.</a> Remember to <a href="get-help.shtml">Get
 Help</a> whenever you have questions or issues. That's
-what CHTC staff are here for. The full HTCondor manual is comprehensive
+what CHTC staff are here for.</p>
+
+<p>The full HTCondor manual is comprehensive
 and lengthy, and Googling "HTCondor examples" may lead you to examples
 that really only work on another campus's HTCondor system. You can
 always dig into more details as you become more experienced, but the
@@ -456,7 +454,7 @@ page</a></li>
 ClassAds</a></li>
 </ul>
 
-<h1 id="now-you-are-ready-for-some-real-work">Now you are ready for some real work</h1>
+<h1 id="now-you-are-ready-for-some-real-work"><strong>Now you are ready for some real work</strong></h1>
 
 <p>Ok, you have the basics! This should be enough background to get you
 started using the CHTC for the <em>real</em> problems you came to us for.
