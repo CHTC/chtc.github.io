@@ -134,14 +134,12 @@ UW-Madison.</p>
       <li><a href="#remove">Removing Jobs</a></li>
       <li><a href="#importance">The Importance of Testing</a></li>
       <li><a href="#resource">Getting the Right Resources</a></li>
-      <li><a href="#homework">Time for a little homework</a>
-[]{#first}</li>
+      <li><a href="#homework">Time for a little homework</a></li>
     </ul>
   </li>
-  <li>
-    <h1 id="lets-first-do-and-then-ask-why">Let's first do, and then ask why</h1>
-  </li>
 </ol>
+
+<h1 id="1-lets-first-do-and-then-ask-why"><strong>1. Let's first do, and then ask why</strong></h1>
 
 <p>Rather than having you read a bunch of stuff before hand, let's just
 run some jobs so you can see what happens, and we'll provide some
@@ -402,6 +400,22 @@ files, as appropriate, and after running a few tests.</p>
     <tr>
       <td><code class="highlighter-rouge">request\_cpus = </code><em><code class="highlighter-rouge">cpus</code></em></td>
       <td>Matches each job to a computer "slot" with at least this many CPU cores.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">request\_disk = </code><em>_<code class="highlighter-rouge">kilobytes</code>_</em></td>
+      <td>Matches each job to a slot with at least this much disk space, in units of KB.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">request\_memory = </code><em>_<code class="highlighter-rouge">megabytes</code>_</em></td>
+      <td>Matches each job to a slot with at least this much memory (RAM), in units of MB.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">+WantFlocking = true</code></td>
+      <td>Also send jobs to other HTCondor Pools on campus (UW Grid) <br /> Good for jobs that are less than ~8 hours, or checkpoint at least that frequently.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">+WantGlideIn = true</code></td>
+      <td>Also send jobs to the Open Science Grid (OSG).<br /> Good for jobs that are less than ~8 hours (or checkpoint at least that frequently), and have been tested for portability. (Contact Us for more details).</td>
     </tr>
   </tbody>
 </table>
