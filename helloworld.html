@@ -134,7 +134,8 @@ UW-Madison.</p>
       <li><a href="#remove">Removing Jobs</a></li>
       <li><a href="#importance">The Importance of Testing</a></li>
       <li><a href="#resource">Getting the Right Resources</a></li>
-      <li><a href="#homework">Time for a little homework</a></li>
+      <li><a href="#homework">Time for a little homework</a>
+[]{#first}</li>
     </ul>
   </li>
   <li>
@@ -390,10 +391,20 @@ to the national <a href="http://www.opensciencegrid.org/">Open Science Grid</a>.
 <p>Be sure to always add or modify the following lines in your submit
 files, as appropriate, and after running a few tests.</p>
 
-<p>| Submit file entry  | Resources your jobs will run on |
-  | — | — |
-  | <code class="highlighter-rouge">request\_cpus = </code><em><code class="highlighter-rouge">cpus</code></em> | Matches each job to a computer "slot" with at least this many CPU cores. |
- ——————————————————————————————————————————————————————————————-</p>
+<table>
+  <thead>
+    <tr>
+      <th>Submit file entry</th>
+      <th>Resources your jobs will run on</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">request\_cpus = </code><em><code class="highlighter-rouge">cpus</code></em></td>
+      <td>Matches each job to a computer "slot" with at least this many CPU cores.</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>Learn more about sending jobs to the UW Grid and OSG in our <a href="/scaling-htc.shtml">Scaling
 Beyond Local HTC Capacity</a> guide.</p>
