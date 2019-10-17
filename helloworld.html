@@ -395,10 +395,13 @@ to the national <a href="http://www.opensciencegrid.org/">Open Science Grid</a>.
 <p>Be sure to always add or modify the following lines in your submit
 files, as appropriate, and after running a few tests.</p>
 
-<hr />
-<p>Submit file entry               Resources your jobs will run on
-  ——————————- ———————————————————————————————————————————————————–
-  request_cpus = <em>cpus</em>          Matches each job to a computer "slot" with at least this many CPU cores.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| Submit file entry  | Resources your jobs will run on |
+| --- | --- |
+| request\_cpus = *_cpus_* | Matches each job to a computer \"slot\" with at least this many CPU cores. |
+| git diff | Show file differences that haven't been staged |
+</code></pre></div></div>
+
+<p>request_cpus = <em>cpus</em>          Matches each job to a computer "slot" with at least this many CPU cores.</p>
 
 <p>request_disk = <em>kilobytes</em>     Matches each job to a slot with at least this much disk space, in units of KB.\</p>
 
