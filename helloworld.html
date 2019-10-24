@@ -238,8 +238,8 @@ appears as:</p>
 
 <p><strong>4.</strong> To check on the status of your jobs, run the following command:</p>
 
-<pre><code class="language-{:.term}">[alice@submit]$ condor_q
-</code></pre>
+<div class="term highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[alice@submit]$ condor_q
+</code></pre></div></div>
 
 <p>(If you want to see everyone's jobs, use <code class="highlighter-rouge">condor_q -all</code>.)</p>
 
@@ -291,7 +291,7 @@ jobs. Looking at the log file is very useful for debugging problems that
 may arise. An excerpt from <code class="highlighter-rouge">hello-chtc_845638.log</code> produced due the
 submission of the 3 jobs will look something like this:</p>
 
-<pre><code class="language-{.file}">
+<div class="file highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 000 (436950.000.000) 04/05 15:34:33 Job submitted from host: &lt;128.104.101.92:9618?addrs=128.104...&gt;
 ...
 040 (436950.000.000) 04/05 15:34:50 Started transferring input files
@@ -325,7 +325,7 @@ submission of the 3 jobs will look something like this:</p>
        Ioheavy              :                           0 
        Memory (MB)          :        1     1024      1024 
 ...
-</code></pre>
+</code></pre></div></div>
 
 <p>And, if you look at one of the output files, you should see something
 like this:</p>
@@ -342,15 +342,15 @@ like this:</p>
 <p>To remove a specific job, specify the job ID nubmer from the queue
 (format: Cluster.Process). Example:</p>
 
-<pre><code class="language-{.term}">[alice@submit]$ condor_rm 845638.0
-</code></pre>
+<div class="term highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[alice@submit]$ condor_rm 845638.0
+</code></pre></div></div>
 
 <p>You can even remove all of the jobs of the same cluster by specifying
 only the Cluster value for that batch. 
 To remove <strong>all of your jobs</strong>:</p>
 
-<pre><code class="language-{.term}">[alice@submit]$ condor_rm $USER
-</code></pre>
+<div class="term highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[alice@submit]$ condor_rm $USER
+</code></pre></div></div>
 
 <h2 id="b-the-importance-of-testing"><strong>B. The Importance of Testing</strong></h2>
 
