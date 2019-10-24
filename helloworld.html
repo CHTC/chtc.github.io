@@ -225,16 +225,17 @@ above.</p>
 
 <p><strong>3.</strong> Now, submit your job to the queue using <code class="highlighter-rouge">condor_submit</code>:</p>
 
-<pre><code class="language-{.term}">[alice@submit]$ condor_submit hello-chtc.sub {.term}
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[alice@submit]$ condor_submit hello-chtc.sub 
+``` {:.term}
 
-<p>The <code class="highlighter-rouge">condor_submit</code> command actually submits your jobs to HTCondor. If
-all goes well, you will see output from the <code class="highlighter-rouge">condor_submit</code> command that
-appears as:</p>
+The `condor_submit` command actually submits your jobs to HTCondor. If
+all goes well, you will see output from the `condor_submit` command that
+appears as:
 
-<pre><code class="language-{:.term}">Submitting job(s).....
+``` {:.term}
+Submitting job(s).....
 3 job(s) submitted to cluster 436950. {:.term}
-</code></pre>
+</code></pre></div></div>
 
 <p><strong>4.</strong> To check on the status of your jobs, run the following command:</p>
 
