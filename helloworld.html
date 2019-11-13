@@ -160,7 +160,7 @@ jobs.</p>
 following example to work</em></strong></p>
 
 <p><strong>1.</strong> Copy the highlighted text below, and paste it into file called
-<code class="highlighter-rouge">hello-chtc.sub</code>, the submit file, in your home directory on the submit
+<code>hello-chtc.sub</code>, the submit file, in your home directory on the submit
 machine.</p>
 
 <pre><code class="language-{.sub}"># hello-chtc.sub
@@ -207,7 +207,7 @@ queue 3
 </blockquote>
 
 <p><strong>2.</strong> Now, create the executable that we specified above: copy the text
-below and paste it into a file called <code class="highlighter-rouge">hello-chtc.sh</code></p>
+below and paste it into a file called <code>hello-chtc.sh</code></p>
 
 <pre><code class="language-{.file}">#!/bin/bash
 #
@@ -222,43 +222,43 @@ sleep 180
 </code></pre>
 
 <p>When HTCondor runs this executable, it will pass the $(Process) value
-for each job and <code class="highlighter-rouge">hello-chtc.sh</code> will insert that value for "$1",
+for each job and <code>hello-chtc.sh</code> will insert that value for "$1",
 above.</p>
 
-<p><strong>3.</strong> Now, submit your job to the queue using <code class="highlighter-rouge">condor_submit</code>:</p>
+<p><strong>3.</strong> Now, submit your job to the queue using <code>condor_submit</code>:</p>
 
-<div class="term highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[alice@submit]$ condor_submit hello-chtc.sub 
-</code></pre></div></div>
+<pre class="term"><code>[alice@submit]$ condor_submit hello-chtc.sub 
+</code></pre>
 
-<p>The <code class="highlighter-rouge">condor_submit</code> command actually submits your jobs to HTCondor. If
-all goes well, you will see output from the <code class="highlighter-rouge">condor_submit</code> command that
+<p>The <code>condor_submit</code> command actually submits your jobs to HTCondor. If
+all goes well, you will see output from the <code>condor_submit</code> command that
 appears as:</p>
 
-<div class="file highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Submitting job(s).....
+<pre class="file"><code>Submitting job(s).....
 3 job(s) submitted to cluster 436950.
-</code></pre></div></div>
+</code></pre>
 
 <p><strong>4.</strong> To check on the status of your jobs, run the following command:</p>
 
-<div class="term highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[alice@submit]$ condor_q
-</code></pre></div></div>
+<pre class="term"><code>[alice@submit]$ condor_q
+</code></pre>
 
-<p>(If you want to see everyone's jobs, use <code class="highlighter-rouge">condor_q -all</code>.)</p>
+<p>(If you want to see everyone's jobs, use <code>condor_q -all</code>.)</p>
 
-<p>The output of <code class="highlighter-rouge">condor_q</code> should look like this:</p>
+<p>The output of <code>condor_q</code> should look like this:</p>
 
-<div class="term highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- Schedd: submit-2.chtc.wisc.edu : &lt;128.104.101.92:9618?... @ 04/05/19 15:35:17
+<pre class="term"><code>-- Schedd: submit-2.chtc.wisc.edu : &lt;128.104.101.92:9618?... @ 04/05/19 15:35:17
 OWNER  BATCH_NAME     SUBMITTED   DONE   RUN    IDLE  TOTAL  JOB_IDS
 alice  ID: 436950     4/5  15:34     _     _       3      3  436950.0-2
 
 3 jobs; 0 completed, 0 removed, 3 idle, 0 running, 0 held, 0 suspended
-</code></pre></div></div>
+</code></pre>
 
-<p>You can run the <code class="highlighter-rouge">condor_q</code> command periodically to see the progress of
-your jobs. By default, <code class="highlighter-rouge">condor_q</code> shows jobs grouped into batches by
+<p>You can run the <code>condor_q</code> command periodically to see the progress of
+your jobs. By default, <code>condor_q</code> shows jobs grouped into batches by
 batch name (if provided), or executable name. To show all of your jobs
-on individual lines, add the <code class="highlighter-rouge">-nobatch</code> option. For more details on this
-option, and other options to <code class="highlighter-rouge">condor_q</code>, see our <a href="/condor_q.shtml">condor_q
+on individual lines, add the <code>-nobatch</code> option. For more details on this
+option, and other options to <code>condor_q</code>, see our <a href="/condor_q.shtml">condor_q
 guide</a>.</p>
 
 <blockquote>
@@ -271,7 +271,7 @@ diagnosis and solution.</p>
 
 <p><strong>5.</strong> When your jobs complete after a few minutes, they'll leave the
 queue. If you do a listing of your home directory with the command
-<code class="highlighter-rouge">ls -l</code>, you should see something like:</p>
+<code>ls -l</code>, you should see something like:</p>
 
 <pre><code class="language-{.term}">[alice@submit]$ ls -l
 total 28
@@ -290,10 +290,10 @@ total 28
 
 <p>HTCondor creates a transaction log of everything that happens to your
 jobs. Looking at the log file is very useful for debugging problems that
-may arise. An excerpt from <code class="highlighter-rouge">hello-chtc_845638.log</code> produced due the
+may arise. An excerpt from <code>hello-chtc_845638.log</code> produced due the
 submission of the 3 jobs will look something like this:</p>
 
-<div class="file highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<pre class="file"><code>
 000 (436950.000.000) 04/05 15:34:33 Job submitted from host: &lt;128.104.101.92:9618?addrs=128.104...&gt;
 ...
 040 (436950.000.000) 04/05 15:34:50 Started transferring input files
@@ -327,7 +327,7 @@ submission of the 3 jobs will look something like this:</p>
        Ioheavy              :                           0 
        Memory (MB)          :        1     1024      1024 
 ...
-</code></pre></div></div>
+</code></pre>
 
 <p>And, if you look at one of the output files, you should see something
 like this:</p>
@@ -344,15 +344,15 @@ like this:</p>
 <p>To remove a specific job, specify the job ID nubmer from the queue
 (format: Cluster.Process). Example:</p>
 
-<div class="term highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[alice@submit]$ condor_rm 845638.0
-</code></pre></div></div>
+<pre class="term"><code>[alice@submit]$ condor_rm 845638.0
+</code></pre>
 
 <p>You can even remove all of the jobs of the same cluster by specifying
 only the Cluster value for that batch. 
 To remove <strong>all of your jobs</strong>:</p>
 
-<div class="term highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[alice@submit]$ condor_rm $USER
-</code></pre></div></div>
+<pre class="term"><code>[alice@submit]$ condor_rm $USER
+</code></pre>
 
 <h2 id="b-the-importance-of-testing"><strong>B. The Importance of Testing</strong></h2>
 
@@ -393,23 +393,23 @@ files, as appropriate, and after running a few tests.</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">request\_cpus = </code><em><code class="highlighter-rouge">cpus</code></em></td>
+      <td><code>request\_cpus = </code><em><code>cpus</code></em></td>
       <td>Matches each job to a computer "slot" with at least this many CPU cores.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">request\_disk = </code><em>_<code class="highlighter-rouge">kilobytes</code>_</em></td>
+      <td><code>request\_disk = </code><em>_<code>kilobytes</code>_</em></td>
       <td>Matches each job to a slot with at least this much disk space, in units of KB.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">request\_memory = </code><em>_<code class="highlighter-rouge">megabytes</code>_</em></td>
+      <td><code>request\_memory = </code><em>_<code>megabytes</code>_</em></td>
       <td>Matches each job to a slot with at least this much memory (RAM), in units of MB.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">+WantFlocking = true</code></td>
+      <td><code>+WantFlocking = true</code></td>
       <td>Also send jobs to other HTCondor Pools on campus (UW Grid) <br /> Good for jobs that are less than ~8 hours, or checkpoint at least that frequently.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">+WantGlideIn = true</code></td>
+      <td><code>+WantGlideIn = true</code></td>
       <td>Also send jobs to the Open Science Grid (OSG).<br /> Good for jobs that are less than ~8 hours (or checkpoint at least that frequently), and have been tested for portability. (Contact Us for more details).</td>
     </tr>
   </tbody>
@@ -441,11 +441,11 @@ manuals:</p>
 Jobs</a></li>
   <li><a href="https://htcondor.readthedocs.io/en/latest/users-manual/submitting-a-job.html">Submitting a
 Job</a></li>
-  <li><a href="https://htcondor.readthedocs.io/en/latest/man-pages/condor_submit.html"><code class="highlighter-rouge">condor_submit</code> manual
+  <li><a href="https://htcondor.readthedocs.io/en/latest/man-pages/condor_submit.html"><code>condor_submit</code> manual
 page</a></li>
   <li><a href="https://htcondor.readthedocs.io/en/latest/users-manual/managing-a-job.html">Managing a
 Job</a></li>
-  <li><a href="https://htcondor.readthedocs.io/en/latest/man-pages/condor_q.html"><code class="highlighter-rouge">condor_q</code> manual
+  <li><a href="https://htcondor.readthedocs.io/en/latest/man-pages/condor_q.html"><code>condor_q</code> manual
 page</a></li>
   <li><a href="https://htcondor.readthedocs.io/en/latest/users-manual/matchmaking-with-classads.html">Matchmaking with
 ClassAds</a></li>
