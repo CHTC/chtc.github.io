@@ -234,7 +234,7 @@ above.</p>
 all goes well, you will see output from the <code>condor_submit</code> command that
 appears as:</p>
 
-<pre class="file"><code>Submitting job(s).....
+<pre class="term"><code>Submitting job(s).....
 3 job(s) submitted to cluster 436950.
 </code></pre>
 
@@ -332,27 +332,32 @@ submission of the 3 jobs will look something like this:</p>
 <p>And, if you look at one of the output files, you should see something
 like this:</p>
 
-<pre><code class="language-{.file}">Hello CHTC from Job 0 running on alice@e389.chtc.wisc.edu
+<pre><code>Hello CHTC from Job 0 running on alice@e389.chtc.wisc.edu
+```{:.file}
+  
+**Congratulations.** You\'ve run your first jobs in the CHTC!
+
+
+**2. What Else?**
+=============
+
+A. Removing Jobs
+----------------
+
+To remove a specific job, specify the job ID nubmer from the queue
+(format: Cluster.Process). Example:
+
 </code></pre>
+<p>[alice@submit]$ condor_rm 845638.0</p>
+<pre><code>{:.term}
 
-<p><strong>Congratulations.</strong> You've run your first jobs in the CHTC!</p>
-
-<h1 id="2-what-else"><strong>2. What Else?</strong></h1>
-
-<h2 id="a-removing-jobs">A. Removing Jobs</h2>
-
-<p>To remove a specific job, specify the job ID nubmer from the queue
-(format: Cluster.Process). Example:</p>
-
-<pre class="term"><code>[alice@submit]$ condor_rm 845638.0
-</code></pre>
-
-<p>You can even remove all of the jobs of the same cluster by specifying
+You can even remove all of the jobs of the same cluster by specifying
 only the Cluster value for that batch. 
-To remove <strong>all of your jobs</strong>:</p>
+To remove **all of your jobs**:
 
-<pre class="term"><code>[alice@submit]$ condor_rm $USER
 </code></pre>
+<p class="term">[alice@submit]$ condor_rm $USER
+```</p>
 
 <h2 id="b-the-importance-of-testing"><strong>B. The Importance of Testing</strong></h2>
 
