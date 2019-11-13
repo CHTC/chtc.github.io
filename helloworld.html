@@ -163,7 +163,7 @@ following example to work</em></strong></p>
 <code>hello-chtc.sub</code>, the submit file, in your home directory on the submit
 machine.</p>
 
-<pre><code class="language-{.sub}"># hello-chtc.sub
+<pre class="sub"><code># hello-chtc.sub
 # My very first HTCondor submit file
 #
 # Specify the HTCondor Universe (vanilla is the default and is used
@@ -209,7 +209,7 @@ queue 3
 <p><strong>2.</strong> Now, create the executable that we specified above: copy the text
 below and paste it into a file called <code>hello-chtc.sh</code></p>
 
-<pre><code class="language-{:.file}">#!/bin/bash
+<pre class="file"><code>#!/bin/bash
 #
 # hello-chtc.sh
 # My very first CHTC job
@@ -227,14 +227,14 @@ above.</p>
 
 <p><strong>3.</strong> Now, submit your job to the queue using <code>condor_submit</code>:</p>
 
-<pre><code class="language-{:.term}">[alice@submit]$ condor_submit hello-chtc.sub 
+<pre class="term"><code>[alice@submit]$ condor_submit hello-chtc.sub 
 </code></pre>
 
 <p>The <code>condor_submit</code> command actually submits your jobs to HTCondor. If
 all goes well, you will see output from the <code>condor_submit</code> command that
 appears as:</p>
 
-<pre><code class="language-{:.term}">Submitting job(s).....
+<pre class="term"><code>Submitting job(s).....
 3 job(s) submitted to cluster 436950.
 </code></pre>
 
@@ -393,15 +393,15 @@ files, as appropriate, and after running a few tests.</p>
   </thead>
   <tbody>
     <tr>
-      <td><code>request\_cpus = </code><em><code>cpus</code></em></td>
+      <td><code>request_cpus = </code><em><code>cpus</code></em></td>
       <td>Matches each job to a computer "slot" with at least this many CPU cores.</td>
     </tr>
     <tr>
-      <td><code>request\_disk = </code><em>_<code>kilobytes</code>_</em></td>
+      <td><code>request_disk = </code><em>_<code>kilobytes</code>_</em></td>
       <td>Matches each job to a slot with at least this much disk space, in units of KB.</td>
     </tr>
     <tr>
-      <td><code>request\_memory = </code><em>_<code>megabytes</code>_</em></td>
+      <td><code>request_memory = </code><em>_<code>megabytes</code>_</em></td>
       <td>Matches each job to a slot with at least this much memory (RAM), in units of MB.</td>
     </tr>
     <tr>
