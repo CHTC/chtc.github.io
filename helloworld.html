@@ -227,7 +227,7 @@ above.</p>
 
 <p><strong>3.</strong> Now, submit your job to the queue using <code>condor_submit</code>:</p>
 
-<pre class="term"><code>[alice@submit]$ condor_submit hello-chtc.sub 
+<pre class="term"><code>[alice@submit]$ condor_submit *hello-chtc.sub*
 </code></pre>
 
 <p>The <code>condor_submit</code> command actually submits your jobs to HTCondor. If
@@ -397,11 +397,11 @@ files, as appropriate, and after running a few tests.</p>
       <td>Matches each job to a computer "slot" with at least this many CPU cores.</td>
     </tr>
     <tr>
-      <td><code>request_disk = </code><em>_<code>kilobytes</code>_</em></td>
+      <td><code>request_disk = </code><em><code>kilobytes</code></em></td>
       <td>Matches each job to a slot with at least this much disk space, in units of KB.</td>
     </tr>
     <tr>
-      <td><code>request_memory = </code><em>_<code>megabytes</code>_</em></td>
+      <td><code>request_memory = </code><em><code>megabytes</code></em></td>
       <td>Matches each job to a slot with at least this much memory (RAM), in units of MB.</td>
     </tr>
     <tr>
@@ -456,7 +456,7 @@ ClassAds</a></li>
 <p>Ok, you have the basics! This should be enough background to get you
 started using the CHTC for the <em>real</em> problems you came to us for.
 Remember, we are here to help. Don't hesitate to contact us at
-<a href="chtc@cs.wisc.edu">chtc\@cs.wisc.edu</a> with questions.</p>
+<a href="chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> with questions.</p>
 
 
 
