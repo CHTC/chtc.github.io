@@ -209,7 +209,7 @@ queue 3
 <p><strong>2.</strong> Now, create the executable that we specified above: copy the text
 below and paste it into a file called <code>hello-chtc.sh</code></p>
 
-<pre><code class="language-{.file}">#!/bin/bash
+<pre><code class="language-{:.file}">#!/bin/bash
 #
 # hello-chtc.sh
 # My very first CHTC job
@@ -227,14 +227,14 @@ above.</p>
 
 <p><strong>3.</strong> Now, submit your job to the queue using <code>condor_submit</code>:</p>
 
-<pre class="term"><code>[alice@submit]$ condor_submit hello-chtc.sub 
+<pre><code class="language-{:.term}">[alice@submit]$ condor_submit hello-chtc.sub 
 </code></pre>
 
 <p>The <code>condor_submit</code> command actually submits your jobs to HTCondor. If
 all goes well, you will see output from the <code>condor_submit</code> command that
 appears as:</p>
 
-<pre class="term"><code>Submitting job(s).....
+<pre><code class="language-{:.term}">Submitting job(s).....
 3 job(s) submitted to cluster 436950.
 </code></pre>
 
@@ -273,7 +273,7 @@ diagnosis and solution.</p>
 queue. If you do a listing of your home directory with the command
 <code>ls -l</code>, you should see something like:</p>
 
-<pre><code class="language-{.term}">[alice@submit]$ ls -l
+<pre><code class="language-{:.term}">[alice@submit]$ ls -l
 total 28
 -rw-r--r-- 1 alice alice    0 Apr  5 15:37 hello-chtc_436950_0.err
 -rw-r--r-- 1 alice alice   60 Apr  5 15:37 hello-chtc_436950_0.out
@@ -332,32 +332,28 @@ submission of the 3 jobs will look something like this:</p>
 And, if you look at one of the output files, you should see something
 like this:
 
+``` {:.file}
+Hello CHTC from Job 0 running on alice@e389.chtc.wisc.edu
 </code></pre>
-<p>Hello CHTC from Job 0 running on alice@e389.chtc.wisc.edu</p>
-<pre><code class="language-{:.file}">  
-**Congratulations.** You\'ve run your first jobs in the CHTC!
 
+<p><strong>Congratulations.</strong> You've run your first jobs in the CHTC!</p>
 
-**2. What Else?**
-=============
+<h1 id="2-what-else"><strong>2. What Else?</strong></h1>
 
-A. Removing Jobs
-----------------
+<h2 id="a-removing-jobs">A. Removing Jobs</h2>
 
-To remove a specific job, specify the job ID nubmer from the queue
-(format: Cluster.Process). Example:
+<p>To remove a specific job, specify the job ID nubmer from the queue
+(format: Cluster.Process). Example:</p>
 
+<pre class="term"><code>[alice@submit]$ condor_rm 845638.0
 </code></pre>
-<p>[alice@submit]$ condor_rm 845638.0</p>
-<pre><code>{:.term}
 
-You can even remove all of the jobs of the same cluster by specifying
+<p>You can even remove all of the jobs of the same cluster by specifying
 only the Cluster value for that batch. 
-To remove **all of your jobs**:
+To remove <strong>all of your jobs</strong>:</p>
 
+<pre class="term"><code>[alice@submit]$ condor_rm $USER
 </code></pre>
-<p class="term">[alice@submit]$ condor_rm $USER
-```</p>
 
 <h2 id="b-the-importance-of-testing"><strong>B. The Importance of Testing</strong></h2>
 
