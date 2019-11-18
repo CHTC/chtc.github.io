@@ -178,7 +178,9 @@ page:</p>
   </tbody>
 </table>
 
-<h1 id="1-adding-python-packages"><strong>1. Adding Python Packages</strong></h1>
+<p><a name="build"></a>
+<strong>1. Adding Python Packages</strong>
+=========================</p>
 
 <p>If your code uses specific Python packages (like <code>numpy</code>, <code>matplotlib</code>,
 <code>sci-kit learn</code>, etc) follow the directions below to download and
@@ -195,7 +197,9 @@ install of Python; if you want to add packages to a pre-existing
 package folder, there will be notes below in boxes like this one.</p>
 </blockquote>
 
-<h2 id="a-submit-an-interactive-job">A. Submit an Interactive Job</h2>
+<p><a name="version"></a>
+A. Submit an Interactive Job
+—————————-</p>
 
 <p>Create the following special submit file on the submit server, calling
 it something like <code>build.sub</code>.</p>
@@ -324,7 +328,9 @@ seconds after exiting).</p>
 <pre class="term"><code>[alice@build]$ exit 
 </code></pre>
 
-<h1 id="2-creating-a-script"><strong>2. Creating a Script</strong></h1>
+<p><a name="script"></a>
+<strong>2. Creating a Script</strong>
+====================</p>
 
 <p>In order to use CHTC's copy of Python and the packages you have
 prepared in an HTCondor job, we will need to write a script that unpacks
@@ -381,7 +387,9 @@ this in <a href="http://swcarpentry.github.io/python-novice-inflammation/10-cmdl
 lesson</a>.</p>
 </blockquote>
 
-<h1 id="3-submitting-jobs"><strong>3. Submitting Jobs</strong></h1>
+<p><a name="submit"></a>
+<strong>3. Submitting Jobs</strong>
+==================</p>
 
 <p>A sample submit file can be found in our <a href="/helloworld.shtml">hello
 world</a> example page. You should make the following
@@ -392,9 +400,8 @@ changes in order to run Python jobs:</p>
     <p>Your <code>executable</code> should be the script that you wrote
 <a href="#script">above</a>.</p>
 
-    <pre><code>executable = run_py.sh
+    <pre class="sub"><code>executable = run_py.sh
 </code></pre>
-    <p>{.sub}</p>
   </li>
   <li>Modify the CPU/memory request lines.  Test a few jobs for disk space/memory usage in 
 order to make sure your requests for a large batch are accurate!<br />
