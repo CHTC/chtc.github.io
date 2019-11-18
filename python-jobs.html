@@ -178,11 +178,7 @@ page:</p>
   </tbody>
 </table>
 
-<ol>
-  <li>
-    <h1 id="adding-python-packages">Adding Python Packages</h1>
-  </li>
-</ol>
+<h1 id="1-adding-python-packages"><strong>1. Adding Python Packages</strong></h1>
 
 <p>If your code uses specific Python packages (like <code>numpy</code>, <code>matplotlib</code>,
 <code>sci-kit learn</code>, etc) follow the directions below to download and
@@ -238,7 +234,7 @@ line:</p>
 <p>Once this submit file is created, you will start the interactive job by
 running the following command:</p>
 
-<pre><code class="language-{.term}">[alice@submit]$ condor_submit -i build.sub
+<pre class="term"><code>[alice@submit]$ condor_submit -i build.sub
 </code></pre>
 
 <p>It may take a few minutes for the build job to start.</p>
@@ -248,7 +244,7 @@ running the following command:</p>
 <p>Once the interactive build job starts, you should see the Python that
 you specified inside the working directory:</p>
 
-<pre><code class="language-{.term}">[alice@build]$ ls -lh
+<pre class="term"><code>[alice@build]$ ls -lh
 -rw-r--r-- 1 alice alice  78M Mar 26 12:24 python##.tar.gz
 drwx------ 2 alice alice 4.0K Mar 26 12:24 tmp
 drwx------ 3 alice alice 4.0K Mar 26 12:24 var
@@ -257,19 +253,19 @@ drwx------ 3 alice alice 4.0K Mar 26 12:24 var
 <p>We'll now unzip the copy of Python and set the <code>PATH</code> variable to
 reference that version of Python:</p>
 
-<pre><code class="language-{.term}">[alice@build]$ tar -xzf python##.tar.gz
+<pre class="term"><code>[alice@build]$ tar -xzf python##.tar.gz
 [alice@build]$ export PATH=$PWD/python/bin:$PATH
 </code></pre>
 
 <p>To make sure that your setup worked, try running:</p>
 
-<pre><code class="language-{.term}">[alice@build]$ python3 --version
+<pre class="term"><code>[alice@build]$ python3 --version
 </code></pre>
 
 <p>You can also try running this command to make sure the copy of python
 that is now active is the one you just installed:</p>
 
-<pre><code class="language-{.term}">[alice@build]$ which python3
+<pre class="term"><code>[alice@build]$ which python3
 </code></pre>
 
 <p>The command above should return a path that includes the prefix
@@ -287,7 +283,7 @@ skip the directory creation step below.</p>
 
 <p>First, create, a directory to put your packages into:</p>
 
-<pre><code class="language-{.term}">[alice@build]$ mkdir packages
+<pre class="term"><code>[alice@build]$ mkdir packages
 </code></pre>
 
 <p>You can choose what name to use for this directory -- if you have
@@ -296,7 +292,7 @@ use a more descriptive name than "packages"</p>
 
 <p>To install the Python packages run the following command:</p>
 
-<pre><code class="language-{.term}">[alice@build]$ python3 -m pip install --target=$PWD/packages package1 package2 etc.
+<pre class="term"><code>[alice@build]$ python3 -m pip install --target=$PWD/packages package1 package2 etc.
 </code></pre>
 
 <p>Replace <em>package1</em> <em>package2</em> with the names of packages you want to
@@ -315,7 +311,7 @@ directories.</p>
 
 <p>Run the following command to create your own tarball of your packages:</p>
 
-<pre><code class="language-{.term}">[alice@build]$ tar -czf packages.tar.gz packages/
+<pre class="term"><code>[alice@build]$ tar -czf packages.tar.gz packages/
 </code></pre>
 
 <p>Again, you can use a different name for the <code>tar.gz</code> file, if you want.</p>
@@ -325,16 +321,10 @@ the interactive job and the tar.gz file with your Python packages will
 return to the submit server with you (this sometimes takes a few extra
 seconds after exiting).</p>
 
-<pre><code class="language-{.term}">[alice@build]$ exit 
+<pre class="term"><code>[alice@build]$ exit 
 </code></pre>
 
-<p>[]{#script}</p>
-
-<ol>
-  <li>
-    <h1 id="creating-a-script">Creating a Script</h1>
-  </li>
-</ol>
+<h1 id="2-creating-a-script"><strong>2. Creating a Script</strong></h1>
 
 <p>In order to use CHTC's copy of Python and the packages you have
 prepared in an HTCondor job, we will need to write a script that unpacks
