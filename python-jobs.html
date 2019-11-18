@@ -178,9 +178,8 @@ page:</p>
   </tbody>
 </table>
 
-<p><a name="build"></a>
-<strong>1. Adding Python Packages</strong>
-=========================</p>
+<h1 id="1-adding-python-packages"><strong>1. Adding Python Packages</strong></h1>
+<p><a name="build"></a></p>
 
 <p>If your code uses specific Python packages (like <code>numpy</code>, <code>matplotlib</code>,
 <code>sci-kit learn</code>, etc) follow the directions below to download and
@@ -197,11 +196,9 @@ install of Python; if you want to add packages to a pre-existing
 package folder, there will be notes below in boxes like this one.</p>
 </blockquote>
 
+<h2 id="a-submit-an-interactive-job">A. Submit an Interactive Job</h2>
 <p><a name="version"></a>
-A. Submit an Interactive Job
-—————————-</p>
-
-<p>Create the following special submit file on the submit server, calling
+Create the following special submit file on the submit server, calling
 it something like <code>build.sub</code>.</p>
 
 <pre class="sub"><code># Python build file
@@ -328,11 +325,9 @@ seconds after exiting).</p>
 <pre class="term"><code>[alice@build]$ exit 
 </code></pre>
 
+<h1 id="2-creating-a-script"><strong>2. Creating a Script</strong></h1>
 <p><a name="script"></a>
-<strong>2. Creating a Script</strong>
-====================</p>
-
-<p>In order to use CHTC's copy of Python and the packages you have
+In order to use CHTC's copy of Python and the packages you have
 prepared in an HTCondor job, we will need to write a script that unpacks
 both Python and the packages and then runs our Python code. We will use
 this script as as the <code>executable</code> of our HTCondor submit file.</p>
@@ -387,11 +382,9 @@ this in <a href="http://swcarpentry.github.io/python-novice-inflammation/10-cmdl
 lesson</a>.</p>
 </blockquote>
 
+<h1 id="3-submitting-jobs"><strong>3. Submitting Jobs</strong></h1>
 <p><a name="submit"></a>
-<strong>3. Submitting Jobs</strong>
-==================</p>
-
-<p>A sample submit file can be found in our <a href="/helloworld.shtml">hello
+A sample submit file can be found in our <a href="/helloworld.shtml">hello
 world</a> example page. You should make the following
 changes in order to run Python jobs:</p>
 
