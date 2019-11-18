@@ -149,18 +149,34 @@ page:</p>
   <li><a href="archived/python-jobs.shtml">Building a Python installation</a></li>
 </ul>
 
-<p>[]{#supported}</p>
-
 <h1 id="supported-python-installations">Supported Python Installations</h1>
 
-<p>\</p>
-
-<p>Python version   Name of Python installation file
-  —————- ———————————-
-  Python 3.6       python36.tar.gz
-  Python 3.7       python37.tar.gz</p>
-
-<p>[]{#build}</p>
+<table class="gtable">
+  <thead>
+    <tr>
+      <th>Python version</th>
+      <th>Name of Python installation file</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Python 2.7</td>
+      <td>python27.tar.gz</td>
+    </tr>
+    <tr>
+      <td>Python 3.6</td>
+      <td>python36.tar.gz</td>
+    </tr>
+    <tr>
+      <td>Python 3.7</td>
+      <td>python37.tar.gz</td>
+    </tr>
+    <tr>
+      <td>Python 3.8</td>
+      <td>python38.tar.gz</td>
+    </tr>
+  </tbody>
+</table>
 
 <ol>
   <li>
@@ -183,14 +199,12 @@ install of Python; if you want to add packages to a pre-existing
 package folder, there will be notes below in boxes like this one.</p>
 </blockquote>
 
-<p>[]{#version}</p>
-
 <h2 id="a-submit-an-interactive-job">A. Submit an Interactive Job</h2>
 
 <p>Create the following special submit file on the submit server, calling
 it something like <code>build.sub</code>.</p>
 
-<pre><code class="language-{.sub}"># Python build file
+<pre class="sub"><code># Python build file
 
 universe = vanilla
 log = interactive.log
