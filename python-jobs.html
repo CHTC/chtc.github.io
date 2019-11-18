@@ -337,7 +337,7 @@ the name of the script you would like to run, and modify the Python
 version numbers to be the same as what you used above to install your
 packages.</p>
 
-<pre><code class="language-{.file}">#!/bin/bash
+<pre class="file"><code>#!/bin/bash
 
 # untar your Python installation. Make sure you are using the right version!
 tar -xzf python##.tar.gz
@@ -357,7 +357,7 @@ python3 my_script.py
 you can add them to this base script. Once your script does what you
 would like, give it executable permissions by running:</p>
 
-<pre><code class="language-{.term}">[alice@submit] chmod +x run_python.sh
+<pre class="term"><code>[alice@submit] chmod +x run_python.sh
 </code></pre>
 
 <blockquote>
@@ -367,7 +367,7 @@ would like, give it executable permissions by running:</p>
 following syntax in your main executable script, in place of the
 generic command above:</p>
 
-  <pre><code class="language-{.file}">python3 my_script.py $1 $2
+  <pre class="file"><code>python3 my_script.py $1 $2
 </code></pre>
 
   <p>Here, <code>$1</code> and <code>$2</code> are the first and second arguments passed to the
@@ -381,13 +381,7 @@ this in <a href="http://swcarpentry.github.io/python-novice-inflammation/10-cmdl
 lesson</a>.</p>
 </blockquote>
 
-<p>[]{#submit}</p>
-
-<ol>
-  <li>
-    <h1 id="submitting-jobs">Submitting Jobs</h1>
-  </li>
-</ol>
+<h1 id="3-submitting-jobs"><strong>3. Submitting Jobs</strong></h1>
 
 <p>A sample submit file can be found in our <a href="/helloworld.shtml">hello
 world</a> example page. You should make the following
@@ -398,12 +392,15 @@ changes in order to run Python jobs:</p>
     <p>Your <code>executable</code> should be the script that you wrote
 <a href="#script">above</a>.</p>
 
-    <pre><code class="language-{.sub}">executable = run_py.sh
-    Modify the CPU/memory request lines.  Test a few jobs for disk space/memory usage in 
-order to make sure your requests for a large batch are accurate!  
-Disk space and memory usage can be found in the log file after the job completes. 
-     Change transfer_input_files to include: 
-    transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/python##.tar.gz, packages.tar.gz, my_script.py
+    <pre><code>executable = run_py.sh
+</code></pre>
+    <p>{.sub}</p>
+  </li>
+  <li>Modify the CPU/memory request lines.  Test a few jobs for disk space/memory usage in 
+order to make sure your requests for a large batch are accurate!<br />
+Disk space and memory usage can be found in the log file after the job completes.</li>
+  <li>Change transfer_input_files to include:
+    <pre class="sub"><code>transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/python##.tar.gz, packages.tar.gz, my_script.py
 </code></pre>
   </li>
   <li>
@@ -414,8 +411,6 @@ section), include those in the arguments line:</p>
 </code></pre>
   </li>
 </ul>
-
-<p>[]{#squid}</p>
 
 <blockquote>
   <h3 id="how-big-is-your-package-tarball">How big is your package tarball?</h3>
