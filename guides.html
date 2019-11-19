@@ -1,0 +1,319 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<script type="text/javascript">
+
+  function resizeIframe(iframe) {
+    var newheight;
+    var newwidth;
+
+    if(document.getElementById){
+        newwidth=iframe.contentWindow.document.body.scrollWidth;
+        newheight=iframe.contentWindow.document.body.scrollHeight;
+    }
+
+    iframe.height= (newheight) + "px";
+    iframe.width= (newwidth) + "px";
+  }
+</script>
+<title>Computing Guides</title>
+
+<link href="/web.css" rel="stylesheet" type="text/css">
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+   <td width="1%" align="left" class="bgred" valign="top">
+      <div align="center">
+      &nbsp;<br>
+      <a href="http://www.wisc.edu">
+
+      <img src="/images/uw-sm-red.png" width="125" height="46" border="0"> </a>
+       </div>
+
+	<ul class="sidebar">
+	<li><a href="/">CHTC Home</a></li>
+	
+	<li>About
+		<ul>
+		<li><a href="/approach.shtml">Our Approach</a></li>
+<!--comment		<li><a href="/resources.shtml">Our Resources</a></li>   -->
+		<li><a href="/projects.shtml">Our Customers</a></li>
+		<li><a href="/people.shtml">Our Staff</a></li>
+		<li><a href="/jobs.shtml">Our Open Positions</a></li>
+		</ul>
+	</li>
+	
+	<li>How To's
+		<ul>
+		<li><a href="/get-started.shtml">Get Started</a></li>
+		<li><a href="/get-help.shtml">Get Help</a></li>
+        	<li><a href="/guides.shtml">All User Guides</a></li>
+                <li><a href="/use-submit-node.shtml">Use an HTC Submit Server</a></li>
+		<li><a href="/helloworld.shtml">Run Your First HTC Jobs</a></li>
+		<li><a href="/howto_overview.shtml">HTC for MatLab, Python or R</a></li>
+		<li><a href="/HPCuseguide.shtml">Use the HPC Cluster</a></li>
+		<li><a href="/cite-chtc.shtml">Cite CHTC Resources</a></li>
+		</ul>
+	</li>
+	<li><a href="/user-news.shtml">User News</a></li>
+	<li>Other Resources
+		<ul>
+		<!--<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Pool Usage Reports</a></li>-->
+<!--comment		<li><a href="/opmetrics.shtml">Operational Metrics</a></li>  -->
+		<li><a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a></li>
+		<li><a href="http://www.neos-server.org/">NEOS Optimization Service</a></li>
+		<li><a href="http://www.opensciencegrid.org/">Open Science Grid</a></li>
+		<li><a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a></li>
+		</ul>
+	</li>
+	</ul>
+
+	</td>
+
+<td width="97%" valign="top"> 
+
+
+	<TABLE SUMMARY="Navigation layout" BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+<TR ALIGN="left"> 
+  <TD WIDTH="100%" height="400" Align="left" VALIGN="top"> 
+    <A  name="body"></a> 
+	<div id = "main">
+
+<!-- Top of Page Body -->
+<table BORDER="0" WIDTH="100%">
+<!-- <h1 align=left valign=center>The Center for High Throughput Computing</h1> -->
+
+	
+
+<div id="osg_power"> <span style="height: 20px">Powered by:</span><br /><a href="http://opensciencegrid.org"><img alt="Open Science Grid" src="/images/Open_Science_Grid_Consortium(Logo).jpg" width="123" height="70" /></a></div>
+
+	
+
+<div id="hours"> <span style="height: 20px">
+	<center><b>Follow us on social media:</b><a href="https://twitter.com/CHTC_UW"><img alt="Twitter" src="/images/twitter.png" width="70" height="70"></center></a></span></div>
+	
+	
+<div id="hours"> <span style="height: 20px">
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a href="http://chtc.cs.wisc.edu/get-help.shtml" style="color:white;">
+<b>Office Hours!</b>
+<br>
+Tues/Thurs, 3-4:30pm<br>
+Wed, 9:30-11:30am</br>
+Click for details
+</a></span></div>	
+
+
+	
+
+
+<div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
+
+<h1>Computing Guides</h1>
+
+
+<p>
+Below is a list of guides for some of the most common tasks our users need to
+carry out as they begin and continue to use the resources at the CHTC. 
+Some of these are general computing solutions; others are specific to HTCondor
+or to the configuration of CHTC computing resources.
+<br />
+Guides will be added to the list as we can provide them. Please contact us
+(email at bottom of page) if you find any of the information to be incorrect.
+</p>
+
+<table width="100%"><tr>
+	<td width="25%"><a href="#gen">General Computing</a></td>
+	<td width="25%"><a href="#htc">HTC System</a></td>
+	<td width="25%"><a href="#hpc">HPC Cluster</a></td>
+	<td width="25%"><a href="#ext">External Resources</a></td>
+</tr></table>
+<p>&lt;/br&gt;</p>
+<hr />
+
+<p><a name="gen"></a></p>
+<h1>General Computing</h1>
+<ul>
+    <li><a href="/approach.shtml">Our Approach: High Throughput Versus 
+High Performance Computing</a></li>
+</ul>
+
+<hr />
+
+<p><a name="htc"></a></p>
+<h1>Use the HTC System</h1>
+
+<!-- <h2>HTC Roadmap</h2>
+
+<p>If you are new to high throughput computing, our <a href="/roadmap.shtml">HTC roadmap</a> walks you 
+through the process of creating your own large-scale job submission, step-by-step.</p> -->
+
+<h2>Guides by Topic</h2>
+
+<div id="tile-wrapper">
+	<blockquote class="tile2">
+		<h2>Basics and Policies</h2>
+
+		<img src="guide-icons/checkmark.png" />
+
+		<ul>
+  	   	<li><a href="/use-submit-node.shtml">Using CHTC's HTC Submit Nodes</a></li>
+  	   	<li><a href="/connecting.shtml">Connecting to CHTC</a></li>
+		<li><a href="/check-quota.shtml">Checking Disk Quota and Usage</a></li>
+		<li><a href="/get-help.shtml">Get Help</a></li>
+		<!--<li><a href="/reading-guides.shtml">How to Read Our User Guides</a></li>-->
+		</ul>
+	</blockquote>
+</div>
+<div id="tile-wrapper">
+	<blockquote class="tile2">
+		<h2>Job Submission</h2>
+
+		<img src="guide-icons/laptop_arrow.png" />
+
+  		<ul>
+		<li><a href="/helloworld.shtml">Running Your First HTC Jobs</a></li>
+		<li><a href="/condor_q.shtml">Learning About Your Jobs Using <code>condor_q</code></a></li>
+        <li><a href="/multiple-jobs.shtml">Submitting Multiple Jobs</a></li>
+        <li><a href="/multiple-job-dirs.shtml">Submitting Multiple Jobs in Different Directories</a></li>
+        <li><a href="/os-transition.shtml">Opting Into a Specific Operating System</a></li>
+        </ul>
+	</blockquote>
+</div>
+
+<div id="tile-wrapper">
+	<blockquote class="tile2">
+		<h2>Software Solutions</h2>
+
+		<img src="guide-icons/gear.png" />
+
+ 	<ul>
+  	   <li><a href="/inter-submit.shtml">Compiling Software in an Interactive Job</a></li>
+  	   <li><a href="/matlab-jobs.shtml">Running Matlab Jobs</a></li>
+        <li><a href="/python-jobs.shtml">Running Python Jobs</a></li>
+	  <li><a href="/r-jobs.shtml">Running R Jobs</a></li>
+	<li><a href="/java-jobs.shtml">Running Java jobs</a></li>
+	   <li><a href="/docker-jobs.shtml">Using Software Installed in a Docker Container</a></li>
+		<!--<li><a href="/docker-build.shtml">Installing Software into a Docker Container</a></li>-->
+<!--		<li><a href="/tensorflow-singularity.shtml">Running Tensorflow Jobs</a></li> -->
+		<li><a href="/licensed-software.shtml">Licensed Software on the HTC system</a></li>
+		<li><a href="/mpi-jobs.shtml">Submitting Jobs that use MPI</a></li>
+
+  	 </ul>
+	</blockquote>
+</div>
+<div id="tile-wrapper">
+	<blockquote class="tile2">
+		<h2>Handling Data in Jobs</h2>
+
+		<img src="guide-icons/data.png" />
+
+  	<ul>
+        <li><a href="/file-availability.shtml">HTCondor File Transfer</a></li>
+        <li><a href="/file-avail-squid.shtml">File Availability with Squid Web Proxy</a></li>
+        <li><a href="/file-avail-gluster.shtml">File Availability with Gluster</a></li>
+    </ul>
+	</blockquote>
+</div>
+<div id="tile-wrapper">
+	<blockquote class="tile2">
+		<h2>Special Use Cases</h2>
+
+		<img src="guide-icons/processor.png" />
+
+  		<ul>
+  		<li><a href="/scaling-htc.shtml">Scaling Beyond Local HTC Capacity</a></li> 
+  	<li><a href="/high-memory-jobs.shtml">Submitting High Memory Jobs</a></li>
+    	<li><a href="/gpu-jobs.shtml">Submitting Jobs that use GPUs</a></li>
+    	<li><a href="/mpi-jobs.shtml">Submitting Jobs that use MPI</a></li>
+	</ul>
+	</blockquote>
+</div>
+
+<div id="tile-wrapper">
+	<blockquote class="tile2">
+		<h2>Troubleshooting</h2>
+
+		<img src="guide-icons/trouble.png" />
+
+  		<ul>
+<!--        <li><a href="/testing.shtml">Testing Jobs</a></li>
+		<li><a href="/troubleshooting.shtml">Troubleshooting</a></li>-->
+<!--        <li><a href="/chtcrun_troubleshooting.shtml">Troubleshooting in ChtcRun</a></li>-->
+        <li><a href="/dos-unix.shtml">Windows/Linux Incompatibility</a></li>
+        </ul>
+	</blockquote>
+</div>
+
+<hr />
+
+<p><a name="hpc"></a></p>
+<h1>Use the HPC Cluster</h1>
+
+<!--<h2>HPC Roadmap</h2>
+
+<p>Our <a href="/roadmap.shtml">HPC Cluster roadmap</a> walks you 
+through the process of using the cluster, step-by-step.</p> -->
+
+<h2>Guides by Topic</h2>
+
+<div id="tile-wrapper">
+	<blockquote class="tile2">
+		<h2>All Cluster Guides</h2>
+
+		<img src="guide-icons/servers.png" />
+	<ul>
+  	   	<li><a href="/connecting.shtml">Connecting to CHTC</a></li>
+      <li><a href="/HPCuseguide.shtml">HPC Cluster Basic Use Guide</a></li>
+      <li><a href="/MPIuseguide.shtml">MPI Use Guide</a></li>
+      </ul>
+	</blockquote>
+</div>
+
+<hr />
+
+<p><a name="ext"></a></p>
+<h1>External Resources</h1>
+<ul>
+    <li><a href="http://software-carpentry.org/lessons/">
+	Software Carpentry</a> (online courses and videos; readings)</li>
+    <li><a href="http://research.cs.wisc.edu/htcondor/manual/">HTCondor Manual</a></li>
+    <li><a href="http://slurm.schedmd.com/">Slurm Manual</a></li>
+    <li><a href="http://www.doit.wisc.edu/training/student/">DoIT Software 
+	Training for Students</a> (free on-campus courses) </li>
+	</ul>
+<p><br /></p>
+
+<hr />
+
+<p><a href="/icon_credits.shtml">Icon Credits</a></p>
+
+
+
+<div id = "copyright">
+     <p align = "center"> 
+	  
+     For all user support, questions, and comments:
+     <strong><a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a></strong>
+
+</p>
+</div>
+
+</div>
+
+  </td>
+  </tr>
+
+</TABLE>
+</td>
+</table>
+
+</body>
+</html>
+
+

@@ -19,7 +19,7 @@
     iframe.width= (newwidth) + "px";
   }
 </script>
-<title>CHTC Tools for Matlab, R, and Python Portability</title>
+<title>Using Java Code in CHTC</title>
 
 <link href="/web.css" rel="stylesheet" type="text/css">
 </head>
@@ -114,74 +114,59 @@ Click for details
 
 <div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
 
-<h1>CHTC Tools for Matlab, R, and Python Portability</h1>
+<h1>Using Java Code in CHTC</h1>
 
 
-<link rel="stylesheet" type="text/css" href="bootstrap.css" />
+<h1>Overview</h1>
 
-<p>
-Software like Matlab, R, and Python may or may not exist on CHTC-accessible
- compute hardware (especially on the UW Grid and Open Science Grid). Even if
- it is installed, it may not be the version you need. So, in order to get
- your jobs running on as many computers as possible, we are happy to work with
- you to create scripts that will bring  along your R, Matlab, or Python dependencies (like libraries and modules).
-&lt;/br&gt;&lt;/br&gt;
+<p>If your code uses Java via a <code>.jar</code> file, it is easy to run 
+on CHTC and beyond.  There are two ways to run Java code from a CHTC 
+submit server: 
+<ul>
+	<li><a href="#default">Run jobs in CHTC only, using the default Java version (1.7)</a></li>
+	<li><a href="#portable">Use a newer version of Java (1.8) and/or run jobs beyond 
+	CHTC (on the UW Grid or Open Science Grid) (recommended)<a>&lt;/li&gt;
+&lt;/ul&gt;
 
+<p>You should only use *one* of these options to run Java code, not both.</p>
 
-<div class="card-deck">
-	<div class="card text-center text-white bg-danger mb-3" style="width: 18rem;">
-	  <img src="/images/Matlab_Logo.png" class="card-img-top" alt="..." />
-	  <div class="card-body">
-<!--
-		<h5 class="card-title">Running Matlab Jobs</h5>
-		<p class="card-text">If you are running Matlab jobs, the following guide will explain how to compile your code and 
-	edit the scripts necessary to run your jobs on the CHTC pool</p>
--->
-		<a href="matlab-jobs.shtml" class="btn btn-primary">Running Matlab Jobs in CHTC</a>
-	  </div>
-	</div>
-	<div class="card text-center text-white bg-danger mb-3" style="width: 18rem;">
-	  <img src="/images/Python_Logo.png" class="card-img-top" alt="..." />
-	  <div class="card-body">
-<!--
-		<h5 class="card-title">Running Python Jobs</h5>
-		<p class="card-text">If you are running Python jobs, the following guide will explain how to prepare your code and write a script to run your jobs on the CHTC pool</p>
--->
-		<a href="python-jobs.shtml" class="btn btn-primary">Running Python Jobs in CHTC</a>
-	  </div>
-	</div>
-	<div class="card text-center text-white bg-danger mb-3" style="width: 18rem;">
-	  <img src="/images/R_Logo.png" class="card-img-top" alt="..." />
-	  <div class="card-body">
-<!--
-		<h5 class="card-title">Running R Jobs</h5>
-		<p class="card-text">If you are running R jobs, the following guide will explain how to prepare your code and write a script to run your jobs on the CHTC pool</p>
--->
-		<a href="r-jobs.shtml" class="btn btn-primary">Running R Jobs in CHTC</a>
-	  </div>
-	</div>
-</div>
+<a name="default"></a>
+<h1>Pre-installed Java</h1>
 
+<p>To run in CHTC only, using the default version of java (1.7): </p>
 
-<div class="card border-danger mb-3">
-  <div class="card-body">
-    <h5 class="card-title">Can't Find What You're Looking For?</h5>
-    <p class="card-text">If you are using a different software, the following guide will explain how to prepare your code to run your jobs on the CHTC pool</p>
-		<div class="col text-center">
-		  <a href="http://chtc.cs.wisc.edu/inter-submit.shtml" class="btn btn-primary">General Software Installation Instructions</a>
-	    </div>
-  </div>
-</div>
+<ol>
+<li>Add this line to your submit file:
+  <pre class="sub">requirements = (Target.HasJava == true) </pre> </li>
+<li>Your executable should be a wrapper script that executes your program. </li>
 
+</ol>
 
-<p>If your software is complex and hard to setup, please don't hesitate to contact us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> with any questions. 
-</p>
+<a name="portable"></a>
+<h1>Portable Java</h1>
 
-<p>For old guides not shown on this page, see our <a href="http://chtc.cs.wisc.edu/archived/howto_overview.shtml">archived page</a>.
-</p>
+<p>To use a newer version of Java and/or to run outside of CHTC on the UW Grid 
+and/or Open Science Grid: </p>
 
+<ol>
+<li>Download the Linux x64 Java/JDK tar file (the .tar.gz ending *not* .rpm) from the 
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle website</a>. 
+You'll need to click on a button to "Accept License Agreement" to download. 
+<li> Add the downloaded tar file to the <code>transfer_input_files</code> line of your 
+submit file: 
+ <pre class="sub">transfer_input_files = <i>jdk-8u121-linux-x64.tar.gz</i></pre></li>
+<li>Write a script that unpacks the jdk tar file, sets the environment to find 
+the java software, and then runs your program.  This script will be your job's 
+executable.  See this example for what the script should look like: 
+<pre class="file">#!/bin/bash
 
-</p>
+tar -xzf jdk-8u121-linux-x64.tar.gz
+export PATH=$(pwd)/jdk-8u121-linux-x64/bin:$PATH
+export JAVA_HOME=$(pwd)/jdk-8u121-linux-x64
+java -jar <i>program.jar</i></pre>
+As in Step 2 above, the final line will vary, depending on your program.  </li>
+
+</li></ol></a></a></li></ul></p>
 
 
 

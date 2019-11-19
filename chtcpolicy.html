@@ -19,7 +19,7 @@
     iframe.width= (newwidth) + "px";
   }
 </script>
-<title>CHTC Tools for Matlab, R, and Python Portability</title>
+<title>CHTC Job Policy Description</title>
 
 <link href="/web.css" rel="stylesheet" type="text/css">
 </head>
@@ -114,74 +114,40 @@ Click for details
 
 <div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
 
-<h1>CHTC Tools for Matlab, R, and Python Portability</h1>
+<h1>CHTC Job Policy Description</h1>
 
-
-<link rel="stylesheet" type="text/css" href="bootstrap.css" />
 
 <p>
-Software like Matlab, R, and Python may or may not exist on CHTC-accessible
- compute hardware (especially on the UW Grid and Open Science Grid). Even if
- it is installed, it may not be the version you need. So, in order to get
- your jobs running on as many computers as possible, we are happy to work with
- you to create scripts that will bring  along your R, Matlab, or Python dependencies (like libraries and modules).
-&lt;/br&gt;&lt;/br&gt;
-
-
-<div class="card-deck">
-	<div class="card text-center text-white bg-danger mb-3" style="width: 18rem;">
-	  <img src="/images/Matlab_Logo.png" class="card-img-top" alt="..." />
-	  <div class="card-body">
-<!--
-		<h5 class="card-title">Running Matlab Jobs</h5>
-		<p class="card-text">If you are running Matlab jobs, the following guide will explain how to compile your code and 
-	edit the scripts necessary to run your jobs on the CHTC pool</p>
--->
-		<a href="matlab-jobs.shtml" class="btn btn-primary">Running Matlab Jobs in CHTC</a>
-	  </div>
-	</div>
-	<div class="card text-center text-white bg-danger mb-3" style="width: 18rem;">
-	  <img src="/images/Python_Logo.png" class="card-img-top" alt="..." />
-	  <div class="card-body">
-<!--
-		<h5 class="card-title">Running Python Jobs</h5>
-		<p class="card-text">If you are running Python jobs, the following guide will explain how to prepare your code and write a script to run your jobs on the CHTC pool</p>
--->
-		<a href="python-jobs.shtml" class="btn btn-primary">Running Python Jobs in CHTC</a>
-	  </div>
-	</div>
-	<div class="card text-center text-white bg-danger mb-3" style="width: 18rem;">
-	  <img src="/images/R_Logo.png" class="card-img-top" alt="..." />
-	  <div class="card-body">
-<!--
-		<h5 class="card-title">Running R Jobs</h5>
-		<p class="card-text">If you are running R jobs, the following guide will explain how to prepare your code and write a script to run your jobs on the CHTC pool</p>
--->
-		<a href="r-jobs.shtml" class="btn btn-primary">Running R Jobs in CHTC</a>
-	  </div>
-	</div>
-</div>
-
-
-<div class="card border-danger mb-3">
-  <div class="card-body">
-    <h5 class="card-title">Can't Find What You're Looking For?</h5>
-    <p class="card-text">If you are using a different software, the following guide will explain how to prepare your code to run your jobs on the CHTC pool</p>
-		<div class="col text-center">
-		  <a href="http://chtc.cs.wisc.edu/inter-submit.shtml" class="btn btn-primary">General Software Installation Instructions</a>
-	    </div>
-  </div>
-</div>
-
-
-<p>If your software is complex and hard to setup, please don't hesitate to contact us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> with any questions. 
+These policies relate to the general resources which were funded by <b>WARF</b>
+to which <b>UW</b> researchers have equal access. There are additional <b>OWNED</b>
+resources in the center which are made available for Opportunistics use.
 </p>
-
-<p>For old guides not shown on this page, see our <a href="http://chtc.cs.wisc.edu/archived/howto_overview.shtml">archived page</a>.
-</p>
-
-
-</p>
+<ul>
+<li>
+A user may recycle a slot for up to 12 hours without having to renegotiate
+for the slot. No single job will be interrupted before it has run for 24 hours. If(for any reason)
+a job is suspended, this does not count against its run time.
+</li>
+<li>
+A user may request a whole machine for use (ie a whole machine slot). 
+~45 of the current 200 machines are available in this capcity. When 
+a user claims a machine, their job will be initially suspended while
+jobs on any single-core slots complete. Like single-core slots, no 
+whole machine job will be interrupted before it has run for 24 hours.
+</li>
+<li>
+Groups of users are identified by their associated project. (One user
+working on one project, counts as one group). This is used tp make accounting more readable.
+</li>
+<li>
+User Priority Factors in this pool are adjusted to attempt to avoid a group getting a larger
+share of resources only because it has more users (or logical identities) submitting jobs. This
+policy currently weights all identified groups equal to the weight of one individual user.
+</li>
+<li> 
+User priority is calculated with a 3 day half life.
+</li>
+</ul>
 
 
 

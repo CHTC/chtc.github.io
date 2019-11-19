@@ -1,0 +1,326 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<script type="text/javascript">
+
+  function resizeIframe(iframe) {
+    var newheight;
+    var newwidth;
+
+    if(document.getElementById){
+        newwidth=iframe.contentWindow.document.body.scrollWidth;
+        newheight=iframe.contentWindow.document.body.scrollHeight;
+    }
+
+    iframe.height= (newheight) + "px";
+    iframe.width= (newwidth) + "px";
+  }
+</script>
+<title>Large-Scale Computing Request Form</title>
+
+<link href="/web.css" rel="stylesheet" type="text/css">
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+   <td width="1%" align="left" class="bgred" valign="top">
+      <div align="center">
+      &nbsp;<br>
+      <a href="http://www.wisc.edu">
+
+      <img src="/images/uw-sm-red.png" width="125" height="46" border="0"> </a>
+       </div>
+
+	<ul class="sidebar">
+	<li><a href="/">CHTC Home</a></li>
+	
+	<li>About
+		<ul>
+		<li><a href="/approach.shtml">Our Approach</a></li>
+<!--comment		<li><a href="/resources.shtml">Our Resources</a></li>   -->
+		<li><a href="/projects.shtml">Our Customers</a></li>
+		<li><a href="/people.shtml">Our Staff</a></li>
+		<li><a href="/jobs.shtml">Our Open Positions</a></li>
+		</ul>
+	</li>
+	
+	<li>How To's
+		<ul>
+		<li><a href="/get-started.shtml">Get Started</a></li>
+		<li><a href="/get-help.shtml">Get Help</a></li>
+        	<li><a href="/guides.shtml">All User Guides</a></li>
+                <li><a href="/use-submit-node.shtml">Use an HTC Submit Server</a></li>
+		<li><a href="/helloworld.shtml">Run Your First HTC Jobs</a></li>
+		<li><a href="/howto_overview.shtml">HTC for MatLab, Python or R</a></li>
+		<li><a href="/HPCuseguide.shtml">Use the HPC Cluster</a></li>
+		<li><a href="/cite-chtc.shtml">Cite CHTC Resources</a></li>
+		</ul>
+	</li>
+	<li><a href="/user-news.shtml">User News</a></li>
+	<li>Other Resources
+		<ul>
+		<!--<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Pool Usage Reports</a></li>-->
+<!--comment		<li><a href="/opmetrics.shtml">Operational Metrics</a></li>  -->
+		<li><a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a></li>
+		<li><a href="http://www.neos-server.org/">NEOS Optimization Service</a></li>
+		<li><a href="http://www.opensciencegrid.org/">Open Science Grid</a></li>
+		<li><a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a></li>
+		</ul>
+	</li>
+	</ul>
+
+	</td>
+
+<td width="97%" valign="top"> 
+
+
+	<TABLE SUMMARY="Navigation layout" BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+<TR ALIGN="left"> 
+  <TD WIDTH="100%" height="400" Align="left" VALIGN="top"> 
+    <A  name="body"></a> 
+	<div id = "main">
+
+<!-- Top of Page Body -->
+<table BORDER="0" WIDTH="100%">
+<!-- <h1 align=left valign=center>The Center for High Throughput Computing</h1> -->
+
+	
+
+<div id="osg_power"> <span style="height: 20px">Powered by:</span><br /><a href="http://opensciencegrid.org"><img alt="Open Science Grid" src="/images/Open_Science_Grid_Consortium(Logo).jpg" width="123" height="70" /></a></div>
+
+	
+
+<div id="hours"> <span style="height: 20px">
+	<center><b>Follow us on social media:</b><a href="https://twitter.com/CHTC_UW"><img alt="Twitter" src="/images/twitter.png" width="70" height="70"></center></a></span></div>
+	
+	
+<div id="hours"> <span style="height: 20px">
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a href="http://chtc.cs.wisc.edu/get-help.shtml" style="color:white;">
+<b>Office Hours!</b>
+<br>
+Tues/Thurs, 3-4:30pm<br>
+Wed, 9:30-11:30am</br>
+Click for details
+</a></span></div>	
+
+
+	
+
+
+<div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
+
+<h1>Large-Scale Computing Request Form</h1>
+
+
+<script type="text/javascript">
+  var onloadCallback = function() {
+    captcha_widget = grecaptcha.render('captcha_div', {
+      'sitekey' : '6Lf7h6sUAAAAAOEC0HhSCMg6I5enVQ8NbL-vv1KI'
+    });
+  };
+
+  function verifyCaptcha() {
+    if (grecaptcha.getResponse(captcha_widget) === "") {
+      alert("You must verify that you are not a bot before submitting this form");
+      return false;
+    } else {
+      document.chtcform.captcha.value = grecaptcha.getResponse(captcha_widget);
+      return true;
+    };
+  };
+</script>
+
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&amp;render=explicit" async="" defer=""></script>
+
+<p><b>Please fill out the below form in order to provide us with 
+information about the large-scale computing work you would like 
+to do</b> (to the best of your knowledge). Your request will be 
+received by a Research Computing Facilitator with the 
+Center for High Throughput Computing (CHTC), who will 
+contact you to set up a consultation, during which time 
+the relevant server accounts will be created. A faculty 
+sponsor (usually, a faculty advisor or project PI) will 
+need to be present for only the first meeting that CHTC has 
+with a new research group.</p>
+
+<p>New accounts for researchers in the same group (after that group 
+is initially set up) can be requested by filling out the below 
+form again. CHTC staff meet with all new users, and 
+meetings with multiple new users at the same time are even better, 
+in which case, a single form can be completed.</p>
+
+<p><b>Please note that if you are unsure of an answer to a 
+below question, you can answer 'I don't know'.</b> One of 
+CHTC's Research Computing Facilitators would be happy to help 
+you work out the details.</p>
+
+<form name="chtcform" action="http://chtc.cs.wisc.edu/cgi-chtc/get-started_captcha.php" method="post" onsubmit="return verifyCaptcha()">
+
+<h2>About you and your research:</h2>
+
+<table>
+<tr>
+	<td width="25%">Full Name:</td>
+	<td><input type="text" name="FullName" size="24" /></td>
+</tr>
+<tr>
+	<td>UW NetID:</td>
+	<td><input type="text" name="NetID" size="12" />@wisc.edu (<a href="http://helpdesk.wisc.edu/page.php?id=4966" target="NetID">What is a NetID?</a>)</td>
+</tr>
+<tr>
+	<td>Preferred Email:</td>
+	<td><input type="text" name="PrimaryEmail" size="24" /></td>
+</tr>
+<tr>
+	<td>Department:</td>
+	<td><input type="text" name="Department" size="24" /></td>
+</tr>
+<tr>
+	<td>UW-Madison Faculty Sponsor (Principal Investigator) for
+your research:<br />
+<small>(Please enter "Self" if you are a faculty member and PI)</small></td>
+	<td><input type="text" name="PIName" size="24" /></td>
+</tr>
+<tr><td colspan="2">
+	How did you hear about us? <br />
+	<textarea name="HowHeardAbout" rows="2" cols="120">
+	</textarea>
+</td></tr>
+<tr><td colspan="2">
+	Best times to schedule an initial consultation? (The PI will need to be present 
+        if we haven't met with them before.) <br />
+	<textarea name="MeetTime" rows="2" cols="120">
+	</textarea>
+</td></tr>
+<tr><td colspan="2">
+	Briefly describe your research to help us answer the question, "What research does CHTC help with?": <br />
+	<textarea name="ResearchDescription" rows="5" cols="120">
+	</textarea>
+</td></tr>
+<tr><td colspan="2">
+	Why do you need to use large-scale computing for this research? <br />
+	<textarea name="WhyCHTC" rows="5" cols="120">
+	</textarea>
+</td></tr>
+
+</table>
+
+<h2>About Your Computing Work</h2>
+
+<table>
+<tr><td colspan="2">
+	Program name(s) and coding language(s) <br />
+	<textarea name="Program" rows="3" cols="120">
+	</textarea>
+</td></tr>
+<tr><td colspan="2">
+	Are there any special dependencies or compiling considerations you've had to deal with? <br />
+	<textarea name="Dependencies" rows="5" cols="120">
+	</textarea>
+</td></tr>
+<tr><td colspan="2">
+	Tell us where you've run similar computing work before: desktop, shared cluster, etc.? Linux, Windows, Mac?  <br />
+	<textarea name="PreviousWork" rows="3" cols="120">
+	</textarea>
+</td></tr>
+<tr><td colspan="2">
+        Do you have interest in using GPUs, and/or have you used GPUs for similar work in the past?  <br />
+        <textarea name="GPUs" rows="3" cols="120">
+        </textarea>
+</td></tr>
+<tr><td colspan="2">
+	Do you typically run your program(s) with multiple processors working/communicating with one another? If so, how have you accomplished that? (OpenMP/MPI, etc?): <br />
+	<textarea name="Multicore" rows="2" cols="120">
+	</textarea>
+</td></tr>
+<tr><td colspan="2">
+	Could your computing work be broken up into many separate, but complete 'pieces' that don't rely on one another? If so, how many pieces can this computing work be broken into? <br />
+	<textarea name="BreakApart" rows="2" cols="120">
+	</textarea>
+</td></tr>
+<tr><td colspan="2">
+	Typical input and output size for each 'piece' (can be a range): <br />
+	<textarea name="WhyCHTC" rows="2" cols="120">
+	</textarea>
+</td></tr>
+<tr><td colspan="2">
+	Typical RAM and number of CPU cores (or GPU model) you've used for each 'piece'? <br />
+	<textarea name="WhyCHTC" rows="2" cols="120">
+	</textarea>
+</td></tr>
+<tr><td colspan="2">
+	How long does one piece run in your typical setup? <br />
+	<textarea name="WhyCHTC" rows="2" cols="120">
+	</textarea>
+</td></tr>
+<tr><td colspan="2">
+	Is there anything else you'd like to share about your computing practices or methods? <br />
+	<textarea name="WhyCHTC" rows="3" cols="120">
+	</textarea>
+</td></tr>
+<tr><td colspan="2">
+	Based upon information on our <a href="/approach.shtml">
+	Approach page</a>, is your computing work best described as 'high-throughput' computing, 'high-performance' computing, or both?<br />
+	<dl>
+	<dd><input type="radio" name="computingtype" />High-throughput&lt;/input&gt;</dd>
+	<dd><input type="radio" name="computingtype" />High-performance&lt;/input&gt;</dd>
+	<dd><input type="radio" name="computingtype" />Both&lt;/input&gt;</dd>
+	<dd><input type="radio" name="computingtype" />I'm not sure&lt;/input&gt;</dd>
+	</dl>
+	</td></tr>
+</table>
+
+&lt;/br&gt;
+
+<table>
+<tr>
+<td align="center">
+
+<input type="hidden" name="captcha" value="" />
+<div id="captcha_div"></div>
+
+</td>
+</tr>
+<tr>
+<td align="center" colspan="2">
+<input type="submit" value="SUBMIT" />
+</td>
+</tr>
+</table>
+
+</form>
+
+<h2>
+If you do not receive an automated email from chtc@cs.wisc.edu within a few hours of completing the form,
+ OR if you do not receive a response from a human within two business days (M-F), please email chtc@cs.wisc.edu.
+</h2>
+
+
+
+<div id = "copyright">
+     <p align = "center"> 
+	  
+     For all user support, questions, and comments:
+     <strong><a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a></strong>
+
+</p>
+</div>
+
+</div>
+
+  </td>
+  </tr>
+
+</TABLE>
+</td>
+</table>
+
+</body>
+</html>
+
+

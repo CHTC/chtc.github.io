@@ -19,7 +19,7 @@
     iframe.width= (newwidth) + "px";
   }
 </script>
-<title>CHTC Tools for Matlab, R, and Python Portability</title>
+<title>About Our Approach</title>
 
 <link href="/web.css" rel="stylesheet" type="text/css">
 </head>
@@ -114,74 +114,54 @@ Click for details
 
 <div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
 
-<h1>CHTC Tools for Matlab, R, and Python Portability</h1>
+<h1>About Our Approach</h1>
 
-
-<link rel="stylesheet" type="text/css" href="bootstrap.css" />
 
 <p>
-Software like Matlab, R, and Python may or may not exist on CHTC-accessible
- compute hardware (especially on the UW Grid and Open Science Grid). Even if
- it is installed, it may not be the version you need. So, in order to get
- your jobs running on as many computers as possible, we are happy to work with
- you to create scripts that will bring  along your R, Matlab, or Python dependencies (like libraries and modules).
+CHTC supports a variety of computation modes, but our specialty is
+ High <i>Throughput</i> Computing (HTC), which involves
+ breaking up a single large computational task into many smaller tasks for
+ the fastest overall turnaround. Importantly, most of our users find HTC to be
+ a more helpful approach in accelerating their computational work and their
+ research. 
+To this end, we support thousands of multi-core computers and use task
+ scheduling software called HTCondor, developed right here in Madison, to run thousands of
+independent jobs on as many total processors as possible that can all be shared between groups of users.
+These computers, or "machines", are distributed across several collections that we call <i>pools</i> (similar to "clusters"). 
 &lt;/br&gt;&lt;/br&gt;
-
-
-<div class="card-deck">
-	<div class="card text-center text-white bg-danger mb-3" style="width: 18rem;">
-	  <img src="/images/Matlab_Logo.png" class="card-img-top" alt="..." />
-	  <div class="card-body">
-<!--
-		<h5 class="card-title">Running Matlab Jobs</h5>
-		<p class="card-text">If you are running Matlab jobs, the following guide will explain how to compile your code and 
-	edit the scripts necessary to run your jobs on the CHTC pool</p>
--->
-		<a href="matlab-jobs.shtml" class="btn btn-primary">Running Matlab Jobs in CHTC</a>
-	  </div>
-	</div>
-	<div class="card text-center text-white bg-danger mb-3" style="width: 18rem;">
-	  <img src="/images/Python_Logo.png" class="card-img-top" alt="..." />
-	  <div class="card-body">
-<!--
-		<h5 class="card-title">Running Python Jobs</h5>
-		<p class="card-text">If you are running Python jobs, the following guide will explain how to prepare your code and write a script to run your jobs on the CHTC pool</p>
--->
-		<a href="python-jobs.shtml" class="btn btn-primary">Running Python Jobs in CHTC</a>
-	  </div>
-	</div>
-	<div class="card text-center text-white bg-danger mb-3" style="width: 18rem;">
-	  <img src="/images/R_Logo.png" class="card-img-top" alt="..." />
-	  <div class="card-body">
-<!--
-		<h5 class="card-title">Running R Jobs</h5>
-		<p class="card-text">If you are running R jobs, the following guide will explain how to prepare your code and write a script to run your jobs on the CHTC pool</p>
--->
-		<a href="r-jobs.shtml" class="btn btn-primary">Running R Jobs in CHTC</a>
-	  </div>
-	</div>
-</div>
-
-
-<div class="card border-danger mb-3">
-  <div class="card-body">
-    <h5 class="card-title">Can't Find What You're Looking For?</h5>
-    <p class="card-text">If you are using a different software, the following guide will explain how to prepare your code to run your jobs on the CHTC pool</p>
-		<div class="col text-center">
-		  <a href="http://chtc.cs.wisc.edu/inter-submit.shtml" class="btn btn-primary">General Software Installation Instructions</a>
-	    </div>
-  </div>
-</div>
-
-
-<p>If your software is complex and hard to setup, please don't hesitate to contact us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> with any questions. 
-</p>
-
-<p>For old guides not shown on this page, see our <a href="http://chtc.cs.wisc.edu/archived/howto_overview.shtml">archived page</a>.
-</p>
-
-
-</p>
+The diagram below shows some of the largest pools on campus and also shows
+ our connection to the US-wide Open Science Grid where UW computing work
+ can "backfill" available computers all over the country. The number under
+ each resource name shows an approximate number of computing hours available to campus researchers for a typical week in Fall 2013. As demonstrated in the diagram, 
+we help users to submit their work not only to our CHTC-owned machines, but to improve their throughput even further by seamlessly accessing 
+as many available computers as possible, all over campus <i>AND</i> all over the country.
+&lt;/br&gt;&lt;/br&gt;
+The vast majority of the computational work that campus researcher have is HTC, though we
+ are happy to support researchers with a variety of beyond-the-desktop needs, including
+ tightly-coupled computations (e.g. MPI) and high-memory work (e.g. metagenomics), as well
+ as specialized hardware like GPUs.
+<p>
+<img src="/includes/chtc-pools.png" height="440" width="513" style="float:right; margin:20px; margin-right:0;" />
+<p>
+<b>What kinds of applications run best in the CHTC?</b>
+<p>
+"Pleasantly parallel" computational work (in which each of <i>many</i> jobs can run independently) work best in the CHTC, and
+ we can offer the greatest computational capacity for this type of work. Analyzing thousands of images, inferring statistical significance of hundreds of thousands of samples, optimizing an electric motor
+design with millions of constraints, aligning genomes, and performing deep linguistic search on a 30 TB sample of the internet
+are a few of the applications that campus researchers run every day in the CHTC.  If you are not sure if your application is a good fit
+for CHTC resources, <a href="chtc@cs.wisc.edu">get in touch</a> and we will be happy to help you figure it out. </p>
+Within a single compute system, we also support GPUs, high-memory servers, and specialized hardware owned by individual research 
+groups. For tightly-coupled computationa (e.g. MPI and similar programmed parallelization), our resources include an HPC Cluster, with 
+faster inter-node networking.
+<p>
+<b>How to get access.</b>
+<p>
+While you may be excited at the prospect of harnessing 100,000 compute hours a day for your research, the most valuable
+thing we offer is, well, us.  We have a small, yet dedicated team of professionals who eat, breathe and sleep distributed computing.
+Simply <a href="get-started.shtml">request an account</a>, and one of our dedicated Research Computing Facilitators will follow 
+up to provide specific recommendations to accelerate YOUR science.
+<p>
+</p></p></p></p></p></p>
 
 
 

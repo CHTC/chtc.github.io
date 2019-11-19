@@ -1,0 +1,313 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<script type="text/javascript">
+
+  function resizeIframe(iframe) {
+    var newheight;
+    var newwidth;
+
+    if(document.getElementById){
+        newwidth=iframe.contentWindow.document.body.scrollWidth;
+        newheight=iframe.contentWindow.document.body.scrollHeight;
+    }
+
+    iframe.height= (newheight) + "px";
+    iframe.width= (newwidth) + "px";
+  }
+</script>
+<title>File Availability Options</title>
+
+<link href="/web.css" rel="stylesheet" type="text/css">
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+   <td width="1%" align="left" class="bgred" valign="top">
+      <div align="center">
+      &nbsp;<br>
+      <a href="http://www.wisc.edu">
+
+      <img src="/images/uw-sm-red.png" width="125" height="46" border="0"> </a>
+       </div>
+
+	<ul class="sidebar">
+	<li><a href="/">CHTC Home</a></li>
+	
+	<li>About
+		<ul>
+		<li><a href="/approach.shtml">Our Approach</a></li>
+<!--comment		<li><a href="/resources.shtml">Our Resources</a></li>   -->
+		<li><a href="/projects.shtml">Our Customers</a></li>
+		<li><a href="/people.shtml">Our Staff</a></li>
+		<li><a href="/jobs.shtml">Our Open Positions</a></li>
+		</ul>
+	</li>
+	
+	<li>How To's
+		<ul>
+		<li><a href="/get-started.shtml">Get Started</a></li>
+		<li><a href="/get-help.shtml">Get Help</a></li>
+        	<li><a href="/guides.shtml">All User Guides</a></li>
+                <li><a href="/use-submit-node.shtml">Use an HTC Submit Server</a></li>
+		<li><a href="/helloworld.shtml">Run Your First HTC Jobs</a></li>
+		<li><a href="/howto_overview.shtml">HTC for MatLab, Python or R</a></li>
+		<li><a href="/HPCuseguide.shtml">Use the HPC Cluster</a></li>
+		<li><a href="/cite-chtc.shtml">Cite CHTC Resources</a></li>
+		</ul>
+	</li>
+	<li><a href="/user-news.shtml">User News</a></li>
+	<li>Other Resources
+		<ul>
+		<!--<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Pool Usage Reports</a></li>-->
+<!--comment		<li><a href="/opmetrics.shtml">Operational Metrics</a></li>  -->
+		<li><a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a></li>
+		<li><a href="http://www.neos-server.org/">NEOS Optimization Service</a></li>
+		<li><a href="http://www.opensciencegrid.org/">Open Science Grid</a></li>
+		<li><a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a></li>
+		</ul>
+	</li>
+	</ul>
+
+	</td>
+
+<td width="97%" valign="top"> 
+
+
+	<TABLE SUMMARY="Navigation layout" BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+<TR ALIGN="left"> 
+  <TD WIDTH="100%" height="400" Align="left" VALIGN="top"> 
+    <A  name="body"></a> 
+	<div id = "main">
+
+<!-- Top of Page Body -->
+<table BORDER="0" WIDTH="100%">
+<!-- <h1 align=left valign=center>The Center for High Throughput Computing</h1> -->
+
+	
+
+<div id="osg_power"> <span style="height: 20px">Powered by:</span><br /><a href="http://opensciencegrid.org"><img alt="Open Science Grid" src="/images/Open_Science_Grid_Consortium(Logo).jpg" width="123" height="70" /></a></div>
+
+	
+
+<div id="hours"> <span style="height: 20px">
+	<center><b>Follow us on social media:</b><a href="https://twitter.com/CHTC_UW"><img alt="Twitter" src="/images/twitter.png" width="70" height="70"></center></a></span></div>
+	
+	
+<div id="hours"> <span style="height: 20px">
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a href="http://chtc.cs.wisc.edu/get-help.shtml" style="color:white;">
+<b>Office Hours!</b>
+<br>
+Tues/Thurs, 3-4:30pm<br>
+Wed, 9:30-11:30am</br>
+Click for details
+</a></span></div>	
+
+
+	
+
+
+<div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
+
+<h1>File Availability Options</h1>
+
+<h2>Which Option is the Best for Your Files?</h2>
+<br>
+<table class="gtable">
+<tr>
+	<th> </th>	
+	<th>Meant For</th>	
+	<th>Input/Software File Sizes</th>
+	<th>Output File Sizes</th>
+	<th>Available for Jobs Running ...</th>
+	<th>File Security</th>
+	<th>Special Considerations</th>
+</tr>
+
+<tr>
+	<td><a href="file-availability.shtml">HTCondor file transfer</a></td>		
+	<td>basic file delivery and return; see size limits at right</td>
+	<td>0 - 100 MB per file; <500 MB total per job</td>
+	<td>0 - 4 GB total	</td>
+	<td>in CHTC, UW Grid, and OSG</td>
+	<td>available to <i>your</i> jobs, on CHTC and beyond</td>
+	<td><font color="red">DO NOT USE for files in /mnt/gluster OR /squid</font></td>
+</tr>
+
+<tr>
+	<td><a href="file-avail-squid.shtml">SQUID Web Proxy</a></td>
+	<td>large input or software shared by <i>many</i> jobs</td>
+	<td>100 MB - 1 GB per shared file</td>
+	<td>N/A</td>
+	<td>in CHTC, UW Grid, and OSG</td>
+	<td>files will be world-<i>readable</i></td>
+	<td>large files unique to individual jobs are better for Gluster</td>
+</tr>
+
+<tr>
+	<td><a href="file-avail-gluster.shtml">Gluster File Share</a></td>
+	<td>largest software, input, and output</td>
+	<td>100 MB - TBs per unique file; 1GB - TBs per shared file</td>
+	<td>4 GB - TBs</td>
+	<td>in only a portion of CHTC</td>
+	<td>accessible ONLY to your jobs on specific CHTC servers</td>
+	<td>special submit "Requirements"</td>
+</tr>
+</table>
+
+<!--
+<h2>Best Practices for File Delivery</h2>
+
+<p>Remember to review best practices in our File Handling guide, 
+including the following:</p>
+
+<ul>
+<li>Pre-split large input files when each of many jobs will only need a portion of the 
+large input data.</li>
+<li>Remove ALL unwanted/temporary files in the working director of the job that have 
+appeared since the job started.</li>
+<li>Use tar with compression (*.tar.gz) for any relevant input/output files and ALL 
+desired output directories prior to their transfer/delivery.</li>
+</ul>
+-->
+
+
+<h1>HTCondor File Transfer</h1>
+
+<p>HTCondor file transfer is the standard solution for file portability, and is 
+built in to HTCondor job scheduling. You can see HTCondor file transfer as introduced 
+in our "Intro to Running HTCondor Jobs" and in the 
+<a href="http://research.cs.wisc.edu/htcondor/manual/v7.8/2_5Submitting_Job.html#SECTION00354000000000000000">HTCondor Manual.</a></p>
+
+<p><h2>Contents</h2>
+<ol>
+  <li><a href="#Appli">Applicability</a></li> 
+    <li><a href="#input">Transferring Input Files</a>
+	<li><a href="#output">Transferring Output Files</a>
+&lt;/ol&gt;
+
+
+<a name="Appli"></a>
+<h2>1. Applicability</h2>
+
+<dl>
+<dt>Intended use:</dt> <dd>Good for delivering any type of data to jobs, but with file-size 
+limitations (see below). Remember that you can/should split up a large input file 
+into many smaller files for cases where each job only needs a portion of the data. 
+By default, the submit file "executable", "output", "error", and "log" files are ALWAYS 
+transferred.</dd>
+<dt>Advantages:</dt> <dd>HTCondor's file transfer is robust and is available on 
+ANY of CHTC's accessible HTC resources (including the UW Grid of campus pools, and the 
+Open Science Grid).</dd>
+<dt>Input File Limitations:</dt> <dd>HTCondor's file transfer can cause issues 
+for submit server performance when too many jobs are transferring too much data 
+at the same time. Therefore, HTCondor file transfer is only good for input files 
+up to ~20 MB per file IF the number of concurrently-queued jobs will be 100 or greater. 
+Even when individual files are small, there are issues when the total amount of input 
+data per-job approaches 500 MB. For cases beyond these limitations, one of our 
+other CHTC file delivery methods should be used. Remember that creating a *.tar.gz 
+file of directories and files can give your input and output data a useful amount 
+of compression.</dd>
+<dt>Output File Limitations:</dt> <dd>Because jobs are less likely to be completing at 
+the same time, total job output size of up to 1 GB will not cause submit server 
+performance issues, but it's always advantageous to create a *.tar.gz file of all 
+desired output before job completion (and to also delete the un-tar'd files so 
+they are not also transferred back).</dd>
+<dt>Data Security:</dt> <dd>Files transferred with HTCondor transfer are owned by the 
+job and protected by user permissions in the CHTC pool. When signaling your jobs to 
+run on the UW Grid (Flocking) or the Open Science Grid (Glidein), your files will 
+exist on someone else's computer only for the duration of each job. Please feel free 
+to email us if you have data security concerns regarding HTCondor file transfer, as 
+encryption options are available.</dd>
+
+	
+<a name="input"></a>
+<h2>2. Transferring Input Files</h2>
+
+<p>Simply add the "transfer_input_files" line to your submit file, like so:</p>
+<pre class="sub">transfer_input_files = file1,../file2,/home/username/file3,dir1,dir2/</pre>
+
+<p>Note: By default, the submit file "executable", "output", and "error" files are 
+ALWAYS transferred.</p>
+
+<h3>Notes:</h3>
+<ul>
+	<li>DO NOT use "transfer_input_files" for files within /squid or /mnt/gluster, 
+	as doing so will create severe performance issues for your jobs and those of 
+	other users. (Similarly, you should never submit jobs from within /squid 
+	or /mnt/gluster.)</li>
+	<li>Comma-separated files and directories to-be-transferred should be listed 
+	with a path relative to the submit directory, or can be listed with the 
+	absolute path(s), as shown above for "file3". The submit file "executable" 
+	is automatically transferred and does not need to be listed in 
+	"transfer_input_files".</li>
+	<li>All files that are transferred to a job will appear within the top of 
+	the working directory of the job, regardless of how they are arranged within 
+	directories on the submit server.</li>
+	<li>A whole directory and it's contents will be transferred when listed without 
+	the "/" after the directory name. When a directory is listed with the "/" 
+	after the directory name, only the directory contents will be transferred.</li>
+	<li>Jobs will be placed on hold by HTCondor if any of the files or directories 
+	do not exist (or if you have a typo).</li>
+	<li>See more about <a href="http://research.cs.wisc.edu/htcondor/manual/v7.8/2_5Submitting_Job.html#SECTION00354000000000000000">
+	file transfer in the HTCondor Manual.</a></li>
+</ul>
+
+<a name="output"></a>
+<h2>3. Transferring Output Files</h2>
+
+<p><b>HTCondor will automatically transfer back ALL new or modified files to the 
+submit directory.</b> This automatically includes the "output" and "error" files 
+indicated in the submit file.</p>
+
+<h3>Notes:</h3>
+<ul>
+	<li>Output files transferred back to the submit server will appear in the initial 
+	submit directory of the job.</li>
+	<li>HTCondor does not automatically transfer back new directories. Therefore, 
+	it is a best practice to have your job(s) create a *.tar.gz file for desired 
+	output directories, so that the *.tar.gz file gets transferred AND so that it 
+	is compressed. </li>
+	<li>It is important to have your job remove all unwanted "new" files before 
+	job completion, so that these are NOT transferred back as perceived output. 
+	This includes files that have arrived in the job working directory via an 
+	alternate file delivery method.</li>
+	<li>It is possible to list only your desired output files by using 
+	"transfer_output_files" in the submit file; however, if you have a typo in a 
+	filename or if any of the files are not created during the job, the job 
+	will be placed on hold and ALL output lost (which can be a pain). Therefore, 
+	"transfer_output_files" should be used with caution, or for jobs that always 
+	first create these output files (perhaps empty), even if the job later exits 
+	early with an error.</li>
+</ul>
+</dl></li></li></ol></p>
+
+
+
+<div id = "copyright">
+     <p align = "center"> 
+	  
+     For all user support, questions, and comments:
+     <strong><a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a></strong>
+
+</p>
+</div>
+
+</div>
+
+  </td>
+  </tr>
+
+</TABLE>
+</td>
+</table>
+
+</body>
+</html>
+
+

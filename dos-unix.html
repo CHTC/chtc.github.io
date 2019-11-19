@@ -19,7 +19,7 @@
     iframe.width= (newwidth) + "px";
   }
 </script>
-<title>CHTC Tools for Matlab, R, and Python Portability</title>
+<title>Windows / Linux Incompatibility</title>
 
 <link href="/web.css" rel="stylesheet" type="text/css">
 </head>
@@ -114,72 +114,44 @@ Click for details
 
 <div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
 
-<h1>CHTC Tools for Matlab, R, and Python Portability</h1>
+<h1>Windows / Linux Incompatibility</h1>
 
 
-<link rel="stylesheet" type="text/css" href="bootstrap.css" />
+<p>If your job is running a bash or shell script (includes the header 
+<code>#!/bin/bash</code>), and it goes on hold, you might be experiencing 
+a Windows/Linux incompability error.  
+Files written in Windows (based on the DOS operating system) and 
+files written in Mac/Linux (based on the UNIX operating system) use 
+different invisible characters to mean "end of a line" in a file.  
+Normally this isn't a problem, <i>except</i> when writing bash scripts; 
+bash will not be able to run scripts if they have the Windows/DOS 
+line endings.  </p>
 
-<p>
-Software like Matlab, R, and Python may or may not exist on CHTC-accessible
- compute hardware (especially on the UW Grid and Open Science Grid). Even if
- it is installed, it may not be the version you need. So, in order to get
- your jobs running on as many computers as possible, we are happy to work with
- you to create scripts that will bring  along your R, Matlab, or Python dependencies (like libraries and modules).
-&lt;/br&gt;&lt;/br&gt;
+<p>To find why the job went on hold, look for the hold reason, 
+either by running
+<pre class="term">[alice@submit]$ condor_q -af HoldReason</pre>
+or by looking in the log file. </p>
 
+<p>If a Windows/Linux incompatibility is the problem, the hold 
+reason will look something like this: 
+<pre class="file">Error from slot1_11@e189.chtc.wisc.edu: Failed to execute 
+'/var/lib/condor/execute/slot1/dir_4086540/condor_exec.exe' with 
+arguments 2: (errno=2: 'No such file or directory')</pre></p>
 
-<div class="card-deck">
-	<div class="card text-center text-white bg-danger mb-3" style="width: 18rem;">
-	  <img src="/images/Matlab_Logo.png" class="card-img-top" alt="..." />
-	  <div class="card-body">
-<!--
-		<h5 class="card-title">Running Matlab Jobs</h5>
-		<p class="card-text">If you are running Matlab jobs, the following guide will explain how to compile your code and 
-	edit the scripts necessary to run your jobs on the CHTC pool</p>
--->
-		<a href="matlab-jobs.shtml" class="btn btn-primary">Running Matlab Jobs in CHTC</a>
-	  </div>
-	</div>
-	<div class="card text-center text-white bg-danger mb-3" style="width: 18rem;">
-	  <img src="/images/Python_Logo.png" class="card-img-top" alt="..." />
-	  <div class="card-body">
-<!--
-		<h5 class="card-title">Running Python Jobs</h5>
-		<p class="card-text">If you are running Python jobs, the following guide will explain how to prepare your code and write a script to run your jobs on the CHTC pool</p>
--->
-		<a href="python-jobs.shtml" class="btn btn-primary">Running Python Jobs in CHTC</a>
-	  </div>
-	</div>
-	<div class="card text-center text-white bg-danger mb-3" style="width: 18rem;">
-	  <img src="/images/R_Logo.png" class="card-img-top" alt="..." />
-	  <div class="card-body">
-<!--
-		<h5 class="card-title">Running R Jobs</h5>
-		<p class="card-text">If you are running R jobs, the following guide will explain how to prepare your code and write a script to run your jobs on the CHTC pool</p>
--->
-		<a href="r-jobs.shtml" class="btn btn-primary">Running R Jobs in CHTC</a>
-	  </div>
-	</div>
-</div>
+<p>To check if this is the problem, you can open the script in 
+the vi text editor, using its "binary" mode:
+ <pre class="term">[alice@submit]$ vi -b hello-chtc.sh</pre>
+(Replace <code>hello-chtc.sh</code> with the name of your script.)  
+If you see <code>^M</code> characters at the end of each line, those 
+are the DOS line endings and that's the problem.  <br />
+(Type <code>:q</code> to quit vi)</p>
 
-
-<div class="card border-danger mb-3">
-  <div class="card-body">
-    <h5 class="card-title">Can't Find What You're Looking For?</h5>
-    <p class="card-text">If you are using a different software, the following guide will explain how to prepare your code to run your jobs on the CHTC pool</p>
-		<div class="col text-center">
-		  <a href="http://chtc.cs.wisc.edu/inter-submit.shtml" class="btn btn-primary">General Software Installation Instructions</a>
-	    </div>
-  </div>
-</div>
-
-
-<p>If your software is complex and hard to setup, please don't hesitate to contact us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> with any questions. 
-</p>
-
-<p>For old guides not shown on this page, see our <a href="http://chtc.cs.wisc.edu/archived/howto_overview.shtml">archived page</a>.
-</p>
-
+<p>Luckily, there is an easy fix!  To convert the script to 
+unix line endings so that it will run correctly, you can run: 
+<pre class="term">[alice@submit]$ dos2unix hello-chtc.sh</pre>
+on the submit node and it will change the format for you.  If you 
+release your held jobs (using <code>condor_release</code>) or 
+re-submit the jobs, you should no longer get the same error.  
 
 </p>
 

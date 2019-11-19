@@ -1,0 +1,451 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<script type="text/javascript">
+
+  function resizeIframe(iframe) {
+    var newheight;
+    var newwidth;
+
+    if(document.getElementById){
+        newwidth=iframe.contentWindow.document.body.scrollWidth;
+        newheight=iframe.contentWindow.document.body.scrollHeight;
+    }
+
+    iframe.height= (newheight) + "px";
+    iframe.width= (newwidth) + "px";
+  }
+</script>
+<title>Submitting Jobs Using the ChtcRun Package</title>
+
+<link href="/web.css" rel="stylesheet" type="text/css">
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+   <td width="1%" align="left" class="bgred" valign="top">
+      <div align="center">
+      &nbsp;<br>
+      <a href="http://www.wisc.edu">
+
+      <img src="/images/uw-sm-red.png" width="125" height="46" border="0"> </a>
+       </div>
+
+	<ul class="sidebar">
+	<li><a href="/">CHTC Home</a></li>
+	
+	<li>About
+		<ul>
+		<li><a href="/approach.shtml">Our Approach</a></li>
+<!--comment		<li><a href="/resources.shtml">Our Resources</a></li>   -->
+		<li><a href="/projects.shtml">Our Customers</a></li>
+		<li><a href="/people.shtml">Our Staff</a></li>
+		<li><a href="/jobs.shtml">Our Open Positions</a></li>
+		</ul>
+	</li>
+	
+	<li>How To's
+		<ul>
+		<li><a href="/get-started.shtml">Get Started</a></li>
+		<li><a href="/get-help.shtml">Get Help</a></li>
+        	<li><a href="/guides.shtml">All User Guides</a></li>
+                <li><a href="/use-submit-node.shtml">Use an HTC Submit Server</a></li>
+		<li><a href="/helloworld.shtml">Run Your First HTC Jobs</a></li>
+		<li><a href="/howto_overview.shtml">HTC for MatLab, Python or R</a></li>
+		<li><a href="/HPCuseguide.shtml">Use the HPC Cluster</a></li>
+		<li><a href="/cite-chtc.shtml">Cite CHTC Resources</a></li>
+		</ul>
+	</li>
+	<li><a href="/user-news.shtml">User News</a></li>
+	<li>Other Resources
+		<ul>
+		<!--<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Pool Usage Reports</a></li>-->
+<!--comment		<li><a href="/opmetrics.shtml">Operational Metrics</a></li>  -->
+		<li><a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a></li>
+		<li><a href="http://www.neos-server.org/">NEOS Optimization Service</a></li>
+		<li><a href="http://www.opensciencegrid.org/">Open Science Grid</a></li>
+		<li><a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a></li>
+		</ul>
+	</li>
+	</ul>
+
+	</td>
+
+<td width="97%" valign="top"> 
+
+
+	<TABLE SUMMARY="Navigation layout" BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+<TR ALIGN="left"> 
+  <TD WIDTH="100%" height="400" Align="left" VALIGN="top"> 
+    <A  name="body"></a> 
+	<div id = "main">
+
+<!-- Top of Page Body -->
+<table BORDER="0" WIDTH="100%">
+<!-- <h1 align=left valign=center>The Center for High Throughput Computing</h1> -->
+
+	
+
+<div id="osg_power"> <span style="height: 20px">Powered by:</span><br /><a href="http://opensciencegrid.org"><img alt="Open Science Grid" src="/images/Open_Science_Grid_Consortium(Logo).jpg" width="123" height="70" /></a></div>
+
+	
+
+<div id="hours"> <span style="height: 20px">
+	<center><b>Follow us on social media:</b><a href="https://twitter.com/CHTC_UW"><img alt="Twitter" src="/images/twitter.png" width="70" height="70"></center></a></span></div>
+	
+	
+<div id="hours"> <span style="height: 20px">
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a href="http://chtc.cs.wisc.edu/get-help.shtml" style="color:white;">
+<b>Office Hours!</b>
+<br>
+Tues/Thurs, 3-4:30pm<br>
+Wed, 9:30-11:30am</br>
+Click for details
+</a></span></div>	
+
+
+	
+
+
+<div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
+
+<h1>Submitting Jobs Using the ChtcRun Package</h1>
+
+
+<p>To facilitate the submission of large batches of jobs, especially
+ batches for Matlab, Python, and R, the CHTC has created the ChtcRun
+ package of scripts, files, and directories that will allow you to easily
+ construct your own HTCondor workflow (or "DAG" batch). By following the ordered
+ set of directions given here, you'll be able to easily set up and run
+ a set of high-throughput computing jobs on CHTC-available resources,
+ including those outside of the CHTC HTCondor Pool in the UW Grid and
+ national Open Science Grid.
+</p>
+
+<ol>
+
+
+
+<li>From within your home directory on the submit node, in a directory of your choice, 
+download the ChtcRun package:
+<pre>wget <a href="/downloads/ChtcRun.tar.gz">http://chtc.cs.wisc.edu/downloads/ChtcRun.tar.gz</a></pre>
+
+<p>Unpack the ChtcRun package.  
+This will create a <code>ChtcRun</code> subdirectory.
+<pre>tar xzf ChtcRun.tar.gz</pre>
+After unpacking the package,
+within the <code>ChtcRun</code> directory will be:
+</p>
+
+  <ul class="tight">
+	  <li> <code>chtcjobwrapper</code> </li>
+	  <li> <code>process.template</code> </li>
+	  <li> <code>postjob.template</code> </li>
+	  <li> <code>mkdag</code> </li>
+	  <li> <code>Matlabin/</code> (example Matlab setup) </li>
+	  <li> <code>Rin/</code> (example R setup) </li>
+	  <li> other directories and files </li>
+  </ul>
+
+<p>
+You do not need to download a separate copy of <code>ChtcRun</code> for every 
+batch of jobs you submit - each project will be submitted from its own directory 
+from within <code>ChtcRun</code>.  However, the operations of downloading and unpacking <code>ChtcRun</code>
+may be repeated to
+obtain updated versions of the scripts and supporting files.
+Doing so will overwrite existing, but updated material,
+without harming other files and directories already in place. 
+</p>
+</li>
+
+<li>
+Stage files specific to your set of jobs into correctly-named directories
+within <code>ChtcRun</code>.
+
+<p>
+<b>For Matlab, Python, and R jobs, it is first essential to have completed       
+ the steps to compile your code dependencies, according to our <a href="http://chtc.cs.wisc.edu/MATLABandR.shtml">
+"Compiling Matlab, Python and R Code" page.</a></b>
+</p>
+
+<p>Make a directory 
+within <code>ChtcRun</code>
+to house the project's input files and executables.
+For purposes of this example, assume that the directory has been named 
+<code>proj1data</code>, which is otherwise equivalent to the example
+<code>Matlabin</code> and <code>Rin</code> directories.
+</p>
+
+<p>Within <code>proj1data</code>, create one directory 
+for each job to be run.
+Within each of these run-specific directories, 
+place the input files used for that specific job.  
+If the work does not require any per-job input files, 
+then nothing will be in these directories.
+The files might include input files and parameter files.
+These directories can be given any name, 
+but the file names may not contain whitespace characters, notably spaces,
+in their name.
+And, the file name <code>shared</code> is already
+used for the files shared among job submissions.
+</p>
+
+<p>
+Each of these directories will create an individual job within
+the single DAG.
+When the job starts,
+its current working directory on the machine where the job executes
+will contain copies of all files placed in the run-specific directory 
+on the submit machine,
+as well as copies of all files placed in the 
+<code>shared</code> directory on the submit machine.
+</p>
+
+<p>Input files, shared libraries, and all executables shared by
+all jobs go into a directory with the name 
+<code>shared</code>.
+Create the directory <code>shared</code> within
+<code>proj1data</code>.
+Place the executable and any input files common to the 
+set of jobs that will be submitted into directory <code>shared</code>.  
+The <code>shared</code> directory will not become an individual job.
+</p>
+
+<p>
+For example, you might want to run several jobs on data you have for 
+several midwestern states, where there is one job per state.
+Each state has its own input data file,
+called  <code>state.dat</code>.
+There is also a shared input data file of US-wide averages for comparison,
+called <code>us.dat</code>,
+as well as a single executable (program).
+For each job submission, assume this program 
+<code>compare-states</code>
+will compare contents of <code>us.dat</code> to 
+<code>state.dat</code>.
+Given this, a portion of the directory hierarchy might look like this:
+</p>
+
+<pre>proj1data/
+   shared/
+      us.dat
+      compare-states
+   wi/
+      state.dat
+   il/
+      state.dat
+   mn/
+      state.dat
+   ia/
+      state.dat
+</pre>
+
+</li>
+
+<li>
+Modify <code>process.template</code> (a template submit file) in <code>ChtcRun</code>
+ with respect to the following lines:&lt;/br&gt;
+<pre>
+request_cpus = 1	(or other integer)
+request_disk = (insert KB value)
+request_memory = (insert MB value)
++WantFlocking = true	(to send jobs shorter than 4 hours to the UW Grid)
++WantGlidein = true	(to send jobs shorter than 2 hours to the OSG)
+</pre>
+<p>
+<b> If you are not aware of how much disk or memory your jobs need,
+ it is ESSENTIAL to first test 5-10 jobs</b>, and then look at the resulting
+ <code>process.log</code> file for each test job to determine the
+ amounts that should be requested for your jobs.&lt;/br&gt;
+For more information on testing, Flocking, and Glidein, please see the
+ bottom of our <a href="http://chtc.cs.wisc.edu/helloworld.shtml">"Run Your First HTC Jobs" guide</a>.
+
+&lt;/li&gt;
+
+<li>
+With a current working directory of <code>ChtcRun</code>,
+run <code>mkdag</code>
+with a job-specific set of command line arguments.
+The output from from running <code>mkdag</code>
+will be a directory to hold eventual output from running
+the project's job(s),
+as well as control files:
+a DAG input file for describing the DAG 
+(called <code>mydag.dag</code>)
+and an HTCondor job submit description files for each of the node jobs within
+the DAG.
+One of the command line arguments to 
+<code>mkdag</code>
+will specify the name of this directory.
+
+<p>
+<b>The command line arguments to <code>mkdag</code> are viewable by running the
+ following command</b>, which includes full <code>mkdag</code> commands for the
+ <code>Matlabin</code>, <code>Rin</code>, <code>Pythonin</code>, and <code>Binin</code>
+ examples that come within <code>ChtcRun</code>:
+<pre>./mkdag --help</pre>
+<ul>
+
+<li><code>--cmdtorun=NameOfJobExecutable</code>
+<br /> This required argument identifies which file within the <code>shared</code>
+directory should be executed.
+It should be only the base name of the file 
+(for example, <code>compare-states</code>); 
+do not include directory information.
+</li>
+
+<li> <code>--data=DirectoryName</code>
+<br /> This required argument identifies the relative path to and
+name of the directory that contains the 
+<code>shared</code> directory.
+The path is specified as relative to the directory containing the 
+<code>mkdag</code> script.
+The string used instead of 
+<code>DirectoryName</code>
+for this presented example would be
+<code>proj1data</code>.
+</li>
+
+<li> <code>--outputdir=DirectoryName</code>
+<br /> This required argument identifies where the output from your 
+jobs will be placed.  
+This is the relative path to and
+specifies a name for the directory within 
+<code>ChtcRun</code>
+that will be created, and within which the directories and files
+produced by the  <code>mkdag</code>  script will go.
+Do not create this directory before running
+<code>mkdag</code>.  
+The directory will be created by <code>mkdag</code>, 
+and it will contain one subdirectory for each of the jobs within the DAG.
+</li>
+
+<li> <code>--pattern=SubString</code>
+<br /> This required argument helps identify if a job ran successfully.
+For a variety of reasons, 
+we cannot necessarily trust the return code from MATLAB or R 
+to tell us if the job was successful.  
+We determine if a job was successful by checking if at least one 
+file was created that includes the pattern "SubString" in it's 
+filename, for each HTCondor job submitted.
+This check is identical to running
+<pre>ls *SubString*
+</pre>
+in a job's output folder after the job completes to see that at least one file is returned.
+</li>
+
+<li> <code>--parg=ArgumentString</code>
+<br /> This optional argument identifies a command line argument that
+is to be passed to each invocation (as an HTCondor job) of the executable.
+This argument will be listed multiple times to define more than one
+command line argument. Optionally, you can use "--parg=<i>unique</i>" to 
+pass the name of the job directory as an argument to your code for each job.
+</li>
+
+<li><code>--type</code>
+<br />The <code>--type</code> argument is required,
+and must be set to one of 3 values.
+
+	<ul>
+
+	<li><code>--type=Matlab</code>
+	<br />For MATLAB jobs.  
+	It ensures that necessary MATLAB supporting libraries are made 
+	available to the job.
+
+	<li> <code>--type=R</code>
+	<br />For R jobs.   
+	It ensures that the R runtime environment is made available to the job.
+
+	<li><code>--type=Other</code>
+
+<br />For jobs that are neither MATLAB or R. "Other" <i>should</i>
+ be specified for Python jobs.
+	&lt;/ul&gt;
+</li>
+
+<li>
+ <code>--version=VersionNumber</code>
+<br />This argument is required for R and some Matlab jobs.
+It specifies the version of R needed.
+Possible values are listed below:
+  <ul class="tight">
+  <li> <code>sl6-R-2.10.1</code> (version R-2.10.1 on Scientific Linux) </li>
+  <li> <code>sl6-R-2.13.1</code> (version R-2.13.1 on Scientific Linux) </li>
+  <li> <code>sl6-R-2.14.1</code> (version R-2.14.1 on Scientific Linux) </li>
+  <li> <code>sl6-R-2.15.1</code> (version R-2.15.1 on Scientific Linux) </li>
+  <li> <code>sl6-R-2.15.2</code> (version R-2.15.1 on Scientific Linux) </li>
+  <li> <code>sl6-R-2.15.3</code> (version R-2.15.1 on Scientific Linux) </li>
+  <li> <code>sl6-R-3.0.1</code> (version R-3.0.1 on Scientific Linux) </li>
+  <li> <code>sl6-R-3.1.0</code> (version R-3.1.0 on Scientific Linux) </li>
+  <li> <code>sl6-R-3.2.0</code> (version R-3.2.0 on Scientific Linux) </li>
+  <li> <code>R2011b</code>
+        (Matlab version R2011b on Scientific Linux) </li>
+  <li> <code>R2013b</code>
+	(Matlab version R2013b on Scientific Linux) </li>
+  </ul>
+
+</li>
+
+&lt;/ul&gt;
+
+<p>For example, assume that the <code>compare-states</code> program
+is a compiled MATLAB program that takes two arguments: 
+the files to compare.  
+It produces a file called <code>output.dat</code>.  
+The command line for <code>mkdag</code>:
+
+<pre>./mkdag --cmdtorun=compare-states --data=proj1data \
+  --outputdir=proj1output --pattern=output.dat --parg=us.dat \
+  --parg=state.dat --type=Matlab 
+</pre>
+
+<p>(The backslashes above are used to break a long command across three lines.  You can omit the backslashes and enter your command as a single line.)
+
+&lt;/li&gt;
+
+<li>
+From the <code>outputdir</code> directory created by the
+ <code>mkdag</code> command, run
+<pre>condor_submit_dag mydag.dag
+</pre>
+This submits and runs the batch of job(s) you setup in the 
+"<code>data</code>" directory (<code>proj1data</code> in this example).
+&lt;/br&gt;
+<b>Output, log, and error files for each job will also be placed
+ within newly created folders for each job, within the "<code>outputdir</code>"
+ you specified.</b>
+</li>
+
+&lt;/ol&gt;
+</p></p></li></li></ul></li></ul></p></li></p></li></ol>
+
+
+
+<div id = "copyright">
+     <p align = "center"> 
+	  
+     For all user support, questions, and comments:
+     <strong><a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a></strong>
+
+</p>
+</div>
+
+</div>
+
+  </td>
+  </tr>
+
+</TABLE>
+</td>
+</table>
+
+</body>
+</html>
+
+
