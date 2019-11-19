@@ -134,14 +134,14 @@ Guides will be added to the list as we can provide them. Please contact us
 (email at bottom of page) if you find any of the information to be incorrect.
 </p>
 
-<a name="gen"></a>
+<p><a name="gen"></a></p>
 <h1>General Computing</h1>
 <ul>
     <li><a href="/approach.shtml">Our Approach: High Throughput Versus 
 High Performance Computing</a></li>
 </ul>
 
-<a name="htc"></a>
+<p><a name="htc"></a></p>
 <h1>Use the HTC System</h1>
 <ul>
     <li>Getting Started<ul>
@@ -169,14 +169,14 @@ Large Files</a></li>
     <li><a href="/high-memory-jobs.shtml">Submitting High Memory Jobs</a></li>
 </ul>
 
-<a name="hpc"></a>
+<p><a name="hpc"></a></p>
 <h1>Use the HPC Cluster</h1>
 <ul>
     <li><a href="/HPCuseguide.shtml">HPC Cluster Basic Use Guide</a></li>
     <li><a href="/MPIuseguide.shtml">MPI Use Guide</a></li>
 </ul>
 
-<a name="ext"></a>
+<p><a name="ext"></a></p>
 <h1>External Resources</h1>
 <ul>
     <li><a href="http://software-carpentry.org/4_0/index.html">
@@ -186,6 +186,7 @@ Large Files</a></li>
     <li><a href="http://www.doit.wisc.edu/training/student/">DoIT Software 
 	Training for Students</a> (free on-campus courses) </li>
 <br />
+</ul>
 
 
 

@@ -123,7 +123,7 @@ campus in several <i>pools</i>.
 A sample of resources (slots) available on a typical day in February of 2012 
 is shown in this table:</p>
 
-<table align="center"  class="gtable">
+<table align="center" class="gtable">
 <tr> 
 <th>Platform</th> <th>GLOW</th> <th>CHTC</th> <th>CS</th> <th>CAE</th> <th>Total</th>
 </tr>
@@ -137,7 +137,7 @@ is shown in this table:</p>
 <td>Windows 7</td> <td class="num">0</td> <td class="num">18</td> <td class="num">0</td> <td class="num">1,206</td> <td class="num">1,224</td>
 </tr>
 </table>
-<P>
+<p>
 <strong>Of nodes, CPUS and slots</strong>
 <p>
 In the 1990s things were so simple.  A node was the same as a CPU, and on one of those CPUs HTCondor would run one job. 
@@ -191,7 +191,8 @@ interfaces.  We generally have 10 Gbit per second interfaces between pools.</p>
 We monitor the use of all our campus pools, as well as the OSG, to see if we are delivering all the cycles that UW researchers
 need. When total demand exceeds total supply, we will add resources. We also add resources when researchers have additional
 requirements that cannot be met with our current resources.
-<P>
+<p>
+</p></p></p></p></p></p></p></p></p></p></p></p></p></p></p>
 
 
 

@@ -135,7 +135,7 @@ machines (per Matlab's license requirements).
 <br /><b>All other code compiling for CHTC jobs needs to be completed 
 on one of our designated "build machines" using an interactive submit file and 
 instructions that you can find <a href="inter-submit.shtml">here</a>.</b> 
-</br></br>
+&lt;/br&gt;&lt;/br&gt;
 The tools below (chtc_mcc, chtc_buildRlibs, and chtc_buildPythonmodules) are
  part of the "chtc-utils" suite of tools. These are installed on all CHTC-owned
  submit nodes, but may also be installed on YOUR submit node.
@@ -151,7 +151,7 @@ version of R required.
 This script produces a compressed tar file, <code>sl6-RLIBS.tar.gz</code>, which
  will contain the R library files necessary for running R code with the ChtcRun
  package or <code>chtcjobwrapper</code>.
-</br></br>
+&lt;/br&gt;&lt;/br&gt;
 There are two necessary arguments to <code>chtc_buildRlibs</code>:
 
 <ul>
@@ -171,13 +171,13 @@ The current list of versions available is
   <li> sl6-R-3.1.0 (version R-3.1.0 on Scientific Linux) </li>
   <li> sl6-R-3.2.0 (version R-3.2.0 on Scientific Linux) </li>
  </ul>
-</br>
+&lt;/br&gt;
 If you are using an unlisted version, you will likely be able to use the next
  version down out of the list above. If a necessary version of R is not listed here,
 please request it by email to 
 <a href="chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.
 </li>
-</br>
+&lt;/br&gt;
 R-2.15.2/3 and 3.0.1 contain extended libraries such that you may not need to
 buid them with this tool. They both have the same library list, including:
  base, codetools, graphics, lattice, mgcv, rpart, stats4, utils, boot, compiler,
@@ -187,7 +187,7 @@ buid them with this tool. They both have the same library list, including:
 <code>--rlibs</code> lists the R source packages to be included, comma-separated.
  <b>You will need to have copied the source ".tar.gz" files for each library to the
  submit node in the same folder where you run the "chtc_buildRlibs" command.</b>
-</br></br>
+&lt;/br&gt;&lt;/br&gt;
 <b>The ordering of libraries in the list matters:</b>
  Libraries that are called by other libraries should be listed first.
 </li>
@@ -233,12 +233,12 @@ package suitable for use in the CHTC.
 
 <p>
 <h2>Here are the steps to prepare your python code</h2>
-</br>
-<b>1. Modify your main python script.</b></br>
-</br>
-It is essential that the first line of your Python script be:</br>
+&lt;/br&gt;
+<b>1. Modify your main python script.</b>&lt;/br&gt;
+&lt;/br&gt;
+It is essential that the first line of your Python script be:&lt;/br&gt;
 <code>#!./python277/bin/python</code>
-</b>
+&lt;/b&gt;
 </p>
 
 <p>
@@ -257,7 +257,7 @@ chtc_buildPythonmodules --pversion=2.7.7 --pmodules=mymodule-1.1.0.tar.gz,otherm
 The output will be one package named <code>sl6-SITEPACKS.tar.gz</code>
  and one named <code>SLIBS.tar.gz</code> (NEW).</b> NOTE: It may take
  up to 5 minutes, or so, for the command to complete.
-</br></br>
+&lt;/br&gt;&lt;/br&gt;
 The <code>chtc_buildPythonmodules</code> has two required arguments:
 </p>
 
@@ -272,7 +272,7 @@ The current list of versions available is
 <li><code>--pmodules</code> is a comma seperated list of module source
 	packages in the xxxxxx.tar.gz format.
 </li>
-</ul>
+&lt;/ul&gt;
 
 <p>
 The ordering of modules in the list matters.
@@ -296,7 +296,7 @@ chtc_buildPythonmodules --help
 </pre>
 
 <h2>Setting up your built Python code in the
- <a href = "http://chtc.cs.wisc.edu/DAGenv.shtml">ChtcRun package</a>.</h2>
+ <a href="http://chtc.cs.wisc.edu/DAGenv.shtml">ChtcRun package</a>.</h2>
 <p>
 The ChtcRun folder includes a <code>Pythonin</code> directory, which has it's
  own <code>SLIBS.tar.gz</code> file included. You'll need both this
@@ -305,7 +305,7 @@ The ChtcRun folder includes a <code>Pythonin</code> directory, which has it's
  data directory in <code>ChtcRun</code> (similar to the
  <code>Pythonin</code> directory): 
 </p>
- <UL>
+ <ul>
  <li>In your own <code>shared</code> directory, copy
  <code>SLIBS.tar.gz</code> from <code>Pythonin/shared/</code> and un-tar it
  (<code>tar -zxvf SLIBS.tar.gz</code>) to produce an <code>SS</code>
@@ -318,7 +318,7 @@ The ChtcRun folder includes a <code>Pythonin</code> directory, which has it's
  <li>Copy the <code>ENV</code> and <code>URLS</code> files
  into your <code>shared</code> directory from the <code>Pythonin/shared/</code>
  directory, and finish setting up your data directory in <code>ChtcRun</code>.
- </UL>
+ &lt;/UL&gt;
 
 <h1>-Matlab-</h1>
 
@@ -423,6 +423,7 @@ yum install chtc-utils
 After installation, the scripts will be in <code>/usr/bin</code>.
 </p>
 
+</li></li></ul></p>
 
 
 

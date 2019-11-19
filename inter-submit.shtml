@@ -137,14 +137,14 @@ installation and use guides here: <a href="/howto_overview.shtml">Guides for Mat
 <!--<p>Once you've created a portable software installation, see our <a href="">Job 
 Executable Creation</a> guide for more details of how to use your software in a job.</p>-->
 
-<a name="build"></a>
+<p><a name="build"></a></p>
 <h1>1. Building a Software Installation</h1>
 
 <p>You are going to start an interactive job that runs on the HTC build servers. 
 You will then install your packages to a 
 folder and zip those files to return to the submit server.</p>
 
-<a name="version"></a>
+<p><a name="version"></a></p>
 <h2>A. Submit an Interactive Job</h2>
 
 <p>First, download the source code for your software to the submit 
@@ -161,7 +161,7 @@ log = interactive.log
 transfer_input_files = <i>source_code</i>.tar.gz
 
 +IsBuildJob = true
-requirements = (OpSysMajorVer =?= 7) && ( IsBuildSlot == true )
+requirements = (OpSysMajorVer =?= 7) &amp;&amp; ( IsBuildSlot == true )
 request_cpus = 1
 request_memory = 2GB
 request_disk = 2GB
@@ -259,7 +259,7 @@ sometimes takes a few extra seconds after exiting).</p>
 
 <!--<p>In order to use your new installation in a job, see our guide on <a href="">Wrapper Scripts</a>.</p>-->
 
-<a name="case-study"></a>
+<p><a name="case-study"></a></p>
 <h1>2. Case Study, Installing LAMMPS</h1>
 
 <p>First download a copy of LAMMPS and copy it 
@@ -289,33 +289,33 @@ add them to our list of commands to run. </li>
 </ol>
 </p>
 
-</p>With all these pieces together, this is what the commands will look like to 
+<p>&lt;/p&gt;With all these pieces together, this is what the commands will look like to 
 install LAMMPS in the interactive build job and then bring the installed copy 
-back to the submit server. </p>
+back to the submit server. &lt;/p&gt;</p>
 
-Create the folder for the installation: 
+<p>Create the folder for the installation:</p>
 <pre class="term">[alice@build]$ mkdir lammps
 </pre>
 
-Unzip and <code>cd</code> into a build directory:
+<p>Unzip and <code>cd</code> into a build directory:</p>
 <pre class="term">
 [alice@build]$ tar -xf lammps-stable.tar.gz
 [alice@build]$ cd lammps-stable
 [alice@build]$ mkdir build; cd build 
 </pre>
 
-Run the installation commands: 
+<p>Run the installation commands:</p>
 <pre class="term">
-[alice@build]$ cmake -D CMAKE_INSTALL_PREFIX=$_CONDOR_SCRATCH_DIR/lammps ../cmake </i>
+[alice@build]$ cmake -D CMAKE_INSTALL_PREFIX=$_CONDOR_SCRATCH_DIR/lammps ../cmake &lt;/i&gt;
 [alice@build]$ make
 [alice@build]$ make install </pre>
 
-Move back into the main job directory and create a tar.gz file of the installation folder. 
+<p>Move back into the main job directory and create a tar.gz file of the installation folder.</p>
 <pre class="term">
 [alice@build]$ cd ../..
 [alice@build]$ tar -czf lammps.tar.gz lammps
 [alice@build]$ exit</pre>
-<br>
+<p><br /></p>
 <blockquote>
 For older version of this guide, see out <a href="archived/inter-submit.shtml">archived page</a>.
 </blockquote>

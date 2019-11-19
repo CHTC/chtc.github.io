@@ -123,8 +123,8 @@ var RecaptchaOptions = {
 };
 </script>
 
-Thank you for your account request! A <a href="get-help.shtml">research 
-computing facilitator</a> will get in touch with you soon.
+<p>Thank you for your account request! A <a href="get-help.shtml">research 
+computing facilitator</a> will get in touch with you soon.</p>
 
 
 

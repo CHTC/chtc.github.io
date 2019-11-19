@@ -133,17 +133,19 @@ Guides will be added to the list as we can provide them. Please contact us
 	<td width="25%"><a href="#hpc">HPC Cluster</a></td>
 	<td width="25%"><a href="#ext">External Resources</a></td>
 </tr></table>
-</br>
-<hr>
-<a name="gen"></a>
+<p>&lt;/br&gt;</p>
+<hr />
+
+<p><a name="gen"></a></p>
 <h1>General Computing</h1>
 <ul>
     <li><a href="/approach.shtml">Our Approach: High Throughput Versus 
 High Performance Computing</a></li>
 </ul>
 
-<hr>
-<a name="htc"></a>
+<hr />
+
+<p><a name="htc"></a></p>
 <h1>Use the HTC System</h1>
 
 <!-- <h2>HTC Roadmap</h2>
@@ -153,11 +155,11 @@ through the process of creating your own large-scale job submission, step-by-ste
 
 <h2>Guides by Topic</h2>
 
-<div id = "tile-wrapper">
-	<blockquote class = "tile2">
+<div id="tile-wrapper">
+	<blockquote class="tile2">
 		<h2>Basics and Policies</h2>
 
-		<img src = "guide-icons/checkmark.png">
+		<img src="guide-icons/checkmark.png" />
 
 		<ul>
   	   	<li><a href="/use-submit-node.shtml">Using CHTC's HTC Submit Nodes</a></li>
@@ -168,11 +170,11 @@ through the process of creating your own large-scale job submission, step-by-ste
 		</ul>
 	</blockquote>
 </div>
-<div id = "tile-wrapper">
-	<blockquote class = "tile2">
+<div id="tile-wrapper">
+	<blockquote class="tile2">
 		<h2>Job Submission</h2>
 
-		<img src = "guide-icons/laptop_arrow.png">
+		<img src="guide-icons/laptop_arrow.png" />
 
   		<ul>
 		<li><a href="/helloworld.shtml">Running Your First HTC Jobs</a></li>
@@ -184,11 +186,11 @@ through the process of creating your own large-scale job submission, step-by-ste
 	</blockquote>
 </div>
 
-<div id = "tile-wrapper">
-	<blockquote class = "tile2">
+<div id="tile-wrapper">
+	<blockquote class="tile2">
 		<h2>Software Solutions</h2>
 
-		<img src = "guide-icons/gear.png">
+		<img src="guide-icons/gear.png" />
 
  	<ul>
   	   <li><a href="/inter-submit.shtml">Compiling Software in an Interactive Job</a></li>
@@ -205,11 +207,11 @@ through the process of creating your own large-scale job submission, step-by-ste
   	 </ul>
 	</blockquote>
 </div>
-<div id = "tile-wrapper">
-	<blockquote class = "tile2">
+<div id="tile-wrapper">
+	<blockquote class="tile2">
 		<h2>Handling Data in Jobs</h2>
 
-		<img src = "guide-icons/data.png">
+		<img src="guide-icons/data.png" />
 
   	<ul>
         <li><a href="/file-availability.shtml">HTCondor File Transfer</a></li>
@@ -218,11 +220,11 @@ through the process of creating your own large-scale job submission, step-by-ste
     </ul>
 	</blockquote>
 </div>
-<div id = "tile-wrapper">
-	<blockquote class = "tile2">
+<div id="tile-wrapper">
+	<blockquote class="tile2">
 		<h2>Special Use Cases</h2>
 
-		<img src = "guide-icons/processor.png">
+		<img src="guide-icons/processor.png" />
 
   		<ul>
   		<li><a href="/scaling-htc.shtml">Scaling Beyond Local HTC Capacity</a></li> 
@@ -233,11 +235,11 @@ through the process of creating your own large-scale job submission, step-by-ste
 	</blockquote>
 </div>
 
-<div id = "tile-wrapper">
-	<blockquote class = "tile2">
+<div id="tile-wrapper">
+	<blockquote class="tile2">
 		<h2>Troubleshooting</h2>
 
-		<img src = "guide-icons/trouble.png">
+		<img src="guide-icons/trouble.png" />
 
   		<ul>
 <!--        <li><a href="/testing.shtml">Testing Jobs</a></li>
@@ -248,8 +250,9 @@ through the process of creating your own large-scale job submission, step-by-ste
 	</blockquote>
 </div>
 
-<hr>
-<a name="hpc"></a>
+<hr />
+
+<p><a name="hpc"></a></p>
 <h1>Use the HPC Cluster</h1>
 
 <!--<h2>HPC Roadmap</h2>
@@ -259,11 +262,11 @@ through the process of using the cluster, step-by-step.</p> -->
 
 <h2>Guides by Topic</h2>
 
-<div id = "tile-wrapper">
-	<blockquote class = "tile2">
+<div id="tile-wrapper">
+	<blockquote class="tile2">
 		<h2>All Cluster Guides</h2>
 
-		<img src = "guide-icons/servers.png">
+		<img src="guide-icons/servers.png" />
 	<ul>
   	   	<li><a href="/connecting.shtml">Connecting to CHTC</a></li>
       <li><a href="/HPCuseguide.shtml">HPC Cluster Basic Use Guide</a></li>
@@ -272,8 +275,9 @@ through the process of using the cluster, step-by-step.</p> -->
 	</blockquote>
 </div>
 
-<hr>
-<a name="ext"></a>
+<hr />
+
+<p><a name="ext"></a></p>
 <h1>External Resources</h1>
 <ul>
     <li><a href="http://software-carpentry.org/lessons/">
@@ -283,10 +287,11 @@ through the process of using the cluster, step-by-step.</p> -->
     <li><a href="http://www.doit.wisc.edu/training/student/">DoIT Software 
 	Training for Students</a> (free on-campus courses) </li>
 	</ul>
-<br />
+<p><br /></p>
 
-<hr>
-<a href="/icon_credits.shtml">Icon Credits</a>
+<hr />
+
+<p><a href="/icon_credits.shtml">Icon Credits</a></p>
 
 
 

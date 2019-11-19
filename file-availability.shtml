@@ -184,13 +184,12 @@ built in to HTCondor job scheduling. You can see HTCondor file transfer as intro
 in our "Intro to Running HTCondor Jobs" and in the 
 <a href="http://research.cs.wisc.edu/htcondor/manual/v7.8/2_5Submitting_Job.html#SECTION00354000000000000000">HTCondor Manual.</a></p>
 
-
 <p><h2>Contents</h2>
 <ol>
   <li><a href="#Appli">Applicability</a></li> 
     <li><a href="#input">Transferring Input Files</a>
 	<li><a href="#output">Transferring Output Files</a>
-</ol>
+&lt;/ol&gt;
 
 
 <a name="Appli"></a>
@@ -286,6 +285,7 @@ indicated in the submit file.</p>
 	first create these output files (perhaps empty), even if the job later exits 
 	early with an error.</li>
 </ul>
+</dl></li></li></ol></p>
 
 
 

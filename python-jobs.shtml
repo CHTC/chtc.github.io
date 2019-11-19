@@ -153,10 +153,10 @@ Python distribution see our archived page:
 </ul>
 </p>
 
-<a name="supported"></a>
+<p><a name="supported"></a></p>
 <h1>Supported Python Installations</h1>
 
-<br>
+<p><br /></p>
 
 <table class="gtable">
 <tr>
@@ -170,7 +170,7 @@ Python distribution see our archived page:
 </tr>
 </table>
 
-<a name="build"></a>
+<p><a name="build"></a></p>
 <h1>1. Adding Python Packages</h1>
 
 <p>If your code uses specific Python packages (like <code>numpy</code>, 
@@ -187,7 +187,7 @@ install of Python; if you want to add packages to a pre-existing package folder,
 will be notes below in boxes like this one. 
 </blockquote>
 
-<a name="version"></a>
+<p><a name="version"></a></p>
 <h2>A. Submit an Interactive Job</h2>
 
 <p>Create the following special submit file on the submit server, calling it 
@@ -203,7 +203,7 @@ log = interactive.log
 transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/python<i>##</i>.tar.gz
 
 +IsBuildJob = true
-requirements = (OpSysMajorVer =?= 7) && ( IsBuildSlot == true )
+requirements = (OpSysMajorVer =?= 7) &amp;&amp; ( IsBuildSlot == true )
 request_cpus = 1
 request_memory = 2GB
 request_disk = 2GB
@@ -239,7 +239,7 @@ directory:
 drwx------ 2 alice alice 4.0K Mar 26 12:24 tmp
 drwx------ 3 alice alice 4.0K Mar 26 12:24 var
 </pre>
-</p> 
+</p>
 
 <p>We'll now unzip the copy of Python and set the <code>PATH</code> 
 variable to reference that version of Python:
@@ -310,7 +310,7 @@ tar.gz file with your Python packages will return to the submit server with you 
 sometimes takes a few extra seconds after exiting).</p>
 <pre class="term">[alice@build]$ exit </pre>
 
-<a name="script"></a>
+<p><a name="script"></a></p>
 <h1>2. Creating a Script</h1>
 
 <p>In order to use CHTC's copy of Python and the packages you have prepared 
@@ -340,7 +340,7 @@ export PYTHONPATH=$PWD/<i>packages</i>
 # run your script
 python3 <i>my_script.py</i>
 </pre>
-</p>
+<p>&lt;/p&gt;</p>
 
 <p>If you have additional commands you would like to be run within the job, you 
 can add them to this base script.  Once your script does what you would like, give 
@@ -369,9 +369,9 @@ Software Carpentry lesson</a>.
 </p>
 </blockquote>
 
-</p>
+<p>&lt;/p&gt;</p>
 
-<a name="submit"></a>
+<p><a name="submit"></a></p>
 <h1>3. Submitting Jobs</h1>
 
 <p>A sample submit file can be found in our <a href="/helloworld.shtml">hello world
@@ -379,7 +379,7 @@ Software Carpentry lesson</a>.
 Python jobs: </p>
 <ul>
 	<li> Your <code>executable</code> should be the script that you wrote 
-<a href="#script">above</a>. <pre class="sub">executable = run_py.sh</a></li>
+<a href="#script">above</a>. <pre class="sub">executable = run_py.sh&lt;/a&gt;&lt;/li&gt;
 	<li>Modify the CPU/memory request lines.  Test a few jobs for disk space/memory usage in 
 order to make sure your requests for a large batch are accurate!  
 Disk space and memory usage can be found in the log file after the job completes. </li>
@@ -388,8 +388,8 @@ Disk space and memory usage can be found in the log file after the job completes
 		<li>If your script takes arguments (see the box from the 
         previous section), include those in the arguments line: 
         <pre class="sub">arguments = value1 value2</pre></li>
-	</ul>
-	</ul>
+	&lt;/ul&gt;
+	&lt;/ul&gt;
 <a name="squid"></a>
 <blockquote>
 <h3>How big is your package tarball?</h3>
@@ -404,6 +404,7 @@ on <code>squid</code>, email the research computing facilitators at
 
 <!--#include virtual="/includes/template-5-finish.shtml" -->
 
+</pre></li></ul>
 
 
 

@@ -169,7 +169,7 @@ within <code>ChtcRun</code>.
 
 <p>
 <b>For Matlab, Python, and R jobs, it is first essential to have completed       
- the steps to compile your code dependencies, according to our <a href ="http://chtc.cs.wisc.edu/MATLABandR.shtml">
+ the steps to compile your code dependencies, according to our <a href="http://chtc.cs.wisc.edu/MATLABandR.shtml">
 "Compiling Matlab, Python and R Code" page.</a></b>
 </p>
 
@@ -249,7 +249,7 @@ Given this, a portion of the directory hierarchy might look like this:
 
 <li>
 Modify <code>process.template</code> (a template submit file) in <code>ChtcRun</code>
- with respect to the following lines:</br>
+ with respect to the following lines:&lt;/br&gt;
 <pre>
 request_cpus = 1	(or other integer)
 request_disk = (insert KB value)
@@ -261,11 +261,11 @@ request_memory = (insert MB value)
 <b> If you are not aware of how much disk or memory your jobs need,
  it is ESSENTIAL to first test 5-10 jobs</b>, and then look at the resulting
  <code>process.log</code> file for each test job to determine the
- amounts that should be requested for your jobs.</br>
+ amounts that should be requested for your jobs.&lt;/br&gt;
 For more information on testing, Flocking, and Glidein, please see the
- bottom of our <a href = "http://chtc.cs.wisc.edu/helloworld.shtml">"Run Your First HTC Jobs" guide</a>.
+ bottom of our <a href="http://chtc.cs.wisc.edu/helloworld.shtml">"Run Your First HTC Jobs" guide</a>.
 
-</li>
+&lt;/li&gt;
 
 <li>
 With a current working directory of <code>ChtcRun</code>,
@@ -292,7 +292,7 @@ will specify the name of this directory.
 <ul>
 
 <li><code>--cmdtorun=NameOfJobExecutable</code>
-<br> This required argument identifies which file within the <code>shared</code>
+<br /> This required argument identifies which file within the <code>shared</code>
 directory should be executed.
 It should be only the base name of the file 
 (for example, <code>compare-states</code>); 
@@ -300,7 +300,7 @@ do not include directory information.
 </li>
 
 <li> <code>--data=DirectoryName</code>
-<br> This required argument identifies the relative path to and
+<br /> This required argument identifies the relative path to and
 name of the directory that contains the 
 <code>shared</code> directory.
 The path is specified as relative to the directory containing the 
@@ -312,7 +312,7 @@ for this presented example would be
 </li>
 
 <li> <code>--outputdir=DirectoryName</code>
-<br> This required argument identifies where the output from your 
+<br /> This required argument identifies where the output from your 
 jobs will be placed.  
 This is the relative path to and
 specifies a name for the directory within 
@@ -326,7 +326,7 @@ and it will contain one subdirectory for each of the jobs within the DAG.
 </li>
 
 <li> <code>--pattern=SubString</code>
-<br> This required argument helps identify if a job ran successfully.
+<br /> This required argument helps identify if a job ran successfully.
 For a variety of reasons, 
 we cannot necessarily trust the return code from MATLAB or R 
 to tell us if the job was successful.  
@@ -340,7 +340,7 @@ in a job's output folder after the job completes to see that at least one file i
 </li>
 
 <li> <code>--parg=ArgumentString</code>
-<br> This optional argument identifies a command line argument that
+<br /> This optional argument identifies a command line argument that
 is to be passed to each invocation (as an HTCondor job) of the executable.
 This argument will be listed multiple times to define more than one
 command line argument. Optionally, you can use "--parg=<i>unique</i>" to 
@@ -348,30 +348,30 @@ pass the name of the job directory as an argument to your code for each job.
 </li>
 
 <li><code>--type</code>
-<br>The <code>--type</code> argument is required,
+<br />The <code>--type</code> argument is required,
 and must be set to one of 3 values.
 
 	<ul>
 
 	<li><code>--type=Matlab</code>
-	<br>For MATLAB jobs.  
+	<br />For MATLAB jobs.  
 	It ensures that necessary MATLAB supporting libraries are made 
 	available to the job.
 
 	<li> <code>--type=R</code>
-	<br>For R jobs.   
+	<br />For R jobs.   
 	It ensures that the R runtime environment is made available to the job.
 
 	<li><code>--type=Other</code>
 
-<br>For jobs that are neither MATLAB or R. "Other" <i>should</i>
+<br />For jobs that are neither MATLAB or R. "Other" <i>should</i>
  be specified for Python jobs.
-	</ul>
+	&lt;/ul&gt;
 </li>
 
 <li>
  <code>--version=VersionNumber</code>
-<br>This argument is required for R and some Matlab jobs.
+<br />This argument is required for R and some Matlab jobs.
 It specifies the version of R needed.
 Possible values are listed below:
   <ul class="tight">
@@ -392,7 +392,7 @@ Possible values are listed below:
 
 </li>
 
-</ul>
+&lt;/ul&gt;
 
 <p>For example, assume that the <code>compare-states</code> program
 is a compiled MATLAB program that takes two arguments: 
@@ -407,7 +407,7 @@ The command line for <code>mkdag</code>:
 
 <p>(The backslashes above are used to break a long command across three lines.  You can omit the backslashes and enter your command as a single line.)
 
-</li>
+&lt;/li&gt;
 
 <li>
 From the <code>outputdir</code> directory created by the
@@ -416,13 +416,14 @@ From the <code>outputdir</code> directory created by the
 </pre>
 This submits and runs the batch of job(s) you setup in the 
 "<code>data</code>" directory (<code>proj1data</code> in this example).
-</br>
+&lt;/br&gt;
 <b>Output, log, and error files for each job will also be placed
  within newly created folders for each job, within the "<code>outputdir</code>"
  you specified.</b>
 </li>
 
-</ol>
+&lt;/ol&gt;
+</p></p></li></li></ul></li></ul></p></li></p></li></ol>
 
 
 

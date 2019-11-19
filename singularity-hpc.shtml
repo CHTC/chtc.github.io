@@ -125,7 +125,7 @@ be run on the HPC cluster.  </p>
 	<li><a href="#command">Run a job that uses the container</a></li>
 </ol>
 
-<a name="container"></a>
+<p><a name="container"></a></p>
 <h2>1. Downloading Containers</h2>
 
 <blockquote>
@@ -161,7 +161,7 @@ and save it to a file named <code>fenics.simg</code>, she would run:
 <pre class="term">[alice@service-2]$ singularity build fenics.simg docker://fenicsproject/stable:latest</pre>
 </p>
 
-<a name="lib"></a>
+<p><a name="lib"></a></p>
 <h1>2. Using Containers</h1>
 
 <p>To use a container in a job, the submit file will remain mostly the same; 

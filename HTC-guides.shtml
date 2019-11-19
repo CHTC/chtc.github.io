@@ -155,8 +155,8 @@ our <a href="#faq">FAQs</a>.  </p>
 	<li><a href="/matlab-jobs.shtml">Submitting Matlab jobs</a></li>
 	<li><a href="/gluster-software.shtml">Software in Gluster</a></li>
     </ul></li>
-    <li><a href="/high-memory-jobs.shtml">Running high memory jobs</li>
-</ul>
+    <li><a href="/high-memory-jobs.shtml">Running high memory jobs&lt;/li&gt;
+&lt;/ul&gt;
 
 <!--
 <a name="faq"></a>
@@ -164,6 +164,7 @@ our <a href="#faq">FAQs</a>.  </p>
 
 <ul><li>Coming soon!</li></ul>
 -->
+</a></li></ul>
 
 
 

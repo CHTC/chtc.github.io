@@ -117,16 +117,16 @@ Click for details
 <h1>CHTC Projects</h1>
 
 
-<b>As part of it's many services to UW-Madison and beyond, the CHTC is home to or supports the following projects:</b>
+<p><b>As part of it’s many services to UW-Madison and beyond, the CHTC is home to or supports the following projects:</b></p>
 
-<br>
+<p><br /></p>
 
-<div id = "tile-wrapper">
+<div id="tile-wrapper">
 
-	<a href = "http://research.cs.wisc.edu/htcondor/" class = "tile" id = "condor-tile">
+	<a href="http://research.cs.wisc.edu/htcondor/" class="tile" id="condor-tile">
 		<h2>HTCondor project</h2>
 
-		<img src = "images/condor.png">
+		<img src="images/condor.png" />
 
 		<p>
 		The HTCondor project provides the globally-used HTCondor software that powers the CHTC's <i>HTC resources</i>. HTCondor enables the CHTC to
@@ -137,10 +137,10 @@ Click for details
 
 	</a>
 
-	<a href = "http://www.opensciencegrid.org" class = "tile" id = "osg-tile">
+	<a href="http://www.opensciencegrid.org" class="tile" id="osg-tile">
 		<h2>Open Science Grid</h2>
 
-		<img src = "images/osg.png">
+		<img src="images/osg.png" />
 
 		<p>
 		The Open Science Grid (OSG) is a high-throughput computing infrastructure that supports science across the country. 
@@ -152,10 +152,10 @@ Click for details
 
 	</a>
 
-	<a href = "http://www.neos-server.org" class = "tile" id = "neos-tile">
+	<a href="http://www.neos-server.org" class="tile" id="neos-tile">
 		<h2>NEOS Online Optimization Service</h2>
 
-		<img src = "images/neos.png">
+		<img src="images/neos.png" />
 
 		<p>
 		NEOS Online Optimization Service is a publicly-available, high-throughput computing infrastructure that provides solvers for a variety of

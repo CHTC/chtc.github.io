@@ -134,7 +134,8 @@ Click for details
     };
   };
 </script>
-<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&amp;render=explicit" async="" defer=""></script>
 
 <p><b>Please fill out the below form in order to provide us with 
 information about the large-scale computing work you would like 
@@ -158,53 +159,53 @@ below question, you can answer 'I don't know'.</b> One of
 CHTC's Research Computing Facilitators would be happy to help 
 you work out the details.</p>
 
-<FORM name="chtcform" action="http://chtc.cs.wisc.edu/cgi-chtc/get-started_captcha.php" method="post" onSubmit="return verifyCaptcha()">
+<form name="chtcform" action="http://chtc.cs.wisc.edu/cgi-chtc/get-started_captcha.php" method="post" onsubmit="return verifyCaptcha()">
 
 <h2>About you and your research:</h2>
 
 <table>
 <tr>
 	<td width="25%">Full Name:</td>
-	<td><INPUT type="text" name="FullName" size=24></td>
+	<td><input type="text" name="FullName" size="24" /></td>
 </tr>
 <tr>
 	<td>UW NetID:</td>
-	<td><INPUT type="text" name="NetID" size=12>@wisc.edu (<a href="http://helpdesk.wisc.edu/page.php?id=4966" target="NetID">What is a NetID?</a>)</td>
+	<td><input type="text" name="NetID" size="12" />@wisc.edu (<a href="http://helpdesk.wisc.edu/page.php?id=4966" target="NetID">What is a NetID?</a>)</td>
 </tr>
 <tr>
 	<td>Preferred Email:</td>
-	<td><INPUT type="text" name="PrimaryEmail" size=24></td>
+	<td><input type="text" name="PrimaryEmail" size="24" /></td>
 </tr>
 <tr>
 	<td>Department:</td>
-	<td><INPUT type="text" name="Department" size=24></td>
+	<td><input type="text" name="Department" size="24" /></td>
 </tr>
 <tr>
 	<td>UW-Madison Faculty Sponsor (Principal Investigator) for
-your research:<br>
+your research:<br />
 <small>(Please enter "Self" if you are a faculty member and PI)</small></td>
-	<td><INPUT type="text" name="PIName" size=24></td>
+	<td><input type="text" name="PIName" size="24" /></td>
 </tr>
 <tr><td colspan="2">
-	How did you hear about us? <br>
-	<TEXTAREA name="HowHeardAbout" rows="2" cols="120">
-	</TEXTAREA>
+	How did you hear about us? <br />
+	<textarea name="HowHeardAbout" rows="2" cols="120">
+	</textarea>
 </td></tr>
 <tr><td colspan="2">
 	Best times to schedule an initial consultation? (The PI will need to be present 
-        if we haven't met with them before.) <br>
-	<TEXTAREA name="MeetTime" rows="2" cols="120">
-	</TEXTAREA>
+        if we haven't met with them before.) <br />
+	<textarea name="MeetTime" rows="2" cols="120">
+	</textarea>
 </td></tr>
 <tr><td colspan="2">
-	Briefly describe your research to help us answer the question, "What research does CHTC help with?": <br>
-	<TEXTAREA name="ResearchDescription" rows="5" cols="120">
-	</TEXTAREA>
+	Briefly describe your research to help us answer the question, "What research does CHTC help with?": <br />
+	<textarea name="ResearchDescription" rows="5" cols="120">
+	</textarea>
 </td></tr>
 <tr><td colspan="2">
-	Why do you need to use large-scale computing for this research? <br>
-	<TEXTAREA name="WhyCHTC" rows="5" cols="120">
-	</TEXTAREA>
+	Why do you need to use large-scale computing for this research? <br />
+	<textarea name="WhyCHTC" rows="5" cols="120">
+	</textarea>
 </td></tr>
 
 </table>
@@ -213,81 +214,81 @@ your research:<br>
 
 <table>
 <tr><td colspan="2">
-	Program name(s) and coding language(s) <br>
-	<TEXTAREA name="Program" rows="3" cols="120">
-	</TEXTAREA>
+	Program name(s) and coding language(s) <br />
+	<textarea name="Program" rows="3" cols="120">
+	</textarea>
 </td></tr>
 <tr><td colspan="2">
-	Are there any special dependencies or compiling considerations you've had to deal with? <br>
-	<TEXTAREA name="Dependencies" rows="5" cols="120">
-	</TEXTAREA>
+	Are there any special dependencies or compiling considerations you've had to deal with? <br />
+	<textarea name="Dependencies" rows="5" cols="120">
+	</textarea>
 </td></tr>
 <tr><td colspan="2">
-	Tell us where you've run similar computing work before: desktop, shared cluster, etc.? Linux, Windows, Mac?  <br>
-	<TEXTAREA name="PreviousWork" rows="3" cols="120">
-	</TEXTAREA>
+	Tell us where you've run similar computing work before: desktop, shared cluster, etc.? Linux, Windows, Mac?  <br />
+	<textarea name="PreviousWork" rows="3" cols="120">
+	</textarea>
 </td></tr>
 <tr><td colspan="2">
-        Do you have interest in using GPUs, and/or have you used GPUs for similar work in the past?  <br>
-        <TEXTAREA name="GPUs" rows="3" cols="120">
-        </TEXTAREA>
+        Do you have interest in using GPUs, and/or have you used GPUs for similar work in the past?  <br />
+        <textarea name="GPUs" rows="3" cols="120">
+        </textarea>
 </td></tr>
 <tr><td colspan="2">
-	Do you typically run your program(s) with multiple processors working/communicating with one another? If so, how have you accomplished that? (OpenMP/MPI, etc?): <br>
-	<TEXTAREA name="Multicore" rows="2" cols="120">
-	</TEXTAREA>
+	Do you typically run your program(s) with multiple processors working/communicating with one another? If so, how have you accomplished that? (OpenMP/MPI, etc?): <br />
+	<textarea name="Multicore" rows="2" cols="120">
+	</textarea>
 </td></tr>
 <tr><td colspan="2">
-	Could your computing work be broken up into many separate, but complete 'pieces' that don't rely on one another? If so, how many pieces can this computing work be broken into? <br>
-	<TEXTAREA name="BreakApart" rows="2" cols="120">
-	</TEXTAREA>
+	Could your computing work be broken up into many separate, but complete 'pieces' that don't rely on one another? If so, how many pieces can this computing work be broken into? <br />
+	<textarea name="BreakApart" rows="2" cols="120">
+	</textarea>
 </td></tr>
 <tr><td colspan="2">
-	Typical input and output size for each 'piece' (can be a range): <br>
-	<TEXTAREA name="WhyCHTC" rows="2" cols="120">
-	</TEXTAREA>
+	Typical input and output size for each 'piece' (can be a range): <br />
+	<textarea name="WhyCHTC" rows="2" cols="120">
+	</textarea>
 </td></tr>
 <tr><td colspan="2">
-	Typical RAM and number of CPU cores (or GPU model) you've used for each 'piece'? <br>
-	<TEXTAREA name="WhyCHTC" rows="2" cols="120">
-	</TEXTAREA>
+	Typical RAM and number of CPU cores (or GPU model) you've used for each 'piece'? <br />
+	<textarea name="WhyCHTC" rows="2" cols="120">
+	</textarea>
 </td></tr>
 <tr><td colspan="2">
-	How long does one piece run in your typical setup? <br>
-	<TEXTAREA name="WhyCHTC" rows="2" cols="120">
-	</TEXTAREA>
+	How long does one piece run in your typical setup? <br />
+	<textarea name="WhyCHTC" rows="2" cols="120">
+	</textarea>
 </td></tr>
 <tr><td colspan="2">
-	Is there anything else you'd like to share about your computing practices or methods? <br>
-	<TEXTAREA name="WhyCHTC" rows="3" cols="120">
-	</TEXTAREA>
+	Is there anything else you'd like to share about your computing practices or methods? <br />
+	<textarea name="WhyCHTC" rows="3" cols="120">
+	</textarea>
 </td></tr>
 <tr><td colspan="2">
 	Based upon information on our <a href="/approach.shtml">
-	Approach page</a>, is your computing work best described as 'high-throughput' computing, 'high-performance' computing, or both?<br>
+	Approach page</a>, is your computing work best described as 'high-throughput' computing, 'high-performance' computing, or both?<br />
 	<dl>
-	<dd><input type="radio" name="computingtype">High-throughput</input></dd>
-	<dd><input type="radio" name="computingtype">High-performance</input></dd>
-	<dd><input type="radio" name="computingtype">Both</input></dd>
-	<dd><input type="radio" name="computingtype">I'm not sure</input></dd>
+	<dd><input type="radio" name="computingtype" />High-throughput&lt;/input&gt;</dd>
+	<dd><input type="radio" name="computingtype" />High-performance&lt;/input&gt;</dd>
+	<dd><input type="radio" name="computingtype" />Both&lt;/input&gt;</dd>
+	<dd><input type="radio" name="computingtype" />I'm not sure&lt;/input&gt;</dd>
 	</dl>
 	</td></tr>
 </table>
 
-</br>
+&lt;/br&gt;
 
 <table>
 <tr>
 <td align="center">
 
-<INPUT type="hidden" name="captcha" value="">
+<input type="hidden" name="captcha" value="" />
 <div id="captcha_div"></div>
 
 </td>
 </tr>
 <tr>
 <td align="center" colspan="2">
-<INPUT type="submit" value="SUBMIT">
+<input type="submit" value="SUBMIT" />
 </td>
 </tr>
 </table>

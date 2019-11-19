@@ -143,7 +143,7 @@ the vi text editor, using its "binary" mode:
  <pre class="term">[alice@submit]$ vi -b hello-chtc.sh</pre>
 (Replace <code>hello-chtc.sh</code> with the name of your script.)  
 If you see <code>^M</code> characters at the end of each line, those 
-are the DOS line endings and that's the problem.  <br>
+are the DOS line endings and that's the problem.  <br />
 (Type <code>:q</code> to quit vi)</p>
 
 <p>Luckily, there is an easy fix!  To convert the script to 
@@ -153,6 +153,7 @@ on the submit node and it will change the format for you.  If you
 release your held jobs (using <code>condor_release</code>) or 
 re-submit the jobs, you should no longer get the same error.  
 
+</p>
 
 
 

@@ -126,7 +126,7 @@ to a submit node. There are several options for getting access to a submit node:
 submit node that is shared by many researchers. This is a great way to get started
 quickly, and it is sufficient if you do not need to run tens of thousands of
 jobs with heavy data transfer requirements.
-<P>
+<p>
 <li><strong>Use your department's.</strong> Perhaps your department already 
 has its own submit node, in which case you can contact your local administrator for an
 account.  You will still need to provide all the info requested on the 
@@ -135,14 +135,14 @@ so we can set up things on our end.  The benefits of using a departmental or gro
 node are: access to data on local file systems; limited impact from other, potentially new users;
 and, greater scalability in the number of simultaneous jobs you can run, as well as the amount
 of data you can transfer.
-<P>
+<p>
 <li><strong>Set up a new submit node on a server.</strong> If you do not already have
 one and need access to data on local file systems, or if you believe that you will have
 a significant job and/or data volume, getting your own submit node is probably the best
 way to go. Here's an example system configuration that we've found works well for a
 variety of submit work loads. You can expect to spend around $4,000 - $5,000 for such a
 system.
-<P>
+<p>
 <strong>Typical submit node configuration</strong>
 <ul>
 <li>A 1U rack-mount enclosure, like a Dell PowerEdge 410.
@@ -151,8 +151,8 @@ system.
 <li>Two drives for the operating system. 500GB each is enough. You can use mirroring or a RAID
 configuration like RAID-6 for reliability.
 <li>Two or more 2-3TB drives for data, depending on your needs.
-</ul>
-<P>
+&lt;/ul&gt;
+<p>
 <li><strong>Use your desktop.</strong> Depending on your department's level of  system
 adminstration support, you may be able to have HTCondor installed on your desktop and configured
 to submit into our campus resources. Another option that is under development is
@@ -160,13 +160,14 @@ to submit into our campus resources. Another option that is under development is
 user-installable software package that lets you submit jobs into resources managed by HTCondor,
 PBS or SGE.
 </li>
-</ol>
+&lt;/ol&gt;
 <p>
 Still not sure what option is right for you? No worries. This is one of the topics we discuss
 in our initial consultation.  To schedule an initial consultation, fill out our
 <a href="get-started.shtml">getting started</a> form.
 </p>
 
+</p></li></li></li></li></li></ul></p></li></p></li></p></li></ol>
 
 
 

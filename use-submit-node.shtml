@@ -137,18 +137,18 @@ DoIT provides <a href="https://it.wisc.edu/services/wiscvpn/">information on usi
 transferring files, see our <a href="/connecting.shtml">Connecting to CHTC guide</a>.</p>
 
 <h2>Data Practices</h2>
-<strong>We do not back up data on CHTC submission points</strong>, and users
+<p><strong>We do not back up data on CHTC submission points</strong>, and users
  should treat CHTC compute systems as temporary storage locations for
  <i>active</i>, currently-queued computational work. Users should remove data from
  CHTC systems upon completion
  of a batch computational work and keep copies of all essential files in a non-CHTC
  location. CHTC staff reserve the right to delete data from any CHTC file systems at
  at any time, to preserve performance, and are not responsible for data loss for file
- system corruption, which are possible, especially in the absence of back-ups.
+ system corruption, which are possible, especially in the absence of back-ups.</p>
 <h2>Submit Server User Policies</h2>
-Because our submit servers are shared by many CHTC users, anyone with an
- account on CHTC's submit servers should follow the below policies, in order
- to keep the submit servers functional and usable by everyone:
+<p>Because our submit servers are shared by many CHTC users, anyone with an
+ account on CHTC’s submit servers should follow the below policies, in order
+ to keep the submit servers functional and usable by everyone:</p>
 <ul>
 <li><strong>Do not share accounts</strong>. We are happy to make new a new account for any user. Sharing accounts
  is against campus policy and, therefore, CHTC policy. Accounts that we notice being shared will be immediately disabled
@@ -163,7 +163,7 @@ Because our submit servers are shared by many CHTC users, anyone with an
 <li><strong>Jobs with long runtimes.</strong> There is a default run limit of 72 hours for each job 
 queued in the HTC System, once it starts running. Jobs longer than this will be placed in 
 HTCondor's "hold" state. If your jobs will be longer, please 
-<a href="mailto:chtc@cs.wisc.edu">email us</a>, and we'll help you to determine the best solution. </u>
+<a href="mailto:chtc@cs.wisc.edu">email us</a>, and we'll help you to determine the best solution. &lt;/u&gt;
 <li><strong>Submitting many jobs from one submit file.</strong> HTCondor is designed 
 to submit thousands of jobs from one submit file.  However, submitting too many 
 jobs at once provides no extra benefit to the submitter and can make the queue 
@@ -189,8 +189,9 @@ as possible without also compromising the queue.</li>
  schedule jobs, and do not submit jobs with a script that uses "sleep"
  or otherwise doesn't complete while you are logged in. Contact us
  if you need job scheduling.
-</ul>
-</p>
+&lt;/ul&gt;
+&lt;/p&gt;
+</li></li></li></li></li></li></ul>
 
 
 

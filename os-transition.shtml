@@ -133,8 +133,8 @@ build server.</p>
 
 <p>As of May 16, 2017, CHTC-managed submit servers automatically add a 
 requirement to jobs that requests the now-current operating system, 
-CentOS 7.  To override this default, see below: <a href="#request">Requesting a Specific Operating System</a>.</p> 
- 
+CentOS 7.  To override this default, see below: <a href="#request">Requesting a Specific Operating System</a>.</p>
+
 <p>Many jobs in our high throughput
 system that were compiled and run on our old operating system (Scientific Linux 6) 
 should be able to run effectively on the new operating systems (CentOS 7) without any issues. 
@@ -142,8 +142,8 @@ If you experience any issues with your jobs that you cannot diagnose,
 please let CHTC facilitators know 
 immediately by emailing chtc@cs.wisc.edu.</p>
 
-<a name="get-started"></a>
-<a name="request"></a>
+<p><a name="get-started"></a>
+<a name="request"></a></p>
 <h1>3. Requesting a Specific Operating System</h1>
 
 <p>If your job requires an older operating system, you can override the 
@@ -155,7 +155,7 @@ systems.</p>
 <li>To request that your jobs run on <i>both</i> Scientific Linux 6 and CentOS 7, 
 add the following requirements line to your submit file: 
 
-<pre class="sub">requirements = (OpSysMajorVer == 6) || (OpSysMajorVer == 7)</pre></p>
+<pre class="sub">requirements = (OpSysMajorVer == 6) || (OpSysMajorVer == 7)</pre>&lt;/p&gt;
 
 The advantage of this option is that you may be able to access a larger number 
 of computers in CHTC.  Note that code compiled on a newer version of Linux 
@@ -178,20 +178,21 @@ Facilitators: <a href="/get-help.shtml">contact us or stop by office hours</a>.
 </ul>
 
 <blockquote>
-<b>Combining Requirements</b></br>
+<b>Combining Requirements</b>&lt;/br&gt;
 
 <p>Does your job already have a requirements statement?  If so, you can 
 add the requirements above to the pre-existing requirements by using the 
-characters <code>&&</code>.  For example, if your jobs already require Gluster: 
+characters <code>&amp;&amp;</code>.  For example, if your jobs already require Gluster: 
 
 <pre class="submit">requirements = (Target.HasGluster == true) </pre>
 
 You can add the requirements for using Scientific Linux 6 like so: 
 
-<pre class="submit">requirements = (Target.HasGluster == true) && (OpSysMajorVer == 6)</pre>
+<pre class="submit">requirements = (Target.HasGluster == true) &amp;&amp; (OpSysMajorVer == 6)</pre>
 
-</blockquote>
+&lt;/blockquote&gt;
 
+</p></blockquote>
 
 
 

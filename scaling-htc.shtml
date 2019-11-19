@@ -132,7 +132,7 @@ and how to use them.</p>
     <li><a href="#submit">Submitting Jobs to Run Beyond CHTC</a></li>
 </ol>
 
-<a name="why"></a>
+<p><a name="why"></a></p>
 <h1>1. Why run on additional resources outside CHTC?</h1>
 
 <p>Running on other resources in addition to CHTC has one huge benefit: size!  
@@ -141,7 +141,7 @@ what's already available in CHTC.
 Most CHTC users who run on CHTC, the UW Grid, 
 and the OSG can get more than 100,000 computer hours (more than 11 years of computing!)
  in a single day.  Read on to learn more about these resources.  </p>
-<a name="uw"></a>
+<p><a name="uw"></a></p>
 <h2>A. The UW Grid</h2>
 
 <p>What we call the "UW Grid" is a collection of all the groups and centers 
@@ -152,7 +152,7 @@ submitted in CHTC can opt into running on these other campus pools if there
 is space.</p>
 
 <p>We call sending jobs to other pools on campus <i>flocking</i>.</p>
-<a name="osg"></a>
+<p><a name="osg"></a></p>
 <h2>B. The Open Science Grid (OSG)</h2>
 
 <p>The Open Science Grid (OSG) is a group of universities and research labs who have 
@@ -174,7 +174,7 @@ as they're basically whatever computers are not being used by other universities
 or labs or centers that belong to the OSG.</p>
 
 <p>However, there is a command to see what's available:</p>-->
-<a name="job"></a>
+<p><a name="job"></a></p>
 <h1>2. Job Qualifications</h1>
 
 <p>Not all jobs will run well outside of CHTC.  Because these jobs are running all over 
@@ -204,14 +204,14 @@ submit file: </p>
 <tr>
 <td>+WantFlocking = true</td>
 <td>
-Also send jobs to other HTCondor Pools on campus (UW Grid)<br>
+Also send jobs to other HTCondor Pools on campus (UW Grid)<br />
 Good for jobs that are less than ~8 hours, on average, or checkpointing jobs.
 </td>
 </tr>
 <tr>
 <td>+WantGlideIn = true</td>
 <td>
-Also send jobs to the Open Science Grid (OSG).<br>
+Also send jobs to the Open Science Grid (OSG).<br />
 Good for jobs that are less than ~8 hours, on average, or checkpointing jobs.
 </td>
 </tr>
@@ -226,7 +226,7 @@ know runs successfully on CHTC.  Then add the following options in the submit fi
  <pre class="sub">requirements = (Poolname =!= "CHTC")</pre>
 (If your submit file already has a <code>requirements = </code> line, you 
 can appending the <code>Poolname</code> requirement by using a double ampersand 
-(<code>&&</code>) and then the additional requirement.)  </li>
+(<code>&amp;&amp;</code>) and then the additional requirement.)  </li>
 
 <li><b>Troubleshooting:</b> If your jobs don't run successfully on the UW Grid or OSG, 
 please <a href="/get-help.shtml">get in touch with a research computing facilitator</a>.</li>
@@ -236,6 +236,7 @@ you are ready to submit a full batch of jobs that uses CHTC and the UW Grid/OSG.
 <b>REMOVE</b> the <code>Poolname</code> requirement from the test jobs but leave the 
 <code>+wantFlocking</code> and <code>+wantGlidein</code> lines.</li>
 </ol>
+</p></p>
 
 
 

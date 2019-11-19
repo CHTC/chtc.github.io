@@ -117,8 +117,8 @@ Click for details
 <h1>Using Licensed Software in CHTC</h1>
 
 
-This guide describes when and how to run jobs that use licensed software
-in CHTC's high throughput compute (HTC) system.  
+<p>This guide describes when and how to run jobs that use licensed software
+in CHTC’s high throughput compute (HTC) system.</p>
 
 <p><b>To best understand the below information, users should already have 
 an understanding of:</b>
@@ -154,10 +154,10 @@ need to do the following:
 </ol>
 </p>
 
-<a name="about"></a>
+<p><a name="about"></a></p>
 <h1>A. About Licensed Software in CHTC's High Throughput System</h1>
 
-<a name="policies"></a>
+<p><a name="policies"></a></p>
 <h2>1. What Are Our Licensed Software Policies?</h2>
 
 <p>Our typical practice for software support in CHTC is for users to 
@@ -281,6 +281,7 @@ queue
 <p>After the submit file is complete, you can 
 submit your jobs using <code>condor_submit</code>.  </p>
 
+</p>
 
 
 

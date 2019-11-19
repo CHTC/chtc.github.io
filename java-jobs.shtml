@@ -125,8 +125,8 @@ submit server:
 <ul>
 	<li><a href="#default">Run jobs in CHTC only, using the default Java version (1.7)</a></li>
 	<li><a href="#portable">Use a newer version of Java (1.8) and/or run jobs beyond 
-	CHTC (on the UW Grid or Open Science Grid) (recommended)<a></li>
-</ul>
+	CHTC (on the UW Grid or Open Science Grid) (recommended)<a>&lt;/li&gt;
+&lt;/ul&gt;
 
 <p>You should only use *one* of these options to run Java code, not both.</p>
 
@@ -166,6 +166,7 @@ export JAVA_HOME=$(pwd)/jdk-8u121-linux-x64
 java -jar <i>program.jar</i></pre>
 As in Step 2 above, the final line will vary, depending on your program.  </li>
 
+</li></ol></a></a></li></ul></p>
 
 
 

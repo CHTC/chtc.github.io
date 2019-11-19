@@ -122,9 +122,8 @@ Click for details
 <p>CHTC maintains a SQUID web proxy from which pre-staged input files 
 and executables can be downloaded into jobs using CHTC's proxy HTTP address.</p>
 
-
 <h2>Which Option is the Best for Your Files?</h2>
-<br>
+<p><br /></p>
 <table class="gtable">
 <tr>
 	<th> </th>	
@@ -139,7 +138,7 @@ and executables can be downloaded into jobs using CHTC's proxy HTTP address.</p>
 <tr>
 	<td><a href="file-availability.shtml">HTCondor file transfer</a></td>		
 	<td>basic file delivery and return; see size limits at right</td>
-	<td>0 - 100 MB per file; <500 MB total per job</td>
+	<td>0 - 100 MB per file; &lt;500 MB total per job</td>
 	<td>0 - 4 GB total	</td>
 	<td>in CHTC, UW Grid, and OSG</td>
 	<td>available to <i>your</i> jobs, on CHTC and beyond</td>
@@ -183,7 +182,6 @@ desired output directories prior to their transfer/delivery.</li>
 </ul>
 -->
 
-
 <p><h2>Contents</h2>
 <ol>
   <li><a href="#Appli">Applicability</a></li> 
@@ -192,8 +190,8 @@ desired output directories prior to their transfer/delivery.</li>
 	<li><a href="#request">Request a directory in SQUID</a>
 	<li><a href="#place">Place files within your home directory</a>
 	<li><a href="#have">Have HTCondor download the file to the working job</a>
-		</ul></li> 
-</ol>
+		&lt;/ul&gt;</li> 
+&lt;/ol&gt;
 
 
 <a name="Appli"></a>
@@ -240,8 +238,7 @@ jobs running anywhere, because the files are world-readable.</dd>
 of the user directory within <code>/squid</code>, but will end up being world-readable on the 
 SQUID web proxy in order to be readily downloadable by jobs (with the proper 
 HTTP address); thus, large files that should be "private" should not be placed 
-in your user directory in <code>/squid</code>, and should instead use CHTC's <a 
-href="file-avail-gluster">Gluster</a> location for large-file staging.</dd>
+in your user directory in <code>/squid</code>, and should instead use CHTC's <a href="file-avail-gluster">Gluster</a> location for large-file staging.</dd>
 </dl>
 
 <a name="use"></a>
@@ -256,7 +253,7 @@ href="file-avail-gluster">Gluster</a> location for large-file staging.</dd>
 	<a name="place"></a>
 	<li> <b>Place files within your <code>/squid/username</code> directory</b> via a CHTC transfer server (if 
 	from your laptop/desktop) or on the submit server.
-</br></br>
+&lt;/br&gt;&lt;/br&gt;
 	From your laptop/desktop:
 	<pre class="term">[username@computer]$ scp <i>large_file.tar.gz</i> <i>username</i>@transfer.chtc.wisc.edu:/squid/<i>username</i>/</pre>
 	 
@@ -272,13 +269,13 @@ href="file-avail-gluster">Gluster</a> location for large-file staging.</dd>
 	<a name="have"></a>
 	<li><b>Have HTCondor download the file to the working job</b> using 
 	the <code>http://proxy.chtc.wisc.edu/SQUID</code> address in the
-	transfer_input_files line of your submit file: <br>
+	transfer_input_files line of your submit file: <br />
 
 	<pre class="sub">transfer_input_files = <i>other_file1</i>,<i>other_file2</i>,http://proxy.chtc.wisc.edu/SQUID/<i>username</i>/lg_file.txt</pre>
 	<b>Important:</b>Make sure to replace "username" with your username in the above address.
 	 All other files should be staged
-	before job submission.<br>
-	<br>
+	before job submission.<br />
+	<br />
 	If your large file is a <code>.tar.gz</code> file that untars to 
 	include other <i>files</i>, remember to remove such files before the end 
 	of the job; otherwise, HTCondor will think that such files are new
@@ -287,6 +284,7 @@ href="file-avail-gluster">Gluster</a> location for large-file staging.</dd>
 	</li>
 
 </ol>
+</li></li></ul></li></ol></p>
 
 
 

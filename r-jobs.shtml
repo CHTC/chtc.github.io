@@ -128,8 +128,7 @@ should already have an understanding of:</b>
 	to Running HTCondor Jobs</a></li>
 </ul>
 
-Overview
---------
+<h2 id="overview">Overview</h2>
 
 <p>CHTC provides several copies of R that can be used to run R 
 code in jobs. See our list of supported versions here: <a href="#supported">CHTC Supported R</a></p>
@@ -149,10 +148,10 @@ code in jobs. See our list of supported versions here: <a href="#supported">CHTC
 </ul>
 </p>
 
-<a name="supported"></a>
+<p><a name="supported"></a></p>
 <h1>Supported R Installations</h1>
 
-<br>
+<p><br /></p>
 
 <table class="gtable">
 <tr>
@@ -165,7 +164,7 @@ code in jobs. See our list of supported versions here: <a href="#supported">CHTC
 
 </table>
 
-<a name="build"></a>
+<p><a name="build"></a></p>
 <h1>1. Adding R Packages</h1>
 
 <p>If your code uses specific R packages (like <code>dplyr</code>, 
@@ -182,7 +181,7 @@ install of R; if you want to add packages to a pre-existing package folder, ther
 will be notes below in boxes like this one. 
 </blockquote>
 
-<a name="version"></a>
+<p><a name="version"></a></p>
 <h2>A. Submit an Interactive Job</h2>
 
 <p>Create the following special submit file on the submit server, calling it 
@@ -198,7 +197,7 @@ log = interactive.log
 transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/R<i>###</i>.tar.gz
 
 +IsBuildJob = true
-requirements = (OpSysMajorVer =?= 7) && ( IsBuildSlot == true )
+requirements = (OpSysMajorVer =?= 7) &amp;&amp; ( IsBuildSlot == true )
 request_cpus = 1
 request_memory = 2GB
 request_disk = 2GB
@@ -225,7 +224,7 @@ running the following command: </p>
 
 <h2>B. Install the Packages</h2>
 
-<b>1. Set up R</b></br>
+<p><b>1. Set up R</b>&lt;/br&gt;</p>
 
 <p>Once the interactive build job starts, 
 you should see the R installation that you specified inside the working 
@@ -236,7 +235,7 @@ directory:
 drwx------ 2 alice alice 4.0K Mar 26 12:24 tmp
 drwx------ 3 alice alice 4.0K Mar 26 12:24 var
 </pre>
-</p> 
+</p>
 
 <p>We'll now unzip the copy of R and set the <code>PATH</code> 
 variable to reference that version of R:
@@ -258,7 +257,7 @@ If you brought along your own package directory, un-tar it here and skip
 the directory creation step below. 
 </blockquote>
 
-<b>2. Install packages</b></br>
+<p><b>2. Install packages</b>&lt;/br&gt;</p>
 
 <p> First, create, a directory to put your packages into: 
 <pre class="term">
@@ -283,7 +282,7 @@ descriptive name than "packages".
 In the R terminal, first, set the package installation location, and then install your 
 packages using <code>install.packages</code>.
 <pre class="term">
-> install.packages("<i>package_name</i>")
+&gt; install.packages("<i>package_name</i>")
 </pre>
 </p>
 
@@ -292,12 +291,12 @@ R is downloading the package. Choose any <code>http</code> (not <code>https</cod
 
 <p>When you've installed all your packages, exit the R console: 
 <pre class="term">
-> quit()</pre>
+&gt; quit()</pre>
 </p>
 
 <h2>C. Finish Up</h2>
 
-<b>1. Create a <code>tar.gz</code> file of your packages</b></br>
+<b>1. Create a <code>tar.gz</code> file of your packages</b>&lt;/br&gt;
 
 <p>Right now, if we exit the interactive job, nothing will be transferred back 
 because we haven't created any new <b>files</b> in the working directory, just 
@@ -311,7 +310,7 @@ a single, compressed tarball file than an uncompressed set of directories.</p>
 
 Again, you can use a different name for the <code>tar.gz</code> file, if you want.</p>
 
-<b>2. Finish the interactive build job</b></br>
+<b>2. Finish the interactive build job</b>&lt;/br&gt;
 
 <p>We now have our packages bundled and ready for CHTC!  
 You can now exit the interactive job and the 
@@ -409,6 +408,7 @@ on <code>squid</code>, email the research computing facilitators at
 <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.  
 </p>
 </blockquote>
+</p>
 
 
 

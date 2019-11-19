@@ -117,7 +117,7 @@ Click for details
 <h1>Submitting Multiple Jobs Using HTCondor</h1>
 
 
-<b>To best understand the below information, users should already have an understanding of:</b>
+<p><b>To best understand the below information, users should already have an understanding of:</b></p>
 <ol>
 <li>Using the command line to: navigate within directories, create/copy/move/delete files and directories, and run their intended programs (aka "executables").</li>
 <!-- coming soon <li>The CHTC’s Roadmap for High Throughput Computing</li> -->
@@ -126,12 +126,12 @@ Click for details
  out of the below examples for simplicity:
 <pre class="sub">
 universe = vanilla    # or other
-request_memory = <i>< MB ></i>
-request_disk = <i>< KB ></i>
-request_cpus = <i>< positive integer ></i>
+request_memory = <i>&lt; MB &gt;</i>
+request_disk = <i>&lt; KB &gt;</i>
+request_cpus = <i>&lt; positive integer &gt;</i>
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT    # or other
-</ol>  
+&lt;/ol&gt;  
 
 <!-- Submitting Many Jobs with a Single Submit File -->
 
@@ -221,7 +221,7 @@ look like this: </p>
 0.data  0.out  1.data  1.out  2.data  2.out  my_exec  reference.data
 </pre>
 
-</br>
+&lt;/br&gt;
 
 <blockquote>
 <h3>Starting at One</h3>
@@ -236,7 +236,7 @@ normally used <code>$(Process)</code>.  </p>
 
 <p>Note that there is nothing special about the names <code>plusone</code> and 
 <code>NewProcess</code> - you can use any names you want as variables.  
-</blockquote>
+&lt;/blockquote&gt;
 
 <a name="foreach"></a>
 <h1>2. Submitting Multiple Jobs Using Unique Input Files</h1>
@@ -295,21 +295,21 @@ compare_states  iowa.data.out  missouri.data.out   wisconsin.data
 iowa.data       missouri.data  united-states.data  wisconsin.data.out
 </pre>
 
-</br>
+&lt;/br&gt;
 
 <blockquote>
-<b>Tips for creating a list</b> </br> 
+<b>Tips for creating a list</b> &lt;/br&gt; 
 <p>If you want a quick way to create a list of 
 files like "state_list.txt", use the shell command <code>ls</code> and the 
 greater-than symbol <code>&gt;</code> to list your files and then save
 them.  For example: 
-<pre class="term">[alice@submit]$ ls *.data > my_files.txt</pre>
+<pre class="term">[alice@submit]$ ls *.data &gt; my_files.txt</pre>
 Will list all files that end with the ".data" extension and save them to a 
 file called "my_files.txt".</p>
 </blockquote>
 
 <blockquote>
-<b>Naming Variables</b> </br> 
+<b>Naming Variables</b> &lt;/br&gt; 
 
 <p>You can use any names you like in the "queue ... from" statement: 
 <pre class="sub">
@@ -330,7 +330,7 @@ in the list to create its own job. In the examples below, we are assuming the
 same program and files as above.  </p>
 
 <a name="matching"></a>
-<b>a. Create jobs "matching" a file pattern</b><br>
+<b>a. Create jobs "matching" a file pattern</b><br />
 
 <p>This method of submission creates a job for each file or directory that 
 matches the pattern provided in your submit file.  </p>
@@ -349,7 +349,7 @@ queue state matching *.data
 with the "data" suffix.  </p>
 
 <a name="in"></a>
-<b>b. Create jobs from a list written into the submit file</b></br> 
+<b>b. Create jobs from a list written into the submit file</b>&lt;/br&gt; 
 
 <p>In this final example, the list of desired items is written directly into the submit
 file using the syntax "queue ... in ( ... )"</p>
@@ -517,6 +517,7 @@ input.data  job.out
 [alice@submit]$ ls -F iowa/
 input.data  job.out
 </pre>
+</p></blockquote></pre></li></ol>
 
 
 

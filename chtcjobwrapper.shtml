@@ -172,7 +172,6 @@ where <code>jobwrapper.submit</code> is substituted
 with the name of the submit description file.
 </p>
 
-
 <h3>Example Submit Description File</h3>
 
 <p class="underconstruction">This section is under construction</p>
@@ -231,7 +230,6 @@ notification = never
 
 queue
 </pre>
-
 
 <h3>chtcjobwrapper details</h3>
 
@@ -294,15 +292,15 @@ Required. This command allows changing the environment for the different types o
 
 <ul>
 <li><code>--type=Matlab</code>
-<br>For MATLAB jobs. <code>chtcjobwrapper</code> will fetch and set up a MATLAB runtime environment for your job.
+<br />For MATLAB jobs. <code>chtcjobwrapper</code> will fetch and set up a MATLAB runtime environment for your job.
 </li>
 
 <li><code>--type=R</code>
-<br>For R jobs. <code>chtcjobwrapper</code> will fetch and set up an R runtime environment for your job.
+<br />For R jobs. <code>chtcjobwrapper</code> will fetch and set up an R runtime environment for your job.
 </li>
 
 <li><code>--type=Other</code>
-<br>For jobs that are neither MATLAB or R.
+<br />For jobs that are neither MATLAB or R.
 <code>chtcjobwrapper</code> will set up a basic environment for your job.
 Python jobs are use the Other type.
 Note: the capital O in Other is mandatory.
@@ -318,24 +316,24 @@ Required. The executable invoked by the <code>chtcjobwrapper</code> script.
 
 <ul>
 <li><code>--cmdtorun=compiledmatlabprogram</code>
-<br>For Matlab jobs, this is your compiled Matlab program.
+<br />For Matlab jobs, this is your compiled Matlab program.
 <a href="http://chtc.cs.wisc.edu/MATLABandR.shtml">Documentation on
 compiling your Matlab program is available here.</a>
 </li>
 
 <li><code>--cmdtorun=myRentryscript.R</code>
-<br>For R jobs,  
+<br />For R jobs,  
 this will be your entry script which may call
 other R files.
 </li>
 
 <li><code>--cmdtorun=myPythonscript</code>
-<br>For Python jobs,  
+<br />For Python jobs,  
 this will be your entry script which may call
 other Python files.
-<br>
+<br />
 The entry script <em>must</em> start with this line:
-<br>
+<br />
 <code>#!./python273/bin/python</code>
 </li>
 </ul>
@@ -425,7 +423,7 @@ If your postscript needs arguments, they will be given in
 the order in which you use --postarg.
 <pre>--postscript=mypostscript --postarg=1 --postarg=2 --postarg=3</pre>
 
-</div><!-- arguments -->
+&lt;/div&gt;<!-- arguments -->
 
 <h4>Special Files</h4>
 
@@ -499,7 +497,7 @@ Sometimes we want to do either a number of short jobs
 on an execute node or perhaps three different processing steps.
 We can explicitly place a program to run and its arguments
 on each line. This works for each <code>--type</code>.
-</ul>
+&lt;/ul&gt;
 As with URLS and REMOVE, multiple lines can be used to run 
 multiple programs.
 </p>
@@ -521,13 +519,13 @@ your jobs run on an execute node. The syntax is like this:
 the execute node via a full path from / on the execute node.
 <li>
 <b>ENVVAR2,ENV-settothis</b>: This sets the variable exacly as set
-</ul>
+&lt;/ul&gt;
 If you set the environment variable <b>PATH</b>, this new path will be added
 at the beginning of your default path on the execute node.
 
 
 A good example is Python. Below is the ENV file we use for our Python runtime:
-</p>
+&lt;/p&gt;
 <pre>
 PYTHONHOME,DIR-python273
 PYTHONPATH,DIR-python273
@@ -560,6 +558,7 @@ of our Python runtime.
 <p>
 You will have to add this file to the transfer_input_files list.
 </p>
+</li></li></ul></p></p></p></p></p></p></div></p></p></p></p></p></p></p></p></p></p></p></p></p></div>
 
 
 

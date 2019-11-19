@@ -117,10 +117,10 @@ Click for details
 <h1>Learning About Your Jobs Using condor_q</h1>
 
 
-The <code>condor_q</code> command can be used for much more than 
+<p>The <code>condor_q</code> command can be used for much more than 
 just checking on whether your jobs are running or not!  Read on 
 to learn how you can use <code>condor_q</code> to answer many 
-common questions about running jobs.  
+common questions about running jobs.</p>
 
 <ol>
 <li><a href="#default">Default <code>condor_q</code> output, in "batches"</a></li>
@@ -137,7 +137,7 @@ common questions about running jobs.
 
 <h1>Summary</h1>
 
-<ul><li><code>condor_q</code>: Show my jobs that have been submitted on this server.<br>
+<ul><li><code>condor_q</code>: Show my jobs that have been submitted on this server.<br />
 Useful options:
   <ul>
     <li><code>-nobatch</code>: Starting in version HTCondor 8.6.0 installed in 
@@ -148,15 +148,15 @@ Useful options:
     that. Held jobs are those that got an error so they could not finish. An action 
     from the user is expected to solve the problem.</li>
     <li><code>-better-analyze JobId</code>: -better-analyze <job_id>: Analyse a 
-    specific job and show the reason why it is in its current state. </li>
+    specific job and show the reason why it is in its current state. &lt;/li&gt;
     <li><code>-run</code>: Show your running jobs and related info, like how much time 
     they have been running, in which machine, etc.</li>
     <li><code>-dag</code>: Organize condor_q output by DAG.
     <li><code>-long JobId</code>: Show all information related to that job.</li>
     <li><code>-af Attr1 Attr2 ...</code>: List specific attributes of jobs, using autoformat.</li>
-  </ul>
+  &lt;/ul&gt;
 </li>
-</ul>
+&lt;/ul&gt;
 
 <h1>Examples and Further Explanation</h1>
 
@@ -394,11 +394,12 @@ printing out the <code>HoldReason</code> attribute. Try running:
 
 You should see something very similar to running <code>condor_q -hold</code>!</p>
 
-<hr>
+<hr />
 <p>This page takes some of its content and formatting 
 from <a href="http://vivaldi.ll.iac.es/sieinvens/siepedia/pmwiki.php?n=HOWTOs.CondorUsefulCommands">this 
 HTCondor reference page</a>.</p>
 
+</job_id></li></ul></li></ul>
 
 
 

@@ -149,7 +149,7 @@ the section on <a href="#random">ensuring randomness</a> below.</p>
 <a name="supported"></a>
 <h1>Supported Versions of Matlab</h1>
 
-<br>
+<br />
 
 <table class="gtable">
 <tr>
@@ -197,7 +197,7 @@ log = interactive.log
 transfer_input_files = <i>script</i>.m, <i>functions</i>.tar.gz
 
 +IsBuildJob = true
-requirements = (OpSysMajorVer =?= 7) && ( IsBuildSlot == true )
+requirements = (OpSysMajorVer =?= 7) &amp;&amp; ( IsBuildSlot == true )
 request_cpus = 1
 request_memory = 2GB
 request_disk = 2GB
@@ -242,7 +242,7 @@ Once the module is loaded, run the compilation command:
 </p>
 
 <blockquote>
-<b>Compilation Options</b></br>
+<b>Compilation Options</b>&lt;/br&gt;
 
 <p>There are other options for the <code>mcc</code> Matlab compiler 
 that might be necessary for specific 
@@ -329,7 +329,7 @@ see our "hello world" example: <a href="/helloworld.shtml">http://chtc.cs.wisc.e
 In what follows, replace our example <code>script</code> and <code>run_script.sh</code> 
 with the name of your binary and scripts.  </p>
 <ol>
-	<li>Use <code>run_script.sh</code> as the executable: <br>
+	<li>Use <code>run_script.sh</code> as the executable: <br />
 		<pre class="sub">executable = run_script.sh</pre>
 		</li>
     <li>In order for your Matlab code to run, you will need to use 
@@ -355,9 +355,9 @@ well as your compiled binary and any necessary input files:
 	<tr><td><code>r2015b.tar.gz</code></td> <td><code>v90</code></td></tr>
 	<tr><td><code>r2018b.tar.gz</code></td> <td><code>v95</code></td></tr>
 	</table>
-	<br>
+	<br />
 	So to run a Matlab job using <code>r2015b</code> and no additional arguments, the 
-	arguments line should read: <br>
+	arguments line should read: <br />
 		<pre class="sub">arguments = v90</pre>
 	If you <i>are</i> passing additional arguments to the script, they can 
 	go after the first "runtime" argument: 
@@ -396,6 +396,7 @@ results.</p>
 For older version of this guide, see out <a href="archived/matlab-jobs.shtml">archived page</a>.
 </blockquote>
 
+</p>
 
 
 

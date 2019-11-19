@@ -117,7 +117,7 @@ Click for details
 <h1>About Our Approach</h1>
 
 
-<P>
+<p>
 CHTC supports a variety of computation modes, but our specialty is
  High <i>Throughput</i> Computing (HTC), which involves
  breaking up a single large computational task into many smaller tasks for
@@ -128,20 +128,20 @@ To this end, we support thousands of multi-core computers and use task
  scheduling software called HTCondor, developed right here in Madison, to run thousands of
 independent jobs on as many total processors as possible that can all be shared between groups of users.
 These computers, or "machines", are distributed across several collections that we call <i>pools</i> (similar to "clusters"). 
-</br></br>
+&lt;/br&gt;&lt;/br&gt;
 The diagram below shows some of the largest pools on campus and also shows
  our connection to the US-wide Open Science Grid where UW computing work
  can "backfill" available computers all over the country. The number under
  each resource name shows an approximate number of computing hours available to campus researchers for a typical week in Fall 2013. As demonstrated in the diagram, 
 we help users to submit their work not only to our CHTC-owned machines, but to improve their throughput even further by seamlessly accessing 
 as many available computers as possible, all over campus <i>AND</i> all over the country.
-</br></br>
+&lt;/br&gt;&lt;/br&gt;
 The vast majority of the computational work that campus researcher have is HTC, though we
  are happy to support researchers with a variety of beyond-the-desktop needs, including
  tightly-coupled computations (e.g. MPI) and high-memory work (e.g. metagenomics), as well
  as specialized hardware like GPUs.
-<P>
-<img src="/includes/chtc-pools.png" height="440" width="513" style = "float:right; margin:20px; margin-right:0;"/>
+<p>
+<img src="/includes/chtc-pools.png" height="440" width="513" style="float:right; margin:20px; margin-right:0;" />
 <p>
 <b>What kinds of applications run best in the CHTC?</b>
 <p>
@@ -160,7 +160,8 @@ While you may be excited at the prospect of harnessing 100,000 compute hours a d
 thing we offer is, well, us.  We have a small, yet dedicated team of professionals who eat, breathe and sleep distributed computing.
 Simply <a href="get-started.shtml">request an account</a>, and one of our dedicated Research Computing Facilitators will follow 
 up to provide specific recommendations to accelerate YOUR science.
-<P>
+<p>
+</p></p></p></p></p></p>
 
 
 

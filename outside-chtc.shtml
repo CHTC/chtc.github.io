@@ -214,7 +214,7 @@ export LD_LIBRARY_PATH=$(pwd)/SS:$LD_LIBRARY_PATH
 you are planning to use both. 
 If your submit file already has a <code>requirements = </code> line, you 
 can appending the <code>Poolname</code> requirement by using a double ampersand 
-(<code>&&</code>) and then the additional requirement</p>
+(<code>&amp;&amp;</code>) and then the additional requirement</p>
 
 <p>Set the job submission to run anywhere from 10 - 100 jobs, and then submit.</p>
 
@@ -232,6 +232,7 @@ you are ready to submit a full batch of jobs that uses CHTC and the UW Grid/OSG.
   <li><b>REMOVE</b> the <code>Poolname</code> requirement from the test jobs.</li>
 </ol>
 
+</p></p>
 
 
 

@@ -117,8 +117,8 @@ Click for details
 <h1>Running MPI Jobs in CHTC</h1>
 
 
-This guide describes when and how to run multi-core jobs, programmed 
-with MPI, in CHTC's high throughput compute (HTC) system.  
+<p>This guide describes when and how to run multi-core jobs, programmed 
+with MPI, in CHTC’s high throughput compute (HTC) system.</p>
 
 <p><b>To best understand the below information, users should already have 
 an understanding of:</b>
@@ -162,7 +162,7 @@ on <a href="#gluster">Using Gluster for software</a>, below for more details.
 Otherwise, all software and input files less than 100 MB should use 
 HTCondor's "transfer_input_files" feature in the submit file.</p>
 
-<a name="require"></a>
+<p><a name="require"></a></p>
 <h1>A. Requirements and Use Cases</h1>
 
 <p>Most jobs on CHTC's HTC system are 
@@ -201,7 +201,7 @@ to compile the program).
 </p>
 
 <p><b>Instructions for submitting an interactive build/compile job</b> are here: 
-<a href="http://chtc.cs.wisc.edu/inter-submit.shtml">http://chtc.cs.wisc.edu/inter-submit.shtml</a> <br>
+<a href="http://chtc.cs.wisc.edu/inter-submit.shtml">http://chtc.cs.wisc.edu/inter-submit.shtml</a> <br />
 The only line in the submit file that you need to change is <code>transfer_input_files</code> 
 to reflect all the source files on which your program depends.  
 </p>
@@ -340,6 +340,7 @@ available via our modules.  If this is the case, send an email to <a href="chtc@
 to find out if we can install that library into the module system.
 </p>
 
+</p></p>
 
 
 

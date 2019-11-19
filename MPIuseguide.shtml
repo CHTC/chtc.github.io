@@ -127,14 +127,14 @@ Click for details
 <p>
 This page describes how to use the MPI libraries installed on the HPC cluster.
 </p>
-<a name="overview"></a>
+<p><a name="overview"></a></p>
 <h1>1. Overview of Installed MPI Libraries</h1>
 <p>
 There are multiple MPI libraries installed on the cluster, many compiled in 
 at least two ways (see below). The SLURM scheduler also has integrated libraries for 
 most MPI versions, which you can read about 
 <a href="https://computing.llnl.gov/linux/slurm/mpi_guide.html">here</a>.
-</br></br>
+&lt;/br&gt;&lt;/br&gt;
 There are ten different MPI libraries installed:
 </p>
 <ul>
@@ -169,8 +169,7 @@ compiler used to build MPI can be seen in the names of our software modules
 </ul>
 </p>
 
-
-<a name="lib"></a>
+<p><a name="lib"></a></p>
 <h1>2. Using the MPI Libraries to Compile Your Code</h1>
 <p>
 In order to successfully compile and run your code using these MPI libraries you need to set a few environmental variables. To set these variables you will be using the Environmental Modules package (<a href="http://modules.sourceforge.net">http://modules.sourceforge.net</a>). This package is very easy to use and it will automatically set the environmental variables necessary to use the flavor and version of MPI that you need.
@@ -217,7 +216,7 @@ If you loaded the wrong module, let's say MPICH compiled with Intel compilers, y
 <strong>NOTE:</strong> Before using any of the MPI libraries under <tt> mpi/intel/</tt> you first need to load the <tt>compile/intel</tt> module.
 </p>
 
-<a name="run"></a>
+<p><a name="run"></a></p>
 <h1>3. Running Your Job</h1>
 <p>
 <strong>NOTE:</strong> To run your job you need the same module loaded as 

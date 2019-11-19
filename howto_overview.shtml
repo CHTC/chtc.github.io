@@ -117,9 +117,7 @@ Click for details
 <h1>CHTC Tools for Matlab, R, and Python Portability</h1>
 
 
- <link rel = "stylesheet"
-   type = "text/css"
-   href = "bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="bootstrap.css" />
 
 <p>
 Software like Matlab, R, and Python may or may not exist on CHTC-accessible
@@ -127,12 +125,12 @@ Software like Matlab, R, and Python may or may not exist on CHTC-accessible
  it is installed, it may not be the version you need. So, in order to get
  your jobs running on as many computers as possible, we are happy to work with
  you to create scripts that will bring  along your R, Matlab, or Python dependencies (like libraries and modules).
-</br></br>
+&lt;/br&gt;&lt;/br&gt;
 
 
 <div class="card-deck">
 	<div class="card text-center text-white bg-danger mb-3" style="width: 18rem;">
-	  <img src="/images/Matlab_Logo.png" class="card-img-top" alt="...">
+	  <img src="/images/Matlab_Logo.png" class="card-img-top" alt="..." />
 	  <div class="card-body">
 <!--
 		<h5 class="card-title">Running Matlab Jobs</h5>
@@ -143,7 +141,7 @@ Software like Matlab, R, and Python may or may not exist on CHTC-accessible
 	  </div>
 	</div>
 	<div class="card text-center text-white bg-danger mb-3" style="width: 18rem;">
-	  <img src="/images/Python_Logo.png" class="card-img-top" alt="...">
+	  <img src="/images/Python_Logo.png" class="card-img-top" alt="..." />
 	  <div class="card-body">
 <!--
 		<h5 class="card-title">Running Python Jobs</h5>
@@ -153,7 +151,7 @@ Software like Matlab, R, and Python may or may not exist on CHTC-accessible
 	  </div>
 	</div>
 	<div class="card text-center text-white bg-danger mb-3" style="width: 18rem;">
-	  <img src="/images/R_Logo.png" class="card-img-top" alt="...">
+	  <img src="/images/R_Logo.png" class="card-img-top" alt="..." />
 	  <div class="card-body">
 <!--
 		<h5 class="card-title">Running R Jobs</h5>
@@ -183,6 +181,7 @@ Software like Matlab, R, and Python may or may not exist on CHTC-accessible
 </p>
 
 
+</p>
 
 
 

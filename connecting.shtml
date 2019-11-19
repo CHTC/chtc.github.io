@@ -117,9 +117,9 @@ Click for details
 <h1>Connecting to CHTC</h1>
 
 
-This guide assumes that you have already gotten a CHTC account for either 
-our high throughput or high performance compute systems.  If you haven't, 
-see our <a href="/get-started.shtml">getting started</a> page.  
+<p>This guide assumes that you have already gotten a CHTC account for either 
+our high throughput or high performance compute systems.  If you haven’t, 
+see our <a href="/get-started.shtml">getting started</a> page.</p>
 
 <h1>Contents</h1>
 
@@ -141,19 +141,19 @@ see our <a href="/get-started.shtml">getting started</a> page.
   <li><a href="#learn">Learning about the command line</a></li>
 </ol>
 
-<a name="access"></a>
+<p><a name="access"></a></p>
 <h1>1. Accessing the Submit Servers</h1>
 
 <p>You will need the following information to log into our CHTC submit 
 servers or head nodes: </p>
 
-<b>Username and Password</b></br>
-    <ul>
-    	<li>UW Madison users: Wisconsin NetId and password</li>
-    	<li>Off-campus users: varies, by request</li>
-    </ul>
+<p><b>Username and Password</b>&lt;/br&gt;
+    &lt;ul&gt;
+    	&lt;li&gt;UW Madison users: Wisconsin NetId and password&lt;/li&gt;
+    	&lt;li&gt;Off-campus users: varies, by request&lt;/li&gt;
+    &lt;/ul&gt;</p>
 
-<b>Hostname</b></br>
+<p><b>Hostname</b>&lt;/br&gt;</p>
 
 <table class="gtable">
  <tr>
@@ -177,7 +177,7 @@ servers or head nodes: </p>
 </table>
 
 <blockquote>
-<b>Are you off-campus?</b> </br>
+<b>Are you off-campus?</b> &lt;/br&gt;
 All of our CHTC submit servers and head nodes are firewalled 
 to block log-ins from off-campus.  If you are off-campus and want to log in, 
 you can either:
@@ -190,8 +190,8 @@ In either case, it will appear like you are on-campus, and you should then be ab
 to log into CHTC as usual.  
 </blockquote>
 
-<a name="login"></a>
-<h1>2. Logging In</h2>
+<p><a name="login"></a></p>
+<h1>2. Logging In&lt;/h2&gt;
 
 <p>Using the information described above, you can log in to servers 
 two different ways -- from the command line or using an SSH program: </p>
@@ -213,7 +213,7 @@ We recommend "PuTTy", which can be downloaded <a href="https://www.chiark.greene
 log in, click on the PuTTy executable (<code>putty.exe</code>).  You should 
 see a screen like this: </p>
 
-<img src="/images/putty-7.jpeg">
+<img src="/images/putty-7.jpeg" />
 
 <p>Fill in the hostname as described in part 1.  You should use Port 22
  and connect using "ssh" -- these are usually the defaults.  After
@@ -238,7 +238,7 @@ this guide</a> for instructions on how to do this, starting at the section title
 <h1>3. Transferring Files</h1>
 
 <p>To transfer files to and from CHTC, you will need the same username 
-and hostname information for <a href=#login>logging in</a>, as well 
+and hostname information for &lt;a href=#login&gt;logging in&lt;/a&gt;, as well 
 as understanding where your files are and where you would like them to go.  </p>
 
 <a name="transfer-scp"></a>
@@ -248,7 +248,7 @@ as understanding where your files are and where you would like them to go.  </p>
 the <code>scp</code> command to copy files between your computer and 
 CHTC servers.</p>
 
-<b>Your computer to CHTC</b></br>
+<b>Your computer to CHTC</b>&lt;/br&gt;
 
 <p>First, open the "Terminal" application and navigate to the 
 directory with the files or directories you want to transfer.  Then, 
@@ -259,7 +259,7 @@ use this command to copy these files to CHTC: </p>
 <p>If you would like these files to end up in a different directory inside your 
 home directory, just add it to the path at the end of the command.  </p>
 
-<b>CHTC to your computer</b></br>
+<b>CHTC to your computer</b>&lt;/br&gt;
 
 <p>Open the "Terminal" application.  Do NOT log into CHTC.  Instead, 
 navigate to where you want the files to go on your computer.  Then, 
@@ -278,7 +278,7 @@ transfer files between their computers and CHTC.  For Windows, we
 recommend <a href="https://winscp.net/eng/download.php">WinSCP</a>.  It requires the same information as 
 Putty (hostname, username), and once it's set up, looks like this: </p>
 
-<img src="/images/WinSCPPortable.png">
+<img src="/images/WinSCPPortable.png" />
 
 <p>The left window is a directory on your computer, the right window is 
 your home directory in CHTC.  To move files between the two, simply drag and drop.  </p>
@@ -304,7 +304,7 @@ To untar or unzip files on the submit server or head nodes, you can use either:
 or
 <pre class="term">[alice@submit]$ unzip data_files.zip</pre>
 
-</blockquote>
+&lt;/blockquote&gt;
 
 <a name="files"></a>
 <h1>4. Creating and Editing Files in CHTC</h1>
@@ -356,6 +356,7 @@ Unix Shell</a> lesson.  In particular, we recommend the sections on: </p>
 <li>writing shell scripts (<a href="http://swcarpentry.github.io/shell-novice/06-script/">Shell Scripts</a>) </li>
 </ul>
 
+</h1>
 
 
 

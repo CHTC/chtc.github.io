@@ -146,14 +146,14 @@ the Open Science Grid.  </p>
   <li><a href="#osg">Using Tensorflow on the OSG</a></li>
 </ol>
 
-<a name="template"></a>
+<p><a name="template"></a></p>
 <h2>1. Basic Tensorflow Job Template</h2>
 
 <p>The submit file for jobs that use the Tensorflow singularity container 
 will look similar to other CHTC jobs, except for the additional Singularity 
 options seen below.</p>
 
-<b>Submit File</b></br>
+<p><b>Submit File</b>&lt;/br&gt;</p>
 
 <pre class="sub">
 # Typical submit file options
@@ -181,7 +181,7 @@ request_disk = <i>4GB</i>
 queue 1
 </pre>
 
-<b>Sample Executable (Wrapper Script)</b>
+<p><b>Sample Executable (Wrapper Script)</b></p>
 
 <p>Your job will be running inside a container that has Tensorflow installed, 
 so there should be no need to set any environment variables.  </p>
@@ -193,7 +193,7 @@ so there should be no need to set any environment variables.  </p>
 python <i>test.py</i>
 </pre>
 
-<a name="gpus"></a>
+<p><a name="gpus"></a></p>
 <h2>2. CPUs vs GPUs</h2>
 
 <p>The submit file above use a CPU-enabled version of Tensorflow.  In order 
@@ -205,14 +205,14 @@ to take advantage of GPUs, make the following changes to the submit file above: 
   <li>Change the Singularity image to tensorflow with GPUs: 
   <pre class="sub">+SingularityImage = "/cvmfs/singularity.opensciencegrid.org/opensciencegrid/tensorflow-gpu:latest"</pre></li>
   <li>Add a GPU card requirement to the requirements line: 
-  <pre class="sub">requirements = HAS_SINGULARITY == True && CUDACapability >= 3</pre></li>
+  <pre class="sub">requirements = HAS_SINGULARITY == True &amp;&amp; CUDACapability &gt;= 3</pre></li>
 </ul>
 
 <p>For more information about GPUs and how GPU jobs work in CHTC, see our 
 <a href="/gpu-jobs.shtml">GPU Jobs guide</a>. 
 
 <blockquote>
-<b>Limited GPU availablity in CHTC</b> <br>
+<b>Limited GPU availablity in CHTC</b> <br />
 This Singularity/Tensorflow functionality is not yet available on
 CHTC's newer GPUs with a sufficiently high CUDA Capability.  Therefore, 
 for now, the best way to use this Singularity/Tensorflow environment with GPUs is by 
@@ -232,6 +232,7 @@ or OSG, either as the CPU or GPU version.</p>
 <!-- and for GPUs on the OSG, 
 see the final section of <a href="/gpu-jobs.shtml">our GPU guide.</a>.-->
  </p>
+</p>
 
 
 

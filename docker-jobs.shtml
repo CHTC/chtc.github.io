@@ -141,7 +141,7 @@ for <a href="https://www.docker.com/what-docker">Docker</a> containers.</p>
 <li><a href="#submit">Make a few changes to your submit file</a></li>
 </ol>
 
-<a name="image"></a>
+<p><a name="image"></a></p>
 <h1>1. Getting a Docker Container Image</h1>
 
 <p>To run a Docker job, you will first need access to a Docker container image that 
@@ -150,7 +150,7 @@ There are two primary ways to do this.  <!--No matter where you get your image,
 we strongly recommend exploring it interactively on your own computer before using 
 it to submit a job:--> </p>
 
-<a name="dockerhub"></a>
+<p><a name="dockerhub"></a></p>
 <h2>A. Pre-existing Images</h2>
 
 <p>The easiest way to get a Docker container image for running a job 
@@ -170,12 +170,12 @@ on DockerHub and searching for the software you want to use.  </p>
 will be indicated by "tags".  <b>We recommend choosing a specific tag (or 
 tags) of the container to use in CHTC.</b></p>
 
-<a name="build"></a>
+<p><a name="build"></a></p>
 <h2>B. Build Your Own Image</h2>
 
 <p>You can also build your own Docker container image and upload it to DockerHub.  
 See the <a href="https://docs.docker.com/engine/getstarted/">Docker 
-documentation</a> for more information.</p>  
+documentation</a> for more information.</p>
 <!-- <p>You can also build your own Docker image and upload it to DockerHub.  
 See <a href="/docker-build.shtml">our guide for building Docker containers</a>, 
 which includes examples of building containers based on python and R.  You can 
@@ -187,7 +187,7 @@ documentation</a>.  -->
  new tag will ensure that newly-submitted jobs only get the new container (and/or that
  previously-submitted jobs will not suddenly get a new container).</p>
 
-<a name="submit"></a>
+<p><a name="submit"></a></p>
 <h1>2. Submit File Customization</h1>
 
 <p>Jobs that run inside a Docker container will be almost exactly the 
@@ -197,9 +197,9 @@ Docker container to use.  </p>
 
 <h2>A. Using a Docker Image</h2>
 
-Start with a usual CHTC submit file like the one shown in our 
+<p>Start with a usual CHTC submit file like the one shown in our 
 <a href="/helloworld.shtml">Hello World</a> guide.  Then, make the following
-two changes: 
+two changes:</p>
 <ol>
 <li>Change the universe from "vanilla" to "docker": 
 <pre class="sub">universe = docker</pre></li>
