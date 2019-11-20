@@ -143,8 +143,9 @@ submit server:
 <pre class="file">
 #!/bin/bash
 
-java -jar <i>program.jar</i></pre>
-&lt;/pre&gt;</li>
+java -jar <i>program.jar</i>
+</pre>
+</li>
 
 </ol>
 
