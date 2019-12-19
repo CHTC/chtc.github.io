@@ -1,0 +1,240 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<script type="text/javascript">
+
+  function resizeIframe(iframe) {
+    var newheight;
+    var newwidth;
+
+    if(document.getElementById){
+        newwidth=iframe.contentWindow.document.body.scrollWidth;
+        newheight=iframe.contentWindow.document.body.scrollHeight;
+    }
+
+    iframe.height= (newheight) + "px";
+    iframe.width= (newwidth) + "px";
+  }
+</script>
+<title>Running HTC Jobs Using Docker Containers</title>
+
+<link href="/web.css" rel="stylesheet" type="text/css">
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+   <td width="1%" align="left" class="bgred" valign="top">
+      <div align="center">
+      &nbsp;<br>
+      <a href="http://www.wisc.edu">
+
+      <img src="/images/uw-sm-red.png" width="125" height="46" border="0"> </a>
+       </div>
+
+	<ul class="sidebar">
+	<li><a href="/">CHTC Home</a></li>
+	
+	<li>About
+		<ul>
+		<li><a href="/approach.shtml">Our Approach</a></li>
+<!--comment		<li><a href="/resources.shtml">Our Resources</a></li>   -->
+		<li><a href="/projects.shtml">Our Customers</a></li>
+		<li><a href="/people.shtml">Our Staff</a></li>
+		<li><a href="/jobs.shtml">Our Open Positions</a></li>
+		</ul>
+	</li>
+	
+	<li>How To's
+		<ul>
+		<li><a href="/get-started.shtml">Get Started</a></li>
+		<li><a href="/get-help.shtml">Get Help</a></li>
+        	<li><a href="/guides.shtml">All User Guides</a></li>
+                <li><a href="/use-submit-node.shtml">Use an HTC Submit Server</a></li>
+		<li><a href="/helloworld.shtml">Run Your First HTC Jobs</a></li>
+		<li><a href="/howto_overview.shtml">HTC for MatLab, Python or R</a></li>
+		<li><a href="/HPCuseguide.shtml">Use the HPC Cluster</a></li>
+		<li><a href="/cite-chtc.shtml">Cite CHTC Resources</a></li>
+		</ul>
+	</li>
+	<li><a href="/user-news.shtml">User News</a></li>
+	<li>Other Resources
+		<ul>
+		<!--<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Pool Usage Reports</a></li>-->
+<!--comment		<li><a href="/opmetrics.shtml">Operational Metrics</a></li>  -->
+		<li><a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a></li>
+		<li><a href="http://www.neos-server.org/">NEOS Optimization Service</a></li>
+		<li><a href="http://www.opensciencegrid.org/">Open Science Grid</a></li>
+		<li><a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a></li>
+		</ul>
+	</li>
+	</ul>
+
+	</td>
+
+<td width="97%" valign="top"> 
+
+
+	<TABLE SUMMARY="Navigation layout" BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+<TR ALIGN="left"> 
+  <TD WIDTH="100%" height="400" Align="left" VALIGN="top"> 
+    <A  name="body"></a> 
+	<div id = "main">
+
+<!-- Top of Page Body -->
+<table BORDER="0" WIDTH="100%">
+<!-- <h1 align=left valign=center>The Center for High Throughput Computing</h1> -->
+
+	
+
+<div id="osg_power"> <span style="height: 20px">Powered by:</span><br /><a href="http://opensciencegrid.org"><img alt="Open Science Grid" src="/images/Open_Science_Grid_Consortium(Logo).jpg" width="123" height="70" /></a></div>
+
+	
+
+<div id="hours"> <span style="height: 20px">
+	<center><b>Follow us on social media:</b><a href="https://twitter.com/CHTC_UW"><img alt="Twitter" src="/images/twitter.png" width="70" height="70"></center></a></span></div>
+	
+	
+<div id="hours"> <span style="height: 20px">
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a href="http://chtc.cs.wisc.edu/get-help.shtml" style="color:white;">
+<b>Office Hours!</b>
+<br>
+Tues/Thurs, 3-4:30pm<br>
+Wed, 9:30-11:30am</br>
+Click for details
+</a></span></div>	
+
+
+	
+
+
+<div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
+
+<h1>Running HTC Jobs Using Docker Containers</h1>
+
+
+<p>Linux containers are a way to build a self-contained environment that includes 
+software, libraries, and other tools.  This 
+guide shows how to submit jobs that use Docker containers.  </p>
+
+<h1>Overview</h1>
+
+<p>Typically, software in CHTC jobs is installed or compiled locally by 
+individual users and then brought along to each job, either using the 
+default file transfer or our SQUID web server.  However, another option 
+is to use a <i>container</i> system, where the software is installed in a <i>container 
+image</i>.  Using a container to handle software can be advantageous if the 
+software installation 1) has many dependencies, 2) requires installation to a specific 
+location, or 3) "hard-codes" paths into the installation. </p>
+
+<p>CHTC (and the OSG) have capabilities to access and start 
+containers and run jobs inside them.  This guide shows how to do this 
+for <a href="https://www.docker.com/what-docker">Docker</a> containers.</p>
+
+<p>In order to run your job inside a Docker container, you will need to: </p>
+<ol>
+<li><a href="#image">Find or prepare a Docker container image for your jobs to use</a></li>
+<li><a href="#submit">Make a few changes to your submit file</a></li>
+</ol>
+
+<p><a name="image"></a></p>
+<h1>1. Getting a Docker Container Image</h1>
+
+<p>To run a Docker job, you will first need access to a Docker container image that 
+has been built and placed onto the <a href="https://hub.docker.com/">DockerHub</a> website.  
+There are two primary ways to do this.  <!--No matter where you get your image, 
+we strongly recommend exploring it interactively on your own computer before using 
+it to submit a job:--> </p>
+
+<p><a name="dockerhub"></a></p>
+<h2>A. Pre-existing Images</h2>
+
+<p>The easiest way to get a Docker container image for running a job 
+is to use a public or pre-existing 
+image on DockerHub.  You can find images by getting an account 
+on DockerHub and searching for the software you want to use.  </p>
+
+<p>Sample images:</p>
+<ul>
+<li><a href="https://hub.docker.com/_/python/">Python</a></li>
+<li><a href="https://hub.docker.com/r/rocker/r-ver/">R</a></li>
+<li><a href="https://hub.docker.com/r/tensorflow/tensorflow/">TensorFlow</a></li>
+<li>...and <a href="https://hub.docker.com/explore/">more</a></li>
+</ul>
+
+<p>An image supported by a group will be continuously updated and the versions 
+will be indicated by "tags".  We recommend choosing a specific tag (or 
+tags) of the container to use in CHTC.</p>
+
+<p><a name="build"></a></p>
+<h2>B. Build Your Own Image</h2>
+
+<p>You can also build your own Docker container image and upload it to DockerHub.  
+See the <a href="https://docs.docker.com/engine/getstarted/">Docker 
+documentation</a> for more information.</p>
+<!-- <p>You can also build your own Docker image and upload it to DockerHub.  
+See <a href="/docker-build.shtml">our guide for building Docker containers</a>, 
+which includes examples of building containers based on python and R.  You can 
+also check out the official <a href="https://docs.docker.com/engine/getstarted/">Docker 
+documentation</a>.  -->
+
+<p><a name="submit"></a></p>
+<h1>2. Submit File Customization</h1>
+
+<p>Jobs that run inside a Docker container will be almost exactly the 
+same as "vanilla" HTCondor jobs.  There are two needed customizations 
+to the submit file: indicated that the job is a Docker job, and which 
+Docker container to use.  </p>
+
+<h2>A. Using a Docker Image</h2>
+
+<p>Start with a usual CHTC submit file like the one shown in our 
+<a href="/helloworld.shtml">Hello World</a> guide.  Then, make the following
+two changes:</p>
+<ol>
+<li>Change the universe from "vanilla" to "docker": 
+<pre class="sub">universe = docker</pre></li>
+<li>Add a line to indicate which Docker image you want to use for running your job: 
+<pre class="sub">docker_image = <i>user_name</i>/<i>image_name</i>:<i>tag</i></pre></li>
+</ol>
+
+<p>When your job starts, HTCondor will pull the indicated image from DockerHub, 
+and use it to run your job.  </p>
+
+<h2>B. Executable and Input Files</h2>
+
+<p>Other pieces of the job (your 
+executable and input files) should be just like a non-Docker job submission;
+the only change may be that your executable no longer needs to 
+install or unpack your software, since it will already be present in 
+the Docker container.</p>
+
+
+
+
+<div id = "copyright">
+     <p align = "center"> 
+	  
+     For all user support, questions, and comments:
+     <strong><a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a></strong>
+
+</p>
+</div>
+
+</div>
+
+  </td>
+  </tr>
+
+</TABLE>
+</td>
+</table>
+
+</body>
+</html>
+
+
