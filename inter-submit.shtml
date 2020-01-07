@@ -161,7 +161,7 @@ log = interactive.log
 transfer_input_files = <i>source_code</i>.tar.gz
 
 +IsBuildJob = true
-requirements = (OpSysMajorVer =?= 7) &amp;&amp; ( IsBuildSlot == true )
+requirements = (OpSysMajorVer =?= 7)
 request_cpus = 1
 request_memory = 2GB
 request_disk = 2GB
@@ -289,9 +289,9 @@ add them to our list of commands to run. </li>
 </ol>
 </p>
 
-<p>&lt;/p&gt;With all these pieces together, this is what the commands will look like to 
+<p>With all these pieces together, this is what the commands will look like to 
 install LAMMPS in the interactive build job and then bring the installed copy 
-back to the submit server. &lt;/p&gt;</p>
+back to the submit server. </p>
 
 <p>Create the folder for the installation:</p>
 <pre class="term">[alice@build]$ mkdir lammps
