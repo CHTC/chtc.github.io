@@ -406,11 +406,11 @@ directory, as all other "new" files in the working directory will be. </p>
 ./myprogram myinput.txt large_output.txt
 #
 # Tar and copy output to Gluster, then delete from the job working directory:
-tar -czvf large_output.tar.gz large_output.txt <other_large_files_or_dirs>
+tar -czvf large_output.tar.gz large_output.txt other_large_files_or_dirs
 mv large_output.tar.gz /mnt/gluster/username/subdirectory
 rm large_output.txt
 #
-# END&lt;/pre&gt;
+# END</pre>
 
 <a name="also"></a>
 <h2>B. ALSO consider: Large standard output ("screen output") produced 
@@ -470,7 +470,7 @@ the output will give you a total file count and allow you to navigate between
 subdirectories for even more details. Type <code>q</code> when you're ready to 
 exit the output viewer. More info here: 
 <a href="https://lintut.com/ncdu-check-disk-usage/">https://lintut.com/ncdu-check-disk-usage/</a>
-</p></p></other_large_files_or_dirs></pre></p></p></dt></dd></dl></p>
+</p></p></p></p></dt></dd></dl></p>
 
 
 
