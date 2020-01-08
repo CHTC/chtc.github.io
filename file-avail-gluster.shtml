@@ -275,7 +275,7 @@ To prepare job-specific data that is large enough to require Gluster and exists 
 files or directories (or a directory of multiple files), first create a compressed tar package before
 placing the file in /mnt/gluster (either before submitting jobs, or within jobs before moving output to /mnt/gluster). 
 For example:
-<pre class="term">$ tar -czvf job_package.tar.gz file_or_dir <file2> <directory> <etc.>&lt;/pre&gt;
+<pre class="term">$ tar -czvf job_package.tar.gz file_or_dir </pre>
 
 <p> Movement of data into/out of /mnt/gluster before and after jobs should 
 only be performed via CHTC's transfer server, as below, and <b>not via a CHTC submit server.</b>
@@ -469,7 +469,7 @@ the output will give you a total file count and allow you to navigate between
 subdirectories for even more details. Type <code>q</code> when you're ready to 
 exit the output viewer. More info here: 
 <a href="https://lintut.com/ncdu-check-disk-usage/">https://lintut.com/ncdu-check-disk-usage/</a>
-</p></p></subdirectory></pre></subdirectory></other_large_files_or_dirs></pre></p></p></etc.></directory></file2></pre></dt></dd></dl></p>
+</p></p></subdirectory></pre></subdirectory></other_large_files_or_dirs></pre></p></p></dt></dd></dl></p>
 
 
 
