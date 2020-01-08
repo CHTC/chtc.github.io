@@ -189,20 +189,20 @@ use or produce very large files.</p>
 	<li><a href="#submit">Submit File Implications</a></li> 
 	<li><a href="#input">Using Gluster-staged Files and Software for Jobs</a>
 	<ul>
-	<li><a href="#copy">Copy files from Gluster into the working directory, from within the jobs</a>
-	<li><a href="#large">Software that is too large for or doesn't work with file transfer</a>
-		&lt;/ul&gt;</li> 
+	<li><a href="#copy">Copy files from Gluster into the working directory, from within the jobs</a></li> 
+	<li><a href="#large">Software that is too large for or doesn't work with file transfer</a></li> 
+		</ul></li> 
 	<li><a href="#within">Copying large output files to Gluster from within a job</a>
 		<ul>
 	<li><a href="#working">Write output files to the working directory, 
-then move these to Gluster</a>	
+then move these to Gluster</a></li> 
 	<li><a href="#also">ALSO consider: Large standard output ("screen output") produced 
-by your jobs</a>
-		&lt;/ul&gt;</li> 
+by your jobs</a></li> 
+		</ul></li> 
 	
-	<li><a href="#after">Removing files from Gluster after jobs complete</a>
-		<li><a href="#check">Checking your Quota, Data Use, and File Counts in Glusters</a>
-&lt;/ol&gt;
+	<li><a href="#after">Removing files from Gluster after jobs complete</a></li> 
+		<li><a href="#check">Checking your Quota, Data Use, and File Counts in Glusters</a></li> 
+</ol>
 
 <a name="policy"></a>
 <h2>1. Policies and Intended Use:</h2>
@@ -284,7 +284,7 @@ the transfer server, copy relevant files directly
 into this user directory from your own computer:</p>
 
 <p>Example <code>scp</code> command on your own Linux or Mac computer:</p>
-<pre class="term">$ scp large.file username@transfer.chtc.wisc.edu:/mnt/gluster/username/</pre>
+<pre class="term">$ scp large.file username@transfer.chtc.wisc.edu:/mnt/gluster/username/ </pre>
 
 <p>If using a Windows computer:</p>
 <p>Using a file transfer application, like WinSCP, directly drag the large 
@@ -469,7 +469,7 @@ the output will give you a total file count and allow you to navigate between
 subdirectories for even more details. Type <code>q</code> when you're ready to 
 exit the output viewer. More info here: 
 <a href="https://lintut.com/ncdu-check-disk-usage/">https://lintut.com/ncdu-check-disk-usage/</a>
-</p></p></subdirectory></pre></subdirectory></other_large_files_or_dirs></pre></p></p></etc.></directory></file2></pre></dt></dd></dl></li></li></li></ul></li></li></ul></li></ol></p>
+</p></p></subdirectory></pre></subdirectory></other_large_files_or_dirs></pre></p></p></etc.></directory></file2></pre></dt></dd></dl></p>
 
 
 
