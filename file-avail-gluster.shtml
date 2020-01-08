@@ -407,10 +407,11 @@ directory, as all other "new" files in the working directory will be. </p>
 #
 # Tar and copy output to Gluster, then delete from the job working directory:
 tar -czvf large_output.tar.gz large_output.txt <other_large_files_or_dirs>
-mv large_output.tar.gz /mnt/gluster/username/<subdirectory>
+mv large_output.tar.gz /mnt/gluster/username/subdirectory
 rm large_output.txt
 #
 # END&lt;/pre&gt;
+
 <a name="also"></a>
 <h2>B. ALSO consider: Large standard output ("screen output") produced 
 by your jobs</h2>
@@ -440,9 +441,9 @@ is run from a script (bash) executable:</p>
 # 
 # tar and move large files to Gluster so they're not copied to the submit server:
 tar -czvf large_stdout.tar.gz larg_stdout
-cp large_stdout.tar.gz /mnt/gluster/username/<subdirectory>
+cp large_stdout.tar.gz /mnt/gluster/username/subdirectory
 rm large_std.out large_stdout.tar.gz
-# END&lt;/pre&gt;
+# END</pre>
 
 <a name="after"></a>
 <h1>6. Removing files from Gluster after jobs complete</h1>
@@ -469,7 +470,7 @@ the output will give you a total file count and allow you to navigate between
 subdirectories for even more details. Type <code>q</code> when you're ready to 
 exit the output viewer. More info here: 
 <a href="https://lintut.com/ncdu-check-disk-usage/">https://lintut.com/ncdu-check-disk-usage/</a>
-</p></p></subdirectory></pre></subdirectory></other_large_files_or_dirs></pre></p></p></dt></dd></dl></p>
+</p></p></other_large_files_or_dirs></pre></p></p></dt></dd></dl></p>
 
 
 
