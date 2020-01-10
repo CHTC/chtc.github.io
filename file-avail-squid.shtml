@@ -184,14 +184,15 @@ desired output directories prior to their transfer/delivery.</li>
 
 <p><h2>Contents</h2>
 <ol>
-  <li><a href="#Appli">Applicability</a></li> 
-    <li><a href="#use">Using SQUID to Deliver Input Files</a>
+  <li><a href="#Appli">Applicability</a></li>
+  <li><a href="#use">Using SQUID to Deliver Input Files</a>
 	<ul>
-	<li><a href="#request">Request a directory in SQUID</a>
-	<li><a href="#place">Place files within your home directory</a>
-	<li><a href="#have">Have HTCondor download the file to the working job</a>
-		&lt;/ul&gt;</li> 
-&lt;/ol&gt;
+	  <li><a href="#request">Request a directory in SQUID</a></li>
+	  <li><a href="#place">Place files within your home directory</a></li>
+	  <li><a href="#have">Have HTCondor download the file to the working job</a></li>
+	</ul>
+  </li>
+</ol>
 
 
 <a name="Appli"></a>
@@ -284,7 +285,7 @@ in your user directory in <code>/squid</code>, and should instead use CHTC's <a 
 	</li>
 
 </ol>
-</li></li></ul></li></ol></p>
+</p>
 
 
 
