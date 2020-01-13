@@ -66,6 +66,7 @@
 		<!--<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Pool Usage Reports</a></li>-->
 <!--comment		<li><a href="/opmetrics.shtml">Operational Metrics</a></li>  -->
 		<li><a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a></li>
+		<li><a href="/gpu-lab.shtml">CHTC GPU Lab</a></li>
 		<li><a href="http://www.neos-server.org/">NEOS Optimization Service</a></li>
 		<li><a href="http://www.opensciencegrid.org/">Open Science Grid</a></li>
 		<li><a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a></li>
@@ -120,22 +121,52 @@ Click for details
 <p>The CHTC GPU Lab is a <a href="https://research.wisc.edu/funding/uw2020/round-5-projects/enabling-graphics-processing-unit-based-data-science/">UW2020-funded project</a> that will expand shared GPU 
 computing infrastructure at UW-Madison.  It will include:</p>
 
+<link rel="stylesheet" type="text/css" href="bootstrap.css" />
+
+<div class="card-deck">
+	<div class="card border-secondary h-100">    
+		 <h5 class="card-title text-center">Hardware</h5>
+		 <img alt="Card image cap" class="card-img-top img-responsive" src="guide-icons/noun_gpu_2528527.png" style="margin-left: auto;margin-right: auto;width: 30%;" />
+		<p style="padding:10px">A pool of shared GPU servers managed by CHTC.</p>
+	</div>
+	<div class="card border-secondary h-100">    
+		 <h5 class="card-title text-center">Expertise</h5>
+		 <img alt="Card image cap" class="card-img-top img-responsive" src="guide-icons/noun_people_1188645.png" style="margin-left: auto;margin-right: auto;width: 30%;" />
+		<p style="padding:10px">A community of technical experts.</p>
+	</div>
+	<div class="card border-secondary h-100">    
+		 <h5 class="card-title text-center">Documentation</h5>
+		 <img alt="Card image cap" class="card-img-top img-responsive" src="guide-icons/noun_open book_1179297.png" style="margin-left: auto;margin-right: auto;width: 30%;" />
+		<p style="padding:10px">A library of sharable software and documentation.</p>
+	</div>
+</div>
+
+<h2 id="get-involved">Get Involved</h2>
+
+<p>If you want to use GPU resources in CHTC for your research:</p>
+
 <ul>
-  <li>a pool of shared GPU servers managed by CHTC</li>
-  <li>a community of technical experts</li>
-  <li>a library of sharable software and documentation</li>
+  <li>Apply for a CHTC account if you don’t already have one: <a href="form.shtml">Account Request Page</a></li>
+  <li>See what GPUs are available and how to use them in the <a href="gpu-jobs.shtml">GPU jobs guide</a>.</li>
+  <li>For more extended examples, see the following <a href="https://github.com/CHTC/templates-GPUs">runnable examples on GitHub</a>.</li>
 </ul>
 
-<p>To get started with GPU computing in CHTC, visit the <a href="gpu-jobs.shtml">GPU jobs guide</a> 
-and see the <a href="https://github.com/CHTC/templates-GPUs">runnable examples on GitHub</a>.</p>
+<p>The CHTC GPU Lab mailing list (on WiscList) is used to announce new GPU hardware availability and 
+GPU-related events, solicit feedback from GPU users, and share best practices for 
+GPU computing in CHTC. Any CHTC user can subscribe to the list by 
+emailing <a href="mailto:join-chtc-gpu-lab@lists.wisc.edu">join-chtc-gpu-lab@lists.wisc.edu</a>.
+Their subscription request will be reviewed by the list administrators.</p>
 
-<p>For more information about the CHTC GPU Lab contact <a href="https://www.biostat.wisc.edu/~gitter/index.html">Anthony Gitter</a>. Email 
-<a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> for general CHTC GPU computing 
-questions.  Subscribe to the CHTC GPU Lab WiscList 
-by emailing <a href="mailto:join-chtc-gpu-lab@lists.wisc.edu">join-chtc-gpu-lab@lists.wisc.edu</a> to receive updates.</p>
+<blockquote>
+  <p>The CHTC GPU Lab is led by Anthony Gitter, Lauren Michael, Brian Bockelman, and Miron Livny.</p>
+</blockquote>
 
-<p>UW2020 is funded by the Office of the Vice Chancellor for Research and Graduate 
+<blockquote>
+  <p>UW2020 is funded by the Office of the Vice Chancellor for Research and Graduate 
 Education and the Wisconsin Alumni Research Foundation.</p>
+</blockquote>
+
+<p>For more information about the CHTC GPU Lab project contact <a href="https://www.biostat.wisc.edu/~gitter/index.html">Anthony Gitter</a>.</p>
 
 
 
