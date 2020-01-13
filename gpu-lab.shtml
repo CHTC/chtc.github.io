@@ -146,12 +146,12 @@ computing infrastructure at UW-Madison.  It will include:</p>
 <p>If you want to use GPU resources in CHTC for your research:</p>
 
 <ul>
-  <li>Apply for a CHTC account if you don’t already have one: <a href="form.shtml">Account Request Page</a></li>
+  <li>Apply for a CHTC account if you do not already have one: <a href="form.shtml">Account Request Page</a></li>
   <li>See what GPUs are available and how to use them in the <a href="gpu-jobs.shtml">GPU jobs guide</a>.</li>
   <li>For more extended examples, see the following <a href="https://github.com/CHTC/templates-GPUs">runnable examples on GitHub</a>.</li>
 </ul>
 
-<p>The CHTC GPU Lab mailing list (on WiscList) is used to announce new GPU hardware availability and 
+<p>The CHTC GPU Lab mailing list is used to announce new GPU hardware availability and 
 GPU-related events, solicit feedback from GPU users, and share best practices for 
 GPU computing in CHTC. Any CHTC user can subscribe to the list by 
 emailing <a href="mailto:join-chtc-gpu-lab@lists.wisc.edu">join-chtc-gpu-lab@lists.wisc.edu</a>.
