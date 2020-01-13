@@ -131,14 +131,16 @@ request_disk = <i>&lt; KB &gt;</i>
 request_cpus = <i>&lt; positive integer &gt;</i>
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT    # or other
-&lt;/ol&gt;  
+</pre>
+</li>
+</ol>
 
 <!-- Submitting Many Jobs with a Single Submit File -->
 
 <h1>Overview</h1>
 
-One of HTCondor's features is the ability to submit many similar jobs using 
-one submit file.  This is accomplished by using: 
+<p>One of HTCondor’s features is the ability to submit many similar jobs using 
+one submit file.  This is accomplished by using:</p>
 <blockquote>
 <ul>
   <li>a "queue" keyword, that indicates how many jobs to run</li>
@@ -149,8 +151,8 @@ one submit file.  This is accomplished by using:
 </ul>
 </blockquote>
 
-There are different ways to "queue" multiple jobs and indicate the difference 
-between them using variables.  
+<p>There are different ways to “queue” multiple jobs and indicate the difference 
+between them using variables.</p>
 
 <ol>
 <li><b><a href="#process">Using Integer-Numbered Input Files</a></b> - assumes that each job needs a different (numbered) input file</li>
@@ -170,7 +172,7 @@ many jobs from a submit file.  If you are interested in a particular approach
 that isn't listed here, <a href="mailto:chtc@cs.wisc.edu">contact a Research 
 Computing Facilitator</a> and we can advise on the best implementation.  </p>
 
-<a name="process"></a>
+<p><a name="process"></a></p>
 <h1>1. Submitting Multiple Jobs Using Integer-Numbered Input Files</h1>
 
 <blockquote>
@@ -212,7 +214,7 @@ means that each job will get a unique input file.  </p>
  the $(Process) variable will start with
  "0" and end with <i>N</i>-1, such that you can use $(Process) to indicate
  unique filenames and filepaths. </p>
- 
+
 <p>Once the job(s) finishes running, the directory on the submit server should 
 look like this: </p>
 
@@ -221,7 +223,7 @@ look like this: </p>
 0.data  0.out  1.data  1.out  2.data  2.out  my_exec  reference.data
 </pre>
 
-<br />
+<p><br /></p>
 
 <blockquote>
 <h3>Starting at One</h3>
@@ -235,10 +237,10 @@ NewProcess = $INT(plusone, %d)</pre>
 normally used <code>$(Process)</code>.  </p>
 
 <p>Note that there is nothing special about the names <code>plusone</code> and 
-<code>NewProcess</code> - you can use any names you want as variables.  
-&lt;/blockquote&gt;
+<code>NewProcess</code> - you can use any names you want as variables.  </p>
+</blockquote>
 
-<a name="foreach"></a>
+<p><a name="foreach"></a></p>
 <h1>2. Submitting Multiple Jobs Using Unique Input Files</h1>
 
 <p><a href="#process">The previous examples</a> are great for numbered
@@ -257,12 +259,12 @@ compare_states  iowa.data  missouri.data  united-states.data  wisconsin.data
 </pre>
 
 <p>Here, we want to create a job for each state, and use the <code>united-states.data</code> file for 
-all three jobs.</p>  
+all three jobs.</p>
 
 <p>First, we will make a list of each data file that we want 
 to use in an individual job: </p>
 
-<b><code>state_list.txt</code></b>
+<p><b><code>state_list.txt</code></b></p>
 <pre class="file">
 iowa.data
 missouri.data
@@ -295,7 +297,7 @@ compare_states  iowa.data.out  missouri.data.out   wisconsin.data
 iowa.data       missouri.data  united-states.data  wisconsin.data.out
 </pre>
 
-<br />
+<p><br /></p>
 
 <blockquote>
 <b>Tips for creating a list</b> <br /> 
@@ -322,15 +324,15 @@ We recommend using a descriptive name so that it is easier to read your submit f
 </p>
 </blockquote>
 
-<a name="list"></a>
+<p><a name="list"></a></p>
 <h2>Other Ways of Listing Files</h2>
 
 <p>There are two other ways to provide a list, where you would like each item 
 in the list to create its own job. In the examples below, we are assuming the 
 same program and files as above.  </p>
 
-<a name="matching"></a>
-<b>a. Create jobs "matching" a file pattern</b><br />
+<p><a name="matching"></a>
+<b>a. Create jobs “matching” a file pattern</b><br /></p>
 
 <p>This method of submission creates a job for each file or directory that 
 matches the pattern provided in your submit file.  </p>
@@ -348,8 +350,8 @@ queue state matching *.data
 <code>*.data</code>; a job will be created for each file that ends 
 with the "data" suffix.  </p>
 
-<a name="in"></a>
-<b>b. Create jobs from a list written into the submit file</b><br /> 
+<p><a name="in"></a>
+<b>b. Create jobs from a list written into the submit file</b><br /></p>
 
 <p>In this final example, the list of desired items is written directly into the submit
 file using the syntax "queue ... in ( ... )"</p>
@@ -365,14 +367,14 @@ queue state in (iowa.data
 		wisconsin.data)
 </pre>
 
-<a name="discussion"></a>
+<p><a name="discussion"></a></p>
 <h1>3. Customizing Multiple Job Submissions</h1>
 
 <p>If your code doesn't require unique input files to run multiple jobs, keep 
 reading to find other ways to provide many jobs with a different value: either 
 an argument or combination of values.  </p>
 
-<a name="args"></a>
+<p><a name="args"></a></p>
 <h2>A. Varying arguments</h2>
 
 <p>Suppose we want to analyze a particular state over several years, and this 
@@ -385,7 +387,7 @@ $ compare_states -y 2015 -i wisconsin.data -o wisconsin_2015.out
 <p>For this example, the year will be changing, not the state, so we will 
 create a list of the years to analyze.</p>
 
-<b><code>year_list.txt</code></b>
+<p><b><code>year_list.txt</code></b></p>
 <pre class="file">
 2013
 2014
@@ -395,7 +397,7 @@ create a list of the years to analyze.</p>
 <p>In the submit file, we use the same "queue ... from" syntax as before,
 but with a different variable name ("year") and fill in the arguments 
 line with a variable.  
-</p> 
+</p>
 
 <pre class="sub">
 executable = compare_states
@@ -405,8 +407,7 @@ transfer_input_files = wisconsin.data, united-states.data
 queue year from year_list.txt
 </pre>
 
-
-<a name="multiple-args"></a>
+<p><a name="multiple-args"></a></p>
 <h2>B. Using Multiple Arguments</h2>
 
 <p>The method of job submission shown above in a <a href="#foreach">queue ... from</a> 
@@ -422,7 +423,7 @@ $ compare_states -y 2015 -i wisconsin.data -o wisconsin_2015.out
 create a list of each combination that we want to run: 
 </p>
 
-<b><code>states_list.txt</code></b>
+<p><b><code>states_list.txt</code></b></p>
 <pre class="file">
 2013, wisconsin
 2015, wisconsin
@@ -434,7 +435,7 @@ create a list of each combination that we want to run:
 
 <p>Then, in the submit file, we use the same "queue ... from" syntax as before, 
 but we include two variables (one for each value in the line) that we can use 
-in the submit file.</p> 
+in the submit file.</p>
 
 <pre class="sub">
 executable = compare_states
@@ -447,7 +448,7 @@ queue year,state from states_list.txt
 <p>This setup will create six jobs, one for each line in the 
 <code>states_list.txt</code> file. </p>
 
-<a name="initialdir"></a>
+<p><a name="initialdir"></a></p>
 <h1>4. Dividing Jobs Into Multiple Directories</h1>
 
 <p>One way to organize jobs is to assign each job to its own directory, 
@@ -474,7 +475,7 @@ input.data
 for the previous examples, create a list of the items that are changing 
 for each job.  In this case, it will be each directory. </p>
 
-<b><code>states_list.txt</code></b>
+<p><b><code>states_list.txt</code></b></p>
 <pre class="file">
 iowa
 missouri
@@ -517,7 +518,6 @@ input.data  job.out
 [alice@submit]$ ls -F iowa/
 input.data  job.out
 </pre>
-</p></blockquote></pre></li></ol>
 
 
 
