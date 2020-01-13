@@ -1,0 +1,414 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<script type="text/javascript">
+
+  function resizeIframe(iframe) {
+    var newheight;
+    var newwidth;
+
+    if(document.getElementById){
+        newwidth=iframe.contentWindow.document.body.scrollWidth;
+        newheight=iframe.contentWindow.document.body.scrollHeight;
+    }
+
+    iframe.height= (newheight) + "px";
+    iframe.width= (newwidth) + "px";
+  }
+</script>
+<title>Exploring a Docker Container on Your Computer</title>
+
+<link href="/web.css" rel="stylesheet" type="text/css">
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+   <td width="1%" align="left" class="bgred" valign="top">
+      <div align="center">
+      &nbsp;<br>
+      <a href="http://www.wisc.edu">
+
+      <img src="/images/uw-sm-red.png" width="125" height="46" border="0"> </a>
+       </div>
+
+	<ul class="sidebar">
+	<li><a href="/">CHTC Home</a></li>
+	
+	<li>About
+		<ul>
+		<li><a href="/approach.shtml">Our Approach</a></li>
+<!--comment		<li><a href="/resources.shtml">Our Resources</a></li>   -->
+		<li><a href="/projects.shtml">Our Customers</a></li>
+		<li><a href="/people.shtml">Our Staff</a></li>
+		<li><a href="/jobs.shtml">Our Open Positions</a></li>
+		</ul>
+	</li>
+	
+	<li>How To's
+		<ul>
+		<li><a href="/get-started.shtml">Get Started</a></li>
+		<li><a href="/get-help.shtml">Get Help</a></li>
+        	<li><a href="/guides.shtml">All User Guides</a></li>
+                <li><a href="/use-submit-node.shtml">Use an HTC Submit Server</a></li>
+		<li><a href="/helloworld.shtml">Run Your First HTC Jobs</a></li>
+		<li><a href="/howto_overview.shtml">HTC for MatLab, Python or R</a></li>
+		<li><a href="/HPCuseguide.shtml">Use the HPC Cluster</a></li>
+		<li><a href="/cite-chtc.shtml">Cite CHTC Resources</a></li>
+		</ul>
+	</li>
+	<li><a href="/user-news.shtml">User News</a></li>
+	<li>Other Resources
+		<ul>
+		<!--<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Pool Usage Reports</a></li>-->
+<!--comment		<li><a href="/opmetrics.shtml">Operational Metrics</a></li>  -->
+		<li><a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a></li>
+		<li><a href="/gpu-lab.shtml">CHTC GPU Lab</a></li>
+		<li><a href="http://www.neos-server.org/">NEOS Optimization Service</a></li>
+		<li><a href="http://www.opensciencegrid.org/">Open Science Grid</a></li>
+		<li><a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a></li>
+		</ul>
+	</li>
+	</ul>
+
+	</td>
+
+<td width="97%" valign="top"> 
+
+
+	<TABLE SUMMARY="Navigation layout" BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+<TR ALIGN="left"> 
+  <TD WIDTH="100%" height="400" Align="left" VALIGN="top"> 
+    <A  name="body"></a> 
+	<div id = "main">
+
+<!-- Top of Page Body -->
+<table BORDER="0" WIDTH="100%">
+<!-- <h1 align=left valign=center>The Center for High Throughput Computing</h1> -->
+
+	
+
+<div id="osg_power"> <span style="height: 20px">Powered by:</span><br /><a href="http://opensciencegrid.org"><img alt="Open Science Grid" src="/images/Open_Science_Grid_Consortium(Logo).jpg" width="123" height="70" /></a></div>
+
+	
+
+<div id="hours"> <span style="height: 20px">
+	<center><b>Follow us on social media:</b><a href="https://twitter.com/CHTC_UW"><img alt="Twitter" src="/images/twitter.png" width="70" height="70"></center></a></span></div>
+	
+	
+<div id="hours"> <span style="height: 20px">
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a href="http://chtc.cs.wisc.edu/get-help.shtml" style="color:white;">
+<b>Office Hours!</b>
+<br>
+Tues/Thurs, 3-4:30pm<br>
+Wed, 9:30-11:30am</br>
+Click for details
+</a></span></div>	
+
+
+	
+
+
+<div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
+
+<h1>Exploring a Docker Container on Your Computer</h1>
+
+
+<p>Linux containers are a way to build a self-contained environment that
+includes software, libraries, and other tools. This guide shows how to
+explore and test a Docker container on your own computer.</p>
+
+<h1 id="a-overview">A. Overview</h1>
+
+<p><strong>Note that all the steps below should be run on your own computer, not
+in CHTC.</strong></p>
+
+<p>This guide has two sections:</p>
+
+<ul>
+  <li><a href="#b-explore-docker-containers">Explore Docker Containers</a></li>
+  <li><a href="#c-simulate-a-chtc-docker-job">Simulate a CHTC Docker Job</a></li>
+</ul>
+
+<p>If you’ve never used Docker before, and/or are getting ready to build your own 
+container image, we recommend starting with the first part of the 
+guide.</p>
+
+<p>If you’ve explored Docker already or built your own image and you want to test if it 
+will work successfully in CHTC’s HTC system, 
+you can follow the directions in the second section.</p>
+
+<h1 id="a-set-up-docker-on-your-computer">A. Set Up Docker on Your Computer</h1>
+
+<p>If you haven’t already, create a DockerHub account and install 
+Docker on your computer. You’ll want to look for the <a href="https://store.docker.com/search?type=edition&amp;offering=community">Docker Community
+Edition</a>
+for your operating system. It sometimes takes some time for Docker to
+start, especially the first time. Once Docker starts, it won’t open a 
+window; you’ll just see a little whale and container icon in one of your 
+computers toolbars. In order to actually use Docker, you’ll need to 
+open a command line program (like Terminal, or Command Prompt) and run 
+commands there.</p>
+
+<h1 id="b-explore-docker-containers">B. Explore Docker Containers</h1>
+
+<h2 id="1-get-a-docker-container-image">1. Get a Docker Container Image</h2>
+
+<p>We need to have a local copy of the Docker container image in order to
+test it. You can see what container images you already have on your 
+computer by running:</p>
+
+<pre class="term"><code>$ docker image ls
+</code></pre>
+
+<p>If you just installed Docker on your computer 
+and are using it for the first time, this list is probably empty. 
+If you want to use a pre-made container from Docker Hub, 
+you will need to “pull” it down to your computer. 
+If you created a container on your computer, it should already 
+be in the list of container images.</p>
+
+<p>If using a container from Docker Hub, find the container and its name, which 
+will be of the format: <code>username/imagename:tag</code>. Then pull a copy of the container
+image to your computer by running the following from either a Terminal
+(Mac/Linux) or Command Prompt (Windows):</p>
+
+<pre class="term"><code>$ docker pull username/image:tag
+</code></pre>
+
+<p>If you run <code>docker image ls</code> again, you should see the container you downloaded 
+listed.</p>
+
+<h2 id="2-explore-the-container-interactively">2. Explore the Container Interactively</h2>
+
+<p>To actually explore a container, run this command:</p>
+
+<pre class="term"><code>$ docker run -it --rm=true username/image:tag /bin/bash
+</code></pre>
+
+<p>This will start a running copy of the container and start a command line shell 
+inside. You should see your command line prompt change to something like:</p>
+
+<pre class="term"><code>root@2191c1169757:/#
+</code></pre>
+
+<blockquote>
+  <p><strong>What Do All the Options Mean?</strong></p>
+
+  <ul>
+    <li><code>-it</code>: interactive flag</li>
+    <li><code>--rm=true</code>: after we exit, this will clean up the runnining container so Docker uses less disk space.</li>
+    <li><code>username/image:tag</code>: which container to start</li>
+    <li><code>/bin/bash</code>: tells Docker that when the container starts, we want a command line (<code>bash</code>) inside to run commands</li>
+  </ul>
+</blockquote>
+
+<p>If you explore the container using <code>cd</code> and <code>ls</code>, you’ll see that this is a whole, 
+self-contained file system, separate from your computer.  Try running commands with their
+ <code>--help</code> or <code>--version</code> options to see what’s installed. If you’re planning to create 
+ your own container, try following a few of the installation instructions for the software 
+ you want to use and see what happens.</p>
+
+<h2 id="3-exit-the-container">3. Exit the Container</h2>
+
+<p>Once you’re done exploring, type <code>exit</code> to leave the container.</p>
+
+<pre class="term"><code>root@2191c1169757:/# exit
+</code></pre>
+
+<p>Note that any changes or 
+commands you ran in the container won’t be saved! Once you exit the 
+running container is shut down and removed (although the container image will still be 
+on your computer, which you can see if you type <code>docker image ls</code> again).</p>
+
+<h1 id="c-simulate-a-chtc-docker-job">C. Simulate a CHTC Docker Job</h1>
+
+<p>The directions above were about simply exploring a container. If you want to 
+simulate what happens in a CHTC job more specifically, we’ll want to do a few things:</p>
+
+<ul>
+  <li>create a test working directory, with needed files</li>
+  <li>have a list of commands to run or a script you want to use as the executable.</li>
+  <li>use some extra options when running the container.</li>
+</ul>
+
+<h2 id="1-create-working-directory">1. Create Working Directory</h2>
+
+<p>For testing, we need a folder on your computer to stand in for the
+working directory that HTCondor creates for running your job. Create a folder
+for this purpose on your Desktop. The folder’s name shouldn’t include
+any spaces. Inside this folder, put all of the files that are normally
+inside the working directory for a single job – data, scripts, etc. If
+you’re using your own executable script, this should be in the folder.</p>
+
+<p>Open a Windows Command Prompt or Mac/Linux Terminal to access that
+folder, replacing “folder” with the name of the folder you created.</p>
+
+<ul class="term">
+  <li>Mac/Linux:
+    <pre><code>$ cd ~/Desktop/folder
+</code></pre>
+  </li>
+</ul>
+<ul class="term">
+  <li>Windows:
+    <pre><code>$ cd %HOMEPATH%\Desktop\folder
+</code></pre>
+  </li>
+</ul>
+
+<h2 id="2-plan-what-to-run">2. Plan What to Run</h2>
+
+<p>Once the container starts, you have a few options for testing your job:</p>
+
+<ul>
+  <li><strong>Run Commands Directly</strong>
+    <ul>
+      <li>When you start the container, you’ll be able to run each command you 
+  want to use, step-by-step. If you have multiple commands, these will eventually 
+  need to be put into a shell script as your executable.</li>
+      <li>Example: Running multiple steps of a bioinformatics pipeline</li>
+    </ul>
+  </li>
+  <li><strong>Run an Executable</strong>
+    <ul>
+      <li>If you’ve already written a script with all your commands or code, you can 
+  test this in the container.</li>
+      <li>Examples: Running a shell script with multiple steps, running a machine learning Python script</li>
+    </ul>
+  </li>
+  <li><strong>Run a Single Command</strong>
+    <ul>
+      <li>If you only want to run one command, using a program installed in the Docker 
+  container, you can run this in the container.</li>
+      <li>Example: Running GROMACS from a container</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="3-start-the-docker-container">3. Start the Docker Container</h2>
+
+<p>We’ll use a similar <code>docker run</code> command to start the Docker container, 
+with a few extra options to better emulate how containers are run in 
+the HTC system with HTCondor.</p>
+
+<p>This command can be run verbatim except for the
+<code>username</code>, <code>imagename</code> and <code>tag</code>; these should be whatever you used to
+pull or tag the container image.</p>
+
+<ul class="term">
+  <li>Mac/Linux:
+    <pre><code>$ docker run --user $(id -u):$(id -g) --rm=true -it \
+  -v $(pwd):/scratch -w /scratch \
+  username/imagename:tag /bin/bash
+</code></pre>
+  </li>
+</ul>
+<ul class="term">
+  <li>Windows:
+    <pre><code>$ docker run --rm=true -it -v %CD%:/scratch -w /scratch username/imagename:tag /bin/bash
+</code></pre>
+  </li>
+</ul>
+
+<p>For Windows users, a window may pop up, asking for permission to share
+your main drive with Docker. This is necessary for the files to be
+placed inside the container. As in the previous section, the <code>docker run</code> command 
+will start a running copy of the container and start a command line shell 
+inside.</p>
+
+<blockquote>
+  <p><strong>What Do All the Options Mean? Part 2</strong></p>
+
+  <p>The options that we have added for this example are used in CHTC to make jobs run
+successfully and securely.</p>
+
+  <ul>
+    <li><code>--user $(id -u):$(id -g)</code>: runs the container with more restrictive permissions</li>
+    <li><code>-v $(pwd):/scratch</code>: Put the current working directory (<code>pwd</code>) into the container but call it <code>/scratch</code>. 
+In CHTC, this working directory will be the job’s usual working directory.</li>
+    <li><code>-w /scratch</code>: when the container starts, make <code>/scratch</code> the working directory</li>
+  </ul>
+</blockquote>
+
+<h2 id="4-test-the-job">4. Test the job</h2>
+
+<p>Your command line prompt should have changed to look like this:</p>
+
+<pre class="term"><code>I have no name!@5a93cb:/scratch$
+</code></pre>
+
+<p>We can now see if the job would complete successfully!</p>
+
+<p>If you have a single command or list of commands to run, start running them one by one. 
+If you have an executable script, you can run it like so:</p>
+
+<pre class="term"><code>I have no name!@5a93cb:/scratch$ ./exec.sh
+</code></pre>
+
+<p>If your “executable” is software already in the container, run the
+appropriate command to use it.</p>
+
+<blockquote>
+  <p><strong>Permission Errors</strong></p>
+
+  <p>The following commands may not be necessary, but if you see messages
+about “Permission denied” or a bash error about bad formatting, you
+may want to try one (or both) of the following (replacing <code>exec.sh</code> 
+with the name of your own executable.)</p>
+
+  <p>You may need to add executable permissions to the script for it to run
+correctly:</p>
+
+  <pre><code>I have no name!@5a93cb:/scratch$ chmod +x exec.sh
+</code></pre>
+
+  <p>Windows users who are using a bash script may also need to run the
+following two commands:</p>
+
+  <pre><code>I have no name!@5a93cb:/scratch$ cat exec.sh | tr -d \\r &gt; temp.sh
+I have no name!@5a93cb:/scratch$ mv temp.sh exec.sh 
+</code></pre>
+</blockquote>
+
+<p>When your test is done, type <code>exit</code> to leave the container:</p>
+
+<p>If the program didn’t work, try searching for the cause of the error
+messages, or email CHTC’s Research Computing Facilitators.</p>
+
+<p>If your local test did run successfully, you are now ready to set up
+your Docker job to run on CHTC.</p>
+
+<ul>
+  <li><a href="docker-jobs.shtml">Docker Jobs</a></li>
+</ul>
+
+
+
+
+<div id = "copyright">
+     <p align = "center"> 
+	  
+     For all user support, questions, and comments:
+     <strong><a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a></strong>
+
+</p>
+</div>
+
+</div>
+
+  </td>
+  </tr>
+
+</TABLE>
+</td>
+</table>
+
+</body>
+</html>
+
+
