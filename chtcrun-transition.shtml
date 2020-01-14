@@ -19,6 +19,7 @@
     iframe.width= (newwidth) + "px";
   }
 </script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Emulating ChtcRun Job Submission</title>
 
 <link href="/web.css" rel="stylesheet" type="text/css">
