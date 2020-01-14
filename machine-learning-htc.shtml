@@ -1,0 +1,282 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<script type="text/javascript">
+
+  function resizeIframe(iframe) {
+    var newheight;
+    var newwidth;
+
+    if(document.getElementById){
+        newwidth=iframe.contentWindow.document.body.scrollWidth;
+        newheight=iframe.contentWindow.document.body.scrollHeight;
+    }
+
+    iframe.height= (newheight) + "px";
+    iframe.width= (newwidth) + "px";
+  }
+</script>
+<title>Run Machine Learning Jobs on the HTC system</title>
+
+<link href="/web.css" rel="stylesheet" type="text/css">
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+   <td width="1%" align="left" class="bgred" valign="top">
+      <div align="center">
+      &nbsp;<br>
+      <a href="http://www.wisc.edu">
+
+      <img src="/images/uw-sm-red.png" width="125" height="46" border="0"> </a>
+       </div>
+
+	<ul class="sidebar">
+	<li><a href="/">CHTC Home</a></li>
+	
+	<li>About
+		<ul>
+		<li><a href="/approach.shtml">Our Approach</a></li>
+<!--comment		<li><a href="/resources.shtml">Our Resources</a></li>   -->
+		<li><a href="/projects.shtml">Our Customers</a></li>
+		<li><a href="/people.shtml">Our Staff</a></li>
+		<li><a href="/jobs.shtml">Our Open Positions</a></li>
+		</ul>
+	</li>
+	
+	<li>How To's
+		<ul>
+		<li><a href="/get-started.shtml">Get Started</a></li>
+		<li><a href="/get-help.shtml">Get Help</a></li>
+        	<li><a href="/guides.shtml">All User Guides</a></li>
+                <li><a href="/use-submit-node.shtml">Use an HTC Submit Server</a></li>
+		<li><a href="/helloworld.shtml">Run Your First HTC Jobs</a></li>
+		<li><a href="/howto_overview.shtml">HTC for MatLab, Python or R</a></li>
+		<li><a href="/HPCuseguide.shtml">Use the HPC Cluster</a></li>
+		<li><a href="/cite-chtc.shtml">Cite CHTC Resources</a></li>
+		</ul>
+	</li>
+	<li><a href="/user-news.shtml">User News</a></li>
+	<li>Other Resources
+		<ul>
+		<!--<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Pool Usage Reports</a></li>-->
+<!--comment		<li><a href="/opmetrics.shtml">Operational Metrics</a></li>  -->
+		<li><a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a></li>
+		<li><a href="/gpu-lab.shtml">CHTC GPU Lab</a></li>
+		<li><a href="http://www.neos-server.org/">NEOS Optimization Service</a></li>
+		<li><a href="http://www.opensciencegrid.org/">Open Science Grid</a></li>
+		<li><a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a></li>
+		</ul>
+	</li>
+	</ul>
+
+	</td>
+
+<td width="97%" valign="top"> 
+
+
+	<TABLE SUMMARY="Navigation layout" BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+<TR ALIGN="left"> 
+  <TD WIDTH="100%" height="400" Align="left" VALIGN="top"> 
+    <A  name="body"></a> 
+	<div id = "main">
+
+<!-- Top of Page Body -->
+<table BORDER="0" WIDTH="100%">
+<!-- <h1 align=left valign=center>The Center for High Throughput Computing</h1> -->
+
+	
+
+<div id="osg_power"> <span style="height: 20px">Powered by:</span><br /><a href="http://opensciencegrid.org"><img alt="Open Science Grid" src="/images/Open_Science_Grid_Consortium(Logo).jpg" width="123" height="70" /></a></div>
+
+	
+
+<div id="hours"> <span style="height: 20px">
+	<center><b>Follow us on social media:</b><a href="https://twitter.com/CHTC_UW"><img alt="Twitter" src="/images/twitter.png" width="70" height="70"></center></a></span></div>
+	
+	
+<div id="hours"> <span style="height: 20px">
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a href="http://chtc.cs.wisc.edu/get-help.shtml" style="color:white;">
+<b>Office Hours!</b>
+<br>
+Tues/Thurs, 3-4:30pm<br>
+Wed, 9:30-11:30am</br>
+Click for details
+</a></span></div>	
+
+
+	
+
+
+<div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
+
+<h1>Run Machine Learning Jobs on the HTC system</h1>
+
+
+<p>This guide provides some of our recommendations for success 
+in running machine learning (specifically deep learning) jobs in CHTC.</p>
+
+<blockquote>
+  <p>This is a new “how-to” guide on the CHTC website. Recommendations and 
+feedback are welcome via email (chtc@cs.wisc.edu) or by creating an 
+issue on the CHTC website Github repository: <a href="https://github.com/CHTC/chtc-website-source/issues/new">Create an issue</a></p>
+</blockquote>
+
+<h1 id="overview">Overview</h1>
+
+<p>It’s important to understand the needs of a machine learning job before submitting 
+it and have a plan for managing software. This guide covers:</p>
+
+<ol>
+  <li><a href="#1-job-requirements">Considering job requirements</a></li>
+  <li><a href="#2-software-options">Recommendations for managing software</a></li>
+</ol>
+
+<h1 id="1-job-requirements">1. Job Requirements</h1>
+
+<p>Before digging into the nuts and bolts of software installation in the next section, 
+it’s important to first consider a few other job requirements that might apply to 
+your machine learning job.</p>
+
+<h2 id="a-do-you-need-gpus">A. Do you need GPUs?</h2>
+
+<p>CHTC has about 4 publicly available GPUs and thousands of CPUs. When possible, using 
+CPUs will allow your jobs to start more quickly and to have many running at once. For 
+certain calculations, GPUs may provide a different advantage as some machine learning 
+algorithms are optimized to run significantly faster on GPUs. Consider whether you 
+would benefit from running one or two long-running calculations on a GPU or if your 
+work is better suited to running many jobs on CHTC’s available CPUs.</p>
+
+<p>If you need GPUs for your jobs, you can see a summary of available GPUs in CHTC and 
+how to access them here:</p>
+
+<ul>
+  <li><a href="gpu-jobs.shtml">GPUs in CHTC</a></li>
+</ul>
+
+<p>Note that you may need to use different versions of your software, depending on whether or 
+not you’re using GPUs, as shown in the <a href="#2-software-options">software section of this guide</a>.</p>
+
+<h2 id="b-how-big-is-your-data">B. How big is your data?</h2>
+
+<p>CHTC’s usual data recommendations apply for machine learning jobs. If your job is using 
+an input data set larger than a few hundred MB or generating output files larger than 
+a few GB, you will likely need to use our large data 
+file share, Gluster. Contact the CHTC Research Computing Facilitators to get access and 
+read about Gluster here:</p>
+
+<ul>
+  <li><a href="file-avail-gluster.shtml">File Availability with Gluster</a></li>
+</ul>
+
+<h2 id="c-how-long-does-your-job-run">C. How long does your job run?</h2>
+
+<p>CHTC’s default job length is 72 hours. If your task is long enough that you will 
+encounter this limit, contact the CHTC Research Computing Facilitators (chtc@cs.wisc.edu) 
+for potential work arounds.</p>
+
+<h2 id="d-how-many-jobs-do-you-want-to-submit">D. How many jobs do you want to submit?</h2>
+
+<p>Do you have the ability to break your work into many independent pieces? If so, 
+you can take advantage of CHTC’s capability to run many independent jobs at once, 
+especially when each job is using a CPU. See our guide for running multiple jobs here:</p>
+
+<ul>
+  <li><a href="multiple-jobs.shtml">Submitting Multiple Jobs Using HTCondor</a></li>
+</ul>
+
+<h1 id="2-software-options">2. Software Options</h1>
+
+<p>Many of the tools used for machine learning, specifically deep learning and 
+convolutional neural networks, have enough dependencies that our usual installation 
+processes work less reliably. The following options are the best way to handle the complexity 
+of these software tools.</p>
+
+<h2 id="a-using-docker-containers">A. Using Docker Containers</h2>
+
+<p>CHTC’s HTC system has the ability to run jobs using Docker containers, which package 
+up a whole system (and software) environment in a consistent, reproducible, portable 
+format. When possible, we recommend using standard, publicly available 
+Docker containers to run machine learning jobs in CHTC.</p>
+
+<p>To see how you can use Docker containers to run jobs in CHTC, see:</p>
+<ul>
+  <li><a href="https://github.com/CHTC/templates-GPUs">Sample GPU/Machine Learning Jobs</a></li>
+  <li><a href="docker-jobs.shtml">Docker Jobs in CHTC</a></li>
+</ul>
+
+<p>You can also test and examine containers on your own computer.</p>
+<ul>
+  <li><a href="docker-test.shtml">Exploring and Testing Docker Containers</a></li>
+</ul>
+
+<p>We recommend the following Docker container images for machine learning:</p>
+
+<table class="gtable">
+  <tr>
+    <th>Framework</th>
+    <th>CPU-based</th>
+    <th>GPU-capable</th>
+  </tr>
+  <tr>
+    <td>Tensorflow</td>
+    <td>tensorflow/tensorflow:1.14.0-py3</td>
+    <td>tensorflow/tensorflow:1.14.0-gpu-py3</td>
+  </tr>
+  <tr>
+    <td>Pytorch</td>
+    <td>pytorch/pytorch:1.1.0-cuda10.0-cudnn7.5-runtime</td>
+    <td>pytorch/pytorch:1.1.0-cuda10.0-cudnn7.5-runtime</td>
+  </tr>
+</table>
+
+<p>Other places to look for Docker container images:</p>
+
+<ul>
+  <li><a href="https://hub.docker.com/r/tensorflow/tensorflow/tags">Tensorflow on DockerHub</a></li>
+  <li><a href="https://hub.docker.com/u/pytorch">Pytorch on DockerHub</a></li>
+  <li><a href="https://hub.docker.com/r/pytorch/pytorch/tags">More Pytorch on DockerHub</a></li>
+</ul>
+
+<p>If you can’t find a Docker container with exactly the tools you need, you can build your 
+own, starting with one of the containers above. For instructions on how to build and 
+test your own Docker container, see this guide:</p>
+
+<ul>
+  <li><a href="docker-build.shtml">Building Docker Containers</a></li>
+</ul>
+
+<h2 id="b-using-anaconda-in-progress">B. Using Anaconda (in progress)</h2>
+
+<p>Anaconda is another popular tool for installing and managing machine learning tools. 
+We will have a guide for creating conda installations and using them in CHTC jobs soon.</p>
+
+
+
+<div id = "copyright">
+     <p align = "center"> 
+	  
+     For all user support, questions, and comments:
+     <strong><a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a></strong>
+
+</p>
+</div>
+
+</div>
+
+  </td>
+  </tr>
+
+</TABLE>
+</td>
+</table>
+
+</body>
+</html>
+
+
