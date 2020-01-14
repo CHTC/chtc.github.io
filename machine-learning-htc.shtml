@@ -65,8 +65,8 @@
 		<ul>
 		<!--<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Pool Usage Reports</a></li>-->
 <!--comment		<li><a href="/opmetrics.shtml">Operational Metrics</a></li>  -->
-		<li><a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a></li>
 		<li><a href="/gpu-lab.shtml">CHTC GPU Lab</a></li>
+		<li><a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a></li>
 		<li><a href="http://www.neos-server.org/">NEOS Optimization Service</a></li>
 		<li><a href="http://www.opensciencegrid.org/">Open Science Grid</a></li>
 		<li><a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a></li>
@@ -129,7 +129,7 @@ issue on the CHTC website Github repository: <a href="https://github.com/CHTC/ch
 
 <h1 id="overview">Overview</h1>
 
-<p>It’s important to understand the needs of a machine learning job before submitting 
+<p>It is important to understand the needs of a machine learning job before submitting 
 it and have a plan for managing software. This guide covers:</p>
 
 <ol>
@@ -140,7 +140,7 @@ it and have a plan for managing software. This guide covers:</p>
 <h1 id="1-job-requirements">1. Job Requirements</h1>
 
 <p>Before digging into the nuts and bolts of software installation in the next section, 
-it’s important to first consider a few other job requirements that might apply to 
+it is important to first consider a few other job requirements that might apply to 
 your machine learning job.</p>
 
 <h2 id="a-do-you-need-gpus">A. Do you need GPUs?</h2>
@@ -160,7 +160,7 @@ how to access them here:</p>
 </ul>
 
 <p>Note that you may need to use different versions of your software, depending on whether or 
-not you’re using GPUs, as shown in the <a href="#2-software-options">software section of this guide</a>.</p>
+not you are using GPUs, as shown in the <a href="#2-software-options">software section of this guide</a>.</p>
 
 <h2 id="b-how-big-is-your-data">B. How big is your data?</h2>
 
@@ -206,8 +206,8 @@ Docker containers to run machine learning jobs in CHTC.</p>
 
 <p>To see how you can use Docker containers to run jobs in CHTC, see:</p>
 <ul>
-  <li><a href="https://github.com/CHTC/templates-GPUs">Sample GPU/Machine Learning Jobs</a></li>
   <li><a href="docker-jobs.shtml">Docker Jobs in CHTC</a></li>
+  <li><a href="https://github.com/CHTC/templates-GPUs">GPU/Machine Learning Job Examples on Github</a></li>
 </ul>
 
 <p>You can also test and examine containers on your own computer.</p>
@@ -243,7 +243,7 @@ Docker containers to run machine learning jobs in CHTC.</p>
   <li><a href="https://hub.docker.com/r/pytorch/pytorch/tags">More Pytorch on DockerHub</a></li>
 </ul>
 
-<p>If you can’t find a Docker container with exactly the tools you need, you can build your 
+<p>If you can not find a Docker container with exactly the tools you need, you can build your 
 own, starting with one of the containers above. For instructions on how to build and 
 test your own Docker container, see this guide:</p>
 
