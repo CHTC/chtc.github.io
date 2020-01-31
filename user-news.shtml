@@ -128,32 +128,22 @@ archives</a>.</p>
 
 <hr />
 
-<h2 id="chtc-holiday-availability">CHTC holiday availability</h2>
+<h2 id="chtc-website-content-now-in-github">CHTC Website Content Now in GitHub</h2>
+<h3 id="wednesday-january-08-2020">Wednesday, January 08, 2020</h3>
 
-<h3 id="wednesday-december-18-2019">Wednesday, December 18, 2019</h3>
+<p>Happy New Year!</p>
 
-<p>Greetings CHTC users,</p>
+<p><strong>We’d like to announce that the <a href="http://chtc.cs.wisc.edu/">CHTC website</a> content (including online guides) are now <a href="https://github.com/CHTC/chtc-website-source">hosted publicly in a GitHub repository</a>.</strong> Among other plans for improving the website over the coming year, we have made this change to make it easier for the extended CHTC community to contribute and suggest changes to page content.</p>
 
-<p>This is an annual reminder that CHTC staffing will be limited at various points during the next week or so:</p>
+<p><strong>Therefore, we’d like to formally invite YOU to contribute to the CHTC website in the following ways:</strong></p>
 
-<ul>
-  <li><strong>Office Hours are cancelled for next week through Jan 1</strong> (Dec. 23-27, Dec 30-Jan 1), and email responses will be delayed during this time as well.</li>
-  <li>Normal office hours and email response times will resume on Thursday, January 2nd</li>
-</ul>
+<ol>
+  <li>Especially, because we’re still transitioning the source file format for each page (from raw .shtml to Markdown), <strong>you can let us know if you see any formatting problems we haven’t caught</strong> by emailing <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> (as always), or for GitHub enthusiasts, describe the problem as a <a href="https://github.com/CHTC/chtc-website-source/issues">GitHub issue</a> or submit a <a href="https://github.com/CHTC/chtc-website-source/pulls">pull request</a> with the correction.</li>
+  <li><strong>You can otherwise contribute typo fixes, content clarifications, and content suggestions via GitHub issues and pull requests!</strong> (Or, continue to report any thoughts in email to <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>, at office hours, etc., per your preference.)</li>
+</ol>
 
-<p>Please remember that your work on CHTC’s shared compute systems affects other 
-researchers. You should review and continue to follow CHTC policies for 
-our <a href="http://chtc.cs.wisc.edu/use-submit-node">HTC System</a> and
-<a href="http://chtc.cs.wisc.edu/HPCuseguide.shtml">HPC Cluster</a> to
- ensure that you are acting in consideration of others, especially since
- CHTC staff may not be able to respond as quickly to user-caused issues.</p>
-
-<p>As always, the best way to get in touch with us is through our designated email 
- address (chtc@cs.wisc.edu).</p>
-
-<p>Best wishes during the holiday season!</p>
-
-<p>Christina, Jess, Lauren, and the rest of the CHTC team</p>
+<p>We look forward to getting more of your input for the CHTC website!<br />
+Your CHTC Team</p>
 
 <hr />
 
