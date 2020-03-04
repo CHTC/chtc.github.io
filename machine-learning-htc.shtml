@@ -168,11 +168,11 @@ not you are using GPUs, as shown in the <a href="#2-software-options">software s
 <p>CHTC’s usual data recommendations apply for machine learning jobs. If your job is using 
 an input data set larger than a few hundred MB or generating output files larger than 
 a few GB, you will likely need to use our large data 
-file share, Gluster. Contact the CHTC Research Computing Facilitators to get access and 
-read about Gluster here:</p>
+file share. Contact the CHTC Research Computing Facilitators to get access and 
+read about the large data location here:</p>
 
 <ul>
-  <li><a href="file-avail-gluster.shtml">File Availability with Gluster</a></li>
+  <li><a href="file-avail-largedata.shtml">Managing Large Data in HTC Jobs</a></li>
 </ul>
 
 <h2 id="c-how-long-does-your-job-run">C. How long does your job run?</h2>

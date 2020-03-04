@@ -184,13 +184,13 @@ Facilitators: <a href="/get-help.shtml">contact us or stop by office hours</a>.
 
 Does your job already have a requirements statement?  If so, you can 
 add the requirements above to the pre-existing requirements by using the 
-characters <code>&amp;&amp;</code>.  For example, if your jobs already require Gluster: 
+characters <code>&amp;&amp;</code>.  For example, if your jobs already require large data staging: 
 
-<pre class="submit">requirements = (Target.HasGluster == true) </pre>
+<pre class="submit">requirements = (Target.HasCHTCStaging == true) </pre>
 
 You can add the requirements for using Scientific Linux 6 like so: 
 
-<pre class="submit">requirements = (Target.HasGluster == true) &amp;&amp; (OpSysMajorVer == 6)</pre>
+<pre class="submit">requirements = (Target.HasCHTCStaging == true) &amp;&amp; (OpSysMajorVer == 6)</pre>
 
 </blockquote>
 
