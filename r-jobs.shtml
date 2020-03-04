@@ -152,22 +152,42 @@ R</a></p>
 
 <p><a name="supported"></a></p>
 
-<h1 class="gtable" id="supported-r-installations">Supported R Installations</h1>
-<p>| R version | Name of R installation file |
-  | — | — |
-  | R 3.2.5 | R325.tar.gz |
-  | R 3.3.3 | R333.tar.gz |
-  | R 3.4.4 | R344.tar.gz |
-  | R 3.5.1 | R351.tar.gz |
-  | R 3.6.1 | R361.tar.gz |</p>
+<h1 id="supported-r-installations">Supported R Installations</h1>
+
+<table class="gtable">
+  <thead>
+    <tr>
+      <th>R version</th>
+      <th>Name of R installation file</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>R 3.2.5</td>
+      <td>R325.tar.gz</td>
+    </tr>
+    <tr>
+      <td>R 3.3.3</td>
+      <td>R333.tar.gz</td>
+    </tr>
+    <tr>
+      <td>R 3.4.4</td>
+      <td>R344.tar.gz</td>
+    </tr>
+    <tr>
+      <td>R 3.5.1</td>
+      <td>R351.tar.gz</td>
+    </tr>
+    <tr>
+      <td>R 3.6.1</td>
+      <td>R361.tar.gz</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><a name="build"></a></p>
 
-<ol>
-  <li>
-    <h1 id="adding-r-packages">Adding R Packages</h1>
-  </li>
-</ol>
+<h1 id="1-adding-r-packages"><strong>1. Adding R Packages</strong></h1>
 
 <p>If your code uses specific R packages (like <code>dplyr</code>, <code>rjags</code>, etc)
 follow the directions below to download and prepare the packages you
@@ -231,7 +251,7 @@ running the following command:</p>
 
 <h2 id="b-install-the-packages">B. Install the Packages</h2>
 
-<p><strong>1. Set up R</strong>\</p>
+<p><strong>1. Set up R</strong></p>
 
 <p>Once the interactive build job starts, you should see the R installation
 that you specified inside the working directory:</p>
@@ -262,7 +282,7 @@ that version of R:</p>
 skip the directory creation step below.</p>
 </blockquote>
 
-<p><strong>2. Install packages</strong>\</p>
+<p><strong>2. Install packages</strong></p>
 
 <p>First, create, a directory to put your packages into:</p>
 
@@ -319,7 +339,7 @@ interactive session.</p>
 
 <h2 id="c-finish-up">C. Finish Up</h2>
 
-<p><strong>1. Create a <code>tar.gz</code> file of your packages</strong>\</p>
+<p><strong>1. Create a <code>tar.gz</code> file of your packages</strong></p>
 
 <p>Right now, if we exit the interactive job, nothing will be transferred
 back because we haven't created any new <strong>files</strong> in the working
@@ -336,7 +356,7 @@ directories.</p>
 
 <p>Again, you can use a different name for the <code>tar.gz</code> file, if you want.</p>
 
-<p><strong>2. Finish the interactive build job</strong>\</p>
+<p><strong>2. Finish the interactive build job</strong></p>
 
 <p>We now have our packages bundled and ready for CHTC! You can now exit
 the interactive job and the tar.gz file with your R packages will return
@@ -347,11 +367,7 @@ to the submit server with you.</p>
 
 <p><a name="script"></a></p>
 
-<ol>
-  <li>
-    <h1 id="creating-a-script">Creating a Script</h1>
-  </li>
-</ol>
+<h1 id="2-creating-a-script"><strong>2. Creating a Script</strong></h1>
 
 <p>In order to use CHTC's copy of R and the packages you have prepared in
 an HTCondor job, we will need to write a script that unpacks both R and
@@ -412,11 +428,7 @@ lesson</a>
 
 <p><a name="submit"></a></p>
 
-<ol>
-  <li>
-    <h1 id="submitting-jobs">Submitting Jobs</h1>
-  </li>
-</ol>
+<h1 id="3-submitting-jobs"><strong>3. Submitting Jobs</strong></h1>
 
 <p>A sample submit file can be found in our <a href="/helloworld.shtml">hello
 world</a> example page. You should make the following
