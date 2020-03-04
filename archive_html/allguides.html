@@ -20,7 +20,7 @@
   }
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Checking Disk Quota and Usage</title>
+<title>Computing Guides</title>
 
 <link href="/web.css" rel="stylesheet" type="text/css">
 </head>
@@ -116,72 +116,79 @@ Click for details
 
 <div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
 
-<h1>Checking Disk Quota and Usage</h1>
+<h1>Computing Guides</h1>
 
 
-<p>The following commands will allow you to monitor the amount of disk
-space you are using on our (or another) submit node and to determine the
-amount of disk space you have been allotted (your quota).<br />
+<p>
+Below is a list of guides for some of the most common tasks our users need to
+carry out as they begin and continue to use the resources at the CHTC. 
+Some of these are general computing solutions; others are specific to HTCondor
+or to the configuration of CHTC computing resources.
 <br />
-The default quota allotment on CHTC submit nodes is 20 GB with a hard
-limit of 30 GB (at which point you cannot write more files).<br />
+<ul>
+   <li><a href="#gen">General Computing</a></li>
+   <li><a href="#htc">Use the HTC System</a> </li>
+   <li><a href="#hpc">Use the HPC Cluster</a> </li>
+   <li><a href="#ext">External Resources</a> </li>
+</ul>
 <br />
-<strong>Note: The CHTC submit nodes are not backed up, so you will want to
-copy completed jobs to a secure location as soon as a batch completes,
-and then delete them on the submit node in order to make room for future
-jobs.</strong> If you need more disk space to run a single batch or concurrent
-batches of jobs, please send an email to the address at the bottom of
-the page. We have multiple ways of dealing with large disk space
-requirements to make things easier for you.</p>
+Guides will be added to the list as we can provide them. Please contact us
+(email at bottom of page) if you find any of the information to be incorrect.
+</p>
 
-<h2 id="1-checking-your-user-quota-and-usage"><strong>1. Checking Your User Quota and Usage</strong></h2>
+<p><a name="gen"></a></p>
+<h1>General Computing</h1>
+<ul>
+    <li><a href="/approach.shtml">Our Approach: High Throughput Versus 
+High Performance Computing</a></li>
+</ul>
 
-<p>From any directory location within your home directory, type
-<code>quota -vs</code>. See the example below:</p>
+<p><a name="htc"></a></p>
+<h1>Use the HTC System</h1>
+<ul>
+    <li>Getting Started<ul>
+	<li><a href="/use-submit-node.shtml">Using CHTC's HTC Submit Nodes</a></li>
+	<li><a href="/helloworld.shtml">Running Your First HTC Jobs</a></li>
+        <li><a href="/submit_variations.shtml">Submit file Variations</a></li>
+        <li><a href="/inter-submit.shtml">Compiling Code with an Interactive Job</a></li>
+	<li><a href="/check-quota.shtml">Checking Disk Quota and Usage</a></li>
+    </ul></li>
+    <li>How to handle your files and data within HTCondor jobs<ul>
+        <li><a href="/file-availability.shtml">File Availability Options</a></li>
+        <li><a href="/file-avail-squid.shtml">File Availability with Squid Web Proxy</a></li>
+        <li><a href="/file-avail-gluster.shtml">File Availability with Gluster</a><ul>
+            <li><a href="/gluster-large-files.shtml">Using Gluster to Stage 
+Large Files</a></li>
+    </ul></li>
+    </ul></li>
+    <li>How to Handle Your Software<ul>
+        <li><a href="/matlab-jobs.shtml">Running Matlab Jobs</a></li>
+	<li><a href="/python-jobs.shtml">Running Python Jobs</a></li>
+	<li><a href="/r-jobs.shtml">Running R Jobs</a></li>
+        <li><a href="/howto_overview_prev.shtml">Old CHTC Portability Tools (archived)</a></li>
+        <!-- <li><a href="/gluster-software.shtml">Software in Gluster</a></li>-->
+    </ul></li>
+    <li><a href="/high-memory-jobs.shtml">Submitting High Memory Jobs</a></li>
+</ul>
 
-<pre class="term"><code>[alice@submit]$ quota -vs
-Disk quotas for user alice (uid 20384): 
-     Filesystem  blocks   quota   limit   grace   files   quota   limit   grace
-      /dev/sdb1  12690M  20480M  30720M            161k       0       0        
-</code></pre>
+<p><a name="hpc"></a></p>
+<h1>Use the HPC Cluster</h1>
+<ul>
+    <li><a href="/HPCuseguide.shtml">HPC Cluster Basic Use Guide</a></li>
+    <li><a href="/MPIuseguide.shtml">MPI Use Guide</a></li>
+</ul>
 
-<p>The output will list your total data usage under <code>blocks</code>, your soft
-<code>quota</code>, and your hard <code>limit</code> at which point your jobs will no longer
-be allowed to save data. Each of the values given are in 1-kilobyte
-blocks, so you can divide each number by 1024 to get megabytes (MB), and
-again for gigabytes (GB). (It also lists information for ` files`, but
-we don't typically allocate disk space by file count.)</p>
-
-<h2 id="2-checking-the-size-of-directories-and-contents"><strong>2. Checking the Size of Directories and Contents</strong></h2>
-
-<p>Move to the directory you'd like to check and type <code>du</code> . After several
-moments (longer if you're directory contents are large), the command
-will add up the sizes of directory contents and output the total size of
-each contained directory in units of kilobytes with the total size of
-that directory listed last. See the example below:</p>
-
-<pre class="term"><code>[alice@submit]$ du ./
-4096    ./dir/subdir/file.txt
-4096    ./dir/subdir
-7140    ./dir
-74688   .
-</code></pre>
-
-<p>As for quota usage above, you can divide each value by 1024 to get
-megabytes, and again for gigabytes.</p>
-
-<p>Using <code>du</code> with the <code>-h</code> or <code>--human-readable</code> flags will display the
-same values with only two significant digits and a K, M, or G to denote
-the byte units. The <code>-s</code> or <code>--summarize</code> flags will total up the size
-of the current directory without listing the size of directory contents
-. You can also specify which directory you'd like to query, without
-moving to it, by adding the relative filepath after the flags. See the
-below example from the <code>home</code> directory which contains the directory
-<code>dir</code>:</p>
-
-<pre class="term"><code>[alice@submit]$ du -sh dir
-7.1K    dir
-</code></pre>
+<p><a name="ext"></a></p>
+<h1>External Resources</h1>
+<ul>
+    <li><a href="http://software-carpentry.org/4_0/index.html">
+	Software Carpentry</a> (online courses and videos; readings)</li>
+    <li><a href="http://research.cs.wisc.edu/htcondor/manual/">HTCondor Manual</a></li>
+    <li><a href="http://slurm.schedmd.com/">Slurm Manual</a></li>
+    <li><a href="http://www.doit.wisc.edu/training/student/">DoIT Software 
+	Training for Students</a> (free on-campus courses) </li>
+<br />
+</ul>
 
 
 
