@@ -143,16 +143,16 @@ archives</a>.</p>
 
 <p><strong>Important Dates</strong></p>
 <ul>
-  <li>March 4 (today) - Applications open for space on the new large-data system.</li>
-  <li>April 1 - Jobs that require Gluster will no longer run.</li>
-  <li>April 15 - Gluster file share is removed and all files in Gluster are deleted.</li>
+  <li>March 4 - Applications open for space on the new large-data system.</li>
+  <li>April 6 - Jobs that require Gluster will no longer run.</li>
+  <li>April 20 - Gluster file share is removed and all files in Gluster are deleted.</li>
 </ul>
 
 <p><strong>Actions to Take</strong></p>
 
 <p>If you use Gluster on our HTC system, here are the actions you need to take:</p>
 <ul>
-  <li><strong>Remove all data from Gluster as soon as possible.</strong> Data in Gluster will be deleted on April 15.</li>
+  <li><strong>Remove all data from Gluster as soon as possible.</strong> Data in Gluster will be deleted on April 20.</li>
   <li><strong>When you need to run new jobs with large input or output files,</strong> request a directory on the new large-data system by sending an email our support address (<a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>) with the following information:
     <ul>
       <li>How many jobs you typically have queued at once, and how many files of what sizes those jobs will require in the large-data system; therefore …</li>
