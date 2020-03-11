@@ -106,7 +106,6 @@
 <b>Office Hours!</b>
 <br>
 Tues/Thurs, 3-4:30pm<br>
-Wed, 9:30-11:30am</br>
 Click for details
 </a></span></div>	
 
@@ -119,21 +118,20 @@ Click for details
 <h1>Get Help!</h1>
 
 
-<h3>There are multiple ways to get help from CHTC staff. See below:</h3>
-<p><a name="research"></a></p>
-<h2>Research Computing Facilitators</h2>
+<h3 id="there-are-multiple-ways-to-get-help-from-chtc-staff-see-below">There are multiple ways to get help from CHTC staff. See below:</h3>
+
+<h2 id="research-computing-facilitators">Research Computing Facilitators</h2>
 
 <p>To help researchers effectively utilize CHTC, CHTC has Research
- Computing Facilitators (RCFs) as a result of partnership with the Advanced
- Computing Initiative. Our RCFs can not only assist your in implementing your
- computational work on CHTC compute resources resources, but can also point
- you to other on- and off-campus services related to computation
- and research IT needs.</p>
-
-<p>For example, RCFs can:</p>
+Computing Facilitators (RCFs) as a result of partnership with the
+Advanced Computing Initiative. Our RCFs can not only assist your in
+implementing your computational work on CHTC compute resources
+resources, but can also point you to other on- and off-campus services
+related to computation and research IT needs. For example, RCFs can:</p>
 
 <ul>
-  <li>Assist with planning your computational approach for a research problem</li>
+  <li>Assist with planning your computational approach for a research
+problem</li>
   <li>Teach you to submit jobs to CHTC compute systems</li>
   <li>Help you with troubleshooting on CHTC compute systems</li>
   <li>Connect you with other researchers using similar software or methods</li>
@@ -143,67 +141,65 @@ Click for details
   <li>… and other helpful activities to facilitate your use of cyberinfrastructure</li>
 </ul>
 
-<!--<blockquote>
-<b>Conferences:</b> Both facilitators will be at conferences next week, 
- <u>Monday, September 23 - Thursday, September 24</u>.  Response to email and new account requests may
-be delayed during this time.  
-</blockquote>-->
+<h2 id="get-an-account">Get An Account</h2>
 
-<p><a name="account"></a></p>
-<h2>Get An Account</h2>
-<p>If you don’t have an account yet, please fill out 
-our <a href="/form.shtml">Request Form</a>, and we’ll 
-follow up quickly to set up a meeting time and create 
-accounts. If you don’t have an account but just have 
-general questions, feel free to send an email to chtc@cs.wisc.edu (see below).
-<a name="email"></a></p>
-<h2>Via Email</h2>
+<p>If you don’t have an account yet, please fill out our <a href="/form.shtml">Request
+Form</a>, and we’ll follow up quickly to set up a meeting time
+and create accounts. If you don’t have an account but just have general
+questions, feel free to send an email to chtc@cs.wisc.edu (see below).</p>
 
-<!--<blockquote>
-<b>Notice:</b> Due to facilitator participation in a local summer school, 
-our reponse to email will be delayed during the week of July 15.
-</blockquote>-->
+<h2 id="help-via-email">Help Via Email</h2>
 
-<p>We provide support via email at the address <a href="Mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>,
- and it's never a bad idea to start by sending questions or issues 
-via email.  You can typically expect a first response within a few
- business hours.</p>
+<p>We provide support via email at the address
+<a href="Mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>, and it’s never a bad idea
+to start by sending questions or issues via email. You can typically
+expect a first response within a few business hours.</p>
 
-<p><a name="officehour"></a></p>
-<h2>Office Hours</h2>
+<h2 id="office-hours">Office Hours</h2>
 
-<p><b>Cancellations will be announced via email and on this webpage.</b></p>
+<p><strong>Cancellations will be announced via email and on this webpage.</strong></p>
 
-<!--<p style="color:red;">
-Office hours are cancelled on <b>Tuesday (9/24)</b> and <b>Wednesday (9/25)</b>.
-</p>-->
-<!--<blockquote>
-Office hours are cancelled on <b>Wednesday, August 28</b>.
-</blockquote>-->
+<blockquote>
+  <p><strong>Temporary Changes to Office Hours</strong></p>
 
-<p>For users who already have accounts, we have drop-in office hours on:</p>
-<ul>
-	<li><b>Tuesday/Thursday afternoons, from 3:00 - 4:30 pm.</b></li>
-	<li><b>Wednesday morning from 9:30 - 11:30 am</b></li>
-</ul>
+  <p>In light of <a href="https://covid19.wisc.edu/">measures being taken by campus regarding COVID-19</a>, 
+we are replacing in-person office
+hours with virtual office hours, and slightly decreasing our office 
+hour availability. Starting on <em>Thursday, March 12</em>, office hours are:</p>
 
-<p>Office Hours are located in the 
-<a href="http://map.wisc.edu/s/919bjy8v">Discovery Building</a>
- at the second-floor round table, just off of the main staircase.<br />
-<b>For researchers without access to the upper floors of the Discovery
- Building, check in at the front desk and ask them to "call CHTC."</b><br />
+  <ul>
+    <li><strong>Tuesday/Thursday afternoons, from 3:00 - 5:00 pm.</strong></li>
+  </ul>
+
+  <p>To drop in, find the videoconference link in either your email (via 
+an announcement to chtc-users sent on Wed., March 11) or in the login message
+when you log into a CHTC server.</p>
+
+  <p>As always, if the times above don’t work for you, please email use 
+at our usual support address to schedule a separate meeting.</p>
+</blockquote>
+
+<!-- For users who already have accounts, we have drop-in office hours on:
+
+-   **Tuesday/Thursday afternoons, from 3:00 - 4:30 pm.**
+-   **Wednesday morning from 9:30 - 11:30 am**
+
+Office Hours are located in the [Discovery
+Building](http://map.wisc.edu/s/919bjy8v) at the second-floor round
+table, just off of the main staircase.\
+ **For researchers without access to the upper floors of the Discovery
+Building, check in at the front desk and ask them to "call CHTC."**\
  We will confirm that you are here for office hours and you will be let
- upstairs. (Note: If you ask the desk to call for a facilitator, by name,
- no one will answer as facilitators will not be in their <i>own</i> offices
- during Office Hours.)
-</p>
+upstairs. (Note: If you ask the desk to call for a facilitator, by name,
+no one will answer as facilitators will not be in their *own* offices
+during Office Hours.) -->
 
-<p><a name="appointment"></a></p>
-<h2>By Appointment</h2>
+<h2 id="make-an-appointment">Make an Appointment</h2>
 
-<p>We are happy to arrange meetings outside of designated Office Hours,
- per your preference. Simply email us at the address above, and we will
- set up a time to meet!</p>
+<p>We are happy to arrange meetings outside of designated Office Hours, per
+your preference. Simply email us at the address above, and we will set
+up a time to meet!</p>
+
 
 
 
