@@ -20,7 +20,7 @@
   }
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>About Our Approach</title>
+<title>Using Java Code in CHTC</title>
 
 <link href="/web.css" rel="stylesheet" type="text/css">
 </head>
@@ -110,68 +110,67 @@ Click for details
 	
 <div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
 
-<h1>About Our Approach</h1>
+<h1>Using Java Code in CHTC</h1>
 
 
-<p>CHTC’s specialty is High
-<em>Throughput</em> Computing (HTC), which involves breaking up a single large
-computational task into many smaller tasks for the fastest overall
-turnaround. Most of our users find HTC to be invaluable 
-in accelerating their computational work and thus their research. 
-We support thousands of multi-core computers and use the task
-scheduling software called HTCondor, developed right here in Madison, to
-run thousands of independent jobs on as many total processors as
-possible. These computers, or “machines”, are distributed across several 
-collections that we call <em>pools</em> (similar to “clusters”). Because machines are
-assigned to individual jobs, many users can be running jobs on a pool at any
-given time, all managed by HTCondor.</p>
+<h1>Overview</h1>
 
-<p>The diagram below shows some of the largest pools on campus and also
-shows our connection to the US-wide Open Science Grid where UW computing
-work can “backfill” available computers all over the country. The number
-under each resource name shows an approximate number of computing hours
-available to campus researchers for a typical week in Fall 2013. As
-demonstrated in the diagram, we help users to submit their work not only
-to our CHTC-owned machines, but to improve their throughput even further
-by seamlessly accessing as many available computers as possible, all
-over campus <em>AND</em> all over the country.</p>
+<p>If your code uses Java via a <code>.jar</code> file, it is easy to run 
+on CHTC and beyond.  There are two ways to run Java code from a CHTC 
+submit server: 
+<ul>
+	<li><a href="#default">Run jobs in CHTC only, using the default Java version (1.8)</a></li>
+	<li><a href="#portable">Use a newer version of Java and/or run jobs beyond 
+	CHTC (on the UW Grid or Open Science Grid) (recommended)</a></li>
+</ul>
 
-<p>The vast majority of the computational work that campus researcher have
-is HTC, though we are happy to support researchers with a variety of
-beyond-the-desktop needs, including tightly-coupled computations (e.g.
-MPI), high-memory work (e.g. metagenomics), and specialized
-hardware like GPUs.</p>
+<p>You should only use *one* of these options to run Java code, not both.</p>
 
-<p><img alt="chtc-pools" src="/includes/chtc-pools.png" width="500" style="float:right; margin:20px; margin-right:0;" /></p>
+<a name="default"></a>
+<h1>Pre-installed Java</h1>
 
-<h2 id="what-kinds-of-applications-run-best-in-the-chtc">What kinds of applications run best in the CHTC?</h2>
+<p>To run in CHTC only, using the default version of java (1.8): </p>
 
-<p>“Pleasantly parallel” tasks, where <em>many</em> jobs can run independently,
-is what works best in the CHTC, and is what we can offer the greatest
-computational capacity for. 
-Analyzing thousands of images, inferring statistical significance of hundreds of
-thousands of samples, optimizing an electric motor design with millions
-of constraints, aligning genomes, and performing deep linguistic search
-on a 30 TB sample of the internet are a few of the applications that
-campus researchers run every day in the CHTC. If you are not sure if
-your application is a good fit for CHTC resources, <a href="mailto:chtc@cs.wisc.edu">get in
-touch</a> and we will be happy to help you figure it out.</p>
+<ol>
+<li>Add this line to your submit file:
+  <pre class="sub">requirements = (Target.HasJava == true) </pre> </li>
+<li>Your executable should be a wrapper script that executes your program. 
 
-<p>Within a single compute system, we also support GPUs, high-memory
-servers, and specialized hardware owned by individual research groups.
-For tightly-coupled computations (e.g. MPI and similar programmed
-parallelization), our resources include an HPC Cluster, with faster
-inter-node networking.</p>
+<pre class="file">
+#!/bin/bash
 
-<h2 id="how-to-get-access">How to Get Access</h2>
+java -jar <i>program.jar</i>
+</pre>
+</li>
 
-<p>While you may be excited at the prospect of harnessing 100,000 compute
-hours a day for your research, the most valuable thing we offer is,
-well, us. We have a small, yet dedicated team of professionals who eat,
-breathe and sleep distributed computing. <a href="get-started.shtml">Request an
-account</a>, and one of our dedicated Research Computing
-Facilitators will follow up to provide specific recommendations to
-accelerate YOUR science.</p>
+</ol>
+
+<a name="portable"></a>
+<h1>Portable Java</h1>
+
+<p>To use a newer version of Java and/or to run outside of CHTC on the UW Grid 
+and/or Open Science Grid: </p>
+
+<ol>
+<li>Download the Linux x64 Java/JDK tar file (the .tar.gz ending *not* .rpm) from the 
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle website</a>. 
+You'll need to click on a button to "Accept License Agreement" to download. 
+<li> Add the downloaded tar file to the <code>transfer_input_files</code> line of your 
+submit file: 
+ <pre class="sub">transfer_input_files = <i>jdk-8u121-linux-x64.tar.gz</i></pre></li>
+<li>Write a script that unpacks the jdk tar file, sets the environment to find 
+the java software, and then runs your program.  This script will be your job's 
+executable.  See this example for what the script should look like: 
+<pre class="file">#!/bin/bash
+
+tar -xzf jdk-8u121-linux-x64.tar.gz
+export PATH=$(pwd)/jdk-8u121-linux-x64/bin:$PATH
+export JAVA_HOME=$(pwd)/jdk-8u121-linux-x64
+java -jar <i>program.jar</i></pre>
+As in Step 2 above, the final line will vary, depending on your program.  </li>
+
+
+</li></ol></p>
 
 
 

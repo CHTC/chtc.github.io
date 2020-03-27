@@ -96,33 +96,32 @@
 	<a href="https://twitter.com/CHTC_UW" style="color:white;"><center><img alt="Twitter" src="/images/twitter.png" width="50" height="50"></center></a> 
 	<center><a href="https://github.com/CHTC/chtc-website-source" style="color:white;"><img alt="GitHub" src="/images/GitHub_Logo_White.png" width="92" height="38"></center></a></span></div>
 
-<div id="hours"> <span style="height: 30px">
+<div id="hours"> <span style="height: 35px">
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <a href="http://chtc.cs.wisc.edu/get-help.shtml" style="color:white;">
 <center><b>Office Hours!</b>
-<br>
-<br>
+<p style="margin-bottom: 1px;"></p>
 Tues/Thurs, 3-5pm
 Click for details
-<center></a></span></div>	
+</center></a></span>
 <p style="margin-bottom: 1px;"></p>
-<a href="http://chtc.cs.wisc.edu/sign-in.shtml" style="color:white;">Sign-In Here</a>
-</a></span></div>
+<center><a href="http://chtc.cs.wisc.edu/sign-in.shtml" style="color:white;">Sign-In Here</a></center>
+</div>
 	
 <div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
 
 <h1>CHTC News</h1>
 
 
-<p>
-The following links reference news-making events from the CHTC:
-<p>
-<ul>
-<li>July 31, 2012 <a href="http://www.news.wisc.edu/20913?utm_source=iUW&amp;utm_medium=email&amp;utm_campaign=iUW2012-07-31">Collaborative computing, pioneered at UW-Madison helped drive LHC analysis</a>
-<li>May 9, 2011 <a href="http://www.news.wisc.edu/19384">Red Hat honors UW-Madison partnership, contributes to research computing</a>
-&lt;/ul&gt;
+<p>The following links reference news-making events from the CHTC:</p>
 
-</li></li></ul></p></p>
+<ul>
+  <li>July 31, 2012 <a href="http://www.news.wisc.edu/20913?utm_source=iUW&amp;utm_medium=email&amp;utm_campaign=iUW2012-07-31">Collaborative computing, pioneered at UW-Madison
+helped drive LHC
+analysis</a></li>
+  <li>May 9, 2011 <a href="http://www.news.wisc.edu/19384">Red Hat honors UW-Madison partnership, contributes to
+research computing</a></li>
+</ul>
 
 
 

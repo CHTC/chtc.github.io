@@ -20,7 +20,7 @@
   }
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>About Our Approach</title>
+<title>HTC System Use Guides</title>
 
 <link href="/web.css" rel="stylesheet" type="text/css">
 </head>
@@ -110,68 +110,57 @@ Click for details
 	
 <div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
 
-<h1>About Our Approach</h1>
+<h1>HTC System Use Guides</h1>
 
 
-<p>CHTC’s specialty is High
-<em>Throughput</em> Computing (HTC), which involves breaking up a single large
-computational task into many smaller tasks for the fastest overall
-turnaround. Most of our users find HTC to be invaluable 
-in accelerating their computational work and thus their research. 
-We support thousands of multi-core computers and use the task
-scheduling software called HTCondor, developed right here in Madison, to
-run thousands of independent jobs on as many total processors as
-possible. These computers, or “machines”, are distributed across several 
-collections that we call <em>pools</em> (similar to “clusters”). Because machines are
-assigned to individual jobs, many users can be running jobs on a pool at any
-given time, all managed by HTCondor.</p>
+<p>This page lists all of our online resources for running work on the 
+CHTC's high throughput system.  </p>
 
-<p>The diagram below shows some of the largest pools on campus and also
-shows our connection to the US-wide Open Science Grid where UW computing
-work can “backfill” available computers all over the country. The number
-under each resource name shows an approximate number of computing hours
-available to campus researchers for a typical week in Fall 2013. As
-demonstrated in the diagram, we help users to submit their work not only
-to our CHTC-owned machines, but to improve their throughput even further
-by seamlessly accessing as many available computers as possible, all
-over campus <em>AND</em> all over the country.</p>
+<!--If you are a newcomer to high throughput 
+and would like an overview of what high throughput computing is, how to 
+get the most from high throughput computing, and how to get started on our 
+system, see our <a href="#roadmap">Roadmap to HTC</a>.  Our individual guides are listed 
+by topics <a href="#topics">here</a>.  Finally, if you have a specific question, see 
+our <a href="#faq">FAQs</a>.  </p>
 
-<p>The vast majority of the computational work that campus researcher have
-is HTC, though we are happy to support researchers with a variety of
-beyond-the-desktop needs, including tightly-coupled computations (e.g.
-MPI), high-memory work (e.g. metagenomics), and specialized
-hardware like GPUs.</p>
+<a name="roadmap"></a>
+<h2>Roadmap for Running HTC Jobs</h2>
 
-<p><img alt="chtc-pools" src="/includes/chtc-pools.png" width="500" style="float:right; margin:20px; margin-right:0;" /></p>
+<ul><li>In progress</li></ul>
 
-<h2 id="what-kinds-of-applications-run-best-in-the-chtc">What kinds of applications run best in the CHTC?</h2>
+<a name="topics"></a>
+<h2>List of Guides by Topic</h2>
+-->
 
-<p>“Pleasantly parallel” tasks, where <em>many</em> jobs can run independently,
-is what works best in the CHTC, and is what we can offer the greatest
-computational capacity for. 
-Analyzing thousands of images, inferring statistical significance of hundreds of
-thousands of samples, optimizing an electric motor design with millions
-of constraints, aligning genomes, and performing deep linguistic search
-on a 30 TB sample of the internet are a few of the applications that
-campus researchers run every day in the CHTC. If you are not sure if
-your application is a good fit for CHTC resources, <a href="mailto:chtc@cs.wisc.edu">get in
-touch</a> and we will be happy to help you figure it out.</p>
+<ul>
+    <li>Getting Started<ul>
+	<li><a href="/helloworld.shtml">Running your first CHTC jobs</a></li>
+	<li><a href="/submit_variations.shtml">Submit file variations</a></li>
+	<li><a href="/inter-submit.shtml">Compiling all other code (interactive jobs)</a></li>
+    </ul></li>
+    <li>How to handle your files and data<ul>
+	<li><a href="/file-availability.shtml">File Availability options</a></li>
+	<li><a href="/file-avail-squid.shtml">File availability with Squid proxy</a></li>
+	<li><a href="/file-avail-gluster.shtml">File availability with Gluster</a><ul>
+	    <li><a href="/gluster-large-files.shtml">Using Gluster to 
+						    stage large files</a></li>
+	</ul></li>
+    </ul></li>
+    <li>How to handle your software<ul>
+	<li><a href="/howto_overview.shtml">Submitting Matlab, Python and R jobs using the ChtcRun environment</a></li>
+	<li><a href="/matlab-jobs.shtml">Submitting Matlab jobs</a></li>
+	<li><a href="/gluster-software.shtml">Software in Gluster</a></li>
+    </ul></li>
+    <li><a href="/high-memory-jobs.shtml">Running high memory jobs&lt;/li&gt;
+&lt;/ul&gt;
 
-<p>Within a single compute system, we also support GPUs, high-memory
-servers, and specialized hardware owned by individual research groups.
-For tightly-coupled computations (e.g. MPI and similar programmed
-parallelization), our resources include an HPC Cluster, with faster
-inter-node networking.</p>
+<!--
+<a name="faq"></a>
+<h2>FAQ</h2>
 
-<h2 id="how-to-get-access">How to Get Access</h2>
-
-<p>While you may be excited at the prospect of harnessing 100,000 compute
-hours a day for your research, the most valuable thing we offer is,
-well, us. We have a small, yet dedicated team of professionals who eat,
-breathe and sleep distributed computing. <a href="get-started.shtml">Request an
-account</a>, and one of our dedicated Research Computing
-Facilitators will follow up to provide specific recommendations to
-accelerate YOUR science.</p>
+<ul><li>Coming soon!</li></ul>
+-->
+</a></li></ul>
 
 
 
