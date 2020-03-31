@@ -156,36 +156,41 @@ considerations for getting your work done most efficiently.</p>
 <table class="gtable">
   <thead>
     <tr>
-      <th>Machine name</th>
+      <th>Number of servers</th>
       <th>Amount of memory</th>
       <th>Number of CPUs</th>
-      <th>Local disk space on machine</th>
+      <th>Local disk space on server</th>
+      <th>Names</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><code>mem1.chtc.wisc.edu</code></td>
-      <td>1 TB</td>
-      <td>80</td>
-      <td>1 TB</td>
-    </tr>
-    <tr>
-      <td><code>mem2.chtc.wisc.edu</code></td>
-      <td>2 TB</td>
-      <td>80</td>
-      <td>1 TB</td>
-    </tr>
-    <tr>
-      <td><code>mem3.chtc.wisc.edu</code></td>
-      <td>4 TB</td>
-      <td>80</td>
-      <td>6 TB</td>
-    </tr>
-    <tr>
-      <td><code>wid-003.chtc.wisc.edu</code></td>
+      <td>1</td>
       <td>512 GB</td>
       <td>16</td>
       <td>2.5 TB</td>
+      <td><code>wid-003</code></td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>512 GB</td>
+      <td>40</td>
+      <td>2.5 TB</td>
+      <td><code>e2003</code>-<code>e2018</code></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2 TB</td>
+      <td>80</td>
+      <td>3.5+ TB</td>
+      <td><code>mem2001</code>, <code>mem2002</code></td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>4 TB</td>
+      <td>80</td>
+      <td>6 TB</td>
+      <td><code>mem3</code></td>
     </tr>
   </tbody>
 </table>
