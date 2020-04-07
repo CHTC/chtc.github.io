@@ -144,7 +144,7 @@ computing infrastructure at UW-Madison.  It includes:</p>
   <li>Apply for a CHTC account if you do not already have one: <a href="form.shtml">Account Request Page</a></li>
   <li>See what GPUs are available and how to use them in the <a href="gpu-jobs.shtml">GPU jobs guide</a>.</li>
   <li>See our guide with specific machine learning related tips: <a href="machine-learning-htc.shtml">Running Machine Learning Jobs on HTC</a></li>
-  <li>For more extended examples, see the following: <a href="https://github.com/CHTC/templates-GPUs">Runnable examples on GitHub</a>.</li>
+  <li>For more extended examples, see the following: <a href="https://github.com/CHTC/templates-GPUs">GPU job templates on GitHub</a>.</li>
 </ul>
 
 <p>The CHTC GPU Lab mailing list is used to announce new GPU hardware availability and 
