@@ -1,0 +1,336 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<script type="text/javascript">
+
+  function resizeIframe(iframe) {
+    var newheight;
+    var newwidth;
+
+    if(document.getElementById){
+        newwidth=iframe.contentWindow.document.body.scrollWidth;
+        newheight=iframe.contentWindow.document.body.scrollHeight;
+    }
+
+    iframe.height= (newheight) + "px";
+    iframe.width= (newwidth) + "px";
+  }
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Create a Portable Python Installation with Miniconda</title>
+
+<link href="/web.css" rel="stylesheet" type="text/css">
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+   <td width="1%" align="left" class="bgred" valign="top">
+      <div align="center">
+      &nbsp;<br>
+      <a href="http://www.wisc.edu">
+
+      <img src="/images/uw-sm-red.png" width="125" height="46" border="0"> </a>
+       </div>
+
+	<ul class="sidebar">
+	<li><a href="/">CHTC Home</a></li>
+	
+	<li>About
+		<ul>
+		<li><a href="/approach.shtml">Our Approach</a></li>
+<!--comment		<li><a href="/resources.shtml">Our Resources</a></li>   -->
+		<li><a href="/projects.shtml">Our Customers</a></li>
+		<li><a href="/people.shtml">Our Staff</a></li>
+		<li><a href="/jobs.shtml">Our Open Positions</a></li>
+		</ul>
+	</li>
+	
+	<li>How To's
+		<ul>
+		<li><a href="/get-started.shtml">Get Started</a></li>
+		<li><a href="/get-help.shtml">Get Help</a></li>
+        	<li><a href="/guides.shtml">All User Guides</a></li>
+                <li><a href="/use-submit-node.shtml">Use an HTC Submit Server</a></li>
+		<li><a href="/helloworld.shtml">Run Your First HTC Jobs</a></li>
+		<li><a href="/howto_overview.shtml">HTC for MatLab, Python or R</a></li>
+		<li><a href="/HPCuseguide.shtml">Use the HPC Cluster</a></li>
+		<li><a href="/cite-chtc.shtml">Cite CHTC Resources</a></li>
+		</ul>
+	</li>
+	<li><a href="/user-news.shtml">User News</a></li>
+	<li>Other Resources
+		<ul>
+		<!--<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Pool Usage Reports</a></li>-->
+<!--comment		<li><a href="/opmetrics.shtml">Operational Metrics</a></li>  -->
+		<li><a href="/gpu-lab.shtml">CHTC GPU Lab</a></li>
+		<li><a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a></li>
+		<li><a href="http://www.neos-server.org/">NEOS Optimization Service</a></li>
+		<li><a href="http://www.opensciencegrid.org/">Open Science Grid</a></li>
+		<li><a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a></li>
+		</ul>
+	</li>
+	</ul>
+
+	</td>
+
+<td width="97%" valign="top"> 
+
+
+	<TABLE SUMMARY="Navigation layout" BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+<TR ALIGN="left"> 
+  <TD WIDTH="100%" height="400" Align="left" VALIGN="top"> 
+    <A  name="body"></a> 
+	<div id = "main">
+
+<!-- Top of Page Body -->
+<table BORDER="0" WIDTH="100%">
+<!-- <h1 align=left valign=center>The Center for High Throughput Computing</h1> -->
+
+<div id="osg_power"> <span style="height: 30px">Powered by:</span><br /><a href="http://opensciencegrid.org"><img alt="Open Science Grid" src="/images/Open_Science_Grid_Consortium(Logo).jpg" width="123" height="70" /></a></div>
+
+<div id="hours"> <span style="height: 30px">
+	<a href="https://twitter.com/CHTC_UW" style="color:white;"><center><img alt="Twitter" src="/images/twitter.png" width="50" height="50"></center></a> 
+	<center><a href="https://github.com/CHTC/chtc-website-source" style="color:white;"><img alt="GitHub" src="/images/GitHub_Logo_White.png" width="92" height="38"></center></a></span></div>
+
+<div id="hours"> <span style="height: 35px">
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a href="http://chtc.cs.wisc.edu/get-help.shtml" style="color:white;">
+<center><b>Office Hours!</b>
+<p style="margin-bottom: 1px;"></p>
+Tues/Thurs, 3-5pm
+Click for details
+</center></a></span>
+<p style="margin-bottom: 1px;"></p>
+<center><a href="http://chtc.cs.wisc.edu/sign-in.shtml" style="color:white;">Sign-In Here</a></center>
+</div>
+	
+<div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
+
+<h1>Create a Portable Python Installation with Miniconda</h1>
+
+
+<p>The Anaconda/Miniconda distribution of Python is a common tool for 
+installing and managing Python-based software and other tools. This guide 
+describes how to use the Miniconda installer to create a conda 
+environment for use in CHTC jobs.</p>
+
+<h1 id="overview">Overview</h1>
+
+<p>When should you use Miniconda as an installation method in CHTC?</p>
+<ul>
+  <li>Your software has specific Miniconda/conda centric installation instructions</li>
+  <li>The above is true <em>and</em> the software has a lot of dependencies</li>
+  <li>You mainly use Python to do your work.</li>
+</ul>
+
+<p>There are two ways to use Miniconda on CHTC’s HTC system. The first is to create your 
+installation environment on the submit server and send a zipped version to 
+your jobs. The other option is to install Miniconda inside each job. 
+The first option is more efficient, especially for complex installations, 
+but there may be rare situations where installing with each job is better. 
+We recommend trying the pre-installation option first.</p>
+
+<ul>
+  <li>Recommended: <a href="#option-1-pre-install-miniconda-and-transfer-to-jobs">Option 1: Pre-Install Miniconda and Transfer to Jobs</a></li>
+  <li>Alternative: <a href="#option-2-install-miniconda-inside-each-job">Option 2: Install Miniconda Inside Each Job</a></li>
+</ul>
+
+<h1 id="option-1-pre-install-miniconda-and-transfer-to-jobs">Option 1: Pre-Install Miniconda and Transfer to Jobs</h1>
+
+<p>In this approach, we will create an entire software installation inside Miniconda 
+and then use a tool called <code>conda pack</code> to package it up for running jobs.</p>
+
+<h2 id="1-create-a-miniconda-installation">1. Create a Miniconda installation</h2>
+
+<p>Download the latest Linux <a href="https://docs.conda.io/en/latest/miniconda.html">miniconda installer</a> and run it.</p>
+
+<pre class="term"><code>[alice@submit]$ sh Miniconda3-latest-Linux-x86_64.sh
+</code></pre>
+
+<p>Accept the license agreement and default options. At the end, you can choose whether or 
+not to “initialize Miniconda3 by running conda init?” The default is no; you should 
+then run the <code>eval</code> command listed by the installer to “activate” Miniconda. You’ll 
+also want to save this command so that you can reactivate the Miniconda installation 
+when needed in the future.</p>
+
+<h2 id="2-create-a-conda-environment-with-your-software">2. Create a conda “environment” with your software</h2>
+
+<p>Make sure that you’ve activated the base Miniconda environment if you haven’t 
+already. Your prompt should look like this:</p>
+
+<pre class="term"><code>(base)[alice@submit]$ 
+</code></pre>
+
+<p>To create an environment, use the <code>conda create</code> command and then activate the 
+environment:</p>
+
+<pre class="term"><code>(base)[alice@submit]$ conda create -n env-name
+(base)[alice@submit]$ conda activate env-name
+</code></pre>
+
+<p>Then, run the <code>conda install</code> command to install the different packages and 
+software you want to include in the installation. How this should look is often 
+listed in the installation examples for software 
+(e.g. <a href="https://docs.qiime2.org/2020.2/install/native/#install-qiime-2-within-a-conda-environment">Qiime2</a>, 
+<a href="https://pytorch.org/get-started/locally/">Pytorch</a>).</p>
+
+<pre class="term"><code>(env-name)[alice@submit]$ conda install pkg1 pkg2
+</code></pre>
+
+<p>Once everything is installed, deactivate the environment to go back to the 
+Miniconda “base”.</p>
+
+<pre class="term"><code>(env-name)[alice@submit]$ conda deactivate
+</code></pre>
+
+<p>For example, if you wanted to create an installation with <code>pandas</code> and 
+<code>matplotlib</code> and call the environment <code>py-data-sci</code>, I would use this sequence 
+of commands:</p>
+
+<pre class="term"><code>(base)[alice@submit]$ conda create -n py-data-sci
+(base)[alice@submit]$ conda activate py-data-sci
+(py-data-sci)[alice@submit]$ conda install pandas matplotlib
+(py-data-sci)[alice@submit]$ conda deactivate
+(base)[alice@submit]$ 
+</code></pre>
+
+<blockquote>
+  <h2 id="more-about-miniconda">More about Miniconda</h2>
+
+  <p>See the <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">official conda documentation</a> for 
+more information on creating and managing environments with <code>conda</code>.</p>
+</blockquote>
+
+<h2 id="3-create-software-package">3. Create Software Package</h2>
+
+<p>Make sure that your job’s Miniconda environment is created, but deactivated, so 
+you’re in the “base” Miniconda environment:</p>
+
+<pre class="term"><code>(base)[alice@submit]$ 
+</code></pre>
+
+<p>Then, run this command to install the <code>conda pack</code> tool:</p>
+
+<pre class="term"><code>(base)[alice@submit]$ conda install -c conda-forge conda-pack
+</code></pre>
+
+<p>Click <code>y</code> when it asks you to install.</p>
+
+<p>Finally, use <code>conda pack</code> to create a zipped tar.gz file of your environment
+(substitute the name of your conda environment where you see <code>env-name</code>):</p>
+
+<pre class="term"><code>(base)[alice@submit]$ conda pack -n env-name
+</code></pre>
+
+<p>When this step finishes, you should see a file in your current directory named
+<code>env-name.tar.gz</code></p>
+
+<h2 id="4-create-a-job-executable">4. Create a Job Executable</h2>
+
+<p>The job will need to go through a few steps to use this “packed” conda environment; 
+first, setting the <code>PATH</code>, then unzipping the environment, then activating it, 
+and finally running whatever program you like. The script below is an example 
+of what is needed - change the <code>env-name</code> to the name of your environment.</p>
+
+<pre class="file"><code>#!/bin/bash
+
+export PATH
+mkdir env-name
+tar -xzf env-name.tar.gz -C env-name
+
+. env-name/bin/activate
+#run your python script or program
+#python3 hello.py
+</code></pre>
+
+<h2 id="5-submit-jobs">5. Submit Jobs</h2>
+
+<p>In your submit file, make sure to have the following:</p>
+
+<ul>
+  <li>Your executable should be the the file you created in <a href="">step 4</a></li>
+  <li>Remember to transfer your primary script and the environment tar.gz file in 
+<code>transfer_input_files</code>. If the tar.gz file is larger than 100MB, please <a href="mailto:chtc@cs.wisc.edu">email</a> us 
+about different tools for delivering the installation to your jobs.</li>
+</ul>
+
+<h1 id="option-2-install-miniconda-inside-each-job">Option 2: Install Miniconda Inside Each Job</h1>
+
+<p>In this approach, rather than copying the Miniconda installation with each job, 
+we will copy the Miniconda <em>installer</em> and install a new copy of Miniconda with 
+each job.</p>
+
+<p>TODO: When to use this option</p>
+
+<h2 id="1-download-the-miniconda-installer-and-test-installation">1. Download the Miniconda Installer and Test Installation</h2>
+
+<p>If you haven’t already, download the latest Miniconda installer for Linux from the 
+<a href="https://docs.conda.io/en/latest/miniconda.html#linux-installers">Miniconda website</a> 
+and place it in your home directory on a CHTC submit server.</p>
+
+<p>We strongly recommend testing the installation steps for your particular program 
+or packages - either on your own computer or similar to the <a href="">directions above</a> - 
+before trying to submit the installation as part of a job to CHTC.</p>
+
+<h2 id="2-create-an-executable-script">2. Create an Executable Script</h2>
+
+<p>Our plan here is to run the Miniconda installer inside the job, build an environment 
+with needed packages, and then run our desired script or program. The following 
+script should work verbatim - change the <code>conda install</code> step to the packages 
+you need or the instructions for your program.</p>
+
+<pre class="file"><code>#!/bin/bash
+
+# installation steps for Miniconda
+export HOME=$PWD
+export PATH
+sh [installer] -b -p $PWD/miniconda3
+export PATH=$PWD/miniconda3/bin:$PATH
+
+# install packages
+conda install numpy matplotlib
+
+# run your python script or program
+# python3 hello.py
+</code></pre>
+
+<h2 id="3-submit-file">3. Submit File</h2>
+
+<p>In your submit file, include the executable you wrote (as described above)
+and in <code>transfer_input_files</code> include the Miniconda installer and any other scripts 
+or data files you want to include with the job:</p>
+
+<pre class="sub"><code>executable = run_with_conda.sh
+arguments = myscript.py
+
+transfer_input_files = Miniconda3-latest-Linux-x86_64.sh, script.py, other_input.file
+</code></pre>
+
+
+
+<div id = "copyright">
+     <p align = "center"> 
+	  
+     For all user support, questions, and comments:
+     <strong><a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a></strong>
+
+</p>
+</div>
+
+</div>
+
+  </td>
+  </tr>
+
+</TABLE>
+</td>
+</table>
+
+</body>
+</html>
+
+
