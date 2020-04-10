@@ -115,19 +115,34 @@ Click for details
 
 <p>The Anaconda/Miniconda distribution of Python is a common tool for 
 installing and managing Python-based software and other tools. This guide 
-describes how to use the Miniconda installer to create a conda 
+describes how to use Miniconda to create a Python 
 environment for use in CHTC jobs.</p>
 
 <h1 id="overview">Overview</h1>
 
 <p>When should you use Miniconda as an installation method in CHTC?</p>
 <ul>
-  <li>Your software has specific Miniconda/conda centric installation instructions</li>
-  <li>The above is true <em>and</em> the software has a lot of dependencies</li>
+  <li>Your software has specific conda-centric installation instructions.</li>
+  <li>The above is true <em>and</em> the software has a lot of dependencies.</li>
   <li>You mainly use Python to do your work.</li>
 </ul>
 
-<p>There are two ways to use Miniconda on CHTC’s HTC system. The first is to create your 
+<p>Notes on terminology:</p>
+<ul>
+  <li><strong>conda</strong> is a Python package manager and package ecosystem that exists in
+parallel with <code>pip</code> and <a href="https://pypi.org/">PyPI</a>.</li>
+  <li><strong>Miniconda</strong> is a slim Python distribution, containing the minimum amount
+of packages necessary for a Python installation that can use conda.</li>
+  <li><strong>Anaconda</strong> is a pre-built scientific Python distribution based on 
+Miniconda that has many useful scientific packages pre-installed.</li>
+</ul>
+
+<p>To create the smallest, most portable Python installation possible, 
+we recommend starting with Miniconda and installing only the packages you 
+actually require.</p>
+
+<p>There are two ways to create a Miniconda installation on CHTC’s HTC system. 
+The first is to create your 
 installation environment on the submit server and send a zipped version to 
 your jobs. The other option is to install Miniconda inside each job. 
 The first option is more efficient, especially for complex installations, 
@@ -146,16 +161,18 @@ and then use a tool called <code>conda pack</code> to package it up for running 
 
 <h2 id="1-create-a-miniconda-installation">1. Create a Miniconda installation</h2>
 
-<p>Download the latest Linux <a href="https://docs.conda.io/en/latest/miniconda.html">miniconda installer</a> and run it.</p>
+<p>On the submit server, 
+download the latest Linux <a href="https://docs.conda.io/en/latest/miniconda.html">miniconda installer</a> and run it.</p>
 
-<pre class="term"><code>[alice@submit]$ sh Miniconda3-latest-Linux-x86_64.sh
+<pre class="term"><code>[alice@submit]$ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+[alice@submit]$ sh Miniconda3-latest-Linux-x86_64.sh
 </code></pre>
 
 <p>Accept the license agreement and default options. At the end, you can choose whether or 
-not to “initialize Miniconda3 by running conda init?” The default is no; you should 
-then run the <code>eval</code> command listed by the installer to “activate” Miniconda. You’ll 
-also want to save this command so that you can reactivate the Miniconda installation 
-when needed in the future.</p>
+not to “initialize Miniconda3 by running conda init?” The default is no; you would 
+then run the <code>eval</code> command listed by the installer to “activate” Miniconda. If you
+choose “no” you’ll want to save this command so that you can reactivate the 
+Miniconda installation when needed in the future.</p>
 
 <h2 id="2-create-a-conda-environment-with-your-software">2. Create a conda “environment” with your software</h2>
 
@@ -181,14 +198,17 @@ listed in the installation examples for software
 <pre class="term"><code>(env-name)[alice@submit]$ conda install pkg1 pkg2
 </code></pre>
 
+<p>Packages may also be installed via <code>pip</code>, but you should only do this
+when there is no <code>conda</code> package available.</p>
+
 <p>Once everything is installed, deactivate the environment to go back to the 
-Miniconda “base”.</p>
+Miniconda “base” environment.</p>
 
 <pre class="term"><code>(env-name)[alice@submit]$ conda deactivate
 </code></pre>
 
 <p>For example, if you wanted to create an installation with <code>pandas</code> and 
-<code>matplotlib</code> and call the environment <code>py-data-sci</code>, I would use this sequence 
+<code>matplotlib</code> and call the environment <code>py-data-sci</code>, you would use this sequence 
 of commands:</p>
 
 <pre class="term"><code>(base)[alice@submit]$ conda create -n py-data-sci
@@ -208,7 +228,7 @@ more information on creating and managing environments with <code>conda</code>.<
 <h2 id="3-create-software-package">3. Create Software Package</h2>
 
 <p>Make sure that your job’s Miniconda environment is created, but deactivated, so 
-you’re in the “base” Miniconda environment:</p>
+that you’re in the “base” Miniconda environment:</p>
 
 <pre class="term"><code>(base)[alice@submit]$ 
 </code></pre>
@@ -218,7 +238,7 @@ you’re in the “base” Miniconda environment:</p>
 <pre class="term"><code>(base)[alice@submit]$ conda install -c conda-forge conda-pack
 </code></pre>
 
-<p>Click <code>y</code> when it asks you to install.</p>
+<p>Enter <code>y</code> when it asks you to install.</p>
 
 <p>Finally, use <code>conda pack</code> to create a zipped tar.gz file of your environment
 (substitute the name of your conda environment where you see <code>env-name</code>):</p>
@@ -234,17 +254,25 @@ you’re in the “base” Miniconda environment:</p>
 <p>The job will need to go through a few steps to use this “packed” conda environment; 
 first, setting the <code>PATH</code>, then unzipping the environment, then activating it, 
 and finally running whatever program you like. The script below is an example 
-of what is needed - change the <code>env-name</code> to the name of your environment.</p>
+of what is needed (customize as indicated to match your choices above).</p>
 
 <pre class="file"><code>#!/bin/bash
 
-export PATH
-mkdir env-name
-tar -xzf env-name.tar.gz -C env-name
+set -e
 
-. env-name/bin/activate
-#run your python script or program
-#python3 hello.py
+# replace env-name on the right hand side of this line with the name of your conda environment
+ENVNAME=env-name
+# if you need the environment directory to be named something other than the environment name, change this line
+ENVDIR=$ENVNAME
+
+# these lines handle setting up the environment; you shouldn't have to modify them
+export PATH
+mkdir $ENVDIR
+tar -xzf $ENVNAME.tar.gz -C $ENVDIR
+. $ENVDIR/bin/activate
+
+# modify this line to run your desired Python script and any other work you need to do
+python3 hello.py
 </code></pre>
 
 <h2 id="5-submit-jobs">5. Submit Jobs</h2>
@@ -252,10 +280,13 @@ tar -xzf env-name.tar.gz -C env-name
 <p>In your submit file, make sure to have the following:</p>
 
 <ul>
-  <li>Your executable should be the the file you created in <a href="">step 4</a></li>
-  <li>Remember to transfer your primary script and the environment tar.gz file in 
-<code>transfer_input_files</code>. If the tar.gz file is larger than 100MB, please <a href="mailto:chtc@cs.wisc.edu">email</a> us 
-about different tools for delivering the installation to your jobs.</li>
+  <li>Your executable should be the the bash script you created in <a href="#4-create-a-job-executable">step 4</a>.</li>
+  <li>Remember to transfer your Python script and the environment <code>tar.gz</code> file via
+ <code>transfer_input_files</code>. 
+Since the <code>tar.gz</code> file will almost certainly be larger than 100MB, 
+please <a href="mailto:chtc@cs.wisc.edu">email</a> us about different tools for 
+delivering the installation to your jobs, 
+likely our <a href="http://chtc.cs.wisc.edu/file-avail-squid.shtml">SQUID web proxy</a>.</li>
 </ul>
 
 <h1 id="option-2-install-miniconda-inside-each-job">Option 2: Install Miniconda Inside Each Job</h1>
@@ -285,6 +316,8 @@ you need or the instructions for your program.</p>
 
 <pre class="file"><code>#!/bin/bash
 
+set -e
+
 # installation steps for Miniconda
 export HOME=$PWD
 export PATH
@@ -294,8 +327,8 @@ export PATH=$PWD/miniconda3/bin:$PATH
 # install packages
 conda install numpy matplotlib
 
-# run your python script or program
-# python3 hello.py
+# modify this line to run your desired Python script
+python3 hello.py
 </code></pre>
 
 <h2 id="3-submit-file">3. Submit File</h2>
