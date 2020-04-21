@@ -246,10 +246,12 @@ test your own Docker container, see this guide:</p>
   <li><a href="docker-build.shtml">Building Docker Containers</a></li>
 </ul>
 
-<h2 id="b-using-anaconda-in-progress">B. Using Anaconda (in progress)</h2>
+<h2 id="b-using-conda">B. Using Conda</h2>
 
-<p>Anaconda is another popular tool for installing and managing machine learning tools. 
-We will have a guide for creating conda installations and using them in CHTC jobs soon.</p>
+<p>The Python package manager conda is a popular tool for installing and 
+managing machine learning tools.
+See <a href="conda-installation.shtml">this guide</a> for information on how 
+to use conda to provide dependencies for CHTC jobs.</p>
 
 
 
