@@ -579,7 +579,7 @@ info here: <a href="https://lintut.com/ncdu-check-disk-usage/">https://lintut.co
 
 <p>The command <code>du</code> can also be used to examine the size of directories:</p>
 
-<pre class="term"><code>[alice@service]$ df -h /home/alice
+<pre class="term"><code>[alice@service]$ du -sh /home/alice
 </code></pre>
 
 <h2 id="2-disappearing-files"><strong>2. "Disappearing" Files</strong></h2>
