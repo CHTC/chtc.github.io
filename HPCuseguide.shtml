@@ -577,9 +577,9 @@ count and allow you to navigate between subdirectories for even more
 details. Type <code>q</code> when you're ready to exit the output viewer. More
 info here: <a href="https://lintut.com/ncdu-check-disk-usage/">https://lintut.com/ncdu-check-disk-usage/</a></p>
 
-<p>The command <code>du</code> can also be used to examine the size of directories:</p>
+<p>The command <code>df</code> can also be used to examine your space quota (in GB) and how much is used:</p>
 
-<pre class="term"><code>[alice@service]$ du -sh /home/alice
+<pre class="term"><code>[alice@service]$ df -h /home/alice
 </code></pre>
 
 <h2 id="2-disappearing-files"><strong>2. "Disappearing" Files</strong></h2>
