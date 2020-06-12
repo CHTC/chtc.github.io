@@ -121,6 +121,47 @@ changes may affect the jobs of users.</p>
 archives</a>.</p>
 
 <hr />
+<h2 id="current-status-of-chtc-services-hpc-cluster-still-down">Current Status of CHTC services; HPC cluster still down</h2>
+<h3 id="thursday-june-11-2020">Thursday, June 11, 2020</h3>
+<p>Greetings CHTC users,</p>
+
+<p>The campus chilled water outage is continuing; the current status of CHTC services is:</p>
+
+<ul>
+  <li>The HPC cluster is completely down, including the login nodes.</li>
+  <li>The HTC system is mostly up. All submit nodes should be accessible; a subset of our
+execute nodes (including a few nodes with GPUs) are still down.</li>
+</ul>
+
+<p>At the moment we do not know when we will be able to restore access to these services. If
+you have questions about what CHTC services are available, please email
+<a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.</p>
+
+<p>Cheers,<br />
+Your CHTC team</p>
+
+<hr />
+<h2 id="chtc-services-down-due-to-campus-chilled-water-outage">CHTC services down due to campus chilled water outage</h2>
+<h3 id="tuesday-june-9-2020">Tuesday, June 9, 2020</h3>
+<p>Greetings CHTC users,</p>
+
+<p>The campus is experiencing an unplanned chilled water outage, impacting multiple server
+rooms containing CHTC servers.</p>
+
+<p>So far, impacted services include:</p>
+<ul>
+  <li>Execute nodes are down in both the HPC cluster and HTC system.</li>
+  <li>Jobs on both the HPC cluster and HTC system have been interrupted.</li>
+</ul>
+
+<p>We don’t yet know the full extent of the chilled water outage and how it will continue to
+impact CHTC services. Our team is monitoring the situation closely. We will provide a more
+detailed update to this list when more information is available.</p>
+
+<p>Cheers,<br />
+Your CHTC Team</p>
+
+<hr />
 <h2 id="resolved-was-emails-to-chtccswiscedu-delayed-since-may-30">Resolved! Was: Emails to chtc@cs.wisc.edu delayed since May 30</h2>
 <h3 id="tuesday-june-2-2020">Tuesday, June 2, 2020</h3>
 <p>Hi Everyone,</p>
