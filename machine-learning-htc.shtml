@@ -205,37 +205,15 @@ Docker containers to run machine learning jobs in CHTC.</p>
   <li><a href="https://github.com/CHTC/templates-GPUs">GPU/Machine Learning Job Examples on Github</a></li>
 </ul>
 
-<p>You can also test and examine containers on your own computer.</p>
+<p>You can also test and examine containers on your own computer:</p>
 <ul>
   <li><a href="docker-test.shtml">Exploring and Testing Docker Containers</a></li>
 </ul>
 
-<p>We recommend the following Docker container images for machine learning:</p>
-
-<table class="gtable">
-  <tr>
-    <th>Framework</th>
-    <th>CPU-based</th>
-    <th>GPU-capable</th>
-  </tr>
-  <tr>
-    <td>Tensorflow</td>
-    <td>tensorflow/tensorflow:1.14.0-py3</td>
-    <td>tensorflow/tensorflow:1.14.0-gpu-py3</td>
-  </tr>
-  <tr>
-    <td>Pytorch</td>
-    <td>pytorch/pytorch:1.1.0-cuda10.0-cudnn7.5-runtime</td>
-    <td>pytorch/pytorch:1.1.0-cuda10.0-cudnn7.5-runtime</td>
-  </tr>
-</table>
-
-<p>Other places to look for Docker container images:</p>
-
+<p>Some machine learning frameworks publish ready-to-go Docker images:</p>
 <ul>
-  <li><a href="https://hub.docker.com/r/tensorflow/tensorflow/tags">Tensorflow on DockerHub</a></li>
-  <li><a href="https://hub.docker.com/u/pytorch">Pytorch on DockerHub</a></li>
-  <li><a href="https://hub.docker.com/r/pytorch/pytorch/tags">More Pytorch on DockerHub</a></li>
+  <li><a href="https://hub.docker.com/r/tensorflow/tensorflow">Tensorflow on Docker Hub</a> - the “Overview” on that page describes how to choose an image.</li>
+  <li><a href="https://hub.docker.com/r/pytorch/pytorch/tags">Pytorch on Docker Hub</a> - we recommend choosing the most recently published image that ends in <code>-runtime</code>.</li>
 </ul>
 
 <p>If you can not find a Docker container with exactly the tools you need, you can build your 
