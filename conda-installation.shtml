@@ -270,7 +270,19 @@ that you’re in the “base” Miniconda environment:</p>
 <p>When this step finishes, you should see a file in your current directory named
 <code>env-name.tar.gz</code></p>
 
-<h2 id="4-create-a-job-executable">4. Create a Job Executable</h2>
+<h2 id="4-check-size-of-conda-environemnt-tar-archive">4. Check Size of Conda Environemnt Tar Archive</h2>
+
+<p>The tar archive, <code>env-name.tar.gz</code>, created in the previous step will be used as input for 
+subsequent job submission. As with all job input files, you should check the size of this 
+Conda environment file. If &gt;100MB in size, you should <strong>NOT</strong> transfer the tar ball using 
+<code>transfer_input_files</code>. Instead, you should plan to use either CHTC’s web proxy, SQUID or 
+large data filesystem Staging. Please contact a research computing facilitators at 
+chtc@cs.wisc.edu to determine the best option for your jobs.</p>
+
+<p>More information is available at <a href="http://chtc.cs.wisc.edu/file-avail-squid.shtml">File Availability with Squid Web Proxy</a> 
+and <a href="http://chtc.cs.wisc.edu/file-avail-largedata.shtml">Managing Large Data in HTC Jobs</a>.</p>
+
+<h2 id="5-create-a-job-executable">5. Create a Job Executable</h2>
 
 <p>The job will need to go through a few steps to use this “packed” conda environment; 
 first, setting the <code>PATH</code>, then unzipping the environment, then activating it, 
@@ -296,7 +308,7 @@ tar -xzf $ENVNAME.tar.gz -C $ENVDIR
 python3 hello.py
 </code></pre>
 
-<h2 id="5-submit-jobs">5. Submit Jobs</h2>
+<h2 id="6-submit-jobs">6. Submit Jobs</h2>
 
 <p>In your submit file, make sure to have the following:</p>
 
@@ -304,10 +316,10 @@ python3 hello.py
   <li>Your executable should be the the bash script you created in <a href="#4-create-a-job-executable">step 4</a>.</li>
   <li>Remember to transfer your Python script and the environment <code>tar.gz</code> file via
  <code>transfer_input_files</code>. 
-Since the <code>tar.gz</code> file will almost certainly be larger than 100MB, 
+<strong>Since the <code>tar.gz</code> file will almost certainly be larger than 100MB, 
 please <a href="mailto:chtc@cs.wisc.edu">email</a> us about different tools for 
 delivering the installation to your jobs, 
-likely our <a href="http://chtc.cs.wisc.edu/file-avail-squid.shtml">SQUID web proxy</a>.</li>
+likely our <a href="http://chtc.cs.wisc.edu/file-avail-squid.shtml">SQUID web proxy</a>.</strong></li>
 </ul>
 
 <h1 id="option-2-install-miniconda-inside-each-job">Option 2: Install Miniconda Inside Each Job</h1>

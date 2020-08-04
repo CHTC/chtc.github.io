@@ -273,7 +273,7 @@ the oldest files when it reaches 80% capacity.</p>
 <h2 id="d-partition-configuration-and-job-scheduling">D. Partition Configuration and Job Scheduling</h2>
 
 <p>The job scheduler on the HPC Cluster is SLURM. You can read more about
-submitting jobs to the queue on <a href="https://computing.llnl.gov/linux/slurm/documentation.html">SLURM's
+submitting jobs to the queue on <a href="https://slurm.schedmd.com/overview.html">SLURM's
 website</a>, but
 we have provided a simple guide below for getting started.<br />
 <br />
@@ -524,7 +524,7 @@ jobs with SLURM's <code>srun</code> and <code>salloc</code> commands <em>without
 script; however, doing so creates and requires a persistent connection
 to your job as it runs, and interrupted jobs are not re-queued if
 submitted this way (even when using the "pre" partition). You are
-welcome to submit jobs in these modes according to <a href="https://computing.llnl.gov/linux/slurm/quickstart.html">SLURM's user
+welcome to submit jobs in these modes according to <a href="https://slurm.schedmd.com/overview.html">SLURM's user
 guide</a>, which
 has some awesome advanced features for complex MPI configurations.<br />
 <strong>Please remember to indicate partition and run time with the -p and -t
