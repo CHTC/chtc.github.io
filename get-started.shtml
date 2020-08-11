@@ -122,7 +122,7 @@ var RecaptchaOptions = {
 <p>Anyone on the UW-Madison campus, and even off-campus collaborators, 
 may use the CHTC. In order to get started, we need some information 
 to understand how best to help you.
-<a href="http://chtc.cs.wisc.edu/form">Please fill out the form here</a>, 
+<a href="/form">Please fill out the form here</a>, 
 being as thorough as you can.</p>
 
 
