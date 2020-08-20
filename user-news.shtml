@@ -121,6 +121,47 @@ changes may affect the jobs of users.</p>
 archives</a>.</p>
 
 <hr />
+<h2 id="potential-interruption-to-htc-services-on-thursday-august-27">Potential Interruption to HTC Services on Thursday, August 27</h2>
+<h3 id="thursday-august-20-2020">Thursday, August 20, 2020</h3>
+<p>Hello CHTC users,</p>
+
+<p>This message is for users of our high throughput computing (HTC) system.</p>
+
+<p>There will be a network upgrade on Thursday, August 27 at 10am, impacting connections to some
+of our HTC servers.</p>
+
+<p>Affected services include:</p>
+<ul>
+  <li>submit-1.chtc.wisc.edu and some researcher-owned submit servers</li>
+  <li>About half of our HTC execute servers, including high memory and GPU servers</li>
+  <li>The large data /staging file system</li>
+  <li>Our centrally installed software in /software</li>
+  <li>The /squid folder that represents data on our web server</li>
+</ul>
+
+<p>While the upgrade should be brief and may not cause noticeable disruptions, potential impacts
+during the network outage include:</p>
+<ul>
+  <li>Running jobs on affected execute nodes will not be able to access the internet.</li>
+  <li>Running jobs on affected execute nodes will not be able to access /staging or /software.</li>
+  <li>Any jobs that start and fetch a files from SQUID may fail.</li>
+  <li>Some jobs may be interrupted if the outage is longer than expected.</li>
+  <li>submit-1 and other affected group submit servers may be inaccessible.</li>
+</ul>
+
+<p>Jobs that are unable to access files from the internet, SQUID or /staging will either go on
+hold or fail with an error message in the standard error file. These will need to be released
+or resubmitted to run again. Jobs that are interrupted will return to an idle state and be
+automatically rerun.</p>
+
+<p>To minimize disruption to your HTC jobs, we recommend you:
+Avoid submitting new jobs during the 24 hours preceding the upgrade.
+Plan to check for jobs holds or errors on Thursday afternoon if you have jobs in the queue
+during the upgrade window.</p>
+
+<p>Email us with any questions or concerns at chtc@cs.wisc.edu.</p>
+
+<hr />
 <h2 id="limited-chtc-email-support-on-monday-august-17">Limited CHTC Email Support on Monday, August 17</h2>
 <h3 id="friday-august-14-2020">Friday, August 14, 2020</h3>
 <p>Hello CHTC users,</p>
