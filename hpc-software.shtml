@@ -1,0 +1,299 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<script type="text/javascript">
+
+  function resizeIframe(iframe) {
+    var newheight;
+    var newwidth;
+
+    if(document.getElementById){
+        newwidth=iframe.contentWindow.document.body.scrollWidth;
+        newheight=iframe.contentWindow.document.body.scrollHeight;
+    }
+
+    iframe.height= (newheight) + "px";
+    iframe.width= (newwidth) + "px";
+  }
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Using Software on the HPC Cluster</title>
+
+<link href="/web.css" rel="stylesheet" type="text/css">
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+   <td width="1%" align="left" class="bgred" valign="top">
+      <div align="center">
+      &nbsp;<br>
+      <a href="http://www.wisc.edu">
+
+      <img src="/images/uw-sm-red.png" width="125" height="46" border="0"> </a>
+       </div>
+
+	<ul class="sidebar">
+	<li><a href="/">CHTC Home</a></li>
+	
+	<li>About
+		<ul>
+		<li><a href="/approach.shtml">Our Approach</a></li>
+<!--comment		<li><a href="/resources.shtml">Our Resources</a></li>   -->
+		<li><a href="/projects.shtml">Our Customers</a></li>
+		<li><a href="/people.shtml">Our Staff</a></li>
+		<li><a href="/jobs.shtml">Our Open Positions</a></li>
+		</ul>
+	</li>
+	
+	<li>How To's
+		<ul>
+		<li><a href="/get-started.shtml">Get Started</a></li>
+		<li><a href="/get-help.shtml">Get Help</a></li>
+        	<li><a href="/guides.shtml">All User Guides</a></li>
+                <li><a href="/use-submit-node.shtml">Use an HTC Submit Server</a></li>
+		<li><a href="/helloworld.shtml">Run Your First HTC Jobs</a></li>
+		<li><a href="/howto_overview.shtml">HTC for MatLab, Python or R</a></li>
+		<li><a href="/HPCuseguide.shtml">Use the HPC Cluster</a></li>
+		<li><a href="/cite-chtc.shtml">Cite CHTC Resources</a></li>
+		</ul>
+	</li>
+	<li><a href="/user-news.shtml">User News</a></li>
+	<li>Other Resources
+		<ul>
+		<!--<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Pool Usage Reports</a></li>-->
+<!--comment		<li><a href="/opmetrics.shtml">Operational Metrics</a></li>  -->
+		<li><a href="/gpu-lab.shtml">CHTC GPU Lab</a></li>
+		<li><a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a></li>
+		<li><a href="http://www.neos-server.org/">NEOS Optimization Service</a></li>
+		<li><a href="http://www.opensciencegrid.org/">Open Science Grid</a></li>
+		<li><a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a></li>
+		</ul>
+	</li>
+	</ul>
+
+	</td>
+
+<td width="97%" valign="top"> 
+
+
+	<TABLE SUMMARY="Navigation layout" BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+<TR ALIGN="left"> 
+  <TD WIDTH="100%" height="400" Align="left" VALIGN="top"> 
+    <A  name="body"></a> 
+	<div id = "main">
+
+<!-- Top of Page Body -->
+<table BORDER="0" WIDTH="100%">
+<!-- <h1 align=left valign=center>The Center for High Throughput Computing</h1> -->
+
+<div id="osg_power"> <span style="height: 30px">Powered by:</span><br /><a href="http://opensciencegrid.org"><img alt="Open Science Grid" src="/images/Open_Science_Grid_Consortium(Logo).jpg" width="123" height="70" /></a></div>
+
+<div id="hours"> <span style="height: 30px">
+	<a href="https://twitter.com/CHTC_UW" style="color:white;"><center><img alt="Twitter" src="/images/twitter.png" width="50" height="50"></center></a> 
+	<center><a href="https://github.com/CHTC/chtc-website-source" style="color:white;"><img alt="GitHub" src="/images/GitHub_Logo_White.png" width="92" height="38"></center></a></span></div>
+
+<div id="hours"> <span style="height: 35px">
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a href="http://chtc.cs.wisc.edu/get-help.shtml" style="color:white;">
+<center><b>Office Hours!</b>
+<p style="margin-bottom: 1px;"></p>
+Tues/Thurs, 3-5pm
+Click for details
+</center></a></span>
+<p style="margin-bottom: 1px;"></p>
+<center><a href="http://chtc.cs.wisc.edu/sign-in.shtml" style="color:white;">Sign-In Here</a></center>
+</div>
+	
+<div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
+
+<h1>Using Software on the HPC Cluster</h1>
+
+
+<p>This page describes how to install and run software on CHTC’s HPC Cluster.</p>
+
+<h1 id="contents">Contents</h1>
+
+<ol>
+  <li><a href="#1-general-software-policies">General Software Policies</a></li>
+  <li><a href="#2-using-pre-installed-software-in-modules">Using Pre-Installed Software in Modules</a></li>
+  <li><a href="#3-installing-software-on-the-cluster">Installing Software on the Cluster</a></li>
+  <li><a href="#4-using-software-in-jobs">Using Software in Jobs</a></li>
+</ol>
+
+<h1 id="1-general-software-policies">1. General Software Policies</h1>
+
+<p>In CHTC, we install a minimal set of software for use 
+on our systems. On the HPC Cluster, CHTC staff manage installations of 
+the following types of programs:</p>
+
+<ul>
+  <li>Compilation tools and common dependencies (e.g. MPI, different GCC versions)</li>
+  <li>Software that requires a shared license (e.g. COMSOL, ABAQUS)</li>
+</ul>
+
+<p>Information on how to access CHTC-managed installations is in the next 
+section of this guide. If you need to use a program not in that group, the instructions 
+for creating your own installation follow.</p>
+
+<p>If you have questions or concerns about installing your own software or 
+the available dependencies, contact the facilitation team at chtc@cs.wisc.edu.</p>
+
+<h1 id="2-using-pre-installed-software-in-modules">2. Using Pre-Installed Software in Modules</h1>
+
+<p>All software on the cluster that is installed by CHTC staff is available via 
+a tool called “modules”.</p>
+
+<h2 id="a-see-available-software-modules">A. See Available Software Modules</h2>
+
+<p>There are two ways to search through the software modules on the HPC cluster:</p>
+
+<ol>
+  <li>
+    <p><strong>View all modules</strong>
+ This command will show all software modules available: 
+     <code>
+     [alice@login]$ module avail
+    </code></p>
+  </li>
+  <li>
+    <p><strong>Search for specific modules</strong>
+ If you are searching for a specific software module, you can use the 
+ <code>module spider</code> command with part of the software name. For example, to 
+ search for Open MPI modules, you would type:
+     <code>
+     [alice@login]$ module spider openmpi
+    </code></p>
+  </li>
+</ol>
+
+<h2 id="b-access-software-in-modules">B. Access Software in Modules</h2>
+
+<p>Once you find a software module that you want to use, you need to “load” it 
+into your command line environment to make it active, filling in <code>module_name</code> with 
+the name you found through one of the above steps.</p>
+
+<pre><code>[alice@login]$ module load module_name
+</code></pre>
+
+<blockquote>
+  <p>** When to Load Modules **</p>
+
+  <p>You can load modules to compile code (see below). If you do this, make sure to load
+the same modules as part of your job script before running the main command.</p>
+
+  <p>You can also load modules to run specific software. If done for interactive 
+testing, this should be done in an interactive job; otherwise, the module 
+should be loaded in the job submit file.</p>
+</blockquote>
+
+<h2 id="c-unload-software-in-modules">C. Unload Software in Modules</h2>
+
+<p>If you no longer want to use a specific software installation, you can “unload”
+the software module with the following command:</p>
+
+<pre><code>[alice@login]$ module unload module_name
+</code></pre>
+
+<p>If you want to clear your command line environment and start over, run the following:</p>
+
+<pre><code>[alice@login]$ module purge
+</code></pre>
+
+<h1 id="3-installing-software-on-the-cluster">3. Installing Software on the Cluster</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>Unless you are using a licensed software program provided via modules, you 
+are able to compile and install the software you need on the HPC Cluster. 
+Software should be installed to your <code>/software/username</code> 
+directory. If using CHTC’s provided compilation tools via modules, make 
+sure to load the needed modules before compiling and to load the same 
+modules in your job submission.</p>
+
+<p>For groups that would like to share software installations among group
+members, please contact us about getting a shared “group” directory.</p>
+
+<p>If you are new to software installation, see the section below for 
+a more step-by-step description of the process.</p>
+
+<h2 id="step-by-step-process">Step by Step Process</h2>
+
+<ol>
+  <li><strong>Download Source Code</strong> - download the source code for your desired program. We 
+ recommend downloading it to the local scratch space on the login node 
+ (<code>/local/scratch/username</code>) as you should only need the source code until 
+ the software is properly installed. If you’d like to keep a zipped copy of 
+ the source code, you can place it in <code>/home</code>.</li>
+  <li><strong>Read the Docs</strong> - try to find the installation instructions, either online or 
+ in the downloaded source code. In particular, you’ll want to note if there are 
+ any special requirements for dependencies like MPI or the compiler needed.</li>
+  <li><strong>Load Modules</strong> - if you are using software modules to help you build your 
+ code, load them now. Keep track of what you use so that you can load them 
+ in your job submit file later. We also recommend doing a <code>module purge</code> before 
+ loading your modules to make sure you’re starting from a clean environment.</li>
+  <li><strong>Install</strong> - most scientific software follows the three step installation process
+ of <code>configure</code> - <code>make</code> - <code>make install</code>.
+    <ol>
+      <li><code>configure</code>- this step checks for tools and requirements needed to compile 
+ the code. This is the step where you set the final installation location of 
+ a program. The option for setting this location is typically called the 
+ “prefix”; a common syntax is: 
+     ~~~
+     $ ./configure –prefix=/software/user
+     ~~~
+ This is where you will want to set the installation location to be your 
+ <code>/software</code> directory.</li>
+      <li><code>make</code> - this step compiles and links the code, turning it from human-readable 
+ source code to compiled binary code. This is usually the most time consuming 
+ step of the installation process.</li>
+      <li><code>make install</code> - this step copies compiled files to the final installation location 
+ (usually specified in the <code>configure</code> step).</li>
+    </ol>
+  </li>
+  <li><strong>Clean Up</strong> - the final installation should place all needed files into a 
+ subdirectory of your <code>/software</code> directory. The source code and location where 
+ you ran the compilation commands can be removed at this point.</li>
+</ol>
+
+<!-- ## Optional: Create Your Own Modules -->
+
+<h1 id="4-using-software-in-jobs">4. Using Software in Jobs</h1>
+
+<p>The commands to run your software will go in the job’s submit file, as described 
+in our <a href="/hpc-job-submission">HPC job submission guide</a>.</p>
+
+<p>If you used one of the software modules to compile your code, make sure you 
+load it in your job’s submit file before running your main command.</p>
+
+<p>You can access your software by including the path to its location in your 
+<code>/software</code> directory, or by setting the <code>PATH</code> environment variable to include 
+the software location and then running the command.</p>
+
+
+
+<div id = "copyright">
+     <p align = "center"> 
+	  
+     For all user support, questions, and comments:
+     <strong><a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a></strong>
+
+</p>
+</div>
+
+</div>
+
+  </td>
+  </tr>
+
+</TABLE>
+</td>
+</table>
+
+</body>
+</html>
+
+
