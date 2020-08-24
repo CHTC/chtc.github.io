@@ -139,7 +139,7 @@ called a “batch” file. The top half of the file consists of <code>#SBATCH</c
 options which communicate needs or parameters of the job – these lines 
 are <strong>not</strong> comments, but essential options for the job. The values for 
 <code>#SBATCH</code> options should reflect the size of nodes and run time limits 
-described <a href="/hpc-overview-el7">here</a></p>
+described <a href="/hpc-overview">here</a>.</p>
 
 <p>After the <code>#SBATCH</code> options, the submit file should contain the commands
 needed to run your job, including loading any needed software modules.</p>
