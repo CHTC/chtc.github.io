@@ -113,11 +113,10 @@ Click for details
 
 <link rel="stylesheet" type="text/css" href="/bootstrap.css" />
 
-<h1>Disclaimer:</hr>
-<p style="background-color:yellow;">This guide is a working draft (i.e. still in progress) 
-that pertains to the new configuration of the HPC cluster which will be available starting 
-**Thursday, September 17, 2020**. For instructions on the currently operating cluster, please see our 
-previous <a href="HPCuseguide.shtml">HPC Basic Use Guide</a></p>
+<h1>Disclaimer:</h1>
+<p style="background-color:yellow;">This guide pertains to the new configuration of the HPC 
+cluster which will be available starting <b>Thursday, September 17</b>. For instructions on the currently 
+operating cluster, please see our previous <a href="HPCuseguide.shtml">HPC Basic Use Guide</a></p>
 <hr>
 <h1>Additional HPC Guides</h1>
 <br>
@@ -175,7 +174,7 @@ our Research Computing Facilitators will follow up with you and schedule a meeti
 to discuss the computational needs of your research and connect you with computing 
 resources (including non-CHTC services) that best fit your needs.</p>
 
-<h2 id="hpc-user-policies">HPC User Policies</h2>
+<h1 id="hpc-user-policies">HPC User Policies</h1>
 
 <p>Below is a list of policies that apply to all HPC users.</p>
 
@@ -229,7 +228,7 @@ waited in the queue. For all the jobs of a single user, these jobs will most clo
 <p>C. Job priority increases with job size, in cores. This least important factor slightly favors larger jobs, as a means of 
 somewhat countering the inherently longer wait time necessary for allocating more cores to a single job.</p>
 
-<h2 id="hpc-hardware-and-configuration">HPC Hardware and Configuration</h2>
+<h1 id="hpc-hardware-and-configuration">HPC Hardware and Configuration</h1>
 
 <p>The HPC Cluster consists of two login nodes and many compute (aka execute) 
 nodes. All users log in at a login node, and all user files
@@ -245,7 +244,7 @@ all HPC users as well as research group specific partitions that consist
 of researcher owned hardware and which all HPC users can access on a 
 backfill capacity via the <code>pre</code> partition (more details below).</p>
 
-<h3 id="partitions">Partitions</h3>
+<h2 id="partitions">Partitions</h2>
 
 <table class="gtable">
   <thead>
@@ -342,7 +341,7 @@ jobs. However, pre-empted jobs will be re-queued when submitted with an sbatch s
   </li>
 </ul>
 
-<h2 id="data-storage-and-management">Data Storage and Management</h2>
+<h1 id="data-storage-and-management">Data Storage and Management</h1>
 
 <p><strong>Data space in the HPC file system is not backed-up and should be
 treated as temporary by users</strong>. Only files necessary for
@@ -390,7 +389,7 @@ scratch is available on the login nodes, <code>hpclogin1</code> and <code>hpclog
 compiling activities. CHTC staff will otherwise clean this location of
 the oldest files when it reaches 80% capacity.</p>
 
-<h3 id="tools-for-managing-home-and-software-space">Tools for managing home and software space</h3>
+<h2 id="tools-for-managing-home-and-software-space">Tools for managing home and software space</h2>
 
 <p>To see how many files and directories are contained in your
 <code>home</code> or <code>software</code> directories, including the total amount of 
