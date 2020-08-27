@@ -260,7 +260,86 @@ view all jobs for a particular partition with <code>squeue -p univ</code>.</p>
 
 <h1 id="3-viewing-additional-job-information"><strong>3. Viewing Additional Job Information</strong></h1>
 
-<p>TBD: using <code>sacct</code></p>
+<p>Accounting information for jobs that are invoked with SLURM are logged. The <code>sacct</code>	 command displays job accouting data in a variety of forms for your analysis.</p>
+
+<p><strong>If you are having trouble viewing output from <code>sacct</code> try running this command first</strong></p>
+
+<pre class="term"><code>[alice@login]$ sacct --start=2018-01-01
+</code></pre>
+
+<h2 id="how-to-select-jobs">How To Select Jobs</h2>
+
+<ul>
+  <li>
+    <p>To display information about a specific job or list of jobs use <code>-j</code> or <code>--jobs</code> followed by a job number or comma separated list of job numbers.</p>
+
+    <pre class="term"><code>  [alice@login]$ sacct --jobs job1,job2,job3
+</code></pre>
+    <!-- Sample output -->
+  </li>
+  <li>
+    <p>To select information about jobs in a certain date range use <code>--start</code> and <code>--end</code> Without it, <code>sacct</code> will only return jobs from the current day.</p>
+
+    <pre class="term"><code>  [alice@login]$ sacct --start=YYYY-MM-DD
+</code></pre>
+  </li>
+  <li>To select information about jobs in a certian time range use <code>--starttime</code> and <code>--endtime</code> The default start time is 00:00:00 of the current day, unless used with <code>-j</code>, then the default start time is Unix Epoch 0. The default end time is time of running the command. Valid time formats are
+    <pre><code>  HH:MM[:SS] [AM|PM]
+  MMDD[YY] or MM/DD[/YY] or MM.DD[.YY]
+  MM/DD[/YY]-HH:MM[:SS]
+  YYYY-MM-DD[THH:MM[:SS]] 
+</code></pre>
+
+    <pre class="term"><code>  [alice@login]$ sacct --starttime 08/23 --endtime 08/24
+</code></pre>
+  </li>
+  <li>
+    <p>To display another user’s jobs use <code>--user</code></p>
+
+    <pre class="term"><code>  [alice@login]$ sacct --user BuckyBadger
+</code></pre>
+    <p><!-- Sample output --></p>
+  </li>
+  <li>
+    <p>To only show statistics relevant to the job allocation itself, not taking steps into consideration use <code>-X</code>. This can be useful when trying to figure out which part of a job errored out.</p>
+
+    <pre class="term"><code>  [alice@login]$ sacct -X
+</code></pre>
+    <p><!-- Sample Output --></p>
+  </li>
+</ul>
+
+<h2 id="displaying-specific-fields">Displaying Specific Fields</h2>
+
+<p><code>sacct</code> can display different fields about your jobs. You can use the <code>--helpformat</code> flag to get a full list.</p>
+
+<pre class="term"><code>[alice@login]$ sacct --helpformat
+</code></pre>
+
+<h3 id="recommended-fields">Recommended Fields</h3>
+
+<p>When looking for information about your jobs CHTC recommends using these fields</p>
+<pre><code>elapsed
+end
+exitcode
+jobid
+ncpus
+nnodes
+nodelist
+ntasks
+partition
+start
+state
+submit
+user
+</code></pre>
+
+<p>For example run</p>
+
+<pre class="term"><code>sacct --start=2020-01-01 --format=jobid
+</code></pre>
+
+<p>to see jobIDs of all jobs ran since 1/1/2020.</p>
 
 <h1 id="4-removing-or-holding-jobs"><strong>4. Removing or Holding Jobs</strong></h1>
 
