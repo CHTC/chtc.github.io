@@ -1,0 +1,225 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<script type="text/javascript">
+
+  function resizeIframe(iframe) {
+    var newheight;
+    var newwidth;
+
+    if(document.getElementById){
+        newwidth=iframe.contentWindow.document.body.scrollWidth;
+        newheight=iframe.contentWindow.document.body.scrollHeight;
+    }
+
+    iframe.height= (newheight) + "px";
+    iframe.width= (newwidth) + "px";
+  }
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Using Globus to Transfer Files to and from CHTC</title>
+
+<link href="/web.css" rel="stylesheet" type="text/css">
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+   <td width="1%" align="left" class="bgred" valign="top">
+      <div align="center">
+      &nbsp;<br>
+      <a href="http://www.wisc.edu">
+
+      <img src="/images/uw-sm-red.png" width="125" height="46" border="0"> </a>
+       </div>
+
+	<ul class="sidebar">
+	<li><a href="/">CHTC Home</a></li>
+	
+	<li>About
+		<ul>
+		<li><a href="/approach.shtml">Our Approach</a></li>
+<!--comment		<li><a href="/resources.shtml">Our Resources</a></li>   -->
+		<li><a href="/projects.shtml">Our Customers</a></li>
+		<li><a href="/people.shtml">Our Staff</a></li>
+		<li><a href="/jobs.shtml">Our Open Positions</a></li>
+		</ul>
+	</li>
+	
+	<li>How To's
+		<ul>
+		<li><a href="/get-started.shtml">Get Started</a></li>
+		<li><a href="/get-help.shtml">Get Help</a></li>
+        	<li><a href="/guides.shtml">All User Guides</a></li>
+                <li><a href="/use-submit-node.shtml">Use an HTC Submit Server</a></li>
+		<li><a href="/helloworld.shtml">Run Your First HTC Jobs</a></li>
+		<li><a href="/howto_overview.shtml">HTC for MatLab, Python or R</a></li>
+		<li><a href="/HPCuseguide.shtml">Use the HPC Cluster</a></li>
+		<li><a href="/cite-chtc.shtml">Cite CHTC Resources</a></li>
+		</ul>
+	</li>
+	<li><a href="/user-news.shtml">User News</a></li>
+	<li>Other Resources
+		<ul>
+		<!--<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Pool Usage Reports</a></li>-->
+<!--comment		<li><a href="/opmetrics.shtml">Operational Metrics</a></li>  -->
+		<li><a href="/gpu-lab.shtml">CHTC GPU Lab</a></li>
+		<li><a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a></li>
+		<li><a href="http://www.neos-server.org/">NEOS Optimization Service</a></li>
+		<li><a href="http://www.opensciencegrid.org/">Open Science Grid</a></li>
+		<li><a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a></li>
+		</ul>
+	</li>
+	</ul>
+
+	</td>
+
+<td width="97%" valign="top"> 
+
+
+	<TABLE SUMMARY="Navigation layout" BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+<TR ALIGN="left"> 
+  <TD WIDTH="100%" height="400" Align="left" VALIGN="top"> 
+    <A  name="body"></a> 
+	<div id = "main">
+
+<!-- Top of Page Body -->
+<table BORDER="0" WIDTH="100%">
+<!-- <h1 align=left valign=center>The Center for High Throughput Computing</h1> -->
+
+<div id="osg_power"> <span style="height: 30px">Powered by:</span><br /><a href="http://opensciencegrid.org"><img alt="Open Science Grid" src="/images/Open_Science_Grid_Consortium(Logo).jpg" width="123" height="70" /></a></div>
+
+<div id="hours"> <span style="height: 30px">
+	<a href="https://twitter.com/CHTC_UW" style="color:white;"><center><img alt="Twitter" src="/images/twitter.png" width="50" height="50"></center></a> 
+	<center><a href="https://github.com/CHTC/chtc-website-source" style="color:white;"><img alt="GitHub" src="/images/GitHub_Logo_White.png" width="92" height="38"></center></a></span></div>
+
+<div id="hours"> <span style="height: 35px">
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a href="http://chtc.cs.wisc.edu/get-help.shtml" style="color:white;">
+<center><b>Office Hours!</b>
+<p style="margin-bottom: 1px;"></p>
+Tues/Thurs, 3-5pm
+Click for details
+</center></a></span>
+<p style="margin-bottom: 1px;"></p>
+<center><a href="http://chtc.cs.wisc.edu/sign-in.shtml" style="color:white;">Sign-In Here</a></center>
+</div>
+	
+<div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
+
+<h1>Using Globus to Transfer Files to and from CHTC</h1>
+
+
+<p><a href="https://www.globus.org/">Globus</a> is a data management service that lets you
+move files files between <strong>endpoints</strong>, computers that are connected to the
+Globus file transfer network.
+Globus is primarily useful when you need to move large amounts of data to or 
+from somewhere that is already providing a Globus endpoint.
+For example, a collaborator might provide shared data through Globus,
+or might expect you to send data to them through Globus.</p>
+
+<p>This guide will show you how to execute such transfers to and from CHTC using the CHTC
+Globus endpoint, which may be simpler than trying to move the files to your
+own computer first.</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>All file transfer via Globus at CHTC is based out of the
+<a href="/file-avail-largedata.shtml"><code>/staging</code></a> directory and requires login 
+access to the <code>transfer.chtc.wisc.edu</code> server.
+Therefore, to use Globus, you will need access to both of those 
+(instructions for requesting access are 
+<a href="/file-avail-largedata.shtml#1-policies-and-intended-use">here</a>;
+mention that you want to use the Globus endpoint in your email).</p>
+
+<p>You will need to be able to
+<a href="https://app.globus.org/">log in to the Globus web interface</a>;
+you can use your UW-Madison NetID (if you have one, or similar) by selecting
+University of Wisconsin-Madison from the drop down and pressing “Continue”.</p>
+
+<h2 id="using-the-chtc-globus-endpoint">Using the CHTC Globus Endpoint</h2>
+
+<p>You can use the Globus web interface to transfer files to and from CHTC.
+In the web interface, you can select two endpoints and then initiate a transfer
+between them.</p>
+
+<p>The first step is to find the CHTC Globus endpoint.
+The CHTC Globus endpoint’s name is <code>chtc#staging</code>.
+It can be found in the Globus web interface 
+<a href="https://app.globus.org/file-manager/collections/d0bae6da-db3b-11ea-85a2-0e1702b77d41/overview?back=endpoints">here</a>,
+or by searching endpoints for that name.
+If you  need the actual endpoint UUID, it is listed on the above page near the bottom
+of the “Overview”.</p>
+
+<p>To use an endpoint, you must first <strong>activate</strong> it.
+Activations are usually time-limited, and transfers can only proceed while
+both the source and destination endpoints are activated.
+Activating an endpoint generally requires logging in.
+For the <code>chtc#staging</code> endpoint, you should log in using
+the same username and password you use to log in to your submit node.
+You can see how long your activation will last on the endpoint information page
+in the Globus web interface.</p>
+
+<p>To begin a file transfer, go to the 
+<a href="https://app.globus.org/file-manager">File Manager</a>.
+In the top-right corner of the page, make sure you are in the “two panel” view.
+Select the two endpoints you want to transfer between
+(they are called “Collections” on this page).
+You should see a directory listing appear in the middle of each of the panes;
+select a directory or file and click “Start” at the bottom of the page to
+move that directory or file to the other endpoint.
+The item will be moved to the currently-selected directory on the other endpoint.</p>
+
+<p>Globus transfers are <em>asynchronous</em>, and you do not need to leave the web
+interface open while they run.
+You will receive emails updates on the progress of the transfer, and you can
+view the status of in-progress and historical transfers
+<a href="https://app.globus.org/activity">on the Activity page</a>.</p>
+
+<p>You may find some of the “transfer settings”, available by clicking the
+“Transfer &amp; Sync Options” dropdown, useful.
+In particular, <code>sync</code> will help reduce the amount of time it takes to transfer
+when some data has already been transferred.</p>
+
+<h2 id="running-a-personal-globus-endpoint">Running a Personal Globus Endpoint</h2>
+
+<p>The CHTC Globus endpoint is a “Globus Connect Server”, designed for shared use
+on a dedicated machine.
+It is also possible to run 
+<a href="https://www.globus.org/globus-connect-personal">Globus Connect Personal</a>,
+a lighter-weight package that adds a Globus endpoint to your own computer,
+like a laptop or lab computer.
+Installers are available at that link for Mac, Linux, and Windows.</p>
+
+<p>We only recommend using Globus Connect Personal if you are also working with
+some other Globus endpoint (not just CHTC and your computer).
+If you are just moving files between CHTC and your own computer, traditional
+file transfer tools like <code>rsync</code> will likely be more efficient.</p>
+
+
+
+<div id = "copyright">
+     <p align = "center"> 
+	  
+     For all user support, questions, and comments:
+     <strong><a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a></strong>
+
+</p>
+</div>
+
+</div>
+
+  </td>
+  </tr>
+
+</TABLE>
+</td>
+</table>
+
+</body>
+</html>
+
+
