@@ -177,21 +177,17 @@ a tool called “modules”.</p>
 <p>There are two ways to search through the software modules on the HPC cluster:</p>
 
 <ol>
-  <li>
-    <p><strong>View all modules</strong>
- This command will show all software modules available: 
-     <code>
-     [alice@login]$ module avail
-    </code></p>
+  <li><strong>View all modules</strong>
+ This command will show all software modules available:
+    <pre><code>[alice@login]$ module avail
+</code></pre>
   </li>
-  <li>
-    <p><strong>Search for specific modules</strong>
+  <li><strong>Search for specific modules</strong>
  If you are searching for a specific software module, you can use the 
  <code>module spider</code> command with part of the software name. For example, to 
  search for Open MPI modules, you would type:
-     <code>
-     [alice@login]$ module spider openmpi
-    </code></p>
+    <pre><code>[alice@login]$ module spider openmpi
+</code></pre>
   </li>
 </ol>
 
@@ -205,7 +201,7 @@ the name you found through one of the above steps.</p>
 </code></pre>
 
 <blockquote>
-  <p>** When to Load Modules **</p>
+  <p><strong>When to Load Modules</strong></p>
 
   <p>You can load modules to compile code (see below). If you do this, make sure to load
 the same modules as part of your job script before running the main command.</p>
@@ -230,7 +226,7 @@ the software module with the following command:</p>
 
 <h1 id="3-installing-software-on-the-cluster">3. Installing Software on the Cluster</h1>
 
-<h2 id="overview">Overview</h2>
+<h2 id="a-overview">A. Overview</h2>
 
 <p>Unless you are using a licensed software program provided via modules, you 
 are able to compile and install the software you need on the HPC Cluster. 
@@ -245,7 +241,7 @@ members, please contact us about getting a shared “group” directory.</p>
 <p>If you are new to software installation, see the section below for 
 a more step-by-step description of the process.</p>
 
-<h2 id="step-by-step-process">Step by Step Process</h2>
+<h2 id="b-step-by-step-process">B. Step by Step Process</h2>
 
 <ol>
   <li><strong>Download Source Code</strong> - download the source code for your desired program. We 
