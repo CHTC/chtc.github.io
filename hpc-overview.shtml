@@ -142,6 +142,7 @@ operating cluster, please see our previous <a href="HPCuseguide.shtml">HPC Basic
 
 <ol>
   <li><a href="#high-performance-computing-at-chtc">High-Performance Computing at CHTC</a></li>
+  <li><a href="#new-hpc-configuration">New HPC Configuration</a></li>
   <li><a href="#hpc-user-policies">HPC User Policies</a></li>
   <li><a href="#hpc-hardware-and-configuration">HPC Hardware and Configuration</a>
     <ul>
@@ -161,18 +162,38 @@ operating cluster, please see our previous <a href="HPCuseguide.shtml">HPC Basic
 singular computations that use specialized software (i.e. MPI) to achieve internal 
 parallelization of work across multiple servers of dozens to hundreds of cores.</p>
 
-<p><em>Is high-performance computing right for me?</em> 
-All other computational work, including single and multi-core (but single node) 
-processes, that each complete in less than 72 hours on a single node will be 
+<p><strong><em>Is high-performance computing right for me?</em></strong> Only computational work that 
+fits that above description is permitted on the HPC. All other computational 
+work, including single and multi-core (but single node) processes, that each complete 
+in less than 72 hours on a single node will be 
 best supported by our larger high-throughput computing (HTC) system (which also
 includes specialized hardware for extreme memory, GPUs, and other cases). For more 
 information about high-throughput computing, please see <a href="/approach">Our Approach</a>.</p>
 
-<p>To get access to the HPC, please complete 
+<p>To get access to the HPC, please complete our
 <a href="/form">Large-Scale Computing Request Form</a>. After your account request is received, 
 our Research Computing Facilitators will follow up with you and schedule a meeting 
 to discuss the computational needs of your research and connect you with computing 
 resources (including non-CHTC services) that best fit your needs.</p>
+
+<h2 id="new-hpc-configuration">New HPC Configuration</h2>
+
+<p>Roll out of the new HPC configuration is currently scheduled for September 17, 2020. 
+More information about our HPC upgrade and user migration timeline was sent out to 
+users by email. All CHTC user email correspondences are available at <a href="/user-news">User News</a>.</p>
+
+<p>The new HPC configuration will include the following changes:</p>
+<ul>
+  <li>upgrade of operating system from Scientific Linux release 6.6 to CentOS 7</li>
+  <li>upgrade of SLURM from version 2.5.1 to version 20.02.2</li>
+  <li>upgrades to filesystems and user data and software management</li>
+  <li>a new set of modules and software</li>
+  <li>new head node hostnames</li>
+</ul>
+
+<p>The above changes will result in a new HPC computing environment 
+and will provide users with new SLURM features and improved support and reliability 
+for their HPC work.</p>
 
 <h1 id="hpc-user-policies">HPC User Policies</h1>
 
@@ -235,7 +256,8 @@ nodes. All users log in at a login node, and all user files
 on the shared file sytem are accessible on all nodes.
 Additionally, all nodes are tightly networked (56 Gbit/s Infiniband) so
 they can work together as a single "supercomputer", depending on the
-number of CPUs you specify.</p>
+number of CPUs you specify. All execute and head nodes are running the Linux 
+operating system CentOS version 7.</p>
 
 <p>Only execute nodes will be used for performing your computational work. 
 The execute nodes are organized into several "partitions", including 

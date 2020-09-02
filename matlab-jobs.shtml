@@ -388,6 +388,9 @@ in <code>readme.txt</code>).</p>
 
     <pre><code class="language-{.sub}">arguments = v90 $(Cluster) $(Process) 
 </code></pre>
+    <p><strong>If you are passing numerical values as arguments to your Matlab binary, you will need to revise your Matlab 
+code so that the values are interpreted as numbers instead of as characters (the default).</strong> To do this, you can use that Matlab 
+<code>str2num</code> function, more information is available at <a href="https://www.mathworks.com/help/matlab/ref/str2num.html">Matlab Str2num</a>.</p>
   </li>
   <li>As always, test a few jobs for disk space/memory usage in order to
 make sure your requests for a large batch are accurate! Disk space
