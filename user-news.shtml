@@ -121,6 +121,23 @@ changes may affect the jobs of users.</p>
 archives</a>.</p>
 
 <hr />
+<h2 id="jobs-on-submit2chtcwiscedu-inadvertently-removed-please-resubmit">Jobs on submit2.chtc.wisc.edu Inadvertently Removed; Please Resubmit</h2>
+<h3 id="wednesday-september-2-2020">Wednesday, September 2, 2020</h3>
+<p>Greetings,</p>
+
+<p><em>This email only pertains to users of the HTC System submitting through <a href="http://submit2.chtc.wisc.edu">submit2.chtc.wisc.edu</a></em>.</p>
+
+<p>We are sorry to report that <strong>all jobs in the HTCondor queue on <a href="http://submit2.chtc.wisc.edu">submit2.chtc.wisc.edu</a> were inadvertently removed at about 10:50am</strong> while staff were doing work on the submit server. We apologize for the inconvenience, as <strong>users will need to resubmit jobs.</strong></p>
+
+<p>If you need help determining which jobs may have completed already (and which need to be resubmitted), you’ll be able to see removed jobs and recently completed jobs by running the following (inserting your username for <username>):</username></p>
+
+<p>condor_history <username></username></p>
+
+<p>The ‘condor_history’ output will show an ‘X’ (in the ‘ST’ column) for jobs that were removed, and a ‘C’ for jobs that completed (could be with or without errors). Please get in touch via <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> if we might be able to help you.</p>
+
+<p>Thank you,</p>
+
+<hr />
 <h2 id="hpc-cluster-upgrades-starting-september-15">HPC Cluster Upgrades, starting September 15</h2>
 <h3 id="monday-august-24-2020">Monday, August 24, 2020</h3>
 <p>Greetings,</p>
