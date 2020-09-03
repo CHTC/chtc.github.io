@@ -1,0 +1,203 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<script type="text/javascript">
+
+  function resizeIframe(iframe) {
+    var newheight;
+    var newwidth;
+
+    if(document.getElementById){
+        newwidth=iframe.contentWindow.document.body.scrollWidth;
+        newheight=iframe.contentWindow.document.body.scrollHeight;
+    }
+
+    iframe.height= (newheight) + "px";
+    iframe.width= (newwidth) + "px";
+  }
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Transition to the Newly Configured HPC Cluster</title>
+
+<link href="/web.css" rel="stylesheet" type="text/css">
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+   <td width="1%" align="left" class="bgred" valign="top">
+      <div align="center">
+      &nbsp;<br>
+      <a href="http://www.wisc.edu">
+
+      <img src="/images/uw-sm-red.png" width="125" height="46" border="0"> </a>
+       </div>
+
+	<ul class="sidebar">
+	<li><a href="/">CHTC Home</a></li>
+	
+	<li>About
+		<ul>
+		<li><a href="/approach.shtml">Our Approach</a></li>
+<!--comment		<li><a href="/resources.shtml">Our Resources</a></li>   -->
+		<li><a href="/projects.shtml">Our Customers</a></li>
+		<li><a href="/people.shtml">Our Staff</a></li>
+		<li><a href="/jobs.shtml">Our Open Positions</a></li>
+		</ul>
+	</li>
+	
+	<li>How To's
+		<ul>
+		<li><a href="/get-started.shtml">Get Started</a></li>
+		<li><a href="/get-help.shtml">Get Help</a></li>
+        	<li><a href="/guides.shtml">All User Guides</a></li>
+                <li><a href="/use-submit-node.shtml">Use an HTC Submit Server</a></li>
+		<li><a href="/helloworld.shtml">Run Your First HTC Jobs</a></li>
+		<li><a href="/howto_overview.shtml">HTC for MatLab, Python or R</a></li>
+		<li><a href="/HPCuseguide.shtml">Use the HPC Cluster</a></li>
+		<li><a href="/cite-chtc.shtml">Cite CHTC Resources</a></li>
+		</ul>
+	</li>
+	<li><a href="/user-news.shtml">User News</a></li>
+	<li>Other Resources
+		<ul>
+		<!--<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Pool Usage Reports</a></li>-->
+<!--comment		<li><a href="/opmetrics.shtml">Operational Metrics</a></li>  -->
+		<li><a href="/gpu-lab.shtml">CHTC GPU Lab</a></li>
+		<li><a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a></li>
+		<li><a href="http://www.neos-server.org/">NEOS Optimization Service</a></li>
+		<li><a href="http://www.opensciencegrid.org/">Open Science Grid</a></li>
+		<li><a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a></li>
+		</ul>
+	</li>
+	</ul>
+
+	</td>
+
+<td width="97%" valign="top"> 
+
+
+	<TABLE SUMMARY="Navigation layout" BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+<TR ALIGN="left"> 
+  <TD WIDTH="100%" height="400" Align="left" VALIGN="top"> 
+    <A  name="body"></a> 
+	<div id = "main">
+
+<!-- Top of Page Body -->
+<table BORDER="0" WIDTH="100%">
+<!-- <h1 align=left valign=center>The Center for High Throughput Computing</h1> -->
+
+<div id="osg_power"> <span style="height: 30px">Powered by:</span><br /><a href="http://opensciencegrid.org"><img alt="Open Science Grid" src="/images/Open_Science_Grid_Consortium(Logo).jpg" width="123" height="70" /></a></div>
+
+<div id="hours"> <span style="height: 30px">
+	<a href="https://twitter.com/CHTC_UW" style="color:white;"><center><img alt="Twitter" src="/images/twitter.png" width="50" height="50"></center></a> 
+	<center><a href="https://github.com/CHTC/chtc-website-source" style="color:white;"><img alt="GitHub" src="/images/GitHub_Logo_White.png" width="92" height="38"></center></a></span></div>
+
+<div id="hours"> <span style="height: 35px">
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a href="http://chtc.cs.wisc.edu/get-help.shtml" style="color:white;">
+<center><b>Office Hours!</b>
+<p style="margin-bottom: 1px;"></p>
+Tues/Thurs, 3-5pm
+Click for details
+</center></a></span>
+<p style="margin-bottom: 1px;"></p>
+<center><a href="http://chtc.cs.wisc.edu/sign-in.shtml" style="color:white;">Sign-In Here</a></center>
+</div>
+	
+<div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
+
+<h1>Transition to the Newly Configured HPC Cluster</h1>
+
+
+<p>The HPC Cluster is being upgraded to a new configuration during September - October 2020. 
+If you have an account on our current HPC cluster (logging into <code>aci-service-1</code> or 
+<code>aci-service-2</code>) this page, along with our <a href="/user-news">User News page</a>, has 
+a summary of what you need to know and actions you need to take.</p>
+
+<h2 id="changes-in-the-new-configuration">Changes in the New Configuration</h2>
+
+<p>The new HPC configuration will include the following changes:</p>
+<ul>
+  <li>upgrade of operating system from Scientific Linux release 6.6 to CentOS 7</li>
+  <li>upgrade of SLURM from version 2.5.1 to version 20.02.2</li>
+  <li>upgrades to filesystems, specifically a division between <code>/home</code> (for data and job 
+submission) and <code>/software</code> (for software installations).</li>
+  <li>a new set of modules and software</li>
+  <li>new head node hostnames (<code>hpclogin1.chtc.wisc.edu</code>, <code>hpclogin2.chtc.wisc.edu</code>)</li>
+</ul>
+
+<p>The above changes will result in a new HPC computing environment
+and will provide users with new SLURM features and improved support and reliability
+for their HPC work.</p>
+
+<h2 id="timeline">Timeline</h2>
+
+<ul>
+  <li><strong>Sep 15-17</strong>: ‘univ’ and half of ‘univ2’ partition nodes transitioned to new configuration</li>
+  <li><strong>Sep 17</strong>: users granted access to new login nodes (hpclogin1/<a href="http://2.chtc.wisc.edu">2.chtc.wisc.edu</a>); new documentation made prominent on <a href="http://chtc.cs.wisc.edu">chtc.cs.wisc.edu</a></li>
+  <li><strong>Sep 29-30</strong>: all researcher-owned hardware transitioned</li>
+  <li><strong>Oct 6-7</strong>: all remaining (univ2) hardware transitioned</li>
+  <li><strong>Oct 13</strong>: accounts disabled on aci-service-1/2; accounts/data subsequently deleted; old documentation removed</li>
+</ul>
+
+<h2 id="actions-to-take">Actions to Take</h2>
+
+<p><strong>Now</strong></p>
+
+<p>Review the updated use guides for the new cluster configuration here: <a href="/hpc-overview">HPC Cluster user guides</a></p>
+
+<p>Start removing all old and unneeded files from the current HPC cluster.</p>
+
+<p><strong>After September 17</strong></p>
+
+<ol>
+  <li>
+    <p>Confirm that you can log into the new login nodes - <code>hpclogin1.chtc.wisc.edu</code> and
+<code>hpclogin2.chtc.wisc.edu</code>.</p>
+  </li>
+  <li>
+    <p>Install your software on the new cluster. Note that we have a special directory 
+specifically for software installations on the new configuration – software installs 
+can be placed into your <code>/software/username</code> directory. For full details on this and 
+the new modules, see the <a href="/hpc-software">software guide</a>.</p>
+  </li>
+  <li>
+    <p>Test a job submission (or a few!) on the new cluster.</p>
+  </li>
+  <li>
+    <p>Transfer ONLY needed files from the old cluster to the new, and continue to remove 
+all old and unneeded data from the old cluster.</p>
+  </li>
+</ol>
+
+<h1 id="contact-us-at-chtccswiscedu-with-any-questions-or-concerns">Contact us at chtc@cs.wisc.edu with any questions or concerns</h1>
+
+
+
+
+<div id = "copyright">
+     <p align = "center"> 
+	  
+     For all user support, questions, and comments:
+     <strong><a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a></strong>
+
+</p>
+</div>
+
+</div>
+
+  </td>
+  </tr>
+
+</TABLE>
+</td>
+</table>
+
+</body>
+</html>
+
+
