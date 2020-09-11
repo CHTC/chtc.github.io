@@ -113,7 +113,7 @@ Click for details
 <h1>Transition to the Newly Configured HPC Cluster</h1>
 
 
-<p>The HPC Cluster is being upgraded to a new configuration during September - October 2020. 
+<p>The HPC Cluster is being upgraded to a new configuration during October-November 2020. 
 If you have an account on our current HPC cluster (logging into <code>aci-service-1</code> or 
 <code>aci-service-2</code>) this page, along with our <a href="/user-news">User News page</a>, has 
 a summary of what you need to know and actions you need to take.</p>
@@ -137,11 +137,11 @@ for their HPC work.</p>
 <h2 id="timeline">Timeline</h2>
 
 <ul>
-  <li><strong>Sep 15-17</strong>: ‘univ’ and half of ‘univ2’ partition nodes transitioned to new configuration</li>
-  <li><strong>Sep 17</strong>: users granted access to new login nodes (hpclogin1/<a href="http://2.chtc.wisc.edu">2.chtc.wisc.edu</a>); new documentation made prominent on <a href="http://chtc.cs.wisc.edu">chtc.cs.wisc.edu</a></li>
-  <li><strong>Sep 29-30</strong>: all researcher-owned hardware transitioned</li>
-  <li><strong>Oct 6-7</strong>: all remaining (univ2) hardware transitioned</li>
-  <li><strong>Oct 13</strong>: accounts disabled on aci-service-1/2; accounts/data subsequently deleted; old documentation removed</li>
+  <li><strong>Oct 13-14</strong>: ‘univ’ and half of ‘univ2’ partition nodes transitioned to new configuration</li>
+  <li><strong>Oct 15</strong>: users granted access to new login nodes (hpclogin1/<a href="http://2.chtc.wisc.edu">2.chtc.wisc.edu</a>); new documentation made prominent on <a href="http://chtc.cs.wisc.edu">chtc.cs.wisc.edu</a></li>
+  <li><strong>Oct 27-28</strong>: all researcher-owned hardware transitioned</li>
+  <li><strong>Nov 10-11</strong>: all remaining (univ2) hardware transitioned</li>
+  <li><strong>Nov 24</strong>: accounts disabled on aci-service-1/2; accounts/data subsequently deleted; old documentation removed</li>
 </ul>
 
 <h2 id="actions-to-take">Actions to Take</h2>
@@ -174,7 +174,7 @@ all old and unneeded data from the old cluster.</p>
   </li>
 </ol>
 
-<h1 id="contact-us-at-chtccswiscedu-with-any-questions-or-concerns">Contact us at chtc@cs.wisc.edu with any questions or concerns</h1>
+<h1 id="contact-us-at-chtccswiscedu-with-any-questions-or-concerns">Contact us at chtc@cs.wisc.edu with any questions or concerns.</h1>
 
 
 
