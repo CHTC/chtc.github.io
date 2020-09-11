@@ -122,16 +122,16 @@ a summary of what you need to know and actions you need to take.</p>
 
 <p>The new HPC configuration will include the following changes:</p>
 <ul>
-  <li>upgrade of operating system from Scientific Linux release 6.6 to CentOS 7</li>
-  <li>upgrade of SLURM from version 2.5.1 to version 20.02.2</li>
-  <li>upgrades to filesystems, specifically a division between <code>/home</code> (for data and job 
+  <li>new head nodes (<code>hpclogin1.chtc.wisc.edu</code>, <code>hpclogin2.chtc.wisc.edu</code>)</li>
+  <li>all-new filesystems, and with a division between <code>/home</code> (for data and job 
 submission) and <code>/software</code> (for software installations).</li>
-  <li>a new set of modules and software</li>
-  <li>new head node hostnames (<code>hpclogin1.chtc.wisc.edu</code>, <code>hpclogin2.chtc.wisc.edu</code>)</li>
+  <li>a new queue with SLURM version 20.02.2</li>
+  <li>upgrade of operating system on all nodes from Scientific Linux 6 to CentOS 7</li>
+  <li>all-new software modules, compiled for CentOS 7</li>
 </ul>
 
-<p>The above changes will result in a new HPC computing environment
-and will provide users with new SLURM features and improved support and reliability
+<p>The above changes will result in an entirely new HPC computing environment (but with the same execute nodes)
+and will provide users with new SLURM features (if desired) and improved data reliability
 for their HPC work.</p>
 
 <h2 id="timeline">Timeline</h2>
@@ -152,7 +152,7 @@ for their HPC work.</p>
 
 <p>Start removing all old and unneeded files from the current HPC cluster.</p>
 
-<p><strong>After September 17</strong></p>
+<p><strong>After October 15</strong></p>
 
 <ol>
   <li>
