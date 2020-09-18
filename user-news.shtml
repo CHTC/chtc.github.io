@@ -121,6 +121,50 @@ changes may affect the jobs of users.</p>
 archives</a>.</p>
 
 <hr />
+<h2 id="hpc-cluster-upgrade-shifted-to-october-15">HPC Cluster Upgrade Shifted to October 15</h2>
+<h3 id="friday-september-11-2020">Friday, September 11, 2020</h3>
+<p>Greetings,</p>
+
+<p><em>The below pertains to users of CHTC’s HPC Cluster, for which users submit jobs via the <a href="http://aci-service-1.chtc.wisc.edu">aci-service-1.chtc.wisc.edu</a> login node. Users of only the HTC System are welcome to ignore the below.</em></p>
+
+<p>Due to recent and unforeseen issues in transitioning servers to the new cluster configuration, we are delaying the HPC Cluster transition by four weeks (see the updated timeline, below). Additionally, based upon discussions with some users thus far, we would like to provide clear indications of the work that every HPC Cluster user can anticipate in migrating to the new configuration.</p>
+
+<p><strong>HOW TO MIGRATE YOUR WORK TO THE ‘NEW’ CONFIGURATION</strong></p>
+
+<p>When users are allowed onto the new cluster configuration, they should be prepared to:</p>
+
+<ul>
+  <li>Re-install software to the new /software location, compiled against the cluster’s new MPI modules and CentOS7 operating system.</li>
+  <li>Migrate all output from prior runs off of the old configuration.</li>
+  <li>Migrate submit files, inputs, and other files for future work to the /home location on the new cluster configuration.</li>
+  <li>Modify submit files in light of new Slurm features (if desired), new modules, and commands pointing to newly-installed user software.</li>
+</ul>
+
+<p>The above are all addressed in our guide on <a href="http://chtc.cs.wisc.edu/hpc-transition.shtml">Transitioning to the New HPC Cluster Configuration</a>. <strong>We will email at a later date with details for planned informational sessions, which will include opportunities for Q&amp;A about the transition process.</strong></p>
+
+<p><strong>UPDATED HPC Cluster Transition Timeline:</strong></p>
+
+<p>Oct 13-14: ‘univ’ and half of ‘univ2’ partition nodes transitioned to new configuration</p>
+
+<p>Oct 15: users granted access to new login nodes (hpclogin1/<a href="http://2.chtc.wisc.edu">2.chtc.wisc.edu</a>);</p>
+
+<p><a href="http://chtc.cs.wisc.edu/hpc-overview">new documentation</a> made prominent on <a href="http://chtc.cs.wisc.edu">chtc.cs.wisc.edu</a></p>
+
+<p>Oct 27-28:  all researcher-owned hardware transitioned</p>
+
+<p>Nov 10-11:  all remaining (univ2) hardware transitioned</p>
+
+<p>Nov 24:     accounts disabled on aci-service-1/2; accounts/data subsequently deleted; old documentation removed</p>
+
+<p>Thank you, in advance, for your patience with the timeline shift. We are hoping to avoid further delays, and will communicate all updates as soon as possible.</p>
+
+<p>As always, please get in touch with any questions by emailing <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.</p>
+
+<p>Cheers,\</p>
+
+<p>Your CHTC Team</p>
+
+<hr />
 <h2 id="facilitators-out-of-office-97-and-911-fall-workshops">Facilitators out of Office 9/7 and 9/11; Fall Workshops</h2>
 <h3 id="friday-september-4-2020">Friday, September 4, 2020</h3>
 <p>Greetings CHTC users,</p>
@@ -172,16 +216,6 @@ Your CHTC Team</p>
 </ul>
 
 <p>We have already implemented the new filesystems, login nodes, queue, and <a href="http://chtc.cs.wisc.edu/hpc-overview">documentation</a>, and will gradually transition sets of compute nodes and enable access to the new configuration, described above, according to the following timeline.</p>
-
-<p><strong>HPC Cluster Transition Timeline:</strong></p>
-
-<ul>
-  <li><strong>Sep 15-17</strong>: ‘univ’ and half of ‘univ2’ partition nodes transitioned to new configuration</li>
-  <li><strong>Sep 17</strong>: users granted access to new login nodes (hpclogin1/<a href="http://2.chtc.wisc.edu">2.chtc.wisc.edu</a>); new documentation made prominent on <a href="http://chtc.cs.wisc.edu">chtc.cs.wisc.edu</a></li>
-  <li><strong>Sep 29-30</strong>: all researcher-owned hardware transitioned</li>
-  <li><strong>Oct 6-7</strong>: all remaining (univ2) hardware transitioned</li>
-  <li><strong>Oct 13</strong>: accounts disabled on aci-service-1/2; accounts/data subsequently deleted; old documentation removed</li>
-</ul>
 
 <p><strong>Moving Jobs to the New Configuration</strong></p>
 
