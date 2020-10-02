@@ -283,16 +283,6 @@ backfill capacity via the <code>pre</code> partition (more details below).</p>
   </thead>
   <tbody>
     <tr>
-      <td>University</td>
-      <td>univ</td>
-      <td>38</td>
-      <td>7 days</td>
-      <td>1 day</td>
-      <td>16</td>
-      <td>16</td>
-      <td>64</td>
-    </tr>
-    <tr>
       <td>University 2</td>
       <td>univ2</td>
       <td>148</td>
@@ -303,24 +293,14 @@ backfill capacity via the <code>pre</code> partition (more details below).</p>
       <td>128</td>
     </tr>
     <tr>
-      <td>Owners</td>
-      <td><em>unique</em></td>
-      <td>124</td>
-      <td><em>unique</em></td>
-      <td><em>unique</em></td>
-      <td><em>unique</em></td>
-      <td>20</td>
-      <td>128</td>
-    </tr>
-    <tr>
       <td>Interactive</td>
       <td>int</td>
-      <td>2</td>
-      <td>30 min</td>
-      <td>30 min</td>
+      <td>6</td>
+      <td>1 hr</td>
+      <td>1hr</td>
       <td>1</td>
-      <td>16</td>
-      <td>64</td>
+      <td>20</td>
+      <td>128</td>
     </tr>
     <tr>
       <td>Pre-emptable (backfill)</td>
@@ -332,16 +312,20 @@ backfill capacity via the <code>pre</code> partition (more details below).</p>
       <td>16 or 20</td>
       <td>64 or 128</td>
     </tr>
+    <tr>
+      <td>Owners</td>
+      <td><em>unique</em></td>
+      <td>124</td>
+      <td><em>unique</em></td>
+      <td><em>unique</em></td>
+      <td><em>unique</em></td>
+      <td>20</td>
+      <td>128</td>
+    </tr>
   </tbody>
 </table>
 
 <ul>
-  <li>
-    <p><code>univ</code> consists of our first generation compute nodes, each with 16 
-CPU cores of 2.2 GHz and 64 GB of RAM (4 GB per CPU core) and will always have 
-at least 32 nodes total. This partition is available to all HPC users and jobs 
-submitted to this partition will not be pre-empted and can run for up to 7 days.</p>
-  </li>
   <li>
     <p><code>univ2</code> consists of our second generation compute nodes, each with 20 
 CPU cores of 2.5 GHz and 128 GB of RAM. Like <code>univ</code>, jobs submitted to this partition 
@@ -350,7 +334,7 @@ will not be pre-empted and can run for up to 7 days.</p>
   <li>
     <p><code>int</code> consists of two compute nodes is intended for short and immediate interactive 
 testing on a single node (up to 16 CPUs, 64 GB RAM). Jobs submitted to this partition 
-can run for up to 30 minutes.</p>
+can run for up to 1 hour.</p>
   </li>
   <li>
     <p><code>pre</code> (i.e. pre-emptable) is an under-layed partition encompassing all HPC compute 
