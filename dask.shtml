@@ -1,0 +1,225 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<script type="text/javascript">
+
+  function resizeIframe(iframe) {
+    var newheight;
+    var newwidth;
+
+    if(document.getElementById){
+        newwidth=iframe.contentWindow.document.body.scrollWidth;
+        newheight=iframe.contentWindow.document.body.scrollHeight;
+    }
+
+    iframe.height= (newheight) + "px";
+    iframe.width= (newwidth) + "px";
+  }
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Using Dask at CHTC</title>
+
+<link href="/web.css" rel="stylesheet" type="text/css">
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+   <td width="1%" align="left" class="bgred" valign="top">
+      <div align="center">
+      &nbsp;<br>
+      <a href="http://www.wisc.edu">
+
+      <img src="/images/uw-sm-red.png" width="125" height="46" border="0"> </a>
+       </div>
+
+	<ul class="sidebar">
+	<li><a href="/">CHTC Home</a></li>
+	
+	<li>About
+		<ul>
+		<li><a href="/approach.shtml">Our Approach</a></li>
+<!--comment		<li><a href="/resources.shtml">Our Resources</a></li>   -->
+		<li><a href="/projects.shtml">Our Customers</a></li>
+		<li><a href="/people.shtml">Our Staff</a></li>
+		<li><a href="/jobs.shtml">Our Open Positions</a></li>
+		</ul>
+	</li>
+	
+	<li>How To's
+		<ul>
+		<li><a href="/get-started.shtml">Get Started</a></li>
+		<li><a href="/get-help.shtml">Get Help</a></li>
+        	<li><a href="/guides.shtml">All User Guides</a></li>
+                <li><a href="/use-submit-node.shtml">Use an HTC Submit Server</a></li>
+		<li><a href="/helloworld.shtml">Run Your First HTC Jobs</a></li>
+		<li><a href="/howto_overview.shtml">HTC for MatLab, Python or R</a></li>
+		<li><a href="/HPCuseguide.shtml">Use the HPC Cluster</a></li>
+		<li><a href="/cite-chtc.shtml">Cite CHTC Resources</a></li>
+		</ul>
+	</li>
+	<li><a href="/user-news.shtml">User News</a></li>
+	<li>Other Resources
+		<ul>
+		<!--<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Pool Usage Reports</a></li>-->
+<!--comment		<li><a href="/opmetrics.shtml">Operational Metrics</a></li>  -->
+		<li><a href="/gpu-lab.shtml">CHTC GPU Lab</a></li>
+		<li><a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a></li>
+		<li><a href="http://www.neos-server.org/">NEOS Optimization Service</a></li>
+		<li><a href="http://www.opensciencegrid.org/">Open Science Grid</a></li>
+		<li><a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a></li>
+		</ul>
+	</li>
+	</ul>
+
+	</td>
+
+<td width="97%" valign="top"> 
+
+
+	<TABLE SUMMARY="Navigation layout" BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+<TR ALIGN="left"> 
+  <TD WIDTH="100%" height="400" Align="left" VALIGN="top"> 
+    <A  name="body"></a> 
+	<div id = "main">
+
+<!-- Top of Page Body -->
+<table BORDER="0" WIDTH="100%">
+<!-- <h1 align=left valign=center>The Center for High Throughput Computing</h1> -->
+
+<div id="osg_power"> <span style="height: 30px">Powered by:</span><br /><a href="http://opensciencegrid.org"><img alt="Open Science Grid" src="/images/Open_Science_Grid_Consortium(Logo).jpg" width="123" height="70" /></a></div>
+
+<div id="hours"> <span style="height: 30px">
+	<a href="https://twitter.com/CHTC_UW" style="color:white;"><center><img alt="Twitter" src="/images/twitter.png" width="50" height="50"></center></a> 
+	<center><a href="https://github.com/CHTC/chtc-website-source" style="color:white;"><img alt="GitHub" src="/images/GitHub_Logo_White.png" width="92" height="38"></center></a></span></div>
+
+<div id="hours"> <span style="height: 35px">
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a href="http://chtc.cs.wisc.edu/get-help.shtml" style="color:white;">
+<center><b>Office Hours!</b>
+<p style="margin-bottom: 1px;"></p>
+Tues/Thurs, 3-5pm
+Click for details
+</center></a></span>
+<p style="margin-bottom: 1px;"></p>
+<center><a href="http://chtc.cs.wisc.edu/sign-in.shtml" style="color:white;">Sign-In Here</a></center>
+</div>
+	
+<div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
+
+<h1>Using Dask at CHTC</h1>
+
+
+<p><a href="https://docs.dask.org/en/latest/">Dask</a> 
+is a Python library for parallel computing.
+Though it is not the 
+<a href="/helloworld.shtml">traditional HTCondor workflow</a>, it is possible to use
+Dask on the CHTC pool through a special adapter package provided by CHTC.
+This guide describes the situations in which you should consider using
+Dask instead of the traditional workflow, and will point you toward the
+documentation for the adapter package (which will guide you through
+actually using it).</p>
+
+<blockquote>
+  <p>This is a new <em>how-to</em> guide on the CHTC website. Recommendations and 
+feedback are welcome via email (<a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>) or by creating an 
+issue on the CHTC website GitHub repository: <a href="https://github.com/CHTC/chtc-website-source/issues/new">Create an issue</a></p>
+</blockquote>
+
+<h2 id="what-is-dask">What is Dask?</h2>
+
+<p><a href="https://docs.dask.org/en/latest/">Dask</a> 
+is a Python library that can “scale up” Python code in two ways:</p>
+<ul>
+  <li>“Low-level” parallelism, through transparently-parallel calculations on familiar interfaces like <code>numpy</code> arrays.</li>
+  <li>“High-level” parallelism, through an explicit run-functions-in-parallel interface.</li>
+</ul>
+
+<p>Both kinds of parallelism can be useful, depending on your work.
+For example, Dask could be used to perform data analysis on a single multi-TB
+dataframe stored in distributed memory, as if it was all stored locally.
+It could also be used to run thousands of independent simulations across
+a cluster, aggregating their results locally as they finish.
+Dask can also smoothly handle cases between these extremes (perhaps each of your
+independent simulations also needs a large amount of memory?).</p>
+
+<p>Dask also “scales down”: it runs the same way on your laptop as it does on
+a cluster thereby providing a smooth transition between running on
+local resources and running on something like the CHTC pool.</p>
+
+<h2 id="when-should-i-use-dask-at-chtc">When should I use Dask at CHTC?</h2>
+
+<p>Several use cased are described below for considering the use of Dask for parallelism 
+in CHTC instead of the <a href="/helloworld.shtml">traditional HTCondor workflow</a> 
+of creating jobs and DAGs:</p>
+
+<ul>
+  <li>You are already using Dask for parallelism and want to smoothly scale
+up your computing resources. Note that many foundational libraries in the
+scientific Python ecosystem, like <a href="https://xarray.pydata.org/en/stable/">xarray</a>,
+now use Dask internally.</li>
+  <li>You are already using something like 
+<a href="https://docs.python.org/3/library/multiprocessing.html">multiprocessing</a> or
+<a href="https://joblib.readthedocs.io/en/latest/">joblib</a>
+for high-level parallelism. 
+Dask’s high-level parallelism interface is fairly similar to these libraries,
+and switching from them to Dask should not involve too much work.</li>
+  <li>You can make your overall workflow more efficient by adjusting it based
+on intermediate results.
+For example,
+<a href="https://ml.dask.org/hyper-parameter-search.html#adaptive-hyperparameter-optimization">adaptive hyperparameter optimization</a>
+can be significantly more efficient than something like a random grid search,
+but requires a “controller” to guide the process at every step.</li>
+  <li>You want to operate on single arrays or dataframes that are larger 
+than can be stored in the memory of a single average CHTC worker 
+(more than a few GB). Dask can store this kind of data in “chunks” on workers
+and seamlessly perform calculations on the chunks in parallel.</li>
+  <li>You want your workflow to “scale down” to local resources. Being able to run
+your workflow locally may make developing and testing it easier.</li>
+  <li>You want a more interactive way of using the CHTC pool. 
+The adapter package provides tools for running Jupyter Notebooks on the
+CHTC pool, connected to your Dask cluster.
+This can be useful for debugging or inspecting the progress of your workflows.</li>
+</ul>
+
+<p>You may also be interested in Dask’s own 
+<a href="https://docs.dask.org/en/latest/why.html">“Why Dask?”</a> page.</p>
+
+<p>If you are unsure whether you should use Dask or the traditional workflow,
+please get in touch with a research computing facilitator by emailing 
+<a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> to set up a consultation.</p>
+
+<h2 id="how-do-i-use-dask-at-chtc">How do I use Dask at CHTC?</h2>
+
+<p>Dask integration with the CHTC pool is provided by the
+<a href="https://dask-chtc.readthedocs.io/">Dask-CHTC</a> package.
+See that package’s <a href="https://dask-chtc.readthedocs.io/">documentation</a> 
+for details on how to get started.</p>
+
+
+
+<div id = "copyright">
+     <p align = "center"> 
+	  
+     For all user support, questions, and comments:
+     <strong><a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a></strong>
+
+</p>
+</div>
+
+</div>
+
+  </td>
+  </tr>
+
+</TABLE>
+</td>
+</table>
+
+</body>
+</html>
+
+
