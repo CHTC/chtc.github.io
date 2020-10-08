@@ -236,12 +236,12 @@ mean your interactive job is subject to the limits of that partition.</p>
 <p>The command to request an interactive job is <code>srun</code>, and includes the partition
 in which you’d like to run the interactive job.</p>
 
-<pre class="term"><code>[alice@login]$ srun -n16 -N1 -p int --pty bash
+<pre class="term"><code>[alice@login]$ srun -n4 -N1 -p int --pty bash
 </code></pre>
 
-<p>The above example indicates a request for 16 CPUs (<code>-n16</code>) on a single
-node (<code>-N1</code>) in the "int" partition (<code>-p int</code>), and "<code>-t 15</code>" would
-indicate a request for 15 minutes, if desired rather than the 30-minute
+<p>The above example indicates a request for 4 CPUs (<code>-n4</code>) on a single
+node (<code>-N1</code>) in the "int" partition (<code>-p int</code>). Adding "<code>-t 15</code>" would
+indicate a request for 15 minutes, if desired, rather than the 60-minute
 default. After the interactive shell is created to a compute node with
 the above command, you'll have access to files on the shared file
 system and be able to execute code interactively as if you had directly

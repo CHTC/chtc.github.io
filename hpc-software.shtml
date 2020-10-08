@@ -229,7 +229,9 @@ the software module with the following command:</p>
 <h2 id="a-overview">A. Overview</h2>
 
 <p>Unless you are using a licensed software program provided via modules, you 
-are able to compile and install the software you need on the HPC Cluster. 
+are able to compile and install the software you need on the HPC Cluster.<br />
+Compilation can be done via an interactive job as described in 
+our <a href="/hpc-job-submission#1-submitting-jobs-using-slurm">HPC Job Submission Guide</a>.
 Software should be installed to your <code>/software/username</code> 
 directory. If using CHTC’s provided compilation tools via modules, make 
 sure to load the needed modules before compiling and to load the same 
@@ -255,7 +257,7 @@ a more step-by-step description of the process.</p>
   <li><strong>Load Modules</strong> - if you are using software modules to help you build your 
  code, load them now. Keep track of what you use so that you can load them 
  in your job submit file later. We also recommend doing a <code>module purge</code> before 
- loading your modules to make sure you’re starting from a clean environment.</li>
+ loading your compiling modules to make sure you’re starting from a clean environment.</li>
   <li><strong>Install</strong> - most scientific software follows the three step installation process
  of <code>configure</code> - <code>make</code> - <code>make install</code>.
     <ol>
