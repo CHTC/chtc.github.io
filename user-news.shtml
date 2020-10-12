@@ -121,6 +121,27 @@ changes may affect the jobs of users.</p>
 archives</a>.</p>
 
 <hr />
+<h2 id="reminder-hpc-cluster-transition-beginning-tuesday-oct-13">Reminder: HPC Cluster transition beginning Tuesday, Oct 13</h2>
+<h3 id="friday-october-9-2020">Friday, October 9, 2020</h3>
+
+<p>Greetings CHTC users,</p>
+
+<p>The below pertains to users of CHTC’s HPC Cluster, for which users currently submit jobs via the <code>aci-service-1.chtc.wisc.edu</code> login node. Users of only the HTC System are welcome to ignore the below.</p>
+
+<p>We are less than one week away from opening up accounts on the updated HPC cluster configuration!  As a reminder, the new configuration of the cluster will include an updated operating system (CentOS7), version of Slurm, new head nodes, all-new modules, and a new filesystem with a separate location for user software installation. Execute nodes from the old cluster configuration will be swapped to the new configuration (leaving the old cluster) on the following planned schedule:</p>
+
+<p>Oct 13-14:	<code>univ</code> (retired) and half of <code>univ2</code> partition nodes transitioned to new configuration
+Oct 15:		users granted access to new login nodes (hpclogin1/2.chtc.wisc.edu);
+Oct 27-28:	all researcher-owned hardware transitioned
+Nov 10-11:	all remaining (univ2) hardware transitioned
+Nov 24:	 accounts disabled on aci-service-1/2; accounts/data subsequently deleted;</p>
+
+<p>Contact us at <a href="mailto:chtc.cs.wisc.edu">chtc@cs.wisc.edu</a> with any questions or concerns.</p>
+
+<p>Best, <br />
+Your CHTC team</p>
+
+<hr />
 <h2 id="info-sessions-for-hpc-cluster-upgrade">Info Sessions for HPC Cluster Upgrade</h2>
 <h3 id="tuesday-september-29-2020">Tuesday, September 29, 2020</h3>
 <p>Greetings,</p>
