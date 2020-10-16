@@ -121,6 +121,33 @@ changes may affect the jobs of users.</p>
 archives</a>.</p>
 
 <hr />
+<h2 id="new-hpc-cluster-configuration-now-open">New HPC Cluster Configuration NOW OPEN</h2>
+<h3 id="thursday-october-15-2020">Thursday, October 15, 2020</h3>
+<p>Greetings CHTC users,</p>
+
+<p><em>The below pertains to users of CHTC’s HPC Cluster, for which users submit jobs via the <a href="http://aci-service-1.chtc.wisc.edu">aci-service-1.chtc.wisc.edu</a> login node. Users of only the HTC System are welcome to ignore the below.</em></p>
+
+<p>Researchers with accounts on the old configuration of the HPC cluster can now access the new cluster configuration.</p>
+
+<p><strong>Please FIRST read through the instructions below andour new overview page, with related software and job submission guides: **<a href="http://chtc.cs.wisc.edu/hpc-overview">**http://chtc.cs.wisc.edu/hpc-overview**</a></strong>.** Then, login via the new login nodes using your UW NetID and associated password.</p>
+
+<p>Please first try to install the software that you most commonly use on the cluster, and submit a few, small test jobs. We’ve expanded the interactive partition (or scheduled jobs) for installation and testing, which can otherwise be carried out in other partitions and/or with non-interactive jobs, such that users should not compile on head nodes. (Note: We are currently working with Campus Software on options for new licenses for the Intel compilers, and will have updates later on when they might be available relative to the below timeline.)</p>
+
+<p>As a reminder, not all of the cluster hardware has been transitioned to the new configuration; remaining hardware will be transitioned on the following schedule:</p>
+
+<ul>
+  <li>Oct 27-28: all researcher-owned hardware transitioned</li>
+  <li>Nov 10-11: all remaining (univ2) hardware transitioned</li>
+  <li>Nov 24: accounts disabled on aci-service-1/2; accounts/data subsequently deleted;</li>
+</ul>
+
+<p>Please continue to contact us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> with any issues or questions that come up.</p>
+
+<p>Thank you,</p>
+
+<p>Your CHTC Team</p>
+
+<hr />
 <h2 id="reminder-hpc-cluster-transition-beginning-tuesday-oct-13">Reminder: HPC Cluster transition beginning Tuesday, Oct 13</h2>
 <h3 id="friday-october-9-2020">Friday, October 9, 2020</h3>
 
