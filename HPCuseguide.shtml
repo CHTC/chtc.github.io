@@ -114,9 +114,12 @@ Click for details
 
 
 <blockquote>
-  <p><strong>Notice:</strong> The HPC cluster will be upgraded to a new configuration in 
-mid-September. Please see the <a href="/user-news">User News page</a> for details 
-of the upgrade timeline.</p>
+  <p><strong>Notice:</strong> The HPC cluster is currently being transitioned to a 
+ new configuration. Please start new and move existing workflows 
+to the new configuration described in [these guides][/hpc-overview].</p>
+
+  <p>This page will be archived when we have fully transitioned the cluster 
+to the new configuration on November 24, 2020.</p>
 </blockquote>
 
 <p>The CHTC has partnered with the UW-Madison <a href="http://aci.wisc.edu/">Advanced Computing

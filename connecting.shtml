@@ -175,7 +175,20 @@ servers or head nodes:</p>
 <table class="gtable">
   <thead>
     <tr>
-      <th>HPC Cluster</th>
+      <th>HPC Cluster - starting October 15, 2020</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>hpclogin1.chtc.wisc.edu</code> and/or <code>hpclogin2.chtc.wisc.edu</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="gtable">
+  <thead>
+    <tr>
+      <th>HPC Cluster - previous configuration, retiring Nov 24, 2020</th>
     </tr>
   </thead>
   <tbody>
