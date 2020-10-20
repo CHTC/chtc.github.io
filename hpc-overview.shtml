@@ -147,6 +147,7 @@ operating cluster, please see our previous <a href="HPCuseguide.shtml">HPC Basic
   <li><a href="#hpc-hardware-and-configuration">HPC Hardware and Configuration</a>
     <ul>
       <li><a href="#partitions">Partitions</a></li>
+      <li><a href="#operating-system-and-software">Operating System and Software</a></li>
     </ul>
   </li>
   <li><a href="#data-storage-and-management">Data Storage and Management</a>
@@ -346,6 +347,14 @@ compute nodes nodes, as back-fill meaning these jobs may be pre-empted by higher
 jobs. However, pre-empted jobs will be re-queued when submitted with an sbatch script.</p>
   </li>
 </ul>
+
+<h2 id="operating-system-and-software">Operating System and Software</h2>
+
+<p>All nodes in the HPC Cluster are running CentOS 7 Linux.</p>
+
+<p>The SLURM scheduler version is 20.02.2.</p>
+
+<p>To see more details of other software on the cluster, see the <a href="/hpc-software">HPC Software page</a>.</p>
 
 <h1 id="data-storage-and-management">Data Storage and Management</h1>
 
