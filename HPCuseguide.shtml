@@ -57,7 +57,7 @@
                 <li><a href="/use-submit-node.shtml">Use an HTC Submit Server</a></li>
 		<li><a href="/helloworld.shtml">Run Your First HTC Jobs</a></li>
 		<li><a href="/howto_overview.shtml">HTC for MatLab, Python or R</a></li>
-		<li><a href="/HPCuseguide.shtml">Use the HPC Cluster</a></li>
+		<li><a href="/hpc-overview.shtml">Use the HPC Cluster</a></li>
 		<li><a href="/cite-chtc.shtml">Cite CHTC Resources</a></li>
 		</ul>
 	</li>
@@ -116,7 +116,7 @@ Click for details
 <blockquote>
   <p><strong>Notice:</strong> The HPC cluster is currently being transitioned to a 
  new configuration. Please start new and move existing workflows 
-to the new configuration described in [these guides][/hpc-overview].</p>
+to the new configuration described in <a href="/hpc-overview">these guides</a>.</p>
 
   <p>This page will be archived when we have fully transitioned the cluster 
 to the new configuration on November 24, 2020.</p>
