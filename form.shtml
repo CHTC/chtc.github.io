@@ -155,7 +155,7 @@ below question, you can answer 'I don't know'.</b> One of
 CHTC's Research Computing Facilitators would be happy to help 
 you work out the details.</p>
 
-<form name="chtcform" action="http://chtc.cs.wisc.edu/cgi-chtc/get-started_captcha.php" method="post" onsubmit="return verifyCaptcha()">
+<form name="chtcform" action="https://chtc.cs.wisc.edu/cgi-chtc/get-started_captcha.php" method="post" onsubmit="return verifyCaptcha()">
 
 <h2>About you and your research:</h2>
 
@@ -166,7 +166,7 @@ you work out the details.</p>
 </tr>
 <tr>
 	<td>UW NetID:</td>
-	<td><input type="text" name="NetID" size="12" />@wisc.edu (<a href="http://helpdesk.wisc.edu/page.php?id=4966" target="NetID">What is a NetID?</a>)</td>
+	<td><input type="text" name="NetID" size="12" />@wisc.edu (<a href="https://helpdesk.wisc.edu/page.php?id=4966" target="NetID">What is a NetID?</a>)</td>
 </tr>
 <tr>
 	<td>Preferred Email:</td>
