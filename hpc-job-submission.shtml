@@ -154,7 +154,7 @@ how to submit and manage jobs using SLURM.</p>
 </ol>
 
 <p>The following assumes that you have been granted access to the HPC cluster 
-and can log into the head node <code>aci-login-1.chtc.wisc.edu</code>. If this is not
+and can log into the head node <code>hpclogin1.chtc.wisc.edu</code>. If this is not
 the case, please see the <a href="/form">CHTC account application page</a> or email
 the facilitation team at chtc@cs.wisc.edu.</p>
 
