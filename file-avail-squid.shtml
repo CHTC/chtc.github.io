@@ -20,7 +20,7 @@
   }
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>File Availability with Squid Web Proxy</title>
+<title>Large File Availability Via Squid</title>
 
 <link href="/web.css" rel="stylesheet" type="text/css">
 </head>
@@ -110,7 +110,7 @@ Click for details
 	
 <div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
 
-<h1>File Availability with Squid Web Proxy</h1>
+<h1>Large File Availability Via Squid</h1>
 
 <h2>Which Option is the Best for Your Files?</h2>
 <br>
