@@ -310,8 +310,9 @@ files directly into this user directory from your own computer:</p>
 
 <ul>
   <li>Example <code>scp</code> command on your own Linux or Mac computer:
-    <pre><code class="language-{.term}">$ scp large.file username@transfer.chtc.wisc.edu:/staging/username/ 
+    <pre><code>$ scp large.file username@transfer.chtc.wisc.edu:/staging/username/ 
 </code></pre>
+    <p>{.term}</p>
   </li>
   <li>If using a Windows computer:
     <ul>
@@ -468,24 +469,25 @@ queue
 
 <h1 id="5-checking-your-quota-data-use-and-file-counts">5. Checking your Quota, Data Use, and File Counts</h1>
 
-<p>To check your total data usage and quota, run <code>df -h</code> for your <code>/staging</code>
-directory. Example:</p>
+<p>You can use the command <code>get_quotas</code> to see what disk 
+and items quotas are currently set for a given directory path. 
+This command will also let you see how much disk is in use and how many 
+items are present in a directory:</p>
 
-<pre><code>$ df -h /staging/alice
+<pre><code>[username@transfer ~]$ get_quotas /staging/username
 </code></pre>
+<p>{.term}</p>
 
-<p>To check data usage and file counts, run <code>ncdu</code> from within the
-directory you’d like to query. Example:</p>
+<p>Alternatively, the <code>ncdu</code> command can also be used to see how many 
+files and directories are contained in a given path:</p>
 
-<pre><code>$ cd /staging/alice
-$ ncdu
+<pre class="term"><code>[username@transfer ~]$ ncdu /staging/username
 </code></pre>
 
 <p>When <code>ncdu</code> has finished running, the output will give you a total file
 count and allow you to navigate between subdirectories for even more
-details. Type <code>q</code> when you’re ready to exit the output viewer. More info
-here: <a href="https://lintut.com/ncdu-check-disk-usage/">https://lintut.com/ncdu-check-disk-usage/</a></p>
-
+details. Type <code>q</code> when you're ready to exit the output viewer. More
+info here: <a href="https://lintut.com/ncdu-check-disk-usage/">https://lintut.com/ncdu-check-disk-usage/</a></p>
 
 
 

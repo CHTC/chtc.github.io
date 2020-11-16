@@ -412,15 +412,20 @@ the oldest files when it reaches 80% capacity.</p>
 
 <h2 id="tools-for-managing-home-and-software-space">Tools for managing home and software space</h2>
 
-<p>To see how many files and directories are contained in your
-<code>home</code> or <code>software</code> directories, including the total amount of 
-used disk space, we recommend using the Linux tool <code>ncdu</code>.</p>
+<p>You can use the command <code>get_quotas</code> to see what disk 
+and items quotas are currently set for a given directory path. 
+This command will also let you see how much disk is in use and how many 
+items are present in a directory:</p>
 
-<p>To check data usage and file counts, run <code>ncdu</code> from within the
-directory you'd like to query. Example:</p>
+<pre><code>[username@hpclogin1 ~]$ get_quotas /home/username /software/username
+</code></pre>
+<p>{.term}</p>
 
-<pre class="term"><code>[alice@service]$ cd /home/alice
-[alice@service]$ ncdu
+<p>Alternatively, the <code>ncdu</code> command can also be used to see how many 
+files and directories are contained in a given path:</p>
+
+<pre class="term"><code>[username@hpclogin1 ~]$ ncdu /home/username
+[username@hpclogin1 ~]$ ncdu /software/username
 </code></pre>
 
 <p>When <code>ncdu</code> has finished running, the output will give you a total file
