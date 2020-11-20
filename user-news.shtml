@@ -121,6 +121,23 @@ changes may affect the jobs of users.</p>
 archives</a>.</p>
 
 <hr />
+<h2 id="tuesday-november-24-is-the-last-day-to-access-previous-hpc-cluster">Tuesday, November 24 is the Last Day to Access Previous HPC Cluster</h2>
+<h3 id="thursday-november-19-2020">Thursday, November 19, 2020</h3>
+<p>Greetings CHTC users,</p>
+
+<p><em>The below pertains to users of CHTC’s HPC Cluster. Users of only the HTC System are welcome to ignore the below.</em></p>
+
+<p>We have completed the transition of all compute hardware from the old HPC Cluster configuration to the new configuration. <strong>Next week, on Tuesday, November 24, will be the last day for users to access former head nodes</strong> (aci-service-1.chtc.wisc.edu, aci-service-2.chtc.wisc.edu), as we prepare to fully retire all hardware and the filesystem, deleting all user data. If you have files on the old cluster configuration that you have not yet backed up or copied off the cluster, please do so immediately. <strong>Users will no longer be able access the head nodes or data on the ‘old’ HPC Cluster after November 24.</strong></p>
+
+<p>For those who have already logged into the new cluster, we have a new tool that will allow you to check your directory quotas and usage. See <a href="https://chtc.cs.wisc.edu/hpc-overview#tools-for-managing-home-and-software-space">this section of our cluster overview guide</a> for details.</p>
+
+<p>Please send any questions to <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>, as always, and join us at office hours (Tu/Th 3-5pm).</p>
+
+<p>Thank you,</p>
+
+<p>Your CHTC Team</p>
+
+<hr />
 <h2 id="limited-job-starts-on-previous-hpc-cluster">Limited Job Starts on Previous HPC Cluster</h2>
 <h3 id="thursday-november-5-2020">Thursday, November 5, 2020</h3>
 <p>Greetings CHTC users,</p>
