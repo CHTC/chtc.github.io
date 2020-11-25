@@ -316,16 +316,26 @@ backfill capacity via the <code>pre</code> partition (more details below).</p>
       <td>24 hrs</td>
       <td>4 hrs</td>
       <td>16</td>
-      <td>16 or 20</td>
-      <td>64 or 128</td>
+      <td>20</td>
+      <td>128</td>
     </tr>
     <tr>
       <td>Owners</td>
       <td><em>unique</em></td>
       <td>124</td>
+      <td>7 days</td>
+      <td>24 hrs</td>
       <td><em>unique</em></td>
-      <td><em>unique</em></td>
-      <td><em>unique</em></td>
+      <td>20</td>
+      <td>128</td>
+    </tr>
+    <tr>
+      <td>Astronomy Dept (differs)</td>
+      <td>astro3</td>
+      <td>24</td>
+      <td><em>4 days</em></td>
+      <td>24 hrs</td>
+      <td>16</td>
       <td>20</td>
       <td>128</td>
     </tr>
