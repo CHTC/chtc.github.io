@@ -185,19 +185,6 @@ servers or head nodes:</p>
   </tbody>
 </table>
 
-<table class="gtable">
-  <thead>
-    <tr>
-      <th>HPC Cluster - previous configuration, retiring Nov 24, 2020</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>aci-service-1.chtc.wisc.edu</code> and/or <code>aci-service-2.chtc.wisc.edu</code></td>
-    </tr>
-  </tbody>
-</table>
-
 <blockquote>
   <p><strong>Are you off-campus?</strong><br />
 All of our CHTC submit servers and head nodes are firewalled to block
