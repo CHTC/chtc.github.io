@@ -1,0 +1,301 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<script type="text/javascript">
+
+  function resizeIframe(iframe) {
+    var newheight;
+    var newwidth;
+
+    if(document.getElementById){
+        newwidth=iframe.contentWindow.document.body.scrollWidth;
+        newheight=iframe.contentWindow.document.body.scrollHeight;
+    }
+
+    iframe.height= (newheight) + "px";
+    iframe.width= (newwidth) + "px";
+  }
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Building R in HTC</title>
+
+<link href="/web.css" rel="stylesheet" type="text/css">
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+   <td width="1%" align="left" class="bgred" valign="top">
+      <div align="center">
+      &nbsp;<br>
+      <a href="http://www.wisc.edu">
+
+      <img src="/images/uw-sm-red.png" width="125" height="46" border="0"> </a>
+       </div>
+
+	<ul class="sidebar">
+	<li><a href="/">CHTC Home</a></li>
+	
+	<li>About
+		<ul>
+		<li><a href="/approach.shtml">Our Approach</a></li>
+<!--comment		<li><a href="/resources.shtml">Our Resources</a></li>   -->
+		<li><a href="/projects.shtml">Our Customers</a></li>
+		<li><a href="/people.shtml">Our Staff</a></li>
+		<li><a href="/jobs.shtml">Our Open Positions</a></li>
+		</ul>
+	</li>
+	
+	<li>How To's
+		<ul>
+		<li><a href="/get-started.shtml">Get Started</a></li>
+		<li><a href="/get-help.shtml">Get Help</a></li>
+        	<li><a href="/guides.shtml">All User Guides</a></li>
+                <li><a href="/use-submit-node.shtml">Use an HTC Submit Server</a></li>
+		<li><a href="/helloworld.shtml">Run Your First HTC Jobs</a></li>
+		<li><a href="/howto_overview.shtml">HTC for MatLab, Python or R</a></li>
+		<li><a href="/hpc-overview.shtml">Use the HPC Cluster</a></li>
+		<li><a href="/cite-chtc.shtml">Cite CHTC Resources</a></li>
+		</ul>
+	</li>
+	<li><a href="/user-news.shtml">User News</a></li>
+	<li>Other Resources
+		<ul>
+		<!--<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Pool Usage Reports</a></li>-->
+<!--comment		<li><a href="/opmetrics.shtml">Operational Metrics</a></li>  -->
+		<li><a href="/gpu-lab.shtml">CHTC GPU Lab</a></li>
+		<li><a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a></li>
+		<li><a href="http://www.neos-server.org/">NEOS Optimization Service</a></li>
+		<li><a href="http://www.opensciencegrid.org/">Open Science Grid</a></li>
+		<li><a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a></li>
+		</ul>
+	</li>
+	</ul>
+
+	</td>
+
+<td width="97%" valign="top"> 
+
+
+	<TABLE SUMMARY="Navigation layout" BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+<TR ALIGN="left"> 
+  <TD WIDTH="100%" height="400" Align="left" VALIGN="top"> 
+    <A  name="body"></a> 
+	<div id = "main">
+
+<!-- Top of Page Body -->
+<table BORDER="0" WIDTH="100%">
+<!-- <h1 align=left valign=center>The Center for High Throughput Computing</h1> -->
+
+<div id="osg_power"> <span style="height: 30px">Powered by:</span><br /><a href="http://opensciencegrid.org"><img alt="Open Science Grid" src="/images/Open_Science_Grid_Consortium(Logo).jpg" width="123" height="70" /></a></div>
+
+<div id="hours"> <span style="height: 30px">
+	<a href="https://twitter.com/CHTC_UW" style="color:white;"><center><img alt="Twitter" src="/images/twitter.png" width="50" height="50"></center></a> 
+	<center><a href="https://github.com/CHTC/chtc-website-source" style="color:white;"><img alt="GitHub" src="/images/GitHub_Logo_White.png" width="92" height="38"></center></a></span></div>
+
+<div id="hours"> <span style="height: 35px">
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a href="http://chtc.cs.wisc.edu/get-help.shtml" style="color:white;">
+<center><b>Office Hours!</b>
+<p style="margin-bottom: 1px;"></p>
+Tues/Thurs, 3-5pm
+Click for details
+</center></a></span>
+<p style="margin-bottom: 1px;"></p>
+<center><a href="http://chtc.cs.wisc.edu/sign-in.shtml" style="color:white;">Sign-In Here</a></center>
+</div>
+	
+<div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
+
+<h1>Building R in HTC</h1>
+
+
+<h1 id="overview">Overview</h1>
+
+<p><strong>This guide will provide instructions for compiling base R from source code and is intended 
+for compiling versions of R that are currently not provided via the CHTC Squid Web Proxy</strong></p>
+
+<p>Before compiling R, please take a moment to review our <a href="/r-jobs.shtml">R Jobs</a> guide to see what versions of R are currently available.</p>
+
+<p><strong>To best understand the below information, you 
+should already have an understanding of how to:</strong></p>
+<ul>
+  <li>navigate within directories</li>
+  <li>create/copy/move/delete files and directories</li>
+  <li>run your intended program</li>
+  <li>use HTCondor to submit jobs</li>
+</ul>
+
+<p>This guide details the steps needed to:</p>
+
+<ol>
+  <li><a href="#1-download-r-source-code">Download R source code</a></li>
+  <li><a href="#2-submit-an-interactive-job-to-a-build-server">Submit an interactive job to a build server</a></li>
+  <li><a href="#3-compile-base-r-from-source-code">Compile base R from source code</a></li>
+  <li><a href="#4-install-packages">Install additional R packages</a></li>
+  <li><a href="#5-create-a-portable-copy-of-your-r-installation">Create a portable copy of your R installation that can be brought along with your jobs</a></li>
+  <li><a href="#6-use-your-custom-r-installation-in-your-jobs">Use your custom R installation in your jobs</a></li>
+</ol>
+
+<h1 id="compile-r">Compile R</h1>
+
+<h2 id="1-download-r-source-code">1. Download R Source Code</h2>
+
+<p>Before running any commands on CHTC, use a browser to get the source code 
+for your desired version of R from <a href="https://cran.r-project.org">CRAN</a> 
+Under “Source Code for all Platforms”, find the R-#.#.#.tar.gz file for your 
+desired version of R and download it to your computer before transferring a copy 
+to your <code>/home</code> directory on the submit server.</p>
+
+<h2 id="2-submit-an-interactive-job-to-a-build-server">2. Submit An Interactive Job To A Build Server</h2>
+
+<p>Creating an R installation can be computationally intensive and should not be 
+performed on the submit server. Instead, you will create your installation 
+on a CHTC build server by using an interactive job.</p>
+
+<p>The interactive job is essentially a job without an executable; 
+you will be the one running the commands, instead (in this case, to install R).
+Like a regular HTCondor job, once you finish your R installation on the build server, 
+the output files (your completed portable R installation) will be transferred back to 
+the submit server (so that you can use the R installation for later jobs).</p>
+
+<p>To submit an interactive job, create a submit file called <code>build.sub</code> as shown below:</p>
+
+<pre><code class="language-{:.sub}"># build.sub
+# Software build file
+
+universe = vanilla
+log = interactive.log
+
+# change the name of the file to be the name of your source code
+transfer_input_files = R-#.#.#.tar.gz
+
++IsBuildJob = true
+requirements = (OpSysMajorVer =?= 7)
+request_cpus = 1
+request_memory = 4GB
+request_disk = 4GB
+
+queue
+</code></pre>
+
+<p>Be sure to modify the above <code>transfer_input_files</code> statement with the appropriate 
+name of the R source code that you downloaded in the previous ste.</p>
+
+<p>Once this submit file is created, you will start the interactive job by
+running the following command:</p>
+
+<pre class="term"><code>[user@submit]$ condor_submit -i build.sub
+</code></pre>
+
+<p>The interactive build job should start in about a minute. Once it has
+started, the job has a time limit of four hours.</p>
+
+<h2 id="3-compile-base-r-from-source-code">3. Compile Base R From Source Code</h2>
+
+<p>Once the interactive job starts, R can be compiled. The general workflow will be 
+to first run the R configuration script followed by <code>make</code> and <code>make install</code>.</p>
+
+<p>To install R, first create a directory that will hold your R installation (e.g. <code>R/</code>) 
+, then extract all of the source code files from R-#.#.#.tar.gz and move into the source code directory:</p>
+
+<pre class="term"><code>[user@build]$ mkdir R/
+[user@build]$ tar xzf R-#.#.#.tar.gz
+[user@build]$ cd R-#.#.#/
+</code></pre>
+
+<p>From the source code directory, run the following commands. The <code>make</code> step may take a while to 
+complete! <strong>If building R version 4.x.x or higher you will need to modify the below <code>configure</code> 
+command to include the flag</strong> <code>--with-pcre1</code> 
+(e.g. <code>./configure --prefix=$_CONDOR_SCRATCH_DIR/R --with-pcre1</code>).</p>
+
+<pre class="term"><code>[user@build]$ touch doc/NEWS.2.rds
+[user@build]$ touch doc/NEWS.3.rds
+[user@build]$ ./configure --prefix=$_CONDOR_SCRATCH_DIR/R
+[user@build]$ make
+[user@build]$ make install
+</code></pre>
+
+<p>Then return the the top level directory:</p>
+
+<pre class="term"><code>[user@build]$ cd ../
+</code></pre>
+
+<p>If R has been installed successfully, you should be able to run the following command as a test:</p>
+
+<pre class="term"><code>[user@build]$ R/bin/R --version
+</code></pre>
+
+<p>The output of the above command should match the version number that you just installed!</p>
+
+<h2 id="4-install-packages">4. Install Packages</h2>
+
+<p>After your R compilation has completed, if any additional R packages are required for your work, 
+please follow the steps in our <a href="/r-jobs.shtml">R Jobs</a> guide 
+starting with the <code>export</code> commands shown in step 
+<a href="/r-jobs.shtml#b.-install-the-packages">1.B.1</a>. After creating a compressed tar 
+archive of your <code>packages</code> directory return the the next steps in this guide.</p>
+
+<h2 id="5-create-a-portable-copy-of-your-r-installation">5. Create A Portable Copy of Your R Installation</h2>
+
+<p>Once R has been successfully compiled (and after any packages have been installed), the final step 
+is to create a compressed tar archive of your R installation. From the top level directory:</p>
+
+<pre class="term"><code>[user@build]$ tar czf my_R#.#.#.tar.gz R/
+</code></pre>
+
+<p><strong>Be sure to check the size of your R tar archive:</strong></p>
+<pre class="term"><code>[user@build]$ ls -lh my_R#.#.#.tar.gz
+</code></pre>
+
+<p><strong>If the size of <code>my_R#.#.#.tar.gz</code> is larger than ~100MB then your will need to use 
+the CHTC Squid Wed Proxy to host this file.</strong> See our 
+<a href="/file-avail-squid.shtml">Squid Web Proxy</a> guide for more details.</p>
+
+<p>Now you have a portable copy of your R installation that can be brought along with your jobs. 
+The final step is to terminate your interactive job, and HTCondor will tranfer your R tar archive 
+back to your <code>/home</code> directory:</p>
+
+<pre class="term"><code>[user@submit]$ exit
+</code></pre>
+
+<p>Once your interactive job terminates, you will be back in your <code>/home</code> directory on the submit 
+server and should see a copy of your R tar archive:</p>
+
+<pre class="term"><code>[user@submit]$ ls
+</code></pre>
+
+<h2 id="6-use-your-custom-r-installation-in-your-jobs">6. Use Your Custom R Installation In Your Jobs</h2>
+
+<p>To use the R installation that was built using the steps in this guide, please follow 
+the steps and examples described on our <a href="/r-jobs.shtml">R Jobs</a> guide, <strong>however 
+you will need to modify <code>transfer_input_files</code> in your submit file to specify your <code>R#.#.#.tar.gz</code> 
+tar archive instead of transferring a copy of R from the Squid web proxy.</strong></p>
+
+
+
+<div id = "copyright">
+     <p align = "center"> 
+	  
+     For all user support, questions, and comments:
+     <strong><a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a></strong>
+
+</p>
+</div>
+
+</div>
+
+  </td>
+  </tr>
+
+</TABLE>
+</td>
+</table>
+
+</body>
+</html>
+
+
