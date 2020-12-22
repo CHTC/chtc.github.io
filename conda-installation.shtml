@@ -270,7 +270,7 @@ that you’re in the “base” Miniconda environment:</p>
 <p>When this step finishes, you should see a file in your current directory named
 <code>env-name.tar.gz</code></p>
 
-<h2 id="4-check-size-of-conda-environemnt-tar-archive">4. Check Size of Conda Environemnt Tar Archive</h2>
+<h2 id="4-check-size-of-conda-environment-tar-archive">4. Check Size of Conda Environment Tar Archive</h2>
 
 <p>The tar archive, <code>env-name.tar.gz</code>, created in the previous step will be used as input for 
 subsequent job submission. As with all job input files, you should check the size of this 
