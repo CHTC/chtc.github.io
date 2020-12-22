@@ -121,6 +121,32 @@ changes may affect the jobs of users.</p>
 archives</a>.</p>
 
 <hr />
+<h2 id="chtc-facilitator-holiday-availability">CHTC Facilitator holiday availability</h2>
+<h3 id="monday-december-21-2020">Monday, December 21, 2020</h3>
+
+<p>Greetings CHTC users,</p>
+
+<p>This is an annual reminder that CHTC staffing will be somewhat reduced at times during the next two weeks</p>
+
+<ul>
+  <li>Office Hours are cancelled starting this Thursday through next week (Dec. 24 - Jan 1), 
+and email responses will be delayed during this period. <em>Office Hours are still on for tomorrow, Dec. 22.</em></li>
+  <li><strong>Normal office hours and email response times will resume on Monday, January 4th.</strong></li>
+</ul>
+
+<p>Please remember that your work on CHTC’s shared compute systems can affect 
+other users. You should review and continue to follow CHTC policies for 
+our <a href="https://chtc.cs.wisc.edu/use-submit-node">HTC System</a> and <a href="https://chtc.cs.wisc.edu/hpc-overview">HPC Cluster</a> to 
+ensure that you are acting in consideration of others, especially since 
+CHTC staff may not be able to respond as quickly to user-caused issues.</p>
+
+<p>As always, the best way to get in touch with us is through our designated email address (chtc@cs.wisc.edu).</p>
+
+<p>Best wishes during the holiday season!</p>
+
+<p>Christina, Jess, Lauren, and the rest of the CHTC team</p>
+
+<hr />
 <h2 id="hpc-cluster-queue-restored-users-advised-to-proceed-with-caution">HPC Cluster Queue Restored; Users Advised to Proceed with Caution</h2>
 <h3 id="wednesday-december-2-2020">Wednesday, December 2, 2020</h3>
 
@@ -168,300 +194,6 @@ As always, if you notice any errors that you’re unsure of how to address, plea
 <p>Thank you,</p>
 
 <p>Your CHTC Team</p>
-
-<hr />
-<h2 id="limited-job-starts-on-previous-hpc-cluster">Limited Job Starts on Previous HPC Cluster</h2>
-<h3 id="thursday-november-5-2020">Thursday, November 5, 2020</h3>
-<p>Greetings CHTC users,</p>
-
-<p><em>The below pertains to users of CHTC’s HPC Cluster, for which users submit jobs via the <a href="http://aci-service-1.chtc.wisc.edu">aci-service-1.chtc.wisc.edu</a> login node. Users of only the HTC System are welcome to ignore the below.</em></p>
-
-<p>As <a href="https://chtc.cs.wisc.edu/user-news.shtml">previously announced</a>, next week we will be transitioning all remaining hardware from the previous HPC cluster configuration to the new configuration. This means:</p>
-
-<ul>
-  <li>We are currently draining jobs from all remaining nodes in the old cluster configuration. <strong>Jobs requesting 7 days (or any time request that cannot be completed by Nov 10) will not start.</strong> Jobs can still run on the old cluster nodes, but only if their time request (“–time=” in the submit file) indicates that they will complete before next Tuesday, November 10.</li>
-  <li><strong>If you have not already logged into the new cluster configuration and tried to run test jobs, please do so</strong> as soon as possible! After next week, the old cluster will not be available to run jobs – you are less likely to experience interruptions to your work if you make sure everything is running smoothly on the new cluster now.</li>
-</ul>
-
-<p>In addition, we are hoping to have user modules for the Intel compilers and libraries within the next few weeks, and we will send a separate email when these are available.</p>
-
-<p>Please send any questions to <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>, as always, or join us at office hours (Tu/Th 3-5pm, see emails from CHTC staff or login to a CHTC server for links to the office hours virtual room).</p>
-
-<p>Thank you,</p>
-
-<p>Your CHTC Team</p>
-
-<hr />
-<h2 id="delayed-email-replies-no-office-hours-on-november-3">Delayed Email Replies, No Office Hours on November 3</h2>
-<h3 id="monday-november-2-2020">Monday, November 2, 2020</h3>
-<p>Greetings CHTC users,</p>
-
-<p>We are writing to let you know that our <strong>Research Computing Facilitators will be out of the office on Nov. 3, so</strong> <strong><a href="https://chtc.cs.wisc.edu/get-help.shtml">CHTC Office Hours</a> are canceled,</strong> and users can expect delayed replies to support conversations via <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> for that day. (We’ll send out a reminder and appreciate your patience.)</p>
-
-<p>As a reminder, we are working <strong>this week to transition researcher-owned hardware in the <a href="https://chtc.cs.wisc.edu/hpc-overview">HPC Cluster</a> to the new cluster configuration</strong> and operating system, <a href="https://chtc.cs.wisc.edu/user-news.shtml">per prior communication</a>. Users with HPC accounts already have access to the new configuration and should see researcher-owned hardware partitions appearing there by the end of the week.</p>
-
-<p>Please send any questions to <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>, as always, and join us at office hours (Tu/Th 3-5pm, <a href="https://go.wisc.edu/chtc-officehours">https://go.wisc.edu/chtc-officehours</a>).</p>
-
-<p>Thank you,</p>
-
-<p>Your CHTC Team</p>
-
-<hr />
-<h2 id="new-hpc-cluster-configuration-now-open">New HPC Cluster Configuration NOW OPEN</h2>
-<h3 id="thursday-october-15-2020">Thursday, October 15, 2020</h3>
-<p>Greetings CHTC users,</p>
-
-<p><em>The below pertains to users of CHTC’s HPC Cluster, for which users submit jobs via the <a href="http://aci-service-1.chtc.wisc.edu">aci-service-1.chtc.wisc.edu</a> login node. Users of only the HTC System are welcome to ignore the below.</em></p>
-
-<p>Researchers with accounts on the old configuration of the HPC cluster can now access the new cluster configuration.</p>
-
-<p><strong>Please FIRST read through the instructions below andour new overview page, with related software and job submission guides: **<a href="http://chtc.cs.wisc.edu/hpc-overview">**http://chtc.cs.wisc.edu/hpc-overview**</a></strong>.** Then, login via the new login nodes using your UW NetID and associated password.</p>
-
-<p>Please first try to install the software that you most commonly use on the cluster, and submit a few, small test jobs. We’ve expanded the interactive partition (or scheduled jobs) for installation and testing, which can otherwise be carried out in other partitions and/or with non-interactive jobs, such that users should not compile on head nodes. (Note: We are currently working with Campus Software on options for new licenses for the Intel compilers, and will have updates later on when they might be available relative to the below timeline.)</p>
-
-<p>As a reminder, not all of the cluster hardware has been transitioned to the new configuration; remaining hardware will be transitioned on the following schedule:</p>
-
-<ul>
-  <li>Oct 27-28: all researcher-owned hardware transitioned</li>
-  <li>Nov 10-11: all remaining (univ2) hardware transitioned</li>
-  <li>Nov 24: accounts disabled on aci-service-1/2; accounts/data subsequently deleted;</li>
-</ul>
-
-<p>Please continue to contact us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> with any issues or questions that come up.</p>
-
-<p>Thank you,</p>
-
-<p>Your CHTC Team</p>
-
-<hr />
-<h2 id="reminder-hpc-cluster-transition-beginning-tuesday-oct-13">Reminder: HPC Cluster transition beginning Tuesday, Oct 13</h2>
-<h3 id="friday-october-9-2020">Friday, October 9, 2020</h3>
-
-<p>Greetings CHTC users,</p>
-
-<p>The below pertains to users of CHTC’s HPC Cluster, for which users currently submit jobs via the <code>aci-service-1.chtc.wisc.edu</code> login node. Users of only the HTC System are welcome to ignore the below.</p>
-
-<p>We are less than one week away from opening up accounts on the updated HPC cluster configuration!  As a reminder, the new configuration of the cluster will include an updated operating system (CentOS7), version of Slurm, new head nodes, all-new modules, and a new filesystem with a separate location for user software installation. Execute nodes from the old cluster configuration will be swapped to the new configuration (leaving the old cluster) on the following planned schedule:</p>
-
-<p>Oct 13-14:	<code>univ</code> (retired) and half of <code>univ2</code> partition nodes transitioned to new configuration
-Oct 15:		users granted access to new login nodes (hpclogin1/2.chtc.wisc.edu);
-Oct 27-28:	all researcher-owned hardware transitioned
-Nov 10-11:	all remaining (univ2) hardware transitioned
-Nov 24:	 accounts disabled on aci-service-1/2; accounts/data subsequently deleted;</p>
-
-<p>Contact us at <a href="mailto:chtc.cs.wisc.edu">chtc@cs.wisc.edu</a> with any questions or concerns.</p>
-
-<p>Best, <br />
-Your CHTC team</p>
-
-<hr />
-<h2 id="info-sessions-for-hpc-cluster-upgrade">Info Sessions for HPC Cluster Upgrade</h2>
-<h3 id="tuesday-september-29-2020">Tuesday, September 29, 2020</h3>
-<p>Greetings,</p>
-
-<p><em>The below pertains to users of CHTC’s HPC Cluster, for which users submit jobs via the aci-service-1.chtc.wisc.edu login node. <strong>Users of only the HTC System are welcome to ignore the below.</strong></em></p>
-
-<p>In anticipation of the HPC cluster upgrade in October, CHTC facilitators will be hosting two virtual information sessions for users on <strong>Tues Oct. 6 at 11 am</strong> and <strong>Wed Oct 7 at 3 pm</strong>. Each info session will provide an overview of the new HPC configuration and include time for Q &amp; A.</p>
-
-<p>Registration for an info session is required. After registering, you will receive a confirmation email containing information about joining the session and the option of adding the session to your calendar. You can register beforehand, or as the meeting is starting; the registration is simple and sends the connection details right away. See the original email for registration links.</p>
-
-<p>Cheers,</p>
-
-<p>Your CHTC Team</p>
-
-<hr />
-<h2 id="hpc-cluster-upgrade-shifted-to-october-15">HPC Cluster Upgrade Shifted to October 15</h2>
-<h3 id="friday-september-11-2020">Friday, September 11, 2020</h3>
-<p>Greetings,</p>
-
-<p><em>The below pertains to users of CHTC’s HPC Cluster, for which users submit jobs via the <a href="http://aci-service-1.chtc.wisc.edu">aci-service-1.chtc.wisc.edu</a> login node. Users of only the HTC System are welcome to ignore the below.</em></p>
-
-<p>Due to recent and unforeseen issues in transitioning servers to the new cluster configuration, we are delaying the HPC Cluster transition by four weeks (see the updated timeline, below). Additionally, based upon discussions with some users thus far, we would like to provide clear indications of the work that every HPC Cluster user can anticipate in migrating to the new configuration.</p>
-
-<p><strong>HOW TO MIGRATE YOUR WORK TO THE ‘NEW’ CONFIGURATION</strong></p>
-
-<p>When users are allowed onto the new cluster configuration, they should be prepared to:</p>
-
-<ul>
-  <li>Re-install software to the new /software location, compiled against the cluster’s new MPI modules and CentOS7 operating system.</li>
-  <li>Migrate all output from prior runs off of the old configuration.</li>
-  <li>Migrate submit files, inputs, and other files for future work to the /home location on the new cluster configuration.</li>
-  <li>Modify submit files in light of new Slurm features (if desired), new modules, and commands pointing to newly-installed user software.</li>
-</ul>
-
-<p>The above are all addressed in our guide on <a href="http://chtc.cs.wisc.edu/hpc-transition.shtml">Transitioning to the New HPC Cluster Configuration</a>. <strong>We will email at a later date with details for planned informational sessions, which will include opportunities for Q&amp;A about the transition process.</strong></p>
-
-<p><strong>UPDATED HPC Cluster Transition Timeline:</strong></p>
-
-<p>Oct 13-14: ‘univ’ and half of ‘univ2’ partition nodes transitioned to new configuration</p>
-
-<p>Oct 15: users granted access to new login nodes (hpclogin1/<a href="http://2.chtc.wisc.edu">2.chtc.wisc.edu</a>);</p>
-
-<p><a href="http://chtc.cs.wisc.edu/hpc-overview">new documentation</a> made prominent on <a href="http://chtc.cs.wisc.edu">chtc.cs.wisc.edu</a></p>
-
-<p>Oct 27-28:  all researcher-owned hardware transitioned</p>
-
-<p>Nov 10-11:  all remaining (univ2) hardware transitioned</p>
-
-<p>Nov 24:     accounts disabled on aci-service-1/2; accounts/data subsequently deleted; old documentation removed</p>
-
-<p>Thank you, in advance, for your patience with the timeline shift. We are hoping to avoid further delays, and will communicate all updates as soon as possible.</p>
-
-<p>As always, please get in touch with any questions by emailing <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.</p>
-
-<p>Cheers,\</p>
-
-<p>Your CHTC Team</p>
-
-<hr />
-<h2 id="facilitators-out-of-office-97-and-911-fall-workshops">Facilitators out of Office 9/7 and 9/11; Fall Workshops</h2>
-<h3 id="friday-september-4-2020">Friday, September 4, 2020</h3>
-<p>Greetings CHTC users,</p>
-
-<p>Two quick announcements before the long weekend:</p>
-
-<p>1) The CHTC team will have a short week next week; <strong>we are out of the office on Monday, September 7</strong> for the Labor Day holiday, <strong>and on Friday, September 11</strong> for a group retreat. Based on these outages, responses to email sent over this weekend and next Friday will be delayed.</p>
-
-<p>2) The Data Science Hub is running a series of workshops this fall that include topics that are relevant to CHTC users, including command line skills, version control with git, and an introduction to Docker containers. If you are interested in joining, see the dates and registration information on this page: <a href="https://uw-madison-datascience.github.io/2020-09-16-uwmadison-mini/">https://uw-madison-datascience.github.io/2020-09-16-uwmadison-mini/</a></p>
-
-<p>As always, the best way to reach us is <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.  Have a great holiday weekend!</p>
-
-<p>Best,<br />
-Your CHTC Team</p>
-
-<hr />
-<h2 id="jobs-on-submit2chtcwiscedu-inadvertently-removed-please-resubmit">Jobs on submit2.chtc.wisc.edu Inadvertently Removed; Please Resubmit</h2>
-<h3 id="wednesday-september-2-2020">Wednesday, September 2, 2020</h3>
-<p>Greetings,</p>
-
-<p><em>This email only pertains to users of the HTC System submitting through <a href="http://submit2.chtc.wisc.edu">submit2.chtc.wisc.edu</a></em>.</p>
-
-<p>We are sorry to report that <strong>all jobs in the HTCondor queue on <a href="http://submit2.chtc.wisc.edu">submit2.chtc.wisc.edu</a> were inadvertently removed at about 10:50am</strong> while staff were doing work on the submit server. We apologize for the inconvenience, as <strong>users will need to resubmit jobs.</strong></p>
-
-<p>If you need help determining which jobs may have completed already (and which need to be resubmitted), you’ll be able to see removed jobs and recently completed jobs by running the following (inserting your username for <username>):</username></p>
-
-<p>condor_history <username></username></p>
-
-<p>The ‘condor_history’ output will show an ‘X’ (in the ‘ST’ column) for jobs that were removed, and a ‘C’ for jobs that completed (could be with or without errors). Please get in touch via <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> if we might be able to help you.</p>
-
-<p>Thank you,</p>
-
-<hr />
-<h2 id="hpc-cluster-upgrades-starting-september-15">HPC Cluster Upgrades, starting September 15</h2>
-<h3 id="monday-august-24-2020">Monday, August 24, 2020</h3>
-<p>Greetings,</p>
-
-<p><em>The below pertains to users of CHTC’s HPC Cluster, for which users submit jobs via the <a href="http://aci-service-1.chtc.wisc.edu">aci-service-1.chtc.wisc.edu</a> login node. Users of only the HTC System are welcome to ignore the below.</em></p>
-
-<p>This email provides an overview of plans for <strong>major upgrades to the HPC Cluster,</strong> which will take place in several phases <strong>beginning September 15</strong>, as described below.</p>
-
-<p>The upgrades will include:</p>
-
-<ul>
-  <li>upgrade of all cluster nodes to the CentOS 7 operating system</li>
-  <li>new /home filesystem and a new /software location</li>
-  <li>new job queue with the latest version of Slurm</li>
-  <li>new login nodes with all of the above</li>
-</ul>
-
-<p>We have already implemented the new filesystems, login nodes, queue, and <a href="http://chtc.cs.wisc.edu/hpc-overview">documentation</a>, and will gradually transition sets of compute nodes and enable access to the new configuration, described above, according to the following timeline.</p>
-
-<p><strong>Moving Jobs to the New Configuration</strong></p>
-
-<p>We have constructed the above timeline to give users four weeks in Sept/Oct to transition their software and other files for job submission to the new CentOS 7 configuration and Slurm queue. Guides are available with instructions on using our <a href="http://chtc.cs.wisc.edu/hpc-software">revamped software modules</a> and <a href="http://chtc.cs.wisc.edu/hpc-job-submission">updated version of Slurm</a> when the cluster is available for login in September.</p>
-
-<p><strong>Moving Data to the New Configuration</strong></p>
-
-<p>The new configuration will offer <a href="http://chtc.cs.wisc.edu/hpc-overview#data-storage-and-management">separate locations for job data (/home) and software (/software)</a> along with new quotas for each. Data in the existing HPC Cluster filesystem (/home via aci-service-1/2 nodes) will be unavailable in the new configuration and will be deleted after Oct 13. Importantly, users should use the upgrade as an opportunity to review and only transition data that will be necessary for future work (moving data from completed work to non-CHTC locations, as per CHTC data policies).</p>
-
-<p><strong>New Documentation</strong></p>
-
-<p>Documentation is now available on the CHTC website detailing the new HPC configuration, job submission, software use, and user policies which can be accessed at the following links:</p>
-
-<ul>
-  <li><a href="http://chtc.cs.wisc.edu/hpc-overview">HPC Cluster Configuration and Policies</a></li>
-  <li><a href="http://chtc.cs.wisc.edu/hpc-job-submission">Submitting and Managing Jobs Using SLURM</a></li>
-  <li><a href="http://chtc.cs.wisc.edu/hpc-software">Using Software on the HPC Cluster</a></li>
-</ul>
-
-<p>The information in this email will also be posted to the <a href="http://chtc.cs.wisc.edu/user-news">CHTC User News page</a>. We will send additional notices prior to key phases in the timeline above. If the above timeline presents any major difficulties for your computational work, or for any other questions regarding the HPC Cluster upgrade, please email <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.</p>
-
-<p>Thank you,<br />
-Your CHTC Team</p>
-
-<hr />
-<h2 id="potential-interruption-to-htc-services-on-thursday-august-27">Potential Interruption to HTC Services on Thursday, August 27</h2>
-<h3 id="thursday-august-20-2020">Thursday, August 20, 2020</h3>
-<p>Hello CHTC users,</p>
-
-<p>This message is for users of our high throughput computing (HTC) system.</p>
-
-<p>There will be a network upgrade on Thursday, August 27 at 10am, impacting connections to some
-of our HTC servers.</p>
-
-<p>Affected services include:</p>
-<ul>
-  <li>submit-1.chtc.wisc.edu and some researcher-owned submit servers</li>
-  <li>About half of our HTC execute servers, including high memory and GPU servers</li>
-  <li>The large data /staging file system</li>
-  <li>Our centrally installed software in /software</li>
-  <li>The /squid folder that represents data on our web server</li>
-</ul>
-
-<p>While the upgrade should be brief and may not cause noticeable disruptions, potential impacts
-during the network outage include:</p>
-<ul>
-  <li>Running jobs on affected execute nodes will not be able to access the internet.</li>
-  <li>Running jobs on affected execute nodes will not be able to access /staging or /software.</li>
-  <li>Any jobs that start and fetch a files from SQUID may fail.</li>
-  <li>Some jobs may be interrupted if the outage is longer than expected.</li>
-  <li>submit-1 and other affected group submit servers may be inaccessible.</li>
-</ul>
-
-<p>Jobs that are unable to access files from the internet, SQUID or /staging will either go on
-hold or fail with an error message in the standard error file. These will need to be released
-or resubmitted to run again. Jobs that are interrupted will return to an idle state and be
-automatically rerun.</p>
-
-<p>To minimize disruption to your HTC jobs, we recommend you:
-Avoid submitting new jobs during the 24 hours preceding the upgrade.
-Plan to check for jobs holds or errors on Thursday afternoon if you have jobs in the queue
-during the upgrade window.</p>
-
-<p>Email us with any questions or concerns at chtc@cs.wisc.edu.</p>
-
-<hr />
-<h2 id="limited-chtc-email-support-on-monday-august-17">Limited CHTC Email Support on Monday, August 17</h2>
-<h3 id="friday-august-14-2020">Friday, August 14, 2020</h3>
-<p>Hello CHTC users,</p>
-
-<p>CHTC email support will be unavailable Monday, August 17, as all of CHTC’s Research Computing
-Facilitators will be out of the office or otherwise unavailable.</p>
-
-<p>The best way to reach us is still <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> and email support will resume Tuesday
-August 18.</p>
-
-<p>Cheers,<br />
-Christina, Jess and Lauren</p>
-
-<hr />
-
-<h2 id="chtc-website-content-now-in-github">CHTC Website Content Now in GitHub</h2>
-<h3 id="wednesday-january-08-2020">Wednesday, January 08, 2020</h3>
-<p><br />
-Happy New Year!</p>
-
-<p><strong>We’d like to announce that the <a href="http://chtc.cs.wisc.edu/">CHTC website</a> content (including online guides) are now <a href="https://github.com/CHTC/chtc-website-source">hosted publicly in a GitHub repository</a>.</strong> Among other plans for improving the website over the coming year, we have made this change to make it easier for the extended CHTC community to contribute and suggest changes to page content.</p>
-
-<p><strong>Therefore, we’d like to formally invite YOU to contribute to the CHTC website in the following ways:</strong></p>
-
-<ol>
-  <li>Especially, because we’re still transitioning the source file format for each page (from raw .shtml to Markdown), <strong>you can let us know if you see any formatting problems we haven’t caught</strong> by emailing <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> (as always), or for GitHub enthusiasts, describe the problem as a <a href="https://github.com/CHTC/chtc-website-source/issues">GitHub issue</a> or submit a <a href="https://github.com/CHTC/chtc-website-source/pulls">pull request</a> with the correction.</li>
-  <li><strong>You can otherwise contribute typo fixes, content clarifications, and content suggestions via GitHub issues and pull requests!</strong> (Or, continue to report any thoughts in email to <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>, at office hours, etc., per your preference.)</li>
-</ol>
-
-<p>We look forward to getting more of your input for the CHTC website!<br />
-Your CHTC Team</p>
 
 <hr />
 
