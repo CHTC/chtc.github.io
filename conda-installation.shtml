@@ -313,7 +313,7 @@ python3 hello.py
 <p>In your submit file, make sure to have the following:</p>
 
 <ul>
-  <li>Your executable should be the the bash script you created in <a href="#4-create-a-job-executable">step 4</a>.</li>
+  <li>Your executable should be the the bash script you created in <a href="#5-create-a-job-executable">step 5</a>.</li>
   <li>Remember to transfer your Python script and the environment <code>tar.gz</code> file via
  <code>transfer_input_files</code>. 
 <strong>Since the <code>tar.gz</code> file will almost certainly be larger than 100MB, 
