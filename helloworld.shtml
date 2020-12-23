@@ -337,7 +337,7 @@ like this:</p>
 
 <h2 id="a-removing-jobs">A. Removing Jobs</h2>
 
-<p>To remove a specific job, specify the job ID nubmer from the queue
+<p>To remove a specific job, specify the job ID number from the queue
 (format: Cluster.Process). Example:</p>
 
 <pre class="term"><code>[alice@submit]$ condor_rm 845638.0
