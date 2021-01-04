@@ -264,8 +264,9 @@ transfer_input_files = file1, ../file2, /home/username/file3, dir1, dir2/
 
 <ul>
   <li>
-    <p><strong>DO NOT use <code>transfer_input_files</code> for files within <code>/squid</code> or</strong>
-<strong><code>/staging</code> as doing so will create severe performance issues for your</strong>
+    <p><strong>DO NOT use <code>transfer_input_files</code> for files within <code>/staging</code>;</strong>
+<strong>for files in <code>/squid</code> only <code>http</code> links (e.g. <code>http://proxy.chtc.wisc.edu/SQUID/username/file</code>) should be 
+used instead of direct file paths. These policies are in place to prevent severe performance issues for your</strong>
 <strong>jobs and those of other users. Jobs should should never be submitted</strong>
 <strong>from within <code>/squid</code> or <code>/staging</code>.</strong></p>
   </li>
@@ -286,7 +287,7 @@ compression.</p>
 listed with a path relative to the submit directory, or can be
 listed with the absolute path(s), as shown above for <code>file3</code>. The
 submit file <code>executable</code> is automatically transferred and does not
-need to be listed in <code>transfer\_input\_files</code>.</p>
+need to be listed in <code>transfer_input_files</code>.</p>
   </li>
   <li>
     <p>All files that are transferred to a job will appear within the top
