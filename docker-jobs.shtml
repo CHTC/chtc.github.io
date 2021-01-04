@@ -221,8 +221,12 @@ will already be present in the Docker container.</p>
       <li><a href="docker-test.shtml">Exploring and Testing Docker Containers</a></li>
     </ul>
   </li>
-  <li>It will be possible to test interactively in CHTC soon. We will update this guide 
-when this capability is ready.</li>
+  <li>You can test a container interactively in CHTC by using a normal Docker job submit file and using the 
+interactive flag with <code>condor_submit</code>:
+    <pre class="cmd"><code>  [alice@submit]$ condor_submit -i docker.sub
+</code></pre>
+    <p>This should start a session inside the indicated Docker container and connect you to it using ssh. Type <code>exit</code> to end the interactive job.</p>
+  </li>
 </ul>
 
 
