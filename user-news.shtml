@@ -121,6 +121,26 @@ changes may affect the jobs of users.</p>
 archives</a>.</p>
 
 <hr />
+<h2 id="impacts-to-http-file-transfers-resolved">Impacts to http file transfers resolved</h2>
+<h3 id="wednesday-january-13-2021">Wednesday, January 13, 2021</h3>
+
+<p>Greetings CHTC user,</p>
+
+<p>This message is for users of our high throughput computing (HTC) system.</p>
+
+<p>CHTC staff identified an issue causing some http transfers to fail and jobs to go on hold as a result. We believe we have identified and fixed the problem and have released all impacted jobs submitted from submit-1, and submit2/3.</p>
+
+<p>If you have jobs, submitted from another submit server, that have gone on hold due to this issue, you can release them using the following HTCondor command:</p>
+
+<p>condor_release -constraint ‘(HoldReasonCode == 12) &amp;&amp; (HoldReasonSubCode == 0)’</p>
+
+<p>Please direct any questions or concerns to chtc@cs.wisc.edu.</p>
+
+<p>Best,</p>
+
+<p>Your CHTC Team</p>
+
+<hr />
 <h2 id="chtc-facilitator-holiday-availability">CHTC Facilitator holiday availability</h2>
 <h3 id="monday-december-21-2020">Monday, December 21, 2020</h3>
 
