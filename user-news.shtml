@@ -121,6 +121,23 @@ changes may affect the jobs of users.</p>
 archives</a>.</p>
 
 <hr />
+<h2 id="unexpected-outage-of-htc-large-data-file-share-staging-projects-htc-software">Unexpected outage of HTC large data file share (/staging, /projects,	HTC /software)</h2>
+<h3 id="tuesday-january-19-2021">Tuesday, January 19, 2021</h3>
+
+<p>Greetings CHTC users,</p>
+
+<p><em>This message is for users of our high throughput computing (HTC) system.</em></p>
+
+<p>The large data file share that supports /staging, /projects and HTC /software directories recently began experiencing failures, and in response we have temporarily taken it offline. Jobs that copy input or output files from /staging or /projects will either fail or hang without completing. Any jobs which use software modules on the HTC system will also fail.</p>
+
+<p>We are working to resolve these issues and will send another email once the system is running and stable again.</p>
+
+<p>Please direct any questions or concerns to chtc@cs.wisc.edu.</p>
+
+<p>Best, 
+Your CHTC team</p>
+
+<hr />
 <h2 id="impacts-to-http-file-transfers-resolved">Impacts to http file transfers resolved</h2>
 <h3 id="wednesday-january-13-2021">Wednesday, January 13, 2021</h3>
 
