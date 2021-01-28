@@ -121,6 +121,27 @@ changes may affect the jobs of users.</p>
 archives</a>.</p>
 
 <hr />
+<h2 id="unexpected-outage-of-squid-server-for-http-file-transfers">Unexpected outage of SQUID server for http file transfers</h2>
+<h3 id="thursday-january-28-2021">Thursday, January 28, 2021</h3>
+
+<p>Greetings CHTC users,</p>
+
+<p><em>This message is for users of our high throughput computing (HTC) system.</em></p>
+
+<p>CHTC staff have identified an issue causing http transfers from our SQUID server to fail and 
+jobs to go on hold as a result. Affected jobs will have a hold message like t
+his (visible in job log files, or by running <code>condor_q -hold</code>:</p>
+
+<p>Error from slot1_0@e000.chtc.wisc.edu: FILETRANSFER:1:non-zero exit (1) from /usr/libexec/condor/curl_plugin. Error: Callback aborted (http://proxy.chtc.wisc.edu/SQUID/filename)</p>
+
+<p>We are working to resolve the issue; in the meantime, please refrain from submitting new batches of jobs that depend on files from SQUID. We will send an update to this list when SQUID capabilities are stable again and affected jobs can be released.</p>
+
+<p>Please direct any questions or concerns to chtc@cs.wisc.edu.</p>
+
+<p>Best,
+Your CHTC Team</p>
+
+<hr />
 <h2 id="service-restored-to-htc-large-data-file-share">Service restored to HTC large data file share</h2>
 <h3 id="friday-january-22-2021">Friday, January 22, 2021</h3>
 
