@@ -219,6 +219,12 @@ listed in the installation examples for software
 <pre class="term"><code>(env-name)[alice@submit]$ conda install pkg1 pkg2
 </code></pre>
 
+<p>Some Conda packages are only available via specific Conda channels 
+which serve as repositories for hosting and managing packages. If Conda is 
+unable to locate the requested packages using the example above, you may 
+need to have Conda search other channels. More detail are available at
+<a href="https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html">https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html</a>.</p>
+
 <p>Packages may also be installed via <code>pip</code>, but you should only do this
 when there is no <code>conda</code> package available.</p>
 
@@ -262,11 +268,13 @@ that you’re in the “base” Miniconda environment:</p>
 <p>Enter <code>y</code> when it asks you to install.</p>
 
 <p>Finally, use <code>conda pack</code> to create a zipped tar.gz file of your environment
-(substitute the name of your conda environment where you see <code>env-name</code>) 
-and set the proper permissions for this file using <code>chmod</code>:</p>
+(substitute the name of your conda environment where you see <code>env-name</code>), 
+set the proper permissions for this file using <code>chmod</code>, and check the size of 
+the final tarball:</p>
 
 <pre class="term"><code>(base)[alice@submit]$ conda pack -n env-name
 (base)[alice@submit]$ chmod 644 env-name.tar.gz
+(base)[alice@submit]$ ls -sh env-name.tar.gz
 </code></pre>
 
 <p>When this step finishes, you should see a file in your current directory named
@@ -276,8 +284,8 @@ and set the proper permissions for this file using <code>chmod</code>:</p>
 
 <p>The tar archive, <code>env-name.tar.gz</code>, created in the previous step will be used as input for 
 subsequent job submission. As with all job input files, you should check the size of this 
-Conda environment file. If &gt;100MB in size, you should <strong>NOT</strong> transfer the tar ball using 
-<code>transfer_input_files</code>. Instead, you should plan to use either CHTC’s web proxy, SQUID or 
+Conda environment file. <strong>If &gt;100MB in size, you should NOT transfer the tar ball using 
+<code>transfer_input_files</code></strong>. Instead, you should plan to use either CHTC’s web proxy, SQUID or 
 large data filesystem Staging. Please contact a research computing facilitators at 
 chtc@cs.wisc.edu to determine the best option for your jobs.</p>
 
@@ -293,6 +301,7 @@ of what is needed (customize as indicated to match your choices above).</p>
 
 <pre class="file"><code>#!/bin/bash
 
+# have job exit if any command returns with non-zero exit status (aka failure)
 set -e
 
 # replace env-name on the right hand side of this line with the name of your conda environment
