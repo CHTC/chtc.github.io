@@ -1,0 +1,424 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<script type="text/javascript">
+
+  function resizeIframe(iframe) {
+    var newheight;
+    var newwidth;
+
+    if(document.getElementById){
+        newwidth=iframe.contentWindow.document.body.scrollWidth;
+        newheight=iframe.contentWindow.document.body.scrollHeight;
+    }
+
+    iframe.height= (newheight) + "px";
+    iframe.width= (newwidth) + "px";
+  }
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Running Julia Jobs on CHTC</title>
+
+<link href="/web.css" rel="stylesheet" type="text/css">
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+   <td width="1%" align="left" class="bgred" valign="top">
+      <div align="center">
+      &nbsp;<br>
+      <a href="http://www.wisc.edu">
+
+      <img src="/images/uw-sm-red.png" width="125" height="46" border="0"> </a>
+       </div>
+
+	<ul class="sidebar">
+	<li><a href="/">CHTC Home</a></li>
+	
+	<li>About
+		<ul>
+		<li><a href="/approach.shtml">Our Approach</a></li>
+<!--comment		<li><a href="/resources.shtml">Our Resources</a></li>   -->
+		<li><a href="/projects.shtml">Our Customers</a></li>
+		<li><a href="/people.shtml">Our Staff</a></li>
+		<li><a href="/jobs.shtml">Our Open Positions</a></li>
+		</ul>
+	</li>
+	
+	<li>How To's
+		<ul>
+		<li><a href="/get-started.shtml">Get Started</a></li>
+		<li><a href="/get-help.shtml">Get Help</a></li>
+        	<li><a href="/guides.shtml">All User Guides</a></li>
+                <li><a href="/use-submit-node.shtml">Use an HTC Submit Server</a></li>
+		<li><a href="/helloworld.shtml">Run Your First HTC Jobs</a></li>
+		<li><a href="/howto_overview.shtml">HTC for MatLab, Python or R</a></li>
+		<li><a href="/hpc-overview.shtml">Use the HPC Cluster</a></li>
+		<li><a href="/cite-chtc.shtml">Cite CHTC Resources</a></li>
+		</ul>
+	</li>
+	<li><a href="/user-news.shtml">User News</a></li>
+	<li>Other Resources
+		<ul>
+		<!--<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Pool Usage Reports</a></li>-->
+<!--comment		<li><a href="/opmetrics.shtml">Operational Metrics</a></li>  -->
+		<li><a href="/gpu-lab.shtml">CHTC GPU Lab</a></li>
+		<li><a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a></li>
+		<li><a href="http://www.neos-server.org/">NEOS Optimization Service</a></li>
+		<li><a href="http://www.opensciencegrid.org/">Open Science Grid</a></li>
+		<li><a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a></li>
+		</ul>
+	</li>
+	</ul>
+
+	</td>
+
+<td width="97%" valign="top"> 
+
+
+	<TABLE SUMMARY="Navigation layout" BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+<TR ALIGN="left"> 
+  <TD WIDTH="100%" height="400" Align="left" VALIGN="top"> 
+    <A  name="body"></a> 
+	<div id = "main">
+
+<!-- Top of Page Body -->
+<table BORDER="0" WIDTH="100%">
+<!-- <h1 align=left valign=center>The Center for High Throughput Computing</h1> -->
+
+<div id="osg_power"> <span style="height: 30px">Powered by:</span><br /><a href="http://opensciencegrid.org"><img alt="Open Science Grid" src="/images/Open_Science_Grid_Consortium(Logo).jpg" width="123" height="70" /></a></div>
+
+<div id="hours"> <span style="height: 30px">
+	<a href="https://twitter.com/CHTC_UW" style="color:white;"><center><img alt="Twitter" src="/images/twitter.png" width="50" height="50"></center></a> 
+	<center><a href="https://github.com/CHTC/chtc-website-source" style="color:white;"><img alt="GitHub" src="/images/GitHub_Logo_White.png" width="92" height="38"></center></a></span></div>
+
+<div id="hours"> <span style="height: 35px">
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a href="http://chtc.cs.wisc.edu/get-help.shtml" style="color:white;">
+<center><b>Office Hours!</b>
+<p style="margin-bottom: 1px;"></p>
+Tues/Thurs, 3-5pm
+Click for details
+</center></a></span>
+<p style="margin-bottom: 1px;"></p>
+<center><a href="http://chtc.cs.wisc.edu/sign-in.shtml" style="color:white;">Sign-In Here</a></center>
+</div>
+	
+<div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
+
+<h1>Running Julia Jobs on CHTC</h1>
+
+
+<h1 id="overview">Overview</h1>
+
+<p>This guide documents steps for submitting jobs that will execute 
+Julia code, including preliminary steps for installing specific Julia 
+packages that may be required for your work.</p>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ol>
+  <li><a href="#quickstart-instructions">Quickstart Instructions</a></li>
+  <li><a href="#install-julia-packages">Install Julia Packages</a></li>
+  <li><a href="#submit-julia-jobs">Submit Julia Jobs</a></li>
+</ol>
+
+<h1 id="quickstart-instructions">Quickstart Instructions</h1>
+
+<ol>
+  <li>
+    <p>Download the precompiled Julia software from <a href="https://julialang.org/downloads/">https://julialang.org/downloads/</a>. 
+You will need the 64-bit, tarball compiled for general use on a Linux x86 system. The 
+file name will resemble something like <code>julia-#.#.#-linux-x86_64.tar.gz</code>.</p>
+
+    <ul>
+      <li>Tip: use <code>wget</code> to download directly to your <code>/home</code> directory on the 
+submit server, <strong>OR</strong> use <code>transfer_input_files = url</code> in your HTCondor submit files.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Submit an “interactive build” job to create a Julia project and 
+install packages, else skip to the next step.</p>
+
+    <ul>
+      <li>For more details, see the section on installing Julia 
+ packages below: <a href="#install-julia-packages">Installing Julia Packages</a></li>
+    </ul>
+  </li>
+  <li>
+    <p>Submit a job that executes a Julia script using the Julia precompiled binary
+with base Julia and Standard Library.</p>
+
+    <pre class="file"><code> #!/bin/bash
+
+ # extract Julia binaries tarball
+ tar -xzf julia-#.#.#-linux-x86_64.tar.gz
+
+ # add Julia binary to PATH
+ export PATH=$_CONDOR_SCRATCH_DIR/julia-#-#-#/bin:$PATH
+
+ # run Julia script
+ julia my-script.jl
+</code></pre>
+
+    <ul>
+      <li>For more details, including how to use Julia packages with your job, see the 
+ section on installing Julia packages below: <a href="#install-julia-packages">Installing Julia Packages</a></li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="install-julia-packages">Install Julia Packages</h1>
+
+<p>If your work requires additional Julia packages, you will need to peform a one-time 
+installation of these packages within a Julia project. A copy of the project 
+can then be saved for use in subsequent job submissions. For more details, 
+please see Julia’s documentation at <a href="https://julialang.github.io/Pkg.jl">Julia Pkg.jl</a>.</p>
+
+<h2 id="create-an-interactive-build-job-submit-file">Create An Interactive Build Job Submit File</h2>
+
+<p>To install your Julia packages, first create an HTCondor submit for 
+submitting an “interactive build” job which is a job that will run 
+interactively on one of CHTC’s servers dedicated for building 
+(aka compiling) software.</p>
+
+<p>Using a text editor, create the following file, which can be named <code>build.sub</code></p>
+
+<pre><code class="language-{.sub}"># Julia build job submit file
+
+universe = vanilla
+log = julia-build.log
+
+# have job transfer a copy of precompiled Julia software
+# be sure to match the name of the version 
+# that you have downloaded to your home directory
+transfer_input_files = julia-#.#.#-linux-x86_64.tar.gz
+
++IsBuildJob = true
+requirements = (OpSysMajorVer =?= 7)
+request_cpus = 1
+request_memory = 4GB
+request_disk = 2GB
+
+queue
+</code></pre>
+
+<p>The only thing you should need to change in the above file is the name
+of the Julia tarball file in the "transfer_input_files" line.</p>
+
+<h2 id="submit-your-interactive-build-job">Submit Your Interactive Build Job</h2>
+
+<p>Once this submit file is created, submit the job using the following command:</p>
+
+<pre class="term"><code>[alice@submit]$ condor_submit -i build.sub
+</code></pre>
+
+<p>It may take a few minutes for the build job to start.</p>
+
+<h2 id="install-julia-packages-interactively">Install Julia Packages Interactively</h2>
+
+<p>Once the interactive jobs starts you should see the following
+inside job’s the working directory:</p>
+
+<pre class="term"><code>bash-4.2$ ls -F
+julia-#.#.#-linux-x86_64.tar.gz   tmp/    var/
+</code></pre>
+
+<p>Run the following commands to extract the Julia software, 
+add Julia to your <code>PATH</code>, create a <code>my-project/</code> directory to 
+install your packages to, tell Julia where to install your 
+packages, and start the Julia REPL.</p>
+
+<pre class="term"><code>bash-4.2$ tar -xzf julia-#.#.#-linux-x86_64.tar.gz
+bash-4.2$ export PATH=$_CONDOR_SCRATCH_DIR/julia-#.#.#/bin:$PATH
+bash-4.2$ mkdir my-project
+bash-4.2$ export JULIA_DEPOT_PATH=$PWD/my-project
+bash-4.2$ julia --project=my-project
+</code></pre>
+
+<p>You can choose whatever name to use for this directory -- if you have
+different projects that you use for different jobs, you could
+use a more descriptive name than “my-project”.</p>
+
+<p>Once you’ve started up the Julia REPL (interpreter), start the Pkg REPL 
+by typing <code>]</code>. Then install and test packages:</p>
+
+<pre class="term"><code>               _
+   _       _ _(_)_     |  Documentation: https://docs.julialang.org
+  (_)     | (_) (_)    |
+   _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
+  | | | | | | |/ _` |  |
+  | | |_| | | | (_| |  |  Version 1.0.5 (2019-09-09)
+ _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
+|__/                   |
+
+julia&gt; ]
+(my-project) pkg&gt; add Package
+(my-project) pkg&gt; test Package
+</code></pre>
+
+<p>If you have multiple packages to install they can be combined 
+into a single command, e.g. <code>(my-project) pkg&gt; add Package1 Package2 Package3</code>.</p>
+
+<p><strong>If you encounter issues getting packages to install successfully, please 
+contact us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.</strong></p>
+
+<p>Once you are done, you can exit the Pkg REPL by typing the Delete key and then 
+<code>exit()</code></p>
+
+<pre class="term"><code>(my-project) pkg&gt; 
+julia&gt; exit()
+</code></pre>
+
+<h2 id="save-installed-packages-for-later-jobs">Save Installed Packages For Later Jobs</h2>
+
+<p>To use this project, and the associated installed packages, in 
+subsequent jobs, we need to have HTCondor return some files to 
+the submit server by converting the <code>my-project/</code> directory
+to a tarball, before exiting the interactive job session:</p>
+
+<pre class="term"><code>bash-4.2$ tar -czf my-project.tar.gz my-project/
+bash-4.2$ exit
+</code></pre>
+
+<p>After the job exits, you will be returned to your <code>/home</code> directory on the 
+submit server (specifically where ever you were located when you submitted 
+the interactive build job). A copy of <code>packages.tar.gz</code> will be present. <strong>Be 
+sure to check the size of the project tarball before proceeding to subsequent job 
+submissions.</strong> If the file is &gt;100MB please contact us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> so 
+that we can get you setup with access to our SQUID web proxy. More details 
+are available on our SQUID guide: <a href="/file-avail-squid.md">File Availability with SQUID</a></p>
+
+<pre class="term"><code>[alice@submit]$ ls 
+build.sub     julia-#.#.#-linux-x86_64.tar.gz   julia-build.log
+my-project.tar.gz
+[alice@submit]$ ls -sh my-project.tar.gz
+</code></pre>
+
+<h1 id="submit-julia-jobs">Submit Julia Jobs</h1>
+
+<p>To submit a job that runs a Julia script, create a bash 
+script and HTCondor submit file following the examples in this section.</p>
+
+<h2 id="create-executable-bash-script">Create Executable Bash Script</h2>
+
+<p>Your job will use a bash script as the HTCondor <code>executable</code>. This script 
+will contain all the steps needed to unpack the Julia binaries and 
+execute your Julia script (<code>script.jl</code>). Below are two example bash script, 
+one which can be used to execute a script with base Julia, and one that 
+will use packages installed in Julia project (see <a href="#install-julia-packages">Install Julia Packages</a>).</p>
+
+<h3 id="example-bash-script-for-base-julia-only">Example Bash Script For Base Julia Only</h3>
+
+<p>If your Julia script can run without additional packages (other than base Julia and 
+the Julia Standard library) use the example script directly below.</p>
+
+<pre class="file"><code>#!/bin/bash
+
+# julia-job.sh
+
+# extract Julia binaries tarball
+tar -xzf julia-#.#.#-linux-x86_64.tar.gz
+
+# add Julia binary to PATH
+export PATH=$_CONDOR_SCRATCH_DIR/julia-#-#-#/bin:$PATH
+
+# run Julia script
+julia my-script.jl
+</code></pre>
+
+<h3 id="example-bash-script-for-julia-with-installed-packages">Example Bash Script For Julia With Installed Packages</h3>
+
+<pre class="file"><code>#!/bin/bash
+
+# julia-job.sh
+
+# extract Julia binaries tarball
+tar -xzf julia-#.#.#-linux-x86_64.tar.gz
+tar -xzf my-project.tar.gz
+
+# add Julia binary to PATH
+export PATH=$_CONDOR_SCRATCH_DIR/julia-#-#-#/bin:$PATH
+# add Julia packages to DEPOT variable
+export JULIA_DEPOT_PATH=$_CONDOR_SCRATCH_DIR/my-project
+
+# run Julia script
+julia --project=my-project my-script.jl
+</code></pre>
+
+<h2 id="create-htcondor-submit-file">Create HTCondor Submit File</h2>
+
+<p>After creating a bash script to run Julia, then create a submit file 
+to submit the job to run.</p>
+
+<p>More details about setting up a submit file, including a submit file template, 
+can be found in our hello world example page at <a href="helloworld.md">Run Your First CHTC Jobs</a>.</p>
+
+<pre><code class="language-{.sub}"># julia-job.sub
+
+universe = vanilla
+
+log = job_$(Cluster).log
+error = job_$(Cluster)_$(Process).err
+output = job_$(Cluster)_$(Process).out
+
+executable = julia-job.sh
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files = julia-#.#.#-linux-x86_64.tar.gz, script.jl
+
+request_cpus = 1
+request_memory = 2GB
+request_disk = 2GB
+
+queue 1
+</code></pre>
+
+<p>If your Julia script needs to use packages installed for a project, 
+be sure to include <code>my-project.tar.gz</code> as in input file in <code>julia-job.sub</code>. 
+For project tarballs that are &lt;100MB, you can follow the below example:</p>
+
+<pre><code class="language-{.sub}">transfer_input_files = julia-#.#.#-linux-x86_64.tar.gz, script.jl, my-project.tar.gz
+</code></pre>
+
+<p>Modify the CPU/memory request lines to match what is needed by the job. 
+Test a few jobs for disk space/memory usage in order to make sure your 
+requests for a large batch are accurate! Disk space and memory usage can be found in the 
+log file after the job completes.</p>
+
+<h2 id="submit-your-julia-job">Submit Your Julia Job</h2>
+
+<p>Once you have created an executable bash script and submit file, you can 
+submit the job to run using the following command:</p>
+
+<pre class="term"><code>[alice@submit]$ condor_submit julia-job.sub
+</code></pre>
+
+
+
+<div id = "copyright">
+     <p align = "center"> 
+	  
+     For all user support, questions, and comments:
+     <strong><a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a></strong>
+
+</p>
+</div>
+
+</div>
+
+  </td>
+  </tr>
+
+</TABLE>
+</td>
+</table>
+
+</body>
+</html>
+
+
