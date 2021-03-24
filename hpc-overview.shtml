@@ -159,51 +159,50 @@ singular computations that use specialized software (i.e. MPI) to achieve intern
 parallelization of work across multiple servers of dozens to hundreds of cores.</p>
 
 <p><strong><em>Is high-performance computing right for me?</em></strong> Only computational work that 
-fits that above description is permitted on the HPC. All other computational 
-work, including single and multi-core (but single node) processes, that each complete 
-in less than 72 hours on a single node will be 
+fits that above description is appropriate for the HPC Cluster. Computational 
+work that can complete on a single node in less than a few days will be 
 best supported by our larger high-throughput computing (HTC) system (which also
 includes specialized hardware for extreme memory, GPUs, and other cases). For more 
-information about high-throughput computing, please see <a href="/approach">Our Approach</a>.</p>
+information, please see <a href="/approach">Our Approach</a>.</p>
 
-<p>To get access to the HPC, please complete our
-<a href="/form">Large-Scale Computing Request Form</a>. After your account request is received, 
-our Research Computing Facilitators will follow up with you and schedule a meeting 
-to discuss the computational needs of your research and connect you with computing 
+<p>To get access to the HPC Cluster, please complete our
+<a href="/form">New User Consultation Form</a>. After your request is received, 
+a Research Computing Facilitator will follow up to discuss the computational needs 
+of your research and connect you with computing 
 resources (including non-CHTC services) that best fit your needs.</p>
 
 <h1 id="hpc-user-policies">HPC User Policies</h1>
 
 <p>Below is a list of policies that apply to all HPC users.</p>
 
-<p><strong>1. Do Not Run Programs On The Login Nodes</strong> <br />
-When you connect to the HPC, you are connected to a login node. The HPC login nodes have 
-limited computing resources that are occupied with running Slurm and managing job submission.</p>
+<p><strong>1. Minimize Work on the Login Nodes</strong> <br />
+The HPC Cluster login nodes have 
+limited computing resources that are occupied with running Slurm and managing job submission, 
+and are not suitable for testing your research software.</p>
 
-<p>Users should only run basic commands (like <code>tar</code>, <code>cp</code>, <code>mkdir</code>) on the login nodes. The 
+<p>Users may run basic data management commands (like <code>tar</code>, <code>cp</code>, <code>mkdir</code>) on the login nodes. The 
 execution of scripts, including cron, software, and software compilation on the login nodes
 is prohibited (and could VERY likely crash the head node). However, users may run small scripts 
-and commands (to compress data, create directories, etc.) that run within a few minutes but 
-their use should be minimized when possible. If you are unsure if your scripts are suitable 
-for running on the login nodes, please contact us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.</p>
+and commands (to compress data, create directories, etc.) that run within a few minutes, minimizing
+their use as much as possible. If you are unsure if your scripts are suitable 
+for running on the login nodes, consider using an interactive job or contact us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.</p>
 
 <p><strong>CHTC staff reserve the right to kill any long-running or problematic processes on the 
 head nodes and/or disable user accounts that violate this policy</strong></p>
 
-<p>Violation of these policies may result in suspension of your account.</p>
+<p><strong>2. The HPC Cluster is Reserved for MPI-enabled, Multi-node Jobs</strong> <br />
+HPC users should not run single-core or single-node jobs to the HPC Cluster, given its 
+optimization for multi-node/MPI-based work. Users will 
+be asked to transition work appropriately to our high-throughput computing system.</p>
 
-<p><strong>2. The HPC Is Reserved For MPI-enabled, Multi-node Jobs</strong> <br />
-HPC users should not submit single-core or single-node jobs to the HPC. Users will 
-be asked to transition this kind of work to our high-throughput computing system.</p>
-
-<p><strong>3. HPC File System Is Not Backed-up</strong>  <br />
-All files on the HPC should be treated as temporary and only files necessary for 
-actively running jobs should be kept on the file system. Once your jobs complete, 
-your files should be removed from the HPC. Campus researchers have several options 
-for data storage solutions, including <a href="https://it.wisc.edu/services/researchdrive/">ResearchDrive</a> 
-which provides up to 5TB of storage for free. Our guide 
+<p><strong>3. Maintain Copies of Essential Data in non-CHTC Locations</strong>  <br />
+The HPC Cluster filesystem should be treated as temporary/scratch space, and only files necessary for 
+actively running jobs should be kept on the filesystem. Once your jobs complete, 
+your files should be removed from the cluster filesystem. Campus researchers have several options 
+for persistent data storage solutions, including <a href="https://it.wisc.edu/services/researchdrive/">ResearchDrive</a> 
+which provides up to 5TB of storage for free per research PI. Our guide 
 <a href="transfer-data-researchdrive.shtml">Transferring Files Between CHTC and ResearchDrive</a> provides 
-step-by-step instructions for transferring your data to and from the HPC and RsearchDrive.</p>
+step-by-step instructions for transferring your data between HPC Cluster and RsearchDrive.</p>
 
 <p>CHTC Staff reserve the right to remove any significant amounts of data on the HPC Cluster 
 in our efforts to maintain filesystem performance for all users, though we will always 
@@ -358,9 +357,9 @@ jobs. However, pre-empted jobs will be re-queued when submitted with an sbatch s
 
 <h1 id="data-storage-and-management">Data Storage and Management</h1>
 
-<p><strong>Data space in the HPC file system is not backed-up and should be
+<p><strong>Data space in the HPC Cluster filesystem is not backed-up and should be
 treated as temporary by users</strong>. Only files necessary for
-<em>actively-running</em> jobs should be kept on the file system, and files
+<em>actively-running</em> jobs should be kept on the filesystem, and files
 should be removed from the cluster when jobs complete. A copy of any
 essential files should be kept in an alternate, non-CHTC storage
 location.</p>
