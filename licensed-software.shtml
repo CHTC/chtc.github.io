@@ -207,7 +207,8 @@ then runs the program, like so:</p>
 
 <pre class="file"><code>#!/bin/bash
 
-# Command to enable modules, and then load an appropriate software module
+# Commands to enable modules, and then load an appropriate software module
+export PATH
 . /etc/profile.d/modules.sh
 module load software
 
@@ -224,6 +225,7 @@ appropriate options.</p>
 
 <pre class="file"><code>#!/bin/bash
 
+export PATH
 . /etc/profile.d/modules.sh
 module load COMSOL/5.4
 
@@ -245,13 +247,6 @@ access to CHTC software modules you must include the following in
 your submit file.</p>
 
     <pre><code class="language-{.sub}">requirements = (HasChtcSoftware == true)
-</code></pre>
-  </li>
-  <li>
-    <p>Use the <strong>getenv = true</strong> statement to set up the job's running
-environment.</p>
-
-    <pre><code class="language-{.sub}">getenv = true
 </code></pre>
   </li>
   <li><strong>Request accurate CPUs and memory.</strong> Run at least one test job and
@@ -281,7 +276,6 @@ should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 transfer_input_files = (this should be a comma separate list of input files if needed)
 
-getenv = true
 # Requirement for accessing new set of software modules
 requirements = ( HasChtcSoftware == true ) 
 
