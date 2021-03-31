@@ -164,10 +164,10 @@ servers or head nodes:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code>submit-1.chtc.wisc.edu</code> - typically for accounts created between Aug 2018 - June 2019</td>
+      <td><code>submit1.chtc.wisc.edu</code> - typically for accounts created between Aug 2018 - June 2019, or after March 2021</td>
     </tr>
     <tr>
-      <td><code>submit2.chtc.wisc.edu</code> - typically for accounts created prior to Aug 2018 or after June 2019</td>
+      <td><code>submit2.chtc.wisc.edu</code> - typically for accounts created prior to Aug 2018 or between June 2019 - February 2021</td>
     </tr>
   </tbody>
 </table>
