@@ -243,6 +243,14 @@ the capacity of the GPU Lab to run their work.</p>
     <td>7.5</td>
     <td>yes</td>
   </tr>
+  <tr>
+    <td>1</td>
+    <td>gpulab2004</td>
+    <td>4</td>
+    <td>A100</td>
+    <td>8.0</td>
+    <td>yes</td>
+  </tr>
 </table>
 
 <h2 id="2-special-policies-in-the-gpu-lab">2. Special Policies in the GPU Lab</h2>
