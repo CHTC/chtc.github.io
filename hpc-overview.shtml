@@ -293,7 +293,7 @@ backfill capacity via the <code>pre</code> partition (more details below).</p>
       <td>Interactive</td>
       <td>int</td>
       <td>6</td>
-      <td>1 hr</td>
+      <td>4 hrs</td>
       <td>1 hr</td>
       <td>1</td>
       <td>20</td>
