@@ -121,8 +121,31 @@ changes may affect the jobs of users.</p>
 archives</a>.</p>
 
 <hr />
-<h2 id="limited-response-to-emails-today-june-2">Limited response to emails today (June 2)</h2>
+<h2 id="hpc-cluster-issue-this-afternoon-wed-june-2">HPC Cluster issue this afternoon (Wed, June 2)</h2>
 <h3 id="wednesday-june-2-2021">Wednesday, June 2, 2021</h3>
+
+<p>Greetings CHTC Users,</p>
+
+<p><em>This message is for users of our high performance computing (HPC)
+cluster.</em></p>
+
+<p>This afternoon, our HPC administrator noticed an issue involving the
+filesystem on our HPC cluster.
+<strong>While this issue is ongoing, you may have trouble logging in to the
+HPC login nodes or interacting with files from the login and execute
+nodes.</strong>
+We do not yet know if running jobs are affected. We will update you as
+we learn more.</p>
+
+<p>Please contact us at chtc@cs.wisc.edu with any questions and concerns.</p>
+
+<p>Best,</p>
+
+<p>Your CHTC team</p>
+
+<hr />
+<h2 id="limited-response-to-emails-today-june-2">Limited response to emails today (June 2)</h2>
+<h3 id="wednesday-june-2-2021-1">Wednesday, June 2, 2021</h3>
 
 <p>Greetings CHTC Users,</p>
 
