@@ -173,7 +173,10 @@
     </div>
 </div>
 
-<p><strong>The examples and information in this guide work best for the below
+<div class="uw-row-full">
+    <div class="uw-row">
+        <div class="uw-col uw-body">
+            <p><strong>The examples and information in this guide work best for the below
 cases*:</strong></p>
 
 <ol>
@@ -233,7 +236,7 @@ when_to_transfer_output = ON_EXIT    # or other
 
 <h1 id="1-organizing-many-jobs-with-integer-numbered-filenames"><strong>1. Organizing many jobs with integer-numbered filenames:</strong></h1>
 
-<p>This example is most similar to our <a href="/helloworld.shtml">Intro to Running HTCondor Jobs</a> and uses HTCondor’s $(Process) variable to indicate
+<p>This example is most similar to our <a href="/helloworld">Intro to Running HTCondor Jobs</a> and uses HTCondor’s $(Process) variable to indicate
  filename differences for each job. For "queue <em>N</em>" in the submit file,
  the $(Process) variable will start with
  “0” and end with N-1, such that you can use $(Process) to indicate
@@ -568,6 +571,9 @@ queue 1
                 (other HTCondor tracking files)
 </code></pre>
 
+        </div>
+    </div>
+</div>
         </article>
     </main>
     <footer id="colophon" class="uw-footer">
