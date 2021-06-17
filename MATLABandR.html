@@ -182,7 +182,7 @@ executable code (R libraries, Python modules, or MATLAB m files)
 specific to the job. The second step allows you to submit many jobs
 using the built program or program components you've created here. For
 this second step, see our guide for setting up and submitting multiple
-jobs with the <a href="DAGenv.shtml">ChtcRun Package</a>.</p>
+jobs with the <a href="DAGenv">ChtcRun Package</a>.</p>
 
 <h2 id="when-and-why-to-compile-code-for-chtc-jobs">When and Why to Compile Code for CHTC Jobs</h2>
 
@@ -193,7 +193,7 @@ needed. All MATLAB jobs run at the CHTC must be compiled in order to be
 run on multiple machines (per Matlab's license requirements).<br />
 <strong>All other code compiling for CHTC jobs needs to be completed on one of
 our designated "build machines" using an interactive submit file and
-instructions that you can find <a href="inter-submit.shtml">here</a>.</strong><br />
+instructions that you can find <a href="inter-submit">here</a>.</strong><br />
 <br />
 The tools below (chtc_mcc, chtc_buildRlibs, and
 chtc_buildPythonmodules) are part of the "chtc-utils" suite of tools.
@@ -259,7 +259,7 @@ the command:</p>
 except for iPython, as iPython (interactive) is not compatible with
 batch jobs. The following modules and their dependiences are included by
 default in our Python 2.7.7 capabilities (when using
-<a href="http://chtc.cs.wisc.edu/DAGenv.shtml">ChtcRun</a>):</p>
+<a href="/DAGenv">ChtcRun</a>):</p>
 
 <ul>
   <li>numpy-1.8.1</li>
@@ -319,7 +319,7 @@ with the command</p>
 <pre><code>chtc_buildPythonmodules --help
 </code></pre>
 
-<h2 id="setting-up-your-built-python-code-in-the-chtcrun-package">Setting up your built Python code in the <a href="http://chtc.cs.wisc.edu/DAGenv.shtml">ChtcRun package</a>.</h2>
+<h2 id="setting-up-your-built-python-code-in-the-chtcrun-package">Setting up your built Python code in the <a href="/DAGenv">ChtcRun package</a>.</h2>
 
 <p>The ChtcRun folder includes a <code>Pythonin</code> directory, which has it's own
 <code>SLIBS.tar.gz</code> file included. You'll need both this file <em>AND</em> the
