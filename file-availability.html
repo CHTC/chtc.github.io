@@ -422,7 +422,7 @@ this default output file transfer behavior - see below for some examples.</p>
 <p><strong>Only individual output files &lt;4GB should be transferred back to your home directory 
 using HTCondor’s default behavior described here.</strong> Large output files &gt;4GB should instead 
 use CHTC’s large data filesystem called staging, more information is available at 
-<a href="file-avail-largedata.shtml">Managing Large Data in HTC Jobs</a>. To help reduce output file 
+<a href="file-avail-largedata">Managing Large Data in HTC Jobs</a>. To help reduce output file 
 sizes, and help speed up file transfer times, we recommend creating a <code>tar.gz</code> file of all
 desired output before job completion (and to also delete the “un-tar'd”
 files so they are not also transferred back); see our <a href="#group">example</a> below.</p>
@@ -469,7 +469,7 @@ you from exceeding the disk quota.</p>
 <p>For jobs that use large input files from <code>/staging</code>, you must include steps in your bash script 
 to either remove these files or move them to a subdirectory before the job terminates. Else, 
 these large files will be transferred back to your <code>/home</code> directory. For more details, please 
-see <a href="file-avail-largedata.shtml">Managing Large Data in HTC Jobs</a>.</p>
+see <a href="file-avail-largedata">Managing Large Data in HTC Jobs</a>.</p>
 
 <p>In cases where a bash script is not used as the excutable of your job and you wish to have only specific 
 output files transferred back, please <a href="mailto:chtc@cs.wisc.edu">contact us</a>.</p>
