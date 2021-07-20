@@ -229,8 +229,8 @@ with base Julia and Standard Library.</p>
 </code></pre>
 
     <ul>
-      <li>For more details, including how to use Julia packages with your job, see the 
- section on installing Julia packages below: <a href="#install-julia-packages">Installing Julia Packages</a></li>
+      <li>For more details on the job submission, see the section 
+ below: <a href="#submit-julia-jobs">Submit Julia Jobs</a></li>
     </ul>
   </li>
 </ol>
@@ -285,30 +285,46 @@ of the Julia tarball file in the "transfer_input_files" line.</p>
 <h2 id="install-julia-packages-interactively">Install Julia Packages Interactively</h2>
 
 <p>Once the interactive jobs starts you should see the following
-inside job’s the working directory:</p>
+inside the job’s working directory:</p>
 
 <pre class="term"><code>bash-4.2$ ls -F
 julia-#.#.#-linux-x86_64.tar.gz   tmp/    var/
 </code></pre>
 
-<p>Run the following commands to extract the Julia software, 
-add Julia to your <code>PATH</code>, create a <code>my-project/</code> directory to 
-install your packages to, tell Julia where to install your 
-packages, and start the Julia REPL.</p>
+<p>Run the following commands 
+to extract the Julia software and add Julia to your <code>PATH</code>:</p>
 
 <pre class="term"><code>bash-4.2$ tar -xzf julia-#.#.#-linux-x86_64.tar.gz
 bash-4.2$ export PATH=$_CONDOR_SCRATCH_DIR/julia-#.#.#/bin:$PATH
-bash-4.2$ mkdir my-project
+</code></pre>
+
+<p>After these steps, you should be able to run Julia from the command line, e.g.</p>
+
+<pre class="term"><code>julia --version
+</code></pre>
+
+<p>Now create a project directory to install your packages (we’ve called 
+it <code>my-project/</code> below) and tell Julia its name:</p>
+
+<pre class="term"><code>bash-4.2$ mkdir my-project
 bash-4.2$ export JULIA_DEPOT_PATH=$PWD/my-project
-bash-4.2$ julia --project=my-project
 </code></pre>
 
 <p>You can choose whatever name to use for this directory -- if you have
 different projects that you use for different jobs, you could
 use a more descriptive name than “my-project”.</p>
 
-<p>Once you’ve started up the Julia REPL (interpreter), start the Pkg REPL 
-by typing <code>]</code>. Then install and test packages:</p>
+<p>We will now use Julia to install any needed packages to the project directory 
+we created in the previous step.</p>
+
+<p>Open Julia with the <code>--project</code> option set to the project directory:</p>
+
+<pre class="term"><code>bash-4.2$ julia --project=my-project
+</code></pre>
+
+<p>Once you’ve started up the Julia REPL (interpreter), start the Pkg REPL, used to 
+install packages, by typing <code>]</code>. Then install and test packages by using 
+Julia’s <code>add Package</code> syntax.</p>
 
 <pre class="term"><code>               _
    _       _ _(_)_     |  Documentation: https://docs.julialang.org
@@ -365,7 +381,10 @@ my-project.tar.gz
 <h1 id="submit-julia-jobs">Submit Julia Jobs</h1>
 
 <p>To submit a job that runs a Julia script, create a bash 
-script and HTCondor submit file following the examples in this section.</p>
+script and HTCondor submit file following the examples in this section. These 
+example assume that you have downloaded a copy of Julia for Linux as a <code>tar.gz</code> 
+file and if using packages, you have gone through the steps above to install them 
+and create an additional <code>tar.gz</code> file of the installed packages.</p>
 
 <h2 id="create-executable-bash-script">Create Executable Bash Script</h2>
 
@@ -384,14 +403,14 @@ the Julia Standard library) use the example script directly below.</p>
 
 # julia-job.sh
 
-# extract Julia binaries tarball
+# extract Julia tar.gz file
 tar -xzf julia-#.#.#-linux-x86_64.tar.gz
 
 # add Julia binary to PATH
 export PATH=$_CONDOR_SCRATCH_DIR/julia-#.#.#/bin:$PATH
 
 # run Julia script
-julia my-script.jl
+julia script.jl
 </code></pre>
 
 <h3 id="example-bash-script-for-julia-with-installed-packages">Example Bash Script For Julia With Installed Packages</h3>
@@ -400,7 +419,7 @@ julia my-script.jl
 
 # julia-job.sh
 
-# extract Julia binaries tarball
+# extract Julia tar.gz file and project tar.gz file
 tar -xzf julia-#.#.#-linux-x86_64.tar.gz
 tar -xzf my-project.tar.gz
 
@@ -410,7 +429,7 @@ export PATH=$_CONDOR_SCRATCH_DIR/julia-#.#.#/bin:$PATH
 export JULIA_DEPOT_PATH=$_CONDOR_SCRATCH_DIR/my-project
 
 # run Julia script
-julia --project=my-project my-script.jl
+julia --project=my-project script.jl
 </code></pre>
 
 <h2 id="create-htcondor-submit-file">Create HTCondor Submit File</h2>
@@ -419,7 +438,7 @@ julia --project=my-project my-script.jl
 to submit the job to run.</p>
 
 <p>More details about setting up a submit file, including a submit file template, 
-can be found in our hello world example page at <a href="helloworld.md">Run Your First CHTC Jobs</a>.</p>
+can be found in our hello world example page at <a href="helloworld">Run Your First CHTC Jobs</a>.</p>
 
 <pre><code class="language-{.sub}"># julia-job.sub
 
@@ -444,10 +463,13 @@ queue 1
 
 <p>If your Julia script needs to use packages installed for a project, 
 be sure to include <code>my-project.tar.gz</code> as in input file in <code>julia-job.sub</code>. 
-For project tarballs that are &lt;100MB, you can follow the below example:</p>
+For project tar.gz files that are &lt;100MB, you can follow the below example:</p>
 
 <pre><code class="language-{.sub}">transfer_input_files = julia-#.#.#-linux-x86_64.tar.gz, script.jl, my-project.tar.gz
 </code></pre>
+
+<p>For project tar.gz files that are larger than 100MB, email a facilitator about 
+using SQUID.</p>
 
 <p>Modify the CPU/memory request lines to match what is needed by the job. 
 Test a few jobs for disk space/memory usage in order to make sure your 
