@@ -211,6 +211,8 @@ files to return to the submit server.</p>
 Then create the following special submit file on the submit server,
 calling it something like <code>build.sub</code>.</p>
 
+<p>Note that you’ll want to use <code>+IsBuildJob = true</code> to specifically match to CHTC’s servers designated for compiling code (which include Matlab compilers and other compiling tools you may need). Compiling servers do not include specialized resources like GPUs, extreme amounts of RAM/disk, etc.; to build/test software in these cases, submit an interactive job without <code>+IsBuildJob</code>.</p>
+
 <pre><code class="language-{.sub}"># Software build file
 
 universe = vanilla
