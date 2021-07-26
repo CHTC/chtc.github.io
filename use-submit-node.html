@@ -205,16 +205,16 @@ guide</a>.</p>
 
 <h2 id="data-practices">Data Practices</h2>
 
-<p><strong>We do not back up data on CHTC submission points</strong>, and users should
+<p><strong>CHTC data locations are not backed up</strong>, and users should
 treat CHTC compute systems as temporary storage locations for <em>active</em>,
 currently-queued computational work. Users should remove data from CHTC
 systems upon completion of a batch of computational work and keep copies of
 all essential files in a non-CHTC location. CHTC staff reserve the right
-to delete data from any CHTC file systems at at any time, to preserve
-performance, and are not responsible for data loss for file system
-corruption, which are possible, especially in the absence of back-ups.</p>
+to delete data from any CHTC data location at at any time, to preserve
+performance, and are not responsible for data loss or file system
+corruption, which are possible in the absence of back-ups.</p>
 
-<p><strong>CHTC is not HIPAA-compliant</strong> and users should not bring HIPAA data into 
+<p><strong>Note: CHTC is not HIPAA-compliant</strong> and users should not bring HIPAA data into 
 CHTC services. If you have data security concerns or any questions about 
 data security in CHTC, please get in touch! We’ll be happy to discuss.</p>
 
@@ -225,14 +225,14 @@ account on CHTC's submit servers should follow the below policies, in
 order to keep the submit servers functional and usable by everyone:</p>
 
 <ul>
-  <li><strong>Do not share accounts</strong>. We are happy to make new a new account
+  <li><strong>Do not share accounts</strong>. We are happy to make a new account
 for any user. Sharing accounts is against campus policy and,
 therefore, CHTC policy. Accounts that we notice being shared will be
 immediately disabled and a meeting with the PI (faculty advisor)
 will be necessary to reinstate the account.</li>
-  <li><strong>Do not run programs on the submit server.</strong> The submit server is
+  <li><strong>Do not run programs on the submit servers.</strong> The submit server is
 kept plenty busy just managing HTCondor jobs. Computational work,
-like compiling code, should be submitted as HTCondor jobs. See our
+like compiling or testing code, should be submitted as HTCondor jobs. See our
 <a href="guides">online guides</a> for the best compiling practices.
 Small scripts and commands (to compress data, create directories,
 etc.) that run within a few minutes on the submit server are okay,
@@ -244,30 +244,25 @@ If your jobs will be longer, please <a href="mailto:chtc@cs.wisc.edu">email
 us</a>, and we'll help you to determine the
 best solution.</li>
   <li><strong>Submitting many jobs from one submit file.</strong> HTCondor is designed
-to submit thousands of jobs from one submit file. However,
-submitting too many jobs at once provides no extra benefit to the
-submitter and can make the queue work more slowly. If you are
-submitting <u>over 10,000 jobs per submit file</u> or have
-submitted over <u>50,000 jobs at once as a single user</u>,
+to submit thousands (or more) jobs from one submit file. If you are
+submitting <u>over 10,000 jobs per submit file</u> or want to queue 
+more than <u>50,000 total jobs as a single user</u>,
 please <a href="mailto:chtc@cs.wisc.edu">email us</a> as we have strategies to
 submit that many jobs in a way that will ensure you have as many
-jobs running as possible without also compromising the queue.</li>
-  <li><strong>There is a 20 GB disk quota</strong> in your <code>/home</code> directory, by
-default. You can track your use of disk space, and your quota value,
+jobs running as possible without also compromising queue performance.</li>
+  <li><strong>The default disk quota is 20 GB</strong> in your <code>/home</code> directory, as a 
+starting point. You can track your use of disk space and your quota value,
 using our <a href="check-quota">Quota Guide</a>. If you need more space
 for concurrent work, please send an email to chtc@cs.wisc.edu.</li>
-  <li><strong>Submitting jobs with "large" files:</strong> Please do not submit jobs
-that require single input files larger than 100 MB using HTCondor's
-normal file transfer mechanism ("transfer_input_files"), or that
-produce output files greater than a few GB. For such jobs with large
-files, please see our guide on <a href="file-availability">File
-Availability</a> Options, and contact us to
-make arrangements.</li>
+  <li><strong>Submitting jobs with "large" files:</strong> HTCondor's
+normal file transfer mechanism ("transfer_input_files") is good for 
+files up to 100MB in size (or 500MB total, per job). For jobs with larger
+files, please see our guide on <a href="file-availability">File Availability</a> 
+Options, and contact us to make arrangements.</li>
   <li><strong>No scheduled jobs.</strong> Local execution and job submission should be
-manual, or use a DAG. Do not use cron to schedule jobs, and do not
-submit jobs with a script that uses "sleep" or otherwise doesn't
-complete while you are logged in. Contact us if you need job
-scheduling.</li>
+manual (using <code>condor_submit</code>), or use a DAG or other approved workflow tool. Do not use cron 
+or other scripts that run on the submit server to automate job submission. 
+Contact us if you need help with job scheduling or workflows.</li>
 </ul>
 
         </div>
