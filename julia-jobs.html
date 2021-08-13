@@ -200,7 +200,7 @@ file name will resemble something like <code>julia-#.#.#-linux-x86_64.tar.gz</co
 
     <ul>
       <li>Tip: use <code>wget</code> to download directly to your <code>/home</code> directory on the 
-submit server, <strong>OR</strong> use <code>transfer_input_files = url</code> in your HTCondor submit files.</li>
+submit server, <strong>OR</strong> use <code>transfer_input_files = url</code> in your <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> submit files.</li>
     </ul>
   </li>
   <li>
@@ -356,7 +356,7 @@ julia&gt; exit()
 <h2 id="save-installed-packages-for-later-jobs">Save Installed Packages For Later Jobs</h2>
 
 <p>To use this project, and the associated installed packages, in 
-subsequent jobs, we need to have HTCondor return some files to 
+subsequent jobs, we need to have <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> return some files to 
 the submit server by converting the <code>my-project/</code> directory
 to a tarball, before exiting the interactive job session:</p>
 
@@ -381,8 +381,8 @@ my-project.tar.gz
 <h1 id="submit-julia-jobs">Submit Julia Jobs</h1>
 
 <p>To submit a job that runs a Julia script, create a bash 
-script and HTCondor submit file following the examples in this section. These 
-example assume that you have downloaded a copy of Julia for Linux as a <code>tar.gz</code> 
+script and <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> submit file following the examples in this section.
+These examples assume that you have downloaded a copy of Julia for Linux as a <code>tar.gz</code> 
 file and if using packages, you have gone through the steps above to install them 
 and create an additional <code>tar.gz</code> file of the installed packages.</p>
 
