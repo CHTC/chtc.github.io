@@ -298,9 +298,9 @@ data security in CHTC, please get in touch! We’ll be happy to discuss.</p>
 
 <p><strong>4. Fair-share Policy</strong><br />
 To promote fair access to HPC computing resources, all users are limited to 10 concurrently 
-running jobs (if you need to queue more, please get in touch). Additionally, users are restricted to a total of 600 cores 
+running jobs (if you need to queue more, please get in touch). Additionally, users are restricted to a total of 720 cores 
 across all running jobs (core limits do not apply on research group partitions of
-more than 600 cores).</p>
+more than 720 cores).</p>
 
 <p>When determining which order to run jobs, the following policies are applies, in order or significance
 to job priority determinations:</p>
@@ -360,8 +360,8 @@ backfill capacity via the <code>pre</code> partition (more details below).</p>
       <th>Partition</th>
       <th>p-name</th>
       <th># nodes (N)</th>
-      <th>t-max</th>
       <th>t-default</th>
+      <th>t-max</th>
       <th>max nodes/job</th>
       <th>cores/node (n)</th>
       <th>RAM/node (GB)</th>
@@ -372,8 +372,8 @@ backfill capacity via the <code>pre</code> partition (more details below).</p>
       <td>University 2</td>
       <td>univ2</td>
       <td>148</td>
-      <td>7 days</td>
       <td>1 day</td>
+      <td>7 day</td>
       <td>16</td>
       <td>20</td>
       <td>128</td>
@@ -382,8 +382,8 @@ backfill capacity via the <code>pre</code> partition (more details below).</p>
       <td>Interactive</td>
       <td>int</td>
       <td>6</td>
-      <td>4 hrs</td>
       <td>1 hr</td>
+      <td>4 hrs</td>
       <td>1</td>
       <td>20</td>
       <td>128</td>
@@ -392,8 +392,8 @@ backfill capacity via the <code>pre</code> partition (more details below).</p>
       <td>Pre-emptable (backfill)</td>
       <td>pre</td>
       <td>316</td>
-      <td>24 hrs</td>
       <td>4 hrs</td>
+      <td>24 hrs</td>
       <td>16</td>
       <td>20</td>
       <td>128</td>
@@ -402,8 +402,8 @@ backfill capacity via the <code>pre</code> partition (more details below).</p>
       <td>Owners</td>
       <td><em>unique</em></td>
       <td>124</td>
-      <td>7 days</td>
       <td>24 hrs</td>
+      <td>7 days</td>
       <td><em>unique</em></td>
       <td>20</td>
       <td>128</td>
@@ -412,8 +412,8 @@ backfill capacity via the <code>pre</code> partition (more details below).</p>
       <td>Astronomy Dept (differs)</td>
       <td>astro3</td>
       <td>24</td>
-      <td><em>4 days</em></td>
       <td>24 hrs</td>
+      <td><em>4 days</em></td>
       <td>16</td>
       <td>20</td>
       <td>128</td>
@@ -430,7 +430,7 @@ can request and use up to 7 days of running time.</p>
   <li>
     <p><code>int</code> consists of two compute nodes is intended for short and immediate interactive 
 testing on a single node (up to 16 CPUs, 64 GB RAM). Jobs submitted to this partition 
-can run for up to 1 hour.</p>
+can run for up to 4 hours.</p>
   </li>
   <li>
     <p><code>pre</code> (i.e. pre-emptable) is an under-layed partition encompassing all HPC Cluster 
