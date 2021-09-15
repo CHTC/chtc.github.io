@@ -177,7 +177,7 @@
         </li>
     
         <li>
-            <a href="http://www.opensciencegrid.org/">Open Science Grid</a>
+            <a href="http://www.osg-htc.org/">OSG Consortium</a>
         </li>
     
         <li>
@@ -218,7 +218,7 @@ how to use them.</p>
   <li><a href="#why">Why run on additional resources outside CHTC?</a>
     <ul>
       <li><a href="#uw">The UW Grid</a></li>
-      <li><a href="#osg">The Open Science Grid (OSG)</a></li>
+      <li><a href="#osg">The OSG Consortium</a></li>
     </ul>
   </li>
   <li><a href="#job">Job Qualifications</a></li>
@@ -230,9 +230,9 @@ how to use them.</p>
 <h1 id="1-why-run-on-additional-resources-outside-chtc"><strong>1. Why run on additional resources outside CHTC?</strong></h1>
 
 <p>Running on other resources in addition to CHTC has one huge benefit:
-size! The UW Grid and Open Science Grid include thousands of computers,
+size! The UW Grid and OS Pool include thousands of computers,
 addition to what's already available in CHTC. Most CHTC users who run
-on CHTC, the UW Grid, and the OSG can get more than 100,000 computer
+on CHTC, the UW Grid, and the OS Pool can get more than 100,000 computer
 hours (more than 11 years of computing!) in a single day. Read on to
 learn more about these resources.</p>
 
@@ -251,17 +251,17 @@ other campus pools if there is space.</p>
 
 <p><a name="osg"></a></p>
 
-<h2 id="b-the-open-science-grid-osg">B. The Open Science Grid (OSG)</h2>
+<h2 id="b-the-osg-consortium">B. The OSG Consortium</h2>
 
-<p>The <a href="http://www.opensciencegrid.org/">Open Science Grid (OSG)</a> is a group of universities and research labs
+<p>The <a href="http://www.osg-htc.org/">OSG Consortium</a> is a group of universities and research labs
 who have agreed to share their unused computational resources with each
 other. If a job is submitted from an OSG submission point, it can run in
-the OSG pool associated with that submission point. This OSG pool is the
-result of going out to other members of the OSG and finding if they have
+the <a href="https://osg-htc.org/about/open_science_pool/">OS pool</a> associated with that submission point. This OSG pool is the
+result of going out to other members of the OS Pool and finding if they have
 any unused computers that are available to run jobs. These unused
 computers then form a pool of resources where jobs can go run.</p>
 
-<p>CHTC is a member of the Open Science Grid, so our submit servers,
+<p>CHTC is a member of the OSG Consortium, so our submit servers,
 besides sending jobs to CHTC computers (the default), can send jobs to
 the OSG. We call sending jobs to other institutions <em>gliding</em>.</p>
 
@@ -296,7 +296,7 @@ self-checkpoints at least that frequently.</p>
 <h1 id="3-submitting-jobs-to-run-beyond-chtc"><strong>3. Submitting Jobs to Run Beyond CHTC</strong></h1>
 
 <p>If your jobs meet the characteristics above and you would like to use
-either the UW Grid or OSG to run jobs, in addition to CHTC, you can add
+either the UW Grid or OS Pool to run jobs, in addition to CHTC, you can add
 the following to your submit file:</p>
 
 <table class="gtable">
@@ -307,7 +307,7 @@ the following to your submit file:</p>
     </tr>
     <tr>
       <td>+WantGlideIn = true</td>
-      <td>Also send jobs to the Open Science Grid (OSG). <br /> Good for jobs that are less than ~8 hours, on average, or checkpointing jobs.</td>
+      <td>Also send jobs to the OS Pool. <br /> Good for jobs that are less than ~8 hours, on average, or checkpointing jobs.</td>
     </tr>
   </tbody>
 </table>
@@ -332,13 +332,13 @@ appending the <code>Poolname</code> requirement by using a double ampersand
   </li>
   <li>
     <p><strong>Troubleshooting:</strong> If your jobs don't run successfully on the UW
-Grid or OSG, please <a href="get-help">get in touch with a research computing
+Grid or OS Pool, please <a href="get-help">get in touch with a research computing
 facilitator</a>.</p>
   </li>
   <li>
     <p><strong>Scaling Up:</strong> Once you have tested your jobs and they seem to be
 running successfully, you are ready to submit a full batch of jobs
-that uses CHTC and the UW Grid/OSG. <strong>REMOVE</strong> the <code>Poolname</code>
+that uses CHTC and the UW Grid/OS Pool. <strong>REMOVE</strong> the <code>Poolname</code>
 requirement from the test jobs but leave the <code>+wantFlocking</code> and
 <code>+wantGlidein</code> lines.</p>
   </li>
