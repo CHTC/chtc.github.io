@@ -231,6 +231,37 @@ archives</a>.</p>
 
 <hr />
 
+<h2 id="full-hpc-and-partial-htc-outages-nov-18---nov-22">Full HPC and Partial HTC Outages Nov 18 - Nov 22</h2>
+<h3 id="november-10-2021">November 10, 2021</h3>
+<p>Greetings,</p>
+
+<p>Due to just-confirmed maintenance for the cooling infrastructure in one of CHTC’s server rooms, we will experience full HPC Cluster and partial HTC System outages beginning in the afternoon on Thursday, November 18, with service being restored by Monday, November 22.</p>
+
+<p><strong>Impacts to the HPC Cluster</strong></p>
+
+<p>All hardware (head nodes, execute nodes, storage) in the HPC cluster will be powered down during the planned outage.</p>
+
+<p>To prevent HPC Cluster jobs from being interrupted by the downtime, we will begin draining the nodes one week prior to the downtime. <strong>Jobs submitted requesting time that would exceed the November 18 downtime</strong> will not run until after the cluster is back up, but will be accepted into the queue. Jobs can still run on the cluster within the week before the downtime, IF their time request (“–time=” in the submit file) indicates that they will complete before the morning of November 18.</p>
+
+<p><strong>Impacts to the HTC System</strong></p>
+
+<p>The following components of the HTC system will be powered down during the outage:</p>
+<ul>
+  <li>a subset of HTC execute nodes</li>
+  <li>the following submit servers may go down (and would likely be inaccessible for through Nov 22), but we hope to keep them up: submit2.chtc.wisc.edu, submit3.chtc.wisc.edu, learn.chtc.wisc.edu</li>
+</ul>
+
+<p>While jobs on the affected submit servers and execute servers will be interrupted when they go down, they will remain in the queue to run again once the submit servers are back up. Otherwise, HTC users should not be impacted by this outage.</p>
+
+<p>It is possible the exact dates of the outage may shift, and we realize this is somewhat short notice, but plan to provide a reminder or update at least one day prior to the start of the downtime.</p>
+
+<p>Please contact us at chtc@cs.wisc.edu with any questions or concerns.</p>
+
+<p>Best, 
+Your CHTC team</p>
+
+<hr />
+
 <h2 id="office-hours-cancelled-today-nov-2">Office Hours cancelled today (Nov 2)</h2>
 <h3 id="november-2-2021">November 2, 2021</h3>
 
