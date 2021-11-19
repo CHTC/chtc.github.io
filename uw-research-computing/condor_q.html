@@ -251,6 +251,7 @@ jobs.</p>
             <li><a href="#long">View all details about a job.</a></li>
             <li><a href="#af">View specific details about a job using auto-format.</a></li>
             <li><a href="#constraint">View only specific types of jobs using a constraint</a></li>
+            <li><a href="#remove">Remove a held job from the queue</a></li>
           </ol>
 
         </div>
@@ -546,6 +547,17 @@ attribute. Try running:</p>
 </code></pre>
 
       <p>You should see something very similar to running <code>condor_q -hold</code>!</p>
+
+      <p><a name="remove"></a></p>
+
+      <h2 id="remove-a-held-job-from-the-queue"><strong>11. Remove a held job from the queue</strong></h2>
+
+      <p>To remove a job held in the queue, run:</p>
+
+      <pre class="term"><code>[alice@submit]$ condor_rm &lt;JobID&gt;
+</code></pre>
+
+      <p>This will remove the job in the queue. Once you have made changes to allow the job to run successfully, the job can be resubmitted using <code>condor_submit</code>.</p>
 
       <hr />
 
