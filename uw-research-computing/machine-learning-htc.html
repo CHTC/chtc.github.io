@@ -301,6 +301,8 @@ convolutional neural networks, have enough dependencies that our usual installat
 processes work less reliably. The following options are the best way to handle the complexity 
 of these software tools.</p>
 
+<p>Please be aware of which CUDA library version you are using to run your code.</p>
+
 <h2 id="a-using-docker-containers">A. Using Docker Containers</h2>
 
 <p>CHTC’s HTC system has the ability to run jobs using Docker containers, which package 
@@ -339,6 +341,11 @@ test your own Docker container, see this guide:</p>
 managing machine learning tools.
 See <a href="conda-installation">this guide</a> for information on how 
 to use conda to provide dependencies for CHTC jobs.</p>
+
+<p>Note that when installing TensorFlow using <code>conda</code>, it is important to install 
+not the generic <code>tensorflow</code> package, but <code>tensorflow-gpu</code>. This ensures that 
+the installation will include the <code>cudatoolkit</code> and <code>cudnn</code> dependencies
+required for TensorFlow ‘s GPU capability.</p>
 
         </div>
     </div>
