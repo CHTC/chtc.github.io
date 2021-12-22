@@ -84,7 +84,7 @@
 
 
 <li id="home">
-    <a href="/" aria-current="page">Home</a>
+    <a href="/index.html" aria-current="page">Home</a>
 </li>
 
 
@@ -93,7 +93,7 @@
 
 
 <li id="uw-research-computing">
-    <a href="/uw-research-computing" aria-current="page">UW Research Computing</a>
+    <a href="/uw-research-computing/index.html" aria-current="page">UW Research Computing</a>
 </li>
 
 
@@ -102,7 +102,7 @@
 
 
 <li id="get-started">
-    <a href="/uw-research-computing/get-started" aria-current="page">Get Started</a>
+    <a href="/uw-research-computing/get-started.html" aria-current="page">Get Started</a>
 </li>
 
 
@@ -110,7 +110,7 @@
                     
 
 <li id="menu-how-tos" class="uw-dropdown">
-    <a href="/uw-research-computing/how-tos" role="button" aria-haspopup="true" aria-expanded="false">
+    <a href="/uw-research-computing/how-tos.html" role="button" aria-haspopup="true" aria-expanded="false">
         How To's
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
@@ -123,31 +123,31 @@
 
     
         <li>
-            <a href="/uw-research-computing/get-help">Get Help</a>
+            <a href="/uw-research-computing/get-help.html">Get Help</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/guides">All User Guides</a>
+            <a href="/uw-research-computing/guides.html">All User Guides</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/use-submit-node">Use an HTC Submit Server</a>
+            <a href="/uw-research-computing/use-submit-node.html">Use an HTC Submit Server</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/helloworld">Run Your First HTC Jobs</a>
+            <a href="/uw-research-computing/helloworld.html">Run Your First HTC Jobs</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/howto_overview">HTC for MatLab, Python or R</a>
+            <a href="/uw-research-computing/howto_overview.html">HTC for MatLab, Python or R</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/hpc-overview">Use the HPC Cluster</a>
+            <a href="/uw-research-computing/hpc-overview.html">Use the HPC Cluster</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/cite-chtc">Cite CHTC Resources</a>
+            <a href="/uw-research-computing/cite-chtc.html">Cite CHTC Resources</a>
         </li>
     
     </ul>    
@@ -158,7 +158,7 @@
 
 
 <li id="user-news">
-    <a href="/uw-research-computing/user-news" aria-current="page">User News</a>
+    <a href="/uw-research-computing/user-news.html" aria-current="page">User News</a>
 </li>
 
 
@@ -166,7 +166,7 @@
                     
 
 <li id="menu-other-resources" class="uw-dropdown">
-    <a href="/uw-research-computing/other-resources" role="button" aria-haspopup="true" aria-expanded="false">
+    <a href="/uw-research-computing/other-resources.html" role="button" aria-haspopup="true" aria-expanded="false">
         Other Resources
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
@@ -179,7 +179,7 @@
 
     
         <li>
-            <a href="/uw-research-computing/gpu-lab">CHTC GPU Lab</a>
+            <a href="/uw-research-computing/gpu-lab.html">CHTC GPU Lab</a>
         </li>
     
         <li>
@@ -227,7 +227,7 @@
 <p><strong>This guide will provide instructions for compiling base R from source code and is intended 
 for compiling versions of R that are currently not provided via the CHTC Squid Web Proxy</strong></p>
 
-<p>Before compiling R, please take a moment to review our <a href="r-jobs">R Jobs</a> guide to see what versions of R are currently available.</p>
+<p>Before compiling R, please take a moment to review our <a href="r-jobs.html">R Jobs</a> guide to see what versions of R are currently available.</p>
 
 <p><strong>To best understand the below information, you 
 should already have an understanding of how to:</strong></p>
@@ -343,9 +343,9 @@ command to include the flag</strong> <code>--with-pcre1</code>
 <h2 id="4-install-packages">4. Install Packages</h2>
 
 <p>After your R compilation has completed, if any additional R packages are required for your work, 
-please follow the steps in our <a href="r-jobs">R Jobs</a> guide 
+please follow the steps in our <a href="r-jobs.html">R Jobs</a> guide 
 starting with the <code>export</code> commands shown in step 
-<a href="r-jobs#b.-install-the-packages">1.B.1</a>. After creating a compressed tar 
+<a href="r-jobs.html#b-install-the-packages">1.B.1</a>. After creating a compressed tar 
 archive of your <code>packages</code> directory return the the next steps in this guide.</p>
 
 <h2 id="5-create-a-portable-copy-of-your-r-installation">5. Create A Portable Copy of Your R Installation</h2>
@@ -362,7 +362,7 @@ is to create a compressed tar archive of your R installation. From the top level
 
 <p><strong>If the size of <code>my_R#.#.#.tar.gz</code> is larger than ~100MB then your will need to use 
 the CHTC Squid Wed Proxy to host this file.</strong> See our 
-<a href="file-avail-squid">Squid Web Proxy</a> guide for more details.</p>
+<a href="file-avail-squid.html">Squid Web Proxy</a> guide for more details.</p>
 
 <p>Now you have a portable copy of your R installation that can be brought along with your jobs. 
 The final step is to terminate your interactive job, and HTCondor will tranfer your R tar archive 
@@ -380,7 +380,7 @@ server and should see a copy of your R tar archive:</p>
 <h2 id="6-use-your-custom-r-installation-in-your-jobs">6. Use Your Custom R Installation In Your Jobs</h2>
 
 <p>To use the R installation that was built using the steps in this guide, please follow 
-the steps and examples described on our <a href="r-jobs">R Jobs</a> guide, <strong>however 
+the steps and examples described on our <a href="r-jobs.html">R Jobs</a> guide, <strong>however 
 you will need to modify <code>transfer_input_files</code> in your submit file to specify your <code>R#.#.#.tar.gz</code> 
 tar archive instead of transferring a copy of R from the Squid web proxy.</strong></p>
 
@@ -398,7 +398,7 @@ tar archive instead of transferring a copy of R from the Squid web proxy.</stron
         <div class="uw-footer-contact">
             <h3 class="uw-footer-header">Contact Us</h3>
             <ul class="uw-contact-list">
-                <li class="uw-contact-item">Office Hours: <a href="/uw-research-computing/get-help">Tues/Thurs, 3-4:45pm</a></li>
+                <li class="uw-contact-item">Office Hours: <a href="/uw-research-computing/get-help.html">Tues/Thurs, 3-4:45pm</a></li>
                 <li class="uw-contact-item">Email: <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a></li>
                 <li class="uw-contact-item">Github: <a href="https://github.com/CHTC/chtc-website-source">chtc-website-source</a></li>
                 <li>

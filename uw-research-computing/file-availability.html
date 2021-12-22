@@ -84,7 +84,7 @@
 
 
 <li id="home">
-    <a href="/" aria-current="page">Home</a>
+    <a href="/index.html" aria-current="page">Home</a>
 </li>
 
 
@@ -93,7 +93,7 @@
 
 
 <li id="uw-research-computing">
-    <a href="/uw-research-computing" aria-current="page">UW Research Computing</a>
+    <a href="/uw-research-computing/index.html" aria-current="page">UW Research Computing</a>
 </li>
 
 
@@ -102,7 +102,7 @@
 
 
 <li id="get-started">
-    <a href="/uw-research-computing/get-started" aria-current="page">Get Started</a>
+    <a href="/uw-research-computing/get-started.html" aria-current="page">Get Started</a>
 </li>
 
 
@@ -110,7 +110,7 @@
                     
 
 <li id="menu-how-tos" class="uw-dropdown">
-    <a href="/uw-research-computing/how-tos" role="button" aria-haspopup="true" aria-expanded="false">
+    <a href="/uw-research-computing/how-tos.html" role="button" aria-haspopup="true" aria-expanded="false">
         How To's
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
@@ -123,31 +123,31 @@
 
     
         <li>
-            <a href="/uw-research-computing/get-help">Get Help</a>
+            <a href="/uw-research-computing/get-help.html">Get Help</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/guides">All User Guides</a>
+            <a href="/uw-research-computing/guides.html">All User Guides</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/use-submit-node">Use an HTC Submit Server</a>
+            <a href="/uw-research-computing/use-submit-node.html">Use an HTC Submit Server</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/helloworld">Run Your First HTC Jobs</a>
+            <a href="/uw-research-computing/helloworld.html">Run Your First HTC Jobs</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/howto_overview">HTC for MatLab, Python or R</a>
+            <a href="/uw-research-computing/howto_overview.html">HTC for MatLab, Python or R</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/hpc-overview">Use the HPC Cluster</a>
+            <a href="/uw-research-computing/hpc-overview.html">Use the HPC Cluster</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/cite-chtc">Cite CHTC Resources</a>
+            <a href="/uw-research-computing/cite-chtc.html">Cite CHTC Resources</a>
         </li>
     
     </ul>    
@@ -158,7 +158,7 @@
 
 
 <li id="user-news">
-    <a href="/uw-research-computing/user-news" aria-current="page">User News</a>
+    <a href="/uw-research-computing/user-news.html" aria-current="page">User News</a>
 </li>
 
 
@@ -166,7 +166,7 @@
                     
 
 <li id="menu-other-resources" class="uw-dropdown">
-    <a href="/uw-research-computing/other-resources" role="button" aria-haspopup="true" aria-expanded="false">
+    <a href="/uw-research-computing/other-resources.html" role="button" aria-haspopup="true" aria-expanded="false">
         Other Resources
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
@@ -179,7 +179,7 @@
 
     
         <li>
-            <a href="/uw-research-computing/gpu-lab">CHTC GPU Lab</a>
+            <a href="/uw-research-computing/gpu-lab.html">CHTC GPU Lab</a>
         </li>
     
         <li>
@@ -236,9 +236,9 @@
     </tr>
 
     <tr>
-        <td><a href="file-availability">HTCondor File Transfer</a></td>
+        <td><a href="file-availability.html">HTCondor File Transfer</a></td>
         <td>basic file delivery and return; see size limits at right</td>
-        <td>0 - 100 MB per file; <500 MB total per job</td>
+        <td>0 - 100 MB per file; &#60;500 MB total per job</td>
         <td>0 - 4 GB total	</td>
         <td>in CHTC, UW Grid, and OSG</td>
         <td>available to <i>your</i> jobs, on CHTC and beyond</td>
@@ -246,7 +246,7 @@
     </tr>
 
     <tr>
-        <td><a href="file-avail-squid">SQUID Web Proxy</a></td>
+        <td><a href="file-avail-squid.html">SQUID Web Proxy</a></td>
         <td>large input or software shared by <i>many</i> jobs</td>
         <td>100 MB - 1 GB per shared file</td>
         <td>N/A</td>
@@ -256,7 +256,7 @@
     </tr>
 
     <tr>
-        <td><a href="file-avail-largedata">Large Data Staging</a></td>
+        <td><a href="file-avail-largedata.html">Large Data Staging</a></td>
         <td>largest software, input, and output</td>
         <td>100 MB - TBs per unique file; 1GB - TBs per shared file</td>
         <td>4 GB - TBs</td>
@@ -468,7 +468,7 @@ this default output file transfer behavior - see below for some examples.</p>
 <p><strong>Only individual output files &lt;4GB should be transferred back to your home directory 
 using HTCondor’s default behavior described here.</strong> Large output files &gt;4GB should instead 
 use CHTC’s large data filesystem called staging, more information is available at 
-<a href="file-avail-largedata">Managing Large Data in HTC Jobs</a>. To help reduce output file 
+<a href="file-avail-largedata.html">Managing Large Data in HTC Jobs</a>. To help reduce output file 
 sizes, and help speed up file transfer times, we recommend creating a <code>tar.gz</code> file of all
 desired output before job completion (and to also delete the “un-tar'd”
 files so they are not also transferred back); see our <a href="#group">example</a> below.</p>
@@ -515,7 +515,7 @@ you from exceeding the disk quota.</p>
 <p>For jobs that use large input files from <code>/staging</code>, you must include steps in your bash script 
 to either remove these files or move them to a subdirectory before the job terminates. Else, 
 these large files will be transferred back to your <code>/home</code> directory. For more details, please 
-see <a href="file-avail-largedata">Managing Large Data in HTC Jobs</a>.</p>
+see <a href="file-avail-largedata.html">Managing Large Data in HTC Jobs</a>.</p>
 
 <p>In cases where a bash script is not used as the excutable of your job and you wish to have only specific 
 output files transferred back, please <a href="mailto:chtc@cs.wisc.edu">contact us</a>.</p>
@@ -545,7 +545,7 @@ help identify the best solution for your needs.</p>
         <div class="uw-footer-contact">
             <h3 class="uw-footer-header">Contact Us</h3>
             <ul class="uw-contact-list">
-                <li class="uw-contact-item">Office Hours: <a href="/uw-research-computing/get-help">Tues/Thurs, 3-4:45pm</a></li>
+                <li class="uw-contact-item">Office Hours: <a href="/uw-research-computing/get-help.html">Tues/Thurs, 3-4:45pm</a></li>
                 <li class="uw-contact-item">Email: <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a></li>
                 <li class="uw-contact-item">Github: <a href="https://github.com/CHTC/chtc-website-source">chtc-website-source</a></li>
                 <li>

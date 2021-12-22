@@ -84,7 +84,7 @@
 
 
 <li id="home">
-    <a href="/" aria-current="page">Home</a>
+    <a href="/index.html" aria-current="page">Home</a>
 </li>
 
 
@@ -93,7 +93,7 @@
 
 
 <li id="uw-research-computing">
-    <a href="/uw-research-computing" aria-current="page">UW Research Computing</a>
+    <a href="/uw-research-computing/index.html" aria-current="page">UW Research Computing</a>
 </li>
 
 
@@ -102,7 +102,7 @@
 
 
 <li id="get-started">
-    <a href="/uw-research-computing/get-started" aria-current="page">Get Started</a>
+    <a href="/uw-research-computing/get-started.html" aria-current="page">Get Started</a>
 </li>
 
 
@@ -110,7 +110,7 @@
                     
 
 <li id="menu-how-tos" class="uw-dropdown">
-    <a href="/uw-research-computing/how-tos" role="button" aria-haspopup="true" aria-expanded="false">
+    <a href="/uw-research-computing/how-tos.html" role="button" aria-haspopup="true" aria-expanded="false">
         How To's
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
@@ -123,31 +123,31 @@
 
     
         <li>
-            <a href="/uw-research-computing/get-help">Get Help</a>
+            <a href="/uw-research-computing/get-help.html">Get Help</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/guides">All User Guides</a>
+            <a href="/uw-research-computing/guides.html">All User Guides</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/use-submit-node">Use an HTC Submit Server</a>
+            <a href="/uw-research-computing/use-submit-node.html">Use an HTC Submit Server</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/helloworld">Run Your First HTC Jobs</a>
+            <a href="/uw-research-computing/helloworld.html">Run Your First HTC Jobs</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/howto_overview">HTC for MatLab, Python or R</a>
+            <a href="/uw-research-computing/howto_overview.html">HTC for MatLab, Python or R</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/hpc-overview">Use the HPC Cluster</a>
+            <a href="/uw-research-computing/hpc-overview.html">Use the HPC Cluster</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/cite-chtc">Cite CHTC Resources</a>
+            <a href="/uw-research-computing/cite-chtc.html">Cite CHTC Resources</a>
         </li>
     
     </ul>    
@@ -158,7 +158,7 @@
 
 
 <li id="user-news">
-    <a href="/uw-research-computing/user-news" aria-current="page">User News</a>
+    <a href="/uw-research-computing/user-news.html" aria-current="page">User News</a>
 </li>
 
 
@@ -166,7 +166,7 @@
                     
 
 <li id="menu-other-resources" class="uw-dropdown">
-    <a href="/uw-research-computing/other-resources" role="button" aria-haspopup="true" aria-expanded="false">
+    <a href="/uw-research-computing/other-resources.html" role="button" aria-haspopup="true" aria-expanded="false">
         Other Resources
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
@@ -179,7 +179,7 @@
 
     
         <li>
-            <a href="/uw-research-computing/gpu-lab">CHTC GPU Lab</a>
+            <a href="/uw-research-computing/gpu-lab.html">CHTC GPU Lab</a>
         </li>
     
         <li>
@@ -233,8 +233,8 @@
   <li>Using the command-line to: navigate directories,
 create/edit/copy/move/delete files and directories, and run intended
 programs (aka "executables").</li>
-  <li><a href="helloworld">CHTC's Intro to Running HTCondor Jobs</a></li>
-  <li>CHTC's guides for handling large data (<a href="file-avail-largedata">Guide
+  <li><a href="helloworld.html">CHTC's Intro to Running HTCondor Jobs</a></li>
+  <li>CHTC's guides for handling large data (<a href="file-avail-largedata.html">Guide
 here</a>) and software installation.</li>
 </ol>
 
@@ -251,9 +251,9 @@ before.</strong> We'll happily help you with some personalized tips and
 considerations for getting your work done most efficiently.</p>
 
 <ol>
-  <li><a href="#resources">High Memory Resources in CHTC</a></li>
-  <li><a href="#get-started">Getting Started</a></li>
-  <li><a href="#running">Running High Memory Jobs</a></li>
+  <li><a href="#1-high-memory-resources-in-chtc">High Memory Resources in CHTC</a></li>
+  <li><a href="#2-getting-started">Getting Started</a></li>
+  <li><a href="#3-running-high-memory-job">Running High Memory Jobs</a></li>
 </ol>
 
 <p><a name="resoures"></a></p>
@@ -362,14 +362,14 @@ research computing facilitator by emailing <a href="mailto:chtc@cs.wisc.edu">cht
 
 <h2 id="a-submit-file">A. Submit File</h2>
 
-<p>The submit file shown in our <a href="helloworld">Hello World example</a> is
+<p>The submit file shown in our <a href="helloworld.html">Hello World example</a> is
 a good starting point for building your high memory job submit file. The
 following are places where it's important to customize:</p>
 
 <ul>
   <li>
     <p><strong><code>request_memory</code></strong>: It is crucial to make this request as accurate
-as you can by <a href="#testing">testing</a> at a small scale if possible (see
+as you can by <a href="#b-testing">testing</a> at a small scale if possible (see
 above). Online documentation/help pages or your colleagues'
 experience is another source of information about required memory.</p>
   </li>
@@ -429,8 +429,8 @@ including all output and input (which will take up space before some
 of it is removed from the job working directory at the end of the
 job).</p>
   </li>
-  <li><strong>Other requirements</strong>: if your job uses files from <a href="file-avail-largedata">our large data
-space</a>, or <a href="docker-jobs">Docker for
+  <li><strong>Other requirements</strong>: if your job uses files from <a href="file-avail-largedata.html">our large data
+space</a>, or <a href="docker-jobs.html">Docker for
 software</a>, add the necessary requirements for
 these resources to your submit file.</li>
 </ul>
@@ -468,10 +468,10 @@ queue 1
 <h2 id="b-software">B. Software</h2>
 
 <p>Like any other job, the best option for high memory work is to create a
-portable installation of your software. We have guides for <a href="howto_overview">scripting
-languages</a> and <a href="docker-jobs">using
+portable installation of your software. We have guides for <a href="howto_overview.html">scripting
+languages</a> and <a href="docker-jobs.html">using
 Docker</a>, and can otherwise provide individual
-support for program installation <a href="get-help">during office hours or over
+support for program installation <a href="get-help.html">during office hours or over
 email</a>.</p>
 
 <p><a name="executable"></a></p>
@@ -479,14 +479,14 @@ email</a>.</p>
 <h2 id="c-executable-script">C. "Executable" script</h2>
 
 <p>As described in many of our guides (for
-<a href="howto_overview">software</a> or for using <a href="file-avail-largedata">large
+<a href="howto_overview.html">software</a> or for using <a href="file-avail-largedata.html">large
 data</a>), you will need to write a script
 that will run your software commands for you and that will serve as the
 submit file "executable". Things to note are:</p>
 
 <ul>
   <li>If using files from our large data staging space, follow the
-recommendations in our <a href="file-avail-largedata">guide</a>.</li>
+recommendations in our <a href="file-avail-largedata.html">guide</a>.</li>
   <li>If using multiple cores, make sure that you request the same number
 of "threads" or "processes" in your command as you requested in
 your <a href="#submit">submit file</a>.</li>
@@ -537,7 +537,7 @@ rm reads_*.fq trinity_out_dir.tar.gz trinity_stdout.txt
         <div class="uw-footer-contact">
             <h3 class="uw-footer-header">Contact Us</h3>
             <ul class="uw-contact-list">
-                <li class="uw-contact-item">Office Hours: <a href="/uw-research-computing/get-help">Tues/Thurs, 3-4:45pm</a></li>
+                <li class="uw-contact-item">Office Hours: <a href="/uw-research-computing/get-help.html">Tues/Thurs, 3-4:45pm</a></li>
                 <li class="uw-contact-item">Email: <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a></li>
                 <li class="uw-contact-item">Github: <a href="https://github.com/CHTC/chtc-website-source">chtc-website-source</a></li>
                 <li>
