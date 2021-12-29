@@ -389,8 +389,8 @@ that version of R:</p>
 <p>The output should match the version number that you want to be using!</p>
 
 <blockquote>
-  <p>If you brought along your own package directory, un-tar it here and
-skip the directory creation step below.</p>
+  <p>If you brought along your own package directory that you previously created by following this tutorial, un-tar it here and
+skip the directory creation step below (i.e. you do not need to run <code>mkdir packages</code> because this directory already exists and should have been brought along in your submit file).</p>
 </blockquote>
 
 <p><strong>2. Install packages</strong></p>
@@ -415,15 +415,15 @@ use a more descriptive name than "packages".</p>
 <pre class="term"><code>[alice@build]$ R
 </code></pre>
 
-<p>In the R terminal, first, set the package installation location, and
-then install your packages using <code>install.packages</code>.</p>
+<p>In the R terminal, install your packages using <code>install.packages</code>.</p>
 
 <pre class="term"><code>&gt; install.packages("package_name")
 </code></pre>
 
+<p>Replace “package_name” with the name of the package you wish to install.</p>
+
 <p>The first time you will be prompted to choose a "CRAN mirror" - this
-is where R is downloading the package. Choose any <code>http</code> (not <code>https</code>!)
-option.</p>
+is where R is downloading the package. Choose any US-based location to download.</p>
 
 <p>If you need a Bioconductor package you will first need to install the
 Bioconductor installation manager, then use Bioconductor to install your
