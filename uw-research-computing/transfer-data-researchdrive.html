@@ -261,11 +261,11 @@ in to one of the HPC login nodes.</p>
   <li><strong>Choose a folder:</strong> Navigate to the folder in CHTC (<code>/staging</code> or <code>/home</code>), where you would like to transfer files.</li>
   <li><strong>Connect to ResearchDrive:</strong> Run the following command to connect to ResearchDrive, filling in the username of 
 your PI:
-    <pre><code> [alice@server]$ smbclient -k //research.drive.wisc.edu/PI-Name
+    <pre class="term"><code> [alice@server]$ smbclient -k //research.drive.wisc.edu/PI-Name
 </code></pre>
 
     <p>Your prompt should change to look like this:</p>
-    <pre><code> smb: \&gt; 
+    <pre class="term"><code> smb: \&gt; 
 </code></pre>
 
     <blockquote>
@@ -280,11 +280,11 @@ like to get or put files.</li>
   <li><strong>Move files:</strong> To move files, you will use the <code>get</code> and <code>put</code> commands:
     <ul>
       <li>To move files from CHTC to ResearchDrive, run:
-        <pre><code>  smb: \&gt; put filename
+        <pre class="term"><code>  smb: \&gt; put filename
 </code></pre>
       </li>
       <li>To move files from ResearchDrive to CHTC, run:
-        <pre><code>  smb: \&gt; get filename
+        <pre class="term"><code>  smb: \&gt; get filename
 </code></pre>
       </li>
     </ul>
@@ -313,20 +313,20 @@ to transfer to CHTC:</p>
   <li><strong>Choose a folder:</strong> Navigate to the folder in CHTC (<code>/staging</code> or <code>/home</code>), where you would like to put the files.</li>
   <li><strong>Connect to ResearchDrive:</strong> Run the following command to connect to ResearchDrive, filling in the username of 
 your PI:
-    <pre><code> [alice@server]$ smbclient -k //research.drive.wisc.edu/PI-Name
+    <pre class="term"><code> [alice@server]$ smbclient -k //research.drive.wisc.edu/PI-Name
 </code></pre>
   </li>
   <li><strong>Navigate to appropriate ResearchDrive directory</strong>
-    <pre><code> smb: \&gt; cd path/to/files
+    <pre class="term"><code> smb: \&gt; cd path/to/files
 </code></pre>
   </li>
   <li><strong>Turn of Prompting</strong>
-    <pre><code> smb: \&gt; prompt
+    <pre class="term"><code> smb: \&gt; prompt
 </code></pre>
   </li>
   <li><strong>Use <code>mget</code> instead of <code>get</code></strong>
  This command downloads a group of files that end with “fastq.gz” to CHTC.
-    <pre><code> smb: \&gt; mget *.fastq.gz
+    <pre class="term"><code> smb: \&gt; mget *.fastq.gz
 </code></pre>
   </li>
 </ol>
@@ -344,19 +344,19 @@ after your jobs complete:</p>
   <li><strong>Choose a folder:</strong> Navigate to the folder in CHTC (<code>/staging</code> or <code>/home</code>) where your output files are located.</li>
   <li><strong>Connect to ResearchDrive:</strong> Run the following command to connect to ResearchDrive, filling in the username of 
 your PI:
-    <pre><code> [alice@server]$ smbclient -k //research.drive.wisc.edu/PI-Name
+    <pre class="term"><code> [alice@server]$ smbclient -k //research.drive.wisc.edu/PI-Name
 </code></pre>
   </li>
   <li><strong>Navigate to appropriate ResearchDrive directory</strong>
-    <pre><code> smb: \&gt; cd path/to/directory
+    <pre class="term"><code> smb: \&gt; cd path/to/directory
 </code></pre>
   </li>
   <li><strong>Turn off Prompting</strong>
-    <pre><code> smb: \&gt; prompt
+    <pre class="term"><code> smb: \&gt; prompt
 </code></pre>
   </li>
   <li><strong>Use <code>mput</code> instead of <code>put</code></strong>
-    <pre><code> smb: \&gt; mput *.tar.gz
+    <pre class="term"><code> smb: \&gt; mput *.tar.gz
 </code></pre>
   </li>
 </ol>
