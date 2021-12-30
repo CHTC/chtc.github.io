@@ -23,9 +23,14 @@
 
 
 
+
 <script type="text/javascript" src="/assets/js/uw-style.js"></script>
+<script src="/assets/js/lunr.js" type="text/javascript" async></script>
+<script type="text/javascript" src="/assets/js/search_bar.js" defer></script>
+
 <link type="text/css" href="/assets/fonts/fonts.0.0.1.css" rel="stylesheet">
 <link type="text/css" href="/assets/css/style.css" rel="stylesheet">
+
 
 
 <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'')})(document.documentElement)</script>
@@ -76,15 +81,6 @@
     <div class="uw-main-nav">
         <nav class="uw-nav-menu uw-nav-menu-reverse" aria-label="Main Menu">
             <ul id="uw-main-nav">
-                
-                    
-
-
-<li id="home">
-    <a href="/" aria-current="page">Home</a>
-</li>
-
-
                 
                     
 
@@ -175,6 +171,14 @@
 
 
                 
+                <li class="uw-dropdown my-auto ml-auto mr-0 pr-0">
+                    <div id="main-search-bar" class="search-bar">
+                        <input type="text" class="form-control" placeholder="Loading..." aria-describedby="button-addon2">
+                        <div id="results-dropdown" class="results-dropdown w-100">
+                            <div class="search-results" hidden></div>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </nav>
     </div>
