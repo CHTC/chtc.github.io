@@ -24,9 +24,9 @@ function create_html(data){
         "<div>" +
         "<h6 class='card-subtitle text-primary text-left'>" + data.subtitle + "</h6>" +
         "</div>" +
-    "</div>" +
-    "</a>" +
-    "</div>"
+        "</div>" +
+        "</a>" +
+        "</div>"
 
     return html
 }
@@ -50,23 +50,18 @@ function SearchBar(id, index_path, metadata_path) {
         this.input_node.addEventListener("input", () => {
             makeDelay(1000)(() => this.search.call(this))
         })
-        this.input_node.addEventListener("focusout", () => {
-            if(this.lose_focus){
+
+        document.body.addEventListener("click", (event) => {
+            if (! this.node.contains(event.target)) {
                 this.result_node.hidden = true
-                this.populate_results(5)
-            } else {
-                this.lose_focus = true
-                this.input_node.focus()
             }
         })
-        this.result_node.addEventListener("mousedown",() => {
-            this.lose_focus = false
-        })
+
         this.input_node.addEventListener("focus", () => {
+            this.populate_results(5)
             this.result_node.hidden = false;
         })
     }
-    this.focus_input
     this.load_data = async function(cache=true) {
 
         if(cache){  // Check for cached data. If there use it, else load and populate it
@@ -114,7 +109,7 @@ function SearchBar(id, index_path, metadata_path) {
 
         let results_to_populate = this.results.slice(0, length)
 
-        if( !results_to_populate.length ){
+        if( !results_to_populate.length && this.input_node.value != "" ){
             this.create_result_node().innerHTML = create_html({'title': 'No Results', "subtitle": ""})
             return
         }

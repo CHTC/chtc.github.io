@@ -29,7 +29,7 @@
 <script type="text/javascript" src="/assets/js/search_bar.js" defer></script>
 
 <link type="text/css" href="/assets/fonts/fonts.0.0.1.css" rel="stylesheet">
-<link type="text/css" href="/assets/css/style.css" rel="stylesheet">
+<link type="text/css" href="/assets/css/style-v1.css" rel="stylesheet">
 
 <link type="text/css" href="/assets/css/research-style.css" rel="stylesheet">
 
@@ -235,7 +235,11 @@
 <div class="uw-row-full mb-4">
     <div class="uw-row">
         <div class="uw-col uw-body">
-            <p>
+            <link rel = "stylesheet"
+    type = "text/css"
+    href = "/assets/css/bootstrap.css" />
+
+<p>
 Below is a list of guides for some of the most common tasks our users need to
 carry out as they begin and continue to use the resources at the CHTC. 
 Some of these are general computing solutions; others are specific to <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a>
@@ -277,17 +281,12 @@ Guides will be added to the list as we can provide them. Please contact us
 <a name="htc"></a>
 <h1>Use the HTC System</h1>
 
-<!-- <h2>HTC Roadmap</h2>
-
-<p>If you are new to high throughput computing, our <a href="/roadmap">HTC roadmap</a> walks you 
-through the process of creating your own large-scale job submission, step-by-step.</p> -->
-
 <h2>Guides by Topic</h2>
 <div class="card-deck">
 	<div class="card border-secondary h-100" >    
-		 <img alt="Card image cap" class="card-img-top img-responsive" src="/uw-research-computing/guide-icons/checkmark.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
-		<h5 class="card-title text-center">Basics and Policies</h5>
-		<ul class="list-group list-group-flush" style="height: auto !important; border-radius: 1px;">
+        <img alt="Card image cap" class="pt-3 card-img-top img-responsive" src="/uw-research-computing/guide-icons/checkmark.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
+		<h3 class="card-title text-center">Basics and Policies</h3>
+		<ul class="list-group ml-0 list-group-flush" style="height: auto !important; border-radius: 1px;">
 			<a href="/uw-research-computing/use-submit-node.html"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Using CHTC's HTC Submit Nodes</li></a>
 			<a href="/uw-research-computing/connecting.html"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Connecting to CHTC</li></a>
 			<a href="/uw-research-computing/check-quota.html"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Checking Disk Quota and Usage</li></a>
@@ -296,9 +295,9 @@ through the process of creating your own large-scale job submission, step-by-ste
 	</div>
 			
 	<div class="card border-secondary h-100" >    
-		 <img alt="Card image cap" class="card-img-top img-responsive" src="/uw-research-computing/guide-icons/laptop_arrow.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
-		<h5 class="card-title text-center">Job Submission</h5>
-		<ul class="list-group list-group-flush" style="height: auto; border-radius: 1px;">
+		<img alt="Card image cap" class="pt-3 card-img-top img-responsive" src="/uw-research-computing/guide-icons/laptop_arrow.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
+		<h3 class="card-title text-center">Job Submission</h3>
+		<ul class="list-group ml-0 list-group-flush" style="height: auto; border-radius: 1px;">
 			<a href="/uw-research-computing/helloworld.html"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Running Your First HTC Jobs</li></a>
 			<a href="/uw-research-computing/condor_q.html"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Learning About Your Jobs Using <code>condor_q</code></li></a>
 			<a href="/uw-research-computing/multiple-jobs.html"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Submitting Multiple Jobs</li></a>
@@ -306,12 +305,11 @@ through the process of creating your own large-scale job submission, step-by-ste
 			<a href="/uw-research-computing/multiple-job-dirs.html"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Submitting Multiple Jobs in Different Directories</li></a>
 		</ul>
 	</div>
-		
-	
+
 	<div class="card border-secondary h-100" >    
-		 <img alt="Card image cap" class="card-img-top img-responsive" src="/uw-research-computing/guide-icons/data.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
-		<h5 class="card-title text-center">Handling Data in Jobs</h5>
-		<ul class="list-group list-group-flush" style="height: auto !important; border-radius: 1px;">
+		<img alt="Card image cap" class="pt-3 card-img-top img-responsive" src="/uw-research-computing/guide-icons/data.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
+		<h3 class="card-title text-center">Handling Data in Jobs</h3>
+		<ul class="list-group ml-0 list-group-flush" style="height: auto !important; border-radius: 1px;">
 			<a href="/uw-research-computing/file-availability.html"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Small Input and Output File Transfer</li></a>
         	<a href="/uw-research-computing/file-avail-squid.html"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Large Input File Availability Via Squid</li></a>
         	<a href="/uw-research-computing/file-avail-largedata.html"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Large Input and Output File Availability Via Staging</li></a>
@@ -326,9 +324,9 @@ through the process of creating your own large-scale job submission, step-by-ste
 <div class="card-deck">
 	
 	<div class="card border-secondary h-100" >    
-		 <img alt="Card image cap" class="card-img-top img-responsive" src="/uw-research-computing/guide-icons/gear.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
-		<h5 class="card-title text-center">Software Solutions</h5>
-		<ul class="list-group list-group-flush" style="height: auto !important; border-radius: 1px;">
+		<img alt="Card image cap" class="pt-3 card-img-top img-responsive" src="/uw-research-computing/guide-icons/gear.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
+		<h3 class="card-title text-center">Software Solutions</h3>
+		<ul class="list-group ml-0 list-group-flush" style="height: auto !important; border-radius: 1px;">
 			<a href="/uw-research-computing/inter-submit.html"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Compiling Software in an Interactive Job</li></a>
 			<a href="/uw-research-computing/matlab-jobs.html"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Running Matlab Jobs</li></a>
 			<a href="/uw-research-computing/python-jobs.html"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Running Python Jobs</li></a>
@@ -344,9 +342,9 @@ through the process of creating your own large-scale job submission, step-by-ste
 	</div>				
 			
 	<div class="card border-secondary h-100" >    
-		 <img alt="Card image cap" class="card-img-top img-responsive" src="/uw-research-computing/guide-icons/processor.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
-		<h5 class="card-title text-center">Special Use Cases</h5>
-		<ul class="list-group list-group-flush" style="height: auto !important; border-radius: 1px;">
+		<img alt="Card image cap" class="pt-3 card-img-top img-responsive" src="/uw-research-computing/guide-icons/processor.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
+		<h3 class="card-title text-center">Special Use Cases</h3>
+		<ul class="list-group ml-0 list-group-flush" style="height: auto !important; border-radius: 1px;">
 			<a href="/uw-research-computing/machine-learning-htc.html"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Run Machine Learning Jobs</li></a>
 			<a href="/uw-research-computing/scaling-htc.html"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Scaling Beyond Local HTC Capacity</li></a>
 			<a href="/uw-research-computing/high-memory-jobs.html"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Submitting High Memory Jobs</li></a>
@@ -356,9 +354,9 @@ through the process of creating your own large-scale job submission, step-by-ste
 	</div>
 			
 	<div class="card border-secondary h-100" >    
-		 <img alt="Card image cap" class="card-img-top img-responsive" src="/uw-research-computing/guide-icons/trouble.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
-		<h5 class="card-title text-center">Troubleshooting</h5>
-		<ul class="list-group list-group-flush" style="height: auto !important;">
+		<img alt="Card image cap" class="pt-3 card-img-top img-responsive" src="/uw-research-computing/guide-icons/trouble.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
+		<h3 class="card-title text-center">Troubleshooting</h3>
+		<ul class="list-group ml-0 list-group-flush" style="height: auto !important;">
         	<a href="/uw-research-computing/dos-unix.html"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Windows/Linux Incompatibility</li></a>
         	<a href="/uw-research-computing/docker-test.html"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">Explore and Test Docker Containers</li></a>
 		</ul>
@@ -369,25 +367,18 @@ through the process of creating your own large-scale job submission, step-by-ste
 <a name="hpc"></a>
 <h1>Use the HPC Cluster</h1>
 
-<!--<h2>HPC Roadmap</h2>
-
-<p>Our <a href="/roadmap">HPC Cluster roadmap</a> walks you 
-through the process of using the cluster, step-by-step.</p> -->
-
 <h2>Guides by Topic</h2>
 <div class="card-deck">
-
 	<div class="card border-secondary h-100" >    
-		 <img alt="Card image cap" class="card-img-top img-responsive" src="/uw-research-computing/guide-icons/servers.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
-		<h5 class="card-title text-center">HPC Cluster Guides</h5>
-		<ul class="list-group list-group-flush" style="height: auto !important;">
+		<img alt="Card image cap" class="pt-3 card-img-top img-responsive" src="/uw-research-computing/guide-icons/servers.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
+		<h3 class="card-title text-center">HPC Cluster Guides</h3>
+		<ul class="list-group ml-0 list-group-flush" style="height: auto !important;">
 			<a href="/uw-research-computing/connecting.html"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Connecting to CHTC</li></a>
 			<a href="/uw-research-computing/hpc-overview.html"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">HPC Cluster Overview Guide</li></a>
 			<a href="/uw-research-computing/hpc-software.html"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">HPC Software</li></a>
 			<a href="/uw-research-computing/hpc-job-submission.html"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">HPC Job Submission</li></a>
 		</ul>
 	</div>
-
 </div>
 
 <hr>
@@ -401,10 +392,6 @@ through the process of using the cluster, step-by-step.</p> -->
 		<a href="http://slurm.schedmd.com/" class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">Slurm Manual</a>
 		<a href="http://www.doit.wisc.edu/training/student/" class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">DoIT Software Training for Students (free on-campus courses)</a> 
 </div>
-			
-
-<br />
-
 <hr>
 <a href="/icon_credits.html">Icon Credits</a>
 

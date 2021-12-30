@@ -1,8 +1,8 @@
 {
 	"version": 3,
-	"file": "style.css",
+	"file": "style-v1.css",
 	"sources": [
-		"style.scss",
+		"style-v1.scss",
 		"_sass/bootstrap/bootstrap.scss",
 		"_sass/bootstrap/_functions.scss",
 		"_sass/bootstrap/_variables.scss",
