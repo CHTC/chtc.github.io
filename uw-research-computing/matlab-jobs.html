@@ -281,6 +281,9 @@ randomness</a> below.</p>
     <tr>
       <td>Matlab 2018b</td>
     </tr>
+    <tr>
+      <td>Matlab 2020a</td>
+    </tr>
   </tbody>
 </table>
 
@@ -360,7 +363,7 @@ will look like this:</p>
 <pre class="term"><code>[alice@build]$ module load MATLAB/R2015b
 </code></pre>
 
-<p>If you want to use Matlab 2018b, load module <code>MATLAB/R2018b</code>. Once the
+<p>If you want to use a different version of Matlab, change the name after the <code>load</code> command. Once the
 module is loaded, run the compilation command:</p>
 
 <pre class="term"><code>[alice@build]$ mcc -m -R -singleCompThread -R -nodisplay -R -nojvm script.m
@@ -468,7 +471,8 @@ your code. Options available on our proxy include:</p>
 
     <ul>
       <li><code>r2015b.tar.gz</code></li>
-      <li><code>r2018b.tar.gz</code><br /></li>
+      <li><code>r2018b.tar.gz</code></li>
+      <li><code>r2020a.tar.gz</code><br /></li>
     </ul>
 
     <p>To send the runtime package to your jobs, list a link to the
@@ -497,6 +501,10 @@ in <code>readme.txt</code>).</p>
         <tr>
           <td><code>r2018b.tar.gz</code></td>
           <td><code>v95</code></td>
+        </tr>
+        <tr>
+          <td><code>r2020a.tar.gz</code></td>
+          <td><code>v98</code></td>
         </tr>
       </tbody>
     </table>
