@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CHTC Partners Using CHTC Technologies and Services</title>
+<title>Going from Google Colab to CHTC's GPU Lab</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -34,7 +34,7 @@
 <link type="text/css" href="/assets/fonts/fonts.0.0.1.css" rel="stylesheet">
 <link type="text/css" href="/assets/css/style-v1.css" rel="stylesheet">
 
-
+<link type="text/css" href="/assets/css/research-style.css" rel="stylesheet">
 
 <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'')})(document.documentElement)</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -47,7 +47,7 @@
     <a class="uw-global-name-link" href="http://www.wisc.edu" aria-label="University home page">U<span>niversity <span class="uw-of">of</span> </span>W<span>isconsin</span>–Madison</a>
 
     
-    <a class="uw-global-name-link" href="/uw-research-computing" aria-label="UW Research Computing Homepage">Go to UW Research Computing Home</a>
+    <a class="uw-global-name-link" href="/" aria-label="University home page">Go to CHTC Home</a>
     
 </div>
     
@@ -58,7 +58,7 @@
 
 
 
-<header id="branding" class="uw-header">
+<header id="branding-sub" class="uw-header">
     <div class="uw-header-container mt-2 mb-2">
         <div class="uw-header-crest-title">
             <div class="uw-header-crest">
@@ -69,7 +69,7 @@
                     <a href="/" rel="home">CHTC</a>
                 </h1>
                 <a href="/" rel="home">
-                    <div id="site-description" class="uw-site-tagline">Center for High Throughput Computing</div>
+                    <div id="site-description" class="uw-site-tagline">UW Research Computing</div>
                 </a>
             </div>
         </div>
@@ -79,17 +79,47 @@
 
 
     
-    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">Menu<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
-<div id="uw-top-menus" class="uw-is-visible uw-horizontal" aria-hidden="false">
+
+
+    
+    <button id="uw-sub-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-sub-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-sub-menus">UW-Research Computing<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
+<div id="uw-sub-menus" class="uw-is-visible uw-horizontal" aria-hidden="false">
     <div class="uw-main-nav">
         <nav class="uw-nav-menu uw-nav-menu-reverse" aria-label="Main Menu">
-            <ul id="uw-main-nav">
+            <ul id="uw-sub-nav">
                 
                     
 
-<li id="about" class="uw-dropdown">
-    <a href="/about.html" role="button" aria-haspopup="true" aria-expanded="false">
-        About
+
+<li id="home">
+    <a href="/index.html" aria-current="page">Home</a>
+</li>
+
+
+                
+                    
+
+
+<li id="uw-research-computing">
+    <a href="/uw-research-computing/index.html" aria-current="page">UW Research Computing</a>
+</li>
+
+
+                
+                    
+
+
+<li id="get-started">
+    <a href="/uw-research-computing/get-started.html" aria-current="page">Get Started</a>
+</li>
+
+
+                
+                    
+
+<li id="menu-how-tos" class="uw-dropdown">
+    <a href="/uw-research-computing/how-tos.html" role="button" aria-haspopup="true" aria-expanded="false">
+        How To's
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -97,27 +127,35 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="About submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="How To's submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/htc.html">What is HTC?</a>
+            <a href="/uw-research-computing/get-help.html">Get Help</a>
         </li>
     
         <li>
-            <a href="/approach.html">Our Approach</a>
+            <a href="/uw-research-computing/guides.html">All User Guides</a>
         </li>
     
         <li>
-            <a href="/projects.html">Our Customers</a>
+            <a href="/uw-research-computing/use-submit-node.html">Use an HTC Submit Server</a>
         </li>
     
         <li>
-            <a href="/people.html">Our Staff</a>
+            <a href="/uw-research-computing/helloworld.html">Run Your First HTC Jobs</a>
         </li>
     
         <li>
-            <a href="/jobs.html">Our Open Positions</a>
+            <a href="/uw-research-computing/howto_overview.html">HTC for MatLab, Python or R</a>
+        </li>
+    
+        <li>
+            <a href="/uw-research-computing/hpc-overview.html">Use the HPC Cluster</a>
+        </li>
+    
+        <li>
+            <a href="/uw-research-computing/cite-chtc.html">Cite CHTC Resources</a>
         </li>
     
     </ul>    
@@ -126,9 +164,18 @@
                 
                     
 
-<li id="services" class="uw-dropdown">
-    <a href="/services.html" role="button" aria-haspopup="true" aria-expanded="false">
-        Services
+
+<li id="user-news">
+    <a href="/uw-research-computing/user-news.html" aria-current="page">User News</a>
+</li>
+
+
+                
+                    
+
+<li id="menu-other-resources" class="uw-dropdown">
+    <a href="/uw-research-computing/other-resources.html" role="button" aria-haspopup="true" aria-expanded="false">
+        Other Resources
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -136,41 +183,30 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="Services submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="Other Resources submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/index.html">UW Research Computing</a>
+            <a href="/uw-research-computing/gpu-lab.html">CHTC GPU Lab</a>
+        </li>
+    
+        <li>
+            <a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a>
+        </li>
+    
+        <li>
+            <a href="http://www.neos-server.org/">NEOS Optimization Service</a>
+        </li>
+    
+        <li>
+            <a href="http://www.osg-htc.org/">OSG Consortium</a>
+        </li>
+    
+        <li>
+            <a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a>
         </li>
     
     </ul>    
-
-
-                
-                    
-
-
-<li id="technologies">
-    <a href="/technologies.html" aria-current="page">Technologies</a>
-</li>
-
-
-                
-                    
-
-
-<li id="research">
-    <a href="/research.html" aria-current="page">Research</a>
-</li>
-
-
-                
-                    
-
-
-<li id="news">
-    <a href="/news.html" aria-current="page">News</a>
-</li>
 
 
                 
@@ -188,232 +224,227 @@
 </div>
 
 
-
-    
-
     <main id="main" style="min-height: 60vh;">
-        <div class="container-xxl">
-    <h1 class="uw-mini-bar mb-4">
-    CHTC Partners Using CHTC Technologies and Services
+        <main id="main" style="min-height: 60vh;">
+    <div class="container-xxl mb-5">
+    <div class="row justify-content-center">
+        <div class="col mw-1000">
+            <h1 class="uw-mini-bar mb-4">
+    Going from Google Colab to CHTC's GPU Lab
 </h1>
 
-</div>
-<div class="bg-light pb-3 pt-1">
-    <div class="container-xxl">
-        
+            <p>This guide provides a step-by-step process for going from running a notebook 
+that uses GPUs on Google Colab, to running it as a job in CHTC, using CHTC’s 
+GPU Lab resources.</p>
 
+<h1 id="overview">Overview</h1>
 
+<p>Go through the following steps to transition from Google Colab to CHTC’s GPU Lab:</p>
 
+<ol>
+  <li><a href="#a-get-the-needed-packages-from-colab">Get a script and package requirements from the Colab interface.</a></li>
+  <li><a href="#b-build-a-docker-container">Build and publish a docker container recreating the Colab software environment.</a></li>
+  <li><a href="#c-submit-a-job">Submit your job on CHTC, paying attention to hardware requirements.</a></li>
+</ol>
 
-        
-        <div class="row">
-    <div class="col-12 col-md-8 order-2 order-md-1">
-        <h2>IceCube and Francis Halzen</h2>
-        <p>
-            Francis Halzen, principal investigator of IceCube and the Hilldale and Gregory Breit Distinguished Professor of Physics.<br/> <br/> IceCube has transformed a cubic kilometer of natural Antarctic ice into a neutrino detector.  We have discovered a flux of high-energy neutrinos of cosmic origin, with an energy flux that is comparable to that of high-energy photons. We have also identified its first source: on September 22, 2017, following an alert initiated by a 290-TeV neutrino, observations by other astronomical telescopes pinpointed a flaring active galaxy, powered by a supermassive black hole. We study the neutrinos themselves, some with energies exceeding by one million those  produced by accelerators. The IceCube Neutrino Observatory is managed and operated by the Wisconsin IceCube Astroparticle Physics Center (WIPAC) in the Office of the Vice Chancellor of Graduate Education and Research and funded by a cooperative agreement with the National Science Foundation. We have used CHTC and the Open Science Pool for over a decade to perform all large-scale data analysis tasks and generate Monte Carlo simulations of the instrument's performance. Without CHTC and OSP resources we would simply be unable to make any of IceCube's groundbreaking discoveries. Francis Halzen is the Principal Investigator of IceCube. See the <a href="https://icecube.wisc.edu/">IceCube web site</a> for project details.
+<h3 id="why-use-chtcs-gpu-lab">Why use CHTC’s GPU Lab?</h3>
 
-        </p>
-    </div>
-    <div class="ms-md-5 col-12 col-md-3 order-1 order-md-2 d-flex flex-column">
-        <h2>&nbsp;</h2>
-        <div class="d-flex flex-grow-1">
-            <img style="max-height: 200px" class=" mx-auto my-auto img-fluid" src="/images/IceCube.jpeg">
+<p>Google Colab has better support for interactive work in a notebook interface; however, 
+the free version has a strict time limit on how long you can run calculations. If you want
+to run many GPU-based calculations or need more time, CHTC can provide a larger number 
+of GPUs and a longer run time limit.</p>
+
+<h2 id="a-get-the-needed-packages-from-colab">A. Get the Needed Packages From Colab</h2>
+
+<p><b>These steps are run from the Colab notebook.</b></p>
+
+<p>Assume the notebook you’d like to run on CHTC’s system is already open.</p>
+
+<ol>
+  <li><strong>Export notebook as <code>.py</code> file:</strong> <br />
+ Export a clean copy of the notebook with <code>.py</code> extension before it is altered. This can be done using File–Download–Download <code>.py</code>. Save this to the local machine.</li>
+  <li><strong>Mount Google Drive and navigate to working directory:</strong> <br />
+ In a new cell, run
+    <pre><code> from google.colab import drive
+ drive.mount('/content/drive/')
+</code></pre>
+    <p>Navigate to the working directory of the notebook:</p>
+    <pre><code> %cd 'path/to/directory'
+</code></pre>
+  </li>
+  <li><strong>Convert the notebook to <code>.py</code> to run with <code>pipreqs</code>:</strong><br />
+ In a new cell, run
+    <pre><code> !jupyter nbconvert --to=python 'notebook_name.ipynb'
+</code></pre>
+  </li>
+  <li><strong>Install + run pipreqs:</strong> <br />
+ Install and use <code>pipreqs</code> with the <code>--use-local</code> flag to generate a list of all python packages and versions used by Colab in the notebook. These packages are determined by the program’s imports. In a new cell, run
+    <pre><code> !pip install pipreqs
+ !pipreqs --use-local
+</code></pre>
+    <p>This will generate a file named <code>requirements.txt</code>. Double check that the file contains the expected packages. If there were any other <code>.py</code> files in the directory, their imports will also be included in <code>requirements.txt</code>.</p>
+  </li>
+  <li><strong>Download <code>requirements.txt</code>:</strong> <br />
+ Download <code>requirements.txt</code> generated in the previous step and save it to the local directory containing the converted <code>.py</code> file downloaded in step 1.</li>
+</ol>
+
+<h2 id="b-build-a-docker-container">B. Build a Docker Container</h2>
+
+<p><b>The rest of the instructions occur on the CHTC system.</b></p>
+
+<p>If you don’t already have a Docker Hub account before starting this section, create one: <a href="https://hub.docker.com/">Docker Hub</a></p>
+
+<ol>
+  <li>
+    <p><strong>Upload files to CHTC:</strong><br /></p>
+
+    <p>Upload the <code>requirements.txt</code> file and the Python <code>.py</code> script saved from 
+ the previous step to your home directory on the HTC system.</p>
+  </li>
+  <li>
+    <p><strong>Create the Dockerfile:</strong><br /></p>
+
+    <p>Copy the <code>requirements.txt</code> file to CHTC, and create a file called <code>Dockerfile</code> (there is no extension for this type of file) that looks like this:</p>
+
+    <pre class="file"><code> FROM nvidia/cuda:11.4.2-cudnn8-runtime-ubuntu20.04
+ ADD requirements.txt /
+ RUN apt-get update &amp;&amp; apt-get install python3.7
+ RUN apt-get -y install python3-pip
+ RUN pip install -r /requirements.txt
+</code></pre>
+
+    <p>Using the Nvidia base container ensures that CUDA/CuDNN, two libraries often used by popular ML frameworks, are imported properly. If you know you require specific versions of CUDA/CuDNN, the base container can be adjusted accordingly. Additional containers can be found <a href="https://hub.docker.com/r/nvidia/cuda">here</a>.</p>
+
+    <p>Note that Python 3.7 is used in this example’s <code>Dockerfile</code> because at the time of writing, Colab runs on 3.7. Future updates to Colab may require an updated version of Python.</p>
+  </li>
+  <li>
+    <p><strong>Create a submit file:</strong></p>
+
+    <p>Create a file called <code>build.sub</code> that looks like</p>
+
+    <pre class="sub"><code> # Software build file
+
+ universe = vanilla
+ log = interactive.log
+
+ # bring along the requirements
+ transfer_input_files = requirements.txt, Dockerfile
+
+ +IsBuildJob = true
+ requirements = (OpSysMajorVer =?= 7)
+ request_cpus = 1
+ request_memory = 4GB
+ request_disk = 16GB
+
+ queue
+</code></pre>
+
+    <p>Some of the specified values, such as <code>request_memory</code> and <code>request_disk</code> might have to be updated to reflect the particular memory and disk requirements of your container. Building containers can use a surprising amount of disk, so if your build job continues to exit back to the submit node while the build is running, try increasing these values incrementally until the build succeeds. The amount of disk used to build the container may be significantly larger than the total size of the container when it is finished.</p>
+  </li>
+  <li>
+    <p><strong>Start an interactive job:</strong></p>
+
+    <p>Submit the job to HTCondor using the <code>-i</code> flag to indicate that it will be an interactive build job:
+ <code class="term">
+ condor_submit -i build.sub
+</code></p>
+  </li>
+  <li>
+    <p><strong>Build the container with <code>podman</code>:</strong></p>
+
+    <p>Once the interactive job has begun, use <code>podman</code> to login to Dockerhub:</p>
+    <pre class="term"><code> podman login docker.io
+</code></pre>
+    <p>When prompted, enter the username and password associated with your Dockerhub account.</p>
+
+    <p>Once logged in, build the container:</p>
+    <pre class="term"><code> podman build -t &lt;dockerhub_user/container_name:tag&gt; .
+</code></pre>
+    <p>For example, if you’re building the first version of a PyTorch container and your dockerhub username is chtc_user, your build command might look like</p>
+
+    <pre class="term"><code> podman build -t chtc_user/pytorch:v1 .
+</code></pre>
+  </li>
+  <li>
+    <p><strong>Upload to Dockerhub:</strong></p>
+
+    <p>Now find the image Hash ID associated with the container that was just built. Run <code>podman images</code> and copy the Hash ID of your container.</p>
+
+    <p>Push the container to dockerhub.io:</p>
+
+    <pre class="term"><code> podman push &lt;Hash ID&gt; &lt;dockerhub_user/container_name:tag&gt;
+</code></pre>
+
+    <p>Again, for <code>chtc_user</code>, this might look like <code>podman push 123456 chtc_user/pytorch:v1</code></p>
+
+    <p>Once podman has finished uploading the container, the container should be ready for use by HTCondor.</p>
+  </li>
+  <li>
+    <p><strong>Exit interactive job:</strong></p>
+
+    <p>In the terminal, type <code>exit</code>. This will terminate the interactive job and return you to the submit node.</p>
+  </li>
+</ol>
+
+<h2 id="c-submit-a-job">C. Submit a Job</h2>
+
+<ol>
+  <li>
+    <p><strong>Create job submit file:</strong></p>
+
+    <p>Create a submit file called something like <code>my_job.sub</code> that looks like this:</p>
+
+    <pre class="sub"><code> universe = docker
+ docker_image = your_image
+ log = job_$(Cluster).log
+ error = job_$(Cluster)_$(Process).err
+ output = job_$(Cluster)_$(Process).out
+
+ executable = python_script.py
+
+ should_transfer_files = YES
+ when_to_transfer_output = ON_EXIT
+ #transfer_input_files = 
+
+ request_gpus = 1
+ # list other GPU requirements, if needed
+    
+ request_cpus = 1
+ request_memory = 1GB
+ request_disk = 1GB
+
+ queue 1
+</code></pre>
+
+    <p>Fill in the Docker image name from the previous step, and the name of your python script. In the above example, a container called <code>chtc_user/pytorch:v1</code> was pushed to Dockerhub, so the string <code>chtc_user/pytorch:v1</code> would be included after the <code>docker_image</code> attribute.</p>
+  </li>
+  <li>
+    <p><strong>Add “shebang” to Python script</strong></p>
+
+    <p>In your Python script, put the following line (the first characters, <code>#!</code> are 
+ known as a shebang) as the very first line of your Python script:</p>
+
+    <pre class="file"><code> #!/usr/bin/env python3
+</code></pre>
+
+    <p>This line indicates that you want the script to be run as a Python script.</p>
+  </li>
+  <li>
+    <p><strong>Think about data!</strong></p>
+
+    <p>As with other jobs on CHTC, think about the data requirements for your job.. Jobs with larger requirements may require a larger value for the <code>request_memory</code> and <code>request_disk</code> attributes, and if you intend to transfer the data from the submit node, you may need to do so using one of CHTC’s alternative data transfer methods, such as Squid. More information about large file transfers can be found <a href="https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata">here</a>.</p>
+  </li>
+  <li>
+    <p><strong>Submit a test job, then submit the real thing.</strong></p>
+
+    <p>Try submitting a scaled-down test job to ensure everything is set up correctly. When the test job runs successfully, submit the real job.</p>
+  </li>
+</ol>
+
         </div>
     </div>
 </div>
-        
-        <div class="row">
-    <div class="col-12 col-md-8 order-2 order-md-1">
-        <h2>David O’Connor</h2>
-        <p>
-            David H. O’Connor, Ph.D., UW Medical Foundation (UWMF) Professor, Department of Pathology and Laboratory Medicine at the AIDS Vaccine Research Laboratory.<br/> <br/> Computational workflows that analyze and process genomics sequencing data have become the standard in Virology and genomics research. The resources provided by CHTC allow us to scale up the amount of sequence analysis performed while decreasing sequence processing time. An example of how we use CHTC is generating consensus sequences for COVID-19 samples. Part of this is a step that separates and sorts a multisample sequencing run into individual samples, maps the reads of these individual samples to a reference sequence, and then forms a consensus sequence for each sample. Simultaneously, different metadata and other accessory files are generated on a per-sample basis, and data is copied to and from local machines. This workflow is cumbersome when there are, for example, 4 sequencing runs with each run containing 96 samples. CHTC allows us to cut the processing time from 16 hours to 40 minutes due to the distribution of jobs to different CPUs. Overall, being able to use CHTC resources gives us a major advantage in producing results faster for large-scale and/or time-sensitive projects.
-
-        </p>
-    </div>
-    <div class="ms-md-5 col-12 col-md-3 order-1 order-md-2 d-flex flex-column">
-        <h2>&nbsp;</h2>
-        <div class="d-flex flex-grow-1">
-            <img style="max-height: 200px" class=" mx-auto my-auto img-fluid" src="/images/david-oconnor.jpg">
-        </div>
-    </div>
-</div>
-        
-        <div class="row">
-    <div class="col-12 col-md-8 order-2 order-md-1">
-        <h2>Small Molecule Screening Facility and Spencer Ericksen</h2>
-        <p>
-            Spencer Ericksen, Scientist II at the Small Molecule Screening Facility, part of the Drug Development Core – a shared resource in the UW Carbone Cancer Center.<br/> <br/> I have been working on computational methods for predicting biomolecular recognition processes. The motivation is to develop reliable models for predicting binding interactions between drug-like small molecules and therapeutic target proteins. Our team at SMSF works with campus investigators on early-stage academic drug discovery projects. Computational models for virtual screening could prioritize candidate molecules for faster, cheaper focused screens on just tens of compounds. To perform a virtual screen, the models evaluate millions to billions of molecules, a computationally daunting task. But CHTC facilitators have been with us through every obstacle, helping us to effectively scale through parallelization over HTC nodes, matching appropriate resources to specific modeling tasks, compiling software, and using Docker containers. Moreover, CHTC provides access to vast and diverse compute resources.
-
-        </p>
-    </div>
-    <div class="ms-md-5 col-12 col-md-3 order-1 order-md-2 d-flex flex-column">
-        <h2>&nbsp;</h2>
-        <div class="d-flex flex-grow-1">
-            <img style="max-height: 200px" class=" mx-auto my-auto img-fluid" src="/images/spencer-ericksen.jpg">
-        </div>
-    </div>
-</div>
-        
-        <div class="row">
-    <div class="col-12 col-md-8 order-2 order-md-1">
-        <h2>Natalia de Leon</h2>
-        <p>
-            Natalia de Leon, Professor of Agronomy, Department of Agronomy.<br/> <br/> The goal of her research is to identify efficient mechanisms to better understand the genetic constitution of economically relevant traits and to improve plant breeding efficiency. Her research integrates genomic, phenomic, and environmental information to accelerate translational research for enhanced sustainable crop productivity.
-
-        </p>
-    </div>
-    <div class="ms-md-5 col-12 col-md-3 order-1 order-md-2 d-flex flex-column">
-        <h2>&nbsp;</h2>
-        <div class="d-flex flex-grow-1">
-            <img style="max-height: 200px" class=" mx-auto my-auto img-fluid" src="/images/deLeon.jpg">
-        </div>
-    </div>
-</div>
-        
-        <div class="row">
-    <div class="col-12 col-md-8 order-2 order-md-1">
-        <h2>xDD project and Shanan Peters</h2>
-        <p>
-            Shanan Peters, project lead for xDD, Dean L. Morgridge Professor of Geology, Department of Geoscience.<br/> <br/> Shanan’s primary research thrust involves quantifying the spatial and temporal distribution of rocks in the Earth’s crust in order to constrain the long-term evolution of life and Earth’s surface environment. Compiling data from scientific publications is a key component of this work and Peters and his collaborators are developing machine reading systems deployed over the xDD digital library ad cyberinfrastructure hosted in the CHTC for this purpose.
-
-        </p>
-    </div>
-    <div class="ms-md-5 col-12 col-md-3 order-1 order-md-2 d-flex flex-column">
-        <h2>&nbsp;</h2>
-        <div class="d-flex flex-grow-1">
-            <img style="max-height: 200px" class=" mx-auto my-auto img-fluid" src="/images/peters.jpg">
-        </div>
-    </div>
-</div>
-        
-        <div class="row">
-    <div class="col-12 col-md-8 order-2 order-md-1">
-        <h2>Susan Hagness</h2>
-        <p>
-            In our research we're working on a novel computational tool for THz-frequency characterization of materials with high carrier densities, such as highly-doped semiconductors and metals. The numerical technique tracks carrier-field dynamics by combining the ensemble Monte Carlo simulator of carrier dynamics with the finite-difference time-domain technique for Maxwell's equations and the molecular dynamics technique for close-range Coulomb interactions. This technique is computationally intensive and each test runs long enough (12-20 hours) that our group's cluster isn't enough. This is why we think CHTC can help, to let us run more jobs than we're able to run now.
-
-        </p>
-    </div>
-    <div class="ms-md-5 col-12 col-md-3 order-1 order-md-2 d-flex flex-column">
-        <h2>&nbsp;</h2>
-        <div class="d-flex flex-grow-1">
-            <img style="max-height: 200px" class=" mx-auto my-auto img-fluid" src="/images/hagness.jpg">
-        </div>
-    </div>
-</div>
-        
-        <div class="row">
-    <div class="col-12 col-md-8 order-2 order-md-1">
-        <h2>Joao Dorea</h2>
-        <p>
-            Joao Dorea, Assistant Professor in the Department of Animal and Dairy Sciences/Department of Biological Systems Engineering.<br/> <br/> The Digital Livestock Lab develops research focused on high-throughput phenotyping strategies to optimize farm management decisions. Our research group is interested in the large-scale development and implementation of computer vision systems, wearable sensors, and infrared spectroscopy (NIR and MIR) to monitor animals in livestock systems. We have a large computer vision system implemented in two UW research farms that generate large datasets. With the help of CHTC, we can train deep learning algorithms with millions of parameters using large image datasets and evaluate their performance in farm settings in a timely manner. We use these algorithms to monitor animal behavior, growth development, social interaction, and to build predictive models for early detection of health issues and productive performance. Without access to the GPU cluster and the facilitation made by CHTC, we would not be able to quickly implement AI technologies in livestock systems.
-
-        </p>
-    </div>
-    <div class="ms-md-5 col-12 col-md-3 order-1 order-md-2 d-flex flex-column">
-        <h2>&nbsp;</h2>
-        <div class="d-flex flex-grow-1">
-            <img style="max-height: 200px" class=" mx-auto my-auto img-fluid" src="/images/joao-dorea.jpg">
-        </div>
-    </div>
-</div>
-        
-        <div class="row">
-    <div class="col-12 col-md-8 order-2 order-md-1">
-        <h2>Paul Wilson</h2>
-        <p>
-            Paul Wilson, head of The Computational Nuclear Engineering Research Group (CNERG), the Grainger Professor for Nuclear Engineering, and the current chair of the Department of Engineering Physics.<br/> <br/> CNERG’s mission is to foster the development of new generations of nuclear engineers and scientists through the development and deployment of open and reliable software tools for the analysis of complex nuclear energy systems. Our inspiration and motivation come from performing those analyses on large, complex systems. Such simulations require ever-increasing computational resources and CHTC has been our primary home for both HPC and HTC computation for nearly a decade. In addition to producing our results faster and without the burden of administering our computer hardware, we rely on CHTC resources to demonstrate performance improvements that arise from our methods development. The role-defining team of research computing facilitators has ensured a smooth onboarding of each of them and helped them find the resources they need to be most effective.
-
-        </p>
-    </div>
-    <div class="ms-md-5 col-12 col-md-3 order-1 order-md-2 d-flex flex-column">
-        <h2>&nbsp;</h2>
-        <div class="d-flex flex-grow-1">
-            <img style="max-height: 200px" class=" mx-auto my-auto img-fluid" src="/images/paul-wilson.jpg">
-        </div>
-    </div>
-</div>
-        
-        <div class="row">
-    <div class="col-12 col-md-8 order-2 order-md-1">
-        <h2>Atlas Experiment</h2>
-        <p>
-            <a href="http://atlas.ch"><strong>Atlas Experiment</strong></a>
-        </p>
-    </div>
-    <div class="ms-md-5 col-12 col-md-3 order-1 order-md-2 d-flex flex-column">
-        <h2>&nbsp;</h2>
-        <div class="d-flex flex-grow-1">
-            <img style="max-height: 200px" class=" mx-auto my-auto img-fluid" src="/images/atlas.jpg">
-        </div>
-    </div>
-</div>
-        
-        <div class="row">
-    <div class="col-12 col-md-8 order-2 order-md-1">
-        <h2>Biomagnetic Resonance Data Bank</h2>
-        <p>
-            The Biomagnetic Resonance Data Bank (BMRB) is headquarted within UW-Madison's National  Magnetic Resonance Facility at Madison (NMRFAM) and uses the CHTC for research in connection with the <a href="http://www.bmrb.wisc.edu">Biological Magnetic Resonance Data Bank</a> (BMRB).
-
-        </p>
-    </div>
-    <div class="ms-md-5 col-12 col-md-3 order-1 order-md-2 d-flex flex-column">
-        <h2>&nbsp;</h2>
-        <div class="d-flex flex-grow-1">
-            <img style="max-height: 200px" class=" mx-auto my-auto img-fluid" src="/images/logo_bmrb.svg">
-        </div>
-    </div>
-</div>
-        
-        <div class="row">
-    <div class="col-12 col-md-8 order-2 order-md-1">
-        <h2>CMS LHC Compact Muon Solenoid</h2>
-        <p>
-            The UW team participating in the Compact Muon Solenoid (CMS) experiment analyzes petabytes of data from proton-proton collisions in the Large Hadron Collider (LHC).  We use the unprecedented energies of the LHC to study Higgs Boson signatures, Electroweak Physics, and the possibility of exotic particles beyond the Standard Model of Particle Physics.  Important calculations are also performed to better tune the experiment's trigger system, which is responsible for making nanosecond-scale decisions about which collisions in the LHC should be recorded for further analysis.
-        </p>
-    </div>
-    <div class="ms-md-5 col-12 col-md-3 order-1 order-md-2 d-flex flex-column">
-        <h2>&nbsp;</h2>
-        <div class="d-flex flex-grow-1">
-            <img style="max-height: 200px" class=" mx-auto my-auto img-fluid" src="/images/LHC.jpg">
-        </div>
-    </div>
-</div>
-        
-        <div class="row">
-    <div class="col-12 col-md-8 order-2 order-md-1">
-        <h2>Barry Van Veen</h2>
-        <p>
-            The bio-signal processing laboratory develops statistical signal processing methods for biomedical problems.  We use CHTC for casual network modeling of brain electrical activity.  We develop methods for identifying network models from noninvasive measures of electric/ magnetic fields at the scalp, or invasive measures of the electric fields at or in the cortex, such as electrocorticography. Model identification involves high throughput computing applied to large datasets consisting of hundreds of spatial channels each containing thousands of time samples.
-        </p>
-    </div>
-    <div class="ms-md-5 col-12 col-md-3 order-1 order-md-2 d-flex flex-column">
-        <h2>&nbsp;</h2>
-        <div class="d-flex flex-grow-1">
-            <img style="max-height: 200px" class=" mx-auto my-auto img-fluid" src="/images/vanveen.jpg">
-        </div>
-    </div>
-</div>
-        
-        <div class="row">
-    <div class="col-12 col-md-8 order-2 order-md-1">
-        <h2>Phil Townsend</h2>
-        <p>
-            Professor <strong>Phil Townsend</strong> of Forestry and Wildlife Ecology says Our research (NASA & USDA Forest Service funded) strives to understand the outbreak dynamic of major forest insect pests in North America through simulation modeling. As part of this effort, we map forest species and their abundance using multi-temporal Landsat satellite data. My colleagues have written an automatic variable selection routine in MATLAB to preselect the most important image variables to model and map forest species abundance. However, depending on the number of records and the initial variables, this process can take weeks to run.  Hence, we seek resources to speed up this process.
-        </p>
-    </div>
-    <div class="ms-md-5 col-12 col-md-3 order-1 order-md-2 d-flex flex-column">
-        <h2>&nbsp;</h2>
-        <div class="d-flex flex-grow-1">
-            <img style="max-height: 200px" class=" mx-auto my-auto img-fluid" src="/images/townsend.jpg">
-        </div>
-    </div>
-</div>
-        
-    </div>
-</div>
-            
-
+</main>
     </main>
     <footer id="colophon" class="uw-footer">
     <div class="uw-footer-content">
