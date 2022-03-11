@@ -242,6 +242,66 @@ archives</a>.</p>
 
 <hr />
 
+<h2 id="htc-squid-proxy-issue-resolved-no-office-hours-next-tuesday-315">HTC Squid proxy issue resolved; No office hours next Tuesday (3/15)</h2>
+<h2 id="march-11-2022">March 11, 2022</h2>
+
+<p>Greetings CHTC Users,</p>
+
+<h3 id="squid-proxy-issue-resolved">Squid Proxy Issue Resolved</h3>
+
+<p>We have resolved the Squid proxy issue that was causing jobs to be held with the following error code:</p>
+<pre><code>Error from &lt;SLOTNAME&gt;: FILETRANSFER:1:non-zero exit (1) from 
+/usr/libexec/condor/curl_plugin. Error: Aborted due to lack 
+of progress using http_proxy=http://squid-cs-b240.chtc.wisc.edu:3128 
+(http://proxy.chtc.wisc.edu/SQUID/chtc/R361.tar.gz)
+</code></pre>
+
+<p>If your jobs have gone on hold with this error code, you can now release them (just one time) to re-enter the queue using the following command:</p>
+
+<pre><code>$ condor_release -constraint 'HoldReasonCode == 12 &amp;&amp; HoldReasonSubCode == 256'
+</code></pre>
+
+<p>If you have jobs held for this reason after today, or have any other issues transferring files from /squid, do not hesitate to reach out to the Research Computing Facilitators by emailing chtc@cs.wisc.edu.</p>
+
+<h3 id="no-office-hours-on-tuesday">No Office Hours on Tuesday</h3>
+
+<p>Since CHTC staff will be attending a conference next week, office hours on Tuesday (3/15) are canceled. We will still be available by email at chtc@cs.wisc.edu but response times may be longer than usual.</p>
+
+<p>Happy computing!</p>
+
+<p>Your CHTC Team</p>
+
+<hr />
+
+<h2 id="chtc-outage-concluded-on-march-10-unrelated-htc-squid-proxy-issue-jobs-held">CHTC outage concluded on March 10; Unrelated HTC Squid proxy issue (jobs held)</h2>
+<h3 id="march-11-2022-1">March 11, 2022</h3>
+
+<p>Greetings CHTC Users,</p>
+
+<p>All CHTC services (HPC cluster, all HTC execute nodes) were brought back up on Thursday (3/10) after server room maintenance was completed.</p>
+
+<p><strong>Separately, we’re working on a new issue impacting HTC jobs that transfer files via Squid</strong>, resulting in <em>some</em> Squid-dependent jobs going on hold for a reason like the following (visible in job log files for with ‘condor_q -hold’:</p>
+
+<pre><code>Error from &lt;SLOTNAME&gt;: FILETRANSFER:1:non-zero exit (1) from 
+/usr/libexec/condor/curl_plugin. Error: Aborted due to lack of progress 
+using http_proxy=http://squid-cs-b240.chtc.wisc.edu:3128 
+(http://proxy.chtc.wisc.edu/SQUID/chtc/R361.tar.gz)
+</code></pre>
+
+<p>Users can view jobs held for this specific reason by using the following command:</p>
+<pre><code>$ condor_q -constraint 'HoldReasonCode == 12 &amp;&amp; HoldReasonSubCode == 256'
+</code></pre>
+
+<p>Once we have resolved this issue, we will follow up with instructions on how users can release just the impacted jobs to run again. Please otherwise leave them held in the queue, for now.</p>
+
+<p>As always, please let us know if you notice any other issues by emailing chtc@cs.wisc.edu.</p>
+
+<p>Best,</p>
+
+<p>Your CHTC Team</p>
+
+<hr />
+
 <h2 id="chtc-outages-starting-5pm-today-39">CHTC outages starting 5pm today (3/9)</h2>
 <h3 id="march-9-2022">March 9, 2022</h3>
 
