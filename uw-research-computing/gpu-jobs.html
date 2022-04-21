@@ -380,6 +380,11 @@ a “requirements” statement to your submit file that uses one of the
 attributes shown above. If you want a certain class of GPU, use <code>CUDACapability</code>:
     <pre class="sub"><code>requirements = (CUDACapability == 7.5)
 </code></pre>
+
+    <p>You can see a table of the different attributes that HTCondor tracks 
+  about the GPU nodes, and how to explore their values, in the section
+  on <a href="#d-using-condor_status-to-explore-chtc-gpus">Using condor_status to explore GPUs</a>.</p>
+
     <p>It may be tempting to add requirements for specific GPU servers or
   types of GPU cards. However, when possible, it is best to write your
   code so that it can run across GPU types and without needing the
