@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Transforming research with high throughput computing</title>
+<title>For neuroscientist Chris Cox, the OSG helps process mountains of data</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -200,28 +200,49 @@
     <div class="row justify-content-center">
         <div class="col-12 col-sm-11 col-md-9 col-lg-8">
             <h1 class="uw-mini-bar mb-4">
-                Transforming research with high throughput computing
+                For neuroscientist Chris Cox, the OSG helps process mountains of data
             </h1>
-            <p><strong><em>During the OSG Virtual School Showcase, three different researchers shared how high throughput computing has made lasting impacts on their work.</em></strong></p>
+            <p>Whether exploring how the brain is fooled by fake news or explaining the decline of knowledge in dementia, cognitive neuroscientists like Chris Cox are relying more on high-throughput computing resources like the Open Science Pool to understand how the brain makes sense of information.</p>
 
-<p><img src="https://raw.githubusercontent.com/CHTC/Articles/main/images/OSGVS21-Logo.png" alt="OSG Virtual School 2021 Logo" /></p>
+<p>Cognitive neuroscientist Chris Cox recently defended his dissertation at the University of Wisconsin Madison (UW-Madison). Unlike molecular or cellular study of neuroscience, cognitive neuroscience seeks a larger view of neural systems—of “how the brain supports cognition,” said Cox.</p>
 
-<p>Over 40 researchers and campus research computing staff were selected to attend this year’s OSG Virtual School, all united by a shared desire to learn how high throughput computing can advance their work. During the first two weeks of August, school participants were busy attending lectures, watching demonstrations, and completing hands-on exercises; but on Wednesday, August 11, participants had the chance to hear from researchers who have successfully used high throughput computing (HTC) to transform their work. Year after year, this event –– the HTC Showcase –– is one highlight of the experience for many User School participants. This year, three different researchers in the fields of structural biology, psychology, and particle physics shared how HTC impacted their work. Read the articles below to learn about their stories.</p>
+<p>Cox and other neuroscience researchers seek to understand which parts of the brain support memory and decision making, and answer more nuanced questions like how objects are represented in the brain. For Cox, this has involved developing new techniques for studying the brain that rely heavily on high-throughput computing.</p>
 
-<p><strong><a href="https://path-cc.io/news/2021-08-19-Spencer-Showcase/">Scaling virtual screening to ultra-large virtual chemical libraries</a></strong> – Spencer Ericksen, Carbone Cancer Center, University of Wisconsin-Madison</p>
+<p>“Our research gets into the transformations that take place in the brain. We ask questions like ‘how is information from our senses combined to support abstract knowledge that seems to transcend our senses,’” said Cox. “For example, we can recognize a single object from different perspectives and scales as being the same thing, and when we read a word we can call to mind all kinds of meaning that have little if anything to do with the letters on the page.”</p>
 
-<p><strong><a href="https://path-cc.io/news/2021-08-19-Hannah-Showcase/">Using HTC for a simulation study on cross-validation for model evaluation in psychological science</a></strong> – Hannah Moshontz, Department of Psychology, University of Wisconsin-Madison</p>
+<p>The brain is highly complex, so neural imaging methods like functional MRI yield thousands of individual data points for every two seconds of imaging. Cox first turned to high performance computing and finally to the Open Science Pool for high-throughput computing (HTC) to deal with the massive amounts of data. Because computing support at UW-Madison is so seamless, when he first started out on HTC, Cox wasn’t even aware that the OSG was powering the vast improvement in his research.</p>
 
-<p><strong><a href="https://path-cc.io/news/2021-08-19-Anirvan-Showcase/">Antimatter: Using HTC to study very rare processes</a></strong> – Anirvan Shukla, Department of Physics, University of Hawai’i Mānoa</p>
+<p>“The OSG at UW-Madison is like flipping a switch,” said Cox. “It cut my computing time in half and was totally painless. Our research was a good candidate for the OSG and the advantages of HTC. The OSG and the Center for High Throughput Computing at UW-Madison have empowered us to get results quickly that inform our next steps. This would be impossible without the extensive and robust HTC infrastructure provided by the OSG.”</p>
 
-<p>Collectively, these testimonies demonstrate how high throughput computing can transform research. In a few years, the students of this year’s User School might be the next Spencer, Hannah, and Anirvan, representing the new generation of researchers empowered by high throughput computing.</p>
+<p>A 45-minute experiment from many participants would produce enormous amounts of data. “From that, we can make inferences that generalize to humanity at large about how our brains work,” said Cox. “Our previous approach was to only look for activation that is located in the same place in the brain in different people and look for anatomical landmarks that we can line up across people. Then we ask whether they respond the same way (across people).”</p>
 
-<p>…</p>
+<p>“But now, we have expanded beyond that approach and look at how multiple parts of the brain are working together,” said Cox. “Even in one region of the brain, not every subcomponent might be working the same way, so when we start adding in all this extra diversity of the activation profile, we get very complicated models that have to be tuned to the data set.”</p>
 
-<p><em>Visit the <a href="https://opensciencegrid.org/virtual-school-2021/materials/">materials page</a> to browse slide decks, exercises, and recordings of public lectures from OSG Virtual School 2021.</em></p>
+<p>Cox’s major parameters now are how many data points to include when it’s time to build a model. “For cross-validation, that then increases the need for computing by an order of magnitude,” said Cox.</p>
 
-<p><em>Established in 2010, <a href="https://opensciencegrid.org/virtual-school-2021/">OSG School</a>, typically held each summer at the University of Wisconsin–Madison, is an annual education event for researchers who want to learn how to use distributed high throughput computing methods and tools. We hope to return to an in-person User School in 2022.</em></p>
+<p>Each model can take 30 minutes to an hour to compute. Cox then runs hundreds of thousands of them to narrow in on the appropriate parameter values.</p>
 
+<p>Further increasing the computational burden, this whole procedure has to be done multiple times, each time holding out a portion of the data for cross-validation. “By cross-validating and running simulations to determine what random performance looks like, we can test whether the models are revealing something meaningful about the brain,” said Cox.</p>
+
+<p>Cox gains a particular advantage from high-throughput computing on the OSG by creating novel optimization procedures to probe MRI data that is more connected with cognitive theory.</p>
+
+<p>“Saving a minute or two on each individual job is not important,” said Cox. “Our main priority can focus on the most conceptually sound algorithms and we can get to real work more quickly. We don’t need to optimize for a HPC cluster, we can just use the scale of HTC.”</p>
+
+<p>Cox’s research is beginning to explore the neural dynamics involved when calling to mind a concept, with millisecond resolution. This requires looking at data collected with other methods like electroencephalography (EEG) and electrocortography (EcoG). Cox said that it takes about two full seconds for MRI to collect a single sample.</p>
+
+<p>“The problem is that lots of cognitive activity is going on in those two seconds that is being missed,” said Cox. “When you gain resolution in the time domain you have a chance to notice qualitative shifts that may delimit different neural processes. Identifying when they occur has a lot of theoretical relevance, but also practical relevance in understanding when information is available to the person.”</p>
+
+<p>“People think of the brain as a library—adding books to the stack and looking in a card catalog,” said Cox. “We are seeing knowledge more like Lego blocks than a library—no single block has meaning, but a collection can express meaning when properly composed. The brain puts those blocks together to give meaning. My research so far supports the Lego perspective over the library perspective.”</p>
+
+<p>Cognitive neuroscience may offer clues to cognitive decline, which in turn could inform how we think about learning, instruction, and training. How we understand challenges like dementia can lead to better, more correct therapies by understanding the patterns of decline in the brain.</p>
+
+<p>“Also, having a more accurate understanding of what it means to ‘know’ something can also help us understand how fake news and misinformation take hold in individuals and spread through social networks,” said Cox. “At the core of these issues are fundamental questions about how we process and assimilate information.</p>
+
+<p>“We know it is hard to get someone to change their mind, so the question is what is happening in the brain. The answers depend on a better understanding of what knowledge is and how we acquire it. Our research is pointed to these higher level questions.”</p>
+
+<p>“Once we had access to the computational resources of the OSG, we saw a paradigm shift in the way we think about research,” said Cox. “Previously, we might have jobs running for months. With HTC on the OSG, that job length became just a few days. It gave new legs to the whole research program and pushed us forward on new optimization techniques that we never would have tried otherwise.”</p>
+
+<p>– Greg Moore</p>
 
         </div>
     </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Transforming research with high throughput computing</title>
+<title>OSG fuels a student-developed computing platform to advance RNA nanomachines</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -200,28 +200,53 @@
     <div class="row justify-content-center">
         <div class="col-12 col-sm-11 col-md-9 col-lg-8">
             <h1 class="uw-mini-bar mb-4">
-                Transforming research with high throughput computing
+                OSG fuels a student-developed computing platform to advance RNA nanomachines
             </h1>
-            <p><strong><em>During the OSG Virtual School Showcase, three different researchers shared how high throughput computing has made lasting impacts on their work.</em></strong></p>
+            <p><strong><em>How undergraduates at the University of Nebraska-Lincoln developed a science gateway that enables researchers to build RNA nanomachines for therapeutic, engineering, and basic science applications.</em></strong></p>
 
-<p><img src="https://raw.githubusercontent.com/CHTC/Articles/main/images/OSGVS21-Logo.png" alt="OSG Virtual School 2021 Logo" /></p>
+<p><img src="https://raw.githubusercontent.com/CHTC/Articles/main/images/Science-Gateway-Students.jpeg" alt="UNL students on graduation" /></p>
 
-<p>Over 40 researchers and campus research computing staff were selected to attend this year’s OSG Virtual School, all united by a shared desire to learn how high throughput computing can advance their work. During the first two weeks of August, school participants were busy attending lectures, watching demonstrations, and completing hands-on exercises; but on Wednesday, August 11, participants had the chance to hear from researchers who have successfully used high throughput computing (HTC) to transform their work. Year after year, this event –– the HTC Showcase –– is one highlight of the experience for many User School participants. This year, three different researchers in the fields of structural biology, psychology, and particle physics shared how HTC impacted their work. Read the articles below to learn about their stories.</p>
+<p><em>The UNL students involved in the capstone project, on graduation day. Order from left to right: Evan, Josh, Dan, Daniel, and Conner.</em></p>
 
-<p><strong><a href="https://path-cc.io/news/2021-08-19-Spencer-Showcase/">Scaling virtual screening to ultra-large virtual chemical libraries</a></strong> – Spencer Ericksen, Carbone Cancer Center, University of Wisconsin-Madison</p>
+<p>When a science gateway built by a group of undergraduate students is deployed this fall, it will open the door for researchers to leverage the capabilities of advanced software and the capacity of the <a href="https://opensciencegrid.org/about/open_science_pool/">Open Science Pool</a> (OSPool). Working under the guidance of researcher <a href="https://chem.unl.edu/joseph-yesselman">Joe Yesselman</a> and longtime OSG contributor <a href="https://derekweitzel.com/">Derek Weitzel</a>, the students united advanced simulation technology and a national, open source of high throughput computing capacity –– all within an intuitive, web-accessible science gateway.</p>
 
-<p><strong><a href="https://path-cc.io/news/2021-08-19-Hannah-Showcase/">Using HTC for a simulation study on cross-validation for model evaluation in psychological science</a></strong> – Hannah Moshontz, Department of Psychology, University of Wisconsin-Madison</p>
+<p>Joe, a biochemist, has been fascinated by computers and mathematical languages for as long as he can remember. Reminiscing to when he first adopted computer programming and coding as a hobby back in high school, he reflects: “English was difficult for me to learn, but for some reason mathematical languages make a lot of sense to me.”</p>
 
-<p><strong><a href="https://path-cc.io/news/2021-08-19-Anirvan-Showcase/">Antimatter: Using HTC to study very rare processes</a></strong> – Anirvan Shukla, Department of Physics, University of Hawai’i Mānoa</p>
+<p>Today, he is an Assistant Professor of Chemistry at the University of Nebraska-Lincoln (UNL), and his affinity for computer science hasn’t waned. Leading the <a href="https://yesselmanlab.com/">Yesselman Lab</a>, he relies on the interplay between computation and experimentation to study the unique structural properties of RNA.</p>
 
-<p>Collectively, these testimonies demonstrate how high throughput computing can transform research. In a few years, the students of this year’s User School might be the next Spencer, Hannah, and Anirvan, representing the new generation of researchers empowered by high throughput computing.</p>
+<p>In September of 2020, Joe began collaborating with UNL’s <a href="https://hcc.unl.edu/">Holland Computing Center</a> (HCC) and the <a href="https://opensciencegrid.org/">OSG</a> to accelerate RNA nanostructure research everywhere by making his lab’s <a href="https://simtk.org/frs/?group_id=1749">RNAMake software suite</a> accessible to other scientists through a web portal. RNAMake enables researchers to build nanomachines for therapeutic, engineering, and basic science applications by simulating the 3D design of RNA structures.</p>
 
-<p>…</p>
+<p>Five UNL undergraduate students undertook this project as part of a year-long computer science capstone experience. By the end of the academic year, the students developed a science gateway –– an intuitive web-accessible interface that makes RNAMake easier and faster to use. Once it’s deployed this fall, the science gateway will put the Yesselman Lab’s advanced software and the shared computing resources of the OSPool into the hands of researchers, all through a mouse and keyboard.</p>
 
-<p><em>Visit the <a href="https://opensciencegrid.org/virtual-school-2021/materials/">materials page</a> to browse slide decks, exercises, and recordings of public lectures from OSG Virtual School 2021.</em></p>
+<p>The gateway’s workflow is efficient and simple. Researchers upload their input files, set a few parameters, and click the submit button –– no command lines necessary. Short simulations will take merely a few seconds, while complex simulations can last up to an hour. Once the job is completed, an email appears in their inbox, prompting them to analyze and download the resulting RNA nanostructures through the gateway.</p>
 
-<p><em>Established in 2010, <a href="https://opensciencegrid.org/virtual-school-2021/">OSG School</a>, typically held each summer at the University of Wisconsin–Madison, is an annual education event for researchers who want to learn how to use distributed high throughput computing methods and tools. We hope to return to an in-person User School in 2022.</em></p>
+<p>This was no small feat. Collaboration among several organizations brought this seemingly simple final product to fruition.</p>
 
+<p>To begin the process, the students received a number of startup allocations from the <a href="https://www.xsede.org/">Extreme Science and Engineering Discovery Environment</a> (XSEDE). When it was time to build the application, they used <a href="https://airavata.apache.org/">Apache Airavata</a> to power the science gateway and they extended this underlying software in some notable ways. In order to provide researchers with more intuitive results, they implemented a table viewer and a 3D molecule visualization tool. Additionally, they added the ability for Airavata to submit directly to <a href="https://research.cs.wisc.edu/htcondor/index.html">HTCondor</a>, making it possible for simulations to be distributed across the resources offered by the OSPool.</p>
+
+<p>The simulations themselves are small, short, and can be run independently. Furthermore, many of these simulations are needed in order to discover the right RNA nanostructures for each researcher’s purpose. Combined, these qualities make the jobs a perfect candidate for the OSPool’s distributed high throughput computing capabilities, enabled by computing capacity from campuses across the country.</p>
+
+<p>Commenting on the incorporation of OSG resources, project sponsor Derek Weitzel explains how the gateway “not only makes it easier to use RNAMake, but it also distributes the work on the OSPool so that researchers can run more RNAMake simulations at the same time.” If the scientific process is like a long road trip, using high throughput computing isn’t even like taking the highway –– it’s like skipping the road entirely and taking to the skies in a high-speed jet.</p>
+
+<p>The science gateway has immense potential to transform the way in which RNA nanostructure research is conducted, and the collaboration required to build it has already made lasting impacts on those involved. The group of undergraduate students are, in fact, no longer undergraduates. The team’s student development manager, Daniel Shchur, is now a software design engineer at <a href="https://www.css-design.com/">Communication System Solutions</a> in Lincoln, Nebraska. Reflecting on the capstone project, he remarks, “I think the most useful thing that my teammates and I learned was just being able to collaborate with outside people. It was definitely something that wasn’t taught in any of our classes and I think that was the most invaluable thing we learned.”</p>
+
+<p>But learning isn’t just exclusive to students. Joe notes that he gained some unexpected knowledge from the students and Derek. “I learned a ton about software development, which I’m actually using in my lab,” he explains. “It’s very interesting how people can be so siloed. Something that’s so obvious, almost trivial for Derek is something that I don’t even know about because I don’t have that expertise. I loved that collaboration and I loved hearing his advice.”</p>
+
+<p>In the end, this collaboration vastly improved the accessibility of <a href="https://simtk.org/frs/?group_id=1749">RNAMake</a>, Joe’s software suite and the focus of the science gateway. Perhaps he explains it best with an analogy: ”RNAMake is basically a set of 500 different LEGO® pieces. Using enthusiastic gestures, Joe continues by offering an example: “Suppose you want to build something from this palm to this palm, in three-dimensional space. It [RNAMake] will find a set of LEGO® pieces that will fit there.”</p>
+
+<p><img src="https://raw.githubusercontent.com/CHTC/Articles/main/images/RNAMake-Example.png" alt="Example of how RNAMake works" /></p>
+
+<p><em>A demonstration of how RNAMake’s design algorithm works. Credit: Yesselman, J.D., Eiler, D., Carlson, E.D. et al. Computational design of three-dimensional RNA structure and function. Nat. Nanotechnol. 14, 866–873 (2019). <a href="https://doi.org/10.1038/s41565-019-0517-8">https://doi.org/10.1038/s41565-019-0517-8</a></em></p>
+
+<p>Since the possible combinations of these LEGO® pieces of RNA are endless, this tool saves users the painstaking work of predicting the structures manually. However, the installation and use of RNAMake requires researchers to have a large amount of command line knowledge –– something that the average biochemist might not have.</p>
+
+<p>Ultimately, the science gateway makes this previously complicated software suddenly more accessible, allowing researchers to easily, quickly, and accurately design RNA nanostructures.</p>
+
+<p>These structures are the basis for RNA nanomachines, which have a vast range of applications in society. Whether it be <a href="https://doi.org/10.1038/nrg2504">silencing RNAs</a> that are used in clinical trials to cut cancer genes, or <a href="https://doi.org/10.1038/s41587-020-0571-7">RNA biosensors</a> that effectively bind to small molecules in order to detect contaminants even at low concentrations –– the RNAMake science gateway can help researchers design and build these structures.</p>
+
+<p>Perhaps the most relevant and pressing applications are RNA-based vaccines like Moderna and Pfizer. These vaccines continue to be shipped across cities, countries, and continents to reach people in need, and it’s crucial that they remain in a stable form throughout their journey. Insight from RNA nanostructures can help ensure that these long strands of mRNA maintain stability so that they can eventually make their way into our cells.</p>
+
+<p>Looking to the future, a second science gateway capstone project is already being planned for next year at UNL. Although it’s currently unclear what field of research it will serve, there’s no doubt that this project will foster collaboration, empower students and researchers, and impact society –– all through a few strokes on a keyboard.</p>
 
         </div>
     </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Transforming research with high throughput computing</title>
+<title>Machine learning insights into molecular science using the Open Science Pool</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -200,27 +200,46 @@
     <div class="row justify-content-center">
         <div class="col-12 col-sm-11 col-md-9 col-lg-8">
             <h1 class="uw-mini-bar mb-4">
-                Transforming research with high throughput computing
+                Machine learning insights into molecular science using the Open Science Pool
             </h1>
-            <p><strong><em>During the OSG Virtual School Showcase, three different researchers shared how high throughput computing has made lasting impacts on their work.</em></strong></p>
+            <p>Machine learning insights into molecular science using the Open Science Pool
+Computation has extended what researchers can investigate in chemistry, biology, and material science. Studying complex systems like proteins or nanocomposites can use similar techniques for common challenges. For example, computational power is expanding the horizons of protein research and opening up vast new possibilities for drug discovery and disease treatment.</p>
 
-<p><img src="https://raw.githubusercontent.com/CHTC/Articles/main/images/OSGVS21-Logo.png" alt="OSG Virtual School 2021 Logo" /></p>
+<p>Olexandr Isayev is an assistant professor at the School of Pharmacy, University of North Carolina (UNC) at Chapel Hill. Isayev is part of a group at UNC using machine learning for chemical problems and material science.</p>
 
-<p>Over 40 researchers and campus research computing staff were selected to attend this year’s OSG Virtual School, all united by a shared desire to learn how high throughput computing can advance their work. During the first two weeks of August, school participants were busy attending lectures, watching demonstrations, and completing hands-on exercises; but on Wednesday, August 11, participants had the chance to hear from researchers who have successfully used high throughput computing (HTC) to transform their work. Year after year, this event –– the HTC Showcase –– is one highlight of the experience for many User School participants. This year, three different researchers in the fields of structural biology, psychology, and particle physics shared how HTC impacted their work. Read the articles below to learn about their stories.</p>
+<p>“Specifically, we apply machine learning to chemical and material science data to understand the data, find patterns in it, and make predictive models,” says Isayev. “We focus on three areas: computer-aided design of novel materials, computational drug discovery, and acceleration of quantum mechanical methods with GPUs (graphic processing units) and machine learning.”</p>
 
-<p><strong><a href="https://path-cc.io/news/2021-08-19-Spencer-Showcase/">Scaling virtual screening to ultra-large virtual chemical libraries</a></strong> – Spencer Ericksen, Carbone Cancer Center, University of Wisconsin-Madison</p>
+<p>For studying drug discovery, where small organic molecule binds to a protein receptor, Isayev uses machine learning to build predictive models based on historical collection of experimental data. “We want to challenge models and find a new molecule with better binding properties,” says Isayev.</p>
 
-<p><strong><a href="https://path-cc.io/news/2021-08-19-Hannah-Showcase/">Using HTC for a simulation study on cross-validation for model evaluation in psychological science</a></strong> – Hannah Moshontz, Department of Psychology, University of Wisconsin-Madison</p>
+<div class="row my-4">
+  <div class="col-md-6">
+    <img class="mr-3" alt="Protein model visualization" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/molcryst.png" />
+  </div>
+  <div class="col-md-6">
+    <h5 class="mt-0">Protein Model</h5>
+    <p>Example of a protein model that Isayev and his group study. Courtesy image.</p>
+  </div>
+</div>
 
-<p><strong><a href="https://path-cc.io/news/2021-08-19-Anirvan-Showcase/">Antimatter: Using HTC to study very rare processes</a></strong> – Anirvan Shukla, Department of Physics, University of Hawai’i Mānoa</p>
+<p>Similar to the human genome project, five years ago President Obama created a new Materials Genome Initiative to accelerate the design of new materials. Using machine learning methods based on the crystal structure of the material he is studying, Isayev can predict its physical properties.</p>
 
-<p>Collectively, these testimonies demonstrate how high throughput computing can transform research. In a few years, the students of this year’s User School might be the next Spencer, Hannah, and Anirvan, representing the new generation of researchers empowered by high throughput computing.</p>
+<p>“Looking at a molecule or material based on geometry and topology, we can get the energy, and predict critical physical properties,” says Isayev. “This machine learning allows us to avoid many expensive uses of numeric simulation to understand the material.”</p>
 
-<p>…</p>
+<p>The challenge for Isayev’s group is that initial data accumulation is extremely numerically time consuming. So, they use the Open Science Pool to run simulations. Based on the data, they train their machine learning model, so the next time, instead of a time-consuming simulation model, they can use the machine learning model on a desktop PC.</p>
 
-<p><em>Visit the <a href="https://opensciencegrid.org/virtual-school-2021/materials/">materials page</a> to browse slide decks, exercises, and recordings of public lectures from OSG Virtual School 2021.</em></p>
+<p>“Using machine learning to do the preliminary screening saves a lot of computing time,” says Isayev. “Since we performed the hard work, scientists can save a lot of time by prioritizing a few promising candidate materials instead of running everything.”</p>
 
-<p><em>Established in 2010, <a href="https://opensciencegrid.org/virtual-school-2021/">OSG School</a>, typically held each summer at the University of Wisconsin–Madison, is an annual education event for researchers who want to learn how to use distributed high throughput computing methods and tools. We hope to return to an in-person User School in 2022.</em></p>
+<p>For studying something like a photovoltaic semiconductor, Isayev selects a candidate after running about a thousand of quantum mechanical calculations. He then uses machine learning to screen 50,000 materials. “You can do this on a laptop,” says Isayev. “We prioritize a few—like ten to fifty. We can predict what to run next instead of running all of them. This saves a lot of computing time and gives us a powerful tool for screening and prioritization.”</p>
+
+<p>On the OSG, they run “small density function (DFT) calculations. We are interested in molecular properties,” says Isayev. “We run a program package called ORCA (Quantum Chemistry Program), a free chemistry package. It implements lots of QM methods for molecules and crystals. We use it and then we have our own scripts, run them on the OSG, collect the data, and then analyze the data.”</p>
+
+<p>“I am privileged to work with extremely talented people like Roman Zubatyuk,” says Isayev. Zubatyuk works with Isayev on many different projects. “Roman has developed our software ecosystem container using <a href="https://www.docker.com/what-docker">Docker</a>. These simulations run locally on our machines through the Docker virtual environment and eliminate many issues. With a central database and set of scripts, we could seamlessly run hundreds of thousands of simulations without any problems.”</p>
+
+<p>Finding new materials and molecules are hard science problems. “There is no one answer when looking for a new molecule,” says Isayev. “We cannot just use brute force. We have to be creative because it is like looking for a needle in a hay stack.”</p>
+
+<p>For something like a solar cell device, researchers might find a drawback in the performance of the material. “We are looking to improve current materials, improve their performance, or make them cheaper, so we can move them to mass production so everyone benefits,” says Isayev.</p>
+
+<p>“For us, the OSG is a fantastic resource for which we are very grateful,” says Isayev. “It gives us access to computation that enables our simulations that we could not do otherwise. To run all our simulations requires lots of computing resources that we cannot run on a local cluster. To do our simulation screening, we have to perform lots of calculations. We can easily distribute these calculations because they don’t need to communicate to each other. The OSG is a perfect fit.”</p>
 
 
         </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Transforming research with high throughput computing</title>
+<title>Learning and adapting with OSG: Investigating the strong nuclear force</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -200,28 +200,68 @@
     <div class="row justify-content-center">
         <div class="col-12 col-sm-11 col-md-9 col-lg-8">
             <h1 class="uw-mini-bar mb-4">
-                Transforming research with high throughput computing
+                Learning and adapting with OSG: Investigating the strong nuclear force
             </h1>
-            <p><strong><em>During the OSG Virtual School Showcase, three different researchers shared how high throughput computing has made lasting impacts on their work.</em></strong></p>
+            <figure>
+  <img src="https://raw.githubusercontent.com/CHTC/Articles/main/images/Spectrometer.jpg" alt="The GRIFFIN Spectrometer" />
+  <figcaption class="figure-caption">The GRIFFIN Spectrometer. (Image credit: Kirk Chantraine, TRIUMF Photowalk 2018).<br /></figcaption>
+</figure>
 
-<p><img src="https://raw.githubusercontent.com/CHTC/Articles/main/images/OSGVS21-Logo.png" alt="OSG Virtual School 2021 Logo" /></p>
+<p>Connor Natzke’s journey with the OSG Consortium began in 2019 as a student of the OSG User School. Today, nearly three years later, Natzke has executed
+600,000 simulations with the help of OSG staff and prior OSG programming. These simulations, each of them submitted as a job, logged over 135,000 core
+hours provided by the Open Science Pool (OSPool). Natzke’s history with the OSG Consortium reflects a pattern of learning, adapting, and improving that
+translates to the acceleration and expansion of scientific discovery. During the March <a href="https://osg-htc.org/all-hands/2022/">OSG All-Hands Meeting 2022</a>,
+Natzke was presented the David Swanson Memorial Award, which recognized him for his dedication and tenacity since joining the OSG Community.</p>
 
-<p>Over 40 researchers and campus research computing staff were selected to attend this year’s OSG Virtual School, all united by a shared desire to learn how high throughput computing can advance their work. During the first two weeks of August, school participants were busy attending lectures, watching demonstrations, and completing hands-on exercises; but on Wednesday, August 11, participants had the chance to hear from researchers who have successfully used high throughput computing (HTC) to transform their work. Year after year, this event –– the HTC Showcase –– is one highlight of the experience for many User School participants. This year, three different researchers in the fields of structural biology, psychology, and particle physics shared how HTC impacted their work. Read the articles below to learn about their stories.</p>
+<figure class="figure float-end" style="margin-left: 1em">
+  <img src="https://raw.githubusercontent.com/CHTC/Articles/main/images/Connor-Natzke-Square-smaller.jpg" class="figure-img img-fluid rounded" alt="Connor Natzke" width="350px" />
+  <figcaption class="figure-caption">Connor Natzke<br /></figcaption>
+</figure>
 
-<p><strong><a href="https://path-cc.io/news/2021-08-19-Spencer-Showcase/">Scaling virtual screening to ultra-large virtual chemical libraries</a></strong> – Spencer Ericksen, Carbone Cancer Center, University of Wisconsin-Madison</p>
+<p>Natzke is a Ph.D. student at the <a href="https://www.mines.edu/">Colorado School of Mines</a> and is currently located at <a href="https://www.triumf.ca/">TRIUMF</a>, a particle
+physics laboratory in Vancouver, British Columbia. Natzke’s research focuses on the strong nuclear force, a fundamental force in nature that keeps protons and neutrons bound together in a cohesive unit at
+the center of an atom. This force exists at subatomic scales. Therefore, Natzke and his team require something quite large to observe it –– the <a href="https://griffin.triumf.ca/index.html">GRIFFIN</a>
+spectrometer. Standing at over ten feet tall, GRIFFIN can measure the angle between photons emitted from an unstable atomic nucleus located at the center
+of the instrument. This angle reveals important information about nuclear structure, but Natzke relies on numerous simulations to unveil the whole picture.</p>
 
-<p><strong><a href="https://path-cc.io/news/2021-08-19-Hannah-Showcase/">Using HTC for a simulation study on cross-validation for model evaluation in psychological science</a></strong> – Hannah Moshontz, Department of Psychology, University of Wisconsin-Madison</p>
+<p>Because the gamma-ray detectors that make up GRIFFIN have limits to their measurement capabilities, Natzke and his team use a Monte Carlo simulation
+package called GEANT4 to reconstruct the angle between the emitted photons more precisely. This simulation involves mapping a large parameter space ––
+an energy surface –– of individual photon energies. Forty-one combinations of photon energies are needed to make one of these maps and three simulations
+are run for each of these combinations, with each requiring one billion simulated events. The resulting time required to make just one energy surface map is fifty thousand core hours or roughly five years and nine months if Natzke was relying simply on his laptop’s computational power.</p>
 
-<p><strong><a href="https://path-cc.io/news/2021-08-19-Anirvan-Showcase/">Antimatter: Using HTC to study very rare processes</a></strong> – Anirvan Shukla, Department of Physics, University of Hawai’i Mānoa</p>
+<p>“With standard computation, this quickly becomes an intractable project,” Natzke explains. “Luckily, I attended the OSG User School in 2019 and learned that
+Monte Carlo simulations are essentially the poster child for distributed high-throughput computing.”</p>
 
-<p>Collectively, these testimonies demonstrate how high throughput computing can transform research. In a few years, the students of this year’s User School might be the next Spencer, Hannah, and Anirvan, representing the new generation of researchers empowered by high throughput computing.</p>
+<p>With Monte Carlo simulations, one simulation of one billion events produces results equivalent to one million simulations of one thousand events.
+This unique quality transforms what would otherwise be a single lengthy and time-consuming job into many short and quick jobs that can be scaled out to
+run in a high-throughput environment. As Natzke sums it up, “It’s frankly beautiful how easily this works.”</p>
+
+<p>With the help of OSG Research Computing Facilitation Lead Lauren Michael, Natzke used a personal meta-scheduler for HTCondor called
+<a href="https://htcondor.org/dagman/dagman.html">DAGMan</a> (Directed Acyclic Graph Manager) to automate his workflow. He wrote python scripts that created and
+submitted the DAG file to automate the process further. In total, this workflow took roughly 24 hours to produce one of 41 points on the energy surface
+map. Before using DAGMan, each point took one week.</p>
+
+<p>But Natzke didn’t stop there. In 2021, he attended the OSG All-Hands Meeting and learned about <a href="https://pegasus.isi.edu/">Pegasus</a>, an HTCondor-integrated
+workflow system that is offered by OSG’s Access Points. With support from OSG Facilitator and Pegasus developer, Mats Rynge, Natzke remodeled his workflow
+using Pegasus to improve file management, transfers, and error handling. The additional automation that Natzke had written around his DAGMan workflow was
+already provided by Pegasus, and it was enhanced. Natzke humbly jokes, “It’s written by computer scientists, rather than physicists masquerading as
+computer scientists.” His resulting workflow only takes three commands and finishes in merely four hours, a forty-fold increase compared to Natzke’s
+capabilities before OSG services.</p>
+
+<p>With this new workflow, Natzke can expand upon what’s possible in terms of his research: “Every time I run this, I’m amazed at how much time and effort
+I’ve saved, and just the pure automation and capacity that I have access to with OSG. It’s just mind-blowing to me.”</p>
 
 <p>…</p>
 
-<p><em>Visit the <a href="https://opensciencegrid.org/virtual-school-2021/materials/">materials page</a> to browse slide decks, exercises, and recordings of public lectures from OSG Virtual School 2021.</em></p>
+<figure class="figure float-end" style="margin-left: 1em">
+  <img src="https://raw.githubusercontent.com/CHTC/Articles/main/images/DavidSwanson.png" class="figure-img img-fluid rounded" alt="David Swanson" width="250px" />
+  <figcaption class="figure-caption">David Swanson<br /></figcaption>
+</figure>
 
-<p><em>Established in 2010, <a href="https://opensciencegrid.org/virtual-school-2021/">OSG School</a>, typically held each summer at the University of Wisconsin–Madison, is an annual education event for researchers who want to learn how to use distributed high throughput computing methods and tools. We hope to return to an in-person User School in 2022.</em></p>
+<p><em>The OSG David Swanson Award was established to honor our late colleague and chair of the OSG Consortium, David Swanson. David contributed to campus
+research across the country by advancing distributed high-throughput computing (dHTC) and the OSG. Learn more about <a href="https://path-cc.io/news/2021-03-19-Nicholas-Cooley-2021-David-Swanson-Award-Winner/">David’s legacy and past recipients of his namesake award</a>.</em></p>
 
+<p><em>Watch a <a href="https://www.youtube.com/watch?v=YTyFIdOsJvY&amp;t=175s">video recording</a> of Connor Natzke’s presentation at the <a href="https://osg-htc.org/all-hands/">OSG All-Hands Meeting 2022</a>, and browse his <a href="https://osg-htc.org/all-hands/">slides</a>.</em></p>
 
         </div>
     </div>
