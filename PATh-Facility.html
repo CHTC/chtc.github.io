@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>News</title>
+<title>Introducing the PATh Facility: A Unique Distributed High Throughput Computing Resource</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -192,281 +192,63 @@
     
 
     <main id="main" style="min-height: 60vh;">
-        <div class="container-xxl mb-4">
-    <h1 class="uw-mini-bar mb-4">
-    News
-</h1>
+        <main id="main" style="min-height: 60vh;">
+    <!-- This Layout is to adhere the page to the optimal char per lines for accessibility -->
 
-    <div class="row">
-        
-        
-            <a href="/PATh-Facility.html" class="news-post col-12 col-sm-6 col-lg-4  col-6 my-2 ">
-    <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/PATh-Facility-Hardware.jpg" alt="PATh Facility hardware" />
+
+<div class="container-xxl">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-11 col-md-9 col-lg-8">
+            <h1 class="uw-mini-bar mb-4">
+                Introducing the PATh Facility: A Unique Distributed High Throughput Computing Resource
+            </h1>
+            <p><em>Researchers can now request credits on the PATh Facility, the PATh Project’s new resource intended for distributed high throughput computing workflows supporting open science.</em></p>
+
+<figure>
+  <img src="https://raw.githubusercontent.com/CHTC/Articles/main/images/PATh-Facility-Hardware.jpg" alt="Worker nodes" />
+  <figcaption class="figure-caption">PATh facility worker nodes destined for Syracuse University Research Computing<br /></figcaption>
+</figure>
+
+<p>A partnership between the <a href="https://osg-htc.org/">OSG Consortium</a> and the University of Wisconsin-Madison’s <a href="https://chtc.cs.wisc.edu/">Center for High Throughput Computing</a> (CHTC), <a href="https://path-cc.io/">PATh</a> has provided distributed high-throughput computing services and technologies since its inception in 2020. With the launch of the new PATh Facility, the project will soon begin providing the partnership’s first dedicated High Throughput Computing (HTC) resources directly to researchers with NSF-funded research projects. This milestone opens the door to longer runtimes, larger jobs, and greater customization for researchers.</p>
+
+<figure class="figure float-end" style="margin-left: 1em">
+  <img src="https://raw.githubusercontent.com/CHTC/Articles/main/images/PATh-Facility-Map.jpg" class="figure-img img-fluid rounded" alt="Map of PATh Facility sites" width="500px" />
+  <figcaption class="figure-caption">The sites that make up the PATh Facility<br /></figcaption>
+</figure>
+
+<p>The National Science Foundation (NSF) awards credits to access the PATh Facility, making the it well-integrated in the nation’s cyberinfrastructure. 
+Researchers can request computing credits associated with their NSF award, which they ‘cash in’ when they run HTC workloads on the PATh Facility’s 
+capacity. There are currently two mechanisms to request credit: researchers can <a href="https://www.nsf.gov/pubs/2021/nsf21617/nsf21617.pdf">request PATh credits within new proposals</a>, 
+or primary investigators (PIs) with existing awards can <a href="https://www.nsf.gov/pubs/2022/nsf22051/nsf22051.jsp">email their program officer</a> to add to their award. In both cases, researchers outline the kind of HTC capacity they need; PATh’s experts are available to help researchers estimate the different requirements of their HTC workloads.</p>
+
+<p>Just like the partnership, the PATh Facility is distributed and will eventually include computational resources distributed over six different sites across the nation: the Center for High Throughput Computing at the University of Wisconsin-Madison, the Holland Computing Center at the University of Nebraska-Lincoln, Syracuse University’s Research Computing group, the San Diego Supercomputing Center at University of California San Diego, the Texas Advanced Computing Center at the University of Texas at Austin, and Florida International University’s AMPATH network in Miami. This uniquely distributed resource is intended to handle HTC workloads, all for the support and advancement of NSF-funded open science. With access to the PATh Facility, researchers will have approximately 35,000 modern cores and up to 44 A100 GPUs at their fingertips.</p>
+
+<p>While the PATh credit ecosystem is still growing, any idle PATh Facility capacity will be available to the Open Science Pool (OSPool) to benefit all open science. In fact, for researchers familiar with the OSPool, running HTC workloads on the PATh Facility should feel second-nature. Like the OSPool, the PATh Facility is nationally-spanning, geographically distributed, and ideal for HTC workloads. But while resources on the OSPool belong to a diverse range of campuses and organizations that have generously donated their resources to open science, the capacity in the PATh Facility is managed by the PATh Project itself.</p>
+
+<p>This distinction enables longer runtimes and larger jobs otherwise infeasible on  opportunistic resources. This higher degree of control also empowers the PATh team to provide researchers with a more customized level of support. Brian Bockelman, Co-PI of the PATh Project, notes: “With the PATh Facility, we can work with researchers to come up with more bespoke solutions. Whether it’s the configuration of the hardware, the runtime, IPv6 connectivity, or whatever it is that’s not working out –– we have far more ability to change it.”</p>
+
+<p>Initial facility hardware is ready for immediate use by researchers, and the remainder of the hardware is enroute to its future home. Wisconsin serves as a central hub for testing and development, and PATh Facility resources are tested there before being shipped off to their final destinations. For example, Nebraska’s share of the PATh Facility has already been shipped and is running opportunistic backfill jobs. The lights are beginning to turn on, and as Bockelman likes to say, “we’re turning electrons into science.”</p>
+
+<p>However, the effort required to make the PATh Facility possible goes beyond shipping hardware and plugging in cables. To truly turn electrons into science, 
+creativity and problem-solving will be instrumental. While the NSF is trying out new, innovative ways to award credits, PATh is responsible for credit 
+management and tracking. This task has blossomed into an internal service development project –– the PATh development team is working on ensuring that 
+the <a href="https://htcondor.org/index.html">HTCondor Software Suite</a> (HTCSS) can effectively track credit usage across the facility. Additionally, containers are being used as an enabling technology to provide uniform software environments across PATh Facility resources. Kubernetes, an open-source system for automating management of containerized applications, will allow PATh staff to maintain containers not just individually, but site-wide.</p>
+
+<p>Marking a monumental moment for the PATh Project, the PATh Facility provides dedicated resources directly to researchers for the first time ever. The project has always been focused on advancing and democratizing access to large-scale computing, and the launch of the PATh Facility makes this goal more attainable than ever. Perhaps Bockelman characterizes the facility’s impact best: “I think the unique part is the distributed aspect and the focus on high throughput computing. It extends that vision of HTC as a mechanism that can make an outsized impact on how people leverage computing capacity.”</p>
+
+<p>To hear more about the PATh Facility, listen to Brian Bockelman’s talk from the 2022 OSG All-Hands Meeting in March:</p>
+
+<iframe width="896" height="504" src="https://www.youtube.com/embed/47EQu_vCdRA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>…</p>
+
+<p><em>Request credits for the PATh Facility by <a href="https://www.nsf.gov/pubs/2022/nsf22051/nsf22051.jsp">contacting NSF</a>. PATh Research Computing Facilitators are here to help –– please reach out to mailto:credit-accounts@path-cc.io with questions about PATh resources, using HTC, or estimating credit needs. 
+Learn more about the <a href="https://path-cc.io/facility/">PATh Facility</a>, <a href="https://path-cc.io/services/credit-accounts/">credit accounts</a>, and view the <a href="https://path-cc.io/credit-account-charges/">2022 Charge Listing</a>.</em></p>
+
         </div>
-        <h3 class="my-1 text-dark">Introducing the PATh Facility: A Unique Distributed High Throughput Computing Resource</h3>
-        <div class="text-dark d-flex flex-row justify-content-between">
-            <div class="w-auto">
-                By: Josephine Watkins
-            </div>
-            <div class="w-auto">
-                Jun 01, 2022
-            </div>
-        </div>
-        <div>
-            <p class="text-dark mb-0">
-                Researchers can now request credits on the PATh Facility, the PATh project’s new resource intended for distributed high throughput computing workflows supporting NSF science.
-            </p>
-        </div>
-    </div>
-</a>
-        
-            <a href="/Johri.html" class="news-post col-12 col-sm-6 col-lg-4  col-6 my-2 ">
-    <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/dna.jpeg" alt="Computer rendering of DNA. Image credit: Sangharsh Lohakare (@sangharsh_l) on Unsplash." />
-        </div>
-        <h3 class="my-1 text-dark">The role of HTC in advancing population genetics research</h3>
-        <div class="text-dark d-flex flex-row justify-content-between">
-            <div class="w-auto">
-                By: Hannah Cheren
-            </div>
-            <div class="w-auto">
-                Jun 01, 2022
-            </div>
-        </div>
-        <div>
-            <p class="text-dark mb-0">
-                Postdoctoral researcher Parul Johri uses OSG services, the HTCondor Software Suite, and the population genetics simulation program SLiM to investigate historical patterns of genetic variation.
-            </p>
-        </div>
-    </div>
-</a>
-        
-            <a href="/HTCondorWeek-Photos.html" class="news-post col-12 col-sm-6 col-lg-4  col-6 my-2 ">
-    <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/HTCondorWeek2022-Collage.jpg" alt="Collage of photos from HTCondor Week" />
-        </div>
-        <h3 class="my-1 text-dark">A Long-Awaited Reunion: HTCondor Week 2022 in Photos</h3>
-        <div class="text-dark d-flex flex-row justify-content-between">
-            <div class="w-auto">
-                By: Josephine Watkins
-            </div>
-            <div class="w-auto">
-                Jun 01, 2022
-            </div>
-        </div>
-        <div>
-            <p class="text-dark mb-0">
-                HTCondor Week 2022 featured over 40 exciting talks, tutorials, and research spotlights focused on the HTCondor Software Suite (HTCSS). Sixty-three attendees reunited in Madison, Wisconsin for the long-awaited in-person meeting, and 111 followed the action virtually on Zoom.
-            </p>
-        </div>
-    </div>
-</a>
-        
-            <a href="/EHT.html" class="news-post col-12 col-sm-6 col-lg-4  col-6 my-2 ">
-    <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/SagA-black-hole.jpg" alt="Simulated image of Sagittarius A* black hole. Image library credit: EHT Theory Working Group, CK Chan." />
-        </div>
-        <h3 class="my-1 text-dark">High-throughput computing as an enabler of black hole science</h3>
-        <div class="text-dark d-flex flex-row justify-content-between">
-            <div class="w-auto">
-                By: Brian Mattmiller
-            </div>
-            <div class="w-auto">
-                May 12, 2022
-            </div>
-        </div>
-        <div>
-            <p class="text-dark mb-0">
-                The stunning new image of a supermassive black hole in the center of the Milky Way was created by eight telescopes, 300 international astronomers and more than 5 million computational tasks. This Morgridge Institute article describes how the Wisconsin-based Open Science Pool helped make sense of it all.
-            </p>
-        </div>
-    </div>
-</a>
-        
-            <a href="/NIAID.html" class="news-post col-12 col-sm-6 col-lg-4  col-6 my-2 ">
-    <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/NIAID-card.jpeg" alt="Map of Africa; Mali and Uganda are highlighted where their respective flags point. Image credit: © 2010 Roland Urbanek. Flags are edited in and overlayed on the image." />
-        </div>
-        <h3 class="my-1 text-dark">NIAID/ACE - OSG collaboration leads to a successful virtual training session</h3>
-        <div class="text-dark d-flex flex-row justify-content-between">
-            <div class="w-auto">
-                By: Hannah Cheren
-            </div>
-            <div class="w-auto">
-                May 02, 2022
-            </div>
-        </div>
-        <div>
-            <p class="text-dark mb-0">
-                The U.S. National Institute of Allergy and Infectious Diseases (NIAID) and the African Centers for Excellence in Bioinformatics and Data-Intensive Science (ACE) partnered with the OSG Consortium to host a virtual high throughput computing training session for graduate students from Makerere University and the University Of Sciences, Techniques, and Technologies of Bamako (USTTB).
-            </p>
-        </div>
-    </div>
-</a>
-        
-            <a href="/ML-and-Image-Analyses-for-Livestock-Data.html" class="news-post col-12 col-sm-6 col-lg-4  col-6 my-2 ">
-    <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/cow-ml-image-cropped.jpg" alt="Cows Feeding with ML overlay" />
-        </div>
-        <h3 class="my-1 text-dark">Machine Learning and Image Analyses for Livestock Data</h3>
-        <div class="text-dark d-flex flex-row justify-content-between">
-            <div class="w-auto">
-                By: Hannah Cheren
-            </div>
-            <div class="w-auto">
-                Feb 22, 2022
-            </div>
-        </div>
-        <div>
-            <p class="text-dark mb-0">
-                In this presentation from HTCondor Week 2021, Joao Dorea from the Digital Livestock Lab explains how high-throughput computing is used in the field of animal and dairy sciences.
-            </p>
-        </div>
-    </div>
-</a>
-        
-            <a href="/precision-mental-health.html" class="news-post col-12 col-sm-6 col-lg-4  col-6 my-2 ">
-    <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/mental_health.jpeg" alt="Floating and Glowing Brain" />
-        </div>
-        <h3 class="my-1 text-dark">Harnessing HTC-enabled precision mental health to capture the complexity of smoking cessation</h3>
-        <div class="text-dark d-flex flex-row justify-content-between">
-            <div class="w-auto">
-                By: Josephine Watkins
-            </div>
-            <div class="w-auto">
-                Dec 16, 2021
-            </div>
-        </div>
-        <div>
-            <p class="text-dark mb-0">
-                Collaborating with CHTC research computing facilitation staff, UW-Madison researcher Gaylen Fronk is using HTC to improve cigarette cessation treatments by accounting for the complex differences among patients.
-            </p>
-        </div>
-    </div>
-</a>
-        
-            <a href="/usgs-invasivespecies.html" class="news-post col-12 col-sm-6 col-lg-4  col-6 my-2 ">
-    <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/USGS-collage.jpg" alt="Satellite image collage graphic" />
-        </div>
-        <h3 class="my-1 text-dark">Protecting ecosystems with HTC</h3>
-        <div class="text-dark d-flex flex-row justify-content-between">
-            <div class="w-auto">
-                By: Josephine Watkins
-            </div>
-            <div class="w-auto">
-                Nov 09, 2021
-            </div>
-        </div>
-        <div>
-            <p class="text-dark mb-0">
-                Researchers at the USGS are using HTC to pinpoint potential invasive species for the United States.
-            </p>
-        </div>
-    </div>
-</a>
-        
-            <a href="/Banq.html" class="news-post col-12 col-sm-6 col-lg-4  col-6 my-2 ">
-    <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/banq-mw.jpg" alt="Newspaper spread" />
-        </div>
-        <h3 class="my-1 text-dark">Centuries of newspapers are now easily searchable thanks to HTCSS</h3>
-        <div class="text-dark d-flex flex-row justify-content-between">
-            <div class="w-auto">
-                By: Josephine Watkins
-            </div>
-            <div class="w-auto">
-                Oct 26, 2021
-            </div>
-        </div>
-        <div>
-            <p class="text-dark mb-0">
-                BAnQ's digital collections team recently used HTCSS to tackle their largest computational endeavor yet –– completing text recognition on all newspapers in their digital archives.
-            </p>
-        </div>
-    </div>
-</a>
-        
-            <a href="/Resilience.html" class="news-post col-12 col-sm-6 col-lg-4  col-6 my-2 ">
-    <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/resilience-hero-large.jpeg" alt="Hero Image for Morgridge Article Courtesy of Morgridge" />
-        </div>
-        <h3 class="my-1 text-dark">Resilience: How COVID-19 challenged the scientific world</h3>
-        <div class="text-dark d-flex flex-row justify-content-between">
-            <div class="w-auto">
-                By: Josephine Watkins
-            </div>
-            <div class="w-auto">
-                Sep 23, 2021
-            </div>
-        </div>
-        <div>
-            <p class="text-dark mb-0">
-                In the face of the pandemic, scientists needed to adapt. This article by the Morgridge Institute for Research provides a thoughtful look into how individuals and organizations, including the CHTC, have pivoted in these challenging times.
-            </p>
-        </div>
-    </div>
-</a>
-        
-            <a href="/Hannah-Showcase.html" class="news-post col-12 col-sm-6 col-lg-4  col-6 my-2 ">
-    <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/Hannah-Showcase.jpg" alt="Brain Model" />
-        </div>
-        <h3 class="my-1 text-dark">Using HTC for a simulation study on cross-validation for model evaluation in psychological science</h3>
-        <div class="text-dark d-flex flex-row justify-content-between">
-            <div class="w-auto">
-                By: Josephine Watkins
-            </div>
-            <div class="w-auto">
-                Aug 19, 2021
-            </div>
-        </div>
-        <div>
-            <p class="text-dark mb-0">
-                During the OSG School Showcase, Hannah Moshontz, a postdoctoral fellow at UW-Madison’s Department of Psychology, described her experience of using high throughput computing (HTC) for the very first time, when taking on an entirely new project within the field of psychology.
-            </p>
-        </div>
-    </div>
-</a>
-        
-            <a href="/Anirvan-Showcase.html" class="news-post col-12 col-sm-6 col-lg-4  col-6 my-2 ">
-    <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/Anirvan-Showcase-1.png" alt="Proton-proton collision" />
-        </div>
-        <h3 class="my-1 text-dark">Antimatter: Using HTC to study very rare processes</h3>
-        <div class="text-dark d-flex flex-row justify-content-between">
-            <div class="w-auto">
-                By: Josephine Watkins
-            </div>
-            <div class="w-auto">
-                Aug 19, 2021
-            </div>
-        </div>
-        <div>
-            <p class="text-dark mb-0">
-                Anirvan Shukla, a User School participant in 2016, spoke at this year's Showcase about how high throughput computing has transformed his research of antimatter in the last five years.
-            </p>
-        </div>
-    </div>
-</a>
-        
     </div>
 </div>
-
+</main>
     </main>
     <footer id="colophon" class="uw-footer">
     <div class="uw-footer-content">
