@@ -441,7 +441,8 @@ pull or tag the container image.</p>
 </ul>
 <ul class="term">
   <li>Windows:
-    <pre><code>$ docker run --rm=true -it -v %CD%:/scratch -w /scratch username/imagename:tag /bin/bash
+    <pre><code>$ docker run --rm=true -it -v ${pwd}:/scratch -w /scratch username/imagename:tag 
+/bin/bash
 </code></pre>
   </li>
 </ul>
