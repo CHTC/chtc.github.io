@@ -425,9 +425,10 @@ want to be using!</p>
 skip the directory creation step below.</p>
 </blockquote>
 
-<p>First, create, a directory to put your packages into:</p>
+<p>First, create a directory to put your packages into and then add that directory to our list of enviornmental variables that can be used by HTCondor to find the package directory:</p>
 
 <pre class="term"><code>[alice@build]$ mkdir packages
+[alice@build]$ export PYTHONPATH=$PWD/packages
 </code></pre>
 
 <p>You can choose what name to use for this directory -- if you have
@@ -442,6 +443,12 @@ use a more descriptive name than "packages"</p>
 <p>Replace <em>package1</em> <em>package2</em> with the names of packages you want to
 install. <code>pip</code> should download all dependent packages and install them.
 Certain packages may take longer than others.</p>
+
+<p>If you have difficulties installing a package, we recommend you upgrade <code>pip</code> and then try reinstalling your packages:</p>
+
+<pre class="term"><code>[alice@build]$ python3 -m pip install --upgrade pip
+[alice@build]$ python3 -m pip install --target=$PWD/packages package1 package2 etc.
+</code></pre>
 
 <h2 id="c-finish-up">C. Finish Up</h2>
 
