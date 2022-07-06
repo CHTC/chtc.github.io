@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Home</title>
+<title>Using high throughput computing to investigate the role of neural oscillations in visual working memory</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -21,21 +21,26 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Home | CHTC</title>
+<title>Using high throughput computing to investigate the role of neural oscillations in visual working memory | CHTC</title>
 <meta name="generator" content="Jekyll v4.2.2" />
-<meta property="og:title" content="Home" />
+<meta property="og:title" content="Using high throughput computing to investigate the role of neural oscillations in visual working memory" />
+<meta name="author" content="Hannah Cheren" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
-<meta property="og:description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/" />
+<meta name="description" content="Jacqueline M. Fulvio, lab manager and research scientist for the Postle Lab at the University of Wisconsin-Madison, explains how she used the HTCondor Software Suite to investigate neural oscillations in visual working memory." />
+<meta property="og:description" content="Jacqueline M. Fulvio, lab manager and research scientist for the Postle Lab at the University of Wisconsin-Madison, explains how she used the HTCondor Software Suite to investigate neural oscillations in visual working memory." />
+<link rel="canonical" href="https://htcondor.org/featured-users/2022-07-06-Fulvio.html" />
+<meta property="og:url" content="https://htcondor.org/featured-users/2022-07-06-Fulvio.html" />
 <meta property="og:site_name" content="CHTC" />
-<meta property="og:type" content="website" />
+<meta property="og:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/Fulvio-card.jpeg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-07-06T00:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Home" />
+<meta property="twitter:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/Fulvio-card.jpeg" />
+<meta property="twitter:title" content="Using high throughput computing to investigate the role of neural oscillations in visual working memory" />
 <meta name="twitter:site" content="@chtc_uw" />
+<meta name="twitter:creator" content="@Hannah Cheren" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"Home","name":"CHTC","url":"https://chtc.cs.wisc.edu/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hannah Cheren"},"dateModified":"2022-07-06T00:00:00+00:00","datePublished":"2022-07-06T00:00:00+00:00","description":"Jacqueline M. Fulvio, lab manager and research scientist for the Postle Lab at the University of Wisconsin-Madison, explains how she used the HTCondor Software Suite to investigate neural oscillations in visual working memory.","headline":"Using high throughput computing to investigate the role of neural oscillations in visual working memory","image":{"alt":null,"url":"https://raw.githubusercontent.com/CHTC/Articles/main/images/Fulvio-card.jpeg","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://htcondor.org/featured-users/2022-07-06-Fulvio.html"},"url":"https://htcondor.org/featured-users/2022-07-06-Fulvio.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -208,298 +213,83 @@
     
 
     <main id="main" style="min-height: 60vh;">
-        
+        <main id="main" style="min-height: 60vh;">
+    <!-- This Layout is to adhere the page to the optimal char per lines for accessibility -->
 
 
-<div class="bg-light py-3">
-    <div class="container-lg mw-1000">
-        <img src="/images/HTC_Graphic_Outline.svg"  alt="CHTC Logo" />
-    </div>
-</div>
 <div class="container-xxl">
     <div class="row justify-content-center">
-        <div class="col">
-            <div class="row  mb-4 mt-4 ">
-    <div class="col-12 col-md-8">
-        
+        <div class="col-12 col-sm-11 col-md-9 col-lg-8">
             <h1 class="uw-mini-bar mb-4">
-                Center for High Throughput Computing
+                Using high throughput computing to investigate the role of neural oscillations in visual working memory
             </h1>
-        
-        <div>
-<p><strong>The Center for High Throughput Computing (CHTC), established in 2006, aims to bring the power
-of High Throughput Computing to all fields of research, and to allow the future of HTC to be shaped
-by insight from all fields.</strong></p>
+            <p><strong><em>Jacqueline M. Fulvio, lab manager and research scientist for the Postle Lab at the University of Wisconsin-Madison, explains how she used the HTCondor Software Suite to investigate neural oscillations in visual working memory.</em></strong></p>
 
-<p><a href="htc.html">High Throughput Computing</a> is a collection of principles and techniques which maximize the effective throughput
-of computing resources towards a given problem.  When applied for scientific computing, HTC can result in
-improved use of a computing resource, improved automation, and help drive the scientific problem forward.</p>
+<figure>
+  <img src="https://raw.githubusercontent.com/CHTC/Articles/main/images/Fulvio-card.jpeg" alt="Computer rendering of DNA." />
+  <figcaption class="figure-caption">Photo by geralt <a href="https://pixabay.com/images/id-3382507/">on Pixabay.</a><br /></figcaption>
+</figure>
 
-<p>The team at CHTC develops technologies and services for HTC.  CHTC is the home of the <a href="http://htcondor.org">HTCondor Software
-Suite</a> which has over 30 years of experience in tackling HTC problems;
-it manages shared computing resources
-for researchers on the UW-Madison campus; and it leads the <a href="https://osg-htc.org">OSG Consortium</a>,
-a national-scale environment for distributed HTC.</p>
+<figure class="figure float-end" style="margin-left: 1em; width: 180px;">
+  <img src="https://raw.githubusercontent.com/CHTC/Articles/main/images/Fulvio-headshot.jpeg" class="figure-img img-fluid rounded" alt="Jacqueline M. Fulvio" width="150px" />
+  <figcaption class="figure-caption">Jacqueline M. Fulvio, lab manager and research scientist for the Postle Lab at the University of Wisconsin-Madison<br /></figcaption>
+</figure>
 
-</div>
-    </div>
-    <div class="col-1 d-md-block d-none"></div>
-    <div class="col-3 d-md-flex d-none">
-        <img class="w-100 mt-auto mb-auto" src="/images/logos/CHTC_Small_Logo.svg" alt="CHTC Small Logo" />
-    </div>
-</div>
-        </div>
-    </div>
-</div>
-<div class="bg-light py-4">
-    <div class="container-lg">
-        <div class="row justify-content-center" >
-            
-            
-            <a href="/Opotowsky.html" class="news-post col-12 col-sm-6 col-lg-4  col-12 ">
-    <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/Opotowsky-card.jpeg" alt="Arrielle C. Opotowsky, a 2021 Ph.D. graduate from the University of Wisconsin-Madison's Department of Engineering Physics, describes how she utilized high throughput computing to expedite nuclear forensics investigations." />
-        </div>
-        <h3 class="my-1 text-dark">Expediting Nuclear Forensics and Security Using High Through Computing</h3>
-        <div class="text-dark d-flex flex-row justify-content-between">
-            <div class="w-auto">
-                By: Hannah Cheren
-            </div>
-            <div class="w-auto">
-                Jul 06, 2022
-            </div>
-        </div>
-        <div>
-            <p class="text-dark mb-0">
-                Arrielle C. Opotowsky, a 2021 Ph.D. graduate from the University of Wisconsin-Madison's Department of Engineering Physics, describes how she utilized high throughput computing to expedite nuclear forensics investigations.
-            </p>
-        </div>
-    </div>
-</a>
-            
-            <a href="/Hiemstra.html" class="news-post col-12 col-sm-6 col-lg-4  col-12 ">
-    <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/Hiemstra-card.png" alt="Justin Hiemstra, a Machine Learning Application Specialist for CHTC’s GPU Lab, discusses the testing suite developed to test CHTC's support for GPU and ML framework compatibility." />
-        </div>
-        <h3 class="my-1 text-dark">Testing GPU/ML Framework Compatibility</h3>
-        <div class="text-dark d-flex flex-row justify-content-between">
-            <div class="w-auto">
-                By: Hannah Cheren
-            </div>
-            <div class="w-auto">
-                Jul 06, 2022
-            </div>
-        </div>
-        <div>
-            <p class="text-dark mb-0">
-                Justin Hiemstra, a Machine Learning Application Specialist for CHTC’s GPU Lab, discusses the testing suite developed to test CHTC's support for GPU and ML framework compatibility.
-            </p>
-        </div>
-    </div>
-</a>
-            
-            <a href="/Gillett.html" class="news-post col-12 col-sm-6 col-lg-4  col-12 ">
-    <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/gillett-card.jpeg" alt="For the first time, UW Statistics undergraduates could participate in a course teaching high throughput computing (HTC). John Gillett, lecturer of Statistics at the University of Wisconsin-Madison, designed and taught the course with the support of the Center for High Throughput Computing (CHTC)." />
-        </div>
-        <h3 class="my-1 text-dark">UW Statistics Course using HTC</h3>
-        <div class="text-dark d-flex flex-row justify-content-between">
-            <div class="w-auto">
-                By: Hannah Cheren
-            </div>
-            <div class="w-auto">
-                Jul 06, 2022
-            </div>
-        </div>
-        <div>
-            <p class="text-dark mb-0">
-                For the first time, UW Statistics undergraduates could participate in a course teaching high throughput computing (HTC). John Gillett, lecturer of Statistics at the University of Wisconsin-Madison, designed and taught the course with the support of the Center for High Throughput Computing (CHTC).
-            </p>
-        </div>
-    </div>
-</a>
-            
-        </div>
-    </div>
-</div>
-<div class="container-lg">
-        <div class="row flex-row-reverse mb-4 mt-4 ">
-    <div class="col-12 col-md-8">
-        
-            <h1 class="uw-mini-bar mb-4">
-                HTCSS
-            </h1>
-        
-        <div>
-<p>The <a href="http://htcondor.org">HTCondor Software Suite (HTCSS)</a> provides sites and users with the ability to manage and execute
-HTC workloads.  Whether it’s managing a single laptop or 250,000 cores at CERN, HTCondor
-helps solve computational problems through the application of the HTC principles.</p>
+<p>If you could use a method of analysis that results in better insights into your research, you’d want to use that option. The catch? It can take months to analyze one set of data.</p>
 
-</div>
-    </div>
-    <div class="col-1 d-md-block d-none"></div>
-    <div class="col-3 d-md-flex d-none">
-        <img class="w-100 mt-auto mb-auto" src="/images/laptop.svg" alt="Laptop" />
-    </div>
-</div>
-        <div class="row  mb-4 mt-4 ">
-    <div class="col-12 col-md-8">
-        
-            <h1 class="uw-mini-bar mb-4">
-                Services
-            </h1>
-        
-        <div>
-<h3 id="uw-research-computing"><a href="uw-research-computing">UW Research Computing</a></h3>
-<p>CHTC manages over 20,000 cores and dozens of GPUs for the UW-Madison
-campus; this resource, which is free and shared, aims to advance the
-mission of the University of Wisconsin in support of the Wisconsin
-Idea.  Researchers can place their workloads on an access point at
-CHTC and utilize the resources at CHTC, across the campus, and across
-the nation.</p>
+<p><a href="https://postlab.psych.wisc.edu/people/west/jacqueline-fulvio1/">Jacqueline M. Fulvio</a>, a research scientist for the <a href="https://postlab.psych.wisc.edu/">Postle Lab</a> at the University of Wisconsin-Madison, explained at <a href="https://agenda.hep.wisc.edu/event/1733/timetable/?view=standard">HTCondor Week 2022</a> how she overcame this problem using high throughput computing (HTC) in her analysis of neural oscillations’ role in visual working memory.</p>
 
-<h3 id="research-facilitation">Research Facilitation</h3>
-<p>CHTC’s Research Facilitation team empowers researchers to utilize computing to achieve
-their goals.  The Research Facilitation approach emphasizes teaching users skills and
-methodologies to manage &amp; automate workloads on resources like those at CHTC, the campus,
-or across the world.</p>
+<p>The Postle Lab analyzed the patterns of brain waves recorded from participants as they performed working memory tasks using an HTC workflow. Visual working memory is the brain process that temporarily allows us to maintain and manipulate visual information to solve a task. First, participants were given a sample with two images to memorize for two seconds. Then the image disappeared, and, following a five-second delay, participants were given a cue that indicated which item in memory would later be tested. The experimenter then delivered a single pulse of transcranial magnetic stimulation (TMS) to the participants’ scalp on half of the trials. TMS alters brain function, so Fulvio and her collaborators looked for corresponding impacts on participants’ brain waves recorded in an electroencephalogram (EEG). Finally, the participants indicated whether the image shown on the screen matched the original sample item.</p>
 
-</div>
-    </div>
-    <div class="col-1 d-md-block d-none"></div>
-    <div class="col-3 d-md-flex d-none">
-        <img class="w-100 mt-auto mb-auto" src="/images/microscope.svg" alt="Microscope" />
-    </div>
-</div>
+<figure>
+  <img src="https://raw.githubusercontent.com/CHTC/Articles/main/images/Fulvio-research.png" class="figure-img img-fluid rounded" alt="Photo from Fulvio's presentation during HTCondor Week 2022" />
+  <figcaption class="figure-caption">Photo from Fulvio's presentation during HTCondor Week 2022<br /></figcaption>
+</figure>
 
-</div>
+<p>After collecting and processing the data from the EEG, they can analyze the neural oscillations (or brain waves) to understand how they change throughout the task. Previous results have shown that the frequency of neural oscillations is associated with working memory processes.</p>
 
-<div class="bg-light pb-5">
-    <hr/>
-    <div class="container-lg">
-        <h3 class="text-center mb-5">
-            As part of its many services to UW-Madison and beyond,
-            the CHTC is home to or supports the following Research
-            Projects and Partners.
-        </h3>
-        <div class="row justify-content-center  mb-4 mt-4 ">
-    <div class="col col-md-8">
-        <h1><a href="https://osg-htc.org">OSG</a></h1>
-        <p>
-        The OSG is a consortium of research collaborations, campuses, national laboratories and software
-        providers dedicated to the advancement of all of open science via the practice of distributed High Throughput
-        Computing (dHTC), and the advancement of its state of the art. The OSG operates a fabric of dHTC services
-        for the national science and engineering community and CHTC has been a major force in OSG since its inception
-        in 2005.
-        </p>
-    </div>
-    <div class="col-1 d-md-block d-none"></div>
-    <a href="https://osg-htc.org" class="col-3 d-md-flex d-none">
-        <img style="" class="w-100 mt-auto mb-auto" src="/images/logos/OSG-logo.svg" alt="OSG Logo" />
-    </a>
-</div>
-        <div class="row justify-content-center  flex-row-reverse mb-4 mt-4">
-    <div class="col col-md-8">
-        <h1><a href="https://path-cc.io/">PATh</a></h1>
-        <p>
-        The Partnership to Advance Throughput Computing (PATh) is a partnership between
-        CHTC and OSG to advance throughput computing.  Funded through a major investment
-        from NSF, PATh helps advance HTC at a national level through support for
-        HTCSS and provides a fabric of services for the NSF science and engineering community
-        to access resources across the nation.
-        </p>
-    </div>
-    <div class="col-1 d-md-block d-none"></div>
-    <a href="https://path-cc.io/" class="col-3 d-md-flex d-none">
-        <img style="max-width: 12rem;" class="w-100 mt-auto mb-auto" src="/images/logos/PATh_Logo.png" alt="PATh Logo" />
-    </a>
-</div>
-        <div class="row justify-content-center  mb-4 mt-4 ">
-    <div class="col col-md-8">
-        <h1><a href="https://morgridge.org/">Morgridge Institute for Research</a></h1>
-        <p>
-        The Morgridge Institute for Research is a private, biomedical research institute
-        located on the UW-Madison campus.  Morgridge’s Research Computing Theme is a unique
-        partner with CHTC, investing in the vision of HTC and its ability to advance basic
-        research.
-        </p>
-    </div>
-    <div class="col-1 d-md-block d-none"></div>
-    <a href="https://morgridge.org/" class="col-3 d-md-flex d-none">
-        <img style="" class="w-100 mt-auto mb-auto" src="/images/logos/Morgridge_Logo.svg" alt="Morgridge Logo" />
-    </a>
-</div>
-        <div class="row justify-content-center">
+<p>“In our current work, we wanted to more deeply investigate the role of these neural oscillations in working memory,” Fulvio states, “we chose to leverage an analysis called spatially distributed phase coupling extraction with a frequency-specific phases model (SPACE-FSP).” This analysis is a multi-way decomposition of the EEG data.</p>
 
-            
-            <a href="https://xdd.wisc.edu/" class="col-8 col-lg-4 col-md-5 col-sm-5">
-    <div style="min-height: 160px;" class="row h-100 justify-content-center pt-3 pb-3">
-        <div class="col-12 col-sm-6 d-flex">
-            <h2 class="mt-auto mb-auto">xDD</h2>
-        </div>
-        <div class="col-6 col-sm-6 d-flex">
-            <img style="" class=" mt-auto mb-auto" src="/images/logos/xDD_Logo.svg" alt="xDD logo" />
-        </div>
-    </div>
-</a>
+<p>The number of decomposable networks can’t be determined analytically, so the group estimates it using decomposition. Finding the optimal decomposition is an iterative process that starts with a statistical criterion and a set number of oscillating networks, which incrementally increase until they can no longer achieve the criterion. As a result, a single decomposition can take up to several months to complete.</p>
 
+<p>Although this method provides better insight into what Fulvio and her group want to analyze, “this remains a largely unused approach in the field.” Fulvio speculates that other scientists in the field often don’t use this kind of analysis because it’s very computationally demanding. “This is where high throughput [computing] came in for us.”</p>
 
-            <a href="https://iris-hep.org/" class="col-8 col-lg-4 col-md-5 col-sm-5">
-    <div style="min-height: 160px;" class="row h-100 justify-content-center pt-3 pb-3">
-        <div class="col-12 col-sm-6 d-flex">
-            <h2 class="mt-auto mb-auto">IRIS-HEP</h2>
-        </div>
-        <div class="col-6 col-sm-6 d-flex">
-            <img style="" class=" mt-auto mb-auto" src="/images/logos/IRIS-HEP_Logo.png" alt="IRIS-HEP logo" />
-        </div>
-    </div>
-</a>
+<p>Fulvio and her team planned to analyze at least 186 data sets, which, at the time, “seemed insurmountable.” The HTC capabilities of HTCondor offered them a solution to this problem by running the decompositions in parallel using the capacity of a campus wide shared facility. They also had the opportunity to utilize the Matlab parallel pool compatibility, which helped scale out the processing.</p>
 
+<p>The group started following the HTC paradigm because their lab had already used services provided by the UW-Madison Center for High Throughput Computing (CHTC) for some time. Fulvio’s supervisor, Dr. Bradley Postle, suggested setting up a meeting and seeing if what they needed could be achieved using the capacity offered by CHTC.</p>
 
-            <a href="https://neos-server.org/neos/" class="col-8 col-lg-4 col-md-5 col-sm-5">
-    <div style="min-height: 160px;" class="row h-100 justify-content-center pt-3 pb-3">
-        <div class="col-12 col-sm-6 d-flex">
-            <h2 class="mt-auto mb-auto">NEOS</h2>
-        </div>
-        <div class="col-6 col-sm-6 d-flex">
-            <img style="" class=" mt-auto mb-auto" src="/images/logos/NEOS_Logo.svg" alt="NEOS logo" />
-        </div>
-    </div>
-</a>
+<p>Fulvio has an extensive coding history, but when she did run into compiling problems, she found the office hours offered by the CHTC Research Computing Facilitators extremely helpful, “I got useful tips from the staff in figuring out what was going wrong and what I needed to fix!”</p>
 
+<p>The group ran 42 jobs, each job taking anywhere from two days to two weeks to run. The initial results of the analyses were promising, but the two data analysis pipelines the group tried were insufficient to address some of the critical questions.</p>
 
-            <a href="https://bmrb.io/" class="col-8 col-lg-4 col-md-5 col-sm-5">
-    <div style="min-height: 160px;" class="row h-100 justify-content-center pt-3 pb-3">
-        <div class="col-12 col-sm-6 d-flex">
-            <h2 class="mt-auto mb-auto">BMRB</h2>
-        </div>
-        <div class="col-6 col-sm-6 d-flex">
-            <img style="" class=" mt-auto mb-auto" src="/images/logos/BMRB_Logo.svg" alt="BMRB logo" />
-        </div>
-    </div>
-</a>
+<p>After re-running the analyses using new data Fulvio collected, she overcame some limitations from the prior dataset to address the original questions. For this dataset, the group ran almost twice the amount of jobs – 72 – with each one again taking anywhere from two days to two weeks to run.</p>
 
+<p>The group updated the analysis once more to increase the data size from 500 milliseconds to 1-second chunks. They also combined the data into a single pipeline instead of having it in different chunks of data for two separate analyses.</p>
 
-            <a href="https://pegasus.isi.edu/" class="col-8 col-lg-4 col-md-5 col-sm-5">
-    <div style="min-height: 160px;" class="row h-100 justify-content-center pt-3 pb-3">
-        <div class="col-12 col-sm-6 d-flex">
-            <h2 class="mt-auto mb-auto">Pegasus</h2>
-        </div>
-        <div class="col-6 col-sm-6 d-flex">
-            <img style="" class=" mt-auto mb-auto" src="/images/logos/Pegasus_Logo.png" alt="Pegasus logo" />
-        </div>
-    </div>
-</a>
+<p>The goal of this update was to increase the amount of data they were sending, which in turn increased the amount of time it took to do these decompositions. More data resulted in a more robust and interpretable statistical result.</p>
 
+<p>“All versions of the analyses were ultimately successful,” Fulvio comments. “We’ve benefited significantly from this process.” Their final analysis obtained 1,690 components – a “fantastic number” for their data analyses.</p>
 
+<p>“We had such good support along the way so we could get this going,” Fulvio notes. In addition, what could have been years of computing on their lab machines, was condensed and boiled down into merely months for each analysis iteration.</p>
+
+<p>The group also conducted one more analysis, as “[this] experience helped us think about a special control analysis,” Fulvio remarks. The group carried out hundreds of jobs within a day using this separate analysis, giving them rapid confirmation through the control analysis results.</p>
+
+<p>Fulvio reflects, “from our research group’s broad perspective, OSPool capacity accessible via the CHTC have significantly expanded our computational capabilities.” Although computationally demanding, these resources helped the group apply this better-suited analysis method to address their original questions.</p>
+
+<p>From a more personal perspective, Fulvio notes that learning how to take advantage of these OSPool capacity has improved her skills, including coding. These resources allowed her to work with additional languages and sharpened her ability to optimize code.</p>
+
+<p>Fulvio concludes that “this has allowed us to help advance our field’s understanding, address key questions in the grant funding the research, and it provides the opportunity to reconsider other established findings and fill gaps in understanding of those studies.”</p>
+
+<p>…</p>
+
+<p><em>Watch a video recording of Jacqueline M. Fulvio’s talk at HTCondor Week 2022, and browse her <a href="https://agenda.hep.wisc.edu/event/1733/contributions/25518/attachments/8300/9578/Fulvio_HTCslides_2022.pdf">slides</a>.</em></p>
+
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/2D75uz-jz7M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 
         </div>
     </div>
 </div>
-
+</main>
     </main>
     <footer id="colophon" class="uw-footer">
     <div class="uw-footer-content">

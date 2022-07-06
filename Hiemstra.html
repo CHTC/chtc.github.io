@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Home</title>
+<title>Testing GPU/ML Framework Compatibility</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -21,21 +21,28 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Home | CHTC</title>
+<title>Testing GPU/ML Framework Compatibility | CHTC</title>
 <meta name="generator" content="Jekyll v4.2.2" />
-<meta property="og:title" content="Home" />
+<meta property="og:title" content="Testing GPU/ML Framework Compatibility" />
+<meta name="author" content="Hannah Cheren" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
-<meta property="og:description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/" />
+<meta name="description" content="Justin Hiemstra, a Machine Learning Application Specialist for CHTC’s GPU Lab, discusses the testing suite developed to test CHTC’s support for GPU and ML framework compatibility." />
+<meta property="og:description" content="Justin Hiemstra, a Machine Learning Application Specialist for CHTC’s GPU Lab, discusses the testing suite developed to test CHTC’s support for GPU and ML framework compatibility." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/Hiemstra.html" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/Hiemstra.html" />
 <meta property="og:site_name" content="CHTC" />
-<meta property="og:type" content="website" />
+<meta property="og:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/Hiemstra-card.png" />
+<meta property="og:image:alt" content="Justin Hiemstra, a Machine Learning Application Specialist for CHTC’s GPU Lab, discusses the testing suite developed to test CHTC's support for GPU and ML framework compatibility." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-07-06T00:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Home" />
+<meta property="twitter:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/Hiemstra-card.png" />
+<meta name="twitter:image:alt" content="Justin Hiemstra, a Machine Learning Application Specialist for CHTC’s GPU Lab, discusses the testing suite developed to test CHTC's support for GPU and ML framework compatibility." />
+<meta property="twitter:title" content="Testing GPU/ML Framework Compatibility" />
 <meta name="twitter:site" content="@chtc_uw" />
+<meta name="twitter:creator" content="@Hannah Cheren" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"Home","name":"CHTC","url":"https://chtc.cs.wisc.edu/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hannah Cheren"},"dateModified":"2022-07-06T00:00:00+00:00","datePublished":"2022-07-06T00:00:00+00:00","description":"Justin Hiemstra, a Machine Learning Application Specialist for CHTC’s GPU Lab, discusses the testing suite developed to test CHTC’s support for GPU and ML framework compatibility.","headline":"Testing GPU/ML Framework Compatibility","image":{"alt":"Justin Hiemstra, a Machine Learning Application Specialist for CHTC’s GPU Lab, discusses the testing suite developed to test CHTC's support for GPU and ML framework compatibility.","url":"https://raw.githubusercontent.com/CHTC/Articles/main/images/Hiemstra-card.png","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/Hiemstra.html"},"url":"https://chtc.cs.wisc.edu/Hiemstra.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -208,298 +215,83 @@
     
 
     <main id="main" style="min-height: 60vh;">
-        
+        <main id="main" style="min-height: 60vh;">
+    <!-- This Layout is to adhere the page to the optimal char per lines for accessibility -->
 
 
-<div class="bg-light py-3">
-    <div class="container-lg mw-1000">
-        <img src="/images/HTC_Graphic_Outline.svg"  alt="CHTC Logo" />
-    </div>
-</div>
 <div class="container-xxl">
     <div class="row justify-content-center">
-        <div class="col">
-            <div class="row  mb-4 mt-4 ">
-    <div class="col-12 col-md-8">
-        
+        <div class="col-12 col-sm-11 col-md-9 col-lg-8">
             <h1 class="uw-mini-bar mb-4">
-                Center for High Throughput Computing
+                Testing GPU/ML Framework Compatibility
             </h1>
-        
-        <div>
-<p><strong>The Center for High Throughput Computing (CHTC), established in 2006, aims to bring the power
-of High Throughput Computing to all fields of research, and to allow the future of HTC to be shaped
-by insight from all fields.</strong></p>
+            <p><strong><em>Justin Hiemstra, a Machine Learning Application Specialist for CHTC’s GPU Lab, discusses the testing suite developed to test CHTC’s support for GPU and ML framework compatibility.</em></strong></p>
 
-<p><a href="htc.html">High Throughput Computing</a> is a collection of principles and techniques which maximize the effective throughput
-of computing resources towards a given problem.  When applied for scientific computing, HTC can result in
-improved use of a computing resource, improved automation, and help drive the scientific problem forward.</p>
+<figure>
+  <img src="https://raw.githubusercontent.com/CHTC/Articles/main/images/Hiemstra-card.png" alt="Photo by Ali Shah Lakhani on Unsplash." />
+  <figcaption class="figure-caption">Photo by Ali Shah Lakhani <a href="https://unsplash.com/photos/sp1BZ1atp7M">on Unsplash.</a><br /></figcaption>
+</figure>
 
-<p>The team at CHTC develops technologies and services for HTC.  CHTC is the home of the <a href="http://htcondor.org">HTCondor Software
-Suite</a> which has over 30 years of experience in tackling HTC problems;
-it manages shared computing resources
-for researchers on the UW-Madison campus; and it leads the <a href="https://osg-htc.org">OSG Consortium</a>,
-a national-scale environment for distributed HTC.</p>
+<p>Researchers at UW–Madison have increasingly required graphics processing units (GPUs) for their work. GPUs are specialized computing hardware that drives different data science technologies, including machine learning (ML). But what actually goes into running an ML job on the UW-Madison Center for High Throughput Computing (CHTC) using GPU capacity?</p>
 
-</div>
-    </div>
-    <div class="col-1 d-md-block d-none"></div>
-    <div class="col-3 d-md-flex d-none">
-        <img class="w-100 mt-auto mb-auto" src="/images/logos/CHTC_Small_Logo.svg" alt="CHTC Small Logo" />
-    </div>
-</div>
-        </div>
-    </div>
-</div>
-<div class="bg-light py-4">
-    <div class="container-lg">
-        <div class="row justify-content-center" >
-            
-            
-            <a href="/Opotowsky.html" class="news-post col-12 col-sm-6 col-lg-4  col-12 ">
-    <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/Opotowsky-card.jpeg" alt="Arrielle C. Opotowsky, a 2021 Ph.D. graduate from the University of Wisconsin-Madison's Department of Engineering Physics, describes how she utilized high throughput computing to expedite nuclear forensics investigations." />
-        </div>
-        <h3 class="my-1 text-dark">Expediting Nuclear Forensics and Security Using High Through Computing</h3>
-        <div class="text-dark d-flex flex-row justify-content-between">
-            <div class="w-auto">
-                By: Hannah Cheren
-            </div>
-            <div class="w-auto">
-                Jul 06, 2022
-            </div>
-        </div>
-        <div>
-            <p class="text-dark mb-0">
-                Arrielle C. Opotowsky, a 2021 Ph.D. graduate from the University of Wisconsin-Madison's Department of Engineering Physics, describes how she utilized high throughput computing to expedite nuclear forensics investigations.
-            </p>
-        </div>
-    </div>
-</a>
-            
-            <a href="/Hiemstra.html" class="news-post col-12 col-sm-6 col-lg-4  col-12 ">
-    <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/Hiemstra-card.png" alt="Justin Hiemstra, a Machine Learning Application Specialist for CHTC’s GPU Lab, discusses the testing suite developed to test CHTC's support for GPU and ML framework compatibility." />
-        </div>
-        <h3 class="my-1 text-dark">Testing GPU/ML Framework Compatibility</h3>
-        <div class="text-dark d-flex flex-row justify-content-between">
-            <div class="w-auto">
-                By: Hannah Cheren
-            </div>
-            <div class="w-auto">
-                Jul 06, 2022
-            </div>
-        </div>
-        <div>
-            <p class="text-dark mb-0">
-                Justin Hiemstra, a Machine Learning Application Specialist for CHTC’s GPU Lab, discusses the testing suite developed to test CHTC's support for GPU and ML framework compatibility.
-            </p>
-        </div>
-    </div>
-</a>
-            
-            <a href="/Gillett.html" class="news-post col-12 col-sm-6 col-lg-4  col-12 ">
-    <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/gillett-card.jpeg" alt="For the first time, UW Statistics undergraduates could participate in a course teaching high throughput computing (HTC). John Gillett, lecturer of Statistics at the University of Wisconsin-Madison, designed and taught the course with the support of the Center for High Throughput Computing (CHTC)." />
-        </div>
-        <h3 class="my-1 text-dark">UW Statistics Course using HTC</h3>
-        <div class="text-dark d-flex flex-row justify-content-between">
-            <div class="w-auto">
-                By: Hannah Cheren
-            </div>
-            <div class="w-auto">
-                Jul 06, 2022
-            </div>
-        </div>
-        <div>
-            <p class="text-dark mb-0">
-                For the first time, UW Statistics undergraduates could participate in a course teaching high throughput computing (HTC). John Gillett, lecturer of Statistics at the University of Wisconsin-Madison, designed and taught the course with the support of the Center for High Throughput Computing (CHTC).
-            </p>
-        </div>
-    </div>
-</a>
-            
-        </div>
-    </div>
-</div>
-<div class="container-lg">
-        <div class="row flex-row-reverse mb-4 mt-4 ">
-    <div class="col-12 col-md-8">
-        
-            <h1 class="uw-mini-bar mb-4">
-                HTCSS
-            </h1>
-        
-        <div>
-<p>The <a href="http://htcondor.org">HTCondor Software Suite (HTCSS)</a> provides sites and users with the ability to manage and execute
-HTC workloads.  Whether it’s managing a single laptop or 250,000 cores at CERN, HTCondor
-helps solve computational problems through the application of the HTC principles.</p>
+<p><a href="https://justinhiemstra.com/">Justin Hiemstra</a>, a graduate student in the Department of Electrical and Computer Engineering at the University of Wisconsin-Madison and currently working as an ML Application Specialist for CHTC’s GPU Lab, outlined the steps for running an ML job on CHTC using GPU capacity during <a href="https://agenda.hep.wisc.edu/event/1733/timetable/?view=standard">HTCondor Week 2022</a>.</p>
 
-</div>
-    </div>
-    <div class="col-1 d-md-block d-none"></div>
-    <div class="col-3 d-md-flex d-none">
-        <img class="w-100 mt-auto mb-auto" src="/images/laptop.svg" alt="Laptop" />
-    </div>
-</div>
-        <div class="row  mb-4 mt-4 ">
-    <div class="col-12 col-md-8">
-        
-            <h1 class="uw-mini-bar mb-4">
-                Services
-            </h1>
-        
-        <div>
-<h3 id="uw-research-computing"><a href="uw-research-computing">UW Research Computing</a></h3>
-<p>CHTC manages over 20,000 cores and dozens of GPUs for the UW-Madison
-campus; this resource, which is free and shared, aims to advance the
-mission of the University of Wisconsin in support of the Wisconsin
-Idea.  Researchers can place their workloads on an access point at
-CHTC and utilize the resources at CHTC, across the campus, and across
-the nation.</p>
+<p>Whenever a researcher has an ML job that they want to run on CHTC with a GPU, they need three things:</p>
 
-<h3 id="research-facilitation">Research Facilitation</h3>
-<p>CHTC’s Research Facilitation team empowers researchers to utilize computing to achieve
-their goals.  The Research Facilitation approach emphasizes teaching users skills and
-methodologies to manage &amp; automate workloads on resources like those at CHTC, the campus,
-or across the world.</p>
+<p>First, the researcher must write their ML code using a deep learning framework, such as PyTorch or TensorFlow.</p>
 
-</div>
-    </div>
-    <div class="col-1 d-md-block d-none"></div>
-    <div class="col-3 d-md-flex d-none">
-        <img class="w-100 mt-auto mb-auto" src="/images/microscope.svg" alt="Microscope" />
-    </div>
-</div>
+<p>Second, the researcher needs to pick a GPU type. “You can run ML jobs on a normal server without GPUs, but certain machine learning processes (e.g., neural networks) run much faster if you use one,” notes Christina Koch, one of Hiemstra’s supervisors for his work. When using the HTCondor Software Suite, the researcher <a href="https://support.opensciencegrid.org/support/solutions/articles/5000653025-using-gpus-on-the-ospool">can choose a specific GPU type by specifying a CUDA compute capability</a> in the HTCondor job submit file.</p>
 
-</div>
+<p>Third, the researcher has to pick a CUDA runtime library. This library handles communication between the GPU and the application space, allowing the ML code to run its computations.</p>
 
-<div class="bg-light pb-5">
-    <hr/>
-    <div class="container-lg">
-        <h3 class="text-center mb-5">
-            As part of its many services to UW-Madison and beyond,
-            the CHTC is home to or supports the following Research
-            Projects and Partners.
-        </h3>
-        <div class="row justify-content-center  mb-4 mt-4 ">
-    <div class="col col-md-8">
-        <h1><a href="https://osg-htc.org">OSG</a></h1>
-        <p>
-        The OSG is a consortium of research collaborations, campuses, national laboratories and software
-        providers dedicated to the advancement of all of open science via the practice of distributed High Throughput
-        Computing (dHTC), and the advancement of its state of the art. The OSG operates a fabric of dHTC services
-        for the national science and engineering community and CHTC has been a major force in OSG since its inception
-        in 2005.
-        </p>
-    </div>
-    <div class="col-1 d-md-block d-none"></div>
-    <a href="https://osg-htc.org" class="col-3 d-md-flex d-none">
-        <img style="" class="w-100 mt-auto mb-auto" src="/images/logos/OSG-logo.svg" alt="OSG Logo" />
-    </a>
-</div>
-        <div class="row justify-content-center  flex-row-reverse mb-4 mt-4">
-    <div class="col col-md-8">
-        <h1><a href="https://path-cc.io/">PATh</a></h1>
-        <p>
-        The Partnership to Advance Throughput Computing (PATh) is a partnership between
-        CHTC and OSG to advance throughput computing.  Funded through a major investment
-        from NSF, PATh helps advance HTC at a national level through support for
-        HTCSS and provides a fabric of services for the NSF science and engineering community
-        to access resources across the nation.
-        </p>
-    </div>
-    <div class="col-1 d-md-block d-none"></div>
-    <a href="https://path-cc.io/" class="col-3 d-md-flex d-none">
-        <img style="max-width: 12rem;" class="w-100 mt-auto mb-auto" src="/images/logos/PATh_Logo.png" alt="PATh Logo" />
-    </a>
-</div>
-        <div class="row justify-content-center  mb-4 mt-4 ">
-    <div class="col col-md-8">
-        <h1><a href="https://morgridge.org/">Morgridge Institute for Research</a></h1>
-        <p>
-        The Morgridge Institute for Research is a private, biomedical research institute
-        located on the UW-Madison campus.  Morgridge’s Research Computing Theme is a unique
-        partner with CHTC, investing in the vision of HTC and its ability to advance basic
-        research.
-        </p>
-    </div>
-    <div class="col-1 d-md-block d-none"></div>
-    <a href="https://morgridge.org/" class="col-3 d-md-flex d-none">
-        <img style="" class="w-100 mt-auto mb-auto" src="/images/logos/Morgridge_Logo.svg" alt="Morgridge Logo" />
-    </a>
-</div>
-        <div class="row justify-content-center">
+<p>For an ML job to complete successfully, these components (ML framework, GPU type, CUDA runtime) must be compatible.</p>
 
-            
-            <a href="https://xdd.wisc.edu/" class="col-8 col-lg-4 col-md-5 col-sm-5">
-    <div style="min-height: 160px;" class="row h-100 justify-content-center pt-3 pb-3">
-        <div class="col-12 col-sm-6 d-flex">
-            <h2 class="mt-auto mb-auto">xDD</h2>
-        </div>
-        <div class="col-6 col-sm-6 d-flex">
-            <img style="" class=" mt-auto mb-auto" src="/images/logos/xDD_Logo.svg" alt="xDD logo" />
-        </div>
-    </div>
-</a>
+<p>Some issues come into play with this setup. The first issue is a lack of documentation.“There’s no central resource we can go to to look at and see if different versions of deep learning frameworks, GPUs, and capabilities are compatible with each other,” Hiemstra notes.</p>
 
+<p>The second issue is that as these frameworks and GPU hardware evolves, Hiemstra and his team have noticed they’ve started to drop support for older frameworks and compute capabilities.</p>
 
-            <a href="https://iris-hep.org/" class="col-8 col-lg-4 col-md-5 col-sm-5">
-    <div style="min-height: 160px;" class="row h-100 justify-content-center pt-3 pb-3">
-        <div class="col-12 col-sm-6 d-flex">
-            <h2 class="mt-auto mb-auto">IRIS-HEP</h2>
-        </div>
-        <div class="col-6 col-sm-6 d-flex">
-            <img style="" class=" mt-auto mb-auto" src="/images/logos/IRIS-HEP_Logo.png" alt="IRIS-HEP logo" />
-        </div>
-    </div>
-</a>
+<p>The third issue is “whenever you have computing resources made up of discrete servers in a computing pool, you run into the issue of heterogeneous server configurations.” This issue adds to the problem and confusion of trying to pick compatible versions.</p>
 
+<p>Hiemstra has put together a suite of test jobs to explore this compatibility issue. The jobs test whether a single tuple of CUDA runtime, framework, and compute capability versions are compatible on a CHTC resource. He looks at three things to do so:</p>
 
-            <a href="https://neos-server.org/neos/" class="col-8 col-lg-4 col-md-5 col-sm-5">
-    <div style="min-height: 160px;" class="row h-100 justify-content-center pt-3 pb-3">
-        <div class="col-12 col-sm-6 d-flex">
-            <h2 class="mt-auto mb-auto">NEOS</h2>
-        </div>
-        <div class="col-6 col-sm-6 d-flex">
-            <img style="" class=" mt-auto mb-auto" src="/images/logos/NEOS_Logo.svg" alt="NEOS logo" />
-        </div>
-    </div>
-</a>
+<p>First, did the jobs match, meaning, was it able to find the resources that they requested? Second, did the Conda Environment resolve, meaning, was it able to match all of the versions without finding any conflicting dependencies? Finally, was the framework able to communicate with GPUs? The job should run as expected if all three of these things happen. The test job will print out an error file if any of these fail.</p>
 
+<p>When a job fails, it’ll give some indication as to where the error occurred. These messages get recorded and later reviewed by Hiemstra so he can try to understand better what’s happening on the GPU Servers in the CHTC GPU Lab.</p>
 
-            <a href="https://bmrb.io/" class="col-8 col-lg-4 col-md-5 col-sm-5">
-    <div style="min-height: 160px;" class="row h-100 justify-content-center pt-3 pb-3">
-        <div class="col-12 col-sm-6 d-flex">
-            <h2 class="mt-auto mb-auto">BMRB</h2>
-        </div>
-        <div class="col-6 col-sm-6 d-flex">
-            <img style="" class=" mt-auto mb-auto" src="/images/logos/BMRB_Logo.svg" alt="BMRB logo" />
-        </div>
-    </div>
-</a>
+<p>The goal now for Hiemstra and his team is to “look at all of the different versions we might be interested in combining to see which ranges of compute capabilities, frameworks, and CUDA runtime libraries might work with each other.”</p>
 
+<p>Issues arise when trying to analyze the entire version space. First, the version space to test grows combinatorially. “On an active system where research is being done, that’ll start gobbling up capacity and taking it away from the researchers,” Hiemstra remarks.</p>
 
-            <a href="https://pegasus.isi.edu/" class="col-8 col-lg-4 col-md-5 col-sm-5">
-    <div style="min-height: 160px;" class="row h-100 justify-content-center pt-3 pb-3">
-        <div class="col-12 col-sm-6 d-flex">
-            <h2 class="mt-auto mb-auto">Pegasus</h2>
-        </div>
-        <div class="col-6 col-sm-6 d-flex">
-            <img style="" class=" mt-auto mb-auto" src="/images/logos/Pegasus_Logo.png" alt="Pegasus logo" />
-        </div>
-    </div>
-</a>
+<p>To prune the version space, so they’re not testing tens of thousands of different versions, they know that the CHTC has certain compute capabilities available. Knowing this, Hiemstra and his team can limit the number of versions they test only to include those that the CHTC has available. In addition, they assume that researchers use tools, such as Conda, to install their software, so they focus on framework and CUDA runtime versions that are available through Conda.</p>
 
+<p>The second issue is that the team needs some way of automatically collecting the different test parameters. Essentially, the goal is to have it so that someone in CHTC doesn’t have to update this by hand continuously. Each job needs several files to run, so to dynamically generate these files, the team uses Python String formatting to build these files.</p>
 
+<p>Finally, they’d like to find a way to manage all the jobs since they will continue to “fire off” hundreds of jobs during this process. To do this, they decided on a “timeout” period of 24 hours so that they don’t have scripts running on the CHTC Access Point indefinitely.</p>
+
+<p>Hiemstra and his team use DAGman, a tool for Directed Acyclic Graph (DAG) workflows, to first spawn a parent process.</p>
+
+<p>That parent process will do all the version space pruning and file generation. It’ll then submit all the jobs for testing, wait 24 hours for that timeout, and “run a postscript to interpret the output of those jobs.”</p>
+
+<p>Next, they process all the output files to gain further insight into how the system works.</p>
+
+<p>Currently, they’re running it quarterly, looking at the output table, and seeing if anything unexpected pops up. Hiemstra explains that going through this process “should give us some tools to debug the system if something suddenly crashes or if different versions a researcher is using are not compatible with each other.</p>
+
+<p>Hiemstra is curious to see and examine for the future how the choice of versions that a researcher picks affects the runtime of their ML model or whether or not it affects the outcome or performance of that model.</p>
+
+<p>“Everything about machine learning approaches is diverse and changing quickly,” Koch remarks, “having information about compatible frameworks and GPUs allows us to be more responsive and helpful to researchers who may be new to the field.”</p>
+
+<p>The implementation of this tool that Hiemstra and his team have developed can be found on the <a href="https://github.com/chTC/gpu-compatibility-testing">CHTC GitHub Repository</a>.</p>
+
+<p>…</p>
+
+<p><em>Watch a video recording of Justin Hiemstra’s talk at HTCondor Week 2022, and browse his <a href="https://agenda.hep.wisc.edu/event/1733/contributions/25477/attachments/8296/9571/Testing%20GPU_ML%20Framework%20Compatibility.pdf">slides</a>.</em></p>
+
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/pb6ooJ4-VJM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 
         </div>
     </div>
 </div>
-
+</main>
     </main>
     <footer id="colophon" class="uw-footer">
     <div class="uw-footer-content">
