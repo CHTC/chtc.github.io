@@ -217,9 +217,35 @@
 </h1>
 
             <ul>
+  <li><a href="#moving-from-previous-afs-file">Moving from your AFS File</a></li>
   <li><a href="#creating-the-schedule-file">Creating The Schedule File</a></li>
   <li><a href="#populating-your-days-off">Populating Your Days Off</a></li>
 </ul>
+
+<h3 id="moving-from-previous-afs-file">Moving From Previous AFS File</h3>
+
+<p>This section shows how one might transfer from entering their times in afs to entering their times into a Google calendar.</p>
+
+<p><strong>Save a copy of your schedule file, the google calendar will overwrite it</strong></p>
+
+<p>If you did not do this and now need it back, Cannon has them all saved as of 2022-07-15.</p>
+
+<h4 id="create-an-ics-file-from-your-current-file-in-afs">Create an ics file from your current file in afs</h4>
+
+<p>Login to moria</p>
+
+<pre><code class="language-shell">cd /p/condor/public/html/htcondor/developers/schedules
+
+source generate_personal_ics.sh &lt;your_file_name&gt;
+</code></pre>
+
+<p>If an error is reported in your schedule file you can fix it or ignore it and that event just won’t be added.</p>
+
+<p>Grab the ics file from this build and import it into your calendar you create <a href="#creating-the-schedule-file">below</a>.</p>
+
+<p>This can be done on the <a href="https://calendar.google.com/calendar/u/0/r/settings/export">import page</a>.</p>
+
+<p>Don’t forget to also create your new <a href="#creating-the-schedule-file">schedule file</a> which holds your schedule meta-data.</p>
 
 <h3 id="creating-the-schedule-file">Creating The Schedule File</h3>
 
@@ -255,6 +281,8 @@ default:
 
 <p><em>Phone</em>: Your phone number(s). Example =&gt; “+1 608 265 5736 (office) <br /> +1 608 576 0351 (cell)”</p>
 
+<p><em>DailyEmail</em>: Do you want a daily email with information about who is gone?</p>
+
 <p><em>calendarurl</em>: The url to your outage calendar. Details on obtaining this found <a href="#creating-your-ical-url">below</a>.</p>
 
 <p><em>starttime</em>: Your typical start time, use military format. Example =&gt; “09:00”</p>
@@ -262,6 +290,8 @@ default:
 <p><em>endtime</em>: Your typical end time, use military format. Example =&gt; “17:00”</p>
 
 <p><em>status</em>: Your status during these hours. If you are unsure use “Office”.</p>
+
+<p><em>default[Monday, Tuesday, Wednesday, Thursday, Friday]</em>: This overwrites the default for that day. Use the same format as default.</p>
 
 <p><em>Important</em></p>
 
