@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Home</title>
+<title>LIGO's Search for Gravitational Waves Signals Using HTCondor</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -21,21 +21,28 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Home | CHTC</title>
+<title>LIGO’s Search for Gravitational Waves Signals Using HTCondor | CHTC</title>
 <meta name="generator" content="Jekyll v4.2.2" />
-<meta property="og:title" content="Home" />
+<meta property="og:title" content="LIGO’s Search for Gravitational Waves Signals Using HTCondor" />
+<meta name="author" content="Hannah Cheren" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
-<meta property="og:description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/" />
+<meta name="description" content="Cody Messick, a Postdoc at the Massachusetts Institute of Technology (MIT) working for the LIGO lab, describes LIGO’s use of HTCondor to search for new gravitational wave sources." />
+<meta property="og:description" content="Cody Messick, a Postdoc at the Massachusetts Institute of Technology (MIT) working for the LIGO lab, describes LIGO’s use of HTCondor to search for new gravitational wave sources." />
+<link rel="canonical" href="https://htcondor.org/featured-users/2022-07-06-Messick.html" />
+<meta property="og:url" content="https://htcondor.org/featured-users/2022-07-06-Messick.html" />
 <meta property="og:site_name" content="CHTC" />
-<meta property="og:type" content="website" />
+<meta property="og:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/Messick-card.png" />
+<meta property="og:image:alt" content="Image of two black holes from Cody Messick’s presentation slides." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-07-21T00:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Home" />
+<meta property="twitter:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/Messick-card.png" />
+<meta name="twitter:image:alt" content="Image of two black holes from Cody Messick’s presentation slides." />
+<meta property="twitter:title" content="LIGO’s Search for Gravitational Waves Signals Using HTCondor" />
 <meta name="twitter:site" content="@chtc_uw" />
+<meta name="twitter:creator" content="@Hannah Cheren" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"Home","name":"CHTC","url":"https://chtc.cs.wisc.edu/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hannah Cheren"},"dateModified":"2022-07-21T00:00:00+00:00","datePublished":"2022-07-21T00:00:00+00:00","description":"Cody Messick, a Postdoc at the Massachusetts Institute of Technology (MIT) working for the LIGO lab, describes LIGO’s use of HTCondor to search for new gravitational wave sources.","headline":"LIGO’s Search for Gravitational Waves Signals Using HTCondor","image":{"alt":"Image of two black holes from Cody Messick’s presentation slides.","url":"https://raw.githubusercontent.com/CHTC/Articles/main/images/Messick-card.png","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://htcondor.org/featured-users/2022-07-06-Messick.html"},"url":"https://htcondor.org/featured-users/2022-07-06-Messick.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -208,298 +215,58 @@
     
 
     <main id="main" style="min-height: 60vh;">
-        
+        <main id="main" style="min-height: 60vh;">
+    <!-- This Layout is to adhere the page to the optimal char per lines for accessibility -->
 
 
-<div class="bg-light py-3">
-    <div class="container-lg mw-1000">
-        <img src="/images/HTC_Graphic_Outline.svg"  alt="CHTC Logo" />
-    </div>
-</div>
 <div class="container-xxl">
     <div class="row justify-content-center">
-        <div class="col">
-            <div class="row  mb-4 mt-4 ">
-    <div class="col-12 col-md-8">
-        
+        <div class="col-12 col-sm-11 col-md-9 col-lg-8">
             <h1 class="uw-mini-bar mb-4">
-                Center for High Throughput Computing
+                LIGO's Search for Gravitational Waves Signals Using HTCondor
             </h1>
-        
-        <div>
-<p><strong>The Center for High Throughput Computing (CHTC), established in 2006, aims to bring the power
-of High Throughput Computing to all fields of research, and to allow the future of HTC to be shaped
-by insight from all fields.</strong></p>
+            <p><strong><em>Cody Messick, a Postdoc at the Massachusetts Institute of Technology (MIT) working for the LIGO lab, describes LIGO’s use of HTCondor to search for new gravitational wave sources.</em></strong></p>
 
-<p><a href="htc.html">High Throughput Computing</a> is a collection of principles and techniques which maximize the effective throughput
-of computing resources towards a given problem.  When applied for scientific computing, HTC can result in
-improved use of a computing resource, improved automation, and help drive the scientific problem forward.</p>
+<figure>
+  <img class="w-100" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/Messick-card.png" alt="Image of two black holes. Photo credit: Cody Messick’s presentation slides." />
+  <figcaption class="figure-caption">Image of two black holes. Photo credit: Cody Messick’s presentation slides.<br /></figcaption>
+</figure>
 
-<p>The team at CHTC develops technologies and services for HTC.  CHTC is the home of the <a href="http://htcondor.org">HTCondor Software
-Suite</a> which has over 30 years of experience in tackling HTC problems;
-it manages shared computing resources
-for researchers on the UW-Madison campus; and it leads the <a href="https://osg-htc.org">OSG Consortium</a>,
-a national-scale environment for distributed HTC.</p>
+<p>High-throughput computing (HTC) is critical to astronomy, from black hole research to radial astronomy and beyond. At the <a href="https://agenda.hep.wisc.edu/event/1733/timetable/?view=standard">2022 HTCondor Week</a>, another area of astronomy was put in the spotlight by <a href="https://space.mit.edu/people/messick-cody/">Cody Messick</a>, a researcher working for the <a href="https://space.mit.edu/instrumentation/ligo/">LIGO</a> lab and a Postdoc at the Massachusetts Institute of Technology (MIT). His work focuses on a gravitational-wave analysis that he’s been running with the help of HTCondor to search for new gravitational wave signals.</p>
 
-</div>
-    </div>
-    <div class="col-1 d-md-block d-none"></div>
-    <div class="col-3 d-md-flex d-none">
-        <img class="w-100 mt-auto mb-auto" src="/images/logos/CHTC_Small_Logo.svg" alt="CHTC Small Logo" />
-    </div>
-</div>
-        </div>
-    </div>
-</div>
-<div class="bg-light py-4">
-    <div class="container-lg">
-        <div class="row justify-content-center" >
-            
-            
-            <a href="/Messick.html" class="news-post col-12 col-sm-6 col-lg-4  col-12 ">
-    <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/Messick-card.png" alt="Image of two black holes from Cody Messick’s presentation slides." />
-        </div>
-        <h3 class="my-1 text-dark">LIGO's Search for Gravitational Waves Signals Using HTCondor</h3>
-        <div class="text-dark d-flex flex-row justify-content-between">
-            <div class="w-auto">
-                By: Hannah Cheren
-            </div>
-            <div class="w-auto">
-                Jul 21, 2022
-            </div>
-        </div>
-        <div>
-            <p class="text-dark mb-0">
-                Cody Messick, a Postdoc at the Massachusetts Institute of Technology (MIT) working for the LIGO lab, describes LIGO's use of HTCondor to search for new gravitational wave sources.
-            </p>
-        </div>
-    </div>
-</a>
-            
-            <a href="/Wilcots.html" class="news-post col-12 col-sm-6 col-lg-4  col-12 ">
-    <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/Wilcots-card.png" alt="Eric Wilcots, UW-Madison dean of the College of Letters & Science and the Mary C. Jacoby Professor of Astronomy, dazzles the HTCondor Week 2022 audience." />
-        </div>
-        <h3 class="my-1 text-dark">The Future of Radio Astronomy Using High Throughput Computing</h3>
-        <div class="text-dark d-flex flex-row justify-content-between">
-            <div class="w-auto">
-                By: Hannah Cheren
-            </div>
-            <div class="w-auto">
-                Jul 12, 2022
-            </div>
-        </div>
-        <div>
-            <p class="text-dark mb-0">
-                Eric Wilcots, UW-Madison dean of the College of Letters & Science and the Mary C. Jacoby Professor of Astronomy, dazzles the HTCondor Week 2022 audience.
-            </p>
-        </div>
-    </div>
-</a>
-            
-            <a href="/Opotowsky.html" class="news-post col-12 col-sm-6 col-lg-4  col-12 ">
-    <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/Opotowsky-card.jpeg" alt="Arrielle C. Opotowsky, a 2021 Ph.D. graduate from the University of Wisconsin-Madison's Department of Engineering Physics, describes how she utilized high throughput computing to expedite nuclear forensics investigations." />
-        </div>
-        <h3 class="my-1 text-dark">Expediting Nuclear Forensics and Security Using High Through Computing</h3>
-        <div class="text-dark d-flex flex-row justify-content-between">
-            <div class="w-auto">
-                By: Hannah Cheren
-            </div>
-            <div class="w-auto">
-                Jul 06, 2022
-            </div>
-        </div>
-        <div>
-            <p class="text-dark mb-0">
-                Arrielle C. Opotowsky, a 2021 Ph.D. graduate from the University of Wisconsin-Madison's Department of Engineering Physics, describes how she utilized high throughput computing to expedite nuclear forensics investigations.
-            </p>
-        </div>
-    </div>
-</a>
-            
-        </div>
-    </div>
-</div>
-<div class="container-lg">
-        <div class="row flex-row-reverse mb-4 mt-4 ">
-    <div class="col-12 col-md-8">
-        
-            <h1 class="uw-mini-bar mb-4">
-                HTCSS
-            </h1>
-        
-        <div>
-<p>The <a href="http://htcondor.org">HTCondor Software Suite (HTCSS)</a> provides sites and users with the ability to manage and execute
-HTC workloads.  Whether it’s managing a single laptop or 250,000 cores at CERN, HTCondor
-helps solve computational problems through the application of the HTC principles.</p>
+<p>Starting with general relativity and why it’s crucial to his work, Messick explains that “it tells us two things; first, space and time are not separate entities but are instead part of a four-dimensional object called space-time. Second, space-time is warped by mass and energy, and it’s these changes to the geometry of space-time that we experience as gravity.”</p>
 
-</div>
-    </div>
-    <div class="col-1 d-md-block d-none"></div>
-    <div class="col-3 d-md-flex d-none">
-        <img class="w-100 mt-auto mb-auto" src="/images/laptop.svg" alt="Laptop" />
-    </div>
-</div>
-        <div class="row  mb-4 mt-4 ">
-    <div class="col-12 col-md-8">
-        
-            <h1 class="uw-mini-bar mb-4">
-                Services
-            </h1>
-        
-        <div>
-<h3 id="uw-research-computing"><a href="uw-research-computing">UW Research Computing</a></h3>
-<p>CHTC manages over 20,000 cores and dozens of GPUs for the UW-Madison
-campus; this resource, which is free and shared, aims to advance the
-mission of the University of Wisconsin in support of the Wisconsin
-Idea.  Researchers can place their workloads on an access point at
-CHTC and utilize the resources at CHTC, across the campus, and across
-the nation.</p>
+<p>Messick notes that general relativity is important to his work because it predicts the existence of gravitational waves. These waves are tiny ripples in the curvature of space-time that travel at the speed of light and stretch and compress space. Accelerating non-spherically symmetric masses generate these waves.</p>
 
-<h3 id="research-facilitation">Research Facilitation</h3>
-<p>CHTC’s Research Facilitation team empowers researchers to utilize computing to achieve
-their goals.  The Research Facilitation approach emphasizes teaching users skills and
-methodologies to manage &amp; automate workloads on resources like those at CHTC, the campus,
-or across the world.</p>
+<p>Generating ripples in the curvature of space-time large enough to be detectable using modern ground-based gravitational-wave observatories takes an enormous amount of energy; the observations made thus far have come from the mergers of compact binaries, pairs of extraordinarily dense yet relatively small astronomical objects that spiral into each other at speeds approaching the speed of light. Black holes and neutron stars are examples of these so-called compact objects, both of which are or almost are perfectly spherical.</p>
 
-</div>
-    </div>
-    <div class="col-1 d-md-block d-none"></div>
-    <div class="col-3 d-md-flex d-none">
-        <img class="w-100 mt-auto mb-auto" src="/images/microscope.svg" alt="Microscope" />
-    </div>
-</div>
+<p>Messick and his team first detected two black holes going two-thirds the speed of light right before they collided. “It’s these fantastic amounts of energy in a collision that moves our detectors by less than the radius of a proton, so we need extremely energetic explosions of collisions to detect these things.”</p>
 
-</div>
+<p>Messick looks for specific gravitational waveforms during the data analysis. “We don’t know which ones we’re going to look for or see in advance, so we look for about a million different ones.” They then use match filtering to find the probability that the random noise in the detectors would generate something that looks like a gravitational-wave; the first gravitational-wave observation had less than a 1 in 3.5 billion chance of coming from noise and matched theoretical predictions from general relativity extremely well.</p>
 
-<div class="bg-light pb-5">
-    <hr/>
-    <div class="container-lg">
-        <h3 class="text-center mb-5">
-            As part of its many services to UW-Madison and beyond,
-            the CHTC is home to or supports the following Research
-            Projects and Partners.
-        </h3>
-        <div class="row justify-content-center  mb-4 mt-4 ">
-    <div class="col col-md-8">
-        <h1><a href="https://osg-htc.org">OSG</a></h1>
-        <p>
-        The OSG is a consortium of research collaborations, campuses, national laboratories and software
-        providers dedicated to the advancement of all of open science via the practice of distributed High Throughput
-        Computing (dHTC), and the advancement of its state of the art. The OSG operates a fabric of dHTC services
-        for the national science and engineering community and CHTC has been a major force in OSG since its inception
-        in 2005.
-        </p>
-    </div>
-    <div class="col-1 d-md-block d-none"></div>
-    <a href="https://osg-htc.org" class="col-3 d-md-flex d-none">
-        <img style="" class="w-100 mt-auto mb-auto" src="/images/logos/OSG-logo.svg" alt="OSG Logo" />
-    </a>
-</div>
-        <div class="row justify-content-center  flex-row-reverse mb-4 mt-4">
-    <div class="col col-md-8">
-        <h1><a href="https://path-cc.io/">PATh</a></h1>
-        <p>
-        The Partnership to Advance Throughput Computing (PATh) is a partnership between
-        CHTC and OSG to advance throughput computing.  Funded through a major investment
-        from NSF, PATh helps advance HTC at a national level through support for
-        HTCSS and provides a fabric of services for the NSF science and engineering community
-        to access resources across the nation.
-        </p>
-    </div>
-    <div class="col-1 d-md-block d-none"></div>
-    <a href="https://path-cc.io/" class="col-3 d-md-flex d-none">
-        <img style="max-width: 12rem;" class="w-100 mt-auto mb-auto" src="/images/logos/PATh_Logo.png" alt="PATh Logo" />
-    </a>
-</div>
-        <div class="row justify-content-center  mb-4 mt-4 ">
-    <div class="col col-md-8">
-        <h1><a href="https://morgridge.org/">Morgridge Institute for Research</a></h1>
-        <p>
-        The Morgridge Institute for Research is a private, biomedical research institute
-        located on the UW-Madison campus.  Morgridge’s Research Computing Theme is a unique
-        partner with CHTC, investing in the vision of HTC and its ability to advance basic
-        research.
-        </p>
-    </div>
-    <div class="col-1 d-md-block d-none"></div>
-    <a href="https://morgridge.org/" class="col-3 d-md-flex d-none">
-        <img style="" class="w-100 mt-auto mb-auto" src="/images/logos/Morgridge_Logo.svg" alt="Morgridge Logo" />
-    </a>
-</div>
-        <div class="row justify-content-center">
+<p>Messick’s work with external collaborators outside the LIGO-Virgo-KAGRA collaboration looks for systems  their normal analyses are not sensitive to. Scientists use the parameter kappa to characterize the ability of a nearly spherical object to distort when spinning rapidly or, in simple terms, how squished a sphere will become when spinning quickly.</p>
 
-            
-            <a href="https://xdd.wisc.edu/" class="col-8 col-lg-4 col-md-5 col-sm-5">
-    <div style="min-height: 160px;" class="row h-100 justify-content-center pt-3 pb-3">
-        <div class="col-12 col-sm-6 d-flex">
-            <h2 class="mt-auto mb-auto">xDD</h2>
-        </div>
-        <div class="col-6 col-sm-6 d-flex">
-            <img style="" class=" mt-auto mb-auto" src="/images/logos/xDD_Logo.svg" alt="xDD logo" />
-        </div>
-    </div>
-</a>
+<p>LIGO searches are insensitive to any signal with a kappa greater than approximately ten. “There could be [signals] hiding in the data that we can’t see because we’re not looking with the right waveforms,” Messick explains. His analysis has been working on this problem.</p>
 
+<p>Messick uses HTCondor DAGs to model his workflows, which he modified to make integration with OSG easier. The first job checks the frequency spectrum of the noise. These workflows go into an aggregation of the frequency spectrum, decomposition (labeled by color by type of detector), and finally, the filtering process occurs.</p>
 
-            <a href="https://iris-hep.org/" class="col-8 col-lg-4 col-md-5 col-sm-5">
-    <div style="min-height: 160px;" class="row h-100 justify-content-center pt-3 pb-3">
-        <div class="col-12 col-sm-6 d-flex">
-            <h2 class="mt-auto mb-auto">IRIS-HEP</h2>
-        </div>
-        <div class="col-6 col-sm-6 d-flex">
-            <img style="" class=" mt-auto mb-auto" src="/images/logos/IRIS-HEP_Logo.png" alt="IRIS-HEP logo" />
-        </div>
-    </div>
-</a>
+<figure>
+  <img src="https://raw.githubusercontent.com/CHTC/Articles/main/images/Messick-workflow.png" alt="A section of Messick’s DAG workflow." />
+  <figcaption class="figure-caption">A section of Messick’s DAG workflow.<br /></figcaption>
+</figure>
 
+<p>Although Messick’s work is more physics-heavy than computationally driven, he remarks that “HTCondor is extremely useful to us… it can fit the work we’ve been doing very, very naturally.”</p>
 
-            <a href="https://neos-server.org/neos/" class="col-8 col-lg-4 col-md-5 col-sm-5">
-    <div style="min-height: 160px;" class="row h-100 justify-content-center pt-3 pb-3">
-        <div class="col-12 col-sm-6 d-flex">
-            <h2 class="mt-auto mb-auto">NEOS</h2>
-        </div>
-        <div class="col-6 col-sm-6 d-flex">
-            <img style="" class=" mt-auto mb-auto" src="/images/logos/NEOS_Logo.svg" alt="NEOS logo" />
-        </div>
-    </div>
-</a>
+<p>…</p>
 
+<p><em>Watch a video recording of Cody Messick’s talk at HTCondor Week 2022, and browse his <a href="https://agenda.hep.wisc.edu/event/1733/contributions/25501/attachments/8303/9586/How%20LIGO%20Analysis%20is%20using%20HTCondor.pdf">slides</a>.</em></p>
 
-            <a href="https://bmrb.io/" class="col-8 col-lg-4 col-md-5 col-sm-5">
-    <div style="min-height: 160px;" class="row h-100 justify-content-center pt-3 pb-3">
-        <div class="col-12 col-sm-6 d-flex">
-            <h2 class="mt-auto mb-auto">BMRB</h2>
-        </div>
-        <div class="col-6 col-sm-6 d-flex">
-            <img style="" class=" mt-auto mb-auto" src="/images/logos/BMRB_Logo.svg" alt="BMRB logo" />
-        </div>
-    </div>
-</a>
-
-
-            <a href="https://pegasus.isi.edu/" class="col-8 col-lg-4 col-md-5 col-sm-5">
-    <div style="min-height: 160px;" class="row h-100 justify-content-center pt-3 pb-3">
-        <div class="col-12 col-sm-6 d-flex">
-            <h2 class="mt-auto mb-auto">Pegasus</h2>
-        </div>
-        <div class="col-6 col-sm-6 d-flex">
-            <img style="" class=" mt-auto mb-auto" src="/images/logos/Pegasus_Logo.png" alt="Pegasus logo" />
-        </div>
-    </div>
-</a>
-
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FcgpmPTXmaA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 
         </div>
     </div>
 </div>
-
+</main>
     </main>
     <footer id="colophon" class="uw-footer">
     <div class="uw-footer-content">
