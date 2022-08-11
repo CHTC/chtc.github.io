@@ -294,9 +294,9 @@ the capacity of the GPU Lab to run their work.</p>
     <th>Number of Servers</th>
     <th>Names</th>
     <th>GPUs / Server</th>
-    <th>GPU Type (<code>GPUs_DeviceName</code>)</th>
-    <th>Hardware Generation <code>GPUs_Capability</code></th>
-    <th>GPU Memory <code>GPUs_GlobalMemoryMB</code></th>
+    <th>GPU Type (<code>DeviceName</code>)</th>
+    <th>Hardware Generation <code>Capability</code></th>
+    <th>GPU Memory <code>GlobalMemoryMB</code></th>
   </tr>
 <!--  <tr>
     <td>gpu-3.chtc.wisc.edu</td> 
@@ -400,11 +400,9 @@ like to submit by using the submit file option below.
   </li>
   <li><strong>Request Specific GPUs or CUDA Functionality Using <code>require_gpus</code> (optional)</strong>: If your software or code requires a certain
 type of GPU, or has some other special requirement, there is a special submit file line 
-to request these capabilities, <code>require_gpus</code>. Each GPU quality that can be requested 
-in this way is structured as <code>GPUs_&lt;Feature&gt;</code>. You can request specific features by using 
-the feature name (dropping the <code>GPUs_</code> prefix) in the <code>require_gpus</code> statement.  For example, if you want a certain 
+to request these capabilities, <code>require_gpus</code>. For example, if you want a certain 
 class of GPU, represented by 
-the attribute <code>GPUs_Capability</code>, your <code>require_gpus</code> statement would look like this:
+the attribute <code>Capability</code>, your <code>require_gpus</code> statement would look like this:
     <pre class="sub"><code>require_gpus = (Capability &gt; 7.5)
 </code></pre>
 
@@ -554,11 +552,13 @@ GPU-enabled servers by running:</p>
 
 <p>To print out specific information about a GPU server and its GPUs, you
 can use the “auto-format” option for <code>condor_status</code> and the names of
-specific server attributes. For example, the tables below can be mostly
+specific server attributes. In general, when querying attributes using 
+<code>condor_status</code>, a “GPUs_” prefix needs to be added to the attribute name. 
+For example, the tables at the top of the guide can be mostly
 recreated using the attributes <code>Machine</code>, <code>TotalGpus</code>,
 <code>GPUs_DeviceName</code> and <code>GPUs_Capability</code>:</p>
 
-<pre class="term"><code>[alice@submit]$ condor_status -compact -constraint 'TotalGpus &gt; 0' \
+<pre class="term"><code>[alice@submit]$ condor_status -constraint 'Gpus &gt; 0' \
 				-af Machine TotalGpus GPUs_DeviceName GPUs_Capability
 </code></pre>
 
@@ -579,11 +579,11 @@ server, including:</p>
 		<td>The total number of GPUs on a server.</td>
 	</tr>
 	<tr>
-		<td><code>GPUs_DeviceName</code></td>
+		<td>(<code>GPUs_</code>)<code>DeviceName</code></td>
 		<td>The type of GPU card.</td>
 	</tr>
 	<tr>
-		<td><code>GPUs_Capability</code></td>
+		<td>(<code>GPUs_</code>)<code>Capability</code></td>
 		<td>Represents various capabilities of the GPU. Can be used as a proxy for the GPU card type when 
 		requiring a specific type of GPU. <a href="https://en.wikipedia.org/wiki/CUDA#GPUs_supported">Wikipedia</a>
 		has a table showing the compute capability for specific GPU architectures and cards.
@@ -592,11 +592,11 @@ server, including:</p>
 		NVIDIA website</a>.</td>
 	</tr>
 	<tr>
-		<td><code>GPUs_DriverVersion</code></td>
-		<td><b>Not</b> the version of CUDA on the server, but the maximum CUDA runtime version supported by the GPU drivers on the server. </td>
+		<td><code>GPUs_</code>)<code>DriverVersion</code></td>
+		<td><b>Not</b> the version of CUDA on the server or the NVIDIA driver version, but the maximum CUDA runtime version supported by the NVIDIA driver on the server. </td>
 	</tr>
 	<tr>
-		<td><code>GPUs_GlobalMemoryMb</code></td>
+		<td><code>GPUs_</code>)<code>GlobalMemoryMb</code></td>
 		<td>Amount of memory available on the GPU card.</td>
 	</tr>
 </table>
