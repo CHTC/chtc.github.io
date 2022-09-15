@@ -59,13 +59,27 @@
 
     
 
-<div class="uw-global-bar" role="navigation">
-    <a class="uw-global-name-link" href="http://www.wisc.edu" aria-label="University home page">U<span>niversity <span class="uw-of">of</span> </span>W<span>isconsin</span>–Madison</a>
-
-    
-    <a class="uw-global-name-link" href="/uw-research-computing" aria-label="UW Research Computing Homepage">Go to UW Research Computing Home</a>
-    
+<div class="container-fluid">
+    <div class="row justify-content-between bg-primary"  role="navigation">
+        <div class="col-auto">
+            <a class="uw-global-name-link" href="http://www.wisc.edu" aria-label="University home page">U<span>niversity <span class="uw-of">of</span> </span>W<span>isconsin</span>–Madison</a>
+        </div>
+        <div class="col-auto">
+            <div class="row">
+                <div class="col-auto pe-0">
+                    
+                    <a class="uw-global-name-link" href="/uw-research-computing" aria-label="UW Research Computing Homepage">Go to UW Research Computing Home</a>
+                    
+                </div>
+                <div class="col-auto d-flex">
+                    <a class="button btn-light px-2  my-auto rounded" href="/uw-research-computing/form.html">Request Account</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
     
 
 
@@ -142,24 +156,10 @@
                 
                     
 
-<li id="services" class="uw-dropdown">
-    <a href="/services.html" role="button" aria-haspopup="true" aria-expanded="false">
-        Services
-        <svg aria-hidden="true" class="uw-caret" focusable="false">
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
-        </svg>
-        <svg aria-hidden="true" class="uw-caret" focusable="false">
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
-        </svg>
-    </a>
-    <ul aria-hidden="true" aria-label="Services submenu" class="uw-child-menu">
 
-    
-        <li>
-            <a href="/uw-research-computing/index.html">UW Research Computing</a>
-        </li>
-    
-    </ul>    
+<li id="uw-research-computing">
+    <a href="/uw-research-computing/index.html" aria-current="page">UW Research Computing</a>
+</li>
 
 
                 
@@ -217,37 +217,51 @@
     </div>
 </div>
 <div class="container-xxl">
-    <div class="row justify-content-center">
-        <div class="col">
-            <div class="row  mb-4 mt-4 ">
-    <div class="col-12 col-md-8">
-        
+    <div class="row ">
+        <div class="col-12 col-md-8">
             <h1 class="uw-mini-bar mb-4">
-                Center for High Throughput Computing
+                CENTER FOR HIGH THROUGHPUT COMPUTING
             </h1>
-        
-        <div>
-<p><strong>The Center for High Throughput Computing (CHTC), established in 2006, aims to bring the power
-of High Throughput Computing to all fields of research, and to allow the future of HTC to be shaped
-by insight from all fields.</strong></p>
-
-<p><a href="htc.html">High Throughput Computing</a> is a collection of principles and techniques which maximize the effective throughput
-of computing resources towards a given problem.  When applied for scientific computing, HTC can result in
-improved use of a computing resource, improved automation, and help drive the scientific problem forward.</p>
-
-<p>The team at CHTC develops technologies and services for HTC.  CHTC is the home of the <a href="http://htcondor.org">HTCondor Software
-Suite</a> which has over 30 years of experience in tackling HTC problems;
-it manages shared computing resources
-for researchers on the UW-Madison campus; and it leads the <a href="https://osg-htc.org">OSG Consortium</a>,
-a national-scale environment for distributed HTC.</p>
-
-</div>
-    </div>
-    <div class="col-1 d-md-block d-none"></div>
-    <div class="col-3 d-md-flex d-none">
-        <img class="w-100 mt-auto mb-auto" src="/images/logos/CHTC_Small_Logo.svg" alt="CHTC Small Logo" />
-    </div>
-</div>
+            <div>
+                <p>
+                    <strong>
+                        The Center for High Throughput Computing (CHTC), established in 2006, aims to bring the power
+                        of High Throughput Computing to all fields of research, and to allow the future of HTC to be shaped
+                        by insight from all fields.
+                    </strong>
+                </p>
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="bg-light rounded px-1 pb-3 mb-3">
+                            <p class="p-2 pb-0 text-center">
+                                Are you a UW-Madison researcher looking to expand your computing beyond your local resources? Request
+                                an account now to take advantage of the free large-scale computing services offered by the CHTC!
+                            </p>
+                            <div class="row justify-content-center">
+                                <div class="col-auto">
+                                    <a class="button rounded btn-primary p-2" href="/uw-research-computing/form.html">Request Account</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    <a href="htc.html">High Throughput Computing</a> is a collection of principles and techniques which maximize the effective throughput
+                    of computing resources towards a given problem.  When applied for scientific computing, HTC can result in
+                    improved use of a computing resource, improved automation, and help drive the scientific problem forward.
+                </p>
+                <p>
+                    The team at CHTC develops technologies and services for HTC.  CHTC is the home of the <a href="http://htcondor.org">HTCondor Software
+                    Suite</a> which has over 30 years of experience in tackling HTC problems;
+                    it manages shared computing resources
+                    for researchers on the UW-Madison campus; and it leads the <a href="https://osg-htc.org">OSG Consortium</a>,
+                    a national-scale environment for distributed HTC.
+                </p>
+            </div>
+        </div>
+        <div class="col-1 d-md-block d-none"></div>
+        <div class="col-3 d-md-flex d-none">
+            <img class="w-100 mt-auto mb-auto" src="/images/logos/CHTC_Small_Logo.svg" alt="CHTC Small Logo" />
         </div>
     </div>
 </div>
