@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HTC System Transitioning to a New Linux Version (CentOS Stream 8)</title>
+<title>HTC System Transition to a New Linux Version (CentOS Stream 8)</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -21,9 +21,9 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>HTC System Transitioning to a New Linux Version (CentOS Stream 8) | CHTC</title>
+<title>HTC System Transition to a New Linux Version (CentOS Stream 8) | CHTC</title>
 <meta name="generator" content="Jekyll v4.2.2" />
-<meta property="og:title" content="HTC System Transitioning to a New Linux Version (CentOS Stream 8)" />
+<meta property="og:title" content="HTC System Transition to a New Linux Version (CentOS Stream 8)" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
 <meta property="og:description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
@@ -32,10 +32,10 @@
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="HTC System Transitioning to a New Linux Version (CentOS Stream 8)" />
+<meta property="twitter:title" content="HTC System Transition to a New Linux Version (CentOS Stream 8)" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"HTC System Transitioning to a New Linux Version (CentOS Stream 8)","url":"https://chtc.cs.wisc.edu/uw-research-computing/os-transition-htc.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"HTC System Transition to a New Linux Version (CentOS Stream 8)","url":"https://chtc.cs.wisc.edu/uw-research-computing/os-transition-htc.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -260,15 +260,13 @@
     <div class="row justify-content-center">
         <div class="col mw-1000">
             <h1 class="uw-mini-bar mb-4">
-    HTC System Transitioning to a New Linux Version (CentOS Stream 8)
+    HTC System Transition to a New Linux Version (CentOS Stream 8)
 </h1>
 
             <p>Starting on August 1, 2022, CHTC’s high throughput computing (HTC) system began upgrading
-the Linux distribution and version we use on our servers. The current version of Linux running on 
-most of our servers is CentOS 7 and we will be upgrading to CentOS Stream 8. <strong>This 
-transition will happen over the next several weeks (<a href="#important-dates">See “Important Dates”</a>)
-and requires <a href="#what-you-need-to-do">proactive action from CHTC users</a> to prevent 
-interruptions to research work.</strong></p>
+the Linux distribution and version we use on our servers. <strong>CentOS Stream 8 is now 
+the operating system used on the majority of our servers, and the default requested 
+operating system by jobs, unless specified otherwise.</strong></p>
 
 <p>Note that this page only applies to a transition on the HTC system (submitting jobs 
 with HTCondor). The high performance computing (HPC) cluster will be upgraded in 
@@ -292,52 +290,18 @@ CentOS Stream 8.</li>
 
 <h2 id="what-you-need-to-do">What You Need to Do</h2>
 
-<h3 id="actions-for-all-users">Actions For All Users</h3>
-
-<p>All users of CHTC’s HTC system should <strong>test their existing workflows</strong> on servers running CentOS Stream 8. 
-The only exception are those users who use Docker or Singularity containers 
-to run their jobs.</p>
-
-<p>To test jobs on CentOS Stream 8 servers:</p>
-
-<ol>
-  <li>
-    <p>Set up a set of typical jobs to use as a test set. It is ideal 
-to use a set of jobs for which you already have results so that you confirm 
-the results of the test jobs.</p>
-  </li>
-  <li>
-    <p>Modify the job submit file(s) to require servers that are running the 
-soon-to-be default operating system, CentOS Stream 8. 
-<a href="#require-centos-stream-8-upcoming-default">See below for details</a>.</p>
-  </li>
-  <li>
-    <p>Submit the jobs. Monitor them for issues – check both the results of 
-your code and the standard output and error files for any unexpected behavior.</p>
-  </li>
-</ol>
-
-<p>If you have any concerns or questions from your job tests, please contact 
-the facilitation team at chtc@cs.wisc.edu.</p>
-
-<p>If your tests go well, you should be well poised for the transition and can either 
-wait for the default setting for jobs to change, or opt into allowing your jobs to 
-run on both CentOS 7 and CentOS Stream 8 servers in 
-the meantime. See immediately below for how to do this.</p>
-
-<h3 id="get-more-computing-optional">Get More Computing (Optional)</h3>
-
-<p>Additionally, for those who want to maximize their usage of HTC system 
-resources, we recommend <strong>opting into use of computers with both operating systems</strong>.</p>
-
-<p>Only do this after you have first run a set of test jobs on CentOS Stream 8 specifically. 
-Once that has been done, see below for how to run on servers running both 
-versions of Linux: <a href="#use-both-centos-7-current-default-and-centos-stream-8-upcoming-default">Use Both CentOS 7 (current default) and CentOS Stream 8 (upcoming 
-default)</a>.</p>
-
-<p>If you use Docker or Singularity containers in your jobs, you do <strong>not</strong> need to 
-specify use of both operating systems. These jobs will run on servers using either 
-operating system without any changes to your submit file.</p>
+<ul>
+  <li><strong>If your jobs were running successfully before, but now failing</strong>, scale down your submissions 
+and run a few test jobs on the new operating system (now the default). If you absolutely 
+HAVE to keep running, you can continue to (temporarily) run on CentOS 7 by following 
+the instructions <a href="#requesting-a-specific-operating-system">below</a></li>
+  <li><strong>If you are having trouble getting your jobs to run successfully on the new operating system</strong>, 
+please contact the facilitation team at chtc@cs.wisc.edu or <a href="/uw-research-computing/get-help.html">come to office hours</a></li>
+  <li><strong>If you would like to access as much computing capacity as possible</strong>, consider using 
+running your jobs on servers with either CentOS 7 or CentOS Stream 8. See the <a href="#requesting-a-specific-operating-system">options below</a> 
+for opting into both; note that your code will likely need to have been compiled on the older 
+operating system version.</li>
+</ul>
 
 <h2 id="current-status-of-the-htc-system">Current Status of the HTC System</h2>
 
@@ -370,18 +334,10 @@ Operating System</a>.</p>
 
 <h2 id="requesting-a-specific-operating-system">Requesting a Specific Operating System</h2>
 
-<p>Throughout this transition, you can require a specific operating system 
+<p>At any time, you can require a specific operating system 
 version (or versions) for your jobs.</p>
 
-<h3 id="require-centos-stream-8-upcoming-default">Require CentOS Stream 8 (upcoming default)</h3>
-
-<p>To request that your jobs run on servers with CentOS Stream 8 <strong>only</strong> add the
-following requirements line to your submit file:</p>
-
-<pre><code class="language-{.sub}">requirements = (OpSysMajorVer == 8)
-</code></pre>
-
-<h3 id="use-both-centos-7-current-default-and-centos-stream-8-upcoming-default">Use Both CentOS 7 (current default) and CentOS Stream 8 (upcoming default)</h3>
+<h3 id="use-both-centos-7-previous-default-and-centos-stream-8-current-default">Use Both CentOS 7 (previous default) and CentOS Stream 8 (current default)</h3>
 
 <p>To request that your jobs run on computers running <strong>either</strong> version of 
 CentOS Linux, add the following requirements line to your submit file:</p>
@@ -400,6 +356,14 @@ newer version of Linux may not run older versions of Linux. Make
 sure to test your jobs specifically on both CentOS Stream 8 and CentOS 7
 before using the option above.</p>
 
+<h3 id="require-centos-7-previous-default">Require CentOS 7 (previous default)</h3>
+
+<p>To request that your jobs run on servers with CentOS 7 <strong>only</strong> add the
+following requirements line to your submit file:</p>
+
+<pre><code class="language-{.sub}">requirements = (OpSysMajorVer == 7)
+</code></pre>
+
 <h3 id="combining-requirements">Combining Requirements</h3>
 
 <p>Does your job already have a requirements statement? If so, you can
@@ -412,7 +376,7 @@ data staging:</p>
 
 <p>You can add the requirements for using CentOS Stream 8 like so:</p>
 
-<pre><code class="language-{.submit}">requirements = (Target.HasCHTCStaging == true) &amp;&amp; (OpSysMajorVer == 8)
+<pre><code class="language-{.submit}">requirements = (Target.HasCHTCStaging == true) &amp;&amp; (OpSysMajorVer == 7)
 </code></pre>
 
 

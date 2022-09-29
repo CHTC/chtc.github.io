@@ -263,7 +263,9 @@
     Running R Jobs on CHTC
 </h1>
 
-            <p><strong>To best understand the below information, users should already have an
+            <p><em>ACTION REQUIRED: As of September 29th, the HTC system’s default operating system will transition to CentOS Stream 8. This guide has been updated to reflect this change. However, this transition may impact users were running R jobs before September 29th. For more information, see the <a href="/uw-research-computing/os-transition-htc.html">HTC Operating System Transition</a> guide.</em></p>
+
+<p><strong>To best understand the below information, users should already have an
 understanding of:</strong></p>
 
 <ul>
@@ -300,6 +302,8 @@ R</a></p>
 
 <p>CHTC provides a pre-built copy of the following versions of R:</p>
 
+<h3 id="building-on-centos-stream-8-linux">Building on CentOS Stream 8 Linux</h3>
+
 <table class="gtable">
   <thead>
     <tr>
@@ -309,36 +313,20 @@ R</a></p>
   </thead>
   <tbody>
     <tr>
-      <td>R 3.2.5</td>
-      <td>R325.tar.gz</td>
-    </tr>
-    <tr>
-      <td>R 3.3.3</td>
-      <td>R333.tar.gz</td>
-    </tr>
-    <tr>
-      <td>R 3.4.4</td>
-      <td>R344.tar.gz</td>
-    </tr>
-    <tr>
       <td>R 3.5.1</td>
       <td>R351.tar.gz</td>
-    </tr>
-    <tr>
-      <td>R 3.6.1</td>
-      <td>R361.tar.gz</td>
     </tr>
     <tr>
       <td>R 3.6.3</td>
       <td>R363.tar.gz</td>
     </tr>
     <tr>
-      <td>R 4.0.2</td>
-      <td>R402.tar.gz</td>
+      <td>R 4.0.5</td>
+      <td>R405.tar.gz</td>
     </tr>
     <tr>
-      <td>R 4.1.2</td>
-      <td>R412.tar.gz</td>
+      <td>R 4.1.3</td>
+      <td>R413.tar.gz</td>
     </tr>
   </tbody>
 </table>
@@ -388,10 +376,10 @@ universe = vanilla
 log = interactive.log
 
 # Choose a version of R from the table above
-transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/R###.tar.gz
+transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/el8/R###.tar.gz
 
 +IsBuildJob = true
-requirements = (OpSysMajorVer =?= 7)
+requirements = (OpSysMajorVer =?= 8)
 request_cpus = 1
 request_memory = 4GB
 request_disk = 2GB
@@ -408,7 +396,7 @@ have four versions of R available to build from -- see the table above.</p>
 the <code>tar.gz</code> file with the packages to the <code>transfer_input_files</code>
 line:</p>
 
-  <pre><code class="language-{.sub}">transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/R###.tar.gz, packages.tar.gz
+  <pre><code class="language-{.sub}">transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/el8/R###.tar.gz, packages.tar.gz
 </code></pre>
 </blockquote>
 
@@ -620,7 +608,7 @@ log file after the job completes.</li>
   <li>
     <p>Change <code>transfer_input_files</code> to include:</p>
 
-    <pre><code class="language-{.sub}">transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/R###.tar.gz, packages.tar.gz, my_script.R
+    <pre><code class="language-{.sub}">transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/el8/R###.tar.gz, packages.tar.gz, my_script.R
 </code></pre>
   </li>
   <li>
