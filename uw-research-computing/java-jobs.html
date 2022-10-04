@@ -304,26 +304,25 @@ submit file, along with the <code>.jar</code> file and any other input files the
 the environment to
 find the java software, and then runs your program. This script will be
 your job's executable. See this example for what the script should look
-like:
-``` {.sub}
-#!/bin/bash</p>
+like:</p>
+    <pre><code class="language-{.sub}"> #!/bin/bash
+    
+ # unzip the JDK
+ tar -xzf openjdk-17.0.1_linux-x64_bin.tar.gz
+ # Add the unzipped JDK folder to the environment
+ export PATH=$PWD/jdk-17.0.1/bin:$PATH
+ export JAVA_HOME=$PWD/jdk-17.0.1
+    
+ # run your .jar file
+ java -jar program.jar
+</code></pre>
+
+    <p>Note that the exact name of the unzipped JDK folder and the JDK tar.gz file will 
+ vary depending on the version you downloaded. You should unzip the JDK tar.gz 
+ file in your home directory to find out the correct directory name to add to 
+     the script.</p>
   </li>
 </ol>
-
-<h1 id="unzip-the-jdk">unzip the JDK</h1>
-<p>tar -xzf openjdk-17.0.1_linux-x64_bin.tar.gz</p>
-<h1 id="add-the-unzipped-jdk-folder-to-the-environment">Add the unzipped JDK folder to the environment</h1>
-<p>export PATH=$PWD/jdk-17.0.1/bin:$PATH
-export JAVA_HOME=$PWD/jdk-17.0.1</p>
-
-<h1 id="run-your-jar-file">run your .jar file</h1>
-<p>java -jar program.jar
-```</p>
-
-<p>Note that the exact name of the unzipped JDK folder and the JDK tar.gz file will 
-vary depending on the version you downloaded. You should unzip the JDK tar.gz 
-file in your home directory to find out the correct directory name to add to 
-	the script.</p>
 
 <p><a name="default"></a></p>
 
