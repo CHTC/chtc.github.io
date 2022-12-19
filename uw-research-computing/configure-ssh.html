@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Connecting to CHTC</title>
+<title>Automating CHTC Log In</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -21,21 +21,21 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Connecting to CHTC | CHTC</title>
+<title>Automating CHTC Log In | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.1" />
-<meta property="og:title" content="Connecting to CHTC" />
+<meta property="og:title" content="Automating CHTC Log In" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
 <meta property="og:description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/connecting.html" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/connecting.html" />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/configure-ssh.html" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/configure-ssh.html" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Connecting to CHTC" />
+<meta property="twitter:title" content="Automating CHTC Log In" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"Connecting to CHTC","url":"https://chtc.cs.wisc.edu/uw-research-computing/connecting.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"Automating CHTC Log In","url":"https://chtc.cs.wisc.edu/uw-research-computing/configure-ssh.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -260,312 +260,118 @@
     <div class="row justify-content-center">
         <div class="col mw-1000">
             <h1 class="uw-mini-bar mb-4">
-    Connecting to CHTC
+    Automating CHTC Log In
 </h1>
 
-            <p>This guide assumes
-that you have already gotten a CHTC account for either our high
-throughput or high performance compute systems. If you haven't, see our
-<a href="get-started.html">getting started</a> page.</p>
-
-<div class="d-flex flex-column mb-5">
-
-<h2>Table of Contents</h2>
-
-<div class="uw-sidebar-box me-auto">
-<div class="uw-directory">
-
-      <ol>
-        <li><a href="">Accessing the Submit Servers</a></li>
-        <li><a href="#login">Logging In</a>
-          <ul>
-            <li><a href="#login-ssh">On the command line (Mac/Linux)</a></li>
-            <li><a href="#login-putty">Using an SSH program (Windows/Mac)</a></li>
-            <li><a href="#ssh-keys">Logging in Automatically</a></li>
-          </ul>
-        </li>
-        <li><a href="#transfer">Transferring Files</a>
-          <ul>
-            <li><a href="#transfer-scp">On the command line (Mac/Linux)</a></li>
-            <li><a href="#transfer-winscp">Using a file transfer program (Windows/Mac)</a></li>
-            <li><a href="#transfer-winscp">Transferring Multiple Files</a></li>
-          </ul>
-        </li>
-        <li><a href="#files">Creating and Editing Files</a></li>
-        <li><a href="#learn">Learning about the command line</a></li>
-      </ol>
-
-    </div>
-</div>
-</div>
-
-<p><a name="access"></a></p>
-
-<h1 id="1-accessing-the-submit-servers"><strong>1. Accessing the Submit Servers</strong></h1>
-
-<p>You will need the following information to log into our CHTC submit
-servers or head nodes:</p>
-
-<p><strong>Username and Password</strong></p>
-
+            <p>This guide describes</p>
 <ul>
-  <li>UW - Madison NetId and password</li>
+  <li>how to authenticate with Duo when logging into CHTC’s HTC and HPC systems</li>
+  <li>how to set your login (SSH) configuration to “reuse” a two-factor authenticated 
+connection over a certain period of time.</li>
 </ul>
 
-<p><strong>Hostname</strong></p>
+<h2 id="authentication-with-duo">Authentication with Duo</h2>
 
-<table class="gtable">
-  <thead>
-    <tr>
-      <th>HTC System</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>submit1.chtc.wisc.edu</code> - typically for accounts created between Aug 2018 - June 2019, or between March 2021 - June 2022</td>
-    </tr>
-    <tr>
-      <td><code>submit2.chtc.wisc.edu</code> - typically for accounts created between June 2019 - February 2021 or after July 1, 2022</td>
-    </tr>
-  </tbody>
-</table>
+<p>As of December 2022, accessing CHTC resources 
+now requires two-factor authentication. The first “factor” uses your NetID password 
+(or SSH keys) and the second “factor” is authentication using Duo, via either a 
+Duo fob or the Duo app.</p>
 
-<table class="gtable">
-  <thead>
-    <tr>
-      <th>HPC Cluster - starting October 15, 2020</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>hpclogin1.chtc.wisc.edu</code> and/or <code>hpclogin2.chtc.wisc.edu</code></td>
-    </tr>
-  </tbody>
-</table>
+<p>See the following video for an demonstration of two-factor authentication with Duo 
+when logging into CHTC:</p>
 
-<p>As of December 2022, we also require two-factor authentication with Duo to 
-access CHTC resources.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/J-wxsrQ3v04" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 
-<blockquote>
-  <p><strong>Are you off-campus?</strong><br />
-All of our CHTC submit servers and head nodes are firewalled to block
-log-ins from off-campus. If you are off-campus and want to log in, you
-can either:</p>
+<h2 id="re-using-ssh-connections">Re-Using SSH Connections</h2>
 
-  <ul>
-    <li>Activate the campus VPN (more details on how to set this up
-<a href="https://it.wisc.edu/services/wiscvpn/">here</a>).</li>
-    <li>Log into another computer that is on campus.</li>
-  </ul>
+<p>To reduce the number of times it is necessary to enter your credentials, it’s possible 
+to customize your SSH configuration in a way that allows you to “reuse” a connection 
+for logging in again or moving files.  This configuration is optional, and 
+most useful if you will connect to 
+the same server multiple times in a short window, for example, when uploading or 
+downloading files.</p>
 
-  <p>In either case, it will appear like you are on-campus, and you should
-then be able to log into CHTC as usual.</p>
-</blockquote>
+<p><strong>WARNING:</strong> This guide describes how to configure your local machine to not require 
+reentering your NetID password or Duo authentication each time you login. 
+This should <strong>ONLY</strong> be used on secure devices that you manage - <strong>it should 
+not be used on any shared laptop, desktop, or research group resource. Users 
+found violating this policy risk having their CHTC account permanently deactivated.</strong></p>
 
-<p><a name="login"></a></p>
+<p>The instructions below are meant for users who can use a terminal (Mac, Linux, newer Windows operating systems):</p>
 
-<h1 id="2-logging-in"><strong>2. Logging In</strong></h1>
-
-<p>Using the information described above, you can log in to servers two
-different ways -- from the command line or using an SSH program:</p>
-
-<p><a name="login-ssh"></a></p>
-
-<h2 id="a-on-the-command-line-maclinux">A. On the command line (Mac/Linux)</h2>
-
-<p>On a Mac or Linux system, you can use the "Terminal" application to
-log in. Open a terminal window and use the following command to connect
-to the appropriate server:</p>
-
-<pre class="term"><code>$ ssh username@hostname
+<ol>
+  <li>
+    <p>Open a terminal window.</p>
+  </li>
+  <li>Create (or edit) your personal SSH configuration file at <code>~/.ssh/config</code> to use 
+what’s called “<a href="https://www.anchor.com.au/blog/2010/02/ssh-controlmaster-the-good-the-bad-the-ugly/">ControlMaster</a>” (link: third party blog resource). 
+Executing the code below will add the right information to the <code>config</code> file; you 
+can also copy and paste the content in quotes into your config file directly.
+    <pre class="term"><code> # Let's create (or add to) our SSH client
+ # configuration file. 
+ echo "
+ Host *.chtc.wisc.edu
+   # Turn ControlMaster on
+   ControlMaster auto
+   # ControlMaster connection will persist
+   # for 2 hours of idleness, after which
+   # it will disconnect
+   ControlPersist 2h
+   # Where to store files that represent
+   # the ControlMaster persistent connections
+   ControlPath ~/.ssh/connections/%r@%h:%p" &gt;&gt; ~/.ssh/config
+</code></pre>
+  </li>
+  <li>You also create a directory that will be used to track connections. In 
+the same .ssh directory, make a folder called <code>connections</code> by typing:
+    <pre class="term"><code> $ mkdir -p ~/.ssh/connections
 </code></pre>
 
-<p>You will be prompted for your password, and then for Duo 
-authentication.</p>
+    <p>Once you login to a CHTC server, this is where the system will store information 
+ about your previous connection information so that you do not have to reenter your 
+ password or Duo authenticate.</p>
+  </li>
+  <li>Now, log into your CHTC submit server or login node as normal. The first time you log in, you will need to use 
+two-factor authentication, but subsequent logins <strong>to that machine</strong> will not require 
+authentication as long as they occur within the time value used in 
+the <code>ControlPersist</code> configuration option (so in this example, 2 hours).</li>
+</ol>
 
-<p><a name="login-putty"></a></p>
+<p>For Windows users who use PuTTY to log in, you need to go to 
+the <code>Connection -&gt; SSH</code> section in the “Category” menu on the left side, 
+and then check the “Share SSH Connection if possible” box. If you don’t 
+see this option, try downloading a newer version of PuTTY.</p>
 
-<h2 id="b-using-an-ssh-program-windows">B. Using an SSH program (Windows)</h2>
+<h3 id="ending-stuck-connections">Ending “Stuck” Connections</h3>
 
-<p>There are multiple programs to connect to remote servers for Windows. We
-recommend "PuTTy", which can be downloaded
-<a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">here</a>.
-To log in, click on the PuTTy executable (<code>putty.exe</code>). You should see a
-screen like this:</p>
+<p>Sometimes a connection goes stale and you can’t reconnect using it, even if 
+it is within the timeout window. In this case, you can avoid using the existing 
+connection by removing the relevant file in <code>~/.ssh/connections</code>; This will probably 
+look something like:</p>
 
-<p><img src="/images/putty-7.jpeg" alt="" /></p>
-
-<p>Fill in the hostname as described in part 1. You should use Port 22 and
-connect using "ssh" -- these are usually the defaults. After you
-click "connect" you will be prompted to fill in your username and
-password, and then to authenticate with Duo.</p>
-
-<p>Note that once you have submitted jobs to the queue, you can leave your
-logged in session (by typing <code>exit</code>). Your jobs will run and return
-output without you needing to be connected.</p>
-
-<!-- <a name="ssh-keys"></a>
-
-C. Logging in automatically
----------------------------
-
-Tired of typing your password everytime you log in? It\'s possible to
-set up a file on your local computer called an ssh key, that allows you
-to log into CHTC and transfer files without entering your password. [See
-this guide](http://www.howtogeek.com/66776/how-to-remotely-copy-files-over-ssh-without-entering-your-password/)
-for instructions on how to do this, starting at the section titled
-**\"SSH and SCP Without Passwords\"**. -->
-
-<h2 id="c-re-using-ssh-connections">C. Re-Using SSH Connections</h2>
-
-<p>To reduce the number of times it is necessary to enter your credentials, it’s 
-possible to customize your SSH configuration in a way that allows you to “reuse” 
-a connection for logging in again or moving files. More details are shown 
-in this guide: <a href="/uw-research-computing/configure-ssh.md">Automating CHTC Log In</a></p>
-
-<p><a name="transfer"></a>
-<strong>3. Transferring Files</strong>
-=====================</p>
-
-<p>To transfer files to and from CHTC, you will need the same username and
-hostname information for <a href="#login">logging in</a>, as well as understanding
-where your files are and where you would like them to go.</p>
-
-<p><a name="transfer-scp"></a></p>
-
-<h2 id="a-on-the-command-line-maclinux-1">A. On the command line (Mac/Linux)</h2>
-
-<p>On a Mac or Linux system, you can use the "Terminal" application and
-the <code>scp</code> command to copy files between your computer and CHTC servers.</p>
-
-<p><strong>Your computer to CHTC</strong></p>
-
-<p>First, open the "Terminal" application and navigate to the directory
-with the files or directories you want to transfer. Then, use this
-command to copy these files to CHTC:</p>
-
-<pre class="term"><code>$ scp file username@hostname:/home/username
+<pre class="term"><code>$ ls ~/.ssh/connections/
+alice@submit.chtc.wisc.edu:22
+$ rm ~/.ssh/connections/alice@submit.chtc.wisc.edu:22
 </code></pre>
 
-<p>If you would like these files to end up in a different directory inside
-your home directory, just add it to the path at the end of the command.</p>
+<h3 id="connection-settings">Connection settings</h3>
 
-<p><strong>CHTC to your computer</strong></p>
+<p>Note that all port forwarding, including X display forwarding, must be setup by 
+the initial connection and cannot be changed. If you forget to use <code>-Y</code> on the initial 
+connection, you will not be able to open X programs on subsequent connections.</p>
 
-<p>Open the "Terminal" application. Do NOT log into CHTC. Instead,
-navigate to where you want the files to go on your computer. Then, use
-this command to copy these files there:</p>
+<h2 id="other-tools">Other Tools</h2>
 
-<pre class="term"><code>$ scp username@hostname:/home/username/file ./
-</code></pre>
-
-<p>Again, for many files, it will be easiest to create a compressed tarball
-(.tar.gz file) of your files and transfer that instead of each file
-individually.</p>
-
-<p><a name="transfer-winscp"></a></p>
-
-<h2 id="b-using-a-file-transfer-program-windowsmac">B. Using a file transfer program (Windows/Mac)</h2>
-
-<p>Windows and Mac users can also use special programs to help them
-transfer files between their computers and CHTC. For Windows, we
-recommend <a href="https://winscp.net/eng/download.php">WinSCP</a>. It requires the
-same information as Putty (hostname, username), and once it's set up,
-looks like this:</p>
-
-<p><img src="/images/WinSCPPortable.png" alt="" /></p>
-
-<p>The left window is a directory on your computer, the right window is
-your home directory in CHTC. To move files between the two, simply drag
-and drop.</p>
-
-<p>There are other programs besides WinSCP that do this. Another that works
-on Mac and Windows is called <a href="https://cyberduck.io">Cyberduck</a>.</p>
-
-<p><a name="transfer-many"></a></p>
-
-<h2 id="c-transferring-multiple-files">C. Transferring Multiple Files</h2>
-
-<p>If you are transferring many files, it is advantageous to compress them
-into a single compressed file, in order to facilitate transferring them.
-Place all the files you need in a directory, and then either zip it or
-use the "tar" command to compress them:</p>
-
-<pre class="term"><code>$ tar czf data_files.tar.gz file_directory/
-</code></pre>
-
-<p>To untar or unzip files on the submit server or head nodes, you can use
-either:</p>
-
-<pre class="term"><code>[alice@submit]$ tar xzf data_files.tar.gz
-</code></pre>
-
-<p>or</p>
-
-<pre class="term"><code>[alice@submit]$ unzip data_files.zip
-</code></pre>
-
-<p><a name="files"></a></p>
-
-<h1 id="4-creating-and-editing-files-in-chtc"><strong>4. Creating and Editing Files in CHTC</strong></h1>
-
-<p>Once you have logged in to a CHTC server, you can edit files from the
-command line, by using a command line file editor. Some common editing
-programs are:</p>
-
+<p>For those on spotty wireless or those who move a lot with their connection 
+(and on *nix) then the open source shell Mosh (https://mosh.org/) has capabilities 
+to keep sessions open as you change connections. Note that Mosh doesn’t support the 
+following SSH features:</p>
 <ul>
-  <li>nano</li>
-  <li>vi</li>
-  <li>emacs</li>
+  <li>ControlMaster (connection multiplexing)</li>
+  <li>X11 forwarding</li>
+  <li>Port forwarding</li>
 </ul>
 
-<p><code>nano</code> is the most beginner-friendly, and <code>emacs</code> is the most advanced.
-<a href="http://swcarpentry.github.io/shell-novice/03-create/">This Software Carpentry
-lesson</a> describes
-how to use <code>nano</code>, and there are many other resources online with
-instructions for these text editors.</p>
-
-<p>Some of the file transfer programs mentioned <a href="#transfer-winscp">above</a>
-allow you to edit files on CHTC servers through the interface.</p>
-
-<p><a name="learn"></a></p>
-
-<h1 id="5-learning-about-the-command-line"><strong>5. Learning About the Command Line</strong></h1>
-
-<p><strong>Why learn about the command line?</strong> If you haven't used the command
-line before, it might seem like a big challenge to get started, and
-easier to use other tools, especially if you have a Windows computer.
-However, we strongly recommend learning more about the command line for
-multiple reasons:</p>
-
-<ul>
-  <li>You can do most of what you need to do in CHTC by learning a few
-basic commands.</li>
-  <li>With a little practice, typing on the command line is significantly
-faster and much more powerful than using a point-and-click graphic
-interface.</li>
-  <li>Command line skills are useful for more than just large-scale
-computing.</li>
-</ul>
-
-<p>For a good overview of command line tools, see the <a href="http://swcarpentry.github.io/shell-novice/">Software Carpentry
-Unix Shell</a> lesson. In
-particular, we recommend the sections on:</p>
-
-<ul>
-  <li>understanding the filesystem and how to navigate it (<a href="http://swcarpentry.github.io/shell-novice/02-filedir/">Navigating
-Files and
-Directories</a>)</li>
-  <li>tab-completion (section entitled "Nelle's Pipeline, Organizing
-Files", in <a href="http://swcarpentry.github.io/shell-novice/02-filedir/">Navigating Files and
-Directories</a>)</li>
-  <li>creating files (<a href="http://swcarpentry.github.io/shell-novice/03-create/">Working With Files and
-Directories</a>)</li>
-  <li>using the star wildcard (first part of <a href="http://swcarpentry.github.io/shell-novice/04-pipefilter/">Pipes and
-Filters</a>)</li>
-  <li>writing shell scripts (<a href="http://swcarpentry.github.io/shell-novice/06-script/">Shell
-Scripts</a>)</li>
-</ul>
 
         </div>
     </div>
