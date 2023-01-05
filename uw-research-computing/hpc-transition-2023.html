@@ -290,9 +290,9 @@ files.</li>
 <h2 id="important-dates">Important Dates</h2>
 
 <ul>
-  <li><strong>Early January 2023:</strong> New cluster available for general use</li>
-  <li><strong>February 14, 2023:</strong> Jobs will no longer run on the old cluster</li>
-  <li><strong>March 1, 2023:</strong> Access to <code>hpclogin1.chtc.wisc.edu</code> login node and old file 
+  <li><strong>Mid January 2023:</strong> New cluster available for general use</li>
+  <li><strong>February 28, 2023:</strong> Jobs will no longer run on the old cluster</li>
+  <li><strong>March 15, 2023:</strong> Access to <code>hpclogin1.chtc.wisc.edu</code> login node and old file 
 system removed, <strong>Data for all users will be deleted on the old HPC system.</strong></li>
 </ul>
 
@@ -303,7 +303,7 @@ system removed, <strong>Data for all users will be deleted on the old HPC system
 <p>Back up files from the old cluster to another system (e.g. your laptop), copy 
 files you are actively working with to the new cluster, and delete all data off 
 the old HPC system. <strong>All files in <code>/home</code> and <code>/software</code> will be deleted off the 
-existing system starting March 1, 2023.</strong></p>
+existing system starting March 15, 2023.</strong></p>
 
 <h3 id="log-in-and-quota-check">Log In and Quota Check</h3>
 
@@ -354,25 +354,22 @@ for different sized jobs:</li>
 		<td>32-128 cores</td>
 		<td>Example for 32 cores: <pre>
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=32 # recommend multiples of 16
-		</pre></td>
+#SBATCH --ntasks-per-node=32 # recommend multiples of 16</pre></td>
 	</tr>
 	<tr>
 		<td>96 - 256 cores</td>
-		<td>Example for 160 cores: <pre>
+		<td>Split over a few nodes, for example for 160 cores: <pre>
 #SBATCH --nodes=2
-#SBATCH --ntasks-per-node=80 # designate cores per node
-		</pre> OR:  <pre>
+#SBATCH --ntasks-per-node=80 # designate cores per node</pre> 
+	OR:  <pre>
 #SBATCH --nodes=2
-#SBATCH --ntasks=160 # designate overall cores
-		</pre></td>
+#SBATCH --ntasks=160 # designate overall cores</pre></td>
 	</tr>
 	<tr>
 		<td>128 or 256 cores (whole nodes)</td>
 		<td>Example for 256 cores: <pre>
 #SBATCH --nodes=2
-#SBATCH --ntasks-per-node=128
-		</pre></td>
+#SBATCH --ntasks-per-node=128</pre></td>
 	</tr>
 </table>
 
@@ -398,8 +395,9 @@ Server specs (Dell Poweredge R6525):</p>
   <li>1.5TB of local (not shared) fast NVME disk</li>
 </ul>
 
-<p>Operating System: CentOS Stream 8
-Scheduler: SLURM 22.05.6</p>
+<p>Operating System: CentOS Stream 8</p>
+
+<p>Scheduler: SLURM 22.05.6</p>
 
 
         </div>
