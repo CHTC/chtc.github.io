@@ -398,9 +398,11 @@ head nodes and/or disable user accounts that violate this policy</strong></p>
 <p>Violation of these policies may result in suspension of your account.</p>
 
 <p><strong>2. The HPC Cluster is Reserved for MPI-enabled, Multi-node Jobs</strong> <br />
-HPC users should not numerous jobs on the HPC Cluster that can individually finish within 7 days on a single node, given its 
-optimization for multi-node/MPI-based work. Users will 
-be asked to transition such work appropriately to our high-throughput computing (HTC) system, where they 
+HPC users should not run numerous jobs on the HPC Cluster that can individually finish 
+within 7 days or use less than 40 cores, given its 
+optimization for multi-cpu and multi-node/MPI work. Users may 
+be asked to transition individual jobs needing less than 40 cores 
+ to our high-throughput computing (HTC) system, where they 
 will also experience better turnaround.</p>
 
 <p><strong>3. Maintain Copies of Essential Data in non-CHTC Locations</strong>  <br />
@@ -447,25 +449,21 @@ a larger job may run first, if the number of nodes necessary for the larger job 
 
 <p>The HPC Cluster consists of two login nodes and many compute (aka execute) 
 nodes. All users log in at a login node, and all user files on the shared file sytem are accessible on all nodes.
-Additionally, all nodes are tightly networked (56 Gbit/s Infiniband) so
+Additionally, all nodes are tightly networked (200 Gbit/s Infiniband) so
 they can work together as a single "supercomputer", depending on the
 number of CPUs you specify.</p>
 
 <h2 id="operating-system-and-software">Operating System and Software</h2>
 
-<p>All nodes in the HPC Cluster are running CentOS 7 Linux.</p>
+<p>All nodes in the HPC Cluster are running CentOS 8 Stream Linux.</p>
 
-<p>The SLURM scheduler version is 20.02.2.</p>
+<p>The SLURM scheduler version is 22.05.6.</p>
 
 <p>To see more details of other software on the cluster, see the <a href="hpc-software.html">HPC Software page</a>.</p>
 
 <h2 id="login-nodes">Login Nodes</h2>
 
-<p>The two login nodes for the cluster are:</p>
-<ul>
-  <li><code>hpclogin1.chtc.wisc.edu</code></li>
-  <li><code>hpclogin2.chtc.wisc.edu</code></li>
-</ul>
+<p>The login node for the cluster is: <code>hpclogin3.chtc.wisc.edu</code></p>
 
 <p>For more details on logging in, see the “Connecting to CHTC” guide linked above.</p>
 
@@ -486,80 +484,70 @@ backfill capacity via the <code>pre</code> partition (more details below).</p>
       <th># nodes (N)</th>
       <th>t-default</th>
       <th>t-max</th>
-      <th>max nodes/job</th>
+      <th>max cores/job</th>
       <th>cores/node (n)</th>
       <th>RAM/node (GB)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>University 2</td>
-      <td>univ2</td>
-      <td>148</td>
+      <td>Shared</td>
+      <td>shared</td>
+      <td>45</td>
       <td>1 day</td>
       <td>7 day</td>
-      <td>16</td>
-      <td>20</td>
-      <td>128</td>
+      <td>320</td>
+      <td>64 or 128</td>
+      <td>512</td>
     </tr>
     <tr>
       <td>Interactive</td>
       <td>int</td>
-      <td>6</td>
+      <td>2</td>
       <td>1 hr</td>
       <td>4 hrs</td>
-      <td>1</td>
-      <td>20</td>
-      <td>128</td>
+      <td>32</td>
+      <td>64 or 128</td>
+      <td>512</td>
     </tr>
     <tr>
       <td>Pre-emptable (backfill)</td>
       <td>pre</td>
-      <td>316</td>
+      <td>45</td>
       <td>4 hrs</td>
       <td>24 hrs</td>
-      <td>16</td>
-      <td>20</td>
-      <td>128</td>
+      <td>320</td>
+      <td>64 or 128</td>
+      <td>512</td>
     </tr>
     <tr>
       <td>Owners</td>
       <td><em>unique</em></td>
-      <td>124</td>
+      <td>19</td>
       <td>24 hrs</td>
       <td>7 days</td>
       <td><em>unique</em></td>
-      <td>20</td>
-      <td>128</td>
-    </tr>
-    <tr>
-      <td>Astronomy Dept (differs)</td>
-      <td>astro3</td>
-      <td>24</td>
-      <td>24 hrs</td>
-      <td><em>4 days</em></td>
-      <td>16</td>
-      <td>20</td>
-      <td>128</td>
+      <td>64 or 128</td>
+      <td>512</td>
     </tr>
   </tbody>
 </table>
 
 <ul>
   <li>
-    <p><code>univ2</code> consists of our second generation compute nodes, each with 20 
-CPU cores of 2.5 GHz and 128 GB of RAM. Jobs submitted to this partition 
+    <p><code>shared</code> compute nodes each have 64 or 128 cores and 512 GB of RAM.<br />
+Jobs submitted to this partition 
 can request and use up to 7 days of running time.</p>
   </li>
   <li>
     <p><code>int</code> consists of two compute nodes is intended for short and immediate interactive 
-testing on a single node (up to 16 CPUs, 64 GB RAM). Jobs submitted to this partition 
+testing on a single node (up to 32 CPUs, 128 GB RAM). Jobs submitted to this partition 
 can run for up to 4 hours.</p>
   </li>
   <li>
     <p><code>pre</code> (i.e. pre-emptable) is an under-layed partition encompassing all HPC Cluster 
 nodes and is intended for more immediate turn-around of shorter, smaller, and/or 
-interactive sessions requiring more than the 30-minute limit of the <code>int</code> partition. 
+interactive sessions requiring more than the 4 hour time limit of the <code>int</code> partition. 
 Jobs submitted to <code>pre</code> are run as back-fill on any idle nodes, including researcher-owned 
 compute nodes, meaning these jobs may be pre-empted by higher priority 
 jobs. By default, pre-empted jobs will be re-queued (to run again) if they were submitted with 
@@ -580,20 +568,29 @@ alternate, non-CHTC storage location.</p>
 
 <ol>
   <li>
-    <p><code>/home/username</code> with an initial disk quota of 100GB 
-and 10,000 items. With the exception of software, all of the files 
-needed for your work, such as input, output, configuration files, etc. 
-should be located in your <code>/home</code> directory.</p>
+    <p><code>/home/username</code> with an initial disk quota of 30GB 
+and 250,000 items. Your home directory is meant to be used for files 
+you use repeatedly, like submit file templates, source code, software 
+installations, and reference data files.</p>
   </li>
   <li>
-    <p><code>/software/username</code> with an initial disk quota of 10GB and 
-100,000 items. All software, library, etc. installtions should 
-be written to and located in your <code>/software</code> directory.</p>
+    <p><code>/scratch/username</code> with an initial disk quota of 100GB and 
+250,000 items. Jobs should always be submitted and run out of 
+<code>/scratch</code>. It is the space for all working data, including individual 
+job inputs, job outputs, and job log/stderr/stdout files.</p>
   </li>
 </ol>
 
+<blockquote>
+  <h3 id="what-about-software">What about <code>/software</code>?</h3>
+
+  <p>If you are installing software meant to be shared within a group, 
+we can create a dedicated folder for you in the <code>/software</code> space
+email us (chtc@cs.wisc.edu) if this is you!</p>
+</blockquote>
+
 <p>To check how many files and directories you have in
-your <code>/home</code> or <code>/software</code> directory see the 
+your <code>/home</code> or <code>/scratch</code> directory see the 
 <a href="#tools-for-managing-home-and-software-space">instructions below</a>.</p>
 
 <p>Increased quotas on either of these locations are available upon email 
@@ -607,13 +604,9 @@ the current items quota, simply indicate that in your request.</p>
 on the HPC Cluster</strong> in our efforts to maintain filesystem performance
 for all users.</p>
 
-<p><strong>Local scratch space</strong> of 500 GB is available on each execute node in
-<code>/scratch/local/$USER</code> and is automatically cleaned out upon completion
-of scheduled job sessions (interactive or non-interactive). Local
-scratch is available on the login nodes, <code>hpclogin1</code> and <code>hpclogin2</code>, also at 
-<code>/scratch/local/$USER</code> and should be cleaned out by the user upon completion of
-compiling activities. CHTC staff will otherwise clean this location of
-the oldest files when it reaches 80% capacity.</p>
+<p><strong>Local scratch space</strong> is available on each execute node in
+<code>/local/$USER</code> and is automatically cleaned out upon completion
+of scheduled job sessions (interactive or non-interactive).</p>
 
 <h2 id="tools-for-managing-home-and-software-space">Tools for managing home and software space</h2>
 
@@ -622,14 +615,14 @@ and items quotas are currently set for a given directory path.
 This command will also let you see how much disk is in use and how many 
 items are present in a directory:</p>
 
-<pre class="term"><code>[username@hpclogin1 ~]$ get_quotas /home/username /software/username
+<pre class="term"><code>[username@hpclogin1 ~]$ get_quotas /home/username /scratch/username
 </code></pre>
 
 <p>Alternatively, the <code>ncdu</code> command can also be used to see how many 
 files and directories are contained in a given path:</p>
 
 <pre class="term"><code>[username@hpclogin1 ~]$ ncdu /home/username
-[username@hpclogin1 ~]$ ncdu /software/username
+[username@hpclogin1 ~]$ ncdu /scratch/username
 </code></pre>
 
 <p>When <code>ncdu</code> has finished running, the output will give you a total file
