@@ -380,7 +380,7 @@ will already be present in the Docker container.</p>
 interactive flag with <code>condor_submit</code>:
     <pre class="cmd"><code>  [alice@submit]$ condor_submit -i docker.sub
 </code></pre>
-    <p>This should start a session inside the indicated Docker container and connect you to it using ssh. Type <code>exit</code> to end the interactive job.</p>
+    <p>This should start a session inside the indicated Docker container and connect you to it using ssh. Type <code>exit</code> to end the interactive job. <em>Note</em>: Files generated during your interactive job with Docker will not be transfered back to the submit node.  If you have a directory on <code>staging</code>, you can transfer the files there instead; if you have questions about this, please contact a facilitator.</p>
   </li>
 </ul>
 
