@@ -371,6 +371,40 @@ $ rm ~/.ssh/connections/alice@submit.chtc.wisc.edu:22
 the initial connection and cannot be changed. If you forget to use <code>-Y</code> on the initial 
 connection, you will not be able to open X programs on subsequent connections.</p>
 
+<h2 id="file-transfer-tools">File Transfer Tools</h2>
+
+<p>There are a variety of tools that people use for transferring and editing files 
+like WinSCP and MobaXTerm. Some of these tools are able to use ssh configuration 
+or have options that do not require Duo 2FA every time a file is uploaded or 
+downloaded or edited, but some do not.</p>
+
+<h3 id="known-to-support-persistent-connections">Known to support persistent connections</h3>
+
+<ul>
+  <li>
+    <p>WinSCP (by default)</p>
+  </li>
+  <li>
+    <p>Cyberduck (taken from <a href="https://s2.smu.edu/hpc/documentation/access.html">these docs</a></p>
+
+    <p>Cyberduck does not use SSH configurations, therefore the following setting 
+  can be used to enable connection persistence. Within Cyberduck:</p>
+
+    <ol>
+      <li>Select Preferences, then the Transfers button, and then the General section.</li>
+      <li>Under “Transfers”, use the “Transfer Files” drop-down to select “Use browser 
+connection”.</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="known-to-not-support-controlmaster-or-similar-persistent-connections">Known to NOT support <code>ControlMaster</code> or similar persistent connections</h3>
+
+<ul>
+  <li>File transfer tools from <a href="https://panic.com/">Panic</a>, like Transmit and Nova
+do not support the <code>ControlMaster</code> config described above.</li>
+</ul>
+
 <h2 id="other-tools">Other Tools</h2>
 
 <p>For those on spotty wireless or those who move a lot with their connection 
