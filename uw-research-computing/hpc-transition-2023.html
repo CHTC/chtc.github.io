@@ -281,7 +281,12 @@ deleted.</li>
 the new cluster.</li>
   <li>The <code>univ2</code> partition is being renamed, and partition policies have changed.</li>
   <li>Users should avoid using <code>mpirun</code> and instead should use <code>srun</code> to execute their 
-MPI code.</li>
+MPI code.
+    <blockquote>
+      <p>Note: At this time, interactive jobs on the “Spark” HPC Cluster can not be 
+used to run MPI code.</p>
+    </blockquote>
+  </li>
   <li>File system conventions have changed - jobs will now use <code>/scratch/$USER</code> to run, 
 and <code>/home/$USER</code> will be mainly used for software installations and reference 
 files.</li>
