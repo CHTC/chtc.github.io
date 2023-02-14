@@ -48,7 +48,7 @@
 
 
 <link type="text/css" href="/assets/fonts/fonts.0.0.1.css" rel="stylesheet">
-<link type="text/css" href="/assets/css/style-v1.css" rel="stylesheet">
+<link type="text/css" href="/assets/css/style-v2.css" rel="stylesheet">
 
 
 
@@ -72,7 +72,7 @@
                     
                 </div>
                 <div class="col-auto d-flex">
-                    <a class="button btn-light px-2  my-auto rounded" href="/uw-research-computing/form.html">Request Account</a>
+                    <a class="btn-light px-2  my-auto rounded" href="/uw-research-computing/form.html">Request Account</a>
                 </div>
             </div>
         </div>
@@ -232,25 +232,22 @@
     <main id="main" style="min-height: 60vh;">
         
 
-<hr class="m-0">
 <div class="py-2 container-xxl">
     <b>New Jobs Posted!</b><span> Check out our new Research Cyberinfrastructure Specialist postion on our <a href="jobs.html#data-engineer">jobs page</a>.</span>
 </div>
 <hr class="m-0">
 
 
-<div class="bg-light py-3">
-    <div class="container-lg mw-1000">
-        <img src="/images/HTC_Graphic_Outline.svg"  alt="CHTC Logo" />
-    </div>
+<div class="bg-light overflow-hidden">
+    <picture>
+        <source srcset="/images/HTC_Graphic_Outline.webp">
+        <img id="hero-image-ultrawide" src="/images/HTC_Graphic_Outline.png"  alt="CHTC Logo" />
+    </picture>
 </div>
 <div class="container-xxl">
-    <div class="row ">
+    <div class="row pt-5 justify-content-center ">
         <div class="col-12 col-md-8">
-            <h1 class="uw-mini-bar mb-4">
-                CENTER FOR HIGH THROUGHPUT COMPUTING
-            </h1>
-            <div>
+            <div class="">
                 <p>
                     <strong>
                         The Center for High Throughput Computing (CHTC), established in 2006, aims to bring the power
@@ -287,23 +284,20 @@
                 </p>
             </div>
         </div>
-        <div class="col-1 d-md-block d-none"></div>
-        <div class="col-3 d-md-flex d-none">
-            <img class="w-100 mt-auto mb-auto" src="/images/logos/CHTC_Small_Logo.svg" alt="CHTC Small Logo" />
-        </div>
-    </div>
-</div>
-<div class="bg-light py-4">
-    <div class="container-lg">
-        <div class="row justify-content-center" >
+        <div class="col-12 col-md-4 d-flex flex-column">
+            <h2 class="uw-mini-bar mt-1">
+                <a href="news.html">News</a>
+            </h2>
             
             
-            <a href="/get-to-know-todd.html" class="news-post col-12 col-sm-6 col-lg-4  col-12 ">
+                <a href="/get-to-know-todd.html" class="news-post  col-12">
     <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/todd-t-article-0.jpg" alt="Image of Todd T taking a selfie with a tropical beach in the background." />
-        </div>
-        <h3 class="my-1 text-dark">Get To Know Todd Tannenbaum</h3>
+        
+            <div class="img-container">
+                <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/todd-t-article-0.jpg" alt="Image of Todd T taking a selfie with a tropical beach in the background." />
+            </div>
+        
+        <h5 class="my-1 text-dark">Get To Know Todd Tannenbaum</h5>
         <div class="text-dark d-flex flex-row justify-content-between">
             <div class="w-auto">
                 By: Shirley Obih
@@ -320,12 +314,11 @@
     </div>
 </a>
             
-            <a href="/materials-science.html" class="news-post col-12 col-sm-6 col-lg-4  col-12 ">
+            
+            <a href="/materials-science.html" class="news-post  col-12 ">
     <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/materials-science.jpg" alt="Computer screen with lines of code. Uploaded by AltumCode on Unsplash." />
-        </div>
-        <h3 class="my-1 text-dark">Empowering Computational Materials Science Research using HTC</h3>
+        
+        <h5 class="my-1 text-dark">Empowering Computational Materials Science Research using HTC</h5>
         <div class="text-dark d-flex flex-row justify-content-between">
             <div class="w-auto">
                 By: Hannah Cheren
@@ -343,34 +336,12 @@
     </div>
 </a>
             
-            <a href="/chtc-demo.html" class="news-post col-12 col-sm-6 col-lg-4  col-12 ">
-    <div class="d-flex flex-column p-2">
-        <div class="img-container">
-            <img class="img-fluid" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/bannerimagedemo.png" alt="Christina Koch presenting to Kaiping Chen's class" />
-        </div>
-        <h3 class="my-1 text-dark">CHTC Leads High Throughput Computing Demonstrations</h3>
-        <div class="text-dark d-flex flex-row justify-content-between">
-            <div class="w-auto">
-                By: Shirley Obih
-            </div>
-            <div class="w-auto">
-                Jan 20, 2023
-            </div>
-        </div>
-        <div>
-            <p class="text-dark mb-0">
-                Students and researchers acquire high-throughput computing knowhow from CHTC led demonstrations.
-            </p>
-        </div>
-    </div>
-</a>
-            
         </div>
     </div>
 </div>
 <div class="container-lg">
-        <div class="row flex-row-reverse mb-4 mt-4 ">
-    <div class="col-12 col-md-8">
+        <div class="row justify-content-center flex-row-reverse mb-4 mt-4 ">
+    <div class="col-12 col-md-6">
         
             <h1 class="uw-mini-bar mb-4">
                 HTCSS
@@ -388,8 +359,8 @@ helps solve computational problems through the application of the HTC principles
         <img class="w-100 mt-auto mb-auto" src="/images/laptop.svg" alt="Laptop" />
     </div>
 </div>
-        <div class="row  mb-4 mt-4 ">
-    <div class="col-12 col-md-8">
+        <div class="row justify-content-center  mb-4 mt-4 ">
+    <div class="col-12 col-md-6">
         
             <h1 class="uw-mini-bar mb-4">
                 Services
@@ -428,8 +399,8 @@ or across the world.</p>
             the CHTC is home to or supports the following Research
             Projects and Partners.
         </h3>
-        <div class="row justify-content-center  mb-4 mt-4 ">
-    <div class="col col-md-8">
+        <div class="row justify-content-center  mb-5 mt-4 ">
+    <div class="col col-md-6">
         <h1><a href="https://osg-htc.org">OSG</a></h1>
         <p>
         The OSG is a consortium of research collaborations, campuses, national laboratories and software
@@ -439,13 +410,12 @@ or across the world.</p>
         in 2005.
         </p>
     </div>
-    <div class="col-1 d-md-block d-none"></div>
     <a href="https://osg-htc.org" class="col-3 d-md-flex d-none">
         <img style="" class="w-100 mt-auto mb-auto" src="/images/logos/OSG-logo.svg" alt="OSG Logo" />
     </a>
 </div>
-        <div class="row justify-content-center  flex-row-reverse mb-4 mt-4">
-    <div class="col col-md-8">
+        <div class="row justify-content-center  flex-row-reverse mb-5 mt-4">
+    <div class="col col-md-6">
         <h1><a href="https://path-cc.io/">PATh</a></h1>
         <p>
         The Partnership to Advance Throughput Computing (PATh) is a partnership between
@@ -455,13 +425,12 @@ or across the world.</p>
         to access resources across the nation.
         </p>
     </div>
-    <div class="col-1 d-md-block d-none"></div>
     <a href="https://path-cc.io/" class="col-3 d-md-flex d-none">
         <img style="max-width: 12rem;" class="w-100 mt-auto mb-auto" src="/images/logos/PATh_Logo.png" alt="PATh Logo" />
     </a>
 </div>
-        <div class="row justify-content-center  mb-4 mt-4 ">
-    <div class="col col-md-8">
+        <div class="row justify-content-center  mb-5">
+    <div class="col col-md-6">
         <h1><a href="https://morgridge.org/">Morgridge Institute for Research</a></h1>
         <p>
         The Morgridge Institute for Research is a private, biomedical research institute
@@ -470,7 +439,6 @@ or across the world.</p>
         research.
         </p>
     </div>
-    <div class="col-1 d-md-block d-none"></div>
     <a href="https://morgridge.org/" class="col-3 d-md-flex d-none">
         <img style="" class="w-100 mt-auto mb-auto" src="/images/logos/Morgridge_Logo.svg" alt="Morgridge Logo" />
     </a>
@@ -478,11 +446,11 @@ or across the world.</p>
         <div class="row gx-2 justify-content-center">
 
             
-            <div class="col-4 mt-2">
-    <div class="px-2 h-100 bg-white rounded bg-light">
+            <div class="col-5 mt-2">
+    <div class="px-2 h-100 rounded ">
         <a href="https://xdd.wisc.edu/" class="">
             <div style="min-height: 160px;" class="row h-100 justify-content-center pt-3 pb-3">
-                <div class="col-12 col-md-7 d-flex">
+                <div class="col-12 col-md-6 d-flex">
                     <img style="" class="m-auto" src="/images/logos/xDD_Logo.svg" alt="xDD logo" />
                 </div>
                 <div class="col-12 d-flex">
@@ -494,11 +462,11 @@ or across the world.</p>
 </div>
 
 
-            <div class="col-4 mt-2">
-    <div class="px-2 h-100 bg-white rounded bg-light">
+            <div class="col-5 mt-2">
+    <div class="px-2 h-100 rounded ">
         <a href="https://iris-hep.org/" class="">
             <div style="min-height: 160px;" class="row h-100 justify-content-center pt-3 pb-3">
-                <div class="col-12 col-md-7 d-flex">
+                <div class="col-12 col-md-6 d-flex">
                     <img style="" class="m-auto" src="/images/logos/IRIS-HEP_Logo.png" alt="IRIS-HEP logo" />
                 </div>
                 <div class="col-12 d-flex">
@@ -510,11 +478,11 @@ or across the world.</p>
 </div>
 
 
-            <div class="col-4 mt-2">
-    <div class="px-2 h-100 bg-white rounded bg-light">
+            <div class="col-5 mt-2">
+    <div class="px-2 h-100 rounded ">
         <a href="https://bmrb.io/" class="">
             <div style="min-height: 160px;" class="row h-100 justify-content-center pt-3 pb-3">
-                <div class="col-12 col-md-7 d-flex">
+                <div class="col-12 col-md-6 d-flex">
                     <img style="" class="m-auto" src="/images/logos/BMRB_Logo.svg" alt="BMRB logo" />
                 </div>
                 <div class="col-12 d-flex">
@@ -526,11 +494,11 @@ or across the world.</p>
 </div>
 
 
-            <div class="col-4 mt-2">
-    <div class="px-2 h-100 bg-white rounded bg-light">
+            <div class="col-5 mt-2">
+    <div class="px-2 h-100 rounded ">
         <a href="https://pegasus.isi.edu/" class="">
             <div style="min-height: 160px;" class="row h-100 justify-content-center pt-3 pb-3">
-                <div class="col-12 col-md-7 d-flex">
+                <div class="col-12 col-md-6 d-flex">
                     <img style="" class="m-auto" src="/images/logos/Pegasus_Logo.png" alt="Pegasus logo" />
                 </div>
                 <div class="col-12 d-flex">
