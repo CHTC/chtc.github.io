@@ -446,16 +446,17 @@ for interactive work called <code>int</code>; you may request up to a full node 
 the session is limited to 60 minutes. Using another partition (like <code>pre</code>) will 
 mean your interactive job is subject to the limits of that partition.</p>
 
+<h3 id="for-simple-testing-or-compiling">For simple testing or compiling</h3>
+
 <p>The command to request an interactive job is <code>srun --mpi=pmix</code>, and includes the partition
 in which you’d like to run the interactive job.</p>
 
-<blockquote>
-  <p>Note: At this time, interactive jobs on the “Spark” HPC Cluster can not be used
-to run MPI code.</p>
-</blockquote>
-
 <pre class="term"><code>[alice@login]$ srun --mpi=pmix -n4 -N1 -p int --pty bash
 </code></pre>
+
+<blockquote>
+  <p>Note: You will not be able to run MPI code in this interactive session.</p>
+</blockquote>
 
 <p>The above example indicates a request for 4 CPUs (<code>-n4</code>) on a single
 node (<code>-N1</code>) in the "int" partition (<code>-p int</code>). Adding "<code>-t 15</code>" would
@@ -465,6 +466,110 @@ the above command, you'll have access to files on the shared file
 system and be able to execute code interactively as if you had directly
 logged in to that node. <strong>It is important to exit the interactive shell
 when you're done working by typing <code>exit</code></strong>.</p>
+
+<h3 id="for-running-mpi-code">For running MPI code</h3>
+
+<p>To run an MPI program in an interactive session, you will need to (1) allocate the 
+resources using <code>salloc</code>, then (2) use <code>srun</code> to run the MPI code, and finally (3)
+give up the allocated resources.</p>
+
+<ol>
+  <li>
+    <p><strong>Request resources</strong></p>
+
+    <pre class="term"><code>[alice@login]$ salloc -n4 -N1 -p int
+</code></pre>
+
+    <p>This command requests 4 CPUs (<code>-n4</code>) on a single node (<code>-N1</code>) in the "int"
+partition (<code>-p int</code>), and assigns the resources to a new terminal session
+on the login node.  When the allocation has started, you will see a message
+like this:</p>
+    <pre class="term"><code>salloc: Granted job allocation 18701
+            Guest on spark-a005.chtc.wisc.edu
+</code></pre>
+
+    <p><strong><em>To run code in this allocation, be sure to use <code>srun</code> as described in the next step!</em></strong></p>
+  </li>
+  <li>
+    <p><strong>Use resources</strong></p>
+
+    <p>At this point, your terminal is still running on the login node.  To run
+commands using the resources in the allocation, you will need to use <code>srun</code>.</p>
+    <pre class="term"><code>[alice@login]$ srun --mpi=pmix /path/to/mpi/script
+</code></pre>
+
+    <p>This will execute the specified script using the allocated resources.
+When the <code>srun</code> calculation has finished, you will remain in the allocation
+session, allowing you to run <code>srun</code> multiple times in quick succession.</p>
+
+    <p>You can also use the allocated resources interactively with</p>
+    <pre class="term"><code>[alice@login]$ srun --mpi=pmix --pty bash
+</code></pre>
+
+    <p>which will start an interactive terminal session in your allocation (this 
+is evident by the change in the command prompt from <code>[alice@login]</code> to 
+<code>[alice@spark-a###]</code>).  Keep in mind that you will not be able to use
+MPI inside the interactive session.  You can exit the interactive session
+and return to the allocation by entering <code>exit</code>.</p>
+  </li>
+  <li>
+    <p><strong>Give up resources</strong></p>
+
+    <p>To end your allocation, simply enter <code>exit</code>.  You will see a message like
+this:</p>
+    <pre class="term"><code>exit
+salloc: Relinquishing job allocation 18701
+salloc: Job allocation 18701 has been revoked.
+</code></pre>
+  </li>
+</ol>
+
+<blockquote>
+  <p>It can be difficult to remember whether or not you are currently using an
+allocation.  A quick way of checking is to see if the <code>SLURM_JOB_ID</code> is set
+by entering <code>echo $SLURM_JOB_ID</code>.  If you are in an allocation, this command
+will return the job ID number that corresponds to an entry in your SLURM queue
+(see below).</p>
+
+  <p>A more convenient option is to update your <code>.bashrc</code> file so that the command
+prompt changes when you are in an allocation.  This can be done using the
+following commands:</p>
+  <pre class="term"><code>echo 'PS1="$SLURM_JOB_ID[\u@\h \W]\$ " ' &gt;&gt; ~/.bashrc
+echo 'export PS1' &gt;&gt; ~/.bashrc
+</code></pre>
+
+  <p>Now when you run <code>salloc</code>, your command prompt will start with the corresponding
+SLURM job ID number.  This will also be the case for the interactive <code>srun</code> 
+command.  For example,</p>
+  <pre class="term"><code>[alice@login]$ salloc -n4 -N1 -p int
+salloc: Granted job allocation 18701
+            Guest on spark-a005.chtc.wisc.edu
+	       
+18701[alice@login]$ echo 'I am running an allocation.'
+I am running an allocation.
+18701[alice@login]$ srun --mpi=pmix --pty bash
+
+18701[alice@spark-a006] echo 'I am using the resources interactively.'
+I am using the resources interactively.
+18701[alice@spark-a006] exit
+exit
+18701[alice@login]$ exit
+exit
+salloc: Relinquishing job allocation 18701
+[alice@login]$
+</code></pre>
+
+  <ul>
+    <li>This can be undone by removing the two added lines from the <code>.bashrc</code> file 
+ in your home directory.</li>
+  </ul>
+
+  <blockquote>
+    <p>More advanced users can manipulate their bash prompt further.<br />
+The <code>SLURM_JOB_ID</code> variable is created for the allocation, and 
+a <code>SLURM_JOB_UID</code> variable is created for the interactive <code>srun</code>.</p>
+  </blockquote>
+</blockquote>
 
 <h1 id="2-viewing-jobs-in-the-queue"><strong>2. Viewing Jobs in the Queue</strong></h1>
 
