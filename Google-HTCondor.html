@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Home</title>
+<title>Google Quantum Computing Utilizing HTCondor</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,21 +22,28 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Home | CHTC</title>
+<title>Google Quantum Computing Utilizing HTCondor | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="Home" />
+<meta property="og:title" content="Google Quantum Computing Utilizing HTCondor" />
+<meta name="author" content="Hannah Cheren" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
-<meta property="og:description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/" />
+<meta name="description" content="Google’s launch of a Quantum Virtual Machine emulates the experience and results of programming one of Google’s quantum computers, managed by an HTCondor system running in Google Cloud." />
+<meta property="og:description" content="Google’s launch of a Quantum Virtual Machine emulates the experience and results of programming one of Google’s quantum computers, managed by an HTCondor system running in Google Cloud." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/htcondor-google-qvm.html" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/htcondor-google-qvm.html" />
 <meta property="og:site_name" content="CHTC" />
-<meta property="og:type" content="website" />
+<meta property="og:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/google-qvm.jpg" />
+<meta property="og:image:alt" content="Quantum AI Logo. Image from Quantum AI Product Manager Catherine Vollgraff Heidweiller’s research blog post." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-03-01T00:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Home" />
+<meta property="twitter:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/google-qvm.jpg" />
+<meta name="twitter:image:alt" content="Quantum AI Logo. Image from Quantum AI Product Manager Catherine Vollgraff Heidweiller’s research blog post." />
+<meta property="twitter:title" content="Google Quantum Computing Utilizing HTCondor" />
 <meta name="twitter:site" content="@chtc_uw" />
+<meta name="twitter:creator" content="@Hannah Cheren" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"Home","name":"CHTC","url":"https://chtc.cs.wisc.edu/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hannah Cheren"},"dateModified":"2023-03-01T00:00:00+00:00","datePublished":"2023-03-01T00:00:00+00:00","description":"Google’s launch of a Quantum Virtual Machine emulates the experience and results of programming one of Google’s quantum computers, managed by an HTCondor system running in Google Cloud.","headline":"Google Quantum Computing Utilizing HTCondor","image":{"alt":"Quantum AI Logo. Image from Quantum AI Product Manager Catherine Vollgraff Heidweiller’s research blog post.","url":"https://raw.githubusercontent.com/CHTC/Articles/main/images/google-qvm.jpg","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/htcondor-google-qvm.html"},"url":"https://chtc.cs.wisc.edu/htcondor-google-qvm.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -57,10 +64,6 @@
 
 
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" type="text/javascript" defer></script>
-
-<script src="/assets/js/pages/index.js" type="module" defer></script>
 
 
 
@@ -240,313 +243,49 @@
     
 
     <main id="main" style="min-height: 60vh;">
-        <div class="py-2 container-xxl">
-    <b>New Full-time Jobs and Student Internships Posted!</b><span> Check out the new positions on our <a href="jobs.html#full-time-positions">jobs page</a>.</span>
-</div>
-<hr class="m-0">
+        <main id="main" style="min-height: 60vh;">
+    <!-- This Layout is to adhere the page to the optimal char per lines for accessibility -->
 
-<div class="bg-light overflow-hidden">
-    <picture>
-        <source srcset="/images/HTC_Graphic_Outline.webp">
-        <img id="hero-image-ultrawide" src="/images/HTC_Graphic_Outline.png"  alt="CHTC Logo" />
-    </picture>
-</div>
+
 <div class="container-xxl">
-    <div class="row pt-5 justify-content-center ">
-        <div class="col-12 col-md-8">
-            <div class="">
-                <p>
-                    <strong>
-                        The Center for High Throughput Computing (CHTC), established in 2006, aims to bring the power
-                        of High Throughput Computing to all fields of research, and to allow the future of HTC to be shaped
-                        by insight from all fields.
-                    </strong>
-                </p>
-                <div class="row justify-content-center">
-                    <div class="col-md-12">
-                        <div class="bg-light rounded px-1 pb-3 mb-3">
-                            <p class="p-2 pb-0 text-center">
-                                Are you a UW-Madison researcher looking to expand your computing beyond your local resources? Request
-                                an account now to take advantage of the free large-scale computing services offered by the CHTC!
-                            </p>
-                            <div class="row justify-content-center">
-                                <div class="col-auto">
-                                    <a class="button rounded btn-primary p-2" href="/uw-research-computing/form.html">Request Account</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <p>
-                    <a href="htc.html">High Throughput Computing</a> is a collection of principles and techniques which maximize the effective throughput
-                    of computing resources towards a given problem.  When applied for scientific computing, HTC can result in
-                    improved use of a computing resource, improved automation, and help drive the scientific problem forward.
-                </p>
-                <p>
-                    The team at CHTC develops technologies and services for HTC.  CHTC is the home of the <a href="http://htcondor.org">HTCondor Software
-                    Suite</a> which has over 30 years of experience in tackling HTC problems;
-                    it manages shared computing resources
-                    for researchers on the UW-Madison campus; and it leads the <a href="https://osg-htc.org">OSG Consortium</a>,
-                    a national-scale environment for distributed HTC.
-                </p>
-            </div>
-        </div>
-        <div class="col-12 col-md-4 d-flex flex-column">
-            <h2 class="uw-mini-bar mt-1">
-                <a href="news.html">News</a>
-            </h2>
-            
-            
-                
-<div class="uw-card">
-    <div class="uw-card-content">
-        
-            <a href="/Google-HTCondor.html" class=" col-12">
-                <img class="img-fluid rounded-top" style="height:150px; object-fit: cover" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/google-qvm.jpg" alt="Quantum AI Logo. Image from Quantum AI Product Manager Catherine Vollgraff Heidweiller’s research blog post." />
-            </a>
-        
-        <div class="uw-card-copy">
-            <a href="/Google-HTCondor.html" class=" col-12">
-                <h4 class="uw-mini-bar">Google Quantum Computing Utilizing HTCondor</h4>
-            </a>
-            <div class="text-dark d-flex flex-row justify-content-between">
-                <div class="w-auto">
-                    By: Hannah Cheren
-                </div>
-                <div class="w-auto">
-                    Mar 01, 2023
-                </div>
-            </div>
-            <p class="text-dark mb-0 pt-2">
-                Google's launch of a Quantum Virtual Machine emulates the experience and results of programming one of Google's quantum computers, managed by an HTCondor system running in Google Cloud.
-
-            </p>
-        </div>
-    </div>
-</div>
-
-            
-            
-            
-<div class="uw-card">
-    <div class="uw-card-content">
-        
-        <div class="uw-card-copy">
-            <a href="/get-to-know-todd.html" class=" col-12 ">
-                <h4 class="uw-mini-bar">Get To Know Todd Tannenbaum</h4>
-            </a>
-            <div class="text-dark d-flex flex-row justify-content-between">
-                <div class="w-auto">
-                    By: Shirley Obih
-                </div>
-                <div class="w-auto">
-                    Jan 23, 2023
-                </div>
-            </div>
-            <p class="text-dark mb-0 pt-2">
-                Staff profile of the HTCSS Software Lead, Todd Tannenbaum.
-            </p>
-        </div>
-    </div>
-</div>
-
-            
-        </div>
-    </div>
-</div>
-<div id="stats" class="container-lg">
-    <h2 class="uw-mini-bar mb-4">
-        Last Year Serving UW-Madison
-    </h2>
-</div>
-<div class="circuit-background">
-    <div class="container-lg pb-4">
-        <div id="statistic-row"></div>
-    </div>
-</div>
-<div class="container-lg table-responsive">
     <div class="row justify-content-center">
-        <div class="col-12 col-md-10 col-lg-8">
-            <div id="college-table"></div>
-        </div>
-    </div>
-</div>
-<div class="container-lg">
-        <div class="row justify-content-center flex-row-reverse mb-4 mt-4 ">
-    <div class="col-12 col-md-6">
-        
+        <div class="col-12 col-sm-11 col-md-9 col-lg-8">
             <h1 class="uw-mini-bar mb-4">
-                HTCSS
+                Google Quantum Computing Utilizing HTCondor
             </h1>
-        
-        <div>
-<p>The <a href="http://htcondor.org">HTCondor Software Suite (HTCSS)</a> provides sites and users with the ability to manage and execute
-HTC workloads.  Whether it’s managing a single laptop or 250,000 cores at CERN, HTCondor
-helps solve computational problems through the application of the HTC principles.</p>
+            <p><strong><em>Google’s launch of a Quantum Virtual Machine emulates the experience and results of programming one of Google’s quantum computers, managed by an HTCondor system running in Google Cloud.</em></strong></p>
 
-</div>
-    </div>
-    <div class="col-1 d-md-block d-none"></div>
-    <div class="col-3 d-md-flex d-none">
-        <img class="w-100 mt-auto mb-auto" src="/images/laptop.svg" alt="Laptop" />
-    </div>
-</div>
-        <div class="row justify-content-center  mb-4 mt-4 ">
-    <div class="col-12 col-md-6">
-        
-            <h1 class="uw-mini-bar mb-4">
-                Services
-            </h1>
-        
-        <div>
-<h3 id="uw-research-computing"><a href="uw-research-computing">UW Research Computing</a></h3>
-<p>CHTC manages over 20,000 cores and dozens of GPUs for the UW-Madison
-campus; this resource, which is free and shared, aims to advance the
-mission of the University of Wisconsin in support of the Wisconsin
-Idea.  Researchers can place their workloads on an access point at
-CHTC and utilize the resources at CHTC, across the campus, and across
-the nation.</p>
+<figure>
+  <img class="w-100" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/google-qvm.jpg" alt="Quantum AI Logo. Image from Quantum AI Product Manager Catherine Vollgraff Heidweiller’s research blog post." />
+  <figcaption class="figure-caption">Quantum AI Logo. Image from Quantum AI Product Manager Catherine Vollgraff Heidweiller’s research blog post.<br /></figcaption>
+</figure>
 
-<h3 id="research-facilitation">Research Facilitation</h3>
-<p>CHTC’s Research Facilitation team empowers researchers to utilize computing to achieve
-their goals.  The Research Facilitation approach emphasizes teaching users skills and
-methodologies to manage &amp; automate workloads on resources like those at CHTC, the campus,
-or across the world.</p>
+<p>The CEO of Google and Alphabet, Sudar Pichai, tweeted out some thrilling news:</p>
 
-</div>
-    </div>
-    <div class="col-1 d-md-block d-none"></div>
-    <div class="col-3 d-md-flex d-none">
-        <img class="w-100 mt-auto mb-auto" src="/images/microscope.svg" alt="Microscope" />
-    </div>
-</div>
+<p>“Excited to launch a Quantum Virtual Machine (QVM) which emulates the experience and results of programming one of our quantum computers. It will make it easier for researchers to prototype new algorithms and help students learn how to program a quantum computer.” – <a href="https://twitter.com/sundarpichai/status/1549448858282774528">Tweet</a>.</p>
 
-</div>
+<p>Today’s “classical” computing systems, from laptops to large supercomputers, are built using circuit behavior defined by classical physics. Quantum computer circuity, still in the early phases of development, harnesses the laws of quantum mechanics to solve computing problems in new ways. Quantum computers offer exponential speedups – over 100 million times faster for specific issues – to produce groundbreaking results. However, quantum computing will require scientists and engineers to revisit many classical algorithms and develop new ones tailored to exploit the benefits of quantum processors. Therefore, the QVM is a helpful tool for quantum algorithms research.</p>
 
-<div class="bg-light pb-5">
-    <hr/>
-    <div class="container-lg">
-        <h3 class="text-center mb-5">
-            As part of its many services to UW-Madison and beyond,
-            the CHTC is home to or supports the following Research
-            Projects and Partners.
-        </h3>
-        <div class="row justify-content-center  mb-5 mt-4 ">
-    <div class="col col-md-6">
-        <h1><a href="https://osg-htc.org">OSG</a></h1>
-        <p>
-        The OSG is a consortium of research collaborations, campuses, national laboratories and software
-        providers dedicated to the advancement of all of open science via the practice of distributed High Throughput
-        Computing (dHTC), and the advancement of its state of the art. The OSG operates a fabric of dHTC services
-        for the national science and engineering community and CHTC has been a major force in OSG since its inception
-        in 2005.
-        </p>
-    </div>
-    <a href="https://osg-htc.org" class="col-3 d-md-flex d-none">
-        <img style="" class="w-100 mt-auto mb-auto" src="/images/logos/OSG-logo.svg" alt="OSG Logo" />
-    </a>
-</div>
-        <div class="row justify-content-center  flex-row-reverse mb-5 mt-4">
-    <div class="col col-md-6">
-        <h1><a href="https://path-cc.io/">PATh</a></h1>
-        <p>
-        The Partnership to Advance Throughput Computing (PATh) is a partnership between
-        CHTC and OSG to advance throughput computing.  Funded through a major investment
-        from NSF, PATh helps advance HTC at a national level through support for
-        HTCSS and provides a fabric of services for the NSF science and engineering community
-        to access resources across the nation.
-        </p>
-    </div>
-    <a href="https://path-cc.io/" class="col-3 d-md-flex d-none">
-        <img style="max-width: 12rem;" class="w-100 mt-auto mb-auto" src="/images/logos/PATh_Logo.png" alt="PATh Logo" />
-    </a>
-</div>
-        <div class="row justify-content-center  mb-5">
-    <div class="col col-md-6">
-        <h1><a href="https://morgridge.org/">Morgridge Institute for Research</a></h1>
-        <p>
-        The Morgridge Institute for Research is a private, biomedical research institute
-        located on the UW-Madison campus.  Morgridge’s Research Computing Theme is a unique
-        partner with CHTC, investing in the vision of HTC and its ability to advance basic
-        research.
-        </p>
-    </div>
-    <a href="https://morgridge.org/" class="col-3 d-md-flex d-none">
-        <img style="" class="w-100 mt-auto mb-auto" src="/images/logos/Morgridge_Logo.svg" alt="Morgridge Logo" />
-    </a>
-</div>
-        <div class="row gx-2 justify-content-center">
+<p>“The QVM is, in essence, a realistic simulation of a grid on our quantum hardware using classical computers,” Tom Downes, a consultant for High-Performance Computing (HPC) at Google Cloud, explains. Simulating a grid of qubits, the basic unit of quantum information, on a quantum processor requires many trajectory simulations of quantum noise. Downes explains, “quantum computers are noisy, so it is important to test and adjust your quantum circuits in realistic conditions so they can perform well and output the data you are looking for in your research problem. To virtualize a processor, the QVM uses the noise data and topology of Google’s real hardware.” This grid size determines whether a researcher can use their laptop or require a setup utilizing many classical computers to power the simulation. Essentially, research on the QVM is “proof of concept” research.</p>
 
-            
-            <div class="col-5 mt-2">
-    <div class="px-2 h-100 rounded ">
-        <a href="https://xdd.wisc.edu/" class="">
-            <div style="min-height: 160px;" class="row h-100 justify-content-center pt-3 pb-3">
-                <div class="col-12 col-md-6 d-flex">
-                    <img style="" class="m-auto" src="/images/logos/xDD_Logo.svg" alt="xDD logo" />
-                </div>
-                <div class="col-12 d-flex">
-                    <h2 class="m-auto">xDD</h2>
-                </div>
-            </div>
-        </a>
-    </div>
-</div>
+<p>To enable researchers to test their algorithms on a larger grid of qubits, Google utilized the <a href="https://htcondor.org">HTCondor Software Suite</a> (HTCSS) to organize the capacity of many classical computers to run multiple simulations of a quantum circuit simultaneously. The HTCondor Software Suite enables researchers to easily harness the collective computing power of many classical computers and submit and manage large numbers of computing jobs. Today, HTCSS is used at universities, government labs, and commercial organizations worldwide, including within Google’s own Google Cloud Platform, to power QVM.  Downes details, “this ability to test on a 32-qubit grid can extrapolate its performance to a non-simulatable grid more feasible.”</p>
 
+<p>The new <a href="https://quantumai.google/qsim/tutorials/multinode">Google Quantum AI tutorial</a> shows users how to use the Cloud HPC Toolkit, which makes it easy for new users to deploy HTCondor pools in Google Cloud. Downes describes that the tutorial “provides the basic elements of an HTCondor pool: a central manager, an access point, and a pool of execute points that scale in size to work through the job queue.”</p>
 
-            <div class="col-5 mt-2">
-    <div class="px-2 h-100 rounded ">
-        <a href="https://iris-hep.org/" class="">
-            <div style="min-height: 160px;" class="row h-100 justify-content-center pt-3 pb-3">
-                <div class="col-12 col-md-6 d-flex">
-                    <img style="" class="m-auto" src="/images/logos/IRIS-HEP_Logo.png" alt="IRIS-HEP logo" />
-                </div>
-                <div class="col-12 d-flex">
-                    <h2 class="m-auto">IRIS-HEP</h2>
-                </div>
-            </div>
-        </a>
-    </div>
-</div>
+<p>The tutorial by Google describes how to:</p>
+<ul>
+  <li>Use terraform to deploy an HTCondor cluster in the Google Cloud</li>
+  <li>Run a multi-node quantum computing simulation using HTCondor</li>
+  <li>Query cluster information and monitor running jobs in HTCondor</li>
+  <li>Use terraform to destroy the cluster</li>
+</ul>
 
-
-            <div class="col-5 mt-2">
-    <div class="px-2 h-100 rounded ">
-        <a href="https://bmrb.io/" class="">
-            <div style="min-height: 160px;" class="row h-100 justify-content-center pt-3 pb-3">
-                <div class="col-12 col-md-6 d-flex">
-                    <img style="" class="m-auto" src="/images/logos/BMRB_Logo.svg" alt="BMRB logo" />
-                </div>
-                <div class="col-12 d-flex">
-                    <h2 class="m-auto">BMRB</h2>
-                </div>
-            </div>
-        </a>
-    </div>
-</div>
-
-
-            <div class="col-5 mt-2">
-    <div class="px-2 h-100 rounded ">
-        <a href="https://pegasus.isi.edu/" class="">
-            <div style="min-height: 160px;" class="row h-100 justify-content-center pt-3 pb-3">
-                <div class="col-12 col-md-6 d-flex">
-                    <img style="" class="m-auto" src="/images/logos/Pegasus_Logo.png" alt="Pegasus logo" />
-                </div>
-                <div class="col-12 d-flex">
-                    <h2 class="m-auto">Pegasus</h2>
-                </div>
-            </div>
-        </a>
-    </div>
-</div>
-
-
+<p>Please visit <a href="https://blog.google/technology/research/our-new-quantum-virtual-machine-will-accelerate-research-and-help-people-learn-quantum-computing/">this website</a> for more information about the Quantum Virtual Machine and <a href="https://quantumai.google/qsim/tutorials/multinode">how researchers can use HTCondor for multinode quantum simulations</a>.</p>
 
         </div>
     </div>
 </div>
-
+</main>
     </main>
     <footer id="colophon" class="uw-footer">
     <div class="uw-footer-content">
