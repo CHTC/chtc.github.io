@@ -26,29 +26,31 @@
 <meta name="generator" content="Jekyll v4.3.2" />
 <meta property="og:title" content="Scaling Beyond Local HTC Capacity" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
-<meta property="og:description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc.html" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc.html" />
+<meta name="description" content="This guide provides an introduction to running jobs outside of CHTC: why using these resources is beneficial, what resources are available, and how to use them." />
+<meta property="og:description" content="This guide provides an introduction to running jobs outside of CHTC: why using these resources is beneficial, what resources are available, and how to use them." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc" />
 <meta property="og:site_name" content="CHTC" />
-<meta property="og:type" content="website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-03-13T22:56:40+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Scaling Beyond Local HTC Capacity" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"Scaling Beyond Local HTC Capacity","url":"https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-13T22:56:40+00:00","datePublished":"2023-03-13T22:56:40+00:00","description":"This guide provides an introduction to running jobs outside of CHTC: why using these resources is beneficial, what resources are available, and how to use them.","headline":"Scaling Beyond Local HTC Capacity","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc"}</script>
 <!-- End Jekyll SEO tag -->
 
 
 
 
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous" defer></script>
 <script type="text/javascript" src="/assets/js/uw-style.js" defer></script>
 <script src="/assets/js/lunr.js" type="text/javascript" async></script>
 <script type="text/javascript" src="/assets/js/search_bar.js" defer></script>
 
 <link type="text/css" href="/assets/fonts/fonts.0.0.1.css" rel="stylesheet">
-<link type="text/css" href="/assets/css/style-v6.css" rel="stylesheet">
+<link type="text/css" href="/assets/css/style-v8.css" rel="stylesheet">
 
 <link type="text/css" href="/assets/css/research-style.css" rel="stylesheet">
 
@@ -94,7 +96,7 @@
 
 
 
-<header id="branding-sub" class="uw-header">
+<header id="branding-sub" class="uw-header circuit-background">
     <div class="uw-header-container mt-2 mb-2">
         <div class="uw-header-crest-title">
             <div class="uw-header-crest">
@@ -114,6 +116,7 @@
     
 
 
+
     
 
 
@@ -122,22 +125,13 @@
 <div id="uw-top-menus" class="uw-is-visible uw-horizontal" aria-hidden="false">
     <div class="uw-main-nav">
         <nav class="uw-nav-menu uw-nav-menu-reverse" aria-label="Main Menu">
-            <ul id="uw-sub-nav">
+            <ul id="uw-main-nav">
                 
                     
 
 
 <li id="home">
-    <a href="/index.html" aria-current="page">Home</a>
-</li>
-
-
-                
-                    
-
-
-<li id="uw-research-computing">
-    <a href="/uw-research-computing/index.html" aria-current="page">UW Research Computing</a>
+    <a href="/uw-research-computing/index.html" aria-current="page">Home</a>
 </li>
 
 
@@ -146,7 +140,7 @@
 
 
 <li id="get-started">
-    <a href="/uw-research-computing/get-started.html" aria-current="page">Get Started</a>
+    <a href="/uw-research-computing/form.html" aria-current="page">Get Started</a>
 </li>
 
 
@@ -171,23 +165,11 @@
         </li>
     
         <li>
-            <a href="/uw-research-computing/guides.html">All User Guides</a>
+            <a href="/uw-research-computing/guides.html#htc-documentation">HTC Guides</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/use-submit-node.html">Use an HTC Submit Server</a>
-        </li>
-    
-        <li>
-            <a href="/uw-research-computing/helloworld.html">Run Your First HTC Jobs</a>
-        </li>
-    
-        <li>
-            <a href="/uw-research-computing/howto_overview.html">HTC for MatLab, Python or R</a>
-        </li>
-    
-        <li>
-            <a href="/uw-research-computing/hpc-overview.html">Use the HPC Cluster</a>
+            <a href="/uw-research-computing/guides.html#hpc-documentation">HPC Guides</a>
         </li>
     
         <li>
@@ -264,7 +246,7 @@
         <main id="main" style="min-height: 60vh;">
     <div class="container-xxl mb-5">
     <div class="row justify-content-center">
-        <div class="col mw-1000">
+        <div class="col-12 col-lg-9 mw-1000">
             <h1 class="uw-mini-bar mb-4">
     Scaling Beyond Local HTC Capacity
 </h1>
@@ -399,6 +381,306 @@ requirement from the test jobs but leave the <code>+wantFlocking</code> and
 <code>+wantGlidein</code> lines.</p>
   </li>
 </ol>
+
+        </div>
+        <div class="col-3 d-none d-lg-block">
+            
+
+
+
+    <div id="guide-sidebar">
+        
+            
+
+            
+            
+
+            <h6 class="mt-5">HTC Guides</h6>
+            <div class="accordion accordion-flush">
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="basics-and-policies">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
+                                    Basics and Policies
+                                </button>
+                            </h2>
+                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/os-transition-htc">HTC System Transition to a New Linux Version (CentOS Stream 8)</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/use-submit-node">Policies for Using HTC Submit Servers</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/connecting">Connecting to CHTC Using CHTC's HTC Submit Nodes</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/configure-ssh">Automating CHTC Log In</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/transfer-data-researchdrive">Transferring Files Between CHTC and ResearchDrive</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/globus">Using Globus to Transfer Files to and from CHTC</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/github-remote-access">Remotely Access a Private GitHub Repository</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/check-quota">Checking Disk Quota and Usage</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="job-submission">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#job-submission-collapse" aria-expanded="false" aria-controls="job-submission">
+                                    Job Submission
+                                </button>
+                            </h2>
+                            <div id="job-submission-collapse" class="accordion-collapse collapse " aria-labelledby="job-submission" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/helloworld">Running Your First CHTC Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/condor_q">Learning About Your Jobs Using condor_q</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/multiple-jobs">Submitting Multiple Jobs Using HTCondor</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/dagman-workflows">Workflows with HTCondor's DAGMan</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/multiple-job-dirs">Submitting Multiple Jobs in Individual Directories</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="handling-data-in-jobs">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#handling-data-in-jobs-collapse" aria-expanded="false" aria-controls="handling-data-in-jobs">
+                                    Handling Data in Jobs
+                                </button>
+                            </h2>
+                            <div id="handling-data-in-jobs-collapse" class="accordion-collapse collapse " aria-labelledby="handling-data-in-jobs" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-availability">Small Input and Output File Availability Via HTCondor</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-avail-squid">Transfer Large Input Files Via Squid</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="software-solutions">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
+                                    Software Solutions
+                                </button>
+                            </h2>
+                            <div id="software-solutions-collapse" class="accordion-collapse collapse " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/matlab-jobs">Running Matlab Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/python-jobs">Running Python Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/conda-installation">Create a Portable Python Installation with Miniconda</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/r-jobs">Running R Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/java-jobs">Running Java Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/julia-jobs">Running Julia Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/docker-jobs">Running HTC Jobs Using Docker Containers</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/docker-build">Building a Docker Container Image</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/licensed-software">Using Licensed Software</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="special-use-cases">
+                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-cases-collapse" aria-expanded="false" aria-controls="special-use-cases">
+                                    Special Use Cases
+                                </button>
+                            </h2>
+                            <div id="special-use-cases-collapse" class="accordion-collapse collapse show " aria-labelledby="special-use-cases" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/gpu-jobs">Submitting Jobs That Use GPUs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/machine-learning-htc">Run Machine Learning Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="fw-bolder" href="/uw-research-computing/scaling-htc">Scaling Beyond Local HTC Capacity</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/checkpointing">Checkpointing Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/high-memory-jobs">Submitting High Memory Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/mpi-jobs">Running MPI Jobs</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="troubleshooting">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshooting-collapse" aria-expanded="false" aria-controls="troubleshooting">
+                                    Troubleshooting
+                                </button>
+                            </h2>
+                            <div id="troubleshooting-collapse" class="accordion-collapse collapse " aria-labelledby="troubleshooting" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/dos-unix">Windows / Linux Incompatibility</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/docker-test">Explore and Test Docker Containers</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+            </div>
+        
+    </div>
+
+
 
         </div>
     </div>
