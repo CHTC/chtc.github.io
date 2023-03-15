@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/python-jobs" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-03-15T14:45:06+00:00" />
+<meta property="article:published_time" content="2023-03-15T15:30:49+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Running Python Jobs" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-15T14:45:06+00:00","datePublished":"2023-03-15T14:45:06+00:00","description":"ACTION REQUIRED: As of September 29th, the HTC system’s default operating system will transition to CentOS Stream 8. This may impact users who use Python in their jobs. For more information, see the HTC Operating System Transition guide.","headline":"Running Python Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/python-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/python-jobs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-15T15:30:49+00:00","datePublished":"2023-03-15T15:30:49+00:00","description":"ACTION REQUIRED: As of September 29th, the HTC system’s default operating system will transition to CentOS Stream 8. This may impact users who use Python in their jobs. For more information, see the HTC Operating System Transition guide.","headline":"Running Python Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/python-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/python-jobs"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -462,7 +462,7 @@ reference that version of Python:</p>
 <p>You can also try running this command to make sure the copy of python
 that is now active is the one you just installed:</p>
 
-<pre class="term"><code>[alice@build]$ which python3
+<pre class="term"><code>[alice@build]$ echo `which python3`
 </code></pre>
 
 <p>The command above should return a path that includes the prefix
@@ -497,11 +497,29 @@ use a more descriptive name than "packages"</p>
 install. <code>pip</code> should download all dependent packages and install them.
 Certain packages may take longer than others.</p>
 
+<blockquote>
+  <p>If a specific version of a package is required, you can provide the version number using the syntax <code>packagename==X.Y.Z</code>.
+For example, <code>numpy==1.23.5</code> would install version <code>1.23.5</code> of <code>numpy</code>.</p>
+</blockquote>
+
 <p>If you have difficulties installing a package, we recommend you upgrade <code>pip</code> and then try reinstalling your packages:</p>
 
 <pre class="term"><code>[alice@build]$ python3 -m pip install --upgrade pip
 [alice@build]$ python3 -m pip install --target=$PWD/packages package1 package2 etc.
 </code></pre>
+
+<blockquote>
+  <p>The python packages (and versions) can instead be installed using the file <code>requirements.txt</code>, which contains one package name (and versions, if needed) per line.<br />
+This file can be created manually or, if you have a working python installation that you want to duplicate, by running</p>
+
+  <pre class="term"><code>python3 -m pip freeze &gt; requirements.txt
+</code></pre>
+
+  <p>To install the packages contained within <code>requirements.txt</code>, run</p>
+
+  <pre class="term"><code>python3 -m pip install -r requirements.txt
+</code></pre>
+</blockquote>
 
 <h2 id="c-finish-up">C. Finish Up</h2>
 
@@ -535,7 +553,7 @@ prepared in an HTCondor job, we will need to write a script that unpacks
 both Python and the packages and then runs our Python code. We will use
 this script as as the <code>executable</code> of our HTCondor submit file.</p>
 
-<p>A sample script appears below. After the first line, the lines starting
+<p>A sample script (<code>run_python.sh</code>) appears below. After the first line, the lines starting
 with hash marks are comments . You should replace "my_script.py" with
 the name of the script you would like to run, and modify the Python
 version numbers to be the same as what you used above to install your
@@ -609,7 +627,7 @@ guide linked above.</li>
     <p>Your <code>executable</code> should be the script that you wrote
 <a href="#script">above</a>.</p>
 
-    <pre class="sub"><code>executable = run_py.sh
+    <pre class="sub"><code>executable = run_python.sh
 </code></pre>
   </li>
   <li>Modify the CPU/memory request lines.  Test a few jobs for disk space/memory usage in 
