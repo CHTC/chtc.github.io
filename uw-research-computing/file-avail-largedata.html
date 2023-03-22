@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-03-22T20:32:46+00:00" />
+<meta property="article:published_time" content="2023-03-22T21:59:31+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Managing Large Data in HTC Jobs" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-22T20:32:46+00:00","datePublished":"2023-03-22T20:32:46+00:00","description":"When submitting jobs to CHTC’s High Throughput Computing (HTC) system, there is a distinct location for staging data that is too large to be handled at scale via the default HTCondor file transfer mechanism. This location should be used for jobs that require input files larger than 100MB and/or that generate output files larger than 3-4GB.","headline":"Managing Large Data in HTC Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-22T21:59:31+00:00","datePublished":"2023-03-22T21:59:31+00:00","description":"When submitting jobs to CHTC’s High Throughput Computing (HTC) system, there is a distinct location for staging data that is too large to be handled at scale via the default HTCondor file transfer mechanism. This location should be used for jobs that require input files larger than 100MB and/or that generate output files larger than 3-4GB.","headline":"Managing Large Data in HTC Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -614,6 +614,13 @@ Requirements = (Target.HasCHTCStaging == true)
 
 queue
 </code></pre>
+
+<blockquote>
+  <p><strong>Note: in no way should files on <code>/staging</code> be specified in the submit file, 
+directly or indirectly!</strong> For example, do not use the <code>initialdir</code> option (
+<a href="multiple-job-dirs.html">Submitting Multiple Jobs in Individual Directories</a>)
+to specify a directory on <code>/staging</code>.</p>
+</blockquote>
 
 <h1 id="5-checking-your-quota-data-use-and-file-counts">5. Checking your Quota, Data Use, and File Counts</h1>
 
