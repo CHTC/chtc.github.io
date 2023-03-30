@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Using Software in a Container on the HPC Cluster</title>
+<title>Fire up the GPUs: UW-Madison, Morgridge project sparks next-level computing</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,24 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Using Software in a Container on the HPC Cluster | CHTC</title>
+<title>Fire up the GPUs: UW-Madison, Morgridge project sparks next-level computing | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="Using Software in a Container on the HPC Cluster" />
+<meta property="og:title" content="Fire up the GPUs: UW-Madison, Morgridge project sparks next-level computing" />
+<meta name="author" content="Brian Mattmiller" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Software that is packaged in a &quot;container&quot; can be run on the HPC cluster. This guide assumes that you are starting with an existing Docker container and shows how to use it to run a job on the HPC cluster." />
-<meta property="og:description" content="Software that is packaged in a &quot;container&quot; can be run on the HPC cluster. This guide assumes that you are starting with an existing Docker container and shows how to use it to run a job on the HPC cluster." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/singularity-hpc" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/singularity-hpc" />
+<meta name="description" content="The Center for High-Throughput Computing (CHTC), a joint partnership of UW-Madison School of Computer, Data &amp; Information Sciences and the Morgridge Institute, sees this onslaught of data and says: Bring it on." />
+<meta property="og:description" content="The Center for High-Throughput Computing (CHTC), a joint partnership of UW-Madison School of Computer, Data &amp; Information Sciences and the Morgridge Institute, sees this onslaught of data and says: Bring it on." />
+<link rel="canonical" href="https://morgridge.org/story/fire-up-the-gpus-uw-madison-morgridge-project-sparks-next-level-computing/" />
+<meta property="og:url" content="https://morgridge.org/story/fire-up-the-gpus-uw-madison-morgridge-project-sparks-next-level-computing/" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-03-30T14:32:45+00:00" />
+<meta property="article:published_time" content="2023-03-28T00:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Using Software in a Container on the HPC Cluster" />
+<meta property="twitter:title" content="Fire up the GPUs: UW-Madison, Morgridge project sparks next-level computing" />
 <meta name="twitter:site" content="@chtc_uw" />
+<meta name="twitter:creator" content="@Brian Mattmiller" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-30T14:32:45+00:00","datePublished":"2023-03-30T14:32:45+00:00","description":"Software that is packaged in a &quot;container&quot; can be run on the HPC cluster. This guide assumes that you are starting with an existing Docker container and shows how to use it to run a job on the HPC cluster.","headline":"Using Software in a Container on the HPC Cluster","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/singularity-hpc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/singularity-hpc"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Brian Mattmiller"},"dateModified":"2023-03-28T00:00:00+00:00","datePublished":"2023-03-28T00:00:00+00:00","description":"The Center for High-Throughput Computing (CHTC), a joint partnership of UW-Madison School of Computer, Data &amp; Information Sciences and the Morgridge Institute, sees this onslaught of data and says: Bring it on.","headline":"Fire up the GPUs: UW-Madison, Morgridge project sparks next-level computing","mainEntityOfPage":{"@type":"WebPage","@id":"https://morgridge.org/story/fire-up-the-gpus-uw-madison-morgridge-project-sparks-next-level-computing/"},"url":"https://morgridge.org/story/fire-up-the-gpus-uw-madison-morgridge-project-sparks-next-level-computing/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -52,7 +54,7 @@
 <link type="text/css" href="/assets/fonts/fonts.0.0.1.css" rel="stylesheet">
 <link type="text/css" href="/assets/css/style-v8.css" rel="stylesheet">
 
-<link type="text/css" href="/assets/css/research-style.css" rel="stylesheet">
+
 
 <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'')})(document.documentElement)</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -76,7 +78,7 @@
             <div class="row">
                 <div class="col-auto pe-0">
                     
-                    <a class="uw-global-name-link" href="/" aria-label="University home page">Go to CHTC Home</a>
+                    <a class="uw-global-name-link" href="/uw-research-computing" aria-label="UW Research Computing Homepage">Go to UW Research Computing Home</a>
                     
                 </div>
                 <div class="col-auto d-flex">
@@ -96,7 +98,7 @@
 
 
 
-<header id="branding-sub" class="uw-header circuit-background">
+<header id="branding" class="uw-header ">
     <div class="uw-header-container mt-2 mb-2">
         <div class="uw-header-crest-title">
             <div class="uw-header-crest">
@@ -107,7 +109,7 @@
                     <a href="/" rel="home">CHTC</a>
                 </h1>
                 <a href="/" rel="home">
-                    <div id="site-description" class="uw-site-tagline">UW Research Computing</div>
+                    <div id="site-description" class="uw-site-tagline">Center for High Throughput Computing</div>
                 </a>
             </div>
         </div>
@@ -115,13 +117,8 @@
 </header>
     
 
-
-
     
-
-
-    
-    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">UW-Research Computing<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
+    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">Menu<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
 <div id="uw-top-menus" class="uw-is-visible uw-horizontal" aria-hidden="false">
     <div class="uw-main-nav">
         <nav class="uw-nav-menu uw-nav-menu-reverse" aria-label="Main Menu">
@@ -129,27 +126,9 @@
                 
                     
 
-
-<li id="home">
-    <a href="/uw-research-computing/index.html" aria-current="page">Home</a>
-</li>
-
-
-                
-                    
-
-
-<li id="get-started">
-    <a href="/uw-research-computing/form.html" aria-current="page">Get Started</a>
-</li>
-
-
-                
-                    
-
-<li id="menu-how-tos" class="uw-dropdown">
-    <a href="/uw-research-computing/how-tos.html" role="button" aria-haspopup="true" aria-expanded="false">
-        How To's
+<li id="about" class="uw-dropdown">
+    <a href="/about.html" role="button" aria-haspopup="true" aria-expanded="false">
+        About
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -157,23 +136,27 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="How To's submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="About submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/get-help.html">Get Help</a>
+            <a href="/htc.html">What is HTC?</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/guides.html#htc-documentation">HTC Guides</a>
+            <a href="/approach.html">Our Approach</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/guides.html#hpc-documentation">HPC Guides</a>
+            <a href="/projects.html">Our Customers</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/cite-chtc.html">Cite CHTC Resources</a>
+            <a href="/people.html">Our Staff</a>
+        </li>
+    
+        <li>
+            <a href="/jobs.html">Our Open Positions</a>
         </li>
     
     </ul>    
@@ -183,17 +166,35 @@
                     
 
 
-<li id="user-news">
-    <a href="/uw-research-computing/user-news.html" aria-current="page">User News</a>
+<li id="uw-research-computing">
+    <a href="/uw-research-computing/index.html" aria-current="page">UW Research Computing</a>
 </li>
 
 
                 
                     
 
-<li id="menu-other-resources" class="uw-dropdown">
-    <a href="/uw-research-computing/other-resources.html" role="button" aria-haspopup="true" aria-expanded="false">
-        Other Resources
+
+<li id="technologies">
+    <a href="/technologies.html" aria-current="page">Technologies</a>
+</li>
+
+
+                
+                    
+
+
+<li id="research">
+    <a href="/research.html" aria-current="page">Research</a>
+</li>
+
+
+                
+                    
+
+<li id="news" class="uw-dropdown">
+    <a href="" role="button" aria-haspopup="true" aria-expanded="false">
+        News
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -201,27 +202,19 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="Other Resources submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="News submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/gpu-lab.html">CHTC GPU Lab</a>
+            <a href="/news.html">CHTC News</a>
         </li>
     
         <li>
-            <a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a>
+            <a href="/events.html">Events</a>
         </li>
     
         <li>
-            <a href="http://www.neos-server.org/">NEOS Optimization Service</a>
-        </li>
-    
-        <li>
-            <a href="http://www.osg-htc.org/">OSG Consortium</a>
-        </li>
-    
-        <li>
-            <a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a>
+            <a href="/uw-research-computing/user-news.html">User News</a>
         </li>
     
     </ul>    
@@ -242,146 +235,39 @@
 </div>
 
 
+
+    
+
     <main id="main" style="min-height: 60vh;">
         <main id="main" style="min-height: 60vh;">
-    <div class="container-xxl mb-5">
+    <!-- This Layout is to adhere the page to the optimal char per lines for accessibility -->
+
+
+<div class="container-xxl">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-9 mw-1000">
+        <div class="col-12 col-sm-11 col-md-9 col-lg-8">
             <h1 class="uw-mini-bar mb-4">
-    Using Software in a Container on the HPC Cluster
-</h1>
+                Fire up the GPUs: UW-Madison, Morgridge project sparks next-level computing
+            </h1>
+            <figure class="pb-4">
+  <img class="w-100" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/core-comp-gpu.jpeg" alt="Emile with RAM in Data Center" />
+</figure>
 
-            <p>Software that is packaged in a "container" can
-be run on the HPC cluster. This guide assumes that you are starting with 
-an existing Docker container and shows how to use it to run a job on the HPC cluster.</p>
+<p>A form of computing machinery that was once the province of hardcore video gamers — the graphic processing unit, or GPU — has recently taken the world of scientific research by storm.</p>
 
-<p>Note that you may need to install a version of MPI to your container 
-when it is initially created. See the <a href="#notes">notes</a> about this below.</p>
+<p>Originally designed in the late 1990s with the capability of rendering 3D graphics, GPUs have been essential over the years to creating increasingly sophisticated and realistic visual effects.</p>
 
-<p>The two steps to run a container on the HPC cluster:</p>
-<ol>
-  <li><a href="#image">Convert the container to a Singularity image file</a></li>
-  <li><a href="#command">Run a job that uses the container</a></li>
-</ol>
+<p>While most of the research world has thought in terms of CPUs — or central processing units — as the lingua franca of computing power, GPUs are now emerging at the top of the rack for fields such as machine learning and scientific computing.</p>
 
-<p><a name="notes"></a>
-Notes about MPI and Containers
-==================</p>
+<p>Morgridge Investigator <a href="https://morgridge.org/profile/anthony-gitter/">Anthony Gitter</a>, a UW-Madison associate professor of biostatistics and medical informatics, recognized the need early on in his machine learning projects related to protein engineering and drug discovery — projects that generate millions of data points. There were GPU-related tools available that could complete his team’s modeling experiments in days that would have taken months or years — if accomplished at all — with standard CPU-based computing.</p>
 
-<p>There are two ways to run a Singularity container integrated with MPI: <code>hybrid</code> 
-mode and <code>bind</code> mode.</p>
+<p>But he also noticed, around 2018, a groundswell of DIY efforts across the UW-Madison campus related to GPUs.</p>
 
-<p>In <code>hybrid</code> mode, the container has its own copy of MPI <strong>that is compatible 
-with a version of MPI already installed on the cluster</strong>.</p>
+<p>“I saw a lot of my peers were trying to set up their own systems,” he recalls. “People were buying workstations that would have one GPU and sticking it under a desk for a grad student to run, then trying to figure out what hardware to buy, how to keep it maintained and what software to install.”</p>
 
-<p>In <code>bind</code> mode, the code in the container has been compiled with MPI that 
-exists outside the container and there is no MPI installation in the container itself. 
-Again, <strong>the version of MPI used needs to be compatible with one already installed
-on the cluster.</strong></p>
+<p>Gitter spotted an opportunity. Why not create a centralized resource and user community that could help support hundreds of varied GPU experiments, much like his Morgridge and UW-Madison colleagues have accomplished through the Center for High-Throughput Computing (CHTC)? That center successfully manages more than 300 unique projects a year, generating hundreds of millions of hours of computing time.</p>
 
-<p>This will be relevant in how the job is executed later on: <a href="#command">Using Singularity Container Images</a></p>
-
-<p><a name="image"></a></p>
-
-<h1 id="1-convert-container-to-singularity-format"><strong>1. Convert Container to Singularity Format</strong></h1>
-
-<p>We assume that there is a Docker container (either found
-or created by you) online that you want to use. To use this container 
-on the HPC cluster, it needs to be converted to a Singularity-format
-image file. To do this:</p>
-
-<ol>
-  <li>Log in to one of the HPC cluster log in nodes.</li>
-  <li>Start an interactive job:
-    <pre><code> [alice@login]$ srun -n4 -N1 -p int --pty bash
-</code></pre>
-  </li>
-  <li>Once the interactive job starts, you’ll need to unset a shell environment
-variable that prevents download of the Docker container.
-    <pre><code>[alice@int]$ unset HTTPS_PROXY
-</code></pre>
-  </li>
-  <li>Then, save the Docker container to a Singularity image.
-    <pre class="term"><code> [alice@int]$ singularity build /software/alice/name.simg docker://user/image:version
-</code></pre>
-
-    <p>For example, if user "Alice" wanted to use the <a href="https://hub.docker.com/r/fenicsproject/stable">"Fenics" container
- provided on DockerHub</a>,
- and save it to a file named <code>fenics.simg</code>, she would run:</p>
-
-    <pre class="term"><code> [alice@int]$ singularity build /software/alice/fenics.simg docker://fenicsproject/stable:latest
-</code></pre>
-
-    <blockquote>
-      <p>This command will by default, pull the initial Docker container from 
-Docker Hub. If your Docker container is stored elsewhere, or you are 
-starting with a Singularity image, contact CHTC staff for specific instructions.</p>
-    </blockquote>
-  </li>
-  <li>Once the Singularity command completes, type <code>exit</code> to leave the interactive job.</li>
-</ol>
-
-<p><a name="command"></a></p>
-
-<h1 id="2-using-singularity-container-images"><strong>2. Using Singularity Container Images</strong></h1>
-
-<p>To use a Singularity container in a job, the SLURM submit file will remain mostly the
-same; what will change is the job’s primary command at the end of the
-file. This command will run your primary program inside the container
-file you've downloaded. The main MPI command will still be part of the 
-singularity command:</p>
-
-<pre><code class="language-{.sub}">#!/bin/sh
-#SBATCH options
-
-module load MPI/version
-mpirun -np ## singularity exec /path/to/container/file command-to-run
-</code></pre>
-
-<p>For example, if Alice wanted to run a script she had written
-(<code>poisson.py</code>) inside the downloaded fenics container, using 40 cores, she would use the
-following command at the end of her submit file:</p>
-
-<pre><code class="language-{.sub}">mpirun -np 40 singularity exec /software/alice/fenics.simg ./poisson.py
-</code></pre>
-
-<p>The example shown above uses the “hybrid” model for running MPI, which assumes 
-that there is a copy of MPI installed <strong>in the container</strong> that matches what already 
-exists on the cluster.</p>
-
-<p>If your container does <strong>not</strong> have it’s own copy of MPI installed, you need 
-to use the “bind” model for running MPI which requires an additional flag and 
-the location of the main MPI directory:</p>
-
-<pre><code class="language-{.sub}">#!/bin/sh
-#SBATCH options
-
-module load MPI/version
-mpirun -np ## singularity exec --bind /path/to/cluster/MPI/dir/ /path/to/container/file command-to-run
-</code></pre>
-
-<p>On CHTC’s cluster, the GCC based version of OpenMPI is installed at the path:
-` /software/chtc/easybuild/v2/software/OpenMPI/4.0.5-GCC-9.3.0/`
-So the command(s) to run the “Alice” example above would be:</p>
-
-<pre><code class="language-{.sub}">MPI_DIR=/software/chtc/easybuild/v2/software/OpenMPI/4.0.5-GCC-9.3.0/
-mpirun -np 40 singularity exec --bind $MPI_DIR /software/alice/fenics.simg ./poisson.py
-</code></pre>
-
-<p>More details on the difference between using the “hybrid” and “bind” model 
-for MPI and Singularity is here: https://sylabs.io/guides/3.8/user-guide/mpi.html</p>
-
-        </div>
-        <div class="col-3 d-none d-lg-block">
-            
-
-
-
-    <div id="guide-sidebar">
-        
-    </div>
-
-
+<p>Read more about the CHTC managed GPU Lab in the full article on the <a href="https://morgridge.org/story/fire-up-the-gpus-uw-madison-morgridge-project-sparks-next-level-computing/">Morgridge Website</a>.</p>
 
         </div>
     </div>

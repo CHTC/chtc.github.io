@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Using Software in a Container on the HPC Cluster</title>
+<title>Google Quantum Computing Utilizing HTCondor</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,28 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Using Software in a Container on the HPC Cluster | CHTC</title>
+<title>Google Quantum Computing Utilizing HTCondor | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="Using Software in a Container on the HPC Cluster" />
+<meta property="og:title" content="Google Quantum Computing Utilizing HTCondor" />
+<meta name="author" content="Hannah Cheren" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Software that is packaged in a &quot;container&quot; can be run on the HPC cluster. This guide assumes that you are starting with an existing Docker container and shows how to use it to run a job on the HPC cluster." />
-<meta property="og:description" content="Software that is packaged in a &quot;container&quot; can be run on the HPC cluster. This guide assumes that you are starting with an existing Docker container and shows how to use it to run a job on the HPC cluster." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/singularity-hpc" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/singularity-hpc" />
+<meta name="description" content="Google’s launch of a Quantum Virtual Machine emulates the experience and results of programming one of Google’s quantum computers, managed by an HTCondor system running in Google Cloud." />
+<meta property="og:description" content="Google’s launch of a Quantum Virtual Machine emulates the experience and results of programming one of Google’s quantum computers, managed by an HTCondor system running in Google Cloud." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/htcondor-google-qvm.html" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/htcondor-google-qvm.html" />
 <meta property="og:site_name" content="CHTC" />
+<meta property="og:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/google-qvm.jpg" />
+<meta property="og:image:alt" content="Quantum AI Logo. Image from Quantum AI Product Manager Catherine Vollgraff Heidweiller’s research blog post." />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-03-30T14:32:45+00:00" />
+<meta property="article:published_time" content="2023-03-01T00:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Using Software in a Container on the HPC Cluster" />
+<meta property="twitter:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/google-qvm.jpg" />
+<meta name="twitter:image:alt" content="Quantum AI Logo. Image from Quantum AI Product Manager Catherine Vollgraff Heidweiller’s research blog post." />
+<meta property="twitter:title" content="Google Quantum Computing Utilizing HTCondor" />
 <meta name="twitter:site" content="@chtc_uw" />
+<meta name="twitter:creator" content="@Hannah Cheren" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-30T14:32:45+00:00","datePublished":"2023-03-30T14:32:45+00:00","description":"Software that is packaged in a &quot;container&quot; can be run on the HPC cluster. This guide assumes that you are starting with an existing Docker container and shows how to use it to run a job on the HPC cluster.","headline":"Using Software in a Container on the HPC Cluster","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/singularity-hpc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/singularity-hpc"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hannah Cheren"},"dateModified":"2023-03-01T00:00:00+00:00","datePublished":"2023-03-01T00:00:00+00:00","description":"Google’s launch of a Quantum Virtual Machine emulates the experience and results of programming one of Google’s quantum computers, managed by an HTCondor system running in Google Cloud.","headline":"Google Quantum Computing Utilizing HTCondor","image":{"alt":"Quantum AI Logo. Image from Quantum AI Product Manager Catherine Vollgraff Heidweiller’s research blog post.","url":"https://raw.githubusercontent.com/CHTC/Articles/main/images/google-qvm.jpg","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/htcondor-google-qvm.html"},"url":"https://chtc.cs.wisc.edu/htcondor-google-qvm.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -52,7 +58,7 @@
 <link type="text/css" href="/assets/fonts/fonts.0.0.1.css" rel="stylesheet">
 <link type="text/css" href="/assets/css/style-v8.css" rel="stylesheet">
 
-<link type="text/css" href="/assets/css/research-style.css" rel="stylesheet">
+
 
 <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'')})(document.documentElement)</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -76,7 +82,7 @@
             <div class="row">
                 <div class="col-auto pe-0">
                     
-                    <a class="uw-global-name-link" href="/" aria-label="University home page">Go to CHTC Home</a>
+                    <a class="uw-global-name-link" href="/uw-research-computing" aria-label="UW Research Computing Homepage">Go to UW Research Computing Home</a>
                     
                 </div>
                 <div class="col-auto d-flex">
@@ -96,7 +102,7 @@
 
 
 
-<header id="branding-sub" class="uw-header circuit-background">
+<header id="branding" class="uw-header ">
     <div class="uw-header-container mt-2 mb-2">
         <div class="uw-header-crest-title">
             <div class="uw-header-crest">
@@ -107,7 +113,7 @@
                     <a href="/" rel="home">CHTC</a>
                 </h1>
                 <a href="/" rel="home">
-                    <div id="site-description" class="uw-site-tagline">UW Research Computing</div>
+                    <div id="site-description" class="uw-site-tagline">Center for High Throughput Computing</div>
                 </a>
             </div>
         </div>
@@ -115,13 +121,8 @@
 </header>
     
 
-
-
     
-
-
-    
-    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">UW-Research Computing<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
+    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">Menu<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
 <div id="uw-top-menus" class="uw-is-visible uw-horizontal" aria-hidden="false">
     <div class="uw-main-nav">
         <nav class="uw-nav-menu uw-nav-menu-reverse" aria-label="Main Menu">
@@ -129,27 +130,9 @@
                 
                     
 
-
-<li id="home">
-    <a href="/uw-research-computing/index.html" aria-current="page">Home</a>
-</li>
-
-
-                
-                    
-
-
-<li id="get-started">
-    <a href="/uw-research-computing/form.html" aria-current="page">Get Started</a>
-</li>
-
-
-                
-                    
-
-<li id="menu-how-tos" class="uw-dropdown">
-    <a href="/uw-research-computing/how-tos.html" role="button" aria-haspopup="true" aria-expanded="false">
-        How To's
+<li id="about" class="uw-dropdown">
+    <a href="/about.html" role="button" aria-haspopup="true" aria-expanded="false">
+        About
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -157,23 +140,27 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="How To's submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="About submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/get-help.html">Get Help</a>
+            <a href="/htc.html">What is HTC?</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/guides.html#htc-documentation">HTC Guides</a>
+            <a href="/approach.html">Our Approach</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/guides.html#hpc-documentation">HPC Guides</a>
+            <a href="/projects.html">Our Customers</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/cite-chtc.html">Cite CHTC Resources</a>
+            <a href="/people.html">Our Staff</a>
+        </li>
+    
+        <li>
+            <a href="/jobs.html">Our Open Positions</a>
         </li>
     
     </ul>    
@@ -183,17 +170,35 @@
                     
 
 
-<li id="user-news">
-    <a href="/uw-research-computing/user-news.html" aria-current="page">User News</a>
+<li id="uw-research-computing">
+    <a href="/uw-research-computing/index.html" aria-current="page">UW Research Computing</a>
 </li>
 
 
                 
                     
 
-<li id="menu-other-resources" class="uw-dropdown">
-    <a href="/uw-research-computing/other-resources.html" role="button" aria-haspopup="true" aria-expanded="false">
-        Other Resources
+
+<li id="technologies">
+    <a href="/technologies.html" aria-current="page">Technologies</a>
+</li>
+
+
+                
+                    
+
+
+<li id="research">
+    <a href="/research.html" aria-current="page">Research</a>
+</li>
+
+
+                
+                    
+
+<li id="news" class="uw-dropdown">
+    <a href="" role="button" aria-haspopup="true" aria-expanded="false">
+        News
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -201,27 +206,19 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="Other Resources submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="News submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/gpu-lab.html">CHTC GPU Lab</a>
+            <a href="/news.html">CHTC News</a>
         </li>
     
         <li>
-            <a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a>
+            <a href="/events.html">Events</a>
         </li>
     
         <li>
-            <a href="http://www.neos-server.org/">NEOS Optimization Service</a>
-        </li>
-    
-        <li>
-            <a href="http://www.osg-htc.org/">OSG Consortium</a>
-        </li>
-    
-        <li>
-            <a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a>
+            <a href="/uw-research-computing/user-news.html">User News</a>
         </li>
     
     </ul>    
@@ -242,146 +239,48 @@
 </div>
 
 
+
+    
+
     <main id="main" style="min-height: 60vh;">
         <main id="main" style="min-height: 60vh;">
-    <div class="container-xxl mb-5">
+    <!-- This Layout is to adhere the page to the optimal char per lines for accessibility -->
+
+
+<div class="container-xxl">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-9 mw-1000">
+        <div class="col-12 col-sm-11 col-md-9 col-lg-8">
             <h1 class="uw-mini-bar mb-4">
-    Using Software in a Container on the HPC Cluster
-</h1>
+                Google Quantum Computing Utilizing HTCondor
+            </h1>
+            <p><strong><em>Google’s launch of a Quantum Virtual Machine emulates the experience and results of programming one of Google’s quantum computers, managed by an HTCondor system running in Google Cloud.</em></strong></p>
 
-            <p>Software that is packaged in a "container" can
-be run on the HPC cluster. This guide assumes that you are starting with 
-an existing Docker container and shows how to use it to run a job on the HPC cluster.</p>
+<figure>
+  <img class="w-100" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/google-qvm.jpg" alt="Quantum AI Logo. Image from Quantum AI Product Manager Catherine Vollgraff Heidweiller’s research blog post." />
+  <figcaption class="figure-caption">Quantum AI Logo. Image from Quantum AI Product Manager Catherine Vollgraff Heidweiller’s research blog post.<br /></figcaption>
+</figure>
 
-<p>Note that you may need to install a version of MPI to your container 
-when it is initially created. See the <a href="#notes">notes</a> about this below.</p>
+<p>The CEO of Google and Alphabet, Sudar Pichai, tweeted out some thrilling news:</p>
 
-<p>The two steps to run a container on the HPC cluster:</p>
-<ol>
-  <li><a href="#image">Convert the container to a Singularity image file</a></li>
-  <li><a href="#command">Run a job that uses the container</a></li>
-</ol>
+<p>“Excited to launch a Quantum Virtual Machine (QVM) which emulates the experience and results of programming one of our quantum computers. It will make it easier for researchers to prototype new algorithms and help students learn how to program a quantum computer.” – <a href="https://twitter.com/sundarpichai/status/1549448858282774528">Tweet</a>.</p>
 
-<p><a name="notes"></a>
-Notes about MPI and Containers
-==================</p>
+<p>Today’s “classical” computing systems, from laptops to large supercomputers, are built using circuit behavior defined by classical physics. Quantum computer circuity, still in the early phases of development, harnesses the laws of quantum mechanics to solve computing problems in new ways. Quantum computers offer exponential speedups – over 100 million times faster for specific issues – to produce groundbreaking results. However, quantum computing will require scientists and engineers to revisit many classical algorithms and develop new ones tailored to exploit the benefits of quantum processors. Therefore, the QVM is a helpful tool for quantum algorithms research.</p>
 
-<p>There are two ways to run a Singularity container integrated with MPI: <code>hybrid</code> 
-mode and <code>bind</code> mode.</p>
+<p>“The QVM is, in essence, a realistic simulation of a grid on our quantum hardware using classical computers,” Tom Downes, a consultant for High-Performance Computing (HPC) at Google Cloud, explains. Simulating a grid of qubits, the basic unit of quantum information, on a quantum processor requires many trajectory simulations of quantum noise. Downes explains, “quantum computers are noisy, so it is important to test and adjust your quantum circuits in realistic conditions so they can perform well and output the data you are looking for in your research problem. To virtualize a processor, the QVM uses the noise data and topology of Google’s real hardware.” This grid size determines whether a researcher can use their laptop or require a setup utilizing many classical computers to power the simulation. Essentially, research on the QVM is “proof of concept” research.</p>
 
-<p>In <code>hybrid</code> mode, the container has its own copy of MPI <strong>that is compatible 
-with a version of MPI already installed on the cluster</strong>.</p>
+<p>To enable researchers to test their algorithms on a larger grid of qubits, Google utilized the <a href="https://htcondor.org">HTCondor Software Suite</a> (HTCSS) to organize the capacity of many classical computers to run multiple simulations of a quantum circuit simultaneously. The HTCondor Software Suite enables researchers to easily harness the collective computing power of many classical computers and submit and manage large numbers of computing jobs. Today, HTCSS is used at universities, government labs, and commercial organizations worldwide, including within Google’s own Google Cloud Platform, to power QVM.  Downes details, “this ability to test on a 32-qubit grid can extrapolate its performance to a non-simulatable grid more feasible.”</p>
 
-<p>In <code>bind</code> mode, the code in the container has been compiled with MPI that 
-exists outside the container and there is no MPI installation in the container itself. 
-Again, <strong>the version of MPI used needs to be compatible with one already installed
-on the cluster.</strong></p>
+<p>The new <a href="https://quantumai.google/qsim/tutorials/multinode">Google Quantum AI tutorial</a> shows users how to use the Cloud HPC Toolkit, which makes it easy for new users to deploy HTCondor pools in Google Cloud. Downes describes that the tutorial “provides the basic elements of an HTCondor pool: a central manager, an access point, and a pool of execute points that scale in size to work through the job queue.”</p>
 
-<p>This will be relevant in how the job is executed later on: <a href="#command">Using Singularity Container Images</a></p>
+<p>The tutorial by Google describes how to:</p>
+<ul>
+  <li>Use terraform to deploy an HTCondor cluster in the Google Cloud</li>
+  <li>Run a multi-node quantum computing simulation using HTCondor</li>
+  <li>Query cluster information and monitor running jobs in HTCondor</li>
+  <li>Use terraform to destroy the cluster</li>
+</ul>
 
-<p><a name="image"></a></p>
-
-<h1 id="1-convert-container-to-singularity-format"><strong>1. Convert Container to Singularity Format</strong></h1>
-
-<p>We assume that there is a Docker container (either found
-or created by you) online that you want to use. To use this container 
-on the HPC cluster, it needs to be converted to a Singularity-format
-image file. To do this:</p>
-
-<ol>
-  <li>Log in to one of the HPC cluster log in nodes.</li>
-  <li>Start an interactive job:
-    <pre><code> [alice@login]$ srun -n4 -N1 -p int --pty bash
-</code></pre>
-  </li>
-  <li>Once the interactive job starts, you’ll need to unset a shell environment
-variable that prevents download of the Docker container.
-    <pre><code>[alice@int]$ unset HTTPS_PROXY
-</code></pre>
-  </li>
-  <li>Then, save the Docker container to a Singularity image.
-    <pre class="term"><code> [alice@int]$ singularity build /software/alice/name.simg docker://user/image:version
-</code></pre>
-
-    <p>For example, if user "Alice" wanted to use the <a href="https://hub.docker.com/r/fenicsproject/stable">"Fenics" container
- provided on DockerHub</a>,
- and save it to a file named <code>fenics.simg</code>, she would run:</p>
-
-    <pre class="term"><code> [alice@int]$ singularity build /software/alice/fenics.simg docker://fenicsproject/stable:latest
-</code></pre>
-
-    <blockquote>
-      <p>This command will by default, pull the initial Docker container from 
-Docker Hub. If your Docker container is stored elsewhere, or you are 
-starting with a Singularity image, contact CHTC staff for specific instructions.</p>
-    </blockquote>
-  </li>
-  <li>Once the Singularity command completes, type <code>exit</code> to leave the interactive job.</li>
-</ol>
-
-<p><a name="command"></a></p>
-
-<h1 id="2-using-singularity-container-images"><strong>2. Using Singularity Container Images</strong></h1>
-
-<p>To use a Singularity container in a job, the SLURM submit file will remain mostly the
-same; what will change is the job’s primary command at the end of the
-file. This command will run your primary program inside the container
-file you've downloaded. The main MPI command will still be part of the 
-singularity command:</p>
-
-<pre><code class="language-{.sub}">#!/bin/sh
-#SBATCH options
-
-module load MPI/version
-mpirun -np ## singularity exec /path/to/container/file command-to-run
-</code></pre>
-
-<p>For example, if Alice wanted to run a script she had written
-(<code>poisson.py</code>) inside the downloaded fenics container, using 40 cores, she would use the
-following command at the end of her submit file:</p>
-
-<pre><code class="language-{.sub}">mpirun -np 40 singularity exec /software/alice/fenics.simg ./poisson.py
-</code></pre>
-
-<p>The example shown above uses the “hybrid” model for running MPI, which assumes 
-that there is a copy of MPI installed <strong>in the container</strong> that matches what already 
-exists on the cluster.</p>
-
-<p>If your container does <strong>not</strong> have it’s own copy of MPI installed, you need 
-to use the “bind” model for running MPI which requires an additional flag and 
-the location of the main MPI directory:</p>
-
-<pre><code class="language-{.sub}">#!/bin/sh
-#SBATCH options
-
-module load MPI/version
-mpirun -np ## singularity exec --bind /path/to/cluster/MPI/dir/ /path/to/container/file command-to-run
-</code></pre>
-
-<p>On CHTC’s cluster, the GCC based version of OpenMPI is installed at the path:
-` /software/chtc/easybuild/v2/software/OpenMPI/4.0.5-GCC-9.3.0/`
-So the command(s) to run the “Alice” example above would be:</p>
-
-<pre><code class="language-{.sub}">MPI_DIR=/software/chtc/easybuild/v2/software/OpenMPI/4.0.5-GCC-9.3.0/
-mpirun -np 40 singularity exec --bind $MPI_DIR /software/alice/fenics.simg ./poisson.py
-</code></pre>
-
-<p>More details on the difference between using the “hybrid” and “bind” model 
-for MPI and Singularity is here: https://sylabs.io/guides/3.8/user-guide/mpi.html</p>
-
-        </div>
-        <div class="col-3 d-none d-lg-block">
-            
-
-
-
-    <div id="guide-sidebar">
-        
-    </div>
-
-
+<p>Please visit <a href="https://blog.google/technology/research/our-new-quantum-virtual-machine-will-accelerate-research-and-help-people-learn-quantum-computing/">this website</a> for more information about the Quantum Virtual Machine and <a href="https://quantumai.google/qsim/tutorials/multinode">how researchers can use HTCondor for multinode quantum simulations</a>.</p>
 
         </div>
     </div>
