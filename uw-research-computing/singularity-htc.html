@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Running Julia Jobs</title>
+<title>Using Apptainer (Singularity) Environments</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Running Julia Jobs | CHTC</title>
+<title>Using Apptainer (Singularity) Environments | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="Running Julia Jobs" />
+<meta property="og:title" content="Using Apptainer (Singularity) Environments" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Overview" />
-<meta property="og:description" content="Overview" />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/julia-jobs" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/julia-jobs" />
+<meta name="description" content="Overview HTCondor supports the use of Apptainer (formerly known as Singularity) environments for jobs on the High Throughput Computing system." />
+<meta property="og:description" content="Overview HTCondor supports the use of Apptainer (formerly known as Singularity) environments for jobs on the High Throughput Computing system." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/singularity-htc" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/singularity-htc" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-04-25T21:15:11+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Running Julia Jobs" />
+<meta property="twitter:title" content="Using Apptainer (Singularity) Environments" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-04-25T21:15:11+00:00","datePublished":"2023-04-25T21:15:11+00:00","description":"Overview","headline":"Running Julia Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/julia-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/julia-jobs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-04-25T21:15:11+00:00","datePublished":"2023-04-25T21:15:11+00:00","description":"Overview HTCondor supports the use of Apptainer (formerly known as Singularity) environments for jobs on the High Throughput Computing system.","headline":"Using Apptainer (Singularity) Environments","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/singularity-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/singularity-htc"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -248,315 +248,399 @@
     <div class="row justify-content-center">
         <div class="col-12 col-lg-9 mw-1000">
             <h1 class="uw-mini-bar mb-4">
-    Running Julia Jobs
+    Using Apptainer (Singularity) Environments
 </h1>
 
-            <h1 id="overview">Overview</h1>
+            <h2 id="overview">Overview</h2>
+<p>HTCondor supports the use of Apptainer (formerly known as Singularity) environments for jobs on the High Throughput Computing system.</p>
 
-<p>This guide documents steps for submitting jobs that will execute 
-Julia code, including preliminary steps for installing specific Julia 
-packages that may be required for your work.</p>
+<p>Similar to Docker containers, Apptainer environments allow users to prepare portable software and computing environments that can be sent to many jobs. 
+This means your jobs will run in a more consistent environment that is easily reproducible by others. 
+Additionally, similar to Docker containers, Apptainer jobs are able to take advantage of more of CHTC’s High Throughput resources because Apptainer jobs can run on both our new CentOS8 machines and our older CentOS7 machines. 
+Similarly, Apptainer jobs can more easily back fill on external compute resources (e.g.<a href="scaling-htc.html"><code>+WantFlocking</code> and <code>+WantGlideIn</code> resources</a>).</p>
 
-<h1 id="table-of-contents">Table of Contents</h1>
-<ol>
-  <li><a href="#quickstart-instructions">Quickstart Instructions</a></li>
-  <li><a href="#install-julia-packages">Install Julia Packages</a></li>
-  <li><a href="#submit-julia-jobs">Submit Julia Jobs</a></li>
-</ol>
+<h2 id="1-choose-or-create-an-apptainer-image">1. Choose or create an Apptainer Image</h2>
+<p>To run an Apptainer job, it is necessary to first choose a pre-existing Apptainer image or create your own.</p>
 
-<h1 id="quickstart-instructions">Quickstart Instructions</h1>
+<h3 id="a-pre-existing-images">A. Pre-existing Images</h3>
+<p>Like with Docker, the easiest way to use Apptainer in your jobs is to find a pre-existing image that contains your desired software and environment setup.</p>
 
-<ol>
-  <li>
-    <p>Download the precompiled Julia software from <a href="https://julialang.org/downloads/">https://julialang.org/downloads/</a>. 
-You will need the 64-bit, tarball compiled for general use on a Linux x86 system. The 
-file name will resemble something like <code>julia-#.#.#-linux-x86_64.tar.gz</code>.</p>
+<p>Pre-existing images can be found in reputable sources such as the <a href="https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/">OSG</a>. 
+It is also possible to convert a Docker container (e.g your own or from DockerHub) to a Apptainer image. 
+<strong>If your apptainer image does not require any additional packages or libraries, skip to <a href="#7-use-an-apptainer-container-in-htc-jobs">7. Use an Apptainer Container in HTC Jobs</a>.</strong></p>
 
-    <ul>
-      <li>Tip: use <code>wget</code> to download directly to your <code>/home</code> directory on the 
-submit server, <strong>OR</strong> use <code>transfer_input_files = url</code> in your <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> submit files.</li>
-    </ul>
-  </li>
-  <li>
-    <p>Submit an “interactive build” job to create a Julia project and 
-install packages, else skip to the next step.</p>
+<h3 id="b-create-your-own-image">B. Create your Own Image</h3>
+<p>To create your own image, it is still necessary to select a “base” image to add to. 
+Check the documentation of the software you are interested in to see if they maintain images for the software program or its dependencies.
+The majority of the guide that follows explains how to customize your base image by adding and preparing additional software packages/libraries.</p>
 
-    <ul>
-      <li>For more details, see the section on installing Julia 
- packages below: <a href="#install-julia-packages">Installing Julia Packages</a></li>
-    </ul>
-  </li>
-  <li>
-    <p>Submit a job that executes a Julia script using the Julia precompiled binary
-with base Julia and Standard Library.</p>
+<h2 id="2-submit-an-interactive-job">2. Submit an interactive job</h2>
+<p>In your <code>/home</code> directory, create a submit file for your Apptainer build job called something like <code>build.sub</code>:</p>
 
-    <pre class="file"><code> #!/bin/bash
-
- # extract Julia binaries tarball
- tar -xzf julia-#.#.#-linux-x86_64.tar.gz
-
- # add Julia binary to PATH
- export PATH=$_CONDOR_SCRATCH_DIR/julia-#.#.#/bin:$PATH
-
- # run Julia script
- julia my-script.jl
-</code></pre>
-
-    <ul>
-      <li>For more details on the job submission, see the section 
- below: <a href="#submit-julia-jobs">Submit Julia Jobs</a></li>
-    </ul>
-  </li>
-</ol>
-
-<h1 id="install-julia-packages">Install Julia Packages</h1>
-
-<p>If your work requires additional Julia packages, you will need to peform a one-time 
-installation of these packages within a Julia project. A copy of the project 
-can then be saved for use in subsequent job submissions. For more details, 
-please see Julia’s documentation at <a href="https://julialang.github.io/Pkg.jl">Julia Pkg.jl</a>.</p>
-
-<h2 id="create-an-interactive-build-job-submit-file">Create An Interactive Build Job Submit File</h2>
-
-<p>To install your Julia packages, first create an HTCondor submit for 
-submitting an “interactive build” job which is a job that will run 
-interactively on one of CHTC’s servers dedicated for building 
-(aka compiling) software.</p>
-
-<p>Using a text editor, create the following file, which can be named <code>build.sub</code></p>
-
-<pre><code class="language-{.sub}"># Julia build job submit file
+<pre><code># Apptainer build file
 
 universe = vanilla
-log = julia-build.log
+log = interactive.log
 
-# have job transfer a copy of precompiled Julia software
-# be sure to match the name of the version 
-# that you have downloaded to your home directory
-transfer_input_files = julia-#.#.#-linux-x86_64.tar.gz
+# If your build job needs access to any files in your /home directory, transfer them to your job using transfer_input_files
+# transfer_input_files = 
 
 +IsBuildJob = true
-
+requirements = (OpSysMajorVer =?= 8)
 request_cpus = 1
 request_memory = 4GB
-request_disk = 2GB
+request_disk = 4GB
 
 queue
 </code></pre>
 
-<p>The only thing you should need to change in the above file is the name
-of the Julia tarball file in the "transfer_input_files" line.</p>
+<p>Once your submit file is ready, queue an interactive job by running the following command:</p>
 
-<h2 id="submit-your-interactive-build-job">Submit Your Interactive Build Job</h2>
-
-<p>Once this submit file is created, submit the job using the following command:</p>
-
-<pre class="term"><code>[alice@submit]$ condor_submit -i build.sub
+<pre class="term"><code>condor_submit -i build.sub
 </code></pre>
 
 <p>It may take a few minutes for the build job to start.</p>
 
-<h2 id="install-julia-packages-interactively">Install Julia Packages Interactively</h2>
+<h2 id="3-create-your-apptainer-build-file">3. Create your Apptainer Build File</h2>
 
-<p>Once the interactive jobs starts you should see the following
-inside the job’s working directory:</p>
+<p>Inside your interactive job, create a blank text file called <code>image.def</code>. In this <code>.def</code> file, you will <em>def</em>ine what you want the Apptainer image to look like. You can name this file using an alternative name, but you should always use the <code>.def</code> file extension.
+The simple example below describes how to augment a pre-existing container that already contains most of what you need.
+The advanced example below describes how to build a container from a base operating system.</p>
 
-<pre class="term"><code>bash-4.2$ ls -F
-julia-#.#.#-linux-x86_64.tar.gz   tmp/    var/
+<h3 id="a-simple-example">A. Simple example</h3>
+<p>In this example, you will augment a pre-existing Docker container called <code>rocker/geospatial:4.2.2</code>, which can be found on Docker Hub.
+This container contains several common R geospatial packages, which makes it convenient to use for geospatial code in R.
+This container does not have <em>all</em> R packages, however, and you will likely want to add additional packages particular to your work.</p>
+
+<p>To begin, the first lines of the <code>image.def</code> file should include where to get the base image from. 
+If using the <code>rocker/geospatial:4.2.2</code> Docker image as your starting point, your <code>image.def</code> file would look like this:</p>
+
+<pre><code>Bootstrap: docker
+From: rocker/geospatial:4.2.2
 </code></pre>
 
-<p>Run the following commands 
-to extract the Julia software and add Julia to your <code>PATH</code>:</p>
+<p>These lines tell Apptainer to pull the pre-existing image from Docker Hub, and to use it as the base for the container that will be built using this <code>image.def</code> file.</p>
 
-<pre class="term"><code>bash-4.2$ tar -xzf julia-#.#.#-linux-x86_64.tar.gz
-bash-4.2$ export PATH=$_CONDOR_SCRATCH_DIR/julia-#.#.#/bin:$PATH
+<p>Next, you will want to include instructions in the <code>image.def</code> file for installing the additional packages that you want R to have.
+In the <code>image.def</code> file, the installation instructions are placed in the <code>%post</code> section.
+Note that because the <code>rocker</code> container already contains R, there is no need to install R in the <code>%post</code> section.</p>
+
+<p>Let’s say that you want to install the R package <code>cowsay</code>, which does not come preinstalled in the <code>rocker</code> container.
+To do so, you will need to add an install command to the <code>%post</code> section:</p>
+
+<pre><code>%post
+    R -e "install.packages('cowsay', dependencies=TRUE, repos='http://cran.rstudio.com/')"
 </code></pre>
 
-<p>After these steps, you should be able to run Julia from the command line, e.g.</p>
+<p>The <code>R -e "install.packages('cowsay', dependencies=TRUE, repos='http://cran.rstudio.com/')" </code> command will execute the <code>install.packages</code> command inside the <code>R</code> terminal.
+Since the command was placed in the <code>%post</code> section, Apptainer will execute this command when you build the container.</p>
 
-<pre class="term"><code>julia --version
+<p>The full <code>image.def</code> file for this simple example is now:</p>
+
+<pre><code>Bootstrap: docker
+From: rocker/geospatial:4.2.2
+
+%post
+    R -e "install.packages('cowsay', dependencies=TRUE, repos='http://cran.rstudio.com/')"
 </code></pre>
 
-<p>Now create a project directory to install your packages (we’ve called 
-it <code>my-project/</code> below) and tell Julia its name:</p>
+<p>The <code>image.def</code> file is can now be used to build the container, as described below in <a href="#4-build-your-apptainer-container">4. Build Your Apptainer Container</a>.</p>
 
-<pre class="term"><code>bash-4.2$ mkdir my-project
-bash-4.2$ export JULIA_DEPOT_PATH=$PWD/my-project
+<h3 id="b-advanced-example">B. Advanced example</h3>
+
+<p>Sometimes the program you want to use does not have a pre-existing container that you can build on top of.
+Then you will need to install the program and its dependencies inside of the container.
+In this example, you will install the program <a href="https://sumo.dlr.de/docs/index.html">SUMO</a> in a container.</p>
+
+<p>First, you will again need to choose a base image for the container.
+Consult the documentation for the program you want to install to make sure you select a compatible operating system.
+In this case, you can use the most recent LTS version of Ubuntu from Docker.
+The top of the <code>image.def</code> file should look like:</p>
+
+<pre><code>Bootstrap: docker
+From: ubuntu:22.04
+</code></pre>
+<h4 id="installing-dependencies">Installing dependencies</h4>
+<p>Again, you will need to specify the installation commands within the <code>%post</code> section of the definition file.
+Per the <a href="https://sumo.dlr.de/docs/Installing/Linux_Build.html">program’s instructions</a>, you will first need to install various dependencies.
+This can be done using the built-in package manager (<code>apt</code>) of Ubuntu, as shown below.</p>
+
+<pre><code>%post
+    apt-get update -y
+    apt-get install -y \
+            git \
+            cmake \
+            python3 \
+            g++ \
+            libxerces-c-dev \
+            libfox-1.6-dev \
+            libgdal-dev \
+            libproj-dev \
+            libgl2ps-dev \
+            python3-dev \
+            swig \
+            default-jdk \
+            maven \
+            libeigen3-dev
 </code></pre>
 
-<p>You can choose whatever name to use for this directory -- if you have
-different projects that you use for different jobs, you could
-use a more descriptive name than “my-project”.</p>
+<p>The first command is <code>apt-get update</code> and will update the list of available packages, which is necessary to get the latest versions of the packages in the following <code>apt-get install</code> command.
+The <code>apt-get install</code> command will install the dependencies required by the SUMO program.
+Note that these installation commands do not use <code>sudo</code>, as Apptainer already has permissions to install programs in the container.</p>
 
-<p>We will now use Julia to install any needed packages to the project directory 
-we created in the previous step.</p>
+<p>There can be issues with installing packages in a container that would not normally occur when installing manually in the terminal. 
+In the present case, the <code>apt</code> command needs access to the <code>tmp</code> folder in order to install the packages within the container.
+This can be done by adding the following line at the start of the <code>%post</code> section:</p>
 
-<p>Open Julia with the <code>--project</code> option set to the project directory:</p>
-
-<pre class="term"><code>bash-4.2$ julia --project=my-project
+<pre><code>   chmod 777 /tmp
 </code></pre>
 
-<p>Once you’ve started up the Julia REPL (interpreter), start the Pkg REPL, used to 
-install packages, by typing <code>]</code>. Then install and test packages by using 
-Julia’s <code>add Package</code> syntax.</p>
+<p>Similarly, some packages require that the user answer interactive prompts for selecting various options.
+Since the Apptainer build is non-interactive, this can cause the package installation to hang.
+While this isn’t an issue in the present example, the issue can be avoided by adding the following line near the start of the <code>%post</code> section:</p>
 
-<pre class="term"><code>               _
-   _       _ _(_)_     |  Documentation: https://docs.julialang.org
-  (_)     | (_) (_)    |
-   _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
-  | | | | | | |/ _` |  |
-  | | |_| | | | (_| |  |  Version 1.0.5 (2019-09-09)
- _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
-|__/                   |
+<pre><code>   DEBIAN_FRONTEND=noninteractive
+</code></pre>
+<p>Note that this only applies to Debian-based container images, such as Ubuntu.</p>
 
-julia&gt; ]
-(my-project) pkg&gt; add Package
-(my-project) pkg&gt; test Package
+<h4 id="compile-the-program">Compile the program</h4>
+<p>The above commands will install the required dependencies, but you still need to include the commands for compiling the SUMO program itself. 
+Simply add the compiling commands after the installation commands for the dependencies, but still within the <code>%post</code> section:</p>
+
+<pre><code>%post
+    chmod 777 /tmp
+    apt-get update -y
+    apt-get install -y \
+            git \
+            cmake \
+            python3 \
+            g++ \
+            libxerces-c-dev \
+            libfox-1.6-dev \
+            libgdal-dev \
+            libproj-dev \
+            libgl2ps-dev \
+            python3-dev \
+            swig \
+            default-jdk \
+            maven \
+            libeigen3-dev
+
+    git clone --recursive https://github.com/eclipse/sumo
+    export SUMO_HOME=/sumo
+    mkdir sumo/build/cmake-build &amp;&amp; cd sumo/build/cmake-build
+    cmake ../..
+    make
+
 </code></pre>
 
-<p>If you have multiple packages to install they can be combined 
-into a single command, e.g. <code>(my-project) pkg&gt; add Package1 Package2 Package3</code>.</p>
+<p>The <code>%post</code> section is now complete and will install SUMO and its dependencies in the container at build time.</p>
 
-<p><strong>If you encounter issues getting packages to install successfully, please 
-contact us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.</strong></p>
+<h4 id="setting-environment-variables">Setting environment variables</h4>
+<p>Before building the image, you will want to update the environment for actually using the program.
+For example, in the <code>%post</code> section there is the command <code>export SUMO_HOME=/sumo</code>, which sets the environment variable <code>SUMO_HOME</code> to the location of the <code>sumo</code> directory.
+This environment variable, however, is only active during the installation phase of the container build, and will not be set when the container is actually run.</p>
 
-<p>Once you are done, you can exit the Pkg REPL by typing the Delete key and then 
-<code>exit()</code></p>
+<p>To set environment variables automatically when your job runs, you need to add them in the <code>%environment</code> section.
+For the present example, you will need to set <code>SUMO_HOME</code> and update <code>PATH</code> with the location of the SUMO <code>bin</code> folder.
+To do so, add the following lines to the <code>image.def</code> file:</p>
 
-<pre class="term"><code>(my-project) pkg&gt; 
-julia&gt; exit()
+<pre><code>%environment
+    export SUMO_HOME=/sumo
+    export PATH=/sumo/bin:$PATH
 </code></pre>
 
-<h2 id="save-installed-packages-for-later-jobs">Save Installed Packages For Later Jobs</h2>
+<p>These environment variables will be set when the container starts, allowing you to immediately use the <code>sumo</code> command in the container once it starts.</p>
 
-<p>To use this project, and the associated installed packages, in 
-subsequent jobs, we need to have <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> return some files to 
-the submit server by converting the <code>my-project/</code> directory
-to a tarball, before exiting the interactive job session:</p>
+<h4 id="summary">Summary</h4>
 
-<pre class="term"><code>bash-4.2$ tar -czf my-project.tar.gz my-project/
-bash-4.2$ exit
+<p>The full <code>image.def</code> file for this advanced example is now:</p>
+
+<pre><code>Bootstrap: docker
+From: ubuntu:22.04
+
+%post
+    chmod 777 /tmp
+    apt-get update -y
+    apt-get install -y \
+            git \
+            cmake \
+            python3 \
+            g++ \
+            libxerces-c-dev \
+            libfox-1.6-dev \
+            libgdal-dev \
+            libproj-dev \
+            libgl2ps-dev \
+            python3-dev \
+            swig \
+            default-jdk \
+            maven \
+            libeigen3-dev
+
+    git clone --recursive https://github.com/eclipse/sumo
+    export SUMO_HOME=/sumo
+    mkdir sumo/build/cmake-build &amp;&amp; cd sumo/build/cmake-build
+    cmake ../..
+    make
+
+%environment
+    export SUMO_HOME=/sumo
+    export PATH=/sumo/bin:$PATH
 </code></pre>
 
-<p>After the job exits, you will be returned to your <code>/home</code> directory on the 
-submit server (specifically where ever you were located when you submitted 
-the interactive build job). A copy of <code>packages.tar.gz</code> will be present. <strong>Be 
-sure to check the size of the project tarball before proceeding to subsequent job 
-submissions.</strong> If the file is &gt;100MB please contact us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> so 
-that we can get you setup with access to our SQUID web proxy. More details 
-are available on our SQUID guide: <a href="file-avail-squid.html">File Availability with SQUID</a></p>
+<p>See the <a href="https://apptainer.org/docs/user/latest/definition_files.html">Apptainer documentation</a> for a full reference on how to specify build specs.</p>
+<blockquote>
+  <p>Note that the <code>%runscript</code> section is ignored when the container is executed on the High Throughput system.</p>
+</blockquote>
 
-<pre class="term"><code>[alice@submit]$ ls 
-build.sub     julia-#.#.#-linux-x86_64.tar.gz   julia-build.log
-my-project.tar.gz
-[alice@submit]$ ls -sh my-project.tar.gz
+<h2 id="4-build-your-apptainer-container">4. Build your Apptainer Container</h2>
+
+<p>Once your image definition file is ready, you can “build” the container. 
+The process of building an apptainer image will convert your <code>.def</code> file to a <code>.sif</code> Apptainer/Singularity image, which you will use for future job submissions.</p>
+
+<p>To build your container, run this command:</p>
+
+<pre class="term"><code>apptainer build my-container.sif image.def
 </code></pre>
 
-<h1 id="submit-julia-jobs">Submit Julia Jobs</h1>
+<p>As the command runs, a variety of information will be printed to the terminal regarding the container build process.
+Unless something goes wrong, this information can be safely ignored.
+Once the command has finished running, you should see <code>INFO:    Build complete: my-container.sif</code>.
+Using the <code>ls</code> command, you should now see your executable Apptainer/Singularity file <code>my-container.sif</code>.</p>
 
-<p>To submit a job that runs a Julia script, create a bash 
-script and <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> submit file following the examples in this section.
-These examples assume that you have downloaded a copy of Julia for Linux as a <code>tar.gz</code> 
-file and if using packages, you have gone through the steps above to install them 
-and create an additional <code>tar.gz</code> file of the installed packages.</p>
+<p>If the build command fails, examine the output for error messages that may explain why the build was unsuccessful.
+Typically there is an issue with a package installation, such as a typo or a missing but required dependency. 
+To make it easier to troubleshoot, you can rerun the build command but redirect the output to a file.
+For example, the following command will save the build output to <code>build.log</code> instead of printing it to the screen.</p>
 
-<h2 id="create-executable-bash-script">Create Executable Bash Script</h2>
-
-<p>Your job will use a bash script as the HTCondor <code>executable</code>. This script 
-will contain all the steps needed to unpack the Julia binaries and 
-execute your Julia script (<code>script.jl</code>). Below are two example bash script, 
-one which can be used to execute a script with base Julia, and one that 
-will use packages installed in Julia project (see <a href="#install-julia-packages">Install Julia Packages</a>).</p>
-
-<h3 id="example-bash-script-for-base-julia-only">Example Bash Script For Base Julia Only</h3>
-
-<p>If your Julia script can run without additional packages (other than base Julia and 
-the Julia Standard library) use the example script directly below.</p>
-
-<pre class="file"><code>#!/bin/bash
-
-# julia-job.sh
-
-# extract Julia tar.gz file
-tar -xzf julia-#.#.#-linux-x86_64.tar.gz
-
-# add Julia binary to PATH
-export PATH=$_CONDOR_SCRATCH_DIR/julia-#.#.#/bin:$PATH
-
-# run Julia script
-julia script.jl
+<pre class="term"><code>apptainer build my-container.sif image.def &amp;&gt; build.log
 </code></pre>
 
-<h3 id="example-bash-script-for-julia-with-installed-packages">Example Bash Script For Julia With Installed Packages</h3>
+<p>You can then examine the <code>build.log</code> file for the relevant error messages.</p>
 
-<pre class="file"><code>#!/bin/bash
+<p>Sometimes there will be an error in a package installation that doesn’t cause the apptainer build command to fail.
+But, when you test the container, you may notice an issue with the package.
+In that case, edit the definition file and remove (or comment out) the installation commands that come after the package in question.
+Then rebuild the image, and now the relevant error messages should be near the end of the build output.</p>
 
-# julia-job.sh
+<p>Once the image is built, it is important to test it to make sure you have all software, packages, and libraries installed correctly.</p>
 
-# extract Julia tar.gz file and project tar.gz file
-tar -xzf julia-#.#.#-linux-x86_64.tar.gz
-tar -xzf my-project.tar.gz
+<h2 id="5-testing-your-container">5. Testing Your Container</h2>
 
-# add Julia binary to PATH
-export PATH=$_CONDOR_SCRATCH_DIR/julia-#.#.#/bin:$PATH
-# add Julia packages to DEPOT variable
-export JULIA_DEPOT_PATH=$_CONDOR_SCRATCH_DIR/my-project
+<p>Just like it is important to test your codes and jobs at a small scale, you should make sure that your container is working correctly. To do this, start an interactive Apptainer session with the Apptainer/Singularity “shell” mode. The recommended command line, similar to how containers are started for jobs, is:</p>
 
-# run Julia script
-julia --project=my-project script.jl
+<pre class="term"><code>apptainer shell \
+            --home $PWD:/srv \
+            --pwd /srv \
+            --scratch /var/tmp \
+            --scratch /tmp \
+            --containall \
+            my-container.sif
 </code></pre>
 
-<h2 id="create-htcondor-submit-file">Create HTCondor Submit File</h2>
+<p>This will give you an interactive shell running in your container, with your current working directory mounted under <code>/srv</code>. 
+Your prompt should change to:</p>
 
-<p>After creating a bash script to run Julia, then create a submit file 
-to submit the job to run.</p>
+<pre class="term"><code>Apptainer&gt;
+</code></pre>
 
-<p>More details about setting up a submit file, including a submit file template, 
-can be found in our hello world example page at <a href="helloworld.html">Run Your First CHTC Jobs</a>.</p>
+<p>You can explore the container and test your code in this mode. 
+For example,</p>
 
-<pre><code class="language-{.sub}"># julia-job.sub
+<pre class="term"><code>Apptainer&gt; pwd
+/srv
+Apptainer&gt; ls
+image.def my-container.sif tmp/ var/
+Apptainer&gt; exit
+[alice@build ~]$ 
+</code></pre>
 
-universe = vanilla
+<p>Once you are done exploring, exit the container by entering <code>exit</code> or by using the keyboard shortcut <code>CTRL+D</code>.</p>
 
-log = job_$(Cluster).log
-error = job_$(Cluster)_$(Process).err
-output = job_$(Cluster)_$(Process).out
+<h2 id="6-exit-your-htcondor-interactive-job">6. Exit your HTCondor Interactive Job</h2>
 
-executable = julia-job.sh
+<p>Now that you have prepared your Apptainer image and tested it, you are ready to exit your interactive session. 
+By default, when you exit the interactive job the definition file and image file will return to same directory as your submit file on the submit file.
+If your <code>.sif</code> file is large (&gt; 100 MB), however, you should consider first moving it to your staging directory (<code>mv my-container.sif /staging/yourNetID/</code>).
+See our <code>/staging</code> guide at <a href="file-avail-largedata.html">Managing Large Data in HTC Jobs</a> for more information.</p>
 
-should_transfer_files = YES
-when_to_transfer_output = ON_EXIT
-transfer_input_files = julia-#.#.#-linux-x86_64.tar.gz, script.jl
+<p>To exit, simply enter <code>exit</code> to end the interactive session and return to the submit node.</p>
 
+<h2 id="7-use-an-apptainer-container-in-htc-jobs">7. Use an Apptainer Container in HTC Jobs</h2>
+
+<p>Now that you have the container image saved in the form of the <code>.sif</code> file, you can use it as the environment for running your HTCondor jobs.
+In your submit file, simply specify the image file using the <code>container_image</code> command and include the file in the <code>transfer_input_files</code> line, i.e.</p>
+
+<pre><code>container_image = my-container.sif
+transfer_input_files = my-container.sif
+</code></pre>
+
+<p>The full submit file otherwise looks like normal, for example:</p>
+
+<pre><code># apptainer.sub
+
+# Provide HTCondor with the name of your .sif file and universe information
+# (`universe = container` is optional as long as `container_image` is specified)
+container_image = my-container.sif
+universe = container
+
+executable = myExecutable.sh
+
+# Tell HTCondor to transfer the my-container.sif file to each job
+transfer_input_files = my-container.sif, other_job_files
+
+log = job.log
+error = job.err
+output = job.out
+
+# Make sure you request enough disk for the container image in addition to your other input files
 request_cpus = 1
-request_memory = 2GB
-request_disk = 2GB
+request_memory = 4GB
+request_disk = 2GB      
 
-queue 1
+queue
 </code></pre>
 
-<p>If your Julia script needs to use packages installed for a project, 
-be sure to include <code>my-project.tar.gz</code> as in input file in <code>julia-job.sub</code>. 
-For project tar.gz files that are &lt;100MB, you can follow the below example:</p>
+<p>Then simply use <code>condor_submit</code> with the name of your submit file.</p>
 
-<pre><code class="language-{.sub}">transfer_input_files = julia-#.#.#-linux-x86_64.tar.gz, script.jl, my-project.tar.gz
+<blockquote>
+  <p><strong>Before running multiple jobs using your container, be sure to check the size of the <code>.sif</code> file.</strong>
+If greater than 100 MB, the <code>.sif</code> file should <strong>NOT</strong> be transferred using <code>transfer_input_files</code>.
+Instead, you should plan to use either CHTC’s web proxy (SQUID) or large data filesystem (<code>/staging</code>).
+For more information, see our guides on SQUID (<a href="file-avail-squid.html">Transfer Large Input Files Via Squid</a>) and <code>/staging</code> (<a href="file-avail-largedata.html">Managing Large Data in HTC Jobs</a>).</p>
+</blockquote>
+
+<h2 id="8-how-htcondor-runs-a-container-job">8. How HTCondor Runs a Container Job</h2>
+
+<p>From the user’s perspective, a container job is practically identical to a regular job.
+The main difference is that instead of running on the execute point’s default operation system, the job is run inside the container.</p>
+
+<p>When you submit a job to HTCondor using a submit file with <code>container_image</code> set, HTCondor automatically handles the process of obtaining and running the container.
+The process looks roughly like</p>
+
+<ul>
+  <li>Claim machine that satisifies submit file requirements</li>
+  <li>Pull (or transfer) the container image</li>
+  <li>Transfer input files, executable to working directory</li>
+  <li>Run the executable script inside the container, as the submit user, with key directories mounted inside (such as the working directory, /staging directories, etc.)</li>
+  <li>Transfer output files back to the submit server</li>
+</ul>
+
+<p>For testing purposes, you can replicate the behavior of a container job with the following command (remember to first start an interactive job if you are logged in to the submit server).</p>
+
+<pre class="term"><code>apptainer exec \
+        --scratch /tmp \
+        --scratch /var/tmp \
+        --workdir $(pwd) \
+        --pwd $(pwd) \
+        --bind $(pwd) \
+        --no-home \
+        --containall \
+        my-container.sif \
+        /bin/bash myExecutable.sh 1&gt; job.out 2&gt; job.err
 </code></pre>
 
-<p>For project tar.gz files that are larger than 100MB, email a facilitator about 
-using SQUID.</p>
-
-<p>Modify the CPU/memory request lines to match what is needed by the job. 
-Test a few jobs for disk space/memory usage in order to make sure your 
-requests for a large batch are accurate! Disk space and memory usage can be found in the 
-log file after the job completes.</p>
-
-<h2 id="submit-your-julia-job">Submit Your Julia Job</h2>
-
-<p>Once you have created an executable bash script and submit file, you can 
-submit the job to run using the following command:</p>
-
-<pre class="term"><code>[alice@submit]$ condor_submit julia-job.sub
-</code></pre>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -754,7 +838,7 @@ submit the job to run using the following command:</p>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/julia-jobs">Running Julia Jobs</a>
+                                        <a class="" href="/uw-research-computing/julia-jobs">Running Julia Jobs</a>
                                     </div>
                                 
 
@@ -774,7 +858,7 @@ submit the job to run using the following command:</p>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/singularity-htc">Using Apptainer (Singularity) Environments</a>
+                                        <a class="fw-bolder" href="/uw-research-computing/singularity-htc">Using Apptainer (Singularity) Environments</a>
                                     </div>
                                 
                             </div>
