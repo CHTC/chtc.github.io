@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/docker-jobs" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-04-25T16:35:39+00:00" />
+<meta property="article:published_time" content="2023-04-25T21:11:57+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Running HTC Jobs Using Docker Containers" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-04-25T16:35:39+00:00","datePublished":"2023-04-25T16:35:39+00:00","description":"Linux containers are a way to build a self-contained environment that includes software, libraries, and other tools. This guide shows how to submit jobs that use Docker containers.","headline":"Running HTC Jobs Using Docker Containers","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/docker-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/docker-jobs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-04-25T21:11:57+00:00","datePublished":"2023-04-25T21:11:57+00:00","description":"Linux containers are a way to build a self-contained environment that includes software, libraries, and other tools. This guide shows how to submit jobs that use Docker containers.","headline":"Running HTC Jobs Using Docker Containers","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/docker-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/docker-jobs"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -270,16 +270,50 @@ into the installation.</p>
 run jobs inside them. This guide shows how to do this for
 <a href="https://www.docker.com/what-docker">Docker</a> containers.</p>
 
-<p>In order to run your job inside a Docker container, you will need to:</p>
+<h1 id="1-use-a-docker-container-in-a-job">1. Use a Docker Container in a Job</h1>
 
-<ol>
-  <li><a href="#1-choose-or-create-a-docker-container-image">Find or prepare a Docker container image for your jobs to
-use</a></li>
-  <li><a href="#2-submit-file-customization">Make a few changes to your submit file</a></li>
-  <li><a href="#3-testing">Other testing information</a></li>
-</ol>
+<p>Jobs that run inside a Docker container will be almost exactly the same
+as “vanilla” HTCondor jobs. The main change is indicating which Docker 
+container to use and an optional “container universe” option:</p>
 
-<h1 id="1-choose-or-create-a-docker-container-image">1. Choose or Create a Docker Container Image</h1>
+<pre><code># HTC Submit File
+
+# Provide HTCondor with the name of the Docker container
+container_image = docker://user/repo:tag
+universe = container
+
+executable = myExecutable.sh
+transfer_input_files = other_job_files
+
+log = job.log
+err = job.err
+out = job.out
+
+request_cpus = 1
+request_memory = 4GB
+request_disk = 2GB
+
+queue
+</code></pre>
+
+<p>In the above, change the address of the Docker container image as 
+needed based on the container you are using. More information on finding 
+and making container is below.</p>
+
+<h2 id="integration-with-htcondor">Integration with HTCondor</h2>
+
+<p>When your job starts, HTCondor will pull the indicated image from
+DockerHub, and use it to run your job. You do not need to run any 
+Docker commands yourself.</p>
+
+<p>Other pieces of the job (your executable and input files) should be just
+like a non-Docker job submission.</p>
+
+<p>The only additional change may be that your
+executable no longer needs to install or unpack your software, since it
+will already be present in the Docker container.</p>
+
+<h1 id="2-choose-or-create-a-docker-container-image">2. Choose or Create a Docker Container Image</h1>
 
 <p>To run a Docker job, you will first need access to a Docker container
 image that has been built and placed onto the
@@ -316,43 +350,6 @@ information.</p>
 to your container, you will want to use a new tag name to ensure that your jobs are getting an
 updated version of the container, and not an ‘old’ version that has been cached by DockerHub 
 or CHTC.</p>
-
-<h1 id="2-submit-file-customization">2. Submit File Customization</h1>
-
-<p>Jobs that run inside a Docker container will be almost exactly the same
-as “vanilla” HTCondor jobs. There are two needed customizations to the
-submit file: indicated that the job is a Docker job, and which Docker
-container to use.</p>
-
-<h2 id="a-using-a-docker-image">A. Using a Docker Image</h2>
-
-<p>Start with a usual CHTC submit file like the one shown in our <a href="helloworld.html">Hello
-World</a> guide. Then, make the following two changes:</p>
-
-<ol>
-  <li>Change the universe from “vanilla” to “docker”:</li>
-</ol>
-
-<pre class="sub"><code>universe = docker
-</code></pre>
-
-<ol>
-  <li>Add a line to indicate which Docker image you want to use for
-running your job:</li>
-</ol>
-
-<pre class="sub"><code>docker_image = user_name/image_name:tag
-</code></pre>
-
-<p>When your job starts, HTCondor will pull the indicated image from
-DockerHub, and use it to run your job.</p>
-
-<h2 id="b-executable-and-input-files">B. Executable and Input Files</h2>
-
-<p>Other pieces of the job (your executable and input files) should be just
-like a non-Docker job submission; the only change may be that your
-executable no longer needs to install or unpack your software, since it
-will already be present in the Docker container.</p>
 
 <h1 id="3-testing">3. Testing</h1>
 
