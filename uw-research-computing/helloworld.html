@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/helloworld" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-05-01T00:29:38+00:00" />
+<meta property="article:published_time" content="2023-05-01T17:45:09+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Running Your First HTC Jobs" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-05-01T00:29:38+00:00","datePublished":"2023-05-01T00:29:38+00:00","description":"So, you have an account on a submit node, and you are ready to run your first job in the CHTC. As we described in Our Approach, the CHTC is a collection of distributed resources. The magic that enables you to run jobs on these resources is software, called HTCondor, developed at the UW-Madison.","headline":"Running Your First HTC Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/helloworld"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/helloworld"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-05-01T17:45:09+00:00","datePublished":"2023-05-01T17:45:09+00:00","description":"So, you have an account on a submit node, and you are ready to run your first job in the CHTC. As we described in Our Approach, the CHTC is a collection of distributed resources. The magic that enables you to run jobs on these resources is software, called HTCondor, developed at the UW-Madison.","headline":"Running Your First HTC Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/helloworld"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/helloworld"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -298,7 +298,8 @@ HTCondor <em>how</em> to run the jobs for you in the form of a <em>submit file</
 describes the set of jobs.</p>
 
 <p><strong><em>Note: You must be logged into an HTCondor submit machine for the
-following example to work.</em></strong></p>
+following example to work.</em></strong>
+See the <a href="connecting.html">Connecting to CHTC</a> guide for more information on how to log in.</p>
 
 <p><strong>1.</strong> Copy the highlighted text below, and paste it into file called
 <code>hello-chtc.sub</code> (we recommend using a command line text editor) in your home directory on the submit
@@ -388,8 +389,6 @@ appears as:</p>
 <pre class="term"><code>[alice@submit]$ condor_q
 </code></pre>
 
-<p>(If you want to see everyone's jobs, use <code>condor_q -all</code>.)</p>
-
 <p>The output of <code>condor_q</code> should look like this:</p>
 
 <pre class="term"><code>-- Schedd: submit-2.chtc.wisc.edu : &lt;128.104.101.92:9618?... @ 04/05/19 15:35:17
@@ -405,6 +404,12 @@ batch name (if provided), or executable name. To show all of your jobs
 on individual lines, add the <code>-nobatch</code> option. For more details on this
 option, and other options to <code>condor_q</code>, see our <a href="condor_q.html">condor_q
 guide</a>.</p>
+
+<p>Alternately, you can run the <code>condor_watch_q</code> command to display the
+status of your jobs in the queue along with color-coded progress bars.
+The display is updated automatically every couple seconds, allowing you
+to monitor the status of your jobs in real time.  To exit the view,
+use the keyboard shortcut <code>Ctrl</code> + <code>c</code>.</p>
 
 <blockquote>
   <p><strong>Potential Failures</strong></p>
