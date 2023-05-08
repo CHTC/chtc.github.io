@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-05-08T00:27:07+00:00" />
+<meta property="article:published_time" content="2023-05-08T17:26:31+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Submitting Multiple Jobs Using HTCondor" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-05-08T00:27:07+00:00","datePublished":"2023-05-08T00:27:07+00:00","description":"Overview","headline":"Submitting Multiple Jobs Using HTCondor","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-05-08T17:26:31+00:00","datePublished":"2023-05-08T17:26:31+00:00","description":"Overview","headline":"Submitting Multiple Jobs Using HTCondor","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -270,7 +270,7 @@ HTCondor. If you are interested in a particular approach that isn’t described 
 please contact <a href="mailto:chtc@cs.wisc.edu">CHTC’s research computing facilitators</a> and we will 
 work with you to identify options to meet the needs of your work.</p>
 
-<h1 id="submit-multiple-jobs-using-queue">Submit Multiple Jobs Using <code>queue</code></h1>
+<h1>Submit Multiple Jobs Using <code class="h1">queue</code></h1>
 
 <p>All HTCondor submit files require a <code>queue</code> attribute (which must also be 
 the last line of the submit file). By default, <code>queue</code> will submit one job, but 
@@ -307,7 +307,8 @@ like input file names, file locations (aka paths), etc. <strong>When selecting a
 variable name, users must avoid bespoke HTCondor submit file variables 
 such as <code>Cluster</code>, <code>Process</code>, <code>output</code>, and <code>input</code>, <code>arguments</code>, etc.</strong></p>
 
-<h2 id="1-use-queue-n-in-you-htcondor-submit-files">1. Use <code>queue N</code> in you HTCondor submit files<a name="process"></a></h2>
+<h2>1. Use <code class="h2">queue N</code> in your HTCondor submit files</h2>
+<p><a name="process"></a></p>
 
 <p>When using <code>queue N</code>, HTCondor will submit a total of <em>N</em> 
 jobs, counting from 0 to <em>N</em> - 1 and each job will be assigned 

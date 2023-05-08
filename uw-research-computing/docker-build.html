@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/docker-build" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-05-08T00:27:07+00:00" />
+<meta property="article:published_time" content="2023-05-08T17:26:31+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Building a Docker Container Image" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-05-08T00:27:07+00:00","datePublished":"2023-05-08T00:27:07+00:00","description":"Linux containers are a way to build a self-contained environment that includes software, libraries, and other tools. CHTC currently supports running jobs inside Docker containers. This guide describes how to build a Docker image that you can use for running jobs in CHTC. For information on using this image for jobs, see our Docker Jobs guide.","headline":"Building a Docker Container Image","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/docker-build"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/docker-build"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-05-08T17:26:31+00:00","datePublished":"2023-05-08T17:26:31+00:00","description":"Linux containers are a way to build a self-contained environment that includes software, libraries, and other tools. CHTC currently supports running jobs inside Docker containers. This guide describes how to build a Docker image that you can use for running jobs in CHTC. For information on using this image for jobs, see our Docker Jobs guide.","headline":"Building a Docker Container Image","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/docker-build"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/docker-build"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -327,7 +327,7 @@ multiple images for different parts of your workflow,
 you should create a separate folder for each 
 new image with the a <code>Dockerfile</code> inside each of them.</p>
 
-<h3 id="choose-a-base-image-with-from">Choose a base image with <code>FROM</code></h3>
+<h3>Choose a base image with <code class="h3">FROM</code></h3>
 
 <p>Usually you don’t want to start building your image from scratch. 
 Instead you’ll want to choose a “base” image to add things to.</p>
@@ -379,7 +379,7 @@ in <code>FROM</code> statements.</p>
   <li><a href="https://hub.docker.com/r/pytorch/pytorch">PyTorch</a></li>
 </ul>
 
-<h3 id="install-packaged-software-with-run">Install packaged software with <code>RUN</code></h3>
+<h3>Install packaged software with <code class="h3">RUN</code></h3>
 
 <p>The next step is the most challenging. We need to add commands to the
 Dockerfile to install the desired software. There are a few standard ways to
@@ -448,7 +448,7 @@ RUN cd /tmp \
 RUN install2.r --error rjags
 </code></pre>
 
-<h3 id="set-up-the-environment-with-env">Set up the environment with <code>ENV</code></h3>
+<h3>Set up the environment with <code class="h3">ENV</code></h3>
 
 <p>Your software might rely on certain environment variables being set correctly.</p>
 
