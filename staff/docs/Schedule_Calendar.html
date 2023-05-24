@@ -244,7 +244,11 @@
     Schedule Calendar Guide
 </h1>
 
-            <ul>
+            <style>
+   li { margin-bottom: .5rem }
+</style>
+
+<ul>
   <li><a href="#moving-from-previous-afs-file">Moving from your AFS File</a></li>
   <li><a href="#creating-the-schedule-file">Creating The Schedule File</a></li>
   <li><a href="#populating-your-days-off">Populating Your Days Off</a></li>
@@ -279,49 +283,39 @@ source generate_personal_ics.sh &lt;your_file_name&gt;
 
 <p>This section will describe how to create your yaml file, you can find a verbose template file on <a href="https://research.cs.wisc.edu/htcondor/developers/schedules/sample_yaml_schedule.html">afs</a> or use the one below.</p>
 
-<p><em>&lt;filename&gt;.yml</em></p>
-<pre><code>Name: "&lt;name&gt;"
-ShortName: "&lt;shortname&gt;"
-corehours: "&lt;corehours&gt;"
+<p><strong>&lt;filename&gt;.yml</strong></p>
+<pre><code>Name: "name"
+ShortName: "shortname"
+corehours: "corehours"
 DailyEmail: "Yes" # ( or omit line entirely )
-Email: “&lt;email&gt;”
-Office: “&lt;location&gt;”
-Phone: “&lt;phone&gt;” # Office and/or Cell - This is read as a string so format how you want
-calendarurl: "&lt;calendarurl&gt;"
+Email: "email"
+Office: "location"
+Phone: "phone" # Office and/or Cell - This is read as a string so format how you want
+calendarurl: "calendarurl"
 default:
-  starttime: "&lt;starttime&gt;"
-  endtime: "&lt;endtime&gt;"
-  status: "&lt;status&gt;"
+  starttime: "starttime"
+  endtime: "endtime"
+  status: "status"
 </code></pre>
 <h5 id="file-details">File Details</h5>
 
-<p><em>Name</em>: First Last</p>
+<ul>
+  <li><strong>Name</strong>: First Last</li>
+  <li><strong>ShortName</strong>: (Optional, defaults to First Name if not specified) Should be unique and obviously you. If your name is “George Washington” and George Foreman also works in your group, “GeorgeW” would be a good choice.</li>
+  <li><strong>corehours</strong>: A description of your corehours that is displayed. Format is not important. Example is “9:00 AM to 5:00 PM”</li>
+  <li><strong>DailyEmail</strong>: If ‘Yes’ then you will receive a daily email with who is out, otherwise should be omitted entirely.</li>
+  <li><strong>Email</strong>: Your preferred email address. Defaults to filename@cs.wisc.edu so you will likely want to change this</li>
+  <li><strong>Office</strong>: Your office location. Example =&gt; “4261 CS”</li>
+  <li><strong>Phone</strong>: Your phone number(s). Example =&gt; “+1 608 265 5736 (office) <br /> +1 608 576 0351 (cell)”</li>
+  <li><strong>DailyEmail</strong>: Do you want a daily email with information about who is gone?</li>
+  <li><strong>calendarurl</strong>: The url to your outage calendar. Details on obtaining this found <a href="#creating-your-ical-url">below</a>.</li>
+  <li><strong>starttime</strong>: Your typical start time, use military format. Example =&gt; “09:00”</li>
+  <li><strong>endtime</strong>: Your typical end time, use military format. Example =&gt; “17:00”</li>
+  <li><strong>status</strong>: Your status during these hours. If you are unsure use “Office”.</li>
+  <li><strong>default[Monday, Tuesday, Wednesday, Thursday, Friday]</strong>: This overwrites the default for that day. Use the same format as default.</li>
+</ul>
 
-<p><em>ShortName</em>: (Optional, defaults to First Name if not specified) Should be unique and obviously you. If your name is “George Washington” and George Foreman also works in your group, “GeorgeW” would be a good choice.</p>
-
-<p><em>corehours</em>: A description of your corehours that is displayed. Format is not important. Example is “9:00 AM to 5:00 PM”</p>
-
-<p><em>DailyEmail</em>: If ‘Yes’ then you will receive a daily email with who is out, otherwise should be omitted entirely.</p>
-
-<p><em>Email</em>: Your preferred email address. Defaults to filename@cs.wisc.edu so you will likely want to change this</p>
-
-<p><em>Office</em>: Your office location. Example =&gt; “4261 CS”</p>
-
-<p><em>Phone</em>: Your phone number(s). Example =&gt; “+1 608 265 5736 (office) <br /> +1 608 576 0351 (cell)”</p>
-
-<p><em>DailyEmail</em>: Do you want a daily email with information about who is gone?</p>
-
-<p><em>calendarurl</em>: The url to your outage calendar. Details on obtaining this found <a href="#creating-your-ical-url">below</a>.</p>
-
-<p><em>starttime</em>: Your typical start time, use military format. Example =&gt; “09:00”</p>
-
-<p><em>endtime</em>: Your typical end time, use military format. Example =&gt; “17:00”</p>
-
-<p><em>status</em>: Your status during these hours. If you are unsure use “Office”.</p>
-
-<p><em>default[Monday, Tuesday, Wednesday, Thursday, Friday]</em>: This overwrites the default for that day. Use the same format as default.</p>
-
-<p><em>Important</em></p>
+<p><strong>Important</strong></p>
 
 <p>All of these data strings have to be encased in double quotations to be valid yaml. This encasement can be seen in the template file.</p>
 
@@ -350,44 +344,33 @@ default:
 
 <h3 id="populating-your-days-off">Populating Your Days Off</h3>
 
-<p>All events that you add to your google calendar are echoed into the CHTC Schedule Application. All events in the Schedule application have four components.</p>
+<h4 id="event-title">Event Title</h4>
+
+<p>The event title should be one of the statuses bolded below. These statuses are 
+used to key the type of outage so anything but a approved status should be in the event title.</p>
 
 <ul>
-  <li>Start</li>
-  <li>End</li>
-  <li>Status</li>
-  <li>Description</li>
+  <li><strong>Travel</strong>:   Working, but not at the office. Perhaps a conference</li>
+  <li><strong>Vacation</strong>: Taking vacation (“vacation” and “personal holiday” on the leave report)</li>
+  <li><strong>Sick</strong>:     Taking sick leave (“sick leave” on the leave report)</li>
+  <li><strong>Holiday</strong>:  Taking floating holiday (“legal holiday” on the leave report)</li>
+  <li><strong>Furlough</strong>: State- or UW-mandated furlough (as required). Includes both fixed (“mandatory”) and floating time.</li>
+  <li><strong>Off</strong>:      Days not worked on a part-time employment</li>
+  <li><strong>WFH</strong>: Work From Home</li>
 </ul>
 
-<p>Which are translated from google calendar events attributes respectively.</p>
+<h4 id="event-description">Event Description</h4>
 
-<ul>
-  <li>Start</li>
-  <li>End</li>
-  <li>Title</li>
-  <li>Description</li>
-</ul>
+<p>Any description of the outage you would like to add can be added in the event 
+description.</p>
 
-<p>When converting your google calendar to the CHTC schedule format Start, End, and Description will stay the same. The Google event Title will be the Status. Valid Statuses are listed below.</p>
-
-<ul>
-  <li>Travel:   Working, but not at the office. Perhaps a conference</li>
-  <li>Vacation: Taking vacation (“vacation” and “personal holiday” on the leave report)</li>
-  <li>Sick:     Taking sick leave (“sick leave” on the leave report)</li>
-  <li>Holiday:  Taking floating holiday (“legal holiday” on the leave report)</li>
-  <li>Furlough: State- or UW-mandated furlough (as required). Includes both fixed (“mandatory”) and floating time.</li>
-  <li>Off:      Days not worked on a part-time employment</li>
-</ul>
-
-<p>For Instance if you mark your title in Google as “Sick” and the description as “Wisdom Tooth Surgery and Recovery” the schedule output will be as so.</p>
-
-<p><img src="../../images/docs/demo_outage.jpg" alt="Google Event Demo" /></p>
-
-<p><img src="../../images/docs/demo_outage_schedule_app.jpg" alt="Google Event Demo Schedule App" /></p>
+<h4 id="marking-event-time">Marking Event Time</h4>
 
 <h5 id="marking-full-daydays-out">Marking Full day/days Out</h5>
 
 <p>To mark full day outages you create an event with the “All day” attribute ticked ( This is used in the demo above ). Populate the title and description as expected.</p>
+
+<p><strong>Do not use the recurring event feature for multiple outage days.</strong></p>
 
 <h5 id="marking-partial-outages">Marking Partial Outages</h5>
 
@@ -407,6 +390,15 @@ default:
     </ul>
   </li>
 </ol>
+
+<h4 id="example">Example</h4>
+
+<p>If you mark your title in Google as “Sick” and the description as “Wisdom Tooth Surgery and Recovery” the schedule output will be as so.</p>
+
+<p><img src="../../images/docs/demo_outage.jpg" alt="Google Event Demo" /></p>
+
+<p><img src="../../images/docs/demo_outage_schedule_app.jpg" alt="Google Event Demo Schedule App" /></p>
+
 
         </div>
     </div>
