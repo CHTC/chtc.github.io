@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Compiling or Testing Code with an Interactive Job</title>
+<title>2023 European HTCondor Workshop</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,26 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Compiling or Testing Code with an Interactive Job | CHTC</title>
+<title>2023 European HTCondor Workshop | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="Compiling or Testing Code with an Interactive Job" />
+<meta property="og:title" content="2023 European HTCondor Workshop" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="To best understand the below information, users should already have an understanding of:" />
-<meta property="og:description" content="To best understand the below information, users should already have an understanding of:" />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/inter-submit" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/inter-submit" />
+<meta name="description" content="We are very pleased to announce that the 2023 European HTCondor Workshop will be held from Tuesday 19th September to Friday 22nd September, at IJCLab in Orsay, France." />
+<meta property="og:description" content="We are very pleased to announce that the 2023 European HTCondor Workshop will be held from Tuesday 19th September to Friday 22nd September, at IJCLab in Orsay, France." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/european-htcondor-workshop-2023" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/european-htcondor-workshop-2023" />
 <meta property="og:site_name" content="CHTC" />
+<meta property="og:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/european-htcondor-week-2023.png" />
+<meta property="og:image:alt" content="European Condor Week Banner" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-06-05T19:33:23+00:00" />
+<meta property="article:published_time" content="2023-05-23T00:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Compiling or Testing Code with an Interactive Job" />
+<meta property="twitter:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/european-htcondor-week-2023.png" />
+<meta name="twitter:image:alt" content="European Condor Week Banner" />
+<meta property="twitter:title" content="2023 European HTCondor Workshop" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-06-05T19:33:23+00:00","datePublished":"2023-06-05T19:33:23+00:00","description":"To best understand the below information, users should already have an understanding of:","headline":"Compiling or Testing Code with an Interactive Job","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/inter-submit"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/inter-submit"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-05-23T00:00:00+00:00","datePublished":"2023-05-23T00:00:00+00:00","description":"We are very pleased to announce that the 2023 European HTCondor Workshop will be held from Tuesday 19th September to Friday 22nd September, at IJCLab in Orsay, France.","headline":"2023 European HTCondor Workshop","image":{"alt":"European Condor Week Banner","url":"https://raw.githubusercontent.com/CHTC/Articles/main/images/european-htcondor-week-2023.png","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/european-htcondor-workshop-2023"},"url":"https://chtc.cs.wisc.edu/european-htcondor-workshop-2023"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -52,7 +56,7 @@
 <link type="text/css" href="/assets/fonts/fonts.0.0.1.css" rel="stylesheet">
 <link type="text/css" href="/assets/css/style-v10.css" rel="stylesheet">
 
-<link type="text/css" href="/assets/css/research-style.css" rel="stylesheet">
+
 
 <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'')})(document.documentElement)</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -76,7 +80,7 @@
             <div class="row">
                 <div class="col-auto pe-0">
                     
-                    <a class="uw-global-name-link" href="/" aria-label="University home page">Go to CHTC Home</a>
+                    <a class="uw-global-name-link" href="/uw-research-computing" aria-label="UW Research Computing Homepage">Go to UW Research Computing Home</a>
                     
                 </div>
                 <div class="col-auto d-flex">
@@ -96,7 +100,7 @@
 
 
 
-<header id="branding-sub" class="uw-header circuit-background">
+<header id="branding" class="uw-header ">
     <div class="uw-header-container mt-2 mb-2">
         <div class="uw-header-crest-title">
             <div class="uw-header-crest">
@@ -107,7 +111,7 @@
                     <a href="/" rel="home">CHTC</a>
                 </h1>
                 <a href="/" rel="home">
-                    <div id="site-description" class="uw-site-tagline">UW Research Computing</div>
+                    <div id="site-description" class="uw-site-tagline">Center for High Throughput Computing</div>
                 </a>
             </div>
         </div>
@@ -115,13 +119,8 @@
 </header>
     
 
-
-
     
-
-
-    
-    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">UW-Research Computing<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
+    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">Menu<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
 <div id="uw-top-menus" class="uw-is-visible uw-horizontal" aria-hidden="false">
     <div class="uw-main-nav">
         <nav class="uw-nav-menu uw-nav-menu-reverse" aria-label="Main Menu">
@@ -129,27 +128,9 @@
                 
                     
 
-
-<li id="home">
-    <a href="/uw-research-computing/index.html" aria-current="page">Home</a>
-</li>
-
-
-                
-                    
-
-
-<li id="get-started">
-    <a href="/uw-research-computing/form.html" aria-current="page">Get Started</a>
-</li>
-
-
-                
-                    
-
-<li id="menu-how-tos" class="uw-dropdown">
-    <a href="/uw-research-computing/how-tos.html" role="button" aria-haspopup="true" aria-expanded="false">
-        How To's
+<li id="about" class="uw-dropdown">
+    <a href="/about.html" role="button" aria-haspopup="true" aria-expanded="false">
+        About
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -157,23 +138,27 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="How To's submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="About submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/get-help.html">Get Help</a>
+            <a href="/htc.html">What is HTC?</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/guides.html#htc-documentation">HTC Guides</a>
+            <a href="/approach.html">Our Approach</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/guides.html#hpc-documentation">HPC Guides</a>
+            <a href="/projects.html">Our Customers</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/cite-chtc.html">Cite CHTC Resources</a>
+            <a href="/people.html">Our Staff</a>
+        </li>
+    
+        <li>
+            <a href="/jobs.html">Our Open Positions</a>
         </li>
     
     </ul>    
@@ -183,17 +168,35 @@
                     
 
 
-<li id="user-news">
-    <a href="/uw-research-computing/user-news.html" aria-current="page">User News</a>
+<li id="uw-research-computing">
+    <a href="/uw-research-computing/index.html" aria-current="page">UW Research Computing</a>
 </li>
 
 
                 
                     
 
-<li id="menu-other-resources" class="uw-dropdown">
-    <a href="/uw-research-computing/other-resources.html" role="button" aria-haspopup="true" aria-expanded="false">
-        Other Resources
+
+<li id="technologies">
+    <a href="/technologies.html" aria-current="page">Technologies</a>
+</li>
+
+
+                
+                    
+
+
+<li id="research">
+    <a href="/research.html" aria-current="page">Research</a>
+</li>
+
+
+                
+                    
+
+<li id="news" class="uw-dropdown">
+    <a href="" role="button" aria-haspopup="true" aria-expanded="false">
+        News
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -201,27 +204,19 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="Other Resources submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="News submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/gpu-lab.html">CHTC GPU Lab</a>
+            <a href="/news.html">CHTC News</a>
         </li>
     
         <li>
-            <a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a>
+            <a href="/events.html">Events</a>
         </li>
     
         <li>
-            <a href="http://www.neos-server.org/">NEOS Optimization Service</a>
-        </li>
-    
-        <li>
-            <a href="http://www.osg-htc.org/">OSG Consortium</a>
-        </li>
-    
-        <li>
-            <a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a>
+            <a href="/uw-research-computing/user-news.html">User News</a>
         </li>
     
     </ul>    
@@ -242,572 +237,50 @@
 </div>
 
 
+
+    
+
     <main id="main" style="min-height: 60vh;">
         <main id="main" style="min-height: 60vh;">
-    <div class="container-xxl mb-5">
+    <!-- This Layout is to adhere the page to the optimal char per lines for accessibility -->
+
+
+<div class="container-xxl">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-9 mw-1000">
+        <div class="col-12 col-sm-11 col-md-9 col-lg-8">
             <h1 class="uw-mini-bar mb-4">
-    Compiling or Testing Code with an Interactive Job
-</h1>
+                2023 European HTCondor Workshop
+            </h1>
+            <p>We are very pleased to announce that the 2023 European HTCondor Workshop will be held from Tuesday 19th September to Friday 22nd September, at IJCLab in Orsay, France.</p>
 
-            <p><strong>To best understand the below information, users should already have an
-understanding of:</strong></p>
+<p>To allow ease of travel to and from the venue the meeting will start at on Tuesday morning and run until lunchtime on the Friday.</p>
 
-<ul>
-  <li>Using the command line to: navigate within directories,
-create/copy/move/delete files and directories, and run their
-intended programs (aka "executables").</li>
-  <li><a href="helloworld.html">The CHTC's Intro to Running HTCondor
-Jobs</a></li>
-</ul>
+<p>Registration is now open at the meeting Indico site: https://indico.cern.ch/event/1274213/</p>
 
-<h1 id="overview">Overview</h1>
+<p>There will be a small workshop fee of €160 to cover lunches, teas and coffees, and a social dinner on the Thursday evening.</p>
 
-<p>This guide provides a generic overview of steps required to install
-scientific software for use in CHTC. If you are using Python, R, or
-Matlab, see our specific installation and use guides here: <a href="howto_overview.html">Guides for
-Matlab, Python and R</a>.</p>
+<p>The workshop will be an excellent occasion for learning from the experts (the developers!) about HTCondor, exchanging with your colleagues about experiences and plans, and providing your feedback to the experts.</p>
 
-<p>It is helpful to understand a little bit about normal “batch” HTCondor jobs 
-before submitting interactive jobs. Just like batch jobs, interactive jobs 
-can transfer input files (usually copies of source code or the software you 
-want to install) and will transfer new/updated files in the main working directory 
-back to the submit node when the job completes.</p>
+<p>The HTCondor Compute Entrypoint (CE) will be covered as well as with token authentication (currently a hot topic), along with general use and administration of HTCondor.</p>
 
-<blockquote>
-  <p>One exception to the file transfers working as usual is when running an interactive 
-job that uses a Docker container. If any output files are generated inside an 
-interactive Docker job, they will not be copied back to the submit node when you 
-exist the interactive job. Contact the facilitation team for workarounds to this behavior.</p>
-</blockquote>
+<p>Participation is open to all organisations (including companies) and persons interested in HTCondor (and by no means restricted to particle physics and/or academia!) If you know potentially interested persons, don’t hesitate to make them aware of this opportunity.</p>
 
-<p><a name="build"></a></p>
+<p>The workshop will cover both using and administering HTCondor; topics will be chosen to best match participants’ interests.</p>
 
-<h1 id="1-building-a-software-installation"><strong>1. Building a Software Installation</strong></h1>
+<p>We would very much like to know about your use of HTCondor, in you project, your experience and your plans. Hence you are warmly encouraged to propose a short presentation.</p>
 
-<p>You are going to start an interactive job that runs on the HTC build
-servers. You will then install your packages to a folder and zip those
-files to return to the submit server.</p>
+<p>If you have any questions, please contact hepix-2023condorworkshop-support@hepix.org.</p>
 
-<p><a name="version"></a></p>
+<p>We are looking forward to a rich, productive workshop.</p>
 
-<h2 id="a-submit-an-interactive-job">A. Submit an Interactive Job</h2>
+<p>Chris Brew (STFC - RAL) and Christoph Beyer (DESY)
+Co-Chairs of organising committee.</p>
 
-<p>First, download the source code for your software to the submit server.
-Then create the following special submit file on the submit server,
-calling it something like <code>build.sub</code>.</p>
+<p>Michel Jouvin (IJCLab)
+Chair of the Local Organising Committee</p>
 
-<p>Note that you’ll want to use <code>+IsBuildJob = true</code> to specifically match to CHTC’s servers designated for compiling code (which include Matlab compilers and other compiling tools you may need). Compiling servers do not include specialized resources like GPUs, extreme amounts of RAM/disk, etc.; to build/test software in these cases, submit an interactive job without <code>+IsBuildJob</code>.</p>
-
-<pre><code class="language-{.sub}"># Software build file
-
-universe = vanilla
-log = interactive.log
-
-# change the name of the file to be the name of your source code
-transfer_input_files = source_code.tar.gz
-
-+IsBuildJob = true
-# requirements = (OpSysMajorVer =?= 8)
-request_cpus = 1
-request_memory = 4GB
-request_disk = 2GB
-
-queue
-</code></pre>
-
-<p>The only thing you should need to change in the above file is the name
-of the source code <code>tar.gz</code> file - in the "transfer_input_files"
-line.</p>
-
-<p>Once this submit file is created, you will start the interactive job by
-running the following command:</p>
-
-<pre class="term"><code>[alice@submit]$ condor_submit -i build.sub
-</code></pre>
-
-<p>The interactive build job should start in about a minute. Once it has
-started, the job has a time limit of four hours - if you need more time
-to compile a particular code, talk to CHTC's Research Computing
-Facilitators.</p>
-
-<h2 id="b-install-the-software">B. Install the Software</h2>
-
-<p>Software installation typically goes through a set of standard steps --
-configuration, then compilation (turning the source code into binary
-code that the computer can understand), and finally "installation",
-which means placing the compiled code into a specific location. In most
-install instructions, these steps look something like:</p>
-
-<pre class="other"><code>./configure
-make
-make install
-</code></pre>
-
-<p>There are two changes we make to this standard process. Because you are
-not an administrator, you will want to create a folder for the
-installation in the build job's working directory and use an option in
-the configuration step that will install the software to this folder.</p>
-
-<p>In what follows, <strong>note that anything in italics is a name that you can
-(and should!) choose to be more descriptive</strong>. We use general names as
-an example; see the LAMMPS case study lower down to see what you might
-fill in for your own program.</p>
-
-<ol>
-  <li>
-    <p>In the interactive job, create a new directory to hold your final
-software installation:</p>
-
-    <pre class="term"><code>[alice@build]$ mkdir program
-</code></pre>
-  </li>
-  <li>
-    <p>You'll also want to un-tar the source code that you brought along,
-and <code>cd</code> into the source code folder.</p>
-
-    <pre class="term"><code>[alice@build]$ tar -xzf source_code.tar.gz
-[alice@build]$ cd source_code/
-</code></pre>
-  </li>
-  <li>
-    <p>Our next step will be to configure the installation. This involves
-changing into the un-tarred source code directory, and running a
-configuration script. It's at this step that we change the final
-installation location of the software from its default, to be the
-directory we created in the previous step. In a typical configure
-script, this option is called the "prefix" and is given by the
-<code>--prefix</code> flag.</p>
-
-    <pre class="term"><code>[alice@build]$ ./configure --prefix=$_CONDOR_SCRATCH_DIR/program
-</code></pre>
-
-    <p>Note that there are sometimes different options used. Some program
-use a helper program called <code>cmake</code> as their configuration script.
-Often the installation instructions for a program will indicate what
-to use as a prefix option, or, you can often run the configure
-command with the <code>--help</code> flag, which will have all the options
-which can be added to the configure command.</p>
-  </li>
-  <li>
-    <p>After the configuration step, you'll run the steps to compile and
-install your program. This is usually these two commands:</p>
-
-    <pre class="term"><code>[alice@build]$ make
-[alice@build]$ make install
-</code></pre>
-  </li>
-  <li>
-    <p>After this step, you can <code>cd</code> back up to the main working directory.</p>
-
-    <pre class="term"><code>[alice@build]$ cd ..
-</code></pre>
-  </li>
-  <li>
-    <p>Right now, if we exit the interactive job, nothing will be
-transferred back because we haven't created any new <strong>files</strong> in
-the working directory, just the new sub-folder with our software
-installation. In order to transfer back our installation, we will
-need to compress it into a tarball file - not only will HTCondor
-then transfer back the file, it is generally easier to transfer a
-single, compressed tarball file than an uncompressed set of
-directories.</p>
-
-    <p>Run the following command to create your own tarball of your
-packages:</p>
-
-    <pre class="term"><code>[alice@build]$ tar -czf program.tar.gz program/
-</code></pre>
-  </li>
-</ol>
-
-<p>We now have our packages bundled and ready for CHTC! You can now exit
-the interactive job and the tar.gz file with your software installation
-will return to the submit server with you (this sometimes takes a few
-extra seconds after exiting).</p>
-
-<pre class="term"><code class="language-{.term}">[alice@build]$ exit 
-</code></pre>
-
-<p><a name="case-study"></a></p>
-
-<h1 id="2-case-study-installing-lammps"><strong>2. Case Study, Installing LAMMPS</strong></h1>
-
-<p>First download a copy of LAMMPS and copy it to the submit server -- in
-this example, we've used the "stable" version under "Download a
-tarball": <a href="https://lammps.sandia.gov/download.html">LAMMPS download
-page</a></p>
-
-<p>Then, make a copy of the submit file above on the submit server,
-changing the name of the file to be transferred to
-<code>lammps-stable.tar.gz</code>. Submit the interactive job as described.</p>
-
-<p>While waiting for the interactive build job to start, take a look at the
-installation instructions for LAMMPS:</p>
-
-<ul>
-  <li><a href="https://lammps.sandia.gov/doc/Build_cmake.html">LAMMPS Install
-Instructions</a></li>
-</ul>
-
-<p>You'll see that the install instructions have basically the same steps
-as listed above, with two changes:</p>
-
-<ol>
-  <li>
-    <p>Instead of the "configure" step, LAMMPS is using the "cmake"
-command. This means that we'll need to find the equivalent to the
-<code>--prefix</code> option for cmake. Reading further down in the
-documentation, you can see that there's this option:</p>
-
-    <pre class="other"><code>-D CMAKE_INSTALL_PREFIX=path
-</code></pre>
-
-    <p>This is exactly what we need to set the installation prefix.</p>
-  </li>
-  <li>
-    <p>There's extra steps before the configure step -- that's fine,
-we'll just add them to our list of commands to run.</p>
-  </li>
-</ol>
-
-<p>With all these pieces together, this is what the commands will look like
-to install LAMMPS in the interactive build job and then bring the
-installed copy back to the submit server.</p>
-
-<p>Create the folder for the installation:</p>
-
-<pre class="term"><code>[alice@build]$ mkdir lammps
-</code></pre>
-
-<p>Unzip and <code>cd</code> into a build directory:</p>
-
-<pre class="term"><code>[alice@build]$ tar -xf lammps-stable.tar.gz
-[alice@build]$ cd lammps-stable
-[alice@build]$ mkdir build; cd build 
-</code></pre>
-
-<p>Run the installation commands:</p>
-
-<pre class="term"><code>[alice@build]$ cmake -D CMAKE_INSTALL_PREFIX=$_CONDOR_SCRATCH_DIR/lammps ../cmake 
-[alice@build]$ make
-[alice@build]$ make install 
-</code></pre>
-
-<p>Move back into the main job directory and create a tar.gz file of the
-installation folder.</p>
-
-<pre class="term"><code>[alice@build]$ cd ../..
-[alice@build]$ tar -czf lammps.tar.gz lammps
-[alice@build]$ exit
-</code></pre>
-
-
-        </div>
-        <div class="col-3 d-none d-lg-block">
-            
-
-
-
-    <div id="guide-sidebar">
-        
-            
-
-            
-            
-
-            <h6 class="mt-5">HTC Guides</h6>
-            <div class="accordion accordion-flush">
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="basics-and-policies">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
-                                    Basics and Policies
-                                </button>
-                            </h2>
-                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/os-transition-htc">HTC System Transition to a New Linux Version (CentOS Stream 8)</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/use-submit-node">Policies for Using HTC Submit Servers</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/connecting">Connecting to CHTC Using CHTC's HTC Submit Nodes</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/configure-ssh">Automating CHTC Log In</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/transfer-data-researchdrive">Transferring Files Between CHTC and ResearchDrive</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/globus">Using Globus to Transfer Files to and from CHTC</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/github-remote-access">Remotely Access a Private GitHub Repository</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/check-quota">Checking Disk Quota and Usage</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="job-submission">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#job-submission-collapse" aria-expanded="false" aria-controls="job-submission">
-                                    Job Submission
-                                </button>
-                            </h2>
-                            <div id="job-submission-collapse" class="accordion-collapse collapse " aria-labelledby="job-submission" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/helloworld">Running Your First HTC Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/condor_q">Learning About Your Jobs Using condor_q</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/multiple-jobs">Submitting Multiple Jobs Using HTCondor</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/dagman-workflows">Workflows with HTCondor's DAGMan</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/multiple-job-dirs">Submitting Multiple Jobs in Individual Directories</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="handling-data-in-jobs">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#handling-data-in-jobs-collapse" aria-expanded="false" aria-controls="handling-data-in-jobs">
-                                    Handling Data in Jobs
-                                </button>
-                            </h2>
-                            <div id="handling-data-in-jobs-collapse" class="accordion-collapse collapse " aria-labelledby="handling-data-in-jobs" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-availability">Small Input and Output File Availability Via HTCondor</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-squid">Transfer Large Input Files Via Squid</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="software-solutions">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
-                                    Software Solutions
-                                </button>
-                            </h2>
-                            <div id="software-solutions-collapse" class="accordion-collapse collapse show " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/matlab-jobs">Running Matlab Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/python-jobs">Running Python Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/conda-installation">Create a Portable Python Installation with Miniconda</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/r-jobs">Running R Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/java-jobs">Running Java Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/julia-jobs">Running Julia Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-jobs">Running HTC Jobs Using Docker Containers</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-build">Building a Docker Container Image</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/licensed-software">Using Licensed Software</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/singularity-htc">Using Apptainer (Singularity) Environments</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="special-use-cases">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-cases-collapse" aria-expanded="false" aria-controls="special-use-cases">
-                                    Special Use Cases
-                                </button>
-                            </h2>
-                            <div id="special-use-cases-collapse" class="accordion-collapse collapse " aria-labelledby="special-use-cases" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/gpu-jobs">Submitting Jobs That Use GPUs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/machine-learning-htc">Run Machine Learning Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/scaling-htc">Scaling Beyond Local HTC Capacity</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/checkpointing">Checkpointing Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/high-memory-jobs">Submitting High Memory Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/mpi-jobs">Running MPI Jobs</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="troubleshooting">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshooting-collapse" aria-expanded="false" aria-controls="troubleshooting">
-                                    Troubleshooting
-                                </button>
-                            </h2>
-                            <div id="troubleshooting-collapse" class="accordion-collapse collapse " aria-labelledby="troubleshooting" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/dos-unix">Windows / Linux Incompatibility</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-test">Explore and Test Docker Containers</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-            </div>
-        
-    </div>
-
-
+<p>Todd Tannenbaum
+HTCondor Technical Lead, U Wisconsin, Madison, USA</p>
 
         </div>
     </div>
