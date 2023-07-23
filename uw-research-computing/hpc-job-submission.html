@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc-job-submission" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-07-23T16:28:15+00:00" />
+<meta property="article:published_time" content="2023-07-23T16:32:29+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Submitting and Managing Jobs Using SLURM" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-07-23T16:28:15+00:00","datePublished":"2023-07-23T16:28:15+00:00","description":"The HPC Cluster uses SLURM to manage jobs on the HPC Cluster. This page describes how to submit and manage jobs using SLURM.","headline":"Submitting and Managing Jobs Using SLURM","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-job-submission"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-job-submission"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-07-23T16:32:29+00:00","datePublished":"2023-07-23T16:32:29+00:00","description":"The HPC Cluster uses SLURM to manage jobs on the HPC Cluster. This page describes how to submit and manage jobs using SLURM.","headline":"Submitting and Managing Jobs Using SLURM","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-job-submission"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-job-submission"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -316,7 +316,7 @@ srun --mpi=pmix -n 64 /home/username/mpiprogram
 
 <h2 id="b-optimizing-your-submit-file"><strong>B. Optimizing Your Submit File</strong></h2>
 
-<p>The new cluster has different partition names and different sized nodes. We  recommend the following changes because most of our nodes now have 128 cores, so requesting multiple nodes is not advantageous if your jobs are smaller than 128 cores. We also now recommend requesting memory per core instead of memory per node, for similar reasons, using the <code>--mem-per-cpu</code> flag with units of MB. Here are our recommendations for different sized jobs:</p>
+<p>The new cluster has different partition names and different sized nodes. <strong>We always recommend requesting cores per node (instead of total cores), using a multiple of 32 cores as your request per node.</strong> Requesting multiple nodes is not advantageous if your jobs are smaller than 128 cores. We also now recommend requesting memory per core instead of memory per node, for similar reasons, using the <code>--mem-per-cpu</code> flag with units of MB. Here are our recommendations for different sized jobs:</p>
 
 <table>
 	<tr>
@@ -325,21 +325,18 @@ srun --mpi=pmix -n 64 /home/username/mpiprogram
 	</tr>
 	<tr>
 		<td>32-128 cores</td>
-		<td>Example for 32 cores: <pre>
+		<td>Example for 64 cores: <pre>
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=32 # recommend multiples of 16
+#SBATCH --ntasks-per-node=64 # recommend multiples of 32
 #SBATCH --mem-per-cpu=4000</pre></td>
 	</tr>
 	<tr>
-		<td>96 - 256 cores</td>
-		<td>Split over a few nodes, for example for 160 cores: <pre>
+		<td>128 - 256 cores</td>
+		<td>Split over a few nodes, for example for 128 cores: <pre>
 #SBATCH --nodes=2
-#SBATCH --ntasks-per-node=80 # designate cores per node
+#SBATCH --ntasks-per-node=64 # designate cores per node
 #SBATCH --mem-per-cpu=4000</pre> 
-	OR:  <pre>
-#SBATCH --nodes=2
-#SBATCH --ntasks=160 # designate overall cores
-#SBATCH --mem-per-cpu=4000</pre></td>
+</td>
 	</tr>
 	<tr>
 		<td>128 or 256 cores (whole nodes)</td>
