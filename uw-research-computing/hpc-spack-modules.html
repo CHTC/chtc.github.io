@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Running R Jobs</title>
+<title>Creating Custom Modules Using Spack</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Running R Jobs | CHTC</title>
+<title>Creating Custom Modules Using Spack | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="Running R Jobs" />
+<meta property="og:title" content="Creating Custom Modules Using Spack" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="ACTION REQUIRED: As of September 29th, the HTC system’s default operating system will transition to CentOS Stream 8. This guide has been updated to reflect this change. However, this transition may impact users were running R jobs before September 29th. For more information, see the HTC Operating System Transition guide." />
-<meta property="og:description" content="ACTION REQUIRED: As of September 29th, the HTC system’s default operating system will transition to CentOS Stream 8. This guide has been updated to reflect this change. However, this transition may impact users were running R jobs before September 29th. For more information, see the HTC Operating System Transition guide." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/r-jobs" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/r-jobs" />
+<meta name="description" content="CHTC uses Spack (https://github.com/spack/spack) for installing and managing software packages on the HPC cluster for all users to use, via the module command. Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software’s dependencies (similar to Conda and Miniconda)." />
+<meta property="og:description" content="CHTC uses Spack (https://github.com/spack/spack) for installing and managing software packages on the HPC cluster for all users to use, via the module command. Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software’s dependencies (similar to Conda and Miniconda)." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-modules" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-modules" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-07-25T21:20:56+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Running R Jobs" />
+<meta property="twitter:title" content="Creating Custom Modules Using Spack" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-07-25T21:20:56+00:00","datePublished":"2023-07-25T21:20:56+00:00","description":"ACTION REQUIRED: As of September 29th, the HTC system’s default operating system will transition to CentOS Stream 8. This guide has been updated to reflect this change. However, this transition may impact users were running R jobs before September 29th. For more information, see the HTC Operating System Transition guide.","headline":"Running R Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/r-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/r-jobs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-07-25T21:20:56+00:00","datePublished":"2023-07-25T21:20:56+00:00","description":"CHTC uses Spack (https://github.com/spack/spack) for installing and managing software packages on the HPC cluster for all users to use, via the module command. Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software’s dependencies (similar to Conda and Miniconda).","headline":"Creating Custom Modules Using Spack","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-modules"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-modules"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -243,384 +243,146 @@
 
 
     <main id="main" style="min-height: 60vh;">
-        <main id="main" style="min-height: 60vh;">
-    <div class="container-xxl mb-5">
+        <div class="container-xxl mb-5">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-9 mw-1000">
             <h1 class="uw-mini-bar mb-4">
-    Running R Jobs
+    Creating Custom Modules Using Spack
 </h1>
 
-            <p><em>ACTION REQUIRED: As of September 29th, the HTC system’s default operating system will transition to CentOS Stream 8. This guide has been updated to reflect this change. However, this transition may impact users were running R jobs before September 29th. For more information, see the <a href="/uw-research-computing/os-transition-htc.html">HTC Operating System Transition</a> guide.</em></p>
+            <blockquote>
+                These guides have been recently updated with information
+                about the new "Spark" HPC cluster. For a full summary of changes and
+                recommended actions to transition jobs from the old cluster to Spark,
+                see this <a href="https://chtc.cs.wisc.edu/uw-research-computing/hpc-transition-2023">transition guide</a>
+            </blockquote>
+            <p>CHTC uses Spack (<a href="https://github.com/spack/spack">https://github.com/spack/spack</a>) for installing and managing software packages on the HPC cluster for all users to use, via the <code>module</code> command. Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software’s dependencies (similar to Conda and Miniconda).</p>
 
-<p><strong>To best understand the below information, users should already have an
-understanding of:</strong></p>
+<p><strong>This guide describes how to create and use custom personal and shared modules for software packages installed using Spack.</strong> For instructions on how to install software using Spack for you and/or your research group, see our guide <a href="hpc-spack-install.md">Installing Software Using Spack</a>.</p>
 
-<ul>
-  <li>Using the command line to: navigate within directories,
-create/copy/move/delete files and directories, and run their
-intended programs (aka "executables").</li>
-  <li><a href="helloworld.html">The CHTC's Intro to Running HTCondor
-Jobs</a></li>
-</ul>
-
-<h1 id="overview">Overview</h1>
-
-<p>CHTC provides several copies of R that can be used to run R code in
-jobs. See our list of supported versions here: <a href="#supported">CHTC Supported
-R</a></p>
-
-<p>This guide details the steps needed to:</p>
+<h1 id="contents">Contents</h1>
 
 <ol>
-  <li><a href="#build">Create a portable copy of your R packages</a></li>
-  <li><a href="#script">Write a script that uses R and your packages</a></li>
-  <li><a href="#submit">Submit jobs</a></li>
+  <li><a href="#1-location-of-the-module-files">Location of the Module Files</a></li>
+  <li><a href="#2-using-custom-modules">Using Custom Modules</a></li>
+  <li><a href="#3-creating-custom-modules-using-spack">Creating Custom Modules Using Spack</a></li>
+  <li><a href="#4-working-with-multiple-environments">Working with Multiple Environments</a></li>
+  <li><a href="#5-using-hierarchy-based-modules">Using Hierarchy Based Modules</a></li>
 </ol>
 
-<p>If you want to build your own copy of base R, see this archived page:</p>
+<h1 id="1-location-of-the-module-files">1. Location of the Module Files</h1>
 
-<ul>
-  <li><a href="r-build.html">Building a R installation</a></li>
-</ul>
+<p>In order to load a software package using the <code>module</code> command, there must be a corresponding “module file” containing the information that the <code>module</code> command needs in order to load the software package. Spack will automatically generate the required content of the module files, but Spack will need to know where these module files should be saved. Similarly, the <code>module</code> command will need to know where the module files are stored.</p>
 
-<p><a name="supported"></a></p>
-
-<h1 id="chtc-provided-r-installations">CHTC-Provided R Installations</h1>
-
-<p>CHTC provides a pre-built copy of the following versions of R:</p>
-
-<h3 id="building-on-centos-stream-8-linux">Building on CentOS Stream 8 Linux</h3>
-
-<table class="gtable">
-  <thead>
-    <tr>
-      <th>R version</th>
-      <th>Name of R installation file</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>R 3.5.1</td>
-      <td>R351.tar.gz</td>
-    </tr>
-    <tr>
-      <td>R 3.6.3</td>
-      <td>R363.tar.gz</td>
-    </tr>
-    <tr>
-      <td>R 4.0.5</td>
-      <td>R405.tar.gz</td>
-    </tr>
-    <tr>
-      <td>R 4.1.3</td>
-      <td>R413.tar.gz</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>If you need a newer version of R than is shown here, 
-<a href="mailto:chtc@cs.wisc.edu">please contact us!</a> We want to continuously 
-add new versions of R to this list and rely on your needs to know what 
-we should add.</p>
-
-<p>If you need a specific version of R not shown in this list, especially 
-if it is am older R version, we recommend using a Docker container with R installed 
-to run your jobs 
-(see CHTC’s <a href="docker-jobs.html">Docker Jobs guide</a>). The 
-<a href="https://hub.docker.com/u/rocker">Rocker organization on Docker Hub</a> 
-has an excellent selection of containers with many different versions of R. Contact 
-us with any questions about this.</p>
-
-<p><a name="build"></a></p>
-
-<h1 id="1-adding-r-packages"><strong>1. Adding R Packages</strong></h1>
-
-<p>If your code uses specific R packages (like <code>dplyr</code>, <code>rjags</code>, etc)
-follow the directions below to download and prepare the packages you
-need for job submission. <strong>If your job does not require any extra R
-packages, skip to parts 2 and 3</strong>.</p>
-
-<p>You are going to start an interactive job that runs on the HTC build
-servers and that downloads a copy of R. You will then install your
-packages to a folder and zip those files to return to the submit server.</p>
+<p>If you followed the instructions in <a href="hpc-spack-setup.md">Setting Up Spack on HPC</a>, then <strong>the default location of your module files is <code>/home/yourNetID/spack_modules</code></strong> where <code>yourNetID</code> is your NetID.</p>
 
 <blockquote>
-  <p>These instructions are primarily about adding packages to a fresh
-install of R; if you want to add packages to a pre-existing package
-folder, there will be notes below in boxes like this one.</p>
+  <p><strong>If you are using a shared installation of Spack for a group</strong>, and if the person who set up the installation followed the instructions in <a href="hpc-spack-setup.md">Setting Up Spack on HPC</a>, then the default location of the shared module files is likely <code>/home/groups/yourGroupName/spack_modules</code>. You can confirm this by running the command <code>spack config get modules | grep -A 2 'roots'</code> and examining the listed paths (make sure you do not have a Spack environment activated when you do so). If the paths are <code>/home/$user/spack_modules</code>, then you should follow the instructions in <a href="hpc-spack-setup.md#iii-updating-location-of-module-files">iii. Updating location of module files</a> in <a href="hpc-spack-setup.md">Setting Up Spack on HPC</a> before proceeding.</p>
 </blockquote>
 
-<p><a name="version"></a></p>
+<h1 id="2-using-custom-modules">2. Using Custom Modules</h1>
 
-<h2 id="a-submit-an-interactive-job">A. Submit an Interactive Job</h2>
+<p>Spack will automatically create module files for the packages that you explicitly install, in the location described above.</p>
 
-<p>Create the following special submit file on the submit server, calling
-it something like <code>build.sub</code>.</p>
+<p>To update the <code>module</code> command with the default location of the new module files, run the command</p>
 
-<pre><code class="language-{.sub}"># R build file
-
-universe = vanilla
-log = interactive.log
-
-# Choose a version of R from the table above
-transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/el8/R###.tar.gz
-
-+IsBuildJob = true
-requirements = (OpSysMajorVer =?= 8)
-request_cpus = 1
-request_memory = 4GB
-request_disk = 2GB
-
-queue
-</code></pre>
-
-<p>The only thing you should need to change in the above file is the name
-of the <code>R###.tar.gz</code> file - in the "transfer_input_files" line. We
-have four versions of R available to build from -- see the table above.</p>
-
-<blockquote>
-  <p>If you want to add packages to a pre-existing package directory, add
-the <code>tar.gz</code> file with the packages to the <code>transfer_input_files</code>
-line:</p>
-
-  <pre><code class="language-{.sub}">transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/el8/R###.tar.gz, packages.tar.gz
-</code></pre>
-</blockquote>
-
-<p>Once this submit file is created, you will start the interactive job by
-running the following command:</p>
-
-<pre class="term"><code>[alice@submit]$ condor_submit -i build.sub
-</code></pre>
-
-<p>It may take a few minutes for the build job to start.</p>
-
-<h2 id="b-install-the-packages">B. Install the Packages</h2>
-
-<p><strong>1. Set up R</strong></p>
-
-<p>Once the interactive build job starts, you should see the R installation
-that you specified inside the working directory:</p>
-
-<pre class="term"><code>[alice@build]$ ls -l
--rw-r--r-- 1 alice alice  78M Mar 26 12:24 R###.tar.gz
-drwx------ 2 alice alice 4.0K Mar 26 12:24 tmp
-drwx------ 3 alice alice 4.0K Mar 26 12:24 var
-</code></pre>
-
-<p>We'll now unzip the copy of R and set the <code>PATH</code> variable to reference
-that version of R:</p>
-
-<pre class="term"><code>[alice@build]$ tar -xzf R###.tar.gz
-[alice@build]$ export PATH=$PWD/R/bin:$PATH
-[alice@build]$ export RHOME=$PWD/R
-</code></pre>
-
-<p>To make sure that your setup worked, try running:</p>
-
-<pre class="term"><code>[alice@build]$ R --version
-</code></pre>
-
-<p>The output should match the version number that you want to be using!</p>
-
-<blockquote>
-  <p>If you brought along your own package directory that you previously created by following this tutorial, un-tar it here and
-skip the directory creation step below (i.e. you do not need to run <code>mkdir packages</code> because this directory already exists and should have been brought along in your submit file).</p>
-</blockquote>
-
-<p><strong>2. Install packages</strong></p>
-
-<p>First, create, a directory to put your packages into:</p>
-
-<pre class="term"><code>[alice@build]$ mkdir packages
-</code></pre>
-
-<p>Then, tell R to use that directory for the packages you're going to
-install:</p>
-
-<pre class="term"><code>[alice@build]$ export R_LIBS=$PWD/packages
-</code></pre>
-
-<p>You can choose what name to use for this directory -- if you have
-different sets of packages that you use for different jobs, you could
-use a more descriptive name than "packages".</p>
-
-<p>Then start the R console:</p>
-
-<pre class="term"><code>[alice@build]$ R
-</code></pre>
-
-<p>In the R terminal, install your packages using <code>install.packages</code>.</p>
-
-<pre class="term"><code>&gt; install.packages("package_name")
-</code></pre>
-
-<p>Replace “package_name” with the name of the package you wish to install.</p>
-
-<p>The first time you will be prompted to choose a "CRAN mirror" - this
-is where R is downloading the package. Choose any US-based location to download.</p>
-
-<p>If you need a Bioconductor package you will first need to install the
-Bioconductor installation manager, then use Bioconductor to install your
-package:</p>
-
-<pre class="term"><code>&gt; if (!requireNamespace("BiocManager", quietly = TRUE))
-      install.packages("BiocManager")
-&gt; BiocManager::install("package_name") 
-</code></pre>
-
-<p>After you've installed all your packages, we recommend loading each
-library to confirm that they installed successfully:</p>
-
-<pre class="term"><code>&gt; library(package_name)
-</code></pre>
-
-<p>Repeat this step as needed to load all packages installed during your
-interactive session.</p>
-
-<p>Then exit the R console:</p>
-
-<pre class="term"><code>&gt; quit()
-</code></pre>
-
-<h2 id="c-finish-up">C. Finish Up</h2>
-
-<p><strong>1. Create a <code>tar.gz</code> file of your packages</strong></p>
-
-<p>Right now, if we exit the interactive job, nothing will be transferred
-back because we haven't created any new <strong>files</strong> in the working
-directory, just <strong>sub-directories</strong>. In order to transfer back our
-installation, we will need to compress it into a tarball file - not only
-will HTCondor then transfer back the file, it is generally easier to
-transfer a single, compressed tarball file than an uncompressed set of
-directories.</p>
-
-<p>Run the following command to create your own tarball of your packages:</p>
-
-<pre class="term"><code>[alice@build]$ tar -czf packages.tar.gz packages/
-</code></pre>
-
-<p>Again, you can use a different name for the <code>tar.gz</code> file, if you want.</p>
-
-<p><strong>2. Finish the interactive build job</strong></p>
-
-<p>We now have our packages bundled and ready for CHTC! You can now exit
-the interactive job and the tar.gz file with your R packages will return
-to the submit server with you.</p>
-
-<pre class="term"><code>[alice@build]$ exit 
-</code></pre>
-
-<p><a name="script"></a></p>
-
-<h1 id="2-creating-a-script"><strong>2. Creating a Script</strong></h1>
-
-<p>In order to use CHTC's copy of R and the packages you have prepared in
-an HTCondor job, we will need to write a script that unpacks both R and
-the packages and then runs our R code. We will use this script as as the
-<code>executable</code> of our HTCondor submit file.</p>
-
-<p>A sample script appears below. After the first line, the lines starting
-with hash marks are comments . You should replace "my_script.R" with
-the name of the script you would like to run.</p>
-
-<pre><code class="language-{.file}">#!/bin/bash
-
-# untar your R installation. Make sure you are using the right version!
-tar -xzf R###.tar.gz
-# (optional) if you have a set of packages (created in Part 1), untar them also
-tar -xzf packages.tar.gz
-
-# make sure the script will use your R installation, 
-# and the working directory as its home location
-export PATH=$PWD/R/bin:$PATH
-export RHOME=$PWD/R
-export R_LIBS=$PWD/packages
-
-# run your script
-Rscript my_script.R
-</code></pre>
-
-<p>If you have additional commands you would like to be run within the job,
-you can add them to this base script. Once your script does what you
-would like, give it executable permissions by running:</p>
-
-<pre class="term"><code>[alice@submit] chmod +x run_R.sh
+<pre class="term"><code>module use ~/spack_modules
 </code></pre>
 
 <blockquote>
-  <h2 id="arguments-in-r">Arguments in R</h2>
+  <p>For a group installation of Spack, you’ll need to modify the <code>module use</code> command to specify the path to your group’s directory. The following should work if your group followed our instructions when setting up Spack:</p>
 
-  <p>To pass arguments to an R script within a job, you'll need to use the
-following syntax in your main executable script, in place of the
-generic command above:</p>
-
-  <pre><code class="language-{.file}">Rscript myscript.R $1 $2
+  <pre class="term"><code>module use /home/groups/yourGroupName/spack_modules
 </code></pre>
-
-  <p>Here, <code>$1</code> and <code>$2</code> are the first and second arguments passed to the
-bash script from the submit file (see below), which are then sent on
-to the R script. For more (or fewer) arguments, simply add more (or
-fewer) arguments and numbers.</p>
-
-  <p>In addition, your R script will need to be able to accept arguments
-from the command line. There is sample code for doing this on <a href="https://www.r-bloggers.com/passing-arguments-to-an-r-script-from-command-lines/">this
-r-bloggers.com
-page</a>
-and about a quarter of the way into this <a href="https://swcarpentry.github.io/r-novice-inflammation/05-cmdline/">Software Carpentry
-lesson</a>
-(look for <code>print-args-trailing.R</code>).</p>
 </blockquote>
 
-<p><a name="submit"></a></p>
+<p>Now if you run <code>module avail</code> you should see the your custom modules listed in the first section, with the system modules listed in the following section. You can then use the <code>module load</code> command as usual to load your custom module for use in the current terminal session.</p>
 
-<h1 id="3-submitting-jobs"><strong>3. Submitting Jobs</strong></h1>
+<p><em><strong>Note</strong>: Spack will not automatically create module files for the “upstream” dependencies (packages already installed on the system). If your <code>module load</code> test does not work, follow the instructions in the next section to generate these additional module files.</em></p>
 
-<p>A sample submit file can be found in our <a href="helloworld.html">hello
-world</a> example page. You should make the following
-changes in order to run R jobs:</p>
+<p>To have your custom modules found automatically by the <code>module</code> command, add the above <code>module use</code> command to the end of your <code>~/.bash_profile</code> file.</p>
 
-<ul>
-  <li>
-    <p>Your <code>executable</code> should be the script that you wrote
-<a href="#script">above</a>.</p>
+<h1 id="3-creating-custom-modules-using-spack">3. Creating Custom Modules Using Spack</h1>
 
-    <pre><code class="language-{.sub}">executable = run_R.sh
+<p>You may need to manually create the custom module files, especially after editing any of the modules configuration for Spack. To create the module files, first activate the desired environment with</p>
+
+<pre class="term"><code>spack env activate yourEnvironmentName
 </code></pre>
-  </li>
-  <li>Modify the CPU/memory request lines. Test a few jobs for disk
-space/memory usage in order to make sure your requests for a large
-batch are accurate! Disk space and memory usage can be found in the
-log file after the job completes.</li>
-  <li>
-    <p>Change <code>transfer_input_files</code> to include:</p>
 
-    <pre><code class="language-{.sub}">transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/el8/R###.tar.gz, packages.tar.gz, my_script.R
+<p>(where you should replace <code>yourEnvironmentName</code> with the your environment name) and then enter the following command:</p>
+
+<pre class="term"><code>spack module tcl refresh
 </code></pre>
-  </li>
-  <li>
-    <p>If your script takes arguments (see the box from the previous
-section), include those in the arguments line:</p>
 
-    <pre><code class="language-{.sub}">arguments = value1 value2
+<p>Spack will print out a list of all the packages installed in the current environment, and you’ll be asked to confirm if you wish to create module files for all of these packages.</p>
+
+<p>To remove old module files, or to update the directory structure, add the option <code>--delete-tree</code>, i.e.</p>
+
+<pre class="term"><code>spack module tcl refresh --delete-tree
 </code></pre>
-  </li>
-</ul>
 
-<p><a name="squid"></a></p>
+<p>If you tried to load a module but received the error(s) <em>‘Executing this command requires loading “{module file}” which failed while processing the following…‘</em>, then you will need to generate the “upstream” module files in order to use your desired module. In this case, the following command should resolve the issue:</p>
+
+<pre class="term"><code>spack module tcl refresh --upstream-modules
+</code></pre>
 
 <blockquote>
-  <h3 id="how-big-is-your-package-tarball">How big is your package tarball?</h3>
-
-  <p>If your package tarball is larger than 100 MB, you should NOT transfer
-the tarball using <code>transfer_input_files</code>. Instead, you should use
-CHTC's web proxy, <code>squid</code>. To learn more about <code>squid</code> please see our
-user guide <a href="file-avail-squid.html">File Availability with Squid Web
-Proxy</a>. To request
-space on <code>squid</code>, email the research computing facilitators at
-<a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.</p>
+  <p><strong>Note</strong>: You should only run this command inside of an activated Spack environment, otherwise you will be prompted to create module files for ALL Spack packages, including those installed system-wide, regardless of whether they are required dependencies!</p>
 </blockquote>
+
+<p>Lastly, note that Spack will not directly create module files for software installed independently of Spack (for example, using <code>pip install</code>).</p>
+
+<h1 id="4-working-with-multiple-environments">4. Working with Multiple Environments</h1>
+
+<p>If you have more than one Spack environment that you wish to create modules for, we recommend that you modify the above procedure in order to better organize the list of modules.</p>
+
+<p>For each environment that you wish to create module files for, activate the environment and then edit the configuration so that the module files are saved into a sub-directory named for that environment. For example,</p>
+
+<pre class="term"><code>spack env activate my-first-env
+spack config add modules:default:roots:tcl:/home/\$user/spack_modules/my-first-env
+</code></pre>
+
+<p>first activates <code>my-first-env</code> and then updates the configuration to save the module files to <code>/home/yourNetID/spack_modules/my-first-env</code>.</p>
+
+<blockquote>
+  <p>For a group installation of Spack, you should instead specify the path to your group’s directory. For example,</p>
+
+  <pre class="term"><code>spack env activate my-first-env
+spack config add modules:default:roots:tcl:/home/groups/yourGroupName/spack_modules/my-first-env
+</code></pre>
+
+  <p>You should similarly modify the following commands to account for the different paths.</p>
+</blockquote>
+
+<p>Repeat the process for your other environments.</p>
+
+<p>To use the modules for a particular environment, run the <code>module use</code> command but specify the path to the environment’s subdirectory. Continuing with our example,</p>
+
+<pre class="term"><code>module use ~/spack_modules/my-first-env
+</code></pre>
+
+<p>will update the <code>module</code> command with the location of the modules for using <code>my-first-env</code>.</p>
+
+<p>If you want to switch environments, we recommend that you “unuse” the first environment and then “use” the second, i.e.</p>
+
+<pre class="term"><code>module unuse ~/spack_modules/my-first-env
+module use ~/spack_modules/my-second-env
+</code></pre>
+
+<p>While you can have more than one environment in “use” by the <code>module</code> command, this increases the chance of loading modules with conflicting dependencies that could result in unexpected behavior.</p>
+
+<h1 id="5-using-hierarchy-based-modules">5. Using Hierarchy Based Modules</h1>
+
+<p>There are two “flavors” of the <code>module</code> system: <code>tcl</code> and <code>lmod</code>. We use <code>tcl</code> for managing the system modules, and have recommended using <code>tcl</code> throughout this guide. The main difference between the two “flavors” of modules is that <code>tcl</code> uses a “flat” directory structure (all the module files are located in the same central directory) whereas <code>lmod</code> uses a “hierarchy” directory structure (where the module files are grouped by their compiler or MPI version). The hierarchal structure of <code>lmod</code> can be very useful in organizing duplicate module files that differ only by how they were compiled.</p>
+
+<p>To use the <code>lmod</code> style module files, you should first edit your modules configuration to enable <code>lmod</code> and disable <code>tcl</code>, then refresh your module files.</p>
+
+<pre class="term"><code>spack config add 'modules:default:enable:lmod'
+spack config remove 'modules:default:enable:tcl'
+spack module refresh lmod --delete-tree
+</code></pre>
+
+<p>More advanced options regarding the naming and structure of the <code>lmod</code> module files can be configured by editing the <code>modules.yaml</code> (described in  <a href="hpc-spack-setup.md#iii-updating-location-of-module-files">iii. Updating location of module files</a> in <a href="hpc-spack-setup.md">Setting Up Spack on HPC</a>). See the Spack documentation for more information on how to configure module files: https://spack.readthedocs.io/en/latest/module_file_support.html#.</p>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -635,7 +397,7 @@ space on <code>squid</code>, email the research computing facilitators at
             
             
 
-            <h6 class="mt-5">HTC Guides</h6>
+            <h6 class="mt-5">HPC Guides</h6>
             <div class="accordion accordion-flush">
                 
                     
@@ -654,12 +416,12 @@ space on <code>squid</code>, email the research computing facilitators at
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/os-transition-htc">HTC System Transition to a New Linux Version (CentOS Stream 8)</a>
+                                        <a class="" href="/uw-research-computing/hpc-transition-2023">Transitioning to a New HPC Cluster</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/use-submit-node">Policies for Using HTC Submit Servers</a>
+                                        <a class="" href="/uw-research-computing/hpc-overview">HPC Cluster Overview</a>
                                     </div>
                                 
 
@@ -679,17 +441,7 @@ space on <code>squid</code>, email the research computing facilitators at
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/globus">Using Globus to Transfer Files to and from CHTC</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
                                         <a class="" href="/uw-research-computing/github-remote-access">Remotely Access a Private GitHub Repository</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/check-quota">Checking Disk Quota and Usage</a>
                                     </div>
                                 
                             </div>
@@ -712,64 +464,13 @@ space on <code>squid</code>, email the research computing facilitators at
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/helloworld">Running Your First HTC Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/condor_q">Learning About Your Jobs Using condor_q</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/multiple-jobs">Submitting Multiple Jobs Using HTCondor</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/dagman-workflows">Workflows with HTCondor's DAGMan</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/multiple-job-dirs">Submitting Multiple Jobs in Individual Directories</a>
+                                        <a class="" href="/uw-research-computing/hpc-job-submission">Submitting and Managing Jobs Using SLURM</a>
                                     </div>
                                 
                             </div>
                         </div>
                     
                 
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="handling-data-in-jobs">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#handling-data-in-jobs-collapse" aria-expanded="false" aria-controls="handling-data-in-jobs">
-                                    Handling Data in Jobs
-                                </button>
-                            </h2>
-                            <div id="handling-data-in-jobs-collapse" class="accordion-collapse collapse " aria-labelledby="handling-data-in-jobs" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-availability">Small Input and Output File Availability Via HTCondor</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-squid">Transfer Large Input Files Via Squid</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
                     
                 
                     
@@ -788,57 +489,22 @@ space on <code>squid</code>, email the research computing facilitators at
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>
+                                        <a class="" href="/uw-research-computing/hpc-software">Using Software on the HPC Cluster</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/matlab-jobs">Running Matlab Jobs</a>
+                                        <a class="" href="/uw-research-computing/hpc-spack-setup">Setting Up Spack on HPC</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/python-jobs">Running Python Jobs</a>
+                                        <a class="" href="/uw-research-computing/hpc-spack-install">Installing Software Using Spack</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/conda-installation">Create a Portable Python Installation with Miniconda</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/r-jobs">Running R Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/java-jobs">Running Java Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/julia-jobs">Running Julia Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-jobs">Running HTC Jobs Using Docker Containers</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-build">Building a Docker Container Image</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/licensed-software">Using Licensed Software</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/singularity-htc">Using Apptainer (Singularity) Environments</a>
+                                        <a class="fw-bolder" href="/uw-research-computing/hpc-spack-modules">Creating Custom Modules Using Spack</a>
                                     </div>
                                 
                             </div>
@@ -846,79 +512,7 @@ space on <code>squid</code>, email the research computing facilitators at
                     
                 
                     
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="special-use-cases">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-cases-collapse" aria-expanded="false" aria-controls="special-use-cases">
-                                    Special Use Cases
-                                </button>
-                            </h2>
-                            <div id="special-use-cases-collapse" class="accordion-collapse collapse " aria-labelledby="special-use-cases" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/gpu-jobs">Submitting Jobs That Use GPUs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/machine-learning-htc">Run Machine Learning Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/scaling-htc">Scaling Beyond Local HTC Capacity</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/checkpointing">Checkpointing Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/high-memory-jobs">Submitting High Memory Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/mpi-jobs">Running MPI Jobs</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
                 
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="troubleshooting">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshooting-collapse" aria-expanded="false" aria-controls="troubleshooting">
-                                    Troubleshooting
-                                </button>
-                            </h2>
-                            <div id="troubleshooting-collapse" class="accordion-collapse collapse " aria-labelledby="troubleshooting" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/dos-unix">Windows / Linux Incompatibility</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-test">Explore and Test Docker Containers</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
                     
                 
             </div>
@@ -930,7 +524,7 @@ space on <code>squid</code>, email the research computing facilitators at
         </div>
     </div>
 </div>
-</main>
+
     </main>
     <footer id="colophon" class="uw-footer">
     <div class="uw-footer-content">

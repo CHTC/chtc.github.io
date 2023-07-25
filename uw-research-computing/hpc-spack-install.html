@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Running R Jobs</title>
+<title>Installing Software Using Spack</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Running R Jobs | CHTC</title>
+<title>Installing Software Using Spack | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="Running R Jobs" />
+<meta property="og:title" content="Installing Software Using Spack" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="ACTION REQUIRED: As of September 29th, the HTC system’s default operating system will transition to CentOS Stream 8. This guide has been updated to reflect this change. However, this transition may impact users were running R jobs before September 29th. For more information, see the HTC Operating System Transition guide." />
-<meta property="og:description" content="ACTION REQUIRED: As of September 29th, the HTC system’s default operating system will transition to CentOS Stream 8. This guide has been updated to reflect this change. However, this transition may impact users were running R jobs before September 29th. For more information, see the HTC Operating System Transition guide." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/r-jobs" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/r-jobs" />
+<meta name="description" content="CHTC uses Spack (https://github.com/spack/spack) for installing and managing software packages on the HPC cluster for all users to use, via the module command. Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software’s dependencies (similar to Conda and Miniconda)." />
+<meta property="og:description" content="CHTC uses Spack (https://github.com/spack/spack) for installing and managing software packages on the HPC cluster for all users to use, via the module command. Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software’s dependencies (similar to Conda and Miniconda)." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-install" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-install" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-07-25T21:20:56+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Running R Jobs" />
+<meta property="twitter:title" content="Installing Software Using Spack" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-07-25T21:20:56+00:00","datePublished":"2023-07-25T21:20:56+00:00","description":"ACTION REQUIRED: As of September 29th, the HTC system’s default operating system will transition to CentOS Stream 8. This guide has been updated to reflect this change. However, this transition may impact users were running R jobs before September 29th. For more information, see the HTC Operating System Transition guide.","headline":"Running R Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/r-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/r-jobs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-07-25T21:20:56+00:00","datePublished":"2023-07-25T21:20:56+00:00","description":"CHTC uses Spack (https://github.com/spack/spack) for installing and managing software packages on the HPC cluster for all users to use, via the module command. Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software’s dependencies (similar to Conda and Miniconda).","headline":"Installing Software Using Spack","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-install"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-install"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -243,384 +243,348 @@
 
 
     <main id="main" style="min-height: 60vh;">
-        <main id="main" style="min-height: 60vh;">
-    <div class="container-xxl mb-5">
+        <div class="container-xxl mb-5">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-9 mw-1000">
             <h1 class="uw-mini-bar mb-4">
-    Running R Jobs
+    Installing Software Using Spack
 </h1>
 
-            <p><em>ACTION REQUIRED: As of September 29th, the HTC system’s default operating system will transition to CentOS Stream 8. This guide has been updated to reflect this change. However, this transition may impact users were running R jobs before September 29th. For more information, see the <a href="/uw-research-computing/os-transition-htc.html">HTC Operating System Transition</a> guide.</em></p>
+            <blockquote>
+                These guides have been recently updated with information
+                about the new "Spark" HPC cluster. For a full summary of changes and
+                recommended actions to transition jobs from the old cluster to Spark,
+                see this <a href="https://chtc.cs.wisc.edu/uw-research-computing/hpc-transition-2023">transition guide</a>
+            </blockquote>
+            <p>CHTC uses Spack (<a href="https://github.com/spack/spack">https://github.com/spack/spack</a>) for installing and managing software packages on the HPC cluster for all users to use, via the <code>module</code> command. Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software’s dependencies (similar to Conda and Miniconda).</p>
 
-<p><strong>To best understand the below information, users should already have an
-understanding of:</strong></p>
+<p><strong>This guide describes how to install and manage software using Spack, including how to install and use a specific compiler.</strong></p>
 
-<ul>
-  <li>Using the command line to: navigate within directories,
-create/copy/move/delete files and directories, and run their
-intended programs (aka "executables").</li>
-  <li><a href="helloworld.html">The CHTC's Intro to Running HTCondor
-Jobs</a></li>
-</ul>
+<p><strong>This guide assumes you or your group has already set up your local installation of Spack.</strong> If you have not installed Spack, follow the instructions in <a href="hpc-spack-setup.md">Setting Up Spack on HPC</a>.</p>
 
-<h1 id="overview">Overview</h1>
-
-<p>CHTC provides several copies of R that can be used to run R code in
-jobs. See our list of supported versions here: <a href="#supported">CHTC Supported
-R</a></p>
-
-<p>This guide details the steps needed to:</p>
+<h1 id="contents">Contents</h1>
 
 <ol>
-  <li><a href="#build">Create a portable copy of your R packages</a></li>
-  <li><a href="#script">Write a script that uses R and your packages</a></li>
-  <li><a href="#submit">Submit jobs</a></li>
+  <li><a href="#1-installing-software-using-spack">Installing Software Using Spack</a></li>
+  <li><a href="#2-using-software-installed-in-spack">Using Software Installed in Spack</a></li>
+  <li><a href="#3-installing-and-using-a-specific-compiler">Installing and Using a Specific Compiler</a></li>
 </ol>
 
-<p>If you want to build your own copy of base R, see this archived page:</p>
+<h1 id="1-installing-software-using-spack">1. Installing Software Using Spack</h1>
 
-<ul>
-  <li><a href="r-build.html">Building a R installation</a></li>
-</ul>
+<p>Once your local installation of Spack has been properly configured, you are now ready to install software using Spack.</p>
 
-<p><a name="supported"></a></p>
-
-<h1 id="chtc-provided-r-installations">CHTC-Provided R Installations</h1>
-
-<p>CHTC provides a pre-built copy of the following versions of R:</p>
-
-<h3 id="building-on-centos-stream-8-linux">Building on CentOS Stream 8 Linux</h3>
-
-<table class="gtable">
-  <thead>
-    <tr>
-      <th>R version</th>
-      <th>Name of R installation file</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>R 3.5.1</td>
-      <td>R351.tar.gz</td>
-    </tr>
-    <tr>
-      <td>R 3.6.3</td>
-      <td>R363.tar.gz</td>
-    </tr>
-    <tr>
-      <td>R 4.0.5</td>
-      <td>R405.tar.gz</td>
-    </tr>
-    <tr>
-      <td>R 4.1.3</td>
-      <td>R413.tar.gz</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>If you need a newer version of R than is shown here, 
-<a href="mailto:chtc@cs.wisc.edu">please contact us!</a> We want to continuously 
-add new versions of R to this list and rely on your needs to know what 
-we should add.</p>
-
-<p>If you need a specific version of R not shown in this list, especially 
-if it is am older R version, we recommend using a Docker container with R installed 
-to run your jobs 
-(see CHTC’s <a href="docker-jobs.html">Docker Jobs guide</a>). The 
-<a href="https://hub.docker.com/u/rocker">Rocker organization on Docker Hub</a> 
-has an excellent selection of containers with many different versions of R. Contact 
-us with any questions about this.</p>
-
-<p><a name="build"></a></p>
-
-<h1 id="1-adding-r-packages"><strong>1. Adding R Packages</strong></h1>
-
-<p>If your code uses specific R packages (like <code>dplyr</code>, <code>rjags</code>, etc)
-follow the directions below to download and prepare the packages you
-need for job submission. <strong>If your job does not require any extra R
-packages, skip to parts 2 and 3</strong>.</p>
-
-<p>You are going to start an interactive job that runs on the HTC build
-servers and that downloads a copy of R. You will then install your
-packages to a folder and zip those files to return to the submit server.</p>
+<p>Check the documentation for the program you want to install to see if they have instructions for installation using Spack. Even if your program can’t be installed using Spack, you can still use it to install the dependencies that your program needs.</p>
 
 <blockquote>
-  <p>These instructions are primarily about adding packages to a fresh
-install of R; if you want to add packages to a pre-existing package
-folder, there will be notes below in boxes like this one.</p>
+  <p><strong>Note</strong>: For a group installation of Spack, you will not be able to modify or remove the packages installed by a different user. We recommend that you consult with the rest of your group for permission before proceeding.</p>
 </blockquote>
 
-<p><a name="version"></a></p>
+<h2 id="a-creating-and-using-a-spack-environment">A. Creating and Using a Spack Environment</h2>
 
-<h2 id="a-submit-an-interactive-job">A. Submit an Interactive Job</h2>
+<p>Software installations with Spack should be done inside of a Spack environment, to help manage the shell and the paths to access programs and libraries needed for a particular software installation.</p>
 
-<p>Create the following special submit file on the submit server, calling
-it something like <code>build.sub</code>.</p>
+<p>To create a Spack environment, run the command</p>
 
-<pre><code class="language-{.sub}"># R build file
-
-universe = vanilla
-log = interactive.log
-
-# Choose a version of R from the table above
-transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/el8/R###.tar.gz
-
-+IsBuildJob = true
-requirements = (OpSysMajorVer =?= 8)
-request_cpus = 1
-request_memory = 4GB
-request_disk = 2GB
-
-queue
+<pre class="term"><code>spack env create yourEnvironmentName
 </code></pre>
 
-<p>The only thing you should need to change in the above file is the name
-of the <code>R###.tar.gz</code> file - in the "transfer_input_files" line. We
-have four versions of R available to build from -- see the table above.</p>
+<p>where you should replace <code>yourEnvironmentName</code> with your desired name for the environment. You can then activate the environment with</p>
+
+<pre class="term"><code>spack env activate yourEnvironmentName
+</code></pre>
+
+<p>You will need to activate the environment when you wish to use the software that was installed in that environment.</p>
 
 <blockquote>
-  <p>If you want to add packages to a pre-existing package directory, add
-the <code>tar.gz</code> file with the packages to the <code>transfer_input_files</code>
-line:</p>
+  <p>You can see a list of your available environments using</p>
 
-  <pre><code class="language-{.sub}">transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/el8/R###.tar.gz, packages.tar.gz
+  <pre class="term"><code>spack env list
 </code></pre>
+
+  <p>and you can see which environment you are currently using with</p>
+
+  <pre class="term"><code>spack env status
+</code></pre>
+
+  <p>To deactivate the environment, run</p>
+
+  <pre class="term"><code>spack env deactivate
+</code></pre>
+
+  <p>or close the terminal session.</p>
 </blockquote>
 
-<p>Once this submit file is created, you will start the interactive job by
-running the following command:</p>
+<h2 id="b-finding-program-packages-in-spack">B. Finding Program Packages in Spack</h2>
 
-<pre class="term"><code>[alice@submit]$ condor_submit -i build.sub
+<p>Once inside an active Spack environment, you can run the following command to see what packages are installed in the current environment</p>
+
+<pre class="term"><code>spack find
 </code></pre>
 
-<p>It may take a few minutes for the build job to start.</p>
+<p>For a new environment, this will show that there are no programs installed.  The output of this command will update after you install program packages in the environment.</p>
 
-<h2 id="b-install-the-packages">B. Install the Packages</h2>
+<p>To search for packages to install using Spack, use the command</p>
 
-<p><strong>1. Set up R</strong></p>
-
-<p>Once the interactive build job starts, you should see the R installation
-that you specified inside the working directory:</p>
-
-<pre class="term"><code>[alice@build]$ ls -l
--rw-r--r-- 1 alice alice  78M Mar 26 12:24 R###.tar.gz
-drwx------ 2 alice alice 4.0K Mar 26 12:24 tmp
-drwx------ 3 alice alice 4.0K Mar 26 12:24 var
+<pre class="term"><code>spack list nameOfProgram
 </code></pre>
 
-<p>We'll now unzip the copy of R and set the <code>PATH</code> variable to reference
-that version of R:</p>
+<p>where you should replace <code>nameOfProgram</code> with the program that you are interested in finding. Spack will search for the package and print out a list of all the packages that match that name. (The first time you run this command may take several minutes while Spack downloads a current list of packages that can be installed.) Alternatively, you can browse their website for currently available packages: <a href="https://spack.readthedocs.io/en/latest/package_list.html">https://spack.readthedocs.io/en/latest/package_list.html</a>.</p>
 
-<pre class="term"><code>[alice@build]$ tar -xzf R###.tar.gz
-[alice@build]$ export PATH=$PWD/R/bin:$PATH
-[alice@build]$ export RHOME=$PWD/R
+<p>To learn more about an available package, use the exact name of the program and run</p>
+
+<pre class="term"><code>spack info exactNameOfProgram
 </code></pre>
 
-<p>To make sure that your setup worked, try running:</p>
+<p>This will print out information about the program, including a short description of the program, a link to the developer’s website, and the available versions of the program and its dependencies.</p>
 
-<pre class="term"><code>[alice@build]$ R --version
+<h2 id="c-adding-package-specifications-to-the-environment">C. Adding Package Specifications to the Environment</h2>
+
+<p>Once you find the packages that you want to install, add their specifications to the environment using</p>
+
+<pre class="term"><code>spack add exactNameOfProgram
 </code></pre>
 
-<p>The output should match the version number that you want to be using!</p>
+<p>Spack will automatically decide which version of the program to use at installation time based on the other packages that you’ve added.</p>
+
+<p>If you want a specific version of a package, you can specify it by appending <code>@=</code> to the end of the package name, followed by the version number. For example,</p>
+
+<pre class="term"><code>spack add python@=3.10
+</code></pre>
+
+<p>will tell the environment that you want to install version 3.10 of Python. There are additional ways of defining specifications for package versions, the compiler to be used, and dependencies. The <a href="https://spack.readthedocs.io/en/latest/basic_usage.html#specs-dependencies">documentation for Spack</a> provides the details on how this is done.</p>
+
+<p><em>If you need to install a compiler, or need to use a specific compiler to install the desired packages, see section <a href="#3-installing-and-using-a-specific-compiler">3. Installing and Using a Specific Compiler</a>.</em></p>
+
+<h2 id="d-installing-packages-in-an-environment">D. Installing Packages in an Environment</h2>
+
+<p>Once you have identified the package(s) you would like to install and have added the specifications to your environment, you should start an interactive Slurm session for the actual installation and compilation of the package.</p>
+
+<h3 id="i-start-an-interactive-session">i. Start an interactive session</h3>
+
+<p>Deactivate the current Spack environment and then start the interactive session:</p>
+
+<pre class="term"><code>spack env deactivate
+srun --mpi=pmix -n4 -N1 -t 240 -p int --pty bash
+</code></pre>
+
+<p>Note the number associated with <code>-n</code>, as that is the number of processors you are requesting to use. This number will be used later in the install command itself to specify the number of threads to use for the installation and compiling.  For large and complex installations, you may want to increase the number of processors (and correspondingly the number of threads) to speed up the process.</p>
+
+<p>Next, remember to reload the Spack environment</p>
+
+<pre class="term"><code>spack env activate yourEnvironmentName
+</code></pre>
+
+<p>since the interactive session will start with the environment deactivated.</p>
+
+<h3 id="ii-create-the-local-scratch-directory">ii. Create the local scratch directory</h3>
+
+<p>Using the default configuration from <a href="hpc-spack-setup.md">Setting Up Spack on HPC</a>, Spack will try to use the machine’s local disk space for staging and compiling files before transferring the finished results to the final installation directory.  Using this space will greatly improve the speed of the installation process. Create the local directory with the command</p>
+
+<pre class="term"><code>mkdir /local/yourNetID/spack_build
+</code></pre>
+
+<p>where you should replace <code>yourNetID</code> with your NetID. At the end of the session, remember to delete this directory so that other people can use the disk space in their jobs.</p>
 
 <blockquote>
-  <p>If you brought along your own package directory that you previously created by following this tutorial, un-tar it here and
-skip the directory creation step below (i.e. you do not need to run <code>mkdir packages</code> because this directory already exists and should have been brought along in your submit file).</p>
+  <p>If the directory already exists, that means you forgot to remove it after one of your previous Spack installation sessions.  Simply remove the directory and make it again.</p>
+
+  <pre class="term"><code>rm -rf /local/yourNetID/spack_build
+mkdir /local/yourNetID/spack_build
+</code></pre>
 </blockquote>
 
-<p><strong>2. Install packages</strong></p>
+<h3 id="iii-check-the-programspackages-to-be-installed">iii. Check the programs/packages to be installed</h3>
 
-<p>First, create, a directory to put your packages into:</p>
+<p>If you’ve added the installation specifications to the environment, then you can check the installation plan using the command</p>
 
-<pre class="term"><code>[alice@build]$ mkdir packages
+<pre class="term"><code>spack spec -lI
 </code></pre>
 
-<p>Then, tell R to use that directory for the packages you're going to
-install:</p>
+<p>(the first letter after the hyphen is a lowercase “L” and the second letter is an uppercase “i”).</p>
 
-<pre class="term"><code>[alice@build]$ export R_LIBS=$PWD/packages
+<p>This command identifies what dependencies Spack needs in order to install your desired packages along with how it will obtain them.  Assuming their are no problems, then it will print a list of the packages and their dependencies, where entries that begin with a green <code>[+]</code> have already been installed somewhere in your local Spack installation, while those that begin with a green <code>[^]</code> are referencing the system installation, and those beginning with a gray <code>-</code> will need to be downloaded and installed.</p>
+
+<p>If you are satisfied with the results, then you can proceed to install the programs.</p>
+
+<h3 id="iv-install-the-environment-packages">iv. Install the environment packages</h3>
+
+<p>Assuming that you are in an interactive Slurm session and have activated the desired environment containing the package specifications, you can run</p>
+
+<pre class="term"><code>spack install -j 4
 </code></pre>
 
-<p>You can choose what name to use for this directory -- if you have
-different sets of packages that you use for different jobs, you could
-use a more descriptive name than "packages".</p>
+<p>to install the packages inside of the Spack environment, where the number that comes after <code>-j</code> needs to match the number that you noted from when you started the interactive session (the one after <code>-n</code> when you ran the <code>srun</code> command for the interactive session). You can also add the <code>-v</code> option to have the installation be verbose, which will cause Spack to print the compile and make outputs in addition to the standard Spack output.</p>
 
-<p>Then start the R console:</p>
-
-<pre class="term"><code>[alice@build]$ R
-</code></pre>
-
-<p>In the R terminal, install your packages using <code>install.packages</code>.</p>
-
-<pre class="term"><code>&gt; install.packages("package_name")
-</code></pre>
-
-<p>Replace “package_name” with the name of the package you wish to install.</p>
-
-<p>The first time you will be prompted to choose a "CRAN mirror" - this
-is where R is downloading the package. Choose any US-based location to download.</p>
-
-<p>If you need a Bioconductor package you will first need to install the
-Bioconductor installation manager, then use Bioconductor to install your
-package:</p>
-
-<pre class="term"><code>&gt; if (!requireNamespace("BiocManager", quietly = TRUE))
-      install.packages("BiocManager")
-&gt; BiocManager::install("package_name") 
-</code></pre>
-
-<p>After you've installed all your packages, we recommend loading each
-library to confirm that they installed successfully:</p>
-
-<pre class="term"><code>&gt; library(package_name)
-</code></pre>
-
-<p>Repeat this step as needed to load all packages installed during your
-interactive session.</p>
-
-<p>Then exit the R console:</p>
-
-<pre class="term"><code>&gt; quit()
-</code></pre>
-
-<h2 id="c-finish-up">C. Finish Up</h2>
-
-<p><strong>1. Create a <code>tar.gz</code> file of your packages</strong></p>
-
-<p>Right now, if we exit the interactive job, nothing will be transferred
-back because we haven't created any new <strong>files</strong> in the working
-directory, just <strong>sub-directories</strong>. In order to transfer back our
-installation, we will need to compress it into a tarball file - not only
-will HTCondor then transfer back the file, it is generally easier to
-transfer a single, compressed tarball file than an uncompressed set of
-directories.</p>
-
-<p>Run the following command to create your own tarball of your packages:</p>
-
-<pre class="term"><code>[alice@build]$ tar -czf packages.tar.gz packages/
-</code></pre>
-
-<p>Again, you can use a different name for the <code>tar.gz</code> file, if you want.</p>
-
-<p><strong>2. Finish the interactive build job</strong></p>
-
-<p>We now have our packages bundled and ready for CHTC! You can now exit
-the interactive job and the tar.gz file with your R packages will return
-to the submit server with you.</p>
-
-<pre class="term"><code>[alice@build]$ exit 
-</code></pre>
-
-<p><a name="script"></a></p>
-
-<h1 id="2-creating-a-script"><strong>2. Creating a Script</strong></h1>
-
-<p>In order to use CHTC's copy of R and the packages you have prepared in
-an HTCondor job, we will need to write a script that unpacks both R and
-the packages and then runs our R code. We will use this script as as the
-<code>executable</code> of our HTCondor submit file.</p>
-
-<p>A sample script appears below. After the first line, the lines starting
-with hash marks are comments . You should replace "my_script.R" with
-the name of the script you would like to run.</p>
-
-<pre><code class="language-{.file}">#!/bin/bash
-
-# untar your R installation. Make sure you are using the right version!
-tar -xzf R###.tar.gz
-# (optional) if you have a set of packages (created in Part 1), untar them also
-tar -xzf packages.tar.gz
-
-# make sure the script will use your R installation, 
-# and the working directory as its home location
-export PATH=$PWD/R/bin:$PATH
-export RHOME=$PWD/R
-export R_LIBS=$PWD/packages
-
-# run your script
-Rscript my_script.R
-</code></pre>
-
-<p>If you have additional commands you would like to be run within the job,
-you can add them to this base script. Once your script does what you
-would like, give it executable permissions by running:</p>
-
-<pre class="term"><code>[alice@submit] chmod +x run_R.sh
-</code></pre>
+<p>Depending on the number and complexity of the programs you are installing, and how much can be bootstrapped from the system installation, the installation step can take anywhere from several minutes to several hours.</p>
 
 <blockquote>
-  <h2 id="arguments-in-r">Arguments in R</h2>
-
-  <p>To pass arguments to an R script within a job, you'll need to use the
-following syntax in your main executable script, in place of the
-generic command above:</p>
-
-  <pre><code class="language-{.file}">Rscript myscript.R $1 $2
-</code></pre>
-
-  <p>Here, <code>$1</code> and <code>$2</code> are the first and second arguments passed to the
-bash script from the submit file (see below), which are then sent on
-to the R script. For more (or fewer) arguments, simply add more (or
-fewer) arguments and numbers.</p>
-
-  <p>In addition, your R script will need to be able to accept arguments
-from the command line. There is sample code for doing this on <a href="https://www.r-bloggers.com/passing-arguments-to-an-r-script-from-command-lines/">this
-r-bloggers.com
-page</a>
-and about a quarter of the way into this <a href="https://swcarpentry.github.io/r-novice-inflammation/05-cmdline/">Software Carpentry
-lesson</a>
-(look for <code>print-args-trailing.R</code>).</p>
+  <p>If something goes wrong or your connection is interrupted, the installation process can be resumed at a later time without having to start over from the beginning. Make sure that you are in an interactive Slurm session and that you have activated the Spack environment, then simply rerun the <code>spack install</code> command again.</p>
 </blockquote>
 
-<p><a name="submit"></a></p>
+<h3 id="v-finishing-the-installation">v. Finishing the installation</h3>
 
-<h1 id="3-submitting-jobs"><strong>3. Submitting Jobs</strong></h1>
+<p>After the installation has successfully finished, you should be able to see that the programs have been installed by running</p>
 
-<p>A sample submit file can be found in our <a href="helloworld.html">hello
-world</a> example page. You should make the following
-changes in order to run R jobs:</p>
-
-<ul>
-  <li>
-    <p>Your <code>executable</code> should be the script that you wrote
-<a href="#script">above</a>.</p>
-
-    <pre><code class="language-{.sub}">executable = run_R.sh
+<pre class="term"><code>spack find
 </code></pre>
-  </li>
-  <li>Modify the CPU/memory request lines. Test a few jobs for disk
-space/memory usage in order to make sure your requests for a large
-batch are accurate! Disk space and memory usage can be found in the
-log file after the job completes.</li>
-  <li>
-    <p>Change <code>transfer_input_files</code> to include:</p>
 
-    <pre><code class="language-{.sub}">transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/el8/R###.tar.gz, packages.tar.gz, my_script.R
+<p>which should list the programs under the compiler heading used for installing the programs.</p>
+
+<p>You may need to deactivate and reactivate the environment in order to properly use the programs that have been installed.</p>
+
+<pre class="term"><code>spack env deactivate
+spack env activate yourEnvironmentName
 </code></pre>
-  </li>
-  <li>
-    <p>If your script takes arguments (see the box from the previous
-section), include those in the arguments line:</p>
 
-    <pre><code class="language-{.sub}">arguments = value1 value2
+<p>Once you are satisfied that the programs have been installed properly, you can remove packages that are build-only (not used for running the packages you installed) using the command</p>
+
+<pre class="term"><code>spack gc
 </code></pre>
-  </li>
-</ul>
 
-<p><a name="squid"></a></p>
+<p>Finally, remove the local build directory that Spack used during the installation with</p>
+
+<pre class="term"><code>rm -rf /local/yourNetID/spack_build
+</code></pre>
+
+<p>and then enter <code>exit</code> to end the interactive session.</p>
+
+<p>To use the packages that you installed, follow the instructions in the next section, <a href="2-using-software-installed-in-spack">2. Using Software Installed in Spack</a>. If you want to create custom modules using the installed packages, see our guide <a href="hpc-spack-modules.md">Creating Custom Modules Using Spack</a>.</p>
+
+<h2 id="e-removing-an-environment-and-uninstalling-unneeded-packages">E. Removing an Environment and Uninstalling Unneeded Packages</h2>
+
+<p>You may find it necessary to remove a Spack environment, or packages installed using Spack. To uninstall a package, simply run</p>
+
+<pre class="term"><code>spack uninstall yourPackageName
+</code></pre>
+
+<p>where you should replace <code>yourPackageName</code> with the name of the package that you want to remove. This command will only work for packages that you ‘added’ to the Spack environment, as described above.</p>
+
+<p>To remove an environment, first make sure that you have deactivated the environment with</p>
+
+<pre class="term"><code>spack env deactivate
+</code></pre>
+
+<p>and then run</p>
+
+<pre class="term"><code>spack env rm yourEnvironmentName
+</code></pre>
+
+<p>where you should replace <code>yourEnvironmentName</code> with the name of the environment that you want to remove. Note that this will not necessarily remove the packages that were installed in the environment! After the environment has been removed, you can uninstall the packages that are no longer needed using the command</p>
+
+<pre class="term"><code>spack gc
+</code></pre>
+
+<h1 id="2-using-software-installed-in-spack">2. Using Software Installed in Spack</h1>
+
+<p>If your account is configured correctly for using Spack, and the software has been installed inside of a Spack environment, then to use the software all you need to do is activate the corresponding environment. Simply use the command</p>
+
+<pre class="term"><code>spack env activate yourEnvironmentName 
+</code></pre>
+
+<p>and Spack will update your shell accordingly. (Remember that you can see the available Spack environments by running the command <code>spack env list</code>). Once the environment has been activated, you should be able to use the packages just as normal. You can confirm you are using a command installed using Spack by running</p>
+
+<pre class="term"><code>which nameOfYourCommand
+</code></pre>
+
+<p>where you replace <code>nameOfYourCommand</code> with the name of the command. The command will output a path, and you should see something like <code>spack/var/spack/environments/yourEnvironmentName/</code> in that path.</p>
+
+<p><strong>For submitting jobs using Slurm</strong>, you will need to make sure that you activate the Spack environment near the beginning of your <code>sbatch</code> file before the <code>srun</code> command. For example,</p>
+
+<pre><code>#!/bin/sh
+# This file is called submit-script.sh
+#SBATCH --partition=shared       # default "shared", if not specified
+#SBATCH --time=0-04:30:00        # run time in days-hh:mm:ss
+#SBATCH --nodes=1                # require 1 nodes
+#SBATCH --ntasks-per-node=64     # cpus per node (by default, "ntasks"="cpus")
+#SBATCH --mem-per-cpu=4000       # RAM per node in megabytes
+#SBATCH --error=job.%J.err
+#SBATCH --output=job.%J.out
+
+# v---Remember to activate your Spack environment!! 
+spack env activate yourEnvironmentName
+
+srun --mpi=pmix -n 64 /home/username/mpiprogram
+</code></pre>
+
+<p>When you submit this job to Slurm and it executes the commands in the <code>sbatch</code> file, it will first activate the Spack environment, and then your program will be run using the programs that are installed inside that environment.</p>
 
 <blockquote>
-  <h3 id="how-big-is-your-package-tarball">How big is your package tarball?</h3>
-
-  <p>If your package tarball is larger than 100 MB, you should NOT transfer
-the tarball using <code>transfer_input_files</code>. Instead, you should use
-CHTC's web proxy, <code>squid</code>. To learn more about <code>squid</code> please see our
-user guide <a href="file-avail-squid.html">File Availability with Squid Web
-Proxy</a>. To request
-space on <code>squid</code>, email the research computing facilitators at
-<a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.</p>
+  <p>Some programs include explicit <code>module load</code> commands in their execution, which may override the paths provided by the Spack environment. If your program appears to use the system versions of the packages instead of the versions installed in your Spack environment, you may need to remove or modify these explicit commands. Consult your program’s documentation for how to do so. You may want to create your own custom modules and modify your program to explicitly load your custom modules. See <a href="hpc-spack-modules.md">Creating Custom Modules Using Spack</a> for more information on how to create your own modules using Spack.</p>
 </blockquote>
+
+<h1 id="3-installing-and-using-a-specific-compiler">3. Installing and Using a Specific Compiler</h1>
+
+<p>By default, Spack will attempt to compile packages it installs using one of the system compilers, most likely with GCC version 11.3.0. Some programs, however, may need to be compiled using a specific compiler, or require that their dependencies be built using a specific compiler. While this is possible using Spack, the process for installing and using a compiler is a bit more complicated than that for installing “regular” packages as was described above.</p>
+
+<p>In brief, you will first create a separate environment for installing the compiler. Then you will add that compiler to the list of available compilers that Spack can use. Finally, you can install your desired packages as in a new environment, but you will need to specify which compiler to use.</p>
+
+<h2 id="a-install-the-compiler-in-its-own-environment">A. Install the Compiler in its Own Environment</h2>
+
+<h3 id="i-identify-the-compiler-and-version">i. Identify the compiler and version</h3>
+
+<p>The first step is to identify the compiler and version you need for your program. Consult your program’s documentation for the requirements that it has. Then follow the instructions in <a href="#b-finding-program-packages-in-spack">B. Finding Program Packages in Spack</a> to find the package name and confirm the version is available.</p>
+
+<h3 id="ii-create-the-compilers-environment">ii. Create the compiler’s environment</h3>
+
+<p>Next, create and activate an environment for installing the desired compiler. For example,</p>
+
+<pre class="term"><code>spack env create compilerName_compilerVersion
+spack env activate compilerName_compilerVersion
+</code></pre>
+
+<p>where you should replace <code>compilerName</code> and <code>compilerVersion</code> with the name and version of the desired compiler.</p>
+
+<h3 id="iii-add-the-compiler-specification-to-its-environment">iii. Add the compiler specification to its environment</h3>
+
+<p>Once you’ve activated the environment, add the exact specification for the compiler to the Spack environment with</p>
+
+<pre class="term"><code>spack add compilerName@=compilerVersion
+</code></pre>
+
+<p>where you need to replace <code>compilerName</code> and <code>compilerVersion</code> with the name and version of the compiler that you identified above.</p>
+
+<h3 id="iv-install-the-compiler-in-its-environment">iv. Install the compiler in its environment</h3>
+
+<p>Next, follow the instructions in <a href="#d-installing-packages-in-an-environment">D. Installing Packages in an Environment</a> to install the desired compiler in this environment. Installing the compiler may take several hours, so consider increasing the number of threads to speed up the installation.</p>
+
+<h2 id="b-add-the-compiler-to-spack">B. Add the Compiler to Spack</h2>
+
+<h3 id="i-identify-the-compilers-installation-path">i. Identify the compiler’s installation path</h3>
+
+<p>After installing the compiler, you need to find its location. First, activate the compiler’s environment with <code>spack env activate compilerName_compilerVersion</code>. Next, use the following command to save the path to the compiler as the shell variable <code>compilerPath</code>:</p>
+
+<pre class="term"><code>compilerPath=$(spack location -i compilerName@=compilerVersion)
+</code></pre>
+
+<p>where you need to replace <code>compilerName</code> and <code>compilerVersion</code> with the name and version of the compiler that you installed. You can see print out the path using the command <code>echo $compilerPath</code>.</p>
+
+<h3 id="ii-give-the-compilers-path-to-spack">ii. Give the compiler’s path to Spack</h3>
+
+<p>Now that you know where the compiler is installed, deactivate the environment with <code>spack env deactivate</code>. Then run the following command to tell Spack to add the compiler to its list of available compilers:</p>
+
+<pre class="term"><code>spack compiler add $compilerPath
+</code></pre>
+
+<h3 id="iii-confirm-compiler-has-been-added-to-spack">iii. Confirm compiler has been added to Spack</h3>
+
+<p>The command</p>
+
+<pre class="term"><code>spack compiler list
+</code></pre>
+
+<p>will print out the list of compilers that Spack can use, and should now show <code>compilerName@compilerVersion</code> in the results.</p>
+
+<h2 id="c-install-packages-using-the-new-compiler">C. Install Packages Using the New Compiler</h2>
+
+<p>Once the compiler has been installed and recognized by Spack, you can now create and activate a new environment for installing your desired packages, following the instructions in <a href="#1-installing-software-using-spack">Installing Software Using Spack</a>.</p>
+
+<p><strong>To make sure the packages are installed using your desired compiler</strong>, you need to include the compiler when you add the package specification to the environment (<a href="#c-adding-package-specifications-to-the-environment">C. Adding Package Specifications to the Environment</a>). To include the compiler in the specification, you need to add the symbol <code>%</code> followed by the compiler name and version to the end of the <code>spack add</code> command. For example,</p>
+
+<pre class="term"><code>spack add python@=3.10 %gcc@=9.5.0
+</code></pre>
+
+<p>will use GCC version 9.5.0 to compile Python 3.10 when installing the package. As a general rule, you should use the same compiler for installing all of your packages within an environment, unless your program’s installation instructions say otherwise.</p>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -635,7 +599,7 @@ space on <code>squid</code>, email the research computing facilitators at
             
             
 
-            <h6 class="mt-5">HTC Guides</h6>
+            <h6 class="mt-5">HPC Guides</h6>
             <div class="accordion accordion-flush">
                 
                     
@@ -654,12 +618,12 @@ space on <code>squid</code>, email the research computing facilitators at
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/os-transition-htc">HTC System Transition to a New Linux Version (CentOS Stream 8)</a>
+                                        <a class="" href="/uw-research-computing/hpc-transition-2023">Transitioning to a New HPC Cluster</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/use-submit-node">Policies for Using HTC Submit Servers</a>
+                                        <a class="" href="/uw-research-computing/hpc-overview">HPC Cluster Overview</a>
                                     </div>
                                 
 
@@ -679,17 +643,7 @@ space on <code>squid</code>, email the research computing facilitators at
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/globus">Using Globus to Transfer Files to and from CHTC</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
                                         <a class="" href="/uw-research-computing/github-remote-access">Remotely Access a Private GitHub Repository</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/check-quota">Checking Disk Quota and Usage</a>
                                     </div>
                                 
                             </div>
@@ -712,64 +666,13 @@ space on <code>squid</code>, email the research computing facilitators at
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/helloworld">Running Your First HTC Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/condor_q">Learning About Your Jobs Using condor_q</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/multiple-jobs">Submitting Multiple Jobs Using HTCondor</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/dagman-workflows">Workflows with HTCondor's DAGMan</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/multiple-job-dirs">Submitting Multiple Jobs in Individual Directories</a>
+                                        <a class="" href="/uw-research-computing/hpc-job-submission">Submitting and Managing Jobs Using SLURM</a>
                                     </div>
                                 
                             </div>
                         </div>
                     
                 
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="handling-data-in-jobs">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#handling-data-in-jobs-collapse" aria-expanded="false" aria-controls="handling-data-in-jobs">
-                                    Handling Data in Jobs
-                                </button>
-                            </h2>
-                            <div id="handling-data-in-jobs-collapse" class="accordion-collapse collapse " aria-labelledby="handling-data-in-jobs" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-availability">Small Input and Output File Availability Via HTCondor</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-squid">Transfer Large Input Files Via Squid</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
                     
                 
                     
@@ -788,57 +691,22 @@ space on <code>squid</code>, email the research computing facilitators at
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>
+                                        <a class="" href="/uw-research-computing/hpc-software">Using Software on the HPC Cluster</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/matlab-jobs">Running Matlab Jobs</a>
+                                        <a class="" href="/uw-research-computing/hpc-spack-setup">Setting Up Spack on HPC</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/python-jobs">Running Python Jobs</a>
+                                        <a class="fw-bolder" href="/uw-research-computing/hpc-spack-install">Installing Software Using Spack</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/conda-installation">Create a Portable Python Installation with Miniconda</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/r-jobs">Running R Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/java-jobs">Running Java Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/julia-jobs">Running Julia Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-jobs">Running HTC Jobs Using Docker Containers</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-build">Building a Docker Container Image</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/licensed-software">Using Licensed Software</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/singularity-htc">Using Apptainer (Singularity) Environments</a>
+                                        <a class="" href="/uw-research-computing/hpc-spack-modules">Creating Custom Modules Using Spack</a>
                                     </div>
                                 
                             </div>
@@ -846,79 +714,7 @@ space on <code>squid</code>, email the research computing facilitators at
                     
                 
                     
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="special-use-cases">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-cases-collapse" aria-expanded="false" aria-controls="special-use-cases">
-                                    Special Use Cases
-                                </button>
-                            </h2>
-                            <div id="special-use-cases-collapse" class="accordion-collapse collapse " aria-labelledby="special-use-cases" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/gpu-jobs">Submitting Jobs That Use GPUs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/machine-learning-htc">Run Machine Learning Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/scaling-htc">Scaling Beyond Local HTC Capacity</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/checkpointing">Checkpointing Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/high-memory-jobs">Submitting High Memory Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/mpi-jobs">Running MPI Jobs</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
                 
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="troubleshooting">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshooting-collapse" aria-expanded="false" aria-controls="troubleshooting">
-                                    Troubleshooting
-                                </button>
-                            </h2>
-                            <div id="troubleshooting-collapse" class="accordion-collapse collapse " aria-labelledby="troubleshooting" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/dos-unix">Windows / Linux Incompatibility</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-test">Explore and Test Docker Containers</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
                     
                 
             </div>
@@ -930,7 +726,7 @@ space on <code>squid</code>, email the research computing facilitators at
         </div>
     </div>
 </div>
-</main>
+
     </main>
     <footer id="colophon" class="uw-footer">
     <div class="uw-footer-content">
