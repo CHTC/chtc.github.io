@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-setup" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-08-25T00:24:52+00:00" />
+<meta property="article:published_time" content="2023-08-25T22:22:53+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Setting Up Spack on HPC" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-08-25T00:24:52+00:00","datePublished":"2023-08-25T00:24:52+00:00","description":"CHTC uses Spack (https://github.com/spack/spack) for installing and managing software packages on the HPC cluster for all users to use, via the module command). Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software’s dependencies (similar to Conda and Miniconda).","headline":"Setting Up Spack on HPC","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-setup"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-setup"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-08-25T22:22:53+00:00","datePublished":"2023-08-25T22:22:53+00:00","description":"CHTC uses Spack (https://github.com/spack/spack) for installing and managing software packages on the HPC cluster for all users to use, via the module command). Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software’s dependencies (similar to Conda and Miniconda).","headline":"Setting Up Spack on HPC","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-setup"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-setup"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -252,7 +252,7 @@
 
             <p>CHTC uses Spack (<a href="https://github.com/spack/spack">https://github.com/spack/spack</a>) for installing and managing software packages on the HPC cluster for all users to use, via the <code>module</code> command). Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software’s dependencies (similar to Conda and Miniconda).</p>
 
-<p><strong>This guide describes how to set up a local copy of Spack and integrate it with the system installation, either for an individual user or for a group of users.</strong> For instructions on how to install packages with Spack, see our other guide, <a href="hpc-spack-install.md">Installing Software Using Spack</a>.</p>
+<p><strong>This guide describes how to set up a local copy of Spack and integrate it with the system installation, either for an individual user or for a group of users.</strong> For instructions on how to install packages with Spack, see our other guide, <a href="hpc-spack-install.html">Installing Software Using Spack</a>.</p>
 
 <blockquote>
   <p>If your group has already set up a shared group installation of Spack, you can skip to the end of this guide: <a href="#3-using-a-shared-group-installation">3. Using a Shared Group Installation</a>.</p>
@@ -328,7 +328,7 @@
 
 <p>This should show a list of packages, including those you see when you run the <code>module avail</code> command. A total of ~120 packages should be listed.</p>
 
-<p>You are now ready to use Spack for installing the packages that you need! See the instructions in <a href="hpc-spack-install.md">Installing Software Using Spack</a>.</p>
+<p>You are now ready to use Spack for installing the packages that you need! See the instructions in <a href="hpc-spack-install.html">Installing Software Using Spack</a>.</p>
 
 <h1 id="2-setting-up-spack-for-group-use">2. Setting Up Spack for Group Use</h1>
 
@@ -415,7 +415,7 @@
 
 <h3 id="iii-updating-location-of-module-files">iii. Updating location of module files</h3>
 
-<p>If you or someone in your group is interested in creating custom modules following the instructions in the guide <a href="hpc-spack-modules.md">Creating Custom Modules Using Spack</a>, then you should update the location where the module files will be saved. You can update the location with the following commands</p>
+<p>If you or someone in your group is interested in creating custom modules following the instructions in the guide <a href="hpc-spack-modules.html">Creating Custom Modules Using Spack</a>, then you should update the location where the module files will be saved. You can update the location with the following commands</p>
 
 <pre class="term"><code>spack config add 'modules:default:roots:lmod:/home/groups/yourGroupName/spack_modules'
 spack config add 'modules:default:roots:tcl:/home/groups/yourGroupName/spack_modules'
@@ -423,14 +423,14 @@ spack config add 'modules:default:roots:tcl:/home/groups/yourGroupName/spack_mod
 
 <p>where you replace <code>yourGroupName</code> with your group’s name.</p>
 
-<p>You are now ready to use Spack for installing the packages that you need! See the instructions in <a href="hpc-spack-install.md">Installing Software Using Spack</a>.</p>
+<p>You are now ready to use Spack for installing the packages that you need! See the instructions in <a href="hpc-spack-install.html">Installing Software Using Spack</a>.</p>
 
 <h1 id="3-using-a-shared-group-installation">3. Using a Shared Group Installation</h1>
 
 <p><strong>Users who want to use a shared group installation of Spack, but who did not set up the installation</strong>, only need to modify their <code>~/.bash_profile</code> file with instructions regarding the path to the shared group installation and its configuration files.</p>
 
 <ol>
-  <li>Log in to the HPC cluster (<a href="connecting.md">Connecting to CHTC</a>).
+  <li>Log in to the HPC cluster (<a href="connecting.html">Connecting to CHTC</a>).
     <pre class="term"><code>ssh yourNetID@hpclogin3.chtc.wisc.edu
 </code></pre>
   </li>
@@ -464,7 +464,7 @@ export SPACK_USER_CONFIG_PATH=/home/groups/yourGroupName/.spack
   </li>
 </ol>
 
-<p>Once configured, you can follow the instructions in our guide <a href="hpc-spack-install.md">Installing Software Using Spack</a> to install or use already-installed packages in Spack.</p>
+<p>Once configured, you can follow the instructions in our guide <a href="hpc-spack-install.html">Installing Software Using Spack</a> to install or use already-installed packages in Spack.</p>
 
 <h2 id="a-switching-between-spack-installations">A. Switching Between Spack Installations</h2>
 
