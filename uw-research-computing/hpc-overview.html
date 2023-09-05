@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc-overview" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-09-05T15:52:12+00:00" />
+<meta property="article:published_time" content="2023-09-05T16:48:10+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="HPC Cluster Overview" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-09-05T15:52:12+00:00","datePublished":"2023-09-05T15:52:12+00:00","description":"Table of Contents High-Performance Computing at CHTC HPC User Policies HPC Hardware and Configuration Execute Nodes and Partitions Operating System and Software Data Storage and Management Tools for managing home and software space High-Performance Computing at CHTC","headline":"HPC Cluster Overview","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-overview"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-overview"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-09-05T16:48:10+00:00","datePublished":"2023-09-05T16:48:10+00:00","description":"Table of Contents High-Performance Computing at CHTC HPC User Policies HPC Hardware and Configuration Execute Nodes and Partitions Operating System and Software Data Storage and Management Tools for managing home and software space High-Performance Computing at CHTC","headline":"HPC Cluster Overview","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-overview"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-overview"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -299,72 +299,7 @@ resources (including non-CHTC services) that best fit your needs.</p>
 
 <h1 id="hpc-cluster-user-policies">HPC Cluster User Policies</h1>
 
-<p>Below is a list of policies that apply to all HPC users.</p>
-
-<p><strong>1. Minimize Work on the Login Nodes</strong> <br />
-The HPC Cluster login nodes have 
-limited computing resources that are occupied with running Slurm and managing job submission, 
-and are not suitable for testing your research software.</p>
-
-<p>Users may run basic data management commands (like <code>tar</code>, <code>cp</code>, <code>mkdir</code>) on the login nodes. The 
-execution of scripts, including cron, software, and software compilation on the login nodes
-is prohibited (and could VERY likely crash the head node). However, users may run small scripts 
-and commands (to compress data, create directories, etc.) that run within a few minutes, minimizing
-their use as much as possible. If you are unsure if your scripts are suitable 
-for running on the login nodes, consider using an interactive job or contact us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.</p>
-
-<p><strong>CHTC staff reserve the right to kill any long-running or problematic processes on the 
-head nodes and/or disable user accounts that violate this policy</strong></p>
-
-<p>Violation of these policies may result in suspension of your account.</p>
-
-<p><strong>2. The HPC Cluster is Reserved for MPI-enabled, Multi-node Jobs</strong> <br />
-HPC users should not run numerous jobs on the HPC Cluster that can individually finish 
-within 7 days or use less than 40 cores, given its 
-optimization for multi-cpu and multi-node/MPI work. Users may 
-be asked to transition individual jobs needing less than 40 cores 
- to our high-throughput computing (HTC) system, where they 
-will also experience better turnaround.</p>
-
-<p><strong>3. Maintain Copies of Essential Data in non-CHTC Locations</strong>  <br />
-The HPC Cluster filesystem should be treated as temporary/scratch space, and only files necessary for 
-actively-running jobs should be kept on the filesystem. Once your jobs complete, 
-your files should be removed from the cluster filesystem. Campus researchers have several options 
-for persistent data storage solutions, including <a href="https://it.wisc.edu/services/researchdrive/">ResearchDrive</a> 
-which provides up to 5TB of storage for free per research PI. Our guide 
-<a href="transfer-data-researchdrive.html">Transferring Files Between CHTC and ResearchDrive</a> provides 
-step-by-step instructions for transferring your data between HPC Cluster and ResearchDrive.</p>
-
-<p>CHTC Staff reserve the right to remove any significant amounts of data on the HPC Cluster 
-in our efforts to maintain filesystem performance for all users, though we will always 
-first ask users to remove excess data and minimize file counts before taking additional action.</p>
-
-<p><strong>NOTE: CHTC is not HIPAA-compliant</strong> and users should not bring HIPAA data into 
-CHTC systems. If you have data security concerns or any questions about 
-data security in CHTC, please get in touch! We’ll be happy to discuss.</p>
-
-<p><strong>4. Fair-share Policy</strong><br />
-To promote fair access to HPC computing resources, all users are limited to 10 concurrently 
-running jobs (if you need to queue more, please get in touch). Additionally, users are restricted to a total of 720 cores 
-across all running jobs (core limits do not apply on research group partitions of
-more than 720 cores).</p>
-
-<p>When determining which order to run jobs, the following policies are applies, in order or significance
-to job priority determinations:</p>
-
-<p>A. User priority decreases as the user accumulates hours of CPU time over the last 21 days, across 
-all queues. This “fair-share” policy means that users who have run many/larger jobs in the near-past 
-will have a lower priority, and users with little recent activity will see their waiting jobs start sooner. 
-(The cluster does not have a strict “first-in-first-out” queue policy.)</p>
-
-<p>B. Job priority increases with job wait time. After the history-based user priority calculation in (A), 
-the next most important factor for each job’s priority is the amount of time that each job has already 
-waited in the queue. For all the jobs of a single user, these jobs will most closely follow a “first-in-first-out” policy.</p>
-
-<p>C. Job priority increases with job size, in cores. This least important factor slightly favors larger jobs, so that 
-the scheduler can take advantage when large numbers of newly-available nodes happen to become available (requiring less 
-wasted time to deliberately drain nodes for larger jobs). So, among a user’s jobs submitted at roughly the same time, 
-a larger job may run first, if the number of nodes necessary for the larger job is already available.</p>
+<p>See our <a href="user-expectations.html">User Policies and Expectations</a> for details on general CHTC and HPC cluster policies.</p>
 
 <h1 id="hpc-hardware-and-configuration">HPC Hardware and Configuration</h1>
 
@@ -475,6 +410,30 @@ jobs. By default, pre-empted jobs will be re-queued (to run again) if they were 
 an sbatch script.</p>
   </li>
 </ul>
+
+<h3 id="fair-share-allocation">Fair Share Allocation</h3>
+
+<p>To promote fair access to HPC computing resources, all users are limited to 10 concurrently 
+running jobs (if you need to queue more, please get in touch). Additionally, users are restricted to a total of 720 cores 
+across all running jobs (core limits do not apply on research group partitions of
+more than 720 cores).</p>
+
+<p>When determining which order to run jobs, the following policies are applies, in order or significance
+to job priority determinations:</p>
+
+<p>A. User priority decreases as the user accumulates hours of CPU time over the last 21 days, across 
+all queues. This “fair-share” policy means that users who have run many/larger jobs in the near-past 
+will have a lower priority, and users with little recent activity will see their waiting jobs start sooner. 
+(The cluster does not have a strict “first-in-first-out” queue policy.)</p>
+
+<p>B. Job priority increases with job wait time. After the history-based user priority calculation in (A), 
+the next most important factor for each job’s priority is the amount of time that each job has already 
+waited in the queue. For all the jobs of a single user, these jobs will most closely follow a “first-in-first-out” policy.</p>
+
+<p>C. Job priority increases with job size, in cores. This least important factor slightly favors larger jobs, so that 
+the scheduler can take advantage when large numbers of newly-available nodes happen to become available (requiring less 
+wasted time to deliberately drain nodes for larger jobs). So, among a user’s jobs submitted at roughly the same time, 
+a larger job may run first, if the number of nodes necessary for the larger job is already available.</p>
 
 <h1 id="data-storage-and-management">Data Storage and Management</h1>
 

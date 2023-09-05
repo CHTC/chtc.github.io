@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/use-submit-node" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-09-05T15:52:12+00:00" />
+<meta property="article:published_time" content="2023-09-05T16:48:10+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Policies for Using HTC Submit Servers" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-09-05T15:52:12+00:00","datePublished":"2023-09-05T15:52:12+00:00","description":"If you have not yet requested a CHTC account and met with a Research Computing Facilitator, please fill out this form.","headline":"Policies for Using HTC Submit Servers","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/use-submit-node"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/use-submit-node"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-09-05T16:48:10+00:00","datePublished":"2023-09-05T16:48:10+00:00","description":"If you have not yet requested a CHTC account and met with a Research Computing Facilitator, please fill out this form.","headline":"Policies for Using HTC Submit Servers","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/use-submit-node"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/use-submit-node"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -279,40 +279,19 @@ VPN</a>.</p>
 logging in and transferring files, see our <a href="connecting.html">Connecting to CHTC
 guide</a>.</p>
 
-<h2 id="data-practices">Data Practices</h2>
+<h2 id="general-user-policies">General User Policies</h2>
 
-<p><strong>CHTC data locations are not backed up</strong>, and users should
-treat CHTC compute systems as temporary storage locations for <em>active</em>,
-currently-queued computational work. Users should remove data from CHTC
-systems upon completion of a batch of computational work and keep copies of
-all essential files in a non-CHTC location. CHTC staff reserve the right
-to delete data from any CHTC data location at at any time, to preserve
-performance, and are not responsible for data loss or file system
-corruption, which are possible in the absence of back-ups.</p>
+<p>See our <a href="user-expectations.html">User Policies and Expectations</a> for details on general CHTC policies.</p>
 
-<p><strong>Note: CHTC is not HIPAA-compliant</strong> and users should not bring HIPAA data into 
-CHTC services. If you have data security concerns or any questions about 
-data security in CHTC, please get in touch! We’ll be happy to discuss.</p>
+<h2 id="htc-system-specific-limits">HTC System Specific Limits</h2>
 
-<h2 id="submit-server-user-policies">Submit Server User Policies</h2>
-
-<p>Because our submit servers are shared by many CHTC users, anyone with an
-account on CHTC's submit servers should follow the below policies, in
-order to keep the submit servers functional and usable by everyone:</p>
+<p>Below are some of the default limits on CHTC’s HTC system. Note that as a large-scale 
+computing center, we want you to be able to run at a large scale - often much larger 
+than these defaults. Please contact the facilitation team whenever you encounter one 
+of these limits so we can adjust your account settings or discuss alternative ways to 
+achieve your computing goals.</p>
 
 <ul>
-  <li><strong>Do not share accounts</strong>. We are happy to make a new account
-for any user. Sharing accounts is against campus policy and,
-therefore, CHTC policy. Accounts that we notice being shared will be
-immediately disabled and a meeting with the PI (faculty advisor)
-will be necessary to reinstate the account.</li>
-  <li><strong>Do not run programs on the submit servers.</strong> The submit server is
-kept plenty busy just managing HTCondor jobs. Computational work,
-like compiling or testing code, should be submitted as HTCondor jobs. See our
-<a href="guides.html">online guides</a> for the best compiling practices.
-Small scripts and commands (to compress data, create directories,
-etc.) that run within a few minutes on the submit server are okay,
-but their use should be minimized when possible.</li>
   <li><strong>Jobs with long runtimes.</strong> There is a default run limit of 72
 hours for each job queued in the HTC System, once it starts running.
 Jobs longer than this will be placed in HTCondor's "hold" state.
@@ -335,10 +314,6 @@ normal file transfer mechanism ("transfer_input_files") is good for
 files up to 100MB in size (or 500MB total, per job). For jobs with larger
 files, please see our guide on <a href="file-availability.html">File Availability</a> 
 Options, and contact us to make arrangements.</li>
-  <li><strong>No scheduled jobs.</strong> Local execution and job submission should be
-manual (using <code>condor_submit</code>), or use a DAG or other approved workflow tool. Do not use cron 
-or other scripts that run on the submit server to automate job submission. 
-Contact us if you need help with job scheduling or workflows.</li>
 </ul>
 
         </div>
