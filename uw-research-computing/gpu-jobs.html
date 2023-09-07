@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/gpu-jobs" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-09-07T00:25:14+00:00" />
+<meta property="article:published_time" content="2023-09-07T21:04:00+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Submitting Jobs That Use GPUs" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-09-07T00:25:14+00:00","datePublished":"2023-09-07T00:25:14+00:00","description":"Overview","headline":"Submitting Jobs That Use GPUs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/gpu-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/gpu-jobs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-09-07T21:04:00+00:00","datePublished":"2023-09-07T21:04:00+00:00","description":"Overview","headline":"Submitting Jobs That Use GPUs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/gpu-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/gpu-jobs"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -272,24 +272,6 @@ determine:</p>
   <li><a href="#e-prepare-software-using-gpus">Prepare software using GPUs</a></li>
 </ul>
 
-<blockquote>
-  <h3 id="recent-changes-as-of-june-2022">Recent Changes (as of June 2022)</h3>
-
-  <p>Due to recent updates in HTCondor, specific GPU qualities like GPU memory and compute “capability” are being tracked by HTCondor in a different way. If your jobs require specific GPU qualities like these, the mechanism for requesting them in jobs has changed. 
-Details are included in the section on <a href="#1-choose-gpu-related-submit-file-options">Choosing GPU-Related Submit File Options</a>. The previous recommendation of 
-using job <code>requirements</code> will be phased out at a later date.</p>
-</blockquote>
-
-<blockquote>
-  <h3 id="new-operating-system-as-of-august-2022">New Operating System (as of August 2022)</h3>
-
-  <p>The default operating system used on HTC servers is changing: <a href="/uw-research-computing/os-transition-htc">Transition 
-Page</a>
-To access as many GPUs as possible, we recommend testing your code on both 
-operating systems currently in use at CHTC and then using the requirements
-shown in the linked guide to run on servers running either Linux version.</p>
-</blockquote>
-
 <h1 id="a-available-chtc-gpus">A. Available CHTC GPUs</h1>
 
 <h2 id="1-gpu-lab">1. GPU Lab</h2>
@@ -346,6 +328,14 @@ the capacity of the GPU Lab to run their work.</p>
     <td>A100-SXM4-80GB</td>
     <td>8.0</td>
     <td>80GB</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>gpu4000 - gpu4002</td>
+    <td>10</td>
+    <td>L40</td>
+    <td>8.9</td>
+    <td>45GB</td>
   </tr>
 </table>
 
