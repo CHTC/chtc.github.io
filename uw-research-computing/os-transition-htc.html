@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HTC System Transition to a New Linux Version (CentOS Stream 8)</title>
+<title>Using Custom Linux Versions in CHTC</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>HTC System Transition to a New Linux Version (CentOS Stream 8) | CHTC</title>
+<title>Using Custom Linux Versions in CHTC | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="HTC System Transition to a New Linux Version (CentOS Stream 8)" />
+<meta property="og:title" content="Using Custom Linux Versions in CHTC" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Starting on August 1, 2022, CHTC’s high throughput computing (HTC) system began upgrading the Linux distribution and version we use on our servers. CentOS Stream 8 is now the operating system used on the majority of our servers, and the default requested operating system by jobs, unless specified otherwise." />
-<meta property="og:description" content="Starting on August 1, 2022, CHTC’s high throughput computing (HTC) system began upgrading the Linux distribution and version we use on our servers. CentOS Stream 8 is now the operating system used on the majority of our servers, and the default requested operating system by jobs, unless specified otherwise." />
+<meta name="description" content="This" />
+<meta property="og:description" content="This" />
 <link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/os-transition-htc" />
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/os-transition-htc" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-09-22T00:26:08+00:00" />
+<meta property="article:published_time" content="2023-09-22T19:33:31+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="HTC System Transition to a New Linux Version (CentOS Stream 8)" />
+<meta property="twitter:title" content="Using Custom Linux Versions in CHTC" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-09-22T00:26:08+00:00","datePublished":"2023-09-22T00:26:08+00:00","description":"Starting on August 1, 2022, CHTC’s high throughput computing (HTC) system began upgrading the Linux distribution and version we use on our servers. CentOS Stream 8 is now the operating system used on the majority of our servers, and the default requested operating system by jobs, unless specified otherwise.","headline":"HTC System Transition to a New Linux Version (CentOS Stream 8)","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/os-transition-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/os-transition-htc"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-09-22T19:33:31+00:00","datePublished":"2023-09-22T19:33:31+00:00","description":"This","headline":"Using Custom Linux Versions in CHTC","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/os-transition-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/os-transition-htc"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -248,82 +248,43 @@
     <div class="row justify-content-center">
         <div class="col-12 col-lg-9 mw-1000">
             <h1 class="uw-mini-bar mb-4">
-    HTC System Transition to a New Linux Version (CentOS Stream 8)
+    Using Custom Linux Versions in CHTC
 </h1>
 
-            <p>Starting on August 1, 2022, CHTC’s high throughput computing (HTC) system began upgrading
-the Linux distribution and version we use on our servers. <strong>CentOS Stream 8 is now 
-the operating system used on the majority of our servers, and the default requested 
-operating system by jobs, unless specified otherwise.</strong></p>
-
-<p>Note that this page only applies to a transition on the HTC system (submitting jobs 
-with HTCondor). The high performance computing (HPC) cluster will be upgraded in 
-the near future as well and have a separate transition 
-page. <em>Users of the HPC cluster will be notified</em> when the transition to CentOS Stream 8 begins on the HPC system.</p>
-
-<p>All updates to the HTC system will be reflected on this page; significant changes may 
-also include a notification to the <code>chtc-users</code> mailing list.</p>
-
-<h2 id="important-dates">Important Dates</h2>
-
-<ul>
-  <li><strong>August 2022</strong>: HTC system will support both CentOS 7 and CentOS Stream 8. By default, 
-all jobs will continue to match to servers running CentOS 7, however,
-<strong>users should begin testing jobs on servers running CentOS Stream 8</strong>. These servers are also 
-available for general use.</li>
-  <li><strong>September 2022</strong>: More than 75% of CHTC capacity will run on CentOS Stream 8.</li>
-  <li><strong>September 29, 2022</strong>: Default operating system requirements for jobs will change from CentOS 7 to 
-CentOS Stream 8.</li>
-</ul>
-
-<h2 id="what-you-need-to-do">What You Need to Do</h2>
-
-<ul>
-  <li><strong>If your jobs were running successfully before, but now failing</strong>, scale down your submissions 
-and run a few test jobs on the new operating system (now the default). If you absolutely 
-HAVE to keep running, you can continue to (temporarily) run on CentOS 7 by following 
-the instructions <a href="#requesting-a-specific-operating-system">below</a></li>
-  <li><strong>If you are having trouble getting your jobs to run successfully on the new operating system</strong>, 
-please contact the facilitation team at chtc@cs.wisc.edu or <a href="/uw-research-computing/get-help.html">come to office hours</a></li>
-  <li><strong>If you would like to access as much computing capacity as possible</strong>, consider using 
-running your jobs on servers with either CentOS 7 or CentOS Stream 8. See the <a href="#requesting-a-specific-operating-system">options below</a> 
-for opting into both; note that your code will likely need to have been compiled on the older 
-operating system version.</li>
-</ul>
-
-<h2 id="current-status-of-the-htc-system">Current Status of the HTC System</h2>
-
-<h3 id="capacity-available-in-the-htc-system">Capacity Available in the HTC System</h3>
-
-<table class="gtable">
-  <tr>
-    <th>Linux Version</th>
-    <th>Percent of Pool Capacity</th>
-    <th>Notable Servers</th>
-  </tr>
-  <tr>
-    <td>CentOS 7</td> 
-    <td>33%</td>
-    <td>Build nodes, range of GPU servers, high memory nodes</td>
-  </tr>
-  <tr>
-    <td>CentOS Stream 8</td> 
-    <td>67%</td>
-    <td>Build node, servers with A100 GPUs</td>
-  </tr>
-</table>
+            <p>This</p>
 
 <h3 id="default-operating-system">Default Operating System</h3>
 
 <p>By default, CHTC-managed submit servers automatically add a job 
 requirement that requires jobs to run on servers running our primary operating system,
-CentOS 7, unless otherwise specified by the user. To override this default, see below: <a href="#requesting-a-specific-operating-system">Requesting a Specific
-Operating System</a>.</p>
+CentOS 8, unless otherwise specified by the user. There are two options to override this
+default:</p>
 
-<h2 id="requesting-a-specific-operating-system">Requesting a Specific Operating System</h2>
+<ol>
+  <li><a href="#option-1-using-a-container-recommended">Using a Container (recommended)</a></li>
+  <li><a href="#option-2-requesting-a-specific-operating-system">Requesting a Specific
+Operating System</a>.</li>
+</ol>
+
+<h2 id="option-1-using-a-container-recommended">Option 1: Using a Container (Recommended)</h2>
+
+<p>Using a container to provide a base version of Linux will allow you to 
+run on any nodes in the HTC system, and not limit you to a subset of nodes.</p>
+
+<p>After finding a container with the desired version of Linux, just follow our instructions 
+for <a href="docker-jobs.html">Docker</a> or <a href="htc-singularity.html">Singularity/Apptainer</a> jobs.</p>
+
+<p>Note that the default Linux containers on Docker Hub are often missing commonly installed 
+packages. Our collaborators in OSG Services maintain a few curated containers with a 
+greater selection of installed tools that 
+can be seen here: <a href="https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/#base">Base Linux Containers</a></p>
+
+<h2 id="option-2-requesting-a-specific-operating-system">Option 2: Requesting a Specific Operating System</h2>
 
 <p>At any time, you can require a specific operating system 
-version (or versions) for your jobs.</p>
+version (or versions) for your jobs. This option is more limiting because 
+you are restricted to operating systems used by CHTC, and the number of nodes 
+running that operating system.</p>
 
 <h3 id="use-both-centos-7-previous-default-and-centos-stream-8-current-default">Use Both CentOS 7 (previous default) and CentOS Stream 8 (current default)</h3>
 
@@ -392,16 +353,11 @@ data staging:</p>
 
                         <div class="accordion-item">
                             <h2 class="accordion-header mt-0" id="basics-and-policies">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
                                     Basics and Policies
                                 </button>
                             </h2>
-                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse show " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/os-transition-htc">HTC System Transition to a New Linux Version (CentOS Stream 8)</a>
-                                    </div>
+                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
                                 
 
                                     <div class="document-link-wrapper bg-light">
@@ -599,11 +555,11 @@ data staging:</p>
 
                         <div class="accordion-item">
                             <h2 class="accordion-header mt-0" id="special-use-cases">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-cases-collapse" aria-expanded="false" aria-controls="special-use-cases">
+                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-cases-collapse" aria-expanded="false" aria-controls="special-use-cases">
                                     Special Use Cases
                                 </button>
                             </h2>
-                            <div id="special-use-cases-collapse" class="accordion-collapse collapse " aria-labelledby="special-use-cases" data-bs-parent="#guide-sidebar">
+                            <div id="special-use-cases-collapse" class="accordion-collapse collapse show " aria-labelledby="special-use-cases" data-bs-parent="#guide-sidebar">
                                 
 
                                     <div class="document-link-wrapper bg-light">
@@ -633,6 +589,11 @@ data staging:</p>
 
                                     <div class="document-link-wrapper bg-light">
                                         <a class="" href="/uw-research-computing/mpi-jobs">Running MPI Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="fw-bolder" href="/uw-research-computing/os-transition-htc">Using Custom Linux Versions in CHTC</a>
                                     </div>
                                 
                             </div>
