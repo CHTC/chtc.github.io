@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Adding News Articles</title>
+<title>News</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,21 +22,21 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Adding News Articles | CHTC</title>
+<title>News | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="Adding News Articles" />
+<meta property="og:title" content="News" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
 <meta property="og:description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/staff/docs/Adding_News_Articles.html" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/staff/docs/Adding_News_Articles.html" />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/news-navigation.html" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/news-navigation.html" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Adding News Articles" />
+<meta property="twitter:title" content="News" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"Adding News Articles","url":"https://chtc.cs.wisc.edu/staff/docs/Adding_News_Articles.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"News","url":"https://chtc.cs.wisc.edu/news-navigation.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -250,236 +250,35 @@
 
     <main id="main" style="min-height: 60vh;">
         <main id="main" style="min-height: 60vh;">
-    <div class="container-xxl mb-5">
+    <div class="container-xxl">
     <div class="row justify-content-center">
         <div class="col mw-1000">
-            <h1 class="uw-mini-bar mb-4">
-    Adding News Articles
+<h1 class="uw-mini-bar mb-4">
+    News
 </h1>
-
-            <p>Table of Contents</p>
-<ul>
-  <li><a href="#using-markdown">Using Markdown</a></li>
-  <li><a href="#adding-article-to-the-website">Adding Articles</a></li>
-  <li><a href="#using-images">Using Images</a>
-    <ul>
-      <li><a href="#adding-images">Adding Images</a></li>
-      <li><a href="#reducing-image-size">Reducing Image Size</a></li>
-      <li><a href="#positioning-images">Positioning Images</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="using-markdown">Using Markdown</h3>
-
-<p>You will be using Markdown to write all news articles. Markdown is a popular markup
-language that is converted to HTML before being displayed on the website.</p>
-
-<p>A good cheatsheet can be found <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">here</a> which contains
-the markdown syntax and examples of how it looks when converted to html.</p>
-
-<h3 id="adding-article-to-the-website">Adding Article To the Website</h3>
-
-<p>After you have written your article in the text editor of your choice and are ready to have it on the website you will first need to create a preview branch.</p>
-
-<p>All of our websites have a preview location where you can view changes before adding them to the main website. I will use PATh for the example below, but this is the same process for CHTC, HTCondor and OSG as well.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Project</th>
-      <th>Github Repo</th>
-      <th>Preview URL Prefix</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>CHTC</td>
-      <td><a href="https://github.com/CHTC/chtc-website-source">https://github.com/CHTC/chtc-website-source</a></td>
-      <td><a href="https://chtc.github.io/web-preview/">https://chtc.github.io/web-preview/</a></td>
-    </tr>
-    <tr>
-      <td>HTCondor</td>
-      <td><a href="https://github.com/htcondor/htcondor-web">https://github.com/htcondor/htcondor-web</a></td>
-      <td><a href="https://htcondor.com/web-preview/">https://htcondor.com/web-preview/</a></td>
-    </tr>
-    <tr>
-      <td>OSG</td>
-      <td><a href="https://github.com/opensciencegrid/opensciencegrid.github.io">https://github.com/opensciencegrid/opensciencegrid.github.io</a></td>
-      <td><a href="https://opensciencegrid.org/web-preview/">https://opensciencegrid.org/web-preview/</a></td>
-    </tr>
-    <tr>
-      <td>PATh</td>
-      <td><a href="https://github.com/path-cc/path-cc.github.io">https://github.com/path-cc/path-cc.github.io</a></td>
-      <td><a href="https://path-cc.io/web-preview/">https://path-cc.io/web-preview/</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<ol>
-  <li>Go to the Github repo and Create a preview branch
-    <ul>
-      <li>Branch name must start with ‘preview-‘ followed by a descriptive term.
-        <ul>
-          <li>Example: You write an article about HTC and Genes, you name the branch ‘preview-gene-article’.</li>
-        </ul>
-      </li>
-      <li><img src="../../images/docs/create_preview_branch.jpg" alt="Create a Github Branch" /></li>
-    </ul>
-  </li>
-  <li>Add your News article
-    <ol>
-      <li>Check that are in your new branch
-        <ul>
-          <li>The previous step will put you in your new preview branch. You can check by looking at the branch name displayed.</li>
-        </ul>
-      </li>
-      <li>Go into the news article directory</li>
-      <li>Add new file with title ‘YYYY-MM-DD-title.md’
-        <ul>
-          <li>Example: For the HTC and Genes article -&gt; ‘2021-12-25-htc-and-genes.md’ if you are going to publish the article on Christmas 2021.</li>
-        </ul>
-      </li>
-      <li>Copy and Paste in the template
-        <pre><code>  ---
-  title:                          # Article Title
-  date: 9999-12-31                # Article Date - In format YYYY-MM-DD - Article will not show on website until Article Data &gt;= Current Date
-  excerpt:                        # Article Excerpt - An abstract of the article
-  image_src:                      # Path to the image to be displayed in article cards
-  image_alt:                      # A description of this image
-  author:                         # Article Author
-  published: false                # If this article should be on the website, change to true when ready to publish
-  --- 
-         
-  Content
-</code></pre>
-      </li>
-      <li>Fill in all the front matter and replace ‘Content’ with your article.
-<img src="../../images/docs/add-article.png" alt="Demo article filled in" /></li>
-    </ol>
-  </li>
-  <li>Review your Preview
-    <ul>
-      <li>Look for your article preview at <Project Preview="" URL="" Prefix=""><branch-name></branch-name></Project></li>
-      <li>Example for PATh: https://path-cc.io/web-preview/preview-helloworld
-        <ul>
-          <li>Project Preview URL Prefix: https://path-cc.io/web-preview/</li>
-          <li>Branch Name: preview-helloworld
-<img src="../../images/docs/preview-demo.png" alt="Demo Preview" /></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>Create a Pull Request
-    <ul>
-      <li>When the article is ready to go live you must create a pull request from your branch into ‘master’.</li>
-      <li>Comment the preview URL in the Pull Request for easy review.
-<img src="../../images/docs/create_a_pr.jpg" alt="Create a PR" /></li>
-    </ul>
-  </li>
-</ol>
-
-<h3 id="using-images">Using Images</h3>
-
-<h3 id="adding-images">Adding Images</h3>
-
-<p>Images can be added using either MD or HTML.</p>
-
-<ol>
-  <li>Markdown
-    <ul>
-      <li>To add an image in Markdown your user the syntax <code>![Alternate Caption](/image/path)</code> excluding the single quotes.</li>
-      <li>You can add classes to adjust how the image appears by using <code>{: .&lt;class-name&gt; }</code> above.
-        <ul>
-          <li>All classes that can be used can be found <a href="https://getbootstrap.com/docs/5.0/utilities/api/">here</a>, but the ones you are most likely to use are <a href="https://getbootstrap.com/docs/5.0/utilities/float/">float</a>, and <a href="https://getbootstrap.com/docs/5.0/content/images/">image</a> classes.</li>
-        </ul>
-      </li>
-      <li>Example: The below markdown shows the demo image with the class <code>float-right</code> which positions the image to the right of the text.
-        <pre><code class="language-markdown">  {: .float-right }
-  ![Demonstration Image](/images/docs/demo_image.jpg)
-</code></pre>
-      </li>
-    </ul>
-  </li>
-  <li>HTML
-    <ul>
-      <li>Images added with html will use the ‘<a href="(https://www.w3schools.com/tags/tag_img.asp)">img</a>’ tag.</li>
-      <li>The syntax for this is:
-        <pre><code>  &lt;img class="optional-class" src="/path/to/image" alt="Description of image for the visually impaired"
-</code></pre>
-      </li>
-      <li>Using HTML gives you more options such as having <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure">figure captions</a>
-        <pre><code class="language-html">  &lt;figure&gt;
-     &lt;img src="/path/to/image" alt="Description"&gt;
-      &lt;figcaption&gt;The image caption&lt;/figcaption&gt;
-  &lt;/figure&gt;
-</code></pre>
-      </li>
-    </ul>
-  </li>
-</ol>
-
-<h3 id="reducing-image-size">Reducing Image Size</h3>
-
-<p>High definition images can take up space that slows down the website when it loads, because of this it is important to reduce this footprint before adding them to the website.</p>
-
-<p>To keep the image size reasonable follow the rules below.</p>
-
-<ul>
-  <li>&lt;= 1000 pixels wide
-    <ul>
-      <li>This is the maximum website width, so any images wider will have unused resolution.</li>
-    </ul>
-  </li>
-  <li>Convert to jpg and reduce to reasonable size
-    <ul>
-      <li>This is up to you and changes picture to picture. Some pictures look fine when compressed, some don’t.</li>
-      <li>Reasonable target is ~200kb</li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="example">Example</h4>
-
-<p><img src="../../images/docs/demo_image.png" alt="2MB Image" /></p>
-
-<p>We will reduce this 2MB image to demonstrate.</p>
-
-<ol>
-  <li>
-    <p>Pull up the image in photoshop. If you don’t have photoshop contact IT as you do have free access.</p>
-  </li>
-  <li>
-    <p>Go to Export as…
-<img src="../../images/docs/Export%20As.jpg" alt="Export as Location On Mac" /></p>
-  </li>
-  <li>
-    <p>Update the Values to reduce size.
-<img src="../../images/docs/demo_size_reduction.jpg" alt="Photoshop image with updated values" /></p>
-  </li>
-  <li>
-    <p>Use your new compressed image in the article.
-<img src="../../images/docs/demo_image.jpg" alt="Compressed Image" /></p>
-  </li>
-</ol>
-
-<h3 id="positioning-images">Positioning Images</h3>
-
-<p>To position images on the page you must use classes.
-For markdown this means including <code>[: .&lt;class&gt; }</code> above the image syntax, and
-for html this means adding <code>class="&lt;class&gt;"</code> inside the html tag.</p>
-
-<p>Potential classes that can be used to position the image come from <a href="https://getbootstrap.com/docs/5.0/utilities/api/">Bootstrap Utilities</a>.</p>
-
-<p>The ones you will find the most helpful are:</p>
-<ol>
-  <li><a href="https://getbootstrap.com/docs/5.0/utilities/float/&quot;">Floats</a></li>
-  <li><a href="https://getbootstrap.com/docs/5.0/content/images/">Image Specific</a></li>
-</ol>
-
 
         </div>
     </div>
+</div>
+
+<div class="container-xxl">
+<div class="row justify-content-center">
+<div class="col mw-1000" markdown="block">
+
+<aside class="uw-sidebar">
+<button class="uw-button-unstyle uw-side-nav-button"><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use></svg> Select a section…</button>
+
+<!-- Sidebar nav -->
+<div class="uw-side-nav">
+<ul>
+<li><a href="/news.html">News</a></li>
+<li><a href="/events.html">Events</a></li>
+<li><a href="/uw-research-computing/user-news.html">User News</a></li>
+</ul>
+</div>
+</aside>
+</div>
+</div>
 </div>
 </main>
     </main>
