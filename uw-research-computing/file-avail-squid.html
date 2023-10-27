@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/file-avail-squid" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-10-26T00:25:43+00:00" />
+<meta property="article:published_time" content="2023-10-27T00:25:46+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Transfer Large Input Files Via Squid" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-26T00:25:43+00:00","datePublished":"2023-10-26T00:25:43+00:00","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"Transfer Large Input Files Via Squid","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-squid"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-squid"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-27T00:25:46+00:00","datePublished":"2023-10-27T00:25:46+00:00","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"Transfer Large Input Files Via Squid","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-squid"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-squid"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -344,7 +344,7 @@ address.</p>
 </div>
 </div>
 
-<p><a name="Appli"></a></p>
+<p><span name="Appli"></span></p>
 
 <h2 id="1-applicability"><strong>1. Applicability</strong></h2>
 
@@ -413,13 +413,13 @@ file system corruption.<br />
   space</a> for large-file staging.</li>
 </ul>
 
-<p><a name="use"></a></p>
+<p><span name="use"></span></p>
 
 <h2 id="2-using-squid-to-deliver-input-files"><strong>2. Using SQUID to Deliver Input Files</strong></h2>
-<p><a name="request"></a></p>
+<p><span name="request"></span></p>
 <ol>
   <li>
-    <p><strong>Request a directory in SQUID</strong>. Write to <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> describing the data you'd like to place in SQUID, and indicating your username and submit server hostname (i.e. submit-5.chtc.wisc.edu).<a name="place"></a></p>
+    <p><strong>Request a directory in SQUID</strong>. Write to <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> describing the data you'd like to place in SQUID, and indicating your username and submit server hostname (i.e. submit-5.chtc.wisc.edu).<span name="place"></span></p>
   </li>
   <li>
     <p><strong>Place files within your <code>/squid/username</code> directory</strong> via a CHTC
@@ -443,7 +443,7 @@ server:</p>
   </li>
   <li>
     <p><strong>Have HTCondor download the file to the working job</strong> using the
-<code>http://proxy.chtc.wisc.edu/SQUID</code> address in the <a name="have"></a>
+<code>http://proxy.chtc.wisc.edu/SQUID</code> address in the <span name="have"></span>
 transfer_input_files line of your submit file:</p>
 
     <pre><code class="language-{.sub}">transfer_input_files = other_file1,other_file2,http://proxy.chtc.wisc.edu/SQUID/username/large_file.txt

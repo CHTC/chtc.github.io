@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/connecting" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-10-26T00:25:43+00:00" />
+<meta property="article:published_time" content="2023-10-27T00:25:46+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Connecting to CHTC Using CHTC’s HTC Submit Nodes" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-26T00:25:43+00:00","datePublished":"2023-10-26T00:25:43+00:00","description":"This guide assumes that you have already gotten a CHTC account for either our high throughput or high performance compute systems. If you haven&#39;t, see our getting started page.","headline":"Connecting to CHTC Using CHTC’s HTC Submit Nodes","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/connecting"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/connecting"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-27T00:25:46+00:00","datePublished":"2023-10-27T00:25:46+00:00","description":"This guide assumes that you have already gotten a CHTC account for either our high throughput or high performance compute systems. If you haven&#39;t, see our getting started page.","headline":"Connecting to CHTC Using CHTC’s HTC Submit Nodes","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/connecting"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/connecting"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -264,7 +264,7 @@ throughput or high performance compute systems. If you haven't, see our
 <div class="uw-directory">
 
       <ol>
-        <li><a href="">Accessing the Submit Servers</a></li>
+        <li><a href="#access">Accessing the Submit Servers</a></li>
         <li><a href="#login">Logging In</a>
           <ul>
             <li><a href="#login-ssh">On the command line</a></li>
@@ -287,7 +287,7 @@ throughput or high performance compute systems. If you haven't, see our
 </div>
 </div>
 
-<p><a name="access"></a></p>
+<p><span name="access"></span></p>
 
 <h1 id="1-accessing-the-submit-servers"><strong>1. Accessing the Submit Servers</strong></h1>
 
@@ -353,14 +353,14 @@ can either:</p>
 then be able to log into CHTC as usual.</p>
 </blockquote>
 
-<p><a name="login"></a></p>
+<p><span name="login"></span></p>
 
 <h1 id="2-logging-in"><strong>2. Logging In</strong></h1>
 
 <p>Using the information described above, you can log in to servers two
 different ways -- from the command line or using an SSH program:</p>
 
-<p><a name="login-ssh"></a></p>
+<p><span name="login-ssh"></span></p>
 
 <h2 id="a-on-the-command-line">A. On the command line</h2>
 
@@ -374,7 +374,7 @@ to the appropriate server:</p>
 <p>You will be prompted for your password, and then for Duo 
 authentication.</p>
 
-<p><a name="login-putty"></a></p>
+<p><span name="login-putty"></span></p>
 
 <h2 id="b-using-an-ssh-program-windows">B. Using an SSH program (Windows)</h2>
 
@@ -395,7 +395,7 @@ password, and then to authenticate with Duo.</p>
 logged in session (by typing <code>exit</code>). Your jobs will run and return
 output without you needing to be connected.</p>
 
-<!-- <a name="ssh-keys"></a>
+<!-- <span name="ssh-keys"></span>
 
 C. Logging in automatically
 ---------------------------
@@ -414,7 +414,7 @@ possible to customize your SSH configuration in a way that allows you to “reus
 a connection for logging in again or moving files. More details are shown 
 in this guide: <a href="/uw-research-computing/configure-ssh.html">Automating CHTC Log In</a></p>
 
-<p><a name="transfer"></a></p>
+<p><span name="transfer"></span></p>
 
 <h1 id="3-transferring-files"><strong>3. Transferring Files</strong></h1>
 
@@ -422,7 +422,7 @@ in this guide: <a href="/uw-research-computing/configure-ssh.html">Automating CH
 hostname information for <a href="#login">logging in</a>, as well as understanding
 where your files are and where you would like them to go.</p>
 
-<p><a name="transfer-scp"></a></p>
+<p><span name="transfer-scp"></span></p>
 
 <h2 id="a-on-the-command-line-1">A. On the command line</h2>
 
@@ -454,7 +454,7 @@ this command to copy these files there:</p>
 (.tar.gz file) of your files and transfer that instead of each file
 individually.</p>
 
-<p><a name="transfer-winscp"></a></p>
+<p><span name="transfer-winscp"></span></p>
 
 <h2 id="b-using-a-file-transfer-program-windowsmac">B. Using a file transfer program (Windows/Mac)</h2>
 
@@ -473,7 +473,7 @@ and drop.</p>
 <p>There are other programs besides WinSCP that do this. Another that works
 on Mac and Windows is called <a href="https://cyberduck.io">Cyberduck</a>.</p>
 
-<p><a name="transfer-many"></a></p>
+<p><span name="transfer-many"></span></p>
 
 <h2 id="c-transferring-multiple-files">C. Transferring Multiple Files</h2>
 
@@ -496,7 +496,7 @@ either:</p>
 <pre class="term"><code>[alice@submit]$ unzip data_files.zip
 </code></pre>
 
-<p><a name="files"></a></p>
+<p><span name="files"></span></p>
 
 <h1 id="4-creating-and-editing-files-in-chtc"><strong>4. Creating and Editing Files in CHTC</strong></h1>
 
@@ -511,7 +511,7 @@ programs are:</p>
 </ul>
 
 <p><code>nano</code> is the most beginner-friendly, and <code>emacs</code> is the most advanced.
-<a href="http://swcarpentry.github.io/shell-novice/03-create/">This Software Carpentry
+<a href="https://swcarpentry.github.io/shell-novice/03-create.html">This Software Carpentry
 lesson</a> describes
 how to use <code>nano</code>, and there are many other resources online with
 instructions for these text editors.</p>
@@ -519,7 +519,7 @@ instructions for these text editors.</p>
 <p>Some of the file transfer programs mentioned <a href="#transfer-winscp">above</a>
 allow you to edit files on CHTC servers through the interface.</p>
 
-<p><a name="learn"></a></p>
+<p><span name="learn"></span></p>
 
 <h1 id="5-learning-about-the-command-line"><strong>5. Learning About the Command Line</strong></h1>
 
@@ -544,19 +544,19 @@ Unix Shell</a> lesson. In
 particular, we recommend the sections on:</p>
 
 <ul>
-  <li>understanding the filesystem and how to navigate it (<a href="http://swcarpentry.github.io/shell-novice/02-filedir.html">Navigating
-Files and
-Directories</a>)</li>
+  <li>understanding the filesystem and how to navigate it (<a href="https://swcarpentry.github.io/shell-novice/02-filedir.html">Navigating
+Files and Directories</a>)</li>
   <li>tab-completion (section entitled "Nelle's Pipeline, Organizing
-Files", in <a href="http://swcarpentry.github.io/shell-novice/02-filedir.html">Navigating Files and
+Files", in <a href="https://swcarpentry.github.io/shell-novice/02-filedir.html">Navigating Files and
 Directories</a>)</li>
-  <li>creating files (<a href="http://swcarpentry.github.io/shell-novice/03-create.html">Working With Files and
+  <li>creating files (<a href="https://swcarpentry.github.io/shell-novice/03-create.html">Working With Files and
 Directories</a>)</li>
-  <li>using the star wildcard (first part of <a href="http://swcarpentry.github.io/shell-novice/04-pipefilter.html">Pipes and
+  <li>using the star wildcard (first part of <a href="https://swcarpentry.github.io/shell-novice/04-pipefilter.html">Pipes and
 Filters</a>)</li>
-  <li>writing shell scripts (<a href="http://swcarpentry.github.io/shell-novice/06-script.html">Shell
+  <li>writing shell scripts (<a href="https://swcarpentry.github.io/shell-novice/06-script.html">Shell
 Scripts</a>)</li>
 </ul>
+
 
         </div>
         <div class="col-3 d-none d-lg-block">

@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-install" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-10-26T00:25:43+00:00" />
+<meta property="article:published_time" content="2023-10-27T00:25:46+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Installing Software Using Spack" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-26T00:25:43+00:00","datePublished":"2023-10-26T00:25:43+00:00","description":"CHTC uses Spack (https://github.com/spack/spack) for installing and managing software packages on the HPC cluster for all users to use, via the module command. Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software’s dependencies (similar to Conda and Miniconda).","headline":"Installing Software Using Spack","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-install"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-install"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-27T00:25:46+00:00","datePublished":"2023-10-27T00:25:46+00:00","description":"CHTC uses Spack (https://github.com/spack/spack) for installing and managing software packages on the HPC cluster for all users to use, via the module command. Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software’s dependencies (similar to Conda and Miniconda).","headline":"Installing Software Using Spack","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-install"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-install"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -323,7 +323,7 @@
 <pre class="term"><code>spack list nameOfProgram
 </code></pre>
 
-<p>where you should replace <code>nameOfProgram</code> with the program that you are interested in finding. Spack will search for the package and print out a list of all the packages that match that name. (The first time you run this command may take several minutes while Spack downloads a current list of packages that can be installed.) Alternatively, you can browse their website for currently available packages: <a href="https://spack.readthedocs.io/en/latest/package_list.html">https://spack.readthedocs.io/en/latest/package_list.html</a>.</p>
+<p>where you should replace <code>nameOfProgram</code> with the program that you are interested in finding. Spack will search for the package and print out a list of all the packages that match that name. (The first time you run this command may take several minutes while Spack downloads a current list of packages that can be installed.)</p>
 
 <p>To learn more about an available package, use the exact name of the program and run</p>
 
@@ -443,7 +443,7 @@ spack env activate yourEnvironmentName
 
 <p>and then enter <code>exit</code> to end the interactive session.</p>
 
-<p>To use the packages that you installed, follow the instructions in the next section, <a href="2-using-software-installed-in-spack">2. Using Software Installed in Spack</a>. If you want to create custom modules using the installed packages, see our guide <a href="hpc-spack-modules.html">Creating Custom Modules Using Spack</a>.</p>
+<p>To use the packages that you installed, follow the instructions in the next section, <a href="#2-using-software-installed-in-spack">2. Using Software Installed in Spack</a>. If you want to create custom modules using the installed packages, see our guide <a href="hpc-spack-modules.html">Creating Custom Modules Using Spack</a>.</p>
 
 <h2 id="e-removing-an-environment-and-uninstalling-unneeded-packages">E. Removing an Environment and Uninstalling Unneeded Packages</h2>
 

@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/matlab-jobs" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-10-26T00:25:43+00:00" />
+<meta property="article:published_time" content="2023-10-27T00:25:46+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Running Matlab Jobs" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-26T00:25:43+00:00","datePublished":"2023-10-26T00:25:43+00:00","description":"To best understand the below information, users should already have an understanding of:","headline":"Running Matlab Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/matlab-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/matlab-jobs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-27T00:25:46+00:00","datePublished":"2023-10-27T00:25:46+00:00","description":"To best understand the below information, users should already have an understanding of:","headline":"Running Matlab Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/matlab-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/matlab-jobs"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -282,7 +282,7 @@ relevant section):</p>
 function like <code>rand</code> or <code>randperm</code>, please see the section on <a href="#random">ensuring
 randomness</a> below.</p>
 
-<p><a name="supported"></a></p>
+<p><span name="supported"></span></p>
 
 <h1 id="supported-versions-of-matlab">Supported Versions of Matlab</h1>
 
@@ -306,13 +306,13 @@ randomness</a> below.</p>
 </table>
 
 <h1 id="a-preparing-your-matlab-program"><strong>A. Preparing Your Matlab Program</strong></h1>
-<p><a name="prepare"></a>
+<p><span name="prepare"></span>
 You can compile <code>.m</code> files into a Matlab binary yourself by requesting
 an interactive session on one of our build machines. The session is
 essentially a job without an executable; <strong>you</strong> are the one running the
 commands instead (in this case, to compile the code).</p>
 
-<p><a name="compile"></a></p>
+<p><span name="compile"></span></p>
 
 <h2 id="1-start-an-interactive-build-job"><strong>1. Start an Interactive Build Job</strong></h2>
 
@@ -358,7 +358,7 @@ running the following command:</p>
 
 <p>It may take a few minutes for the build job to start.</p>
 
-<p><a name="compile"></a></p>
+<p><span name="compile"></span></p>
 
 <h2 id="2-compile-matlab-code-and-exit-interactive-job"><strong>2. Compile Matlab Code and Exit Interactive Job</strong></h2>
 
@@ -434,7 +434,7 @@ automatically.</p>
 <code>mccExcludedFiles.log</code>, <code>requiredMCRProducts.txt</code> or <code>readme.txt</code> to run
 your jobs.</p>
 
-<p><a name="script"></a></p>
+<p><span name="script"></span></p>
 
 <h2 id="3-modifying-the-executable"><strong>3. Modifying the Executable</strong></h2>
 
@@ -467,7 +467,7 @@ export MCR_CACHE_ROOT=$PWD/cache
 </code></pre>
 
 <h1 id="b-running-matlab-jobs"><strong>B. Running Matlab Jobs</strong></h1>
-<p><a name="submit"></a>
+<p><span name="submit"></span>
 This section shows the important elements of creating a submit file for
 Matlab jobs. The submit file for your job will be different than the one
 used to compile your code. As a starting point for a submit file, see
@@ -545,7 +545,7 @@ completes. <strong>If you are using Matlab 2018b or 2022b, request at least 8-10
 of DISK</strong> as the runtime is very large for this version of Matlab.</li>
 </ol>
 
-<p><a name="random"></a></p>
+<p><span name="random"></span></p>
 
 <h1 id="ensuring-randomness">Ensuring Randomness</h1>
 

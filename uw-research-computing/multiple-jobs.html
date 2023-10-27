@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-10-26T00:25:43+00:00" />
+<meta property="article:published_time" content="2023-10-27T00:25:46+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Submitting Multiple Jobs Using HTCondor" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-26T00:25:43+00:00","datePublished":"2023-10-26T00:25:43+00:00","description":"Overview","headline":"Submitting Multiple Jobs Using HTCondor","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-27T00:25:46+00:00","datePublished":"2023-10-27T00:25:46+00:00","description":"Overview","headline":"Submitting Multiple Jobs Using HTCondor","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -308,7 +308,7 @@ variable name, users must avoid bespoke HTCondor submit file variables
 such as <code>Cluster</code>, <code>Process</code>, <code>output</code>, and <code>input</code>, <code>arguments</code>, etc.</strong></p>
 
 <h2>1. Use <code class="h2">queue N</code> in your HTCondor submit files</h2>
-<p><a name="process"></a></p>
+<p><span name="process"></span></p>
 
 <p>When using <code>queue N</code>, HTCondor will submit a total of <em>N</em> 
 jobs, counting from 0 to <em>N</em> - 1 and each job will be assigned 
@@ -408,7 +408,7 @@ queue 100
 have otherwise used <code>$(Process)</code>. Note that there is nothing special about the 
 names <code>plusone</code> and <code>NewProcess</code>, you can use any names you want as variables.</p>
 
-<h2 id="2-submit-multiple-jobs-with-one-or-more-distinct-variables-per-job">2. Submit multiple jobs with one or more distinct variables per job<a name="foreach"></a></h2>
+<h2 id="2-submit-multiple-jobs-with-one-or-more-distinct-variables-per-job">2. Submit multiple jobs with one or more distinct variables per job<span name="foreach"></span></h2>
 
 <p>Think about what’s different between each job that needs to be submitted. 
 Will each job use a different input file or combination of software parameters? Do 
@@ -488,7 +488,7 @@ executable = compare_states
 queue state,year from states.txt
 </code></pre>
 
-<p><a name="initialdir"></a></p>
+<p><span name="initialdir"></span></p>
 <h2 id="3-organizing-jobs-into-individual-directories">3. Organizing Jobs Into Individual Directories</h2>
 
 <p>One way to organize jobs is to assign each job to its own directory,

@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/file-availability" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-10-26T00:25:43+00:00" />
+<meta property="article:published_time" content="2023-10-27T00:25:46+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Small Input and Output File Availability Via HTCondor" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-26T00:25:43+00:00","datePublished":"2023-10-26T00:25:43+00:00","description":"Table of Contents HTCondor File Transfer Applicability Transferring Input Files Important Considerations Transferring Output Files Group Multiple Output Files For Convenience Select Specific Output Files To Transfer to /home Get Additional Options For Managing Job Output","headline":"Small Input and Output File Availability Via HTCondor","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/file-availability"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/file-availability"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-27T00:25:46+00:00","datePublished":"2023-10-27T00:25:46+00:00","description":"Table of Contents HTCondor File Transfer Applicability Transferring Input Files Important Considerations Transferring Output Files Group Multiple Output Files For Convenience Select Specific Output Files To Transfer to /home Get Additional Options For Managing Job Output","headline":"Small Input and Output File Availability Via HTCondor","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/file-availability"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/file-availability"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -341,7 +341,7 @@ desired output directories prior to their transfer/delivery.</li>
 </div>
 </div>
 
-<p><a name="transfer"></a></p>
+<p><span name="transfer"></span></p>
 
 <h1 id="htcondor-file-transfer">HTCondor File Transfer</h1>
 
@@ -366,7 +366,7 @@ job scheduling. More information about file transfer on a system
 without a shared filesystem is available in the 
 <a href="https://htcondor.readthedocs.io/en/latest/users-manual/file-transfer.html">HTCondor manual</a>.</p>
 
-<p><a name="Appli"></a></p>
+<p><span name="Appli"></span></p>
 
 <h1 id="applicability">Applicability</h1>
 
@@ -397,7 +397,7 @@ available.</p>
   </li>
 </ul>
 
-<p><a name="input"></a></p>
+<p><span name="input"></span></p>
 
 <h1 id="transferring-input-files">Transferring Input Files</h1>
 
@@ -471,7 +471,7 @@ directories do not exist or if you have a typo.</p>
   </li>
 </ul>
 
-<p><a name="output"></a></p>
+<p><span name="output"></span></p>
 
 <h1 id="transferring-output-files">Transferring Output Files</h1>
 
@@ -499,7 +499,7 @@ sizes, and help speed up file transfer times, we recommend creating a <code>tar.
 desired output before job completion (and to also delete the “un-tar'd”
 files so they are not also transferred back); see our <a href="#group">example</a> below.</p>
 
-<p><a name="group"></a></p>
+<p><span name="group"></span></p>
 
 <h2 id="group-multiple-output-files-for-convenience">Group Multiple Output Files For Convenience</h2>
 
@@ -524,7 +524,7 @@ was moved to <code>my_output</code>. Be sure to create <code>my_job.output.tar.g
 your job executes and HTCondor will automatically transfer this tar archive back to your <code>/home</code> 
 directory.</p>
 
-<p><a name="select"></a></p>
+<p><span name="select"></span></p>
 
 <h2>Select Specific Output Files to Transfer to <code class="h2">/home</code></h2>
 
@@ -546,7 +546,7 @@ see <a href="file-avail-largedata.html">Managing Large Data in HTC Jobs</a>.</p>
 <p>In cases where a bash script is not used as the excutable of your job and you wish to have only specific 
 output files transferred back, please <a href="mailto:chtc@cs.wisc.edu">contact us</a>.</p>
 
-<p><a name="help"></a></p>
+<p><span name="help"></span></p>
 
 <h2 id="get-additional-options-for-managing-job-output">Get Additional Options For Managing Job Output</h2>
 

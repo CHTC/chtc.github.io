@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/python-jobs" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-10-26T00:25:43+00:00" />
+<meta property="article:published_time" content="2023-10-27T00:25:46+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Running Python Jobs" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-26T00:25:43+00:00","datePublished":"2023-10-26T00:25:43+00:00","description":"ACTION REQUIRED: As of September 29th, the HTC system’s default operating system will transition to CentOS Stream 8. This may impact users who use Python in their jobs. For more information, see the HTC Operating System Transition guide.","headline":"Running Python Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/python-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/python-jobs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-27T00:25:46+00:00","datePublished":"2023-10-27T00:25:46+00:00","description":"ACTION REQUIRED: As of September 29th, the HTC system’s default operating system will transition to CentOS Stream 8. This may impact users who use Python in their jobs. For more information, see the HTC Operating System Transition guide.","headline":"Running Python Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/python-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/python-jobs"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -282,7 +282,7 @@ Python</a></p>
 read this guide as background material,
 then read <a href="conda-installation.html">our guide on using conda</a>.</p>
 
-<p><a name="supported"></a></p>
+<p><span name="supported"></span></p>
 
 <h1 id="chtc-provided-python-installations">CHTC-Provided Python Installations</h1>
 
@@ -357,7 +357,7 @@ we can’t, we can send you instructions for how to build your own copy of Pytho
 or use a Docker container for running your jobs.</p>
 
 <h1 id="1-adding-python-packages"><strong>1. Adding Python Packages</strong></h1>
-<p><a name="build"></a></p>
+<p><span name="build"></span></p>
 
 <p>If your code uses specific Python packages (like <code>numpy</code>, <code>matplotlib</code>,
 <code>sci-kit learn</code>, etc) follow the directions below to download and
@@ -391,7 +391,7 @@ CentOS Stream 8. A limited amount of our older hardware is still running CentOS 
 </ul>
 
 <h2 id="a-submit-an-interactive-job">A. Submit an Interactive Job</h2>
-<p><a name="version"></a>
+<p><span name="version"></span>
 Create the following special submit file on the submit server, calling
 it something like <code>build.sub</code>. **Make sure that you choose the appropriate 
 Python tar.gz file and requirements if you want to build on CentOS 7 versus 
@@ -547,7 +547,7 @@ seconds after exiting).</p>
 </code></pre>
 
 <h1 id="2-creating-a-script"><strong>2. Creating a Script</strong></h1>
-<p><a name="script"></a>
+<p><span name="script"></span>
 In order to use CHTC's copy of Python and the packages you have
 prepared in an HTCondor job, we will need to write a script that unpacks
 both Python and the packages and then runs our Python code. We will use
@@ -600,12 +600,12 @@ to the Python script. For more (or fewer) arguments, simply add more
 
   <p>In addition, your Python script will need to be able to accept
 arguments from the command line. There is an explanation of how to do
-this in <a href="https://swcarpentry.github.io/python-novice-inflammation/12-cmdline/index.html">this Software Carpentry
+this in <a href="https://swcarpentry.github.io/python-novice-inflammation/12-cmdline.html">this Software Carpentry
 lesson</a>.</p>
 </blockquote>
 
 <h1 id="3-submitting-jobs"><strong>3. Submitting Jobs</strong></h1>
-<p><a name="submit"></a>
+<p><span name="submit"></span>
 A sample submit file can be found in our <a href="helloworld.html">hello
 world</a> example page. You should make the following
 changes in order to run Python jobs:</p>
