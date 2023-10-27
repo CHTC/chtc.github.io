@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Checking Disk Quota and Usage</title>
+<title>2023 European HTCondor Workshop</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,26 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Checking Disk Quota and Usage | CHTC</title>
+<title>2023 European HTCondor Workshop | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="Checking Disk Quota and Usage" />
+<meta property="og:title" content="2023 European HTCondor Workshop" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The following commands will allow you to monitor the amount of disk space you are using in your home directory on our (or another) submit node and to determine the amount of disk space you have been allotted (your quota)." />
-<meta property="og:description" content="The following commands will allow you to monitor the amount of disk space you are using in your home directory on our (or another) submit node and to determine the amount of disk space you have been allotted (your quota)." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/check-quota" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/check-quota" />
+<meta name="description" content="We are very pleased to announce that the 2023 European HTCondor Workshop will be held from Tuesday 19th September to Friday 22nd September, at IJCLab in Orsay, France." />
+<meta property="og:description" content="We are very pleased to announce that the 2023 European HTCondor Workshop will be held from Tuesday 19th September to Friday 22nd September, at IJCLab in Orsay, France." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/european-htcondor-workshop-2023" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/european-htcondor-workshop-2023" />
 <meta property="og:site_name" content="CHTC" />
+<meta property="og:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/european-htcondor-week-2023.png" />
+<meta property="og:image:alt" content="European Condor Week Banner" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-10-27T20:21:49+00:00" />
+<meta property="article:published_time" content="2023-05-23T00:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Checking Disk Quota and Usage" />
+<meta property="twitter:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/european-htcondor-week-2023.png" />
+<meta name="twitter:image:alt" content="European Condor Week Banner" />
+<meta property="twitter:title" content="2023 European HTCondor Workshop" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-27T20:21:49+00:00","datePublished":"2023-10-27T20:21:49+00:00","description":"The following commands will allow you to monitor the amount of disk space you are using in your home directory on our (or another) submit node and to determine the amount of disk space you have been allotted (your quota).","headline":"Checking Disk Quota and Usage","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/check-quota"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/check-quota"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-05-23T00:00:00+00:00","datePublished":"2023-05-23T00:00:00+00:00","description":"We are very pleased to announce that the 2023 European HTCondor Workshop will be held from Tuesday 19th September to Friday 22nd September, at IJCLab in Orsay, France.","headline":"2023 European HTCondor Workshop","image":{"alt":"European Condor Week Banner","url":"https://raw.githubusercontent.com/CHTC/Articles/main/images/european-htcondor-week-2023.png","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/european-htcondor-workshop-2023"},"url":"https://chtc.cs.wisc.edu/european-htcondor-workshop-2023"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -52,7 +56,7 @@
 <link type="text/css" href="/assets/fonts/fonts.0.0.1.css" rel="stylesheet">
 <link type="text/css" href="/assets/css/style-v10.css" rel="stylesheet">
 
-<link type="text/css" href="/assets/css/research-style.css" rel="stylesheet">
+
 
 <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'')})(document.documentElement)</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -76,7 +80,7 @@
             <div class="row">
                 <div class="col-auto pe-0">
                     
-                    <a class="uw-global-name-link" href="/" aria-label="University home page">Go to CHTC Home</a>
+                    <a class="uw-global-name-link" href="/uw-research-computing" aria-label="UW Research Computing Homepage">Go to UW Research Computing Home</a>
                     
                 </div>
                 <div class="col-auto d-flex">
@@ -96,7 +100,7 @@
 
 
 
-<header id="branding-sub" class="uw-header circuit-background">
+<header id="branding" class="uw-header ">
     <div class="uw-header-container mt-2 mb-2">
         <div class="uw-header-crest-title">
             <div class="uw-header-crest">
@@ -107,7 +111,7 @@
                     <a href="/" rel="home">CHTC</a>
                 </h1>
                 <a href="/" rel="home">
-                    <div id="site-description" class="uw-site-tagline">UW Research Computing</div>
+                    <div id="site-description" class="uw-site-tagline">Center for High Throughput Computing</div>
                 </a>
             </div>
         </div>
@@ -115,13 +119,8 @@
 </header>
     
 
-
-
     
-
-
-    
-    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">UW-Research Computing<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
+    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">Menu<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
 <div id="uw-top-menus" class="uw-is-visible uw-horizontal" aria-hidden="false">
     <div class="uw-main-nav">
         <nav class="uw-nav-menu uw-nav-menu-reverse" aria-label="Main Menu">
@@ -129,27 +128,9 @@
                 
                     
 
-
-<li id="home">
-    <a href="/uw-research-computing/index.html" aria-current="page">Home</a>
-</li>
-
-
-                
-                    
-
-
-<li id="get-started">
-    <a href="/uw-research-computing/form.html" aria-current="page">Get Started</a>
-</li>
-
-
-                
-                    
-
-<li id="menu-how-tos" class="uw-dropdown">
-    <a href="/uw-research-computing/how-tos.html" role="button" aria-haspopup="true" aria-expanded="false">
-        How To's
+<li id="about" class="uw-dropdown">
+    <a href="/about.html" role="button" aria-haspopup="true" aria-expanded="false">
+        About
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -157,23 +138,31 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="How To's submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="About submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/user-expectations.html">User Expectations</a>
+            <a href="/htc.html">What is HTC?</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/guides.html#htc-documentation">HTC Guides</a>
+            <a href="/approach.html">Our Approach</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/guides.html#hpc-documentation">HPC Guides</a>
+            <a href="/projects.html">Our Customers</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/cite-chtc.html">Cite CHTC Resources</a>
+            <a href="/people.html">Our Staff</a>
+        </li>
+    
+        <li>
+            <a href="/jobs.html">Our Open Positions</a>
+        </li>
+    
+        <li>
+            <a href="/internships.html">Internships</a>
         </li>
     
     </ul>    
@@ -183,17 +172,44 @@
                     
 
 
-<li id="get-help">
-    <a href="/uw-research-computing/get-help.html" aria-current="page">Get Help</a>
+<li id="uw-research-computing">
+    <a href="/uw-research-computing/index.html" aria-current="page">UW Research Computing</a>
 </li>
 
 
                 
                     
 
-<li id="menu-other-resources" class="uw-dropdown">
-    <a href="/uw-research-computing/other-resources.html" role="button" aria-haspopup="true" aria-expanded="false">
-        Other Resources
+
+<li id="guides">
+    <a href="/uw-research-computing/guides.html" aria-current="page">Guides</a>
+</li>
+
+
+                
+                    
+
+
+<li id="technologies">
+    <a href="/technologies.html" aria-current="page">Technologies</a>
+</li>
+
+
+                
+                    
+
+
+<li id="research">
+    <a href="/research.html" aria-current="page">Research</a>
+</li>
+
+
+                
+                    
+
+<li id="news" class="uw-dropdown">
+    <a href="/news-navigation.html" role="button" aria-haspopup="true" aria-expanded="false">
+        News
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -201,27 +217,19 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="Other Resources submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="News submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/gpu-lab.html">CHTC GPU Lab</a>
+            <a href="/news.html">CHTC News</a>
         </li>
     
         <li>
-            <a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a>
+            <a href="/events.html">Events</a>
         </li>
     
         <li>
-            <a href="http://www.neos-server.org/">NEOS Optimization Service</a>
-        </li>
-    
-        <li>
-            <a href="http://www.osg-htc.org/">OSG Consortium</a>
-        </li>
-    
-        <li>
-            <a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a>
+            <a href="/uw-research-computing/user-news.html">User News</a>
         </li>
     
     </ul>    
@@ -242,386 +250,54 @@
 </div>
 
 
+
+    
+
     <main id="main" style="min-height: 60vh;">
         <main id="main" style="min-height: 60vh;">
-    <div class="container-xxl mb-5">
+    <!-- This Layout is to adhere the page to the optimal char per lines for accessibility -->
+
+
+<div class="container-xxl">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-9 mw-1000">
+        <div class="col-12 col-sm-11 col-md-9 col-lg-8">
             <h1 class="uw-mini-bar mb-4">
-    Checking Disk Quota and Usage
-</h1>
+                2023 European HTCondor Workshop
+            </h1>
+            <figure>
+  <img class="w-100" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/european-htcondor-week-2023.png" alt="European HTCondor Workshop Banner" />
+</figure>
 
-            <p>The following commands will allow you to monitor the amount of disk
-space you are using in your home directory on our (or another) submit node and to determine the
-amount of disk space you have been allotted (your quota).</p>
+<p>We are very pleased to announce that the 2023 European HTCondor Workshop will be held from Tuesday 19th September to Friday 22nd September, at IJCLab in Orsay, France.</p>
 
-<p>If you also have a <code>/staging</code> directory on the HTC system, see our 
-<a href="file-avail-largedata.html#5-checking-your-quota-data-use-and-file-counts">staging guide</a> for 
-details on how to check your quota and usage. 
-<br />
-The default quota allotment on CHTC submit nodes is 20 GB with a hard
-limit of 30 GB (at which point you cannot write more files).<br />
-<br />
-<strong>Note: The CHTC submit nodes are not backed up, so you will want to
-copy completed jobs to a secure location as soon as a batch completes,
-and then delete them on the submit node in order to make room for future
-jobs.</strong> If you need more disk space to run a single batch or concurrent
-batches of jobs, please contact us (<a href="get-help.html">Get Help!</a>). We have multiple ways of dealing with large disk space
-requirements to make things easier for you.</p>
+<p>To allow ease of travel to and from the venue the meeting will start at on Tuesday morning and run until lunchtime on the Friday.</p>
 
-<h2 id="1-checking-your-user-quota-and-usage"><strong>1. Checking Your User Quota and Usage</strong></h2>
+<p>Registration is now open at the meeting Indico site: <a href="https://indico.cern.ch/event/1274213/">https://indico.cern.ch/event/1274213/</a></p>
 
-<p>From any directory location within your home directory, type
-<code>quota -vs</code>. See the example below:</p>
+<p>There will be a small workshop fee of €160 to cover lunches, teas and coffees, and a social dinner on the Thursday evening.</p>
 
-<pre class="term"><code>[alice@submit]$ quota -vs
-Disk quotas for user alice (uid 20384): 
-     Filesystem   space   quota   limit   grace   files   quota   limit   grace
-      /dev/sdb1  12690M  20480M  30720M            161k       0       0        
-</code></pre>
+<p>The workshop will be an excellent occasion for learning from the experts (the developers!) about HTCondor, exchanging with your colleagues about experiences and plans, and providing your feedback to the experts.</p>
 
-<p>The output will list your total data usage under <code>blocks</code>, your soft
-<code>quota</code>, and your hard <code>limit</code> at which point your jobs will no longer
-be allowed to save data. Each of the values given are in 1-kilobyte
-blocks, so you can divide each number by 1024 to get megabytes (MB), and
-again for gigabytes (GB). (It also lists information for ` files`, but
-we don't typically allocate disk space by file count.)</p>
+<p>The HTCondor Compute Entrypoint (CE) will be covered as well as with token authentication (currently a hot topic), along with general use and administration of HTCondor.</p>
 
-<h2 id="2-checking-the-size-of-directories-and-contents"><strong>2. Checking the Size of Directories and Contents</strong></h2>
+<p>Participation is open to all organisations (including companies) and persons interested in HTCondor (and by no means restricted to particle physics and/or academia!) If you know potentially interested persons, don’t hesitate to make them aware of this opportunity.</p>
 
-<p>Move to the directory you'd like to check and type <code>du</code> . After several
-moments (longer if you're directory contents are large), the command
-will add up the sizes of directory contents and output the total size of
-each contained directory in units of kilobytes with the total size of
-that directory listed last. See the example below:</p>
+<p>The workshop will cover both using and administering HTCondor; topics will be chosen to best match participants’ interests.</p>
 
-<pre class="term"><code>[alice@submit]$ du ./
-4096    ./dir/subdir/file.txt
-4096    ./dir/subdir
-7140    ./dir
-74688   .
-</code></pre>
+<p>We would very much like to know about your use of HTCondor, in you project, your experience and your plans. Hence you are warmly encouraged to propose a short presentation.</p>
 
-<p>As for quota usage above, you can divide each value by 1024 to get
-megabytes, and again for gigabytes.</p>
+<p>If you have any questions, please contact <a href="mailto:hepix-2023condorworkshop-support@hepix.org">hepix-2023condorworkshop-support@hepix.org</a>.</p>
 
-<p>Using <code>du</code> with the <code>-h</code> or <code>--human-readable</code> flags will display the
-same values with only two significant digits and a K, M, or G to denote
-the byte units. The <code>-s</code> or <code>--summarize</code> flags will total up the size
-of the current directory without listing the size of directory contents
-. You can also specify which directory you'd like to query, without
-moving to it, by adding the relative filepath after the flags. See the
-below example from the <code>home</code> directory which contains the directory
-<code>dir</code>:</p>
+<p>We are looking forward to a rich, productive workshop.</p>
 
-<pre class="term"><code>[alice@submit]$ du -sh dir
-7.1K    dir
-</code></pre>
+<p>Chris Brew (STFC - RAL) and Christoph Beyer (DESY)
+Co-Chairs of organising committee.</p>
 
-        </div>
-        <div class="col-3 d-none d-lg-block">
-            
+<p>Michel Jouvin (IJCLab)
+Chair of the Local Organising Committee</p>
 
-
-
-    <div id="guide-sidebar">
-        
-            
-
-            
-            
-
-            <h6 class="mt-5">HTC Guides</h6>
-            <div class="accordion accordion-flush">
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="basics-and-policies">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
-                                    Basics and Policies
-                                </button>
-                            </h2>
-                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse show " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/use-submit-node">Policies for Using HTC Submit Servers</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/connecting">Connecting to CHTC Using CHTC's HTC Submit Nodes</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/configure-ssh">Automating CHTC Log In</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/transfer-data-researchdrive">Transferring Files Between CHTC and ResearchDrive</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/globus">Using Globus to Transfer Files to and from CHTC</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/github-remote-access">Remotely Access a Private GitHub Repository</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/check-quota">Checking Disk Quota and Usage</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="job-submission">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#job-submission-collapse" aria-expanded="false" aria-controls="job-submission">
-                                    Job Submission
-                                </button>
-                            </h2>
-                            <div id="job-submission-collapse" class="accordion-collapse collapse " aria-labelledby="job-submission" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/helloworld">Running Your First HTC Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/condor_q">Learning About Your Jobs Using condor_q</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/multiple-jobs">Submitting Multiple Jobs Using HTCondor</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/dagman-workflows">Workflows with HTCondor's DAGMan</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/multiple-job-dirs">Submitting Multiple Jobs in Individual Directories</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="handling-data-in-jobs">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#handling-data-in-jobs-collapse" aria-expanded="false" aria-controls="handling-data-in-jobs">
-                                    Handling Data in Jobs
-                                </button>
-                            </h2>
-                            <div id="handling-data-in-jobs-collapse" class="accordion-collapse collapse " aria-labelledby="handling-data-in-jobs" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-availability">Small Input and Output File Availability Via HTCondor</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-squid">Transfer Large Input Files Via Squid</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="software-solutions">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
-                                    Software Solutions
-                                </button>
-                            </h2>
-                            <div id="software-solutions-collapse" class="accordion-collapse collapse " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/matlab-jobs">Running Matlab Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/python-jobs">Running Python Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/conda-installation">Create a Portable Python Installation with Miniconda</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/r-jobs">Running R Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/java-jobs">Running Java Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/julia-jobs">Running Julia Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-jobs">Running HTC Jobs Using Docker Containers</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-build">Building a Docker Container Image</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/licensed-software">Using Licensed Software</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/singularity-htc">Using Apptainer (Singularity) Environments</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="special-use-cases">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-cases-collapse" aria-expanded="false" aria-controls="special-use-cases">
-                                    Special Use Cases
-                                </button>
-                            </h2>
-                            <div id="special-use-cases-collapse" class="accordion-collapse collapse " aria-labelledby="special-use-cases" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/gpu-jobs">Submitting Jobs That Use GPUs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/machine-learning-htc">Run Machine Learning Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/scaling-htc">Scaling Beyond Local HTC Capacity</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/checkpointing">Checkpointing Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/high-memory-jobs">Submitting High Memory Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/mpi-jobs">Running MPI Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/os-transition-htc">Using Custom Linux Versions in CHTC</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="troubleshooting">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshooting-collapse" aria-expanded="false" aria-controls="troubleshooting">
-                                    Troubleshooting
-                                </button>
-                            </h2>
-                            <div id="troubleshooting-collapse" class="accordion-collapse collapse " aria-labelledby="troubleshooting" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/dos-unix">Windows / Linux Incompatibility</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-test">Explore and Test Docker Containers</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-            </div>
-        
-    </div>
-
-
+<p>Todd Tannenbaum
+HTCondor Technical Lead, U Wisconsin, Madison, USA</p>
 
         </div>
     </div>
