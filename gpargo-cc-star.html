@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Submitting and Managing Jobs Using SLURM</title>
+<title>Great Plains Regional CyberTeam Expanding Capacity for Computing from Great Plains Campuses</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,28 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Submitting and Managing Jobs Using SLURM | CHTC</title>
+<title>Great Plains Regional CyberTeam Expanding Capacity for Computing from Great Plains Campuses | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="Submitting and Managing Jobs Using SLURM" />
+<meta property="og:title" content="Great Plains Regional CyberTeam Expanding Capacity for Computing from Great Plains Campuses" />
+<meta name="author" content="Hannah Cheren" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The HPC Cluster uses SLURM to manage jobs on the HPC Cluster. This page describes how to submit and manage jobs using SLURM." />
-<meta property="og:description" content="The HPC Cluster uses SLURM to manage jobs on the HPC Cluster. This page describes how to submit and manage jobs using SLURM." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/hpc-job-submission" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc-job-submission" />
+<meta name="description" content="Great Plains Augmented Gateway to the OSG (GP-ARRGO) receives National Science Foundation (NSF) CC* award" />
+<meta property="og:description" content="Great Plains Augmented Gateway to the OSG (GP-ARRGO) receives National Science Foundation (NSF) CC* award" />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/gpargo-cc-star.html" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/gpargo-cc-star.html" />
 <meta property="og:site_name" content="CHTC" />
+<meta property="og:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/gpargo.png" />
+<meta property="og:image:alt" content="GP-ARGO node locations" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-11-02T13:44:30+00:00" />
+<meta property="article:published_time" content="2023-10-24T00:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Submitting and Managing Jobs Using SLURM" />
+<meta property="twitter:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/gpargo.png" />
+<meta name="twitter:image:alt" content="GP-ARGO node locations" />
+<meta property="twitter:title" content="Great Plains Regional CyberTeam Expanding Capacity for Computing from Great Plains Campuses" />
 <meta name="twitter:site" content="@chtc_uw" />
+<meta name="twitter:creator" content="@Hannah Cheren" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-11-02T13:44:30+00:00","datePublished":"2023-11-02T13:44:30+00:00","description":"The HPC Cluster uses SLURM to manage jobs on the HPC Cluster. This page describes how to submit and manage jobs using SLURM.","headline":"Submitting and Managing Jobs Using SLURM","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-job-submission"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-job-submission"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hannah Cheren"},"dateModified":"2023-10-24T00:00:00+00:00","datePublished":"2023-10-24T00:00:00+00:00","description":"Great Plains Augmented Gateway to the OSG (GP-ARRGO) receives National Science Foundation (NSF) CC* award","headline":"Great Plains Regional CyberTeam Expanding Capacity for Computing from Great Plains Campuses","image":{"alt":"GP-ARGO node locations","url":"https://raw.githubusercontent.com/CHTC/Articles/main/images/gpargo.png","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/gpargo-cc-star.html"},"url":"https://chtc.cs.wisc.edu/gpargo-cc-star.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -52,7 +58,7 @@
 <link type="text/css" href="/assets/fonts/fonts.0.0.1.css" rel="stylesheet">
 <link type="text/css" href="/assets/css/style-v10.css" rel="stylesheet">
 
-<link type="text/css" href="/assets/css/research-style.css" rel="stylesheet">
+
 
 <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'')})(document.documentElement)</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -76,7 +82,7 @@
             <div class="row">
                 <div class="col-auto pe-0">
                     
-                    <a class="uw-global-name-link" href="/" aria-label="University home page">Go to CHTC Home</a>
+                    <a class="uw-global-name-link" href="/uw-research-computing" aria-label="UW Research Computing Homepage">Go to UW Research Computing Home</a>
                     
                 </div>
                 <div class="col-auto d-flex">
@@ -96,7 +102,7 @@
 
 
 
-<header id="branding-sub" class="uw-header circuit-background">
+<header id="branding" class="uw-header ">
     <div class="uw-header-container mt-2 mb-2">
         <div class="uw-header-crest-title">
             <div class="uw-header-crest">
@@ -107,7 +113,7 @@
                     <a href="/" rel="home">CHTC</a>
                 </h1>
                 <a href="/" rel="home">
-                    <div id="site-description" class="uw-site-tagline">UW Research Computing</div>
+                    <div id="site-description" class="uw-site-tagline">Center for High Throughput Computing</div>
                 </a>
             </div>
         </div>
@@ -115,13 +121,8 @@
 </header>
     
 
-
-
     
-
-
-    
-    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">UW-Research Computing<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
+    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">Menu<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
 <div id="uw-top-menus" class="uw-is-visible uw-horizontal" aria-hidden="false">
     <div class="uw-main-nav">
         <nav class="uw-nav-menu uw-nav-menu-reverse" aria-label="Main Menu">
@@ -129,27 +130,9 @@
                 
                     
 
-
-<li id="home">
-    <a href="/uw-research-computing/index.html" aria-current="page">Home</a>
-</li>
-
-
-                
-                    
-
-
-<li id="get-started">
-    <a href="/uw-research-computing/form.html" aria-current="page">Get Started</a>
-</li>
-
-
-                
-                    
-
-<li id="menu-how-tos" class="uw-dropdown">
-    <a href="/uw-research-computing/how-tos.html" role="button" aria-haspopup="true" aria-expanded="false">
-        How To's
+<li id="about" class="uw-dropdown">
+    <a href="/about.html" role="button" aria-haspopup="true" aria-expanded="false">
+        About
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -157,23 +140,31 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="How To's submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="About submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/user-expectations.html">User Expectations</a>
+            <a href="/htc.html">What is HTC?</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/guides.html#htc-documentation">HTC Guides</a>
+            <a href="/approach.html">Our Approach</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/guides.html#hpc-documentation">HPC Guides</a>
+            <a href="/projects.html">Our Customers</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/cite-chtc.html">Cite CHTC Resources</a>
+            <a href="/people.html">Our Staff</a>
+        </li>
+    
+        <li>
+            <a href="/jobs.html">Our Open Positions</a>
+        </li>
+    
+        <li>
+            <a href="/internships.html">Internships</a>
         </li>
     
     </ul>    
@@ -183,17 +174,44 @@
                     
 
 
-<li id="get-help">
-    <a href="/uw-research-computing/get-help.html" aria-current="page">Get Help</a>
+<li id="uw-research-computing">
+    <a href="/uw-research-computing/index.html" aria-current="page">UW Research Computing</a>
 </li>
 
 
                 
                     
 
-<li id="menu-other-resources" class="uw-dropdown">
-    <a href="/uw-research-computing/other-resources.html" role="button" aria-haspopup="true" aria-expanded="false">
-        Other Resources
+
+<li id="guides">
+    <a href="/uw-research-computing/guides.html" aria-current="page">Guides</a>
+</li>
+
+
+                
+                    
+
+
+<li id="technologies">
+    <a href="/technologies.html" aria-current="page">Technologies</a>
+</li>
+
+
+                
+                    
+
+
+<li id="research">
+    <a href="/research.html" aria-current="page">Research</a>
+</li>
+
+
+                
+                    
+
+<li id="news" class="uw-dropdown">
+    <a href="/news-navigation.html" role="button" aria-haspopup="true" aria-expanded="false">
+        News
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -201,27 +219,19 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="Other Resources submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="News submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/gpu-lab.html">CHTC GPU Lab</a>
+            <a href="/news.html">CHTC News</a>
         </li>
     
         <li>
-            <a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a>
+            <a href="/events.html">Events</a>
         </li>
     
         <li>
-            <a href="http://www.neos-server.org/">NEOS Optimization Service</a>
-        </li>
-    
-        <li>
-            <a href="http://www.osg-htc.org/">OSG Consortium</a>
-        </li>
-    
-        <li>
-            <a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a>
+            <a href="/uw-research-computing/user-news.html">User News</a>
         </li>
     
     </ul>    
@@ -242,491 +252,101 @@
 </div>
 
 
+
+    
+
     <main id="main" style="min-height: 60vh;">
-        <div class="container-xxl mb-5">
+        <main id="main" style="min-height: 60vh;">
+    <!-- This Layout is to adhere the page to the optimal char per lines for accessibility -->
+
+
+<div class="container-xxl">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-9 mw-1000">
+        <div class="col-12 col-sm-11 col-md-9 col-lg-8">
             <h1 class="uw-mini-bar mb-4">
-    Submitting and Managing Jobs Using SLURM
-</h1>
-
-            <p>The HPC Cluster uses SLURM to manage jobs on the HPC Cluster. This page describes 
-how to submit and manage jobs using SLURM.</p>
-
-<h1 id="contents">Contents</h1>
-
-<ol>
-  <li><a href="#1-submitting-jobs-using-slurm">Submitting Jobs Using SLURM</a></li>
-  <li><a href="#2-viewing-jobs-in-the-queue">Viewing Jobs in the Queue</a></li>
-  <li><a href="#3-viewing-additional-job-information">Viewing Additional Job Information</a></li>
-  <li><a href="#4-removing-or-holding-jobs">Removing or Holding Jobs</a></li>
-</ol>
-
-<p>The following assumes that you have been granted access to the HPC cluster 
-and can log into the head node <code>hpclogin3.chtc.wisc.edu</code>. If this is not
-the case, please see the <a href="form.html">CHTC account application page</a> or email
-the facilitation team at chtc@cs.wisc.edu.</p>
-
-<h1 id="1-submitting-jobs-using-slurm"><strong>1. Submitting Jobs Using SLURM</strong></h1>
-
-<h2 id="a-submitting-a-job"><strong>A. Submitting a Job</strong></h2>
-
-<p>Jobs can be submitted to the cluster using a submit file, sometimes also 
-called a “batch” file. The top half of the file consists of <code>#SBATCH</code> 
-options which communicate needs or parameters of the job – these lines 
-are <strong>not</strong> comments, but essential options for the job. The values for 
-<code>#SBATCH</code> options should reflect the size of nodes and run time limits 
-described <a href="hpc-overview.html">here</a>.</p>
-
-<p>After the <code>#SBATCH</code> options, the submit file should contain the commands
-needed to run your job, including loading any needed software modules.</p>
-
-<p>An example submit file is given below. It requests 1 nodes of 64 cores 
-and 4GB of memory each (so 64 cores and 256 GB of memory total), on the 
-<code>shared</code> partition. It also specifies a run time limit of 4.5 hours.</p>
-
-<pre><code class="language-{.sub}">#!/bin/sh
-#This file is called submit-script.sh
-#SBATCH --partition=shared       # default "shared", if not specified
-#SBATCH --time=0-04:30:00       # run time in days-hh:mm:ss
-#SBATCH --nodes=1               # require 1 nodes
-#SBATCH --ntasks-per-node=64    # cpus per node (by default, "ntasks"="cpus")
-#SBATCH --mem=4000             # RAM per node in megabytes
-#SBATCH --error=job.%J.err
-#SBATCH --output=job.%J.out
-# Make sure to change the above two lines to reflect your appropriate
-# file locations for standard error and output
-
-# Now list your executable command (or a string of them).
-# Example for code compiled with a software module:
-module load mpimodule
-srun --mpi=pmix -n 64 /home/username/mpiprogram
-</code></pre>
-
-<p>Once the submit file is created, it can be submitted using the <code>sbatch</code> command:</p>
-
-<pre class="term"><code>[alice@login]$ sbatch submit-script.sh
-</code></pre>
-
-<h2 id="b-optimizing-your-submit-file"><strong>B. Optimizing Your Submit File</strong></h2>
-
-<p>The new cluster has different partition names and different sized nodes. <strong>We always recommend requesting cores per node (instead of total cores), using a multiple of 32 cores as your request per node.</strong> Requesting multiple nodes is not advantageous if your jobs are smaller than 128 cores. We also now recommend requesting memory per core instead of memory per node, for similar reasons, using the <code>--mem-per-cpu</code> flag with units of MB. Here are our recommendations for different sized jobs:</p>
-
-<table>
-	<tr>
-		<th>Job size</th>
-		<th>Recommended <code>#SBATCH</code> flags</th>
-	</tr>
-	<tr>
-		<td>32-128 cores</td>
-		<td>Example for 64 cores: <pre>
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=64 # recommend multiples of 32
-#SBATCH --mem-per-cpu=4000</pre></td>
-	</tr>
-	<tr>
-		<td>128 - 256 cores</td>
-		<td>Split over a few nodes, for example for 128 cores: <pre>
-#SBATCH --nodes=2
-#SBATCH --ntasks-per-node=64 # designate cores per node
-#SBATCH --mem-per-cpu=4000</pre> 
-</td>
-	</tr>
-	<tr>
-		<td>128 or 256 cores (whole nodes)</td>
-		<td>Example for 256 cores: <pre>
-#SBATCH --nodes=2
-#SBATCH --ntasks-per-node=128
-#SBATCH --mem-per-cpu=4000</pre></td>
-	</tr>
-</table>
-
-<h2 id="c-requesting-an-interactive-job-int-and-pre-partitions"><strong>C. Requesting an Interactive Job ("int" and "pre" partitions)</strong></h2>
-
-<p>If you want to run your job commands yourself, as a test before submitting 
-a job as described above, you can request an interactive job on the cluster.</p>
-
-<p>There is a dedicated partition 
-for interactive work called <code>int</code>; you may request up to a full node (128 CPUs, 
-512 GB RAM) when requesting an interactive session in the "int" partition and 
-the session is limited to 60 minutes. Using another partition (like <code>pre</code>) will 
-mean your interactive job is subject to the limits of that partition.</p>
-
-<h3 id="for-simple-testing-or-compiling">For simple testing or compiling</h3>
-
-<p>The command to request an interactive job is <code>srun --mpi=pmix</code>, and includes the partition
-in which you’d like to run the interactive job.</p>
-
-<pre class="term"><code>[alice@login]$ srun --mpi=pmix -n4 -N1 -p int --pty bash
-</code></pre>
-
-<blockquote>
-  <p>Note: You will not be able to run MPI code in this interactive session.</p>
-</blockquote>
-
-<p>The above example indicates a request for 4 CPUs (<code>-n4</code>) on a single
-node (<code>-N1</code>) in the "int" partition (<code>-p int</code>). Adding "<code>-t 15</code>" would
-indicate a request for 15 minutes, if desired, rather than the 60-minute
-default. After the interactive shell is created to a compute node with
-the above command, you'll have access to files on the shared file
-system and be able to execute code interactively as if you had directly
-logged in to that node. <strong>It is important to exit the interactive shell
-when you're done working by typing <code>exit</code></strong>.</p>
-
-<h3 id="for-running-mpi-code">For running MPI code</h3>
-
-<p>To run an MPI program in an interactive session, you will need to (1) allocate the 
-resources using <code>salloc</code>, then (2) use <code>srun</code> to run the MPI code, and finally (3)
-give up the allocated resources.</p>
-
-<ol>
-  <li>
-    <p><strong>Request resources</strong></p>
-
-    <pre class="term"><code>[alice@login]$ salloc -n4 -N1 -p int
-</code></pre>
-
-    <p>This command requests 4 CPUs (<code>-n4</code>) on a single node (<code>-N1</code>) in the "int"
-partition (<code>-p int</code>), and assigns the resources to a new terminal session
-on the login node.  When the allocation has started, you will see a message
-like this:</p>
-    <pre class="term"><code>salloc: Granted job allocation 18701
-            Guest on spark-a005.chtc.wisc.edu
-</code></pre>
-
-    <p><strong><em>To run code in this allocation, be sure to use <code>srun</code> as described in the next step!</em></strong></p>
-  </li>
-  <li>
-    <p><strong>Use resources</strong></p>
-
-    <p>At this point, your terminal is still running on the login node.  To run
-commands using the resources in the allocation, you will need to use <code>srun</code>.</p>
-    <pre class="term"><code>[alice@login]$ srun --mpi=pmix /path/to/mpi/script
-</code></pre>
-
-    <p>This will execute the specified script using the allocated resources.
-When the <code>srun</code> calculation has finished, you will remain in the allocation
-session, allowing you to run <code>srun</code> multiple times in quick succession.</p>
-
-    <p>You can also use the allocated resources interactively with</p>
-    <pre class="term"><code>[alice@login]$ srun --mpi=pmix --pty bash
-</code></pre>
-
-    <p>which will start an interactive terminal session in your allocation (this 
-is evident by the change in the command prompt from <code>[alice@login]</code> to 
-<code>[alice@spark-a###]</code>).  Keep in mind that you will not be able to use
-MPI inside the interactive session.  You can exit the interactive session
-and return to the allocation by entering <code>exit</code>.</p>
-  </li>
-  <li>
-    <p><strong>Give up resources</strong></p>
-
-    <p>To end your allocation, simply enter <code>exit</code>.  You will see a message like
-this:</p>
-    <pre class="term"><code>exit
-salloc: Relinquishing job allocation 18701
-salloc: Job allocation 18701 has been revoked.
-</code></pre>
-  </li>
-</ol>
-
-<blockquote>
-  <p>It can be difficult to remember whether or not you are currently using an
-allocation.  A quick way of checking is to see if the <code>SLURM_JOB_ID</code> is set
-by entering <code>echo $SLURM_JOB_ID</code>.  If you are in an allocation, this command
-will return the job ID number that corresponds to an entry in your SLURM queue
-(see below).</p>
-
-  <p>A more convenient option is to update your <code>.bashrc</code> file so that the command
-prompt changes when you are in an allocation.  This can be done using the
-following commands:</p>
-  <pre class="term"><code>echo 'PS1="$SLURM_JOB_ID[\u@\h \W]\$ " ' &gt;&gt; ~/.bashrc
-echo 'export PS1' &gt;&gt; ~/.bashrc
-</code></pre>
-
-  <p>Now when you run <code>salloc</code>, your command prompt will start with the corresponding
-SLURM job ID number.  This will also be the case for the interactive <code>srun</code> 
-command.  For example,</p>
-  <pre class="term"><code>[alice@login]$ salloc -n4 -N1 -p int
-salloc: Granted job allocation 18701
-            Guest on spark-a005.chtc.wisc.edu
-	       
-18701[alice@login]$ echo 'I am running an allocation.'
-I am running an allocation.
-18701[alice@login]$ srun --mpi=pmix --pty bash
-
-18701[alice@spark-a006] echo 'I am using the resources interactively.'
-I am using the resources interactively.
-18701[alice@spark-a006] exit
-exit
-18701[alice@login]$ exit
-exit
-salloc: Relinquishing job allocation 18701
-[alice@login]$
-</code></pre>
-
-  <ul>
-    <li>This can be undone by removing the two added lines from the <code>.bashrc</code> file 
- in your home directory.</li>
-  </ul>
-
-  <blockquote>
-    <p>More advanced users can manipulate their bash prompt further.<br />
-The <code>SLURM_JOB_ID</code> variable is created for the allocation, and 
-a <code>SLURM_JOB_UID</code> variable is created for the interactive <code>srun</code>.</p>
-  </blockquote>
-</blockquote>
-
-<h1 id="2-viewing-jobs-in-the-queue"><strong>2. Viewing Jobs in the Queue</strong></h1>
-
-<p>To view your jobs in the SLURM queue, use the following command:</p>
-
-<pre class="term"><code>[alice@login]$ squeue -u username
-</code></pre>
-
-<p>Issuing <code>squeue</code> alone will show all user jobs in the queue. You can
-view all jobs for a particular partition with <code>squeue -p shared</code>.</p>
-
-<h1 id="3-viewing-additional-job-information"><strong>3. Viewing Additional Job Information</strong></h1>
-
-<p>Accounting information for jobs that are invoked with SLURM are logged. The <code>sacct</code> command displays job accouting data in a variety of forms for your analysis.</p>
-
-<p><strong>If you are having trouble viewing output from <code>sacct</code> try running this command first</strong></p>
-
-<pre class="term"><code>[alice@login]$ sacct --start=2018-01-01
-</code></pre>
-
-<h2 id="how-to-select-jobs">How To Select Jobs</h2>
-
-<ul>
-  <li>
-    <p>To display information about a specific job or list of jobs use <code>-j</code> or <code>--jobs</code> followed by a job number or comma separated list of job numbers.</p>
-
-    <pre class="term"><code>  [alice@login]$ sacct --jobs job1,job2,job3
-</code></pre>
-    <!-- Sample output -->
-  </li>
-  <li>
-    <p>To select information about jobs in a certain date range use <code>--start</code> and <code>--end</code> Without it, <code>sacct</code> will only return jobs from the current day.</p>
-
-    <pre class="term"><code>  [alice@login]$ sacct --start=YYYY-MM-DD
-</code></pre>
-  </li>
-  <li>To select information about jobs in a certian time range use <code>--starttime</code> and <code>--endtime</code> The default start time is 00:00:00 of the current day, unless used with <code>-j</code>, then the default start time is Unix Epoch 0. The default end time is time of running the command. Valid time formats are
-    <pre><code>  HH:MM[:SS] [AM|PM]
-  MMDD[YY] or MM/DD[/YY] or MM.DD[.YY]
-  MM/DD[/YY]-HH:MM[:SS]
-  YYYY-MM-DD[THH:MM[:SS]] 
-</code></pre>
-
-    <pre class="term"><code>  [alice@login]$ sacct --starttime 08/23 --endtime 08/24
-</code></pre>
-  </li>
-  <li>
-    <p>To display another user’s jobs use <code>--user</code></p>
-
-    <pre class="term"><code>  [alice@login]$ sacct --user BuckyBadger
-</code></pre>
-    <p><!-- Sample output --></p>
-  </li>
-  <li>
-    <p>To only show statistics relevant to the job allocation itself, not taking steps into consideration use <code>-X</code>. This can be useful when trying to figure out which part of a job errored out.</p>
-
-    <pre class="term"><code>  [alice@login]$ sacct -X
-</code></pre>
-    <p><!-- Sample Output --></p>
-  </li>
-</ul>
-
-<h2 id="displaying-specific-fields">Displaying Specific Fields</h2>
-
-<p><code>sacct</code> can display different fields about your jobs. You can use the <code>--helpformat</code> flag to get a full list.</p>
-
-<pre class="term"><code>[alice@login]$ sacct --helpformat
-</code></pre>
-
-<h3 id="recommended-fields">Recommended Fields</h3>
-
-<p>When looking for information about your jobs CHTC recommends using these fields</p>
-<pre><code>elapsed
-end
-exitcode
-jobid
-ncpus
-nnodes
-nodelist
-ntasks
-partition
-start
-state
-submit
-user
-</code></pre>
-
-<p>For example run</p>
-
-<pre class="term"><code>sacct --start=2020-01-01 --format=jobid
-</code></pre>
-
-<p>to see jobIDs of all jobs ran since 1/1/2020.</p>
-
-<h1 id="4-removing-or-holding-jobs"><strong>4. Removing or Holding Jobs</strong></h1>
-
-<p>You can kill and/or remove your job from the
-queue with the following:</p>
-
-<pre class="term"><code>[alice@login]$ scancel job#
-</code></pre>
-
-<p>where <code>job#</code> is the number shown for your job in the <code>squeue</code> output.</p>
-
-<p>If you want to leave a job in the queue, but prevent it from running immediately, 
-you can “hold” a submitted job by using:</p>
-
-<pre class="term"><code>[alice@login]$ scontrol hold job#
-</code></pre>
-
-<p>To release jobs that are held so that they can run, use this command:</p>
-
-<pre class="term"><code>[alice@login]$ scontrol release job#
-</code></pre>
-
-        </div>
-        <div class="col-3 d-none d-lg-block">
-            
-
-
-
-    <div id="guide-sidebar">
-        
-            
-
-            
-            
-
-            <h6 class="mt-5">HPC Guides</h6>
-            <div class="accordion accordion-flush">
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="basics-and-policies">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
-                                    Basics and Policies
-                                </button>
-                            </h2>
-                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-overview">HPC Cluster Overview</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/connecting">Connecting to CHTC Using CHTC's HTC Submit Nodes</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/configure-ssh">Automating CHTC Log In</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/transfer-data-researchdrive">Transferring Files Between CHTC and ResearchDrive</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/github-remote-access">Remotely Access a Private GitHub Repository</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="job-submission">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#job-submission-collapse" aria-expanded="false" aria-controls="job-submission">
-                                    Job Submission
-                                </button>
-                            </h2>
-                            <div id="job-submission-collapse" class="accordion-collapse collapse show " aria-labelledby="job-submission" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/hpc-job-submission">Submitting and Managing Jobs Using SLURM</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="software-solutions">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
-                                    Software Solutions
-                                </button>
-                            </h2>
-                            <div id="software-solutions-collapse" class="accordion-collapse collapse " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-software">Using Software on the HPC Cluster</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-spack-setup">Setting Up Spack on HPC</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-spack-install">Installing Software Using Spack</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-spack-modules">Creating Custom Modules Using Spack</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-                
-                    
-                
-            </div>
-        
-    </div>
-
-
+                Great Plains Regional CyberTeam Expanding Capacity for Computing from Great Plains Campuses
+            </h1>
+            <p>As a multidisciplinary and multi-institutional collaboration, the Great Plains Augmented Regional Gateway to the
+OSG (GP-ARGO) has made significant strides in democratizing computing. Continued support by the CC* award 
+from the National Science Foundation (NSF) is a testament to its dedication to advancing the field.</p>
+
+<p>The task of effectively supporting computational and data-intensive research at an under-resourced and
+understaffed university in a rural area without the benefit of in-person support is a formidable challenge.
+Yet, the <a href="https://gp-argo.greatplains.net/">Great Plains Augmented Regional Gateway to the OSG</a> (GP-ARGO) 
+undertook this daunting responsibility across eighteen universities with exceptional success. Not only did 
+it accomplish this feat, but it also established a new standard of excellence in the field, 
+supplying cyberinfrastructure and support.</p>
+
+<p>GP-ARGO is a product of a regionally distributed <a href="https://osg-htc.org/">OSG</a> Gateway led by the 
+<a href="https://www.greatplains.net/">Great Plains Network</a> (GPN), but it started as a gigabit Point of Presence (gigaPOP) 
+of institutions across the great plains region. “It was just a whole bunch of institutions saying, let’s buy 
+a bunch of networks together because it’s easier on us,” Co-principal investigator (PI) and Cyber Infrastructure 
+Program Committee lead Dan Andresen explained, “which is still what GPN is today, but we’ve moved into more facilitating 
+research and connectivity at a social and scientific level as well.”</p>
+
+<p>The social networking part of this project came later, starting with GPN, but then developing into the CyberTeam.
+“As part of CyberTeam, we noticed that smaller institutions lacked intrinsic capabilities compared to larger ones,” 
+Andresen noted. This gap in research computing sparked the idea of GP-ARGO.</p>
+
+<p>The “O” in GP-ARGO stands for “OSG,” indicating the team’s intention to leverage OSG resources. “We knew we wanted 
+to connect these 18 institutions, and OSG was the way to do it,” Andresen explained. Derek Weitzel, a Research
+Professor in distributed computing at the University of Nebraska-Lincoln, played a vital role in connecting OSG 
+with GP-ARGO. Weitzel had worked with OSG before the project began, playing an integral part in interfacing between
+the OSG and GP-ARGO. After establishing OSG’s role in this new project, “it became just a simple matter of obtaining 
+the 18 machines and then figuring out which institutions wanted to be a part of this first beta testing phase,”
+Andresen reminisced.</p>
+
+<p>Handling 18 machines across six states came with challenges, particularly in communicating and managing 18 administrative 
+domains, security protocols, and rule differences. “None of these sites were the same,” Weitzel explained. “Some sites
+were very restrictive, others were very relaxed, and we had to make all of them work.” Kyle Hudson, one of the 
+former mentors for the Cyber Infrastructure side of the CyberTeam, played a crucial role in resolving these technical nuances.</p>
+
+<p>With GP-ARGO consistently ranking among the top five OSG entry points for a good part of the last year, the team has 
+successfully linked the machines together and ensured smooth operation, even without dedicated system administrators 
+on-site. Through a large dashboard that compiles information from each institution on which projects are actually 
+running on the nodes, IT leaders and CIOs can monitor and visualize each of the nodes. The dashboard also comes 
+with a data visualization of usage by university, including the PIs on each project, adding a personal component to 
+the monitoring.</p>
+
+<p>Acknowledging the great success of this regional network organization, the National Science Foundation (NSF)
+supports it. First, CyberTeam received a CC* award, and later, the entire GP-ARGO network received one — something that 
+no one has done before. “Applying as a network rather than a single institution made sense,” Andresen explained, “this 
+emphasizes this is a regional effort rather than an individual, institutional effort.”</p>
+
+<p>GP-ARGO has truly set the curve in taking on a project of this scale and magnitude and doing it successfully. Reflecting 
+on what went well, Andresen gleamed, “I mean, we did it! We’ve got it working; we’re among the top five OSG entry points, 
+we’ve contributed 13 million CPU hours of science, and we have people who are excited and involved, which has been incredibly 
+fun and exciting.”</p>
+
+<p>Furthermore, the team has ensured the sustainability of this operation. “Most of the institutions we’re working with don’t 
+have the expertise or the full-time employees to spare,” Andresen explained. Central administration by OSG has been instrumental 
+in this regard, especially recently, regarding restructuring administration roles with the leaving of Kyle Hudson. “If 
+something happens to whoever is the administrator, like leaving for another institution,” Hudson jokingly remarked, “we 
+have four people across four different institutions that all have administrative rights. I was a primary person doing that, 
+but I was not the only person who could do this, so somebody else can take over.”</p>
+
+<p>Part of GP-ARGO’s appeal lies in their determination and dedication to helping other consortiums and networks aiming to achieve 
+similar goals. They provide a Git repository with all their code and emphasize the importance of both social and technical networks. 
+“Building trust and familiarity is crucial,” Andresen advised. “Get involved with the OSG and get to know people; having Derek 
+[Weitzel] available as the interface has been invaluable. Knowing the context and the people is much easier than starting from scratch.”</p>
+
+<p>Despite the immense undertaking, Andresen commented on how fun and exciting the project has been, with the OSG playing a pivotal 
+role. “This program only builds stronger connections within the region between all these different professionals,” Weitzel 
+reflected. “It’s allowed us to reach out to different types of people, creating new opportunities that build on each other.”</p>
+
+<p>Echoing this sentiment, Hudson highlighted the project’s impact in involving previously less-engaged institutions within GPN with the network’s recent expansion from 18 to 19 campuses. “Cameron University heard about some of the things we’re doing 
+through their state network, had a spare box, and asked if they could get involved!” Hudson explained.</p>
+
+<p>Building these regional connections was one of the most important steps in creating this network. The Midwest doesn’t 
+have any major supercomputing centers or institutions with enough people to drive a network of this magnitude forward. 
+However, Andresen noted that the key to their triumph in this large-scale and long-term endeavor lay in the region’s heritage:
+“We knew we couldn’t do this alone, but here in the Midwest, our spiritual successor has always been that we look out 
+for and help each other out. That’s who we are, and it’s what has helped us reach remarkable feats.”</p>
 
         </div>
     </div>
 </div>
-
+</main>
     </main>
     <footer id="colophon" class="uw-footer">
     <div class="uw-footer-content">
