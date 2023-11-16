@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HPC Cluster Overview</title>
+<title>The Pelican Project: Building a universal plug for scientific data-sharing</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,28 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>HPC Cluster Overview | CHTC</title>
+<title>The Pelican Project: Building a universal plug for scientific data-sharing | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="HPC Cluster Overview" />
+<meta property="og:title" content="The Pelican Project: Building a universal plug for scientific data-sharing" />
+<meta name="author" content="Brian Mattmiller" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Table of Contents High-Performance Computing at CHTC HPC User Policies HPC Hardware and Configuration Execute Nodes and Partitions Operating System and Software Data Storage and Management Tools for managing home and software space High-Performance Computing at CHTC" />
-<meta property="og:description" content="Table of Contents High-Performance Computing at CHTC HPC User Policies HPC Hardware and Configuration Execute Nodes and Partitions Operating System and Software Data Storage and Management Tools for managing home and software space High-Performance Computing at CHTC" />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/hpc-overview" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc-overview" />
+<meta name="description" content="Advancing Open Science: The Pelican Project’s Pursuit of Universal Data Accessibility" />
+<meta property="og:description" content="Advancing Open Science: The Pelican Project’s Pursuit of Universal Data Accessibility" />
+<link rel="canonical" href="https://morgridge.org/story/the-pelican-project/" />
+<meta property="og:url" content="https://morgridge.org/story/the-pelican-project/" />
 <meta property="og:site_name" content="CHTC" />
+<meta property="og:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/researchcomp-pelican.jpg" />
+<meta property="og:image:alt" content="Emile working in the server room" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-11-16T21:42:47+00:00" />
+<meta property="article:published_time" content="2023-11-16T00:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="HPC Cluster Overview" />
+<meta property="twitter:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/researchcomp-pelican.jpg" />
+<meta name="twitter:image:alt" content="Emile working in the server room" />
+<meta property="twitter:title" content="The Pelican Project: Building a universal plug for scientific data-sharing" />
 <meta name="twitter:site" content="@chtc_uw" />
+<meta name="twitter:creator" content="@Brian Mattmiller" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-11-16T21:42:47+00:00","datePublished":"2023-11-16T21:42:47+00:00","description":"Table of Contents High-Performance Computing at CHTC HPC User Policies HPC Hardware and Configuration Execute Nodes and Partitions Operating System and Software Data Storage and Management Tools for managing home and software space High-Performance Computing at CHTC","headline":"HPC Cluster Overview","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-overview"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-overview"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Brian Mattmiller"},"dateModified":"2023-11-16T00:00:00+00:00","datePublished":"2023-11-16T00:00:00+00:00","description":"Advancing Open Science: The Pelican Project’s Pursuit of Universal Data Accessibility","headline":"The Pelican Project: Building a universal plug for scientific data-sharing","image":{"alt":"Emile working in the server room","url":"https://raw.githubusercontent.com/CHTC/Articles/main/images/researchcomp-pelican.jpg","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://morgridge.org/story/the-pelican-project/"},"url":"https://morgridge.org/story/the-pelican-project/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -52,7 +58,7 @@
 <link type="text/css" href="/assets/fonts/fonts.0.0.1.css" rel="stylesheet">
 <link type="text/css" href="/assets/css/style-v10.css" rel="stylesheet">
 
-<link type="text/css" href="/assets/css/research-style.css" rel="stylesheet">
+
 
 <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'')})(document.documentElement)</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -76,7 +82,7 @@
             <div class="row">
                 <div class="col-auto pe-0">
                     
-                    <a class="uw-global-name-link" href="/" aria-label="University home page">Go to CHTC Home</a>
+                    <a class="uw-global-name-link" href="/uw-research-computing" aria-label="UW Research Computing Homepage">Go to UW Research Computing Home</a>
                     
                 </div>
                 <div class="col-auto d-flex">
@@ -96,7 +102,7 @@
 
 
 
-<header id="branding-sub" class="uw-header circuit-background">
+<header id="branding" class="uw-header ">
     <div class="uw-header-container mt-2 mb-2">
         <div class="uw-header-crest-title">
             <div class="uw-header-crest">
@@ -107,7 +113,7 @@
                     <a href="/" rel="home">CHTC</a>
                 </h1>
                 <a href="/" rel="home">
-                    <div id="site-description" class="uw-site-tagline">UW Research Computing</div>
+                    <div id="site-description" class="uw-site-tagline">Center for High Throughput Computing</div>
                 </a>
             </div>
         </div>
@@ -115,13 +121,8 @@
 </header>
     
 
-
-
     
-
-
-    
-    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">UW-Research Computing<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
+    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">Menu<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
 <div id="uw-top-menus" class="uw-is-visible uw-horizontal" aria-hidden="false">
     <div class="uw-main-nav">
         <nav class="uw-nav-menu uw-nav-menu-reverse" aria-label="Main Menu">
@@ -129,27 +130,9 @@
                 
                     
 
-
-<li id="home">
-    <a href="/uw-research-computing/index.html" aria-current="page">Home</a>
-</li>
-
-
-                
-                    
-
-
-<li id="get-started">
-    <a href="/uw-research-computing/form.html" aria-current="page">Get Started</a>
-</li>
-
-
-                
-                    
-
-<li id="menu-how-tos" class="uw-dropdown">
-    <a href="/uw-research-computing/how-tos.html" role="button" aria-haspopup="true" aria-expanded="false">
-        How To's
+<li id="about" class="uw-dropdown">
+    <a href="/about.html" role="button" aria-haspopup="true" aria-expanded="false">
+        About
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -157,23 +140,31 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="How To's submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="About submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/user-expectations.html">User Expectations</a>
+            <a href="/htc.html">What is HTC?</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/guides.html#htc-documentation">HTC Guides</a>
+            <a href="/approach.html">Our Approach</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/guides.html#hpc-documentation">HPC Guides</a>
+            <a href="/projects.html">Our Customers</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/cite-chtc.html">Cite CHTC Resources</a>
+            <a href="/people.html">Our Staff</a>
+        </li>
+    
+        <li>
+            <a href="/jobs.html">Our Open Positions</a>
+        </li>
+    
+        <li>
+            <a href="/internships.html">Internships</a>
         </li>
     
     </ul>    
@@ -183,17 +174,44 @@
                     
 
 
-<li id="get-help">
-    <a href="/uw-research-computing/get-help.html" aria-current="page">Get Help</a>
+<li id="uw-research-computing">
+    <a href="/uw-research-computing/index.html" aria-current="page">UW Research Computing</a>
 </li>
 
 
                 
                     
 
-<li id="menu-other-resources" class="uw-dropdown">
-    <a href="/uw-research-computing/other-resources.html" role="button" aria-haspopup="true" aria-expanded="false">
-        Other Resources
+
+<li id="guides">
+    <a href="/uw-research-computing/guides.html" aria-current="page">Guides</a>
+</li>
+
+
+                
+                    
+
+
+<li id="technologies">
+    <a href="/technologies.html" aria-current="page">Technologies</a>
+</li>
+
+
+                
+                    
+
+
+<li id="research">
+    <a href="/research.html" aria-current="page">Research</a>
+</li>
+
+
+                
+                    
+
+<li id="news" class="uw-dropdown">
+    <a href="/news-navigation.html" role="button" aria-haspopup="true" aria-expanded="false">
+        News
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -201,27 +219,19 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="Other Resources submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="News submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/gpu-lab.html">CHTC GPU Lab</a>
+            <a href="/news.html">CHTC News</a>
         </li>
     
         <li>
-            <a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a>
+            <a href="/events.html">Events</a>
         </li>
     
         <li>
-            <a href="http://www.neos-server.org/">NEOS Optimization Service</a>
-        </li>
-    
-        <li>
-            <a href="http://www.osg-htc.org/">OSG Consortium</a>
-        </li>
-    
-        <li>
-            <a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a>
+            <a href="/uw-research-computing/user-news.html">User News</a>
         </li>
     
     </ul>    
@@ -242,411 +252,56 @@
 </div>
 
 
+
+    
+
     <main id="main" style="min-height: 60vh;">
-        <div class="container-xxl mb-5">
+        <main id="main" style="min-height: 60vh;">
+    <!-- This Layout is to adhere the page to the optimal char per lines for accessibility -->
+
+
+<div class="container-xxl">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-9 mw-1000">
+        <div class="col-12 col-sm-11 col-md-9 col-lg-8">
             <h1 class="uw-mini-bar mb-4">
-    HPC Cluster Overview
-</h1>
+                The Pelican Project: Building a universal plug for scientific data-sharing
+            </h1>
+            <p>From its founding, the Morgridge Institute for Research has driven the idea that open sharing of research computing resources will be a great enabler of scientific discovery, powering everything from black hole astronomy to stem cell biology.</p>
 
-            
-<div class="d-flex flex-column mb-5">
+<p>Increasingly, the principle of sharing is being applied not only to computing resources, but to the wealth of data those projects are producing. Resources such as <a href="https://chtc.cs.wisc.edu/">high-throughput computing</a> and the <a href="https://osg-htc.org">OSG Consortium</a> have been incorporating more tools for scientists to share their raw data for further exploration.</p>
 
-<h2>Table of Contents</h2>
+<p>This principle is now getting traction on a national policy scale. The <a href="https://www.whitehouse.gov/ostp/">White House Office of Science and Technology Policy (OSTP)</a> established new requirements in 2022 that any research supported by federal funds must be made available to the public without embargoes or paywalls.</p>
 
-<div class="uw-sidebar-box me-auto">
-<div class="uw-directory">
+<p>This mandate applies not only to published findings, but to the core data those findings are based upon. Within the scientific community, the approach is referred to as the “FAIR” principles, which means that scientific data should be “findable, accessible, interoperable and reusable.”</p>
 
-      <ol>
-        <li><a href="#high-performance-computing-at-chtc">High-Performance Computing at CHTC</a></li>
-        <li><a href="#hpc-cluster-user-policies">HPC User Policies</a></li>
-        <li><a href="#hpc-hardware-and-configuration">HPC Hardware and Configuration</a>
-          <ul>
-            <li><a href="#execute-nodes-and-partitions">Execute Nodes and Partitions</a></li>
-            <li><a href="#operating-system-and-software">Operating System and Software</a></li>
-          </ul>
-        </li>
-        <li><a href="#data-storage-and-management">Data Storage and Management</a>
-          <ul>
-            <li><a href="#tools-for-managing-home-and-software-space">Tools for managing home and software space</a></li>
-          </ul>
-        </li>
-      </ol>
+<p>Obviously, applying this new standard to data is as much a technical challenge as it is a cultural one. A new project at the Morgridge, led by research computing investigators Brian Bockelman and Miron Livny, is working toward creating a software platform that can facilitate the sharing of diverse research datasets.</p>
 
-    </div>
-</div>
-</div>
+<p>Nicknamed “Pelican,” the project is supported through a $7 million grant from the National Science Foundation (NSF). The award (<a href="https://www.highergov.com">OAC-2331489</a>) will strive to make data produced by researchers, from single-investigator labs to international collaborations, more accessible for computing and remote clients for viewing. Pelican supports and extends the work Bockelman and Livny have been doing as part of the OSG Consortium for over a decade.</p>
 
-<h1 id="high-performance-computing-at-chtc">High-Performance Computing at CHTC</h1>
+<p>Bockelman says that public research data-sharing has been a growing movement the past decade, but the COVID-19 pandemic served as a potent catalyst. The pandemic made the benefits of sharing abundantly clear, including the development of a vaccine at an unprecedented pace — 6 months compared to a typical multi-year process.</p>
 
-<p>The CHTC high-performance computing (HPC) cluster provides dedicated support for large, 
-singular computations that use specialized software (i.e. MPI) to achieve internal 
-parallelization of work across multiple servers of dozens to hundreds of cores.</p>
+<p>“Our philosophy is that not only should your research paper be public and readable, but your data should be as well,” Bockelman says. “If scientists just say, ‘here are the results in a pretty graph,’ and don’t share the underlying dataset, we lose a lot of value when others can’t access the data, can’t interpret it, or use it for their own research.”</p>
 
-<p><strong><em>Is high-performance computing right for me?</em></strong> Only computational work that 
-fits that above description is appropriate for the HPC Cluster. Computational 
-work that can complete on a single node in less than a few days will be 
-best supported by our larger high-throughput computing (HTC) system (which also
-includes specialized hardware for extreme memory, GPUs, and other cases). For more 
-information, please see <a href="/approach.html">Our Approach</a>.</p>
+<p>Bockelman says there are some other core benefits that may come from the open science push. By making data more readily accessible, it should improve the reproducibility of experiments and potentially reduce scientific fraud. It can also narrow the gap between the “haves” and “have-nots” in the research world by providing data access regardless of institutional resources.</p>
 
-<p>To get access to the HPC Cluster, please complete our
-<a href="form.html">New User Consultation Form</a>. After your request is received, 
-a Research Computing Facilitator will follow up to discuss the computational needs 
-of your research and connect you with computing 
-resources (including non-CHTC services) that best fit your needs.</p>
+<p>Bockelman likens the Pelican project to developing a “universal adapter plug” that can accommodate all different types of data. Just like homes have standard outlets that work for all different household appliances, that same approach should help individual scientists plug into a sharable data platform regardless of the nature of their data.</p>
 
-<h1 id="hpc-cluster-user-policies">HPC Cluster User Policies</h1>
+<p>One of the first proving grounds for Pelican will be its participation within the <a href="https://www.nsf.gov">National Discovery Cloud for Climate</a>, an effort to bring together compute, data, and network resources to democratize access and advance the climate-related science and engineering. Bockelman says the Pelican project will help optimize this data sharing effort with the climate science community and provide a proof of concept for other research areas.</p>
 
-<p>See our <a href="user-expectations.html">User Policies and Expectations</a> for details on general CHTC and HPC cluster policies.</p>
+<p>But ultimately, the best benefit may be enhancing public trust in high-impact science.</p>
 
-<h1 id="hpc-hardware-and-configuration">HPC Hardware and Configuration</h1>
+<p>“Even for people who may not go digging into the data, they want to know that science has been done responsibly, especially for fields where it directly affects their lives,” Bockelman says. “Climate is a great example of where the science can really drive regulations that affect people. Getting data out as open and following the FAIR principles … is part of that relationship between the scientific community and the society at large.”</p>
 
-<p>The HPC Cluster consists of two login nodes and many compute (aka execute) 
-nodes. All users log in at a login node, and all user files on the shared file sytem are accessible on all nodes.
-Additionally, all nodes are tightly networked (200 Gbit/s Infiniband) so
-they can work together as a single "supercomputer", depending on the
-number of CPUs you specify.</p>
+<p>Bockelman says making data accessible is more than just downloading from a webserver. Pelican works to establish approaches that help people utilize the data effectively from anywhere in the nation’s computing infrastructure — essential so anyone from a tribal college to the largest university can understand and interpret the climate data.</p>
 
-<h2 id="operating-system-and-software">Operating System and Software</h2>
+<p>The original memo was written in 2022 by then OSTP Director Alondra Nelson, and today the “Nelson memo” is viewed as a watershed document in federal research policy.</p>
 
-<p>All nodes in the HPC Cluster are running CentOS 8 Stream Linux.</p>
-
-<p>The SLURM scheduler version is 22.05.6.</p>
-
-<p>To see more details of other software on the cluster, see the <a href="hpc-software.html">HPC Software page</a>.</p>
-
-<h2 id="login-nodes">Login Nodes</h2>
-
-<p>The login node for the cluster is: <code>hpclogin3.chtc.wisc.edu</code></p>
-
-<p>For more details on logging in, see the “Connecting to CHTC” guide linked above.</p>
-
-<h2 id="execute-nodes-and-partitions">Execute Nodes and Partitions</h2>
-
-<p>Only execute nodes will be used for performing your computational work. 
-The execute nodes are organized into several "partitions", including 
-the <code>shared</code>, <code>pre</code>, and <code>int</code> partitions which are available to 
-all HPC users as well as research group specific partitions that consist 
-of researcher-owned hardware and which all HPC users can access on a 
-backfill capacity via the <code>pre</code> partition (more details below).</p>
-
-<table class="gtable">
-  <thead>
-    <tr>
-      <th>Partition</th>
-      <th>p-name</th>
-      <th># nodes (N)</th>
-      <th>t-default</th>
-      <th>t-max</th>
-      <th>max cores/job</th>
-      <th>cores/node (n)</th>
-      <th>RAM/node (GB)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Shared</td>
-      <td>shared</td>
-      <td>45</td>
-      <td>1 day</td>
-      <td>7 day</td>
-      <td>320</td>
-      <td>64 or 128</td>
-      <td>512</td>
-    </tr>
-    <tr>
-      <td>Interactive</td>
-      <td>int</td>
-      <td>2</td>
-      <td>1 hr</td>
-      <td>4 hrs</td>
-      <td>320</td>
-      <td>64 or 128</td>
-      <td>512</td>
-    </tr>
-    <tr>
-      <td>Pre-emptable (backfill)</td>
-      <td>pre</td>
-      <td>45</td>
-      <td>4 hrs</td>
-      <td>24 hrs</td>
-      <td>320</td>
-      <td>64 or 128</td>
-      <td>512</td>
-    </tr>
-    <tr>
-      <td>Owners</td>
-      <td><em>unique</em></td>
-      <td>19</td>
-      <td>24 hrs</td>
-      <td>7 days</td>
-      <td><em>unique</em></td>
-      <td>64 or 128</td>
-      <td>512</td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
-  <li>
-    <p><code>shared</code> compute nodes each have 64 or 128 cores and 512 GB of RAM.<br />
-Jobs submitted to this partition 
-can request and use up to 7 days of running time.</p>
-  </li>
-  <li>
-    <p><code>int</code> consists of two compute nodes is intended for short and immediate interactive 
-testing on a single node (up to 32 CPUs, 128 GB RAM). Jobs submitted to this partition 
-can run for up to 4 hours.</p>
-  </li>
-  <li>
-    <p><code>pre</code> (i.e. pre-emptable) is an under-layed partition encompassing all HPC Cluster 
-nodes and is intended for more immediate turn-around of shorter, smaller, and/or 
-interactive sessions requiring more than the 4 hour time limit of the <code>int</code> partition. 
-Jobs submitted to <code>pre</code> are run as back-fill on any idle nodes, including researcher-owned 
-compute nodes, meaning these jobs may be pre-empted by higher priority 
-jobs. By default, pre-empted jobs will be re-queued (to run again) if they were submitted with 
-an sbatch script.</p>
-  </li>
-</ul>
-
-<h3 id="fair-share-allocation">Fair Share Allocation</h3>
-
-<p>To promote fair access to HPC computing resources, all users are limited to 10 concurrently 
-running jobs (if you need to queue more, please get in touch). Additionally, users are restricted to a total of 720 cores 
-across all running jobs (core limits do not apply on research group partitions of
-more than 720 cores).</p>
-
-<p>When determining which order to run jobs, the following policies are applies, in order or significance
-to job priority determinations:</p>
-
-<p>A. User priority decreases as the user accumulates hours of CPU time over the last 21 days, across 
-all queues. This “fair-share” policy means that users who have run many/larger jobs in the near-past 
-will have a lower priority, and users with little recent activity will see their waiting jobs start sooner. 
-(The cluster does not have a strict “first-in-first-out” queue policy.)</p>
-
-<p>B. Job priority increases with job wait time. After the history-based user priority calculation in (A), 
-the next most important factor for each job’s priority is the amount of time that each job has already 
-waited in the queue. For all the jobs of a single user, these jobs will most closely follow a “first-in-first-out” policy.</p>
-
-<p>C. Job priority increases with job size, in cores. This least important factor slightly favors larger jobs, so that 
-the scheduler can take advantage when large numbers of newly-available nodes happen to become available (requiring less 
-wasted time to deliberately drain nodes for larger jobs). So, among a user’s jobs submitted at roughly the same time, 
-a larger job may run first, if the number of nodes necessary for the larger job is already available.</p>
-
-<h1 id="data-storage-and-management">Data Storage and Management</h1>
-
-<p><strong>Data space in the HPC Cluster filesystem is not backed-up and should be
-treated as temporary by users</strong>. Only files necessary for
-<em>actively-running</em> jobs should be kept on the filesystem, and files
-should be removed from the cluster when jobs complete. A primary copy of any
-essential files (e.g. software, submit files, input) should be kept in an 
-alternate, non-CHTC storage location.</p>
-
-<p>Each user will receive two primary data storage locations:</p>
-
-<ol>
-  <li>
-    <p><code>/home/username</code> with an initial disk quota of 30GB 
-and 250,000 items. Your home directory is meant to be used for files 
-you use repeatedly, like submit file templates, source code, software 
-installations, and reference data files.</p>
-  </li>
-  <li>
-    <p><code>/scratch/username</code> with an initial disk quota of 100GB and 
-250,000 items. Jobs should always be submitted and run out of 
-<code>/scratch</code>. It is the space for all working data, including individual 
-job inputs, job outputs, and job log/stderr/stdout files.</p>
-  </li>
-</ol>
-
-<blockquote>
-  <h3 id="what-about-software">What about <code>/software</code>?</h3>
-
-  <p>If you are installing software meant to be shared within a group, 
-we can create a dedicated folder for you in the <code>/software</code> space
-email us (chtc@cs.wisc.edu) if this is you!</p>
-</blockquote>
-
-<p>To check how many files and directories you have in
-your <code>/home</code> or <code>/scratch</code> directory see the 
-<a href="#tools-for-managing-home-and-software-space">instructions below</a>.</p>
-
-<p>Increased quotas on either of these locations are available upon email 
-request to <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> after a user has 
-cleared out old data and run relevant test jobs to inform the request. In your request, 
-please include both size (in GB) and file/directory counts. If you don't 
-know how many files your installation creates, because it's more than 
-the current items quota, simply indicate that in your request.</p>
-
-<p><strong>CHTC Staff reserve the right to remove any significant amounts of data
-on the HPC Cluster</strong> in our efforts to maintain filesystem performance
-for all users.</p>
-
-<p><strong>Local scratch space</strong> is available on each execute node in <code>/local/$USER</code>.
-This space is <strong>NOT</strong> automatically cleaned out, so if you use this space,
-be sure to remove the files before the end of your job script or 
-interactive session.</p>
-
-<h2 id="tools-for-managing-home-and-software-space">Tools for managing home and software space</h2>
-
-<p>You can use the command <code>get_quotas</code> to see what disk 
-and items quotas are currently set for a given directory path. 
-This command will also let you see how much disk is in use and how many 
-items are present in a directory:</p>
-
-<pre class="term"><code>[username@hpclogin1 ~]$ get_quotas /home/username /scratch/username
-</code></pre>
-
-<p>Alternatively, the <code>ncdu</code> command can also be used to see how many 
-files and directories are contained in a given path:</p>
-
-<pre class="term"><code>[username@hpclogin1 ~]$ ncdu /home/username
-[username@hpclogin1 ~]$ ncdu /scratch/username
-</code></pre>
-
-<p>When <code>ncdu</code> has finished running, the output will give you a total file
-count and allow you to navigate between subdirectories for even more
-details. Type <code>q</code> when you're ready to exit the output viewer. More
-info here: <a href="https://lintut.com/ncdu-check-disk-usage/">https://lintut.com/ncdu-check-disk-usage/</a></p>
+<p>“When research is widely available to other researchers and the public, it can save lives, provide policy makers with the tools to make critical decisions, and drive more equitable outcomes across every sector of society,” Nelson wrote. “The American people fund tens of billions of dollars of cutting-edge research annually. There should be no delay or barrier between the American public and the returns on their investments in research.”</p>
 
         </div>
-        <div class="col-3 d-none d-lg-block">
-            
-
-
-
-    <div id="guide-sidebar">
-        
-            
-
-            
-            
-
-            <h6 class="mt-5">HPC Guides</h6>
-            <div class="accordion accordion-flush">
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="basics-and-policies">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
-                                    Basics and Policies
-                                </button>
-                            </h2>
-                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse show " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/hpc-overview">HPC Cluster Overview</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/connecting">Connecting to CHTC Using CHTC's HTC Submit Nodes</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/configure-ssh">Automating CHTC Log In</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/transfer-data-researchdrive">Transferring Files Between CHTC and ResearchDrive</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/github-remote-access">Remotely Access a Private GitHub Repository</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="job-submission">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#job-submission-collapse" aria-expanded="false" aria-controls="job-submission">
-                                    Job Submission
-                                </button>
-                            </h2>
-                            <div id="job-submission-collapse" class="accordion-collapse collapse " aria-labelledby="job-submission" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-job-submission">Submitting and Managing Jobs Using SLURM</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="software-solutions">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
-                                    Software Solutions
-                                </button>
-                            </h2>
-                            <div id="software-solutions-collapse" class="accordion-collapse collapse " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-software">Using Software on the HPC Cluster</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-spack-setup">Setting Up Spack on HPC</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-spack-install">Installing Software Using Spack</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-spack-modules">Creating Custom Modules Using Spack</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-                
-                    
-                
-            </div>
-        
-    </div>
-
-
-
-        </div>
     </div>
 </div>
-
+</main>
     </main>
     <footer id="colophon" class="uw-footer">
     <div class="uw-footer-content">
