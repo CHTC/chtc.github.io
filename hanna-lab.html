@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Managing Large Data in HTC Jobs with S3 Buckets</title>
+<title>Training a dog and training a robot aren’t so different</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,28 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Managing Large Data in HTC Jobs with S3 Buckets | CHTC</title>
+<title>Training a dog and training a robot aren’t so different | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="Managing Large Data in HTC Jobs with S3 Buckets" />
+<meta property="og:title" content="Training a dog and training a robot aren’t so different" />
+<meta name="author" content="Sarah Matysiak" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="When submitting jobs to CHTC’s High Throughput Computing (HTC) system, there is a distinct location for staging data that is too large to be handled at scale via the default HTCondor file transfer mechanism but needs to be accessed outside of CHTC (for example, data for jobs that run on the OS Pool)." />
-<meta property="og:description" content="When submitting jobs to CHTC’s High Throughput Computing (HTC) system, there is a distinct location for staging data that is too large to be handled at scale via the default HTCondor file transfer mechanism but needs to be accessed outside of CHTC (for example, data for jobs that run on the OS Pool)." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/file-avail-s3" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/file-avail-s3" />
+<meta name="description" content="In the Hanna Lab, researchers use high throughput computing as a critical tool for training robots with reinforcement learning." />
+<meta property="og:description" content="In the Hanna Lab, researchers use high throughput computing as a critical tool for training robots with reinforcement learning." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/hanna-lab.html" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/hanna-lab.html" />
 <meta property="og:site_name" content="CHTC" />
+<meta property="og:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/hannalab.png" />
+<meta property="og:image:alt" content="Group photo of members of the Hanna Lab" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-11-17T18:34:20+00:00" />
+<meta property="article:published_time" content="2023-11-17T00:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Managing Large Data in HTC Jobs with S3 Buckets" />
+<meta property="twitter:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/hannalab.png" />
+<meta name="twitter:image:alt" content="Group photo of members of the Hanna Lab" />
+<meta property="twitter:title" content="Training a dog and training a robot aren’t so different" />
 <meta name="twitter:site" content="@chtc_uw" />
+<meta name="twitter:creator" content="@Sarah Matysiak" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-11-17T18:34:20+00:00","datePublished":"2023-11-17T18:34:20+00:00","description":"When submitting jobs to CHTC’s High Throughput Computing (HTC) system, there is a distinct location for staging data that is too large to be handled at scale via the default HTCondor file transfer mechanism but needs to be accessed outside of CHTC (for example, data for jobs that run on the OS Pool).","headline":"Managing Large Data in HTC Jobs with S3 Buckets","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-s3"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-s3"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Sarah Matysiak"},"dateModified":"2023-11-17T00:00:00+00:00","datePublished":"2023-11-17T00:00:00+00:00","description":"In the Hanna Lab, researchers use high throughput computing as a critical tool for training robots with reinforcement learning.","headline":"Training a dog and training a robot aren’t so different","image":{"alt":"Group photo of members of the Hanna Lab","url":"https://raw.githubusercontent.com/CHTC/Articles/main/images/hannalab.png","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/hanna-lab.html"},"url":"https://chtc.cs.wisc.edu/hanna-lab.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -52,7 +58,7 @@
 <link type="text/css" href="/assets/fonts/fonts.0.0.1.css" rel="stylesheet">
 <link type="text/css" href="/assets/css/style-v10.css" rel="stylesheet">
 
-<link type="text/css" href="/assets/css/research-style.css" rel="stylesheet">
+
 
 <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'')})(document.documentElement)</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -76,7 +82,7 @@
             <div class="row">
                 <div class="col-auto pe-0">
                     
-                    <a class="uw-global-name-link" href="/" aria-label="University home page">Go to CHTC Home</a>
+                    <a class="uw-global-name-link" href="/uw-research-computing" aria-label="UW Research Computing Homepage">Go to UW Research Computing Home</a>
                     
                 </div>
                 <div class="col-auto d-flex">
@@ -96,7 +102,7 @@
 
 
 
-<header id="branding-sub" class="uw-header circuit-background">
+<header id="branding" class="uw-header ">
     <div class="uw-header-container mt-2 mb-2">
         <div class="uw-header-crest-title">
             <div class="uw-header-crest">
@@ -107,7 +113,7 @@
                     <a href="/" rel="home">CHTC</a>
                 </h1>
                 <a href="/" rel="home">
-                    <div id="site-description" class="uw-site-tagline">UW Research Computing</div>
+                    <div id="site-description" class="uw-site-tagline">Center for High Throughput Computing</div>
                 </a>
             </div>
         </div>
@@ -115,13 +121,8 @@
 </header>
     
 
-
-
     
-
-
-    
-    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">UW-Research Computing<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
+    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">Menu<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
 <div id="uw-top-menus" class="uw-is-visible uw-horizontal" aria-hidden="false">
     <div class="uw-main-nav">
         <nav class="uw-nav-menu uw-nav-menu-reverse" aria-label="Main Menu">
@@ -129,27 +130,9 @@
                 
                     
 
-
-<li id="home">
-    <a href="/uw-research-computing/index.html" aria-current="page">Home</a>
-</li>
-
-
-                
-                    
-
-
-<li id="get-started">
-    <a href="/uw-research-computing/form.html" aria-current="page">Get Started</a>
-</li>
-
-
-                
-                    
-
-<li id="menu-how-tos" class="uw-dropdown">
-    <a href="/uw-research-computing/how-tos.html" role="button" aria-haspopup="true" aria-expanded="false">
-        How To's
+<li id="about" class="uw-dropdown">
+    <a href="/about.html" role="button" aria-haspopup="true" aria-expanded="false">
+        About
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -157,23 +140,31 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="How To's submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="About submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/user-expectations.html">User Expectations</a>
+            <a href="/htc.html">What is HTC?</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/guides.html#htc-documentation">HTC Guides</a>
+            <a href="/approach.html">Our Approach</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/guides.html#hpc-documentation">HPC Guides</a>
+            <a href="/projects.html">Our Customers</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/cite-chtc.html">Cite CHTC Resources</a>
+            <a href="/people.html">Our Staff</a>
+        </li>
+    
+        <li>
+            <a href="/jobs.html">Our Open Positions</a>
+        </li>
+    
+        <li>
+            <a href="/internships.html">Internships</a>
         </li>
     
     </ul>    
@@ -183,17 +174,44 @@
                     
 
 
-<li id="get-help">
-    <a href="/uw-research-computing/get-help.html" aria-current="page">Get Help</a>
+<li id="uw-research-computing">
+    <a href="/uw-research-computing/index.html" aria-current="page">UW Research Computing</a>
 </li>
 
 
                 
                     
 
-<li id="menu-other-resources" class="uw-dropdown">
-    <a href="/uw-research-computing/other-resources.html" role="button" aria-haspopup="true" aria-expanded="false">
-        Other Resources
+
+<li id="guides">
+    <a href="/uw-research-computing/guides.html" aria-current="page">Guides</a>
+</li>
+
+
+                
+                    
+
+
+<li id="technologies">
+    <a href="/technologies.html" aria-current="page">Technologies</a>
+</li>
+
+
+                
+                    
+
+
+<li id="research">
+    <a href="/research.html" aria-current="page">Research</a>
+</li>
+
+
+                
+                    
+
+<li id="news" class="uw-dropdown">
+    <a href="/news-navigation.html" role="button" aria-haspopup="true" aria-expanded="false">
+        News
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -201,27 +219,19 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="Other Resources submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="News submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/gpu-lab.html">CHTC GPU Lab</a>
+            <a href="/news.html">CHTC News</a>
         </li>
     
         <li>
-            <a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a>
+            <a href="/events.html">Events</a>
         </li>
     
         <li>
-            <a href="http://www.neos-server.org/">NEOS Optimization Service</a>
-        </li>
-    
-        <li>
-            <a href="http://www.osg-htc.org/">OSG Consortium</a>
-        </li>
-    
-        <li>
-            <a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a>
+            <a href="/uw-research-computing/user-news.html">User News</a>
         </li>
     
     </ul>    
@@ -242,344 +252,93 @@
 </div>
 
 
+
+    
+
     <main id="main" style="min-height: 60vh;">
         <main id="main" style="min-height: 60vh;">
-    <div class="container-xxl mb-5">
+    <!-- This Layout is to adhere the page to the optimal char per lines for accessibility -->
+
+
+<div class="container-xxl">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-9 mw-1000">
+        <div class="col-12 col-sm-11 col-md-9 col-lg-8">
             <h1 class="uw-mini-bar mb-4">
-    Managing Large Data in HTC Jobs with S3 Buckets
-</h1>
-
-            <h2>Which Option is the Best for Your Files?</h2>
-<br>
-<table class="gtable">
-    <tr>
-        <th>Input Sizes</th>
-        <th>Output Sizes</th>
-        <th>Link to Guide</th>
-        <th>File Location</th>
-        <th>How to Transfer</th>
-        <th>Availability, Security</th>
-        <!--<th>Special Considerations</th>-->
-    </tr>
-
-    <tr>
-        <td>0 - 100 MB per file, up to 500 MB per job</td>
-        <td>0 - 5 GB per job</td>
-        <td><a href="file-availability.html">Small Input/Output File Transfer via <b>HTCondor</b></a></td>
-        <td><code>/home</code></td>
-        <td><b>submit file</b>; filename in <small><code>transfer_input_files</code></small></td>
-        <td>CHTC, UW Grid, and OSG; works for <i>your</i> jobs</td>
-        <!--<td><font color="red">DO NOT USE HTCondor transfer for files in <code>/staging</code> OR <code>/squid</code></font></td>-->
-    </tr>
-
-    <tr>
-        <td>100 MB - 1 GB per repeatedly-used file</td>
-        <td>Not available for output</td>
-        <td><a href="file-avail-squid.html">Large Input File Availability Via <b>Squid</b></a></td>
-        <td><code>/squid</code></td>
-        <td><b>submit file</b>; http link in <small><code>transfer_input_files</code></small></td>
-        <td>CHTC, UW Grid, and OSG; files are made *publicly-readable* via an HTTP address</i></td>
-        <!--<td>large files unique to individual jobs are better for large data staging</td>-->
-    </tr>
-
-    <tr>
-        <td>100 MB - TBs per job-specific file; repeatedly-used files > 1GB</td>
-        <td>4 GB - TBs per job</td>
-        <td><a href="file-avail-largedata.html">Large Input and Output File Availability Via <b>Staging</b></a></td>
-         <td><code>/staging</code></td>
-        <td><b>job executable</b>; copy or move within the job</td>
-        <td>a portion of CHTC; accessible only to <i>your</i> jobs</td>
-        <!--<td>special submit "Requirements"</td>-->
-    </tr>
-
-</table>
-
-<!--
-<h2>Best Practices for File Delivery</h2>
-
-<p>Remember to review best practices in our File Handling guide,
-including the following:</p>
-
-<ul>
-<li>Pre-split large input files when each of many jobs will only need a portion of the
-large input data.</li>
-<li>Remove ALL unwanted/temporary files in the working director of the job that have
-appeared since the job started.</li>
-<li>Use tar with compression (*.tar.gz) for any relevant input/output files and ALL
-desired output directories prior to their transfer/delivery.</li>
-</ul>
--->
-
-<p>When submitting jobs to CHTC’s High Throughput Computing (HTC) system,
-there is a distinct location for staging data that is too large to be
-handled at scale via the default HTCondor file transfer mechanism
-but needs to be accessed outside of CHTC
-(for example, data for jobs that run on the <a href="https://osg-htc.org/about/open_science_pool/">OS Pool</a>).</p>
-
-<p><strong>To best understand the below information, users should already be
-familiar with:</strong></p>
-
-<ol>
-  <li>Using the command-line to: navigate directories,
-create/edit/copy/move/delete files and directories, and run intended
-programs (aka “executables”).</li>
-  <li>CHTC’s <a href="helloworld.html">Intro to Running HTCondor Jobs</a></li>
-  <li>CHTC’s guide for <a href="file-availability.html">Typical File Transfer</a></li>
-</ol>
-
-<h2 id="contents">Contents</h2>
-
-<ol>
-  <li><a href="#1-policies-and-intended-use">Policies and Intended Use</a></li>
-  <li><a href="#2-staging-large-data-in-s3-buckets">Staging Large Data in S3 Buckets</a></li>
-  <li><a href="#3-using-staged-files-in-a-job">Using Staged Files in a Job</a>
-    <ul>
-      <li><a href="#a-transferring-large-input-files">Transferring Large Input Files</a></li>
-      <li><a href="#b-moving-large-output-files">Moving Large Output Files</a></li>
-    </ul>
-  </li>
-  <li><a href="#4-checking-your-data-use-and-file-counts">Checking your Data Use and File Counts</a></li>
-</ol>
-
-<h1 id="1-policies-and-intended-use">1. Policies and Intended Use</h1>
-
-<blockquote>
-  <p><strong>USERS VIOLATING ANY OF THE POLICIES IN THIS GUIDE WILL
-HAVE THEIR DATA STAGING ACCESS AND/OR CHTC ACCOUNT REVOKED UNTIL CORRECTIVE
-MEASURES ARE TAKEN. CHTC STAFF RESERVE THE RIGHT TO REMOVE ANY
-PROBLEMATIC USER DATA AT ANY TIME IN ORDER TO PRESERVE PERFORMANCE.</strong></p>
-</blockquote>
-
-<h2 id="a-intended-use">A. Intended Use</h2>
-
-<p>Our S3 data storage is only for input and output files that
-are individually too large to be managed by our other data movement
-methods, HTCondor file transfer or SQUID, and when these files are
-expected to be accessed outside of CHTC. This includes individual input files
-greater than 100MB and individual output files greater than 3-4GB.</p>
-
-<p>Files in our S3 data storage are organized in storage units called
-“buckets.” You can think of an S3 bucket like a folder containing a
-set of data. Each bucket has a unique name of your choosing and can
-contain folders, executable files, data files, and most other types of
-files. S3 buckets are protected with a key that is unique to you
-(similar to a password) and, when provided with the key, buckets
-can be accessed from any machine with an internet connection. CHTC
-automatically creates and manages keys for users, so you do not have
-to provide your key when manging files in your S3 buckets on CHTC
-transfer servers or when submitting jobs on CHTC submit servers that
-transfer data from S3 buckets.</p>
-
-<p>Users are expected to abide by this intended use expectation and follow the
-instructions for using S3 buckets written in this guide (e.g. files placed
-in S3 buckets should ALWAYS be listed in the submit file).</p>
-
-<h2 id="b-getting-access-to-create-s3-buckets">B. Getting Access to Create S3 Buckets</h2>
-
-<p>Any one with a CHTC account whose data meets the intended use above
-can request access to create S3 buckets inside CHTC’s S3 data
-storage. A Research Computing Facilitator will review the request and
-follow up. If appropriate, S3 bucket creation will be enabled for and
-a quota will be set on your account. Quotas are based on individual
-user needs; if a larger quota is needed, email chtc@cs.wisc.edu with
-your request.</p>
-
-<h2 id="c-user-data-management-responsibilities">C. User Data Management Responsibilities</h2>
-
-<p>As with all CHTC file spaces:</p>
-
-<ul>
-  <li><strong>Keep copies</strong>: Our S3 buckets are not backed up and have the
-possibility of data loss; keep copies of ANY and ALL data in S3
-buckets in another, non-CHTC location.</li>
-  <li><strong>Remove data</strong>: We expect that users remove data from S3 buckets AS
-SOON AS IT IS NO LONGER NEEDED FOR ACTIVELY-RUNNING JOBS.</li>
-  <li><strong>Monitor usage and quota</strong>: Your account has both a size and
-number of files quota that applies across all buckets owned by your
-account. Quota changes can be requested by emailing chtc@cs.wisc.edu.</li>
-</ul>
-
-<p>CHTC staff reserve the right to remove S3 buckets or revoke bucket
-creation permission at any time.</p>
-
-<h2 id="d-data-access-within-jobs">D. Data Access Within Jobs</h2>
-
-<p>Data in a CHTC S3 bucket can be accessed from jobs running almost
-anywhere (including most of OS Pool). HTCondor automatically matches and
-runs jobs that use S3 buckets only on machines that support S3 data
-transfers.</p>
-
-<p>Data in CHTC S3 buckets are owned by the user (or a set of users), and
-only the user’s (or users’) own jobs can access these files.</p>
-
-<h1 id="2-staging-large-data-in-s3-buckets">2. Staging Large Data in S3 Buckets</h1>
-
-<p>In order to stage data in an S3 bucket for use on CHTC’s HTC system:</p>
-
-<ul>
-  <li><strong>Get S3 bucket creation access</strong>: Bucket creation access is granted by request.</li>
-  <li><strong>Create an S3 bucket</strong>: Create a bucket that will contain the data for your project.</li>
-  <li><strong>Reduce file counts</strong>: Combine and compress files that are used together.</li>
-  <li><strong>Use the transfer server</strong>: Upload your data to your bucket via our dedicated file transfer server.</li>
-  <li><strong>Remove files after jobs complete</strong>: Data in S3 buckets are quota controlled and not backed up.</li>
-</ul>
-
-<h2 id="a-get-s3-bucket-creation-access">A. Get S3 Bucket Creation Access</h2>
-
-<p>CHTC S3 bucket creation access is granted by request. If you think you need
-to create S3 buckets, email CHTC’s Research Computing Facilitators (chtc@cs.wisc.edu).</p>
-
-<h2 id="b-create-an-s3-bucket">B. Create an S3 Bucket</h2>
-
-<p>Buckets can be created on a CHTC submit server or the CHTC transfer server
-using the <code>mc</code> command:</p>
-
-<pre class="term"><code>[alice@transfer]$ mc mb chtc/my-bucket-name
-</code></pre>
-
-<p>Each bucket in CHTC must have a unique name, so be descriptive! We
-recommend creating a bucket per dataset or per batch of jobs.</p>
-
-<h2 id="c-reduce-file-counts">C. Reduce File Counts</h2>
-
-<p>Data placed in S3 buckets should be stored in as few files as possible
-(ideally, one file per job). Similarly, large output should first be
-written to the job working directory then compressed in to a single
-file before being transferred back to an S3 bucket at the end of the job.</p>
-
-<p>To prepare job-specific data that is large enough
-and exists as multiple files or directories (or a directory of multiple
-files), first create a compressed tar package before placing the file in
-an S3 bucket (either before submitting jobs, or within jobs before
-transferring output to). For example:</p>
-
-<pre class="term"><code>$ tar -czvf job_package.tar.gz file_or_dir
-</code></pre>
-
-<h2 id="d-use-the-transfer-server">D. Use the Transfer Server</h2>
-
-<p>Movement of large data into/out of S3 buckets before and after jobs
-should be performed via CHTC’s transfer server, as below, and
-<strong>not via a CHTC submit server.</strong> After obtaining an account on the
-transfer server and creating an S3 bucket, copy relevant files directly into your
-home directory from your own computer:</p>
-
-<ul>
-  <li>Example <code>scp</code> command on your own Linux or Mac computer:
-    <pre class="term"><code>$ scp large-input.file username@transfer.chtc.wisc.edu:/home/username/
-</code></pre>
-  </li>
-  <li>If using a Windows computer:
-    <ul>
-      <li>Using a file transfer application, like WinSCP, directly drag the large
-file from its location on your computer to a location within
-<code>/home/username/</code> on transfer.chtc.wisc.edu.</li>
-    </ul>
-  </li>
-</ul>
-
-<p>Then in an SSH session on the transfer server, copy files in to your
-S3 bucket:</p>
-
-<pre class="term"><code>[alice@transfer]$ mc cp large-input.file chtc/my-bucket
-</code></pre>
-
-<h2 id="e-remove-files-after-jobs-complete">E. Remove Files After Jobs Complete</h2>
-
-<p>As with all CHTC file spaces, data should be removed from S3 buckets AS
-SOON AS IT IS NO LONGER NEEDED FOR ACTIVELY-RUNNING JOBS. Even if it
-will be used again in the future, it should be deleted from and copied
-back at a later date. Files can be taken out of S3 buckets using similar
-mechanisms as uploaded files. In an SSH session on the transfer
-server, copy files from your bucket to your home directory:</p>
-
-<pre class="term"><code>[alice@transfer]$ mc cp chtc/my-bucket/large-output.file .
-</code></pre>
-
-<p>Then copy files from the transfer server to your own computer:</p>
-
-<ul>
-  <li>Example <code>scp</code> command on your own Linux or Mac computer:
-    <pre class="term"><code>$ scp username@transfer.chtc.wisc.edu:/home/username/large-output.file .
-</code></pre>
-  </li>
-  <li>If using a Windows computer:
-    <ul>
-      <li>Using a file transfer application, like WinSCP, directly drag the large
-file from its location within <code>/home/username/</code> on
-transfer.chtc.wisc.edu to your computer.</li>
-    </ul>
-  </li>
-</ul>
-
-<p>To remove a file inside your S3 bucket, in an SSH session on the
-transfer server:</p>
-
-<pre class="term"><code>[alice@transfer]$ mc rm chtc/my-bucket/large-input.file
-[alice@transfer]$ mc rm chtc/my-bucket/large-output.file
-</code></pre>
-
-<p>To remove an entire bucket (<strong>only do this if you are certain the
-bucket is no longer needed</strong>):</p>
-
-<pre class="term"><code>[alice@transfer]$ mc rb chtc/my-bucket
-</code></pre>
-
-<h1 id="3-using-staged-files-in-a-job">3. Using Staged Files in a Job</h1>
-
-<h2 id="a-transferring-large-input-files">A. Transferring Large Input Files</h2>
-
-<p>To use data placed in a CHTC S3 bucket, add files to your submit
-file’s <code>transfer_input_files</code> that point to the filename
-(e.g. <code>large-input.file</code>) inside your bucket (e.g. <code>my-bucket</code>) on
-CHTC’s S3 storage (<code>s3dev.chtc.wisc.edu</code>):</p>
-
-<pre class="sub"><code>...
-executable = my_script.sh
-transfer_input_files = s3://s3dev.chtc.wisc.edu/my-bucket/large-input.file
-arguments = large-input.file
-...
-</code></pre>
-
-<h2 id="b-moving-large-output-files">B. Moving Large Output Files</h2>
-
-<p>To have your job automatically copy data back to your CHTC S3 bucket,
-add file mappings to a <code>transfer_output_remaps</code> command inside your
-submit file:</p>
-
-<pre class="sub"><code>transfer_output_remaps = "large-output.file = s3://s3dev.chtc.wisc.edu/my-bucket/large-output.file"
-</code></pre>
-
-<h1 id="4-checking-your-data-use-and-file-counts">4. Checking Your Data Use and File Counts</h1>
-
-<p>To check what files are in your bucket and the size of the files:</p>
-<pre class="term"><code>[alice@submit]$ mc ls chtc/my-bucket
-</code></pre>
-
-<p>To check your bucket’s total data usage:</p>
-<pre class="term"><code>[alice@submit]$ mc du chtc/my-bucket
-</code></pre>
-
-<p>To check your bucket’s file count:</p>
-<pre class="term"><code>[alice@submit]$ mc find chtc/my-bucket | wc -l
-</code></pre>
-
-
-
-
-        </div>
-        <div class="col-3 d-none d-lg-block">
-            
-
-
-
-    <div id="guide-sidebar">
-        
-    </div>
-
-
+                Training a dog and training a robot aren’t so different
+            </h1>
+            <p><strong>For AI and robotics researcher Josiah Hanna and his lab, high throughput computing is a critical tool in reinforcement learning.</strong></p>
+
+<p><img src="https://lh7-us.googleusercontent.com/Zcf4iUkUE9DGnTyeEwlSEB7C3kIG7ZJBjpmrinZg5fOePfSDyUlswdbP-vtX6afLo6feWMpdWdtmADolBVAk59YIr8ML2mNviSuUWxlLcyt_fOzr47IWl8fTe6IyeAH4Pvuorvthm4KJA5olu69F62A" alt="" /></p>
+
+<p>Artificial intelligence (AI) robotics expert <a href="https://pages.cs.wisc.edu/~jphanna/">Josiah Hanna</a>’s research has a lot in common with training dogs: Both robotics training and dog
+training use a type of reinforcement learning to encourage the desired behavior. With computers or robots, however, this type of reinforcement learning is a branch of machine learning (ML) that models an intelligent agent interacting with a task environment.</p>
+
+<p>Comparing robotic reinforcement learning to training a dog how to sit, Hanna explains that “you don’t explicitly tell the dog how to sit, but you coax the dog into sitting, and when it
+shows that behavior, you reward that. Over time, the robot dog learns these are the actions that lead to getting the reward, and it learns to avoid actions that don’t lead to the reward. 
+We want to give computers and robots the ability to learn through experience, by seeing what works and what leads to them achieving the goals we set for them. Then, when they see the 
+actions that lead to reaching their goals, they know that they should do that again in the future.”</p>
+
+<p>In other words, Hanna’s research specifically seeks to develop algorithms that enable computers to learn goal-oriented behavior in order to better accomplish their goals. Unlike a dog, 
+robots aren’t necessarily rewarded but instead learn from past mistakes and take that information to determine what a successful action is. Through trial and error, the agent learns 
+which actions it needs to take to achieve its goals. “It’s critical that they’re [computers] able to learn through their experience. That’s what my research and the whole field of 
+reinforcement learning studies — the kinds of algorithms which will enable this to happen,” Hanna elaborates.</p>
+
+<p>Another way that UW–Madison Computer Sciences Ph.D. student <a href="https://nicholascorrado.github.io/">Nicholas Corrado</a> describes it is like teaching a robot how to walk. Initially, the
+robot moves its legs randomly and likely falls over. Through trial and error, however, the robot eventually discovers that it can make forward progress by moving its legs to take 
+only a single step forward. Wanting to maximize its forward progress, the robot then increases the probability of executing this stepping behavior and eventually learns how to walk.
+“It requires a lot of computing to do this because starting from random movements, and getting to walking behavior is not super straightforward,” Corrado elaborates.</p>
+
+<p>Unlike other types of ML that are classification-based, a lot of reinforcement learning relies on simulations because it’s based on modeling agents performing some task. The difference
+between other areas of ML and reinforcement learning, Corrado explains, is that with reinforcement learning, “You have this multi-step decision-making process that you must learn how 
+to solve optimally. It’s so much harder because the agent needs to learn how its action right now affects its performance way down the road, so reinforcement learning feels like a much
+harder problem to focus on than what we call supervised learning methods.”</p>
+
+<p>Since learning on physical robots is difficult, Hanna’s lab will sometimes use simulations as a “surrogate” for physical robots. This is where high throughput computing (HTC) becomes 
+a valuable tool. Hanna shares that “it’s really useful to have high throughput computing so you can run your simulation or learning algorithm for many different processes. You can see
+how different learning algorithms or different parameters for learning algorithms affect the ability of an algorithm to produce robust behavior or high-performing behavior.” In this
+sense, the <a href="https://chtc.github.io/">Center for High Throughput Computing (CHTC)</a> is a “huge resource” for Hanna’s students who evaluate a wide variety of different algorithms they 
+think might work better than previous ones. It’s a great enabler of increasing experimentation bandwidth, or how many experiments they can run. In fact, for the Hanna Lab, its CHTC 
+usage is nearly 5.7 million hours.</p>
+
+<p>One project the Hanna lab is working on is enabling robots to learn to play soccer, Corrado says. With reinforcement learning, researchers programmed robots to play soccer and then
+entered an annual <a href="https://www.robocup.org/">international competition</a> where they placed third despite it being their first time participating, “greatly exceeding our expectations,”
+Corrado highlights. The end goal isn’t necessarily to train robots how to play soccer but rather “develop reinforcement learning techniques that enable us to train agents to work 
+cooperatively” and “develop techniques that improve the data efficiency of reinforcement learning. If we can reduce the data requirement, reinforcement learning is going to be much,
+much more practical for industrial applications.”</p>
+
+<figure class="figure float-end" style="margin-center: 1em">
+  <img src="https://raw.githubusercontent.com/CHTC/Articles/main/images/robotsoccer.jpeg" height="667" width="1186" class="figure-img img-fluid rounded" alt="From the annual RoboCup
+Standard Platform League (SPL) competition, a research competition that aims to advance the capabilities of robotics in challenging, real-time domains." />
+  <figcaption class="figure-caption">From the annual RoboCup Standard Platform League (SPL) competition, a research competition that aims to advance the capabilities of robotics 
+in challenging, real-time domains.
+<br /></figcaption>
+</figure>
+
+<p><br />Even before Hanna came to UW–Madison, he had experience with <a href="https://htcondor.org/">HTCondor Software Suite (HTCSS)</a> from graduate school. It was a “critical resource” for Hanna then
+and remains as such today in his role as a researcher and professor at UW–Madison. “One of the first things I did when I got here [UW–Madison] was tap into HTC resources,” Hanna recalls.
+As a new principal investigator (PI), Hanna also had a meeting with a CHTC facilitator to learn how to obtain access and what resources it provides.</p>
+
+<p>Since he found the tool so valuable while he was a graduate student, Hanna also tries to set up his students with the CHTC early on instead of running experiments locally on their 
+computers. Hanna shares “It’s a great resource we have to leverage that helps speed things up.” For the research group, running a high volume of simulations and experiments is a 
+key enabler of progress. This means Hanna encourages his students to run experiments whenever they reach uncertainties, which can help provide clarity. “Oftentimes it’s just easier
+to run the experiment. Something I try to guide the students on is knowing when some experiments just need to be run to understand some aspect of designing reinforcement learning 
+algorithms.” His students are developing their own pipelines with CHTC, learning how to work more efficiently with it, and writing scripts to launch experiments with it.</p>
+
+<p>To put into context exactly how many experiments reinforcement learning requires, Corrado says, “Benchmarks contain anywhere from 5–10 tasks, and maybe you need to compare four 
+different algorithms and run 20 independent runs of each algorithm on each task. At that point, you’re running hundreds of experiments. I’ve even had to run thousands of experiments.”
+In fact, for a paper currently under review, through performing a hyperparameter sweep of an algorithm — which determines the hyperparameter combination that performs best out of 
+many combinations — Corrado had submitted enough jobs to hit the default CHTC limit of a 10,000-job submission. This was something he definitely could not have accomplished on his 
+personal laptop or with a lab-specific server.</p>
+
+<p>Hanna says he is also seeing a shift toward more high-performance computing with GPUs in his lab, which CHTC has helped enable. “Up until recently, reinforcement learning was 
+separate from other forms of deep learning that were going on, and you really couldn’t benefit that much from a GPU unless you had a lot of CPUs as well, which is what high 
+throughput computing is really good for,” Hanna explains.</p>
+
+<p>When asked about the future use of CHTC in his lab, Hanna imagines spending more time with multi-processing and networking several CPUs together, both of which reinforcement 
+learning experiments could benefit from. As CHTC continues increasing its GPU capacity, Hanna says he plans to use that more in their work as well.</p>
+
+<p>Without the CHTC, the type of large-scale experimentation the Hanna Lab uses would be impractical, Corrado says. For this type of work, HTC is almost always necessary and continues
+to expand the horizons of the lab.</p>
 
         </div>
     </div>
