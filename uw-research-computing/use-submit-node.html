@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/use-submit-node" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-12-08T15:43:16+00:00" />
+<meta property="article:published_time" content="2023-12-08T16:16:18+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Policies for Using HTC Submit Servers" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-12-08T15:43:16+00:00","datePublished":"2023-12-08T15:43:16+00:00","description":"If you have not yet requested a CHTC account and met with a Research Computing Facilitator, please fill out this form.","headline":"Policies for Using HTC Submit Servers","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/use-submit-node"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/use-submit-node"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-12-08T16:16:18+00:00","datePublished":"2023-12-08T16:16:18+00:00","description":"If you have not yet requested a CHTC account and met with a Research Computing Facilitator, please fill out this form.","headline":"Policies for Using HTC Submit Servers","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/use-submit-node"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/use-submit-node"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -305,6 +305,12 @@ more than <u>50,000 total jobs as a single user</u>,
 please <a href="mailto:chtc@cs.wisc.edu">email us</a> as we have strategies to
 submit that many jobs in a way that will ensure you have as many
 jobs running as possible without also compromising queue performance.</li>
+  <li><strong>Submitting many <em>short</em> jobs from one submit file.</strong> While HTCondor
+is designed to submit thousands of jobs at a time, many <em>short</em> jobs
+can overwhelm the submit server, resulting in other jobs taking much
+longer to start than usual. <u> If you plan on submitting over
+1000 jobs per submit file, we ask that you ensure each job has a
+minimum run time of 5 minutes (on average). <u></u></u></li>
   <li><strong>The default disk quota is 20 GB</strong> in your <code>/home</code> directory, as a 
 starting point. You can track your use of disk space and your quota value,
 using our <a href="check-quota.html">Quota Guide</a>. If you need more space
