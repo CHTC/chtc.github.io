@@ -286,102 +286,6 @@
             
                 <div class="rounded p-4 mb-3 shadow">
     <div>
-        <h3 id="user-interface-and-jupyter-widgets" class="my-2 mb-1 uw-mini-bar">User interface and Jupyter widgets</h3>
-        <div class="row justify-content-between d-flex">
-            <div class="col-auto">
-                <span class="fw-light"></span>
-            </div>
-            
-        </div>
-        
-    </div>
-    <p>Historically, the User Interface to HTCondor has been purely through the command-line. 
-This often presents a large hurdle for onboarding new users, both in terms of even 
-getting to the command-line via ssh and some terminal emulator, and then using the 
-command line.  Modern notebook interfaces, such as Jupyter have allowed us to minimize
-the first problem, by providing a web interface to the terminal.  However, users still
-need to type in commands to access the batch system.  This project extends HTCondor by
-implementing various Jupyter UI widgets to visualize users’ jobs within the system, and
-further interface with the system.  After completing this project, the student will have
-Jupyter widgets to show in their portfolio, professional JavaScript experience, and 
-understanding of how a distributed High Throughput System works.</p>
-
-    
-</div>
-
-            
-                <div class="rounded p-4 mb-3 shadow">
-    <div>
-        <h3 id="ml-for-failure-classification-in-the-ospool" class="my-2 mb-1 uw-mini-bar">ML for failure classification in the OSPool</h3>
-        <div class="row justify-content-between d-flex">
-            <div class="col-auto">
-                <span class="fw-light">Large</span>
-            </div>
-            
-        </div>
-        
-    </div>
-    <p>The OS Pool runs hundreds of thousands of jobs every day on dozens of 
-different sites, each unique in their own way.  Naturally, there are 
-many hundreds of failures, most of which the system works around, but
-with added latency to workflow completion. This project would attempt
-to automatically classify failures from job logs to detect common 
-patterns and highlight places for humans to look to fix common failures
-with the most payoff. Students working on this project will gain
-experience applying ML techniques to real world problems.</p>
-
-    
-</div>
-
-            
-                <div class="rounded p-4 mb-3 shadow">
-    <div>
-        <h3 id="schedd-performance-analysis-for-humans" class="my-2 mb-1 uw-mini-bar">Schedd performance analysis for humans</h3>
-        <div class="row justify-content-between d-flex">
-            <div class="col-auto">
-                <span class="fw-light">Large</span>
-            </div>
-            
-        </div>
-        
-    </div>
-    <p>The condor_schedd is a single threaded program, and when it is overloaded, 
-it is difficult for administrators to understand why.  There are some
-statistics about what it is doing, but there is no clear way to present
-this information in a useful way to an administrator. Students working 
-on this project would build visualizations of complex data, and work
-with end users and facilitators to tune output for real world human 
-consumption.</p>
-
-    
-</div>
-
-            
-                <div class="rounded p-4 mb-3 shadow">
-    <div>
-        <h3 id="enhancing-container-image-build-system" class="my-2 mb-1 uw-mini-bar">Enhancing container image build system</h3>
-        <div class="row justify-content-between d-flex">
-            <div class="col-auto">
-                <span class="fw-light">Medium</span>
-            </div>
-            
-        </div>
-        
-    </div>
-    <p>Container images are a widely used technology to package and distribute 
-software and services for use in systems such as Docker or Kubernetes.
-The PATh project builds hundreds of these images on a weekly basis but 
-the build system needs improvement to support more images and additional
-use cases. This project will focus on taking the existing system and 
-adding configurable, per-image build options. After a successful summer,
-the student fellow will gain skills in Docker containers, GitHub actions, and Bash.</p>
-
-    
-</div>
-
-            
-                <div class="rounded p-4 mb-3 shadow">
-    <div>
         <h3 id="expanded-pelican-origin-monitoring" class="my-2 mb-1 uw-mini-bar">Expanded Pelican origin monitoring</h3>
         <div class="row justify-content-between d-flex">
             <div class="col-auto">
@@ -413,7 +317,33 @@ language, the Prometheus monitoring system (and other Cloud Native technologies)
             
                 <div class="rounded p-4 mb-3 shadow">
     <div>
-        <h3 id="where-in-the-world-am-i" class="my-2 mb-1 uw-mini-bar">Where in the world am I?</h3>
+        <h3 id="user-interface-and-jupyter-widgets" class="my-2 mb-1 uw-mini-bar">User interface and Jupyter widgets</h3>
+        <div class="row justify-content-between d-flex">
+            <div class="col-auto">
+                <span class="fw-light"></span>
+            </div>
+            
+        </div>
+        
+    </div>
+    <p>Historically, the User Interface to HTCondor has been purely through the command-line. 
+This often presents a large hurdle for onboarding new users, both in terms of even 
+getting to the command-line via ssh and some terminal emulator, and then using the 
+command line.  Modern notebook interfaces, such as Jupyter have allowed us to minimize
+the first problem, by providing a web interface to the terminal.  However, users still
+need to type in commands to access the batch system.  This project extends HTCondor by
+implementing various Jupyter UI widgets to visualize users’ jobs within the system, and
+further interface with the system.  After completing this project, the student will have
+Jupyter widgets to show in their portfolio, professional JavaScript experience, and 
+understanding of how a distributed High Throughput System works.</p>
+
+    
+</div>
+
+            
+                <div class="rounded p-4 mb-3 shadow">
+    <div>
+        <h3 id="schedd-performance-analysis-for-humans" class="my-2 mb-1 uw-mini-bar">Schedd performance analysis for humans</h3>
         <div class="row justify-content-between d-flex">
             <div class="col-auto">
                 <span class="fw-light">Large</span>
@@ -422,14 +352,13 @@ language, the Prometheus monitoring system (and other Cloud Native technologies)
         </div>
         
     </div>
-    <p>In PATh, an important part of the infrastructure is the “glidein”, a client that
-starts at a remote location and provides computational cycles for research.
-In the past, glideins have relied on configuration at remote locations to
-determine their location but this often results in missing or incorrect 
-information. This project will focus on enhancing glideins so that they
-can detect and report where they are running in the world, possibly including
-data like geolocation and institutional owner. After a successful summer,
-the student fellow will gain skills in Python, bash, and layer 3 networking.</p>
+    <p>The condor_schedd is a single threaded program, and when it is overloaded, 
+it is difficult for administrators to understand why.  There are some
+statistics about what it is doing, but there is no clear way to present
+this information in a useful way to an administrator. Students working 
+on this project would build visualizations of complex data, and work
+with end users and facilitators to tune output for real world human 
+consumption.</p>
 
     
 </div>
@@ -454,6 +383,77 @@ database or on-disk hashing tool to provide quick access to single entries
 in the history, and use this index in the python based cli tool. Students 
 completing this project will gain real world experience in database
 techniques and Python programming.</p>
+
+    
+</div>
+
+            
+                <div class="rounded p-4 mb-3 shadow">
+    <div>
+        <h3 id="ml-for-failure-classification-in-the-ospool" class="my-2 mb-1 uw-mini-bar">ML for failure classification in the OSPool</h3>
+        <div class="row justify-content-between d-flex">
+            <div class="col-auto">
+                <span class="fw-light">Large</span>
+            </div>
+            
+        </div>
+        
+    </div>
+    <p>The OS Pool runs hundreds of thousands of jobs every day on dozens of 
+different sites, each unique in their own way.  Naturally, there are 
+many hundreds of failures, most of which the system works around, but
+with added latency to workflow completion. This project would attempt
+to automatically classify failures from job logs to detect common 
+patterns and highlight places for humans to look to fix common failures
+with the most payoff. Students working on this project will gain
+experience applying ML techniques to real world problems.</p>
+
+    
+</div>
+
+            
+                <div class="rounded p-4 mb-3 shadow">
+    <div>
+        <h3 id="where-in-the-world-am-i" class="my-2 mb-1 uw-mini-bar">Where in the world am I?</h3>
+        <div class="row justify-content-between d-flex">
+            <div class="col-auto">
+                <span class="fw-light">Large</span>
+            </div>
+            
+        </div>
+        
+    </div>
+    <p>In PATh, an important part of the infrastructure is the “glidein”, a client that
+starts at a remote location and provides computational cycles for research.
+In the past, glideins have relied on configuration at remote locations to
+determine their location but this often results in missing or incorrect 
+information. This project will focus on enhancing glideins so that they
+can detect and report where they are running in the world, possibly including
+data like geolocation and institutional owner. After a successful summer,
+the student fellow will gain skills in Python, bash, and layer 3 networking.</p>
+
+    
+</div>
+
+            
+                <div class="rounded p-4 mb-3 shadow">
+    <div>
+        <h3 id="enhancing-container-image-build-system" class="my-2 mb-1 uw-mini-bar">Enhancing container image build system</h3>
+        <div class="row justify-content-between d-flex">
+            <div class="col-auto">
+                <span class="fw-light">Medium</span>
+            </div>
+            
+        </div>
+        
+    </div>
+    <p>Container images are a widely used technology to package and distribute 
+software and services for use in systems such as Docker or Kubernetes.
+The PATh project builds hundreds of these images on a weekly basis but 
+the build system needs improvement to support more images and additional
+use cases. This project will focus on taking the existing system and 
+adding configurable, per-image build options. After a successful summer,
+the student fellow will gain skills in Docker containers, GitHub actions, and Bash.</p>
 
     
 </div>
@@ -490,25 +490,6 @@ in Python and monitoring and Google Docs APIs.</p>
             
                 <div class="rounded p-4 mb-3 shadow">
     <div>
-        <h3 id="developing-software-recipes" class="my-2 mb-1 uw-mini-bar">Developing software recipes</h3>
-        <div class="row justify-content-between d-flex">
-            <div class="col-auto">
-                <span class="fw-light">Medium</span>
-            </div>
-            
-        </div>
-        
-    </div>
-    <p>Implement a repository of apptainer container recipes for common software packages. 
-Create a self-serve tutorial on building containers and show how to use the recipe
-repository and OSPool guides to build your own container.</p>
-
-    
-</div>
-
-            
-                <div class="rounded p-4 mb-3 shadow">
-    <div>
         <h3 id="building-training-materials" class="my-2 mb-1 uw-mini-bar">Building training materials</h3>
         <div class="row justify-content-between d-flex">
             <div class="col-auto">
@@ -526,6 +507,25 @@ Run an online workshop to test the new materials.</p>
 </div>
 
             
+                <div class="rounded p-4 mb-3 shadow">
+    <div>
+        <h3 id="developing-software-recipes" class="my-2 mb-1 uw-mini-bar">Developing software recipes</h3>
+        <div class="row justify-content-between d-flex">
+            <div class="col-auto">
+                <span class="fw-light">Medium</span>
+            </div>
+            
+        </div>
+        
+    </div>
+    <p>Implement a repository of apptainer container recipes for common software packages. 
+Create a self-serve tutorial on building containers and show how to use the recipe
+repository and OSPool guides to build your own container.</p>
+
+    
+</div>
+
+            
 
         </div>
         <div class="d-none d-lg-block col-12 col-lg-4">
@@ -536,25 +536,25 @@ Run an online workshop to test the new materials.</p>
                             <h3>Fellowships</h3>
                             <ul>
                                 
-                                    <li><a href="#developing-software-recipes">Developing software recipes</a></li>
+                                    <li><a href="#expanded-pelican-origin-monitoring">Expanded Pelican origin monitoring</a></li>
                                 
                                     <li><a href="#user-interface-and-jupyter-widgets">User interface and Jupyter widgets</a></li>
                                 
-                                    <li><a href="#ml-for-failure-classification-in-the-ospool">ML for failure classification in the OSPool</a></li>
-                                
                                     <li><a href="#schedd-performance-analysis-for-humans">Schedd performance analysis for humans</a></li>
-                                
-                                    <li><a href="#tracking-server-inventory-and-elevation">Tracking server inventory and elevation</a></li>
-                                
-                                    <li><a href="#enhancing-container-image-build-system">Enhancing container image build system</a></li>
-                                
-                                    <li><a href="#expanded-pelican-origin-monitoring">Expanded Pelican origin monitoring</a></li>
                                 
                                     <li><a href="#building-training-materials">Building training materials</a></li>
                                 
+                                    <li><a href="#database-techniques-and-data-architecture">Database techniques and data architecture</a></li>
+                                
+                                    <li><a href="#ml-for-failure-classification-in-the-ospool">ML for failure classification in the OSPool</a></li>
+                                
+                                    <li><a href="#developing-software-recipes">Developing software recipes</a></li>
+                                
+                                    <li><a href="#tracking-server-inventory-and-elevation">Tracking server inventory and elevation</a></li>
+                                
                                     <li><a href="#where-in-the-world-am-i">Where in the world am I?</a></li>
                                 
-                                    <li><a href="#database-techniques-and-data-architecture">Database techniques and data architecture</a></li>
+                                    <li><a href="#enhancing-container-image-build-system">Enhancing container image build system</a></li>
                                 
                             </ul>
                         </div>
