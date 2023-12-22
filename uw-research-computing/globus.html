@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/globus" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-12-22T17:37:13+00:00" />
+<meta property="article:published_time" content="2023-12-22T17:39:44+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Using Globus to Transfer Files to and from CHTC" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-12-22T17:37:13+00:00","datePublished":"2023-12-22T17:37:13+00:00","description":"Globus is a data management service that lets you move files files between endpoints, computers that are connected to the Globus file transfer network. Globus is primarily useful when you need to move large amounts of data to or from somewhere that is already providing a Globus endpoint. For example, a collaborator might provide shared data through Globus, or might expect you to send data to them through Globus.","headline":"Using Globus to Transfer Files to and from CHTC","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/globus"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/globus"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-12-22T17:39:44+00:00","datePublished":"2023-12-22T17:39:44+00:00","description":"Globus is a data management service that lets you move files files between endpoints, computers that are connected to the Globus file transfer network. Globus is primarily useful when you need to move large amounts of data to or from somewhere that is already providing a Globus endpoint. For example, a collaborator might provide shared data through Globus, or might expect you to send data to them through Globus.","headline":"Using Globus to Transfer Files to and from CHTC","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/globus"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/globus"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -265,39 +265,46 @@ own computer first.</p>
 
 <h2 id="prerequisites">Prerequisites</h2>
 
-<p>All file transfer via Globus at CHTC is based out of the
-<a href="file-avail-largedata.html"><code>/staging</code></a> directory and requires login 
-access to the <code>transfer.chtc.wisc.edu</code> server.
-Therefore, to use Globus, you will need access to both of those 
-(instructions for requesting access are 
-<a href="file-avail-largedata.html#1-policies-and-intended-use">here</a>;
-mention that you want to use the Globus endpoint in your email).</p>
+<p>All file transfer via Globus at CHTC requires:</p>
 
-<p>You will need to be able to
+<ul>
+  <li>access to a directory in the <a href="file-avail-largedata.html"><code>/staging</code></a> or <code>/projects</code> folders</li>
+  <li>login access to the <code>transfer.chtc.wisc.edu</code> server.</li>
+</ul>
+
+<p>Contact us at chtc@cs.wisc.edu if you need either of the above.</p>
+
+<p>You will also need to be able to
 <a href="https://app.globus.org/">log in to the Globus web interface</a>;
 you can use your UW-Madison NetID (if you have one, or similar) by selecting
 University of Wisconsin-Madison from the drop down and pressing “Continue”.</p>
 
-<h2 id="using-the-chtc-globus-endpoint">Using the CHTC Globus Endpoint</h2>
+<h2 id="using-the-chtc-globus-endpoints">Using the CHTC Globus Endpoints</h2>
 
 <p>You can use the Globus web interface to transfer files to and from CHTC.
 In the web interface, you can select two endpoints and then initiate a transfer
 between them.</p>
 
-<p>The first step is to find the CHTC Globus endpoint.
-The CHTC Globus endpoint’s name is <code>chtc#staging</code>.
-It can be found in the Globus web interface 
-<a href="https://app.globus.org/file-manager/collections/d0bae6da-db3b-11ea-85a2-0e1702b77d41/overview?back=endpoints">here</a>,
-or by searching endpoints for that name.
-If you  need the actual endpoint UUID, it is listed on the above page near the bottom
+<p>The first step is to find the CHTC Globus endpoints. They can be found in the Globus web interface 
+by searching endpoints for “CHTC Staging” or “CHTC Projects”.</p>
+
+<p><img src="/images/guides-globus-endpoints.png" alt="CHTC Globus endpoints" /></p>
+
+<p>Or can be found at these links:</p>
+
+<ul>
+  <li><a href="https://app.globus.org/file-manager/collections/6561bd4c-8dc3-42f2-8442-4907d41265a6/overview">CHTC Staging</a></li>
+  <li><a href="https://app.globus.org/file-manager/collections/66429a34-0a52-47b7-8699-d10804a1b75b/overview">CHTC Projects</a></li>
+</ul>
+
+<p>If you  need the actual endpoint UUID, it is listed on the above pages near the bottom
 of the “Overview”.</p>
 
 <p>To use an endpoint, you must first <strong>activate</strong> it.
 Activations are usually time-limited, and transfers can only proceed while
 both the source and destination endpoints are activated.
 Activating an endpoint generally requires logging in.
-For the <code>chtc#staging</code> endpoint, you should log in using
-the same username and password you use to log in to your submit node.
+You should log in using your UW - Madison NetID. 
 You can see how long your activation will last on the endpoint information page
 in the Globus web interface.</p>
 
