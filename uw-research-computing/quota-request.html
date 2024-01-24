@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Building a Docker Container Image</title>
+<title>Request a Quota Change</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Building a Docker Container Image | CHTC</title>
+<title>Request a Quota Change | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Building a Docker Container Image" />
+<meta property="og:title" content="Request a Quota Change" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Linux containers are a way to build a self-contained environment that includes software, libraries, and other tools. CHTC currently supports running jobs inside Docker containers. This guide describes how to build a Docker image that you can use for running jobs in CHTC. For information on using this image for jobs, see our Docker Jobs guide." />
-<meta property="og:description" content="Linux containers are a way to build a self-contained environment that includes software, libraries, and other tools. CHTC currently supports running jobs inside Docker containers. This guide describes how to build a Docker image that you can use for running jobs in CHTC. For information on using this image for jobs, see our Docker Jobs guide." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/docker-build" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/docker-build" />
+<meta name="description" content="To request a change in quota(s) for data storage locations on CHTC systems, please fill out the form below. This form applies to the following locations for both individual and shared (group) directories:" />
+<meta property="og:description" content="To request a change in quota(s) for data storage locations on CHTC systems, please fill out the form below. This form applies to the following locations for both individual and shared (group) directories:" />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/quota-request" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/quota-request" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-01-24T19:37:08+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Building a Docker Container Image" />
+<meta property="twitter:title" content="Request a Quota Change" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-01-24T19:37:08+00:00","datePublished":"2024-01-24T19:37:08+00:00","description":"Linux containers are a way to build a self-contained environment that includes software, libraries, and other tools. CHTC currently supports running jobs inside Docker containers. This guide describes how to build a Docker image that you can use for running jobs in CHTC. For information on using this image for jobs, see our Docker Jobs guide.","headline":"Building a Docker Container Image","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/docker-build"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/docker-build"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-01-24T19:37:08+00:00","datePublished":"2024-01-24T19:37:08+00:00","description":"To request a change in quota(s) for data storage locations on CHTC systems, please fill out the form below. This form applies to the following locations for both individual and shared (group) directories:","headline":"Request a Quota Change","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/quota-request"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/quota-request"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -248,364 +248,70 @@
     <div class="row justify-content-center">
         <div class="col-12 col-lg-9 mw-1000">
             <h1 class="uw-mini-bar mb-4">
-    Building a Docker Container Image
+    Request a Quota Change
 </h1>
 
-            <p>Linux containers are a way to build a self-contained environment that
-includes software, libraries, and other tools. CHTC currently supports
-running jobs inside <a href="https://www.docker.com/what-docker">Docker</a>
-containers. This guide describes how to build a Docker image
-that you can use for running jobs in CHTC. For information on using 
-this image for jobs, see our <a href="docker-jobs.html">Docker Jobs guide</a>.</p>
+            <p>To request a change in quota(s) for data storage locations on CHTC systems, please fill out the form below.
+This form applies to the following locations for both individual and shared (group) directories:</p>
 
-<h1 id="overview">Overview</h1>
+<table class="gtable">
+  <thead>
+    <tr>
+      <th>Location</th>
+      <th>Purpose</th>
+      <th>More Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>HTC <code>/home</code></td>
+      <td>For files less than 1 GB for jobs on the HTC system</td>
+      <td><a href="check-quota">Checking Disk Quota and Usage</a></td>
+    </tr>
+    <tr>
+      <td>HTC <code>/staging</code></td>
+      <td>For files greater than 1 GB for jobs on the HTC system</td>
+      <td><a href="file-avail-largedata#5-checking-your-quota-data-use-and-file-counts">Staging Guide</a></td>
+    </tr>
+    <tr>
+      <td>HPC <code>/home</code></td>
+      <td>For repeatedly used files for jobs on the HPC system</td>
+      <td><a href="hpc-overview#data-storage-and-management">HPC Data Storage and Management</a></td>
+    </tr>
+    <tr>
+      <td>HPC <code>/scratch</code></td>
+      <td>For working data for jobs on the HPC system</td>
+      <td><a href="hpc-overview#data-storage-and-management">HPC Data Storage and Management</a></td>
+    </tr>
+  </tbody>
+</table>
 
-<p><strong>Note that all the steps below should be run on your own computer, not
-in CHTC.</strong></p>
+<p>For other locations, please email us at <a href="Mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>. 
+Remember, <strong>CHTC data locations are not for long-term storage and are NOT backed up</strong>.
+Please review our data policies on the <a href="user-expectations.html#data-policies">Policies and Expectations for Users</a> page.</p>
 
-<p>Docker images can be created using a special file format
-called a “Dockerfile”. This file has commands that allow you to:</p>
+<h2 id="how-to-check-your-quotas">How to Check Your Quotas</h2>
 
-<ul>
-  <li>use a pre-existing Docker image as a base</li>
-  <li>add files to the image</li>
-  <li>run installation commands</li>
-  <li>set environment variables</li>
-</ul>
+<p>The form asks for the current quotas of the folders you wish to change.
+For individual directories, your quotas are printed on login.
+For group directories at HTC <code>/staging</code>, HPC <code>/home</code>, HPC <code>/scratch</code>, you can retrieve your quotas using the command</p>
 
-<p>You can then “build” an image from this
-file, test it locally, and push it to DockerHub, where
-<a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> can then use the image to build containers to run jobs in. 
-Different versions of the image can be labeled with different version 
-“tags”.</p>
-
-<p>This guide has:</p>
-
-<ol>
-  <li><a href="#a-step-by-step-instructions">Step by Step Instructions</a></li>
-  <li><a href="#b-examples">Examples</a></li>
-</ol>
-
-<h1 id="a-step-by-step-instructions">A. Step by Step Instructions</h1>
-
-<h2 id="1-set-up-docker-on-your-computer">1. Set Up Docker on Your Computer</h2>
-
-<p>If you haven’t already, create a DockerHub account and install 
-Docker on your computer. You’ll want to look for the <a href="https://store.docker.com/search?type=edition&amp;offering=community">Docker Community
-Edition</a>
-for your operating system. It sometimes takes some time for Docker to
-start, especially the first time. Once Docker starts, it won’t open a 
-window; you’ll just see a little whale and container icon in one of your 
-computers toolbars. In order to actually use Docker, you’ll need to 
-open a command line program (like Terminal, or Command Prompt) and run 
-commands there.</p>
-
-<h2 id="2-explore-docker-containers-optional">2. Explore Docker Containers (optional)</h2>
-
-<p>If you have never used Docker before, we recommend exploring a pre-existing container 
-and testing out installation steps interactively before creating a Dockerfile. See the 
-first half of this guide: <a href="docker-test.html">Exploring and Testing a Docker Container</a></p>
-
-<h2 id="3-create-a-dockerfile">3. Create a Dockerfile</h2>
-
-<p>A Dockerfile is a plain text file with keywords that add elements to a 
-Docker image. There are many keywords that can be used in a Dockerfile (documented on
-the Docker website here: <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile
-keywords</a>), but we will use a 
-subset of these keywords following this basic outline:</p>
-
-<ul>
-  <li>Starting point: Which Docker image do you want to start with?</li>
-  <li>Additions: What needs to be added? Folders? Data? Other software?</li>
-  <li>Environment: What variables (if any) are set as part of the software installation?</li>
-</ul>
-
-<h3 id="create-the-file">Create the file</h3>
-
-<p>Create a blank text file named <code>Dockerfile</code>. If you are planning on making
-multiple images for different parts of your workflow, 
-you should create a separate folder for each 
-new image with the a <code>Dockerfile</code> inside each of them.</p>
-
-<h3>Choose a base image with <code class="h3">FROM</code></h3>
-
-<p>Usually you don’t want to start building your image from scratch. 
-Instead you’ll want to choose a “base” image to add things to.</p>
-
-<p>You can find a base image by searching DockerHub. If you’re
-using a scripting language like Python, R or perl, you could start with
-the “official” image from these languages. If you’re not sure what to
-start with, using a basic Linux image (Debian, Ubuntu and CentOS are common 
-examples) is often a good place to start.</p>
-
-<p>Images often have tagged versions. Besides choosing the image
-you want, make sure to choose a version by clicking on the “Tags” tab of
-the image.</p>
-
-<p>Once you’ve decided on a base image and version, add it as the first
-line of your Dockerfile, like this:</p>
-
-<pre class="file"><code class="language-dockerfile">FROM repository/image:tag
+<pre><code>get_quotas /path/to/group/directory
 </code></pre>
 
-<p>Some images are maintained by DockerHub itself 
-(these are the “official” images mentioned above), 
-and do not have a repository.
-For example, to start with <a href="https://hub.docker.com/_/centos">Centos 7</a>, 
-you could use</p>
+<h2 id="quota-request-form">Quota Request Form</h2>
 
-<pre class="file"><code class="language-dockerfile">FROM centos:7
-</code></pre>
+<p>The following link leads to a Qualtrics form that we use for requesting quota changes.</p>
 
-<p>while starting from one of 
-<a href="https://hub.docker.com/r/htcondor/htc-minimal-notebook">HTCondor’s HTC Jupyter notebook images</a>
-might look like</p>
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="https://uwmadison.co1.qualtrics.com/jfe/form/SV_0JMj2a83dHcwX5k">Request a Quota Change</a>
+	</div>
+</div>
 
-<pre class="file"><code class="language-dockerfile">FROM htcondor/htc-minimal-notebook:2019-12-02
-</code></pre>
+<p>If you do not receive an automated email from <a href="Mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> within a few hours of completing the form,
+ OR if you do not receive a response from a human within two business days (M-F), please email <a href="Mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.</p>
 
-<p>When possible, you should use a specific tag 
-(<strong>not</strong> the automatic <code>latest</code> tag)
-in <code>FROM</code> statements.</p>
-
-<p>Here are some base images you might find useful to build off of:</p>
-
-<ul>
-  <li><a href="https://hub.docker.com/_/centos">Centos</a></li>
-  <li><a href="https://hub.docker.com/_/ubuntu">Ubuntu</a></li>
-  <li><a href="https://hub.docker.com/_/python">Python</a> / <a href="https://hub.docker.com/r/continuumio/anaconda3">Anaconda</a> / <a href="https://hub.docker.com/r/continuumio/miniconda3">Miniconda</a></li>
-  <li><a href="https://hub.docker.com/_/r-base">R</a> / <a href="https://hub.docker.com/r/rocker/tidyverse/">Tidyverse</a></li>
-  <li><a href="https://hub.docker.com/r/tensorflow/tensorflow">Tensorflow</a></li>
-  <li><a href="https://hub.docker.com/r/pytorch/pytorch">PyTorch</a></li>
-</ul>
-
-<h3>Install packaged software with <code class="h3">RUN</code></h3>
-
-<p>The next step is the most challenging. We need to add commands to the
-Dockerfile to install the desired software. There are a few standard ways to
-do this:</p>
-
-<ul>
-  <li>Use a Linux package manager. This is usually <code>apt-get</code> for Debian-based 
-containers (e.g, Ubuntu) or <code>yum</code> for RedHat Linux containers (e.g., CentOS).</li>
-  <li>Use a software-specific package manager (like <code>pip</code> or <code>conda</code> for Python).</li>
-  <li>Use installation instructions (usually a progression of <code>configure</code>,
-<code>make</code>, <code>make install</code>).</li>
-</ul>
-
-<p>Each of these options will be prefixed by the <code>RUN</code> keyword. You can
-join together linked commands with the <code>&amp;&amp;</code> symbol; to break lines, put
-a backslash <code>\</code> at the end of the line. <code>RUN</code> can execute any command inside the
-image during construction, but keep in mind that the only thing kept in the final
-image is changes to the filesystem (new and modified files, directories, etc.).</p>
-
-<p>For example, suppose that your job’s executable ends up running Python and
-needs access to the packages <code>numpy</code> and <code>scipy</code>, as well as the Unix tool <code>wget</code>.
-Below is an example of a <code>Dockerfile</code> that uses <code>RUN</code> to install these packages
-using the system package manager and Python’s built-in package manager.</p>
-
-<pre class="file"><code class="language-dockerfile"># Build the image based on the official Python version 3.8 image
-FROM python:3.8
-
-# Our base image happens to be Debian-based, so it uses apt-get as its system package manager
-# Use apt-get to install wget 
-RUN apt-get update \
- &amp;&amp; apt-get install wget
-
-# Use RUN to install Python packages (numpy and scipy) via pip, Python's package manager
-RUN pip3 install numpy scipy
-</code></pre>
-
-<p>If you need to copy specific files (like source code) from your computer into the
-image, place the files in the same folder as the
-Dockerfile and use the <code>COPY</code> keyword. You could also download files 
-within the image by using the <code>RUN</code> keyword and commands like <code>wget</code> 
-or <code>git clone</code>.</p>
-
-<p>For example, suppose that you need to use
-<a href="http://mcmc-jags.sourceforge.net/">JAGS</a> 
-and the 
-<a href="https://cran.r-project.org/web/packages/rjags/index.html">rjags package for R</a>. 
-If you have the 
-<a href="https://sourceforge.net/projects/mcmc-jags/files/JAGS/4.x/Source/">JAGS source code</a>
-downloaded next to the <code>Dockerfile</code>, you could compile and
-install it inside the image like so:</p>
-
-<pre class="file"><code class="language-dockerfile">FROM rocker/r-ver:3.4.0
-
-# COPY the JAGS source code into the image under /tmp
-COPY JAGS-4.3.0.tar.gz /tmp
-
-# RUN a series of commands to unpack the JAGS source, compile it, and install it
-RUN cd /tmp \
- &amp;&amp; tar -xzf JAGS-4.3.0.tar.gz \
- &amp;&amp; cd JAGS-4.3.0 \
- &amp;&amp; ./configure \
- &amp;&amp; make \
- &amp;&amp; make install
-
-# install the R package rjags
-RUN install2.r --error rjags
-</code></pre>
-
-<h3>Set up the environment with <code class="h3">ENV</code></h3>
-
-<p>Your software might rely on certain environment variables being set correctly.</p>
-
-<p>One common situation is that if you’re installing a program to a custom location 
-(like a home directory), you may need to add that directory to the image’s system
-<code>PATH</code>. For example, if you installed some scripts to <code>/home/software/bin</code>, you
-could use</p>
-
-<pre class="file"><code class="language-dockerfile">ENV PATH="/home/software/bin:${PATH}"
-</code></pre>
-
-<p>to add them to your <code>PATH</code>.</p>
-
-<p>You can set multiple environment variables at once:</p>
-
-<pre class="file"><code class="language-dockerfile">ENV DEBIAN_FRONTEND=noninteractive \
-    LC_ALL=en_US.UTF-8 \
-    LANG=en_US.UTF-8 \
-    LANGUAGE=en_US.UTF-8
-</code></pre>
-
-<h2 id="4-build-name-and-tag-the-image">4. Build, Name, and Tag the Image</h2>
-
-<p>So far we haven’t actually created the image – we’ve just been
-listing instructions for <em>how</em> to build the image in the Dockerfile.
-Now we are ready to build the image!</p>
-
-<p>First, decide on a name for the image, as well as a tag. Tags are
-important for tracking which version of the image you’ve created (and
-are using). A simple tag scheme would be to use numbers (e.g. v0, v1,
-etc.), but you can use any system that makes sense to you.</p>
-
-<p>Because HTCondor caches Docker images by tag, we <strong>strongly recommend that you 
-never use the <code>latest</code> tag, and always build images with a new, unique tag that
-you then explicitly specify in new jobs</strong>.</p>
-
-<p>To build and tag your image, open a Terminal (Mac/Linux) or Command
-Prompt (Windows) and navigate to the folder that contains your
-Dockerfile:</p>
-
-<pre class="term"><code>$ cd directory
-</code></pre>
-
-<p>(Replace <code>directory</code> with the path to the appropriate folder.)</p>
-
-<p>Then make sure Docker is running (there should be an icon on
-your status bar, and running <code>docker info</code> shouldn’t indicate any errors) and run:</p>
-
-<pre class="term"><code>$ docker build -t username/imagename:tag .
-</code></pre>
-
-<p>Replace <code>username</code> with your Docker Hub username and replace
-<code>imagename</code> and <code>tag</code> with the values of your choice. Note the <code>.</code> at the end
-of the command (to indicate “the current directory”).</p>
-
-<p>If you get errors, try to determine what you may need to add or change
-to your Dockerfile and then run the build command again. Debugging a Docker
-build is largely the same as debugging any software installation process.</p>
-
-<h2 id="5-test-locally">5. Test Locally</h2>
-
-<p>This page describes how to interact with your new Docker image on your
-own computer, before trying to run a job with it in CHTC:</p>
-
-<ul>
-  <li><a href="docker-test.html">Exploring a Docker Container on Your Computer</a></li>
-</ul>
-
-<h2 id="6-push-to-dockerhub">6. Push to DockerHub</h2>
-
-<p>Once your image has been successfully built and tested, you
-can push it to DockerHub so that it will be available to run jobs in
-CHTC. To do this, run the following command:</p>
-
-<pre class="term"><code>$ docker push username/imagename:tag
-</code></pre>
-
-<p>(Where you once again replace <code>username/imagename:tag</code> with what you used in
-previous steps.)</p>
-
-<p>The first time you push an image to DockerHub, you may need to run this
-command beforehand:</p>
-
-<pre class="term"><code>$ docker login
-</code></pre>
-
-<p>It should ask for your DockerHub username and password.</p>
-
-<blockquote>
-  <h2 id="reproducibility">Reproducibility</h2>
-
-  <p>If you have a free account on Docker Hub, any container image that you 
-have pushed there will be scheduled for removal if it is not used (pulled) at least once 
-every 6 months (See the <a href="https://www.docker.com/pricing/resource-consumption-updates">Docker Terms of Service</a>).</p>
-
-  <p>For this reason, and just because it’s a good idea in general, we recommend 
-creating a file archive of your container image and placing it in whatever space 
-you use for long-term, backed-up storage of research data and code.</p>
-
-  <p>To create a file archive of a container image, use this command, 
-changing the name of the archive file and container to reflect the 
-names you want to use:</p>
-  <pre class="term"><code>docker save --output archive-name.tar username/imagename:tag
-</code></pre>
-
-  <p>It’s also a good idea to archive a copy of the Dockerfile used to generate a 
-container image along with the file archive of the container image itself.</p>
-</blockquote>
-
-<h2 id="7-running-jobs">7. Running Jobs</h2>
-
-<p>Once your Docker image is on Docker Hub, you can use it to run 
-jobs on CHTC’s HTC system. See this guide for more details:</p>
-
-<ul>
-  <li><a href="docker-jobs.html">Running Docker Jobs in CHTC</a></li>
-</ul>
-
-<h1 id="b-examples">B. Examples</h1>
-
-<p>This section holds various example <code>Dockerfile</code> that cover more advanced use cases.</p>
-
-<h2 id="installing-a-custom-python-package-from-github">Installing a Custom Python Package from GitHub</h2>
-
-<p>Suppose you have a custom Python package hosted on GitHub, but not available 
-on PyPI.
-Since <code>pip</code> can install packages directly from <code>git</code> repositories, you could 
-install your package like this:</p>
-
-<pre><code class="language-dockerfile">FROM python:3.8
-
-RUN pip3 install git+https://github.com/&lt;RepositoryOwner&gt;/&lt;RepositoryName&gt;
-</code></pre>
-<p>where you would replace <code>&lt;RepositoryOwner&gt;</code> and <code>&lt;RepositoryName&gt;</code> with your
-desired targets.</p>
-
-<h2 id="qiime">QIIME</h2>
-
-<p>This <code>Dockerfile</code> installs <a href="https://qiime2.org/">QIIME2</a> based on
-<a href="https://docs.qiime2.org/2017.11/install/native/">these instructions</a>.
-It assumes that the <a href="https://conda.io/miniconda.html">Linux 64-bit miniconda
-installer</a> has been downloaded into the
-directory with the Dockerfile.</p>
-
-<pre><code class="language-dockerfile">FROM python:3.6-stretch
-
-COPY Miniconda3-latest-Linux-x86_64.sh /tmp
-
-RUN mkdir /home/qiimeuser
-ENV HOME=/home/qiimeuser
-
-RUN cd /tmp \
- &amp;&amp; ./Miniconda3-latest-Linux-x86_64.sh -b -p /home/qiimeuser/minconda3 \
- &amp;&amp; export PATH=/home/qiimeuser/minconda3/bin:$PATH \
- &amp;&amp; conda update conda \
- &amp;&amp; conda create -n qiime2-2017.10 --file https://data.qiime2.org/distro/core/qiime2-2017.10-conda-linux-64.txt
-</code></pre>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -614,299 +320,6 @@ RUN cd /tmp \
 
 
     <div id="guide-sidebar">
-        
-            
-
-            
-            
-
-            <h6 class="mt-5">HTC Guides</h6>
-            <div class="accordion accordion-flush">
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="basics-and-policies">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
-                                    Basics and Policies
-                                </button>
-                            </h2>
-                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/use-submit-node">Policies for Using HTC Submit Servers</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/connecting">Connecting to CHTC Using CHTC's HTC Submit Nodes</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/configure-ssh">Automating CHTC Log In</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/transfer-data-researchdrive">Transferring Files Between CHTC and ResearchDrive</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/globus">Using Globus to Transfer Files to and from CHTC</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/github-remote-access">Remotely Access a Private GitHub Repository</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/check-quota">Checking Disk Quota and Usage</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="job-submission">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#job-submission-collapse" aria-expanded="false" aria-controls="job-submission">
-                                    Job Submission
-                                </button>
-                            </h2>
-                            <div id="job-submission-collapse" class="accordion-collapse collapse " aria-labelledby="job-submission" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/helloworld">Running Your First HTC Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/condor_q">Learning About Your Jobs Using condor_q</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/multiple-jobs">Submitting Multiple Jobs Using HTCondor</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/dagman-workflows">Workflows with HTCondor's DAGMan</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/multiple-job-dirs">Submitting Multiple Jobs in Individual Directories</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="handling-data-in-jobs">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#handling-data-in-jobs-collapse" aria-expanded="false" aria-controls="handling-data-in-jobs">
-                                    Handling Data in Jobs
-                                </button>
-                            </h2>
-                            <div id="handling-data-in-jobs-collapse" class="accordion-collapse collapse " aria-labelledby="handling-data-in-jobs" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-availability">Small Input and Output File Availability Via HTCondor</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-squid">Transfer Large Input Files Via Squid</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="software-solutions">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
-                                    Software Solutions
-                                </button>
-                            </h2>
-                            <div id="software-solutions-collapse" class="accordion-collapse collapse show " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/matlab-jobs">Running Matlab Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/python-jobs">Running Python Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/conda-installation">Create a Portable Python Installation with Miniconda</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/r-jobs">Running R Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/java-jobs">Running Java Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/julia-jobs">Running Julia Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-jobs">Running HTC Jobs Using Docker Containers</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/docker-build">Building a Docker Container Image</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/licensed-software">Using Licensed Software</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/singularity-htc">Using Apptainer (Singularity) Environments</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="special-use-cases">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-cases-collapse" aria-expanded="false" aria-controls="special-use-cases">
-                                    Special Use Cases
-                                </button>
-                            </h2>
-                            <div id="special-use-cases-collapse" class="accordion-collapse collapse " aria-labelledby="special-use-cases" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/gpu-jobs">Submitting Jobs That Use GPUs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/machine-learning-htc">Run Machine Learning Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/scaling-htc">Scaling Beyond Local HTC Capacity</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/checkpointing">Checkpointing Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/high-memory-jobs">Submitting High Memory Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/mpi-jobs">Running MPI Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/os-transition-htc">Using Custom Linux Versions in CHTC</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="troubleshooting">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshooting-collapse" aria-expanded="false" aria-controls="troubleshooting">
-                                    Troubleshooting
-                                </button>
-                            </h2>
-                            <div id="troubleshooting-collapse" class="accordion-collapse collapse " aria-labelledby="troubleshooting" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/dos-unix">Windows / Linux Incompatibility</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-test">Explore and Test Docker Containers</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-            </div>
         
     </div>
 
