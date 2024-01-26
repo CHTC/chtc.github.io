@@ -295,11 +295,11 @@
         </div>
         
     </div>
-    <p>The OSPool is a very large, very dynamic, heterogenous high throughput system composed of execute
+    <p>The OSPool is a very large, very dynamic, heterogeneous high throughput system composed of execute
 points from dozens of campuses all over the United States. Sometimes, something will go wrong
 at one of these many sites, or one network, or one storage point, and it is difficult to determine
 where the problem is. This project proposed the design and construction of a “Grid Exerciser”,
-which consists of intentionally sending sample jobs to targetted locations on the OSPool to verify
+which consists of intentionally sending sample jobs to targeted locations on the OSPool to verify
 correct operation and sufficient performance.  The project will also have a reporting and
 visualization component so that the voluminous results can be understood by a human in a
 concise manner.</p>
@@ -368,7 +368,7 @@ the student fellow will gain skills in Docker containers, GitHub actions, and Ba
         </div>
         
     </div>
-    <p>The OS Pool runs hundreds of thousands of jobs every day on dozens of 
+    <p>The OSPool runs hundreds of thousands of jobs every day on dozens of 
 different sites, each unique in their own way.  Naturally, there are 
 many hundreds of failures, most of which the system works around, but
 with added latency to workflow completion. This project would attempt
@@ -376,6 +376,31 @@ to automatically classify failures from job logs to detect common
 patterns and highlight places for humans to look to fix common failures
 with the most payoff. Students working on this project will gain
 experience applying ML techniques to real world problems.</p>
+
+    
+</div>
+
+            
+                <div class="rounded p-4 mb-3 shadow">
+    <div>
+        <h3 id="benchmarking-osdf-performance-via-the-ospool" class="my-2 mb-1 uw-mini-bar">Benchmarking OSDF Performance via the OSPool</h3>
+        <div class="row justify-content-between d-flex">
+            <div class="col-auto">
+                <span class="fw-light">Large</span>
+            </div>
+            
+        </div>
+        
+    </div>
+    <p>The OSDF is the flagship instance of a Pelican data federation and most often used via the OSPool, a 
+HTCondor pool open to any US-based researcher or collaborators.  In this project, we aim to design a 
+test harness for benchmarking the OSDF and tools to analyze the performance of a test run.</p>
+
+<p>The project would create a toolkit that submits workflows for testing the OSDF across multiple sites; 
+we aim to test as many combinations of origins, caches, and clusters as possible.  The same toolkit
+would then be used to analyze the logs of the run and create an HTML report of the performance and
+reliability of the OSDF.  The ultimate goal is to run the testing nightly, giving the OSDF administrators
+a morning snapshot of the federation’s status.</p>
 
     
 </div>
@@ -510,6 +535,8 @@ repository and OSPool guides to build your own container.</p>
                                     <li><a href="#enhancing-container-image-build-system">Enhancing container image build system</a></li>
                                 
                                     <li><a href="#ml-for-failure-classification-in-the-ospool">ML for failure classification in the OSPool</a></li>
+                                
+                                    <li><a href="#benchmarking-osdf-performance-via-the-ospool">Benchmarking OSDF Performance via the OSPool</a></li>
                                 
                                     <li><a href="#database-techniques-and-data-architecture">Database techniques and data architecture</a></li>
                                 
