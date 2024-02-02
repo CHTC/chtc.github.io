@@ -312,7 +312,7 @@ the student fellow will gain skills in Docker containers, GitHub actions, and Ba
         <h3 id="benchmarking-osdf-performance-via-the-ospool" class="my-2 mb-1 uw-mini-bar">Benchmarking OSDF Performance via the OSPool</h3>
         <div class="row justify-content-between d-flex">
             <div class="col-auto">
-                <span class="fw-light">Large</span>
+                <span class="fw-light"></span>
             </div>
             
         </div>
@@ -327,6 +327,35 @@ we aim to test as many combinations of origins, caches, and clusters as possible
 would then be used to analyze the logs of the run and create an HTML report of the performance and
 reliability of the OSDF.  The ultimate goal is to run the testing nightly, giving the OSDF administrators
 a morning snapshot of the federation’s status.</p>
+
+    
+</div>
+
+            
+                <div class="rounded p-4 mb-3 shadow">
+    <div>
+        <h3 id="expanded-pelican-origin-monitoring" class="my-2 mb-1 uw-mini-bar">Expanded Pelican origin monitoring</h3>
+        <div class="row justify-content-between d-flex">
+            <div class="col-auto">
+                <span class="fw-light"></span>
+            </div>
+            
+        </div>
+        
+    </div>
+    <p>The Pelican origin service is responsible for exporting objects in the backend storage to the data federation.
+As it is the “entry point” for the data, understanding the load on the origin and its activities is key to keeping
+the federation healthy.  Pelican takes monitoring data from the web server component and feeds it into the popular
+Prometheus software to store time series about the activity. This project would focus on:</p>
+
+<ul>
+  <li>Implementing new monitoring probes to complement the existing information.</li>
+  <li>Forwarding the raw, unsummarized data to an ElasticSearch database for further analysis.</li>
+  <li>Designing visualizations to provide administrators with an overview of the origin’s activities.</li>
+  <li>Implementing alerts when there are health issues with the origin.</li>
+</ul>
+
+<p>After a successful summer, the student fellow will gain skills in using the Go language, the Prometheus monitoring system (and other Cloud Native technologies), and web design.</p>
 
     
 </div>
@@ -358,6 +387,30 @@ concise manner.</p>
             
                 <div class="rounded p-4 mb-3 shadow">
     <div>
+        <h3 id="synchronizing-datasets-via-the-osdf" class="my-2 mb-1 uw-mini-bar">Synchronizing datasets via the OSDF</h3>
+        <div class="row justify-content-between d-flex">
+            <div class="col-auto">
+                <span class="fw-light"></span>
+            </div>
+            
+        </div>
+        
+    </div>
+    <p>The <code>pelican</code> client tool provides a standalone mechanism to upload and download single
+files from a data federation.  While the client works well, a typical use case is downloading
+an entire dataset - potentially, tens of thousands of files or hundreds of terabytes.
+When moving a dataset, features like state management and resumption become important.</p>
+
+<p>In this project, we will explore better ways to automate dataset movement to and from the 
+OSDF, exploring approaches like the <a href="https://github.com/htcondor/htcondor-file-transfer">HTCondor file transfer tool</a>. 
+The goal for the end of the summer would be to move a 100TB dataset using a single command.</p>
+
+    
+</div>
+
+            
+                <div class="rounded p-4 mb-3 shadow">
+    <div>
         <h3 id="user-interface-and-jupyter-widgets" class="my-2 mb-1 uw-mini-bar">User interface and Jupyter widgets</h3>
         <div class="row justify-content-between d-flex">
             <div class="col-auto">
@@ -377,6 +430,30 @@ implementing various Jupyter UI widgets to visualize users’ jobs within the sy
 further interface with the system.  After completing this project, the student will have
 Jupyter widgets to show in their portfolio, professional JavaScript experience, and 
 understanding of how a distributed High Throughput System works.</p>
+
+    
+</div>
+
+            
+                <div class="rounded p-4 mb-3 shadow">
+    <div>
+        <h3 id="integrating-pytorch-and-pelican" class="my-2 mb-1 uw-mini-bar">Integrating Pytorch and Pelican</h3>
+        <div class="row justify-content-between d-flex">
+            <div class="col-auto">
+                <span class="fw-light"></span>
+            </div>
+            
+        </div>
+        
+    </div>
+    <p>PyTorch is one of the most popular machine learning frameworks.  An important aspect of 
+using it is the data engineering: how is input data fed into the model during training?<br />
+Going from “tutorial scale” problems to cutting-edge research requires drastically different 
+techniques around data handling.</p>
+
+<p>For this project, we aim to better integrate Pelican into the PyTorch community, providing both
+technical mechanisms (implementing the fsspec interface for Pelican) and documentation by providing
+tutorials and recipes for scaling PyTorch-based training using a combination of HTCondor and Pelican.</p>
 
     
 </div>
@@ -532,11 +609,17 @@ short workshop sharing recommendations and providing hands-on examples.</p>
                                 
                                     <li><a href="#developing-software-recipes">Developing software recipes</a></li>
                                 
+                                    <li><a href="#expanded-pelican-origin-monitoring">Expanded Pelican origin monitoring</a></li>
+                                
                                     <li><a href="#building-training-materials">Building training materials</a></li>
                                 
                                     <li><a href="#grid-exerciser">Grid Exerciser</a></li>
                                 
+                                    <li><a href="#synchronizing-datasets-via-the-osdf">Synchronizing datasets via the OSDF</a></li>
+                                
                                     <li><a href="#user-interface-and-jupyter-widgets">User interface and Jupyter widgets</a></li>
+                                
+                                    <li><a href="#integrating-pytorch-and-pelican">Integrating Pytorch and Pelican</a></li>
                                 
                                     <li><a href="#tracking-server-inventory-and-elevation">Tracking server inventory and elevation</a></li>
                                 
