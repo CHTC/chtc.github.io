@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Policies for Using HTC Submit Servers</title>
+<title>HTC Computing Guides</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Policies for Using HTC Submit Servers | CHTC</title>
+<title>HTC Computing Guides | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Policies for Using HTC Submit Servers" />
+<meta property="og:title" content="HTC Computing Guides" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="If you have not yet requested a CHTC account and met with a Research Computing Facilitator, please fill out this form." />
-<meta property="og:description" content="If you have not yet requested a CHTC account and met with a Research Computing Facilitator, please fill out this form." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/noShow-use-submit-node" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/noShow-use-submit-node" />
+<meta name="description" content="Below is a list of guides for some of the most common tasks our users need to carry out as they begin and continue to use the HTC resources at the CHTC." />
+<meta property="og:description" content="Below is a list of guides for some of the most common tasks our users need to carry out as they begin and continue to use the HTC resources at the CHTC." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/htc/guides" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc/guides" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-03-01T16:16:02+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Policies for Using HTC Submit Servers" />
+<meta property="twitter:title" content="HTC Computing Guides" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-01T16:16:02+00:00","datePublished":"2024-03-01T16:16:02+00:00","description":"If you have not yet requested a CHTC account and met with a Research Computing Facilitator, please fill out this form.","headline":"Policies for Using HTC Submit Servers","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/noShow-use-submit-node"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/noShow-use-submit-node"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-01T16:16:02+00:00","datePublished":"2024-03-01T16:16:02+00:00","description":"Below is a list of guides for some of the most common tasks our users need to carry out as they begin and continue to use the HTC resources at the CHTC.","headline":"HTC Computing Guides","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc/guides"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc/guides"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -247,402 +247,231 @@
         <main id="main" style="min-height: 60vh;">
     <div class="container-xxl mb-5">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-9 mw-1000">
+        <div class="col mw-1000">
             <h1 class="uw-mini-bar mb-4">
-    Policies for Using HTC Submit Servers
+    HTC Computing Guides
 </h1>
 
-            <p><strong>If you have not yet requested a CHTC account and met with a Research
-Computing Facilitator, please fill out <a href="form.html">this form</a>.</strong></p>
-
-<p>Recently created CHTC accounts will use our submit server 
-<em>submit1.chtc.wisc.edu</em>. Accounts created before Feb 1, 2023 may be on 
-either <em>submit1.chtc.wisc.edu</em> or <em>submit2.chtc.wisc.edu</em>. See our 
-<a href="connecting.html">connecting guide</a> for additional information.</p>
-
-<p>Access to other submit servers is granted for
-specific purposes and will have been indicated to you by CHTC staff.</p>
-
-<h2 id="connecting-to-htc-submit-servers">Connecting to HTC Submit Servers</h2>
-
-<p>Once your account is active, you can connect to your designated submit
-server with an SSH connection ("Putty" for Windows, putty.org;
-"Terminal" for Linux/Max). Note, however, that our submit servers only
-accept connections from campus networks. Off-campus connections have
-been disabled for security purposes. If you need to connect from off
-campus, you can first SSH to a computer in your department, and then SSH
-to our submit server. You may also be able to use a Virtual Private
-Network (VPN) to join the campus network when working off-campus. DoIT
-provides <a href="https://it.wisc.edu/services/wiscvpn/">information on using a
-VPN</a>.</p>
-
-<p>For more detailed information on connecting to CHTC services, both
-logging in and transferring files, see our <a href="connecting.html">Connecting to CHTC
-guide</a>.</p>
-
-<h2 id="general-user-policies">General User Policies</h2>
-
-<p>See our <a href="user-expectations.html">User Policies and Expectations</a> for details on general CHTC policies.</p>
-
-<h2 id="htc-system-specific-limits">HTC System Specific Limits</h2>
-
-<p>Below are some of the default limits on CHTC’s HTC system. Note that as a large-scale 
-computing center, we want you to be able to run at a large scale - often much larger 
-than these defaults. Please contact the facilitation team whenever you encounter one 
-of these limits so we can adjust your account settings or discuss alternative ways to 
-achieve your computing goals.</p>
-
-<ul>
-  <li><strong>Jobs with long runtimes.</strong> There is a default run limit of 72
-hours for each job queued in the HTC System, once it starts running.
-Jobs longer than this will be placed in HTCondor's "hold" state.
-If your jobs will be longer, please <a href="mailto:chtc@cs.wisc.edu">email
-us</a>, and we'll help you to determine the
-best solution.</li>
-  <li><strong>Submitting many jobs from one submit file.</strong> HTCondor is designed
-to submit thousands (or more) jobs from one submit file. If you are
-submitting <u>over 10,000 jobs per submit file</u> or want to queue 
-more than <u>50,000 total jobs as a single user</u>,
-please <a href="mailto:chtc@cs.wisc.edu">email us</a> as we have strategies to
-submit that many jobs in a way that will ensure you have as many
-jobs running as possible without also compromising queue performance.</li>
-  <li><strong>Submitting many <em>short</em> jobs from one submit file.</strong> While HTCondor
-is designed to submit thousands of jobs at a time, many <em>short</em> jobs
-can overwhelm the submit server, resulting in other jobs taking much
-longer to start than usual. <u> If you plan on submitting over
-1000 jobs per submit file, we ask that you ensure each job has a
-minimum run time of 5 minutes (on average). <u></u></u></li>
-  <li><strong>The default disk quota is 20 GB</strong> in your <code>/home</code> directory, as a 
-starting point. You can track your use of disk space and your quota value,
-using our <a href="check-quota.html">Quota Guide</a>. If you need more space
-for concurrent work, please see our <a href="quota-request">Request a Quota Change</a>
-guide.</li>
-  <li><strong>Submitting jobs with "large" files:</strong> HTCondor's
-normal file transfer mechanism ("transfer_input_files") is good for 
-files up to 100MB in size (or 500MB total, per job). For jobs with larger
-files, please see our guide on <a href="file-availability.html">File Availability</a> 
-Options, and contact us to make arrangements.</li>
-</ul>
-
-        </div>
-        <div class="col-3 d-none d-lg-block">
-            
-
-
-
-    <div id="guide-sidebar">
-        
-            
-
-            
-            
-
-            <h6 class="mt-5">HTC Guides</h6>
-            <div class="accordion accordion-flush">
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="basics-and-policies">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
-                                    Basics and Policies
-                                </button>
-                            </h2>
-                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse show " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc-overview">HTC System Overview</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/noShow-use-submit-node">Policies for Using HTC Submit Servers</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/connecting">Log In to CHTC Resources</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/transfer-files-computer">Transfer Files between CHTC and your Computer</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/configure-ssh">Automating CHTC Log In</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/transfer-data-researchdrive">Transferring Files Between CHTC and ResearchDrive</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/globus">Using Globus to Transfer Files to and from CHTC</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/github-remote-access">Remotely Access a Private GitHub Repository</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/check-quota">Checking Disk Quota and Usage</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="job-submission">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#job-submission-collapse" aria-expanded="false" aria-controls="job-submission">
-                                    Job Submission
-                                </button>
-                            </h2>
-                            <div id="job-submission-collapse" class="accordion-collapse collapse " aria-labelledby="job-submission" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/helloworld">Running Your First HTC Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/condor_q">Learning About Your Jobs Using condor_q</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/multiple-jobs">Submitting Multiple Jobs Using HTCondor</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/dagman-workflows">Workflows with HTCondor's DAGMan</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/multiple-job-dirs">Submitting Multiple Jobs in Individual Directories</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="handling-data-in-jobs">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#handling-data-in-jobs-collapse" aria-expanded="false" aria-controls="handling-data-in-jobs">
-                                    Handling Data in Jobs
-                                </button>
-                            </h2>
-                            <div id="handling-data-in-jobs-collapse" class="accordion-collapse collapse " aria-labelledby="handling-data-in-jobs" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-availability">Small Input and Output File Availability Via HTCondor</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-squid">Transfer Large Input Files Via Squid</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="software-solutions">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
-                                    Software Solutions
-                                </button>
-                            </h2>
-                            <div id="software-solutions-collapse" class="accordion-collapse collapse " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/matlab-jobs">Running Matlab Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/python-jobs">Running Python Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/conda-installation">Create a Portable Python Installation with Miniconda</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/r-jobs">Running R Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/java-jobs">Running Java Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/julia-jobs">Running Julia Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-jobs">Running HTC Jobs Using Docker Containers</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-build">Building a Docker Container Image</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/licensed-software">Using Licensed Software</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/singularity-htc">Using Apptainer (Singularity) Environments</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="special-use-cases">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-cases-collapse" aria-expanded="false" aria-controls="special-use-cases">
-                                    Special Use Cases
-                                </button>
-                            </h2>
-                            <div id="special-use-cases-collapse" class="accordion-collapse collapse " aria-labelledby="special-use-cases" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/gpu-jobs">Submitting Jobs That Use GPUs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/machine-learning-htc">Run Machine Learning Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/scaling-htc">Scaling Beyond Local HTC Capacity</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/checkpointing">Checkpointing Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/high-memory-jobs">Submitting High Memory Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc-modules">Use Software Available in Modules</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/mpi-jobs">Running MPI Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/os-transition-htc">Using Custom Linux Versions in CHTC</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="troubleshooting">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshooting-collapse" aria-expanded="false" aria-controls="troubleshooting">
-                                    Troubleshooting
-                                </button>
-                            </h2>
-                            <div id="troubleshooting-collapse" class="accordion-collapse collapse " aria-labelledby="troubleshooting" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/dos-unix">Windows / Linux Incompatibility</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-test">Explore and Test Docker Containers</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-            </div>
-        
-    </div>
-
-
+            <p>
+Below is a list of guides for some of the most common tasks our users need to
+carry out as they begin and continue to use the HTC resources at the CHTC.
+</p>
+
+<h2 id="user-expectations" class="">User Expectations</h2>
+
+Read through these user expectations and policies before using CHTC services.
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="px-2 w-100">
+		<button class="navbar-toggler w-100 mb-2 mb-lg-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<a class="nav-link btn btn-primary text-white mb-2 mb-lg-0 w-100" aria-current="page" href="user-expectations.html">User Expectations</a>
+		</div>
+	</div>
+</nav>
+
+
+
+
+<h2 id="htc-documentation" class="">HTC Documentation</h2>
+
+<div class="row gx-2">
+
+	
+	
+		<div class="col-12 col-sm-6 col-lg-4">
+			<div class="list-group mb-3">
+				<div class="list-group-item d-flex flex-column">
+					
+					
+					
+					
+					
+					
+					<img class="mx-auto" style="height: 60px;" src="/uw-research-computing/guide-icons/checkmark.png" />
+					<h4 class="mt-0 mx-auto">Basics and Policies</h4>
+				</div>
+				
+				<a href="/uw-research-computing/htc-overview" class="list-group-item list-group-item-action ">HTC System Overview</a>
+				
+				<a href="/uw-research-computing/noShow-use-submit-node" class="list-group-item list-group-item-action ">Using CHTC's HTC Submit Nodes</a>
+				
+				<a href="/uw-research-computing/connecting" class="list-group-item list-group-item-action ">Connecting to CHTC</a>
+				
+				<a href="/uw-research-computing/transfer-files-computer" class="list-group-item list-group-item-action ">Transfer Files between CHTC and your Computer</a>
+				
+				<a href="/uw-research-computing/configure-ssh" class="list-group-item list-group-item-action ">Automating CHTC Log In</a>
+				
+				<a href="/uw-research-computing/transfer-data-researchdrive" class="list-group-item list-group-item-action ">Transferring Files Between CHTC and ResearchDrive</a>
+				
+				<a href="/uw-research-computing/globus" class="list-group-item list-group-item-action ">Using Globus to Transfer Files to and from CHTC</a>
+				
+				<a href="/uw-research-computing/github-remote-access" class="list-group-item list-group-item-action ">Remotely Access a Private GitHub Repository</a>
+				
+				<a href="/uw-research-computing/check-quota" class="list-group-item list-group-item-action ">Checking Disk Quota and Usage</a>
+				
+			</div>
+		</div>
+	
+
+	
+	
+		<div class="col-12 col-sm-6 col-lg-4">
+			<div class="list-group mb-3">
+				<div class="list-group-item d-flex flex-column">
+					
+					
+					
+					
+					
+					
+					<img class="mx-auto" style="height: 60px;" src="/uw-research-computing/guide-icons/laptop_arrow.png" />
+					<h4 class="mt-0 mx-auto">Job Submission</h4>
+				</div>
+				
+				<a href="/uw-research-computing/helloworld" class="list-group-item list-group-item-action ">Running Your First HTC Jobs</a>
+				
+				<a href="/uw-research-computing/condor_q" class="list-group-item list-group-item-action ">Learning About Your Jobs Using condor_q</a>
+				
+				<a href="/uw-research-computing/multiple-jobs" class="list-group-item list-group-item-action ">Submitting Multiple Jobs Using HTCondor</a>
+				
+				<a href="/uw-research-computing/dagman-workflows" class="list-group-item list-group-item-action ">Workflows with HTCondor's DAGMan</a>
+				
+				<a href="/uw-research-computing/multiple-job-dirs" class="list-group-item list-group-item-action ">Submitting Multiple Jobs in Different Directories</a>
+				
+			</div>
+		</div>
+	
+
+	
+	
+		<div class="col-12 col-sm-6 col-lg-4">
+			<div class="list-group mb-3">
+				<div class="list-group-item d-flex flex-column">
+					
+					
+					
+					
+					
+					
+					<img class="mx-auto" style="height: 60px;" src="/uw-research-computing/guide-icons/data.png" />
+					<h4 class="mt-0 mx-auto">Handling Data in Jobs</h4>
+				</div>
+				
+				<a href="/uw-research-computing/file-availability" class="list-group-item list-group-item-action ">Transfer Small Input and Output</a>
+				
+				<a href="/uw-research-computing/file-avail-squid" class="list-group-item list-group-item-action ">Transfer Large Input Files Via Squid</a>
+				
+				<a href="/uw-research-computing/file-avail-largedata" class="list-group-item list-group-item-action ">Use Large Input and Output Files Via Staging</a>
+				
+			</div>
+		</div>
+	
+
+	
+	
+		<div class="col-12 col-sm-6 col-lg-4">
+			<div class="list-group mb-3">
+				<div class="list-group-item d-flex flex-column">
+					
+					
+					
+					
+					
+					
+					<img class="mx-auto" style="height: 60px;" src="/uw-research-computing/guide-icons/gear.png" />
+					<h4 class="mt-0 mx-auto">Software Solutions</h4>
+				</div>
+				
+				<a href="/uw-research-computing/inter-submit" class="list-group-item list-group-item-action ">Compiling Software in an Interactive Job</a>
+				
+				<a href="/uw-research-computing/matlab-jobs" class="list-group-item list-group-item-action ">Running Matlab Jobs</a>
+				
+				<a href="/uw-research-computing/python-jobs" class="list-group-item list-group-item-action ">Running Python Jobs</a>
+				
+				<a href="/uw-research-computing/conda-installation" class="list-group-item list-group-item-action ">Using Conda Environments to Run Python Jobs</a>
+				
+				<a href="/uw-research-computing/r-jobs" class="list-group-item list-group-item-action ">Running R Jobs</a>
+				
+				<a href="/uw-research-computing/java-jobs" class="list-group-item list-group-item-action ">Running Java Jobs</a>
+				
+				<a href="/uw-research-computing/julia-jobs" class="list-group-item list-group-item-action ">Running Julia Jobs</a>
+				
+				<a href="/uw-research-computing/docker-jobs" class="list-group-item list-group-item-action ">Using Software Installed in a Docker Container</a>
+				
+				<a href="/uw-research-computing/docker-build" class="list-group-item list-group-item-action ">Building a Docker Container Image</a>
+				
+				<a href="/uw-research-computing/licensed-software" class="list-group-item list-group-item-action ">Using Licensed Software</a>
+				
+				<a href="/uw-research-computing/singularity-htc" class="list-group-item list-group-item-action ">Using Apptainer (Singularity) Environments</a>
+				
+			</div>
+		</div>
+	
+
+	
+	
+		<div class="col-12 col-sm-6 col-lg-4">
+			<div class="list-group mb-3">
+				<div class="list-group-item d-flex flex-column">
+					
+					
+					
+					
+					
+					
+					<img class="mx-auto" style="height: 60px;" src="/uw-research-computing/guide-icons/processor.png" />
+					<h4 class="mt-0 mx-auto">Special Use Cases</h4>
+				</div>
+				
+				<a href="/uw-research-computing/gpu-jobs" class="list-group-item list-group-item-action ">Submitting Jobs That Use GPUs</a>
+				
+				<a href="/uw-research-computing/machine-learning-htc" class="list-group-item list-group-item-action ">Run Machine Learning Jobs</a>
+				
+				<a href="/uw-research-computing/scaling-htc" class="list-group-item list-group-item-action ">Scaling Beyond Local HTC Capacity</a>
+				
+				<a href="/uw-research-computing/checkpointing" class="list-group-item list-group-item-action ">Checkpointing Jobs</a>
+				
+				<a href="/uw-research-computing/high-memory-jobs" class="list-group-item list-group-item-action ">Submitting High Memory Jobs</a>
+				
+				<a href="/uw-research-computing/htc-modules" class="list-group-item list-group-item-action ">Use Software Available in Modules</a>
+				
+				<a href="/uw-research-computing/mpi-jobs" class="list-group-item list-group-item-action ">Running MPI Jobs</a>
+				
+				<a href="/uw-research-computing/os-transition-htc" class="list-group-item list-group-item-action ">Using Custom Linux Versions in CHTC</a>
+				
+			</div>
+		</div>
+	
+
+	
+	
+		<div class="col-12 col-sm-6 col-lg-4">
+			<div class="list-group mb-3">
+				<div class="list-group-item d-flex flex-column">
+					
+					
+					
+					
+					
+					
+					<img class="mx-auto" style="height: 60px;" src="/uw-research-computing/guide-icons/trouble.png" />
+					<h4 class="mt-0 mx-auto">Troubleshooting</h4>
+				</div>
+				
+				<a href="/uw-research-computing/dos-unix" class="list-group-item list-group-item-action ">Windows / Linux Incompatibility</a>
+				
+				<a href="/uw-research-computing/docker-test" class="list-group-item list-group-item-action ">Explore and Test Docker Containers</a>
+				
+			</div>
+		</div>
+	
+
+</div>
+
+<a href="/icon_credits.html">Icon Credits</a>
 
         </div>
     </div>
