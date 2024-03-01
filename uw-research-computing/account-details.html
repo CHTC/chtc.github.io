@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Transfer Files between CHTC and your Computer</title>
+<title>How to Request a CHTC Account</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Transfer Files between CHTC and your Computer | CHTC</title>
+<title>How to Request a CHTC Account | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Transfer Files between CHTC and your Computer" />
+<meta property="og:title" content="How to Request a CHTC Account" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Table of Contents Transferring Files On the command line Using an SSH program (Windows/Mac) Re-using SSH connections Creating and Editing Files in CHTC" />
-<meta property="og:description" content="Table of Contents Transferring Files On the command line Using an SSH program (Windows/Mac) Re-using SSH connections Creating and Editing Files in CHTC" />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer" />
+<meta name="description" content="How to Request a CHTC Account" />
+<meta property="og:description" content="How to Request a CHTC Account" />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/account-details" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/account-details" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-03-01T17:06:49+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Transfer Files between CHTC and your Computer" />
+<meta property="twitter:title" content="How to Request a CHTC Account" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-01T17:06:49+00:00","datePublished":"2024-03-01T17:06:49+00:00","description":"Table of Contents Transferring Files On the command line Using an SSH program (Windows/Mac) Re-using SSH connections Creating and Editing Files in CHTC","headline":"Transfer Files between CHTC and your Computer","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-01T17:06:49+00:00","datePublished":"2024-03-01T17:06:49+00:00","description":"How to Request a CHTC Account","headline":"How to Request a CHTC Account","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/account-details"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/account-details"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -249,136 +249,66 @@
     <div class="row justify-content-center">
         <div class="col-12 col-lg-9 mw-1000">
             <h1 class="uw-mini-bar mb-4">
-    Transfer Files between CHTC and your Computer
+    How to Request a CHTC Account
 </h1>
 
-            
-<div class="d-flex flex-column mb-5">
+            <h1 id="how-to-request-a-chtc-account">How to Request a CHTC Account</h1>
 
-<h2>Table of Contents</h2>
+<p>The following sections detail the processes for requesting a new CHTC account, 
+or for continuing to use an existing CHTC account. Use of CHTC services are free 
+to use in support of University of Wisconsin - Madison’s research and teaching mission.</p>
 
-<div class="uw-sidebar-box me-auto">
-<div class="uw-directory">
+<h2 id="current-member-of-uw---madison">Current Member of UW - Madison</h2>
 
-      <ol>
-        <li><a href="#transfer">Transferring Files</a>
-          <ul>
-            <li><a href="#transfer-scp">On the command line</a></li>
-            <li><a href="#transfer-winscp">Using an SSH program (Windows/Mac)</a></li>
-            <li><a href="#transfer-many">Re-using SSH connections</a></li>
-          </ul>
-        </li>
-        <li><a href="#files">Creating and Editing Files in CHTC</a></li>
-      </ol>
+<p>If you are a current student, staff, or faculty at UW - Madison, you can request an account
+by completing the <a href="form.html">Account Request Form</a>. A staff member from CHTC will follow
+up with next steps.</p>
 
-    </div>
-</div>
-</div>
+<p>All accounts require an active NetID and a faculty sponsor (typically the PI that is leading 
+your research project.)</p>
 
-<p><span name="transfer"></span></p>
+<h2 id="graduating-from-uw---madison">Graduating from UW - Madison</h2>
 
-<h1 id="1-transferring-files"><strong>1. Transferring Files</strong></h1>
+<p>We understand that some users may need to continue carrying out their computational 
+analyses after graduation and the subsequent expiration of their NetID.</p>
 
-<p>To transfer files to and from CHTC, you will need the same username and
-hostname information for <a href="#login">logging in</a>, as well as understanding
-where your files are and where you would like them to go.</p>
+<p>Once you are no longer enrolled in or employed by the University, you can continue
+to use your CHTC account as an “External Collaborator”. Follow the instructions in
+the section below to have your faculty advisor sponsor your continued access to
+CHTC.</p>
 
-<p><span name="transfer-scp"></span></p>
-
-<h2 id="a-on-the-command-line">A. On the command line</h2>
-
-<p>On Mac, Linux, or modern Windows (10+) systems, you can use the "Terminal" application and
-the <code>scp</code> command to copy files between your computer and CHTC servers.</p>
-
-<p><strong>Your computer to CHTC</strong></p>
-
-<p>First, open the "Terminal" application and navigate to the directory
-with the files or directories you want to transfer. Then, use this
-command to copy these files to CHTC:</p>
-
-<pre class="term"><code>$ scp file username@hostname:/home/username
-</code></pre>
-
-<p>If you would like these files to end up in a different directory inside
-your home directory, just add it to the path at the end of the command.</p>
-
-<p><strong>CHTC to your computer</strong></p>
-
-<p>Open the "Terminal" application. Do NOT log into CHTC. Instead,
-navigate to where you want the files to go on your computer. Then, use
-this command to copy these files there:</p>
-
-<pre class="term"><code>$ scp username@hostname:/home/username/file ./
-</code></pre>
-
-<p>Again, for many files, it will be easiest to create a compressed tarball
-(.tar.gz file) of your files and transfer that instead of each file
-individually.</p>
-
-<p><span name="transfer-winscp"></span></p>
-
-<h2 id="b-using-a-file-transfer-program-windowsmac">B. Using a file transfer program (Windows/Mac)</h2>
-
-<p>Windows and Mac users can also use special programs to help them
-transfer files between their computers and CHTC. For Windows, we
-recommend <a href="https://winscp.net/eng/download.php">WinSCP</a>. It requires the
-same information as Putty (hostname, username), and once it's set up,
-looks like this:</p>
-
-<p><img src="/images/WinSCPPortable.png" alt="" /></p>
-
-<p>The left window is a directory on your computer, the right window is
-your home directory in CHTC. To move files between the two, simply drag
-and drop.</p>
-
-<p>There are other programs besides WinSCP that do this. Another that works
-on Mac and Windows is called <a href="https://cyberduck.io">Cyberduck</a>.</p>
-
-<p><span name="transfer-many"></span></p>
-
-<h2 id="c-transferring-multiple-files">C. Transferring Multiple Files</h2>
-
-<p>If you are transferring many files, it is advantageous to compress them
-into a single compressed file, in order to facilitate transferring them.
-Place all the files you need in a directory, and then either zip it or
-use the "tar" command to compress them:</p>
-
-<pre class="term"><code>$ tar czf data_files.tar.gz file_directory/
-</code></pre>
-
-<p>To untar or unzip files on the submit server or head nodes, you can use
-either:</p>
-
-<pre class="term"><code>[alice@submit]$ tar xzf data_files.tar.gz
-</code></pre>
-
-<p>or</p>
-
-<pre class="term"><code>[alice@submit]$ unzip data_files.zip
-</code></pre>
-
-<p><span name="files"></span></p>
-
-<h1 id="2-creating-and-editing-files-in-chtc"><strong>2. Creating and Editing Files in CHTC</strong></h1>
-
-<p>Once you have logged in to a CHTC server, you can edit files from the
-command line, by using a command line file editor. Some common editing
-programs are:</p>
+<p><strong>We highly recommend reaching out to CHTC staff before your NetID expires, if possible.</strong></p>
 
 <ul>
-  <li>nano</li>
-  <li>vi</li>
-  <li>emacs</li>
+  <li>Our policy is that CHTC accounts are deactivated and user data is erased after a user 
+is no longer actively using their account (~1 year of inactivity). It is your responsibility
+to maintain your data and important files in a location that is not CHTC’s file systems.</li>
 </ul>
 
-<p><code>nano</code> is the most beginner-friendly, and <code>emacs</code> is the most advanced.
-<a href="https://swcarpentry.github.io/shell-novice/03-create.html">This Software Carpentry
-lesson</a> describes
-how to use <code>nano</code>, and there are many other resources online with
-instructions for these text editors.</p>
+<h2 id="external-collaborator">External Collaborator</h2>
 
-<p>Some of the file transfer programs mentioned <a href="#transfer-winscp">above</a>
-allow you to edit files on CHTC servers through the interface.</p>
+<p>If you are not a current member of UW - Madison, you can gain access to CHTC provided
+that you are sponsored by a faculty member of UW - Madison. To begin the account
+request process, have your Faculty Sponsor email CHTC (chtc@cs.wisc.edu) and provide:</p>
+
+<ol>
+  <li>Your name,</li>
+  <li>The reason you need (continued) access to CHTC resources,</li>
+  <li>The amount of time they would like to sponsor your account,</li>
+  <li>Your city/country of residence, and</li>
+  <li>Your institution.</li>
+</ol>
+
+<p>CHTC staff will then follow up with next steps to create or extend your account.</p>
+
+<ul>
+  <li>Your faculty sponsor can sponsor your account for up to one year at a time. If 
+you need continued access past one year, your faculty sponsor must contact us and 
+re-confirm that you should have continued access.</li>
+  <li>Our policy is that CHTC accounts are deactivated and user data is erased after a user 
+is no longer actively using their account (~1 year of inactivity). It is your responsibility
+to maintain your data and important files in a location that is not CHTC’s file systems.</li>
+</ul>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -387,68 +317,6 @@ allow you to edit files on CHTC servers through the interface.</p>
 
 
     <div id="guide-sidebar">
-        
-            
-
-            
-            
-
-            <h6 class="mt-5">General Guides</h6>
-            <div class="accordion accordion-flush">
-                
-                    
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="basics-and-policies">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
-                                    Basics and Policies
-                                </button>
-                            </h2>
-                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse show " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/connecting">Log In to CHTC Resources</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/transfer-files-computer">Transfer Files between CHTC and your Computer</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/configure-ssh">Automate CHTC Log In</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/transfer-data-researchdrive">Transfer Files Between CHTC and ResearchDrive</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/github-remote-access">Access a Private GitHub Repository Remotely</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            </div>
         
     </div>
 
