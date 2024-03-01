@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Running HTC Jobs Using Docker Containers</title>
+<title>Transfer Files between CHTC and your Computer</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Running HTC Jobs Using Docker Containers | CHTC</title>
+<title>Transfer Files between CHTC and your Computer | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Running HTC Jobs Using Docker Containers" />
+<meta property="og:title" content="Transfer Files between CHTC and your Computer" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Linux containers are a way to build a self-contained environment that includes software, libraries, and other tools. This guide shows how to submit jobs that use Docker containers." />
-<meta property="og:description" content="Linux containers are a way to build a self-contained environment that includes software, libraries, and other tools. This guide shows how to submit jobs that use Docker containers." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/docker-jobs" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/docker-jobs" />
+<meta name="description" content="Table of Contents Transferring Files On the command line Using an SSH program (Windows/Mac) Re-using SSH connections Creating and Editing Files in CHTC" />
+<meta property="og:description" content="Table of Contents Transferring Files On the command line Using an SSH program (Windows/Mac) Re-using SSH connections Creating and Editing Files in CHTC" />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-03-01T15:59:04+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Running HTC Jobs Using Docker Containers" />
+<meta property="twitter:title" content="Transfer Files between CHTC and your Computer" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-01T15:59:04+00:00","datePublished":"2024-03-01T15:59:04+00:00","description":"Linux containers are a way to build a self-contained environment that includes software, libraries, and other tools. This guide shows how to submit jobs that use Docker containers.","headline":"Running HTC Jobs Using Docker Containers","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/docker-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/docker-jobs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-01T15:59:04+00:00","datePublished":"2024-03-01T15:59:04+00:00","description":"Table of Contents Transferring Files On the command line Using an SSH program (Windows/Mac) Re-using SSH connections Creating and Editing Files in CHTC","headline":"Transfer Files between CHTC and your Computer","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -249,127 +249,136 @@
     <div class="row justify-content-center">
         <div class="col-12 col-lg-9 mw-1000">
             <h1 class="uw-mini-bar mb-4">
-    Running HTC Jobs Using Docker Containers
+    Transfer Files between CHTC and your Computer
 </h1>
 
-            <p>Linux containers are a way to build a self-contained environment that
-includes software, libraries, and other tools. This guide shows how to
-submit jobs that use Docker containers.</p>
+            
+<div class="d-flex flex-column mb-5">
 
-<h1 id="overview">Overview</h1>
+<h2>Table of Contents</h2>
 
-<p>Typically, software in CHTC jobs is installed or compiled locally by
-individual users and then brought along to each job, either using the
-default file transfer or our SQUID web server. However, another option
-is to use a <em>container</em> system, where the software is installed in a
-<em>container image</em>. Using a container to handle software can be
-advantageous if the software installation 1) has many dependencies, 2)
-requires installation to a specific location, or 3) “hard-codes” paths
-into the installation.</p>
+<div class="uw-sidebar-box me-auto">
+<div class="uw-directory">
 
-<p>CHTC has capabilities to access and start containers and
-run jobs inside them. This guide shows how to do this for
-<a href="https://www.docker.com/what-docker">Docker</a> containers.</p>
+      <ol>
+        <li><a href="#transfer">Transferring Files</a>
+          <ul>
+            <li><a href="#transfer-scp">On the command line</a></li>
+            <li><a href="#transfer-winscp">Using an SSH program (Windows/Mac)</a></li>
+            <li><a href="#transfer-many">Re-using SSH connections</a></li>
+          </ul>
+        </li>
+        <li><a href="#files">Creating and Editing Files in CHTC</a></li>
+      </ol>
 
-<h1 id="1-use-a-docker-container-in-a-job">1. Use a Docker Container in a Job</h1>
+    </div>
+</div>
+</div>
 
-<p>Jobs that run inside a Docker container will be almost exactly the same
-as “vanilla” HTCondor jobs. The main change is indicating which Docker 
-container to use and an optional “container universe” option:</p>
+<p><span name="transfer"></span></p>
 
-<pre><code># HTC Submit File
+<h1 id="1-transferring-files"><strong>1. Transferring Files</strong></h1>
 
-# Provide HTCondor with the name of the Docker container
-container_image = docker://user/repo:tag
-universe = container
+<p>To transfer files to and from CHTC, you will need the same username and
+hostname information for <a href="#login">logging in</a>, as well as understanding
+where your files are and where you would like them to go.</p>
 
-executable = myExecutable.sh
-transfer_input_files = other_job_files
+<p><span name="transfer-scp"></span></p>
 
-log = job.log
-error = job.err
-output = job.out
+<h2 id="a-on-the-command-line">A. On the command line</h2>
 
-request_cpus = 1
-request_memory = 4GB
-request_disk = 2GB
+<p>On Mac, Linux, or modern Windows (10+) systems, you can use the "Terminal" application and
+the <code>scp</code> command to copy files between your computer and CHTC servers.</p>
 
-queue
+<p><strong>Your computer to CHTC</strong></p>
+
+<p>First, open the "Terminal" application and navigate to the directory
+with the files or directories you want to transfer. Then, use this
+command to copy these files to CHTC:</p>
+
+<pre class="term"><code>$ scp file username@hostname:/home/username
 </code></pre>
 
-<p>In the above, change the address of the Docker container image as 
-needed based on the container you are using. More information on finding 
-and making container is below.</p>
+<p>If you would like these files to end up in a different directory inside
+your home directory, just add it to the path at the end of the command.</p>
 
-<h2 id="integration-with-htcondor">Integration with HTCondor</h2>
+<p><strong>CHTC to your computer</strong></p>
 
-<p>When your job starts, HTCondor will pull the indicated image from
-DockerHub, and use it to run your job. You do not need to run any 
-Docker commands yourself.</p>
+<p>Open the "Terminal" application. Do NOT log into CHTC. Instead,
+navigate to where you want the files to go on your computer. Then, use
+this command to copy these files there:</p>
 
-<p>Other pieces of the job (your executable and input files) should be just
-like a non-Docker job submission.</p>
-
-<p>The only additional change may be that your
-executable no longer needs to install or unpack your software, since it
-will already be present in the Docker container.</p>
-
-<h1 id="2-choose-or-create-a-docker-container-image">2. Choose or Create a Docker Container Image</h1>
-
-<p>To run a Docker job, you will first need access to a Docker container
-image that has been built and placed onto the
-<a href="https://hub.docker.com/">DockerHub</a> website. There are two primary ways
-to do this.</p>
-
-<h2 id="a-pre-existing-images">A. Pre-existing Images</h2>
-
-<p>The easiest way to get a Docker container image for running a job is to
-use a public or pre-existing image on DockerHub. You can find images by
-getting an account on DockerHub and searching for the software you want
-to use.</p>
-
-<p>Sample images:</p>
-
-<ul>
-  <li><a href="https://hub.docker.com/_/python/">Python</a></li>
-  <li><a href="https://hub.docker.com/r/rocker/r-ver/">R</a></li>
-  <li>…and <a href="https://hub.docker.com/explore/">more</a></li>
-</ul>
-
-<p>An image supported by a group will be continuously updated and the
-versions will be indicated by “tags”. We recommend choosing a specific
-tag (or tags) of the container to use in CHTC.</p>
-
-<h2 id="b-build-your-own-image">B. Build Your Own Image</h2>
-
-<p>You can also build your own Docker container image and upload it to
-DockerHub. See <a href="docker-build.html">this link to our guide on building containers</a> or the <a href="https://docs.docker.com/engine/getstarted/">Docker
-documentation</a> for more
-information.</p>
-
-<p>Simiilarly, we recommend using container tags. Importantly, whenever you make a significant change
-to your container, you will want to use a new tag name to ensure that your jobs are getting an
-updated version of the container, and not an ‘old’ version that has been cached by DockerHub 
-or CHTC.</p>
-
-<h1 id="3-testing">3. Testing</h1>
-
-<p>If you want to test your jobs, you have two options:</p>
-
-<ul>
-  <li>We have a guide on exploring and testing Docker containers on your own computer here:
-    <ul>
-      <li><a href="docker-test.html">Exploring and Testing Docker Containers</a></li>
-    </ul>
-  </li>
-  <li>You can test a container interactively in CHTC by using a normal Docker job submit file and using the 
-interactive flag with <code>condor_submit</code>:
-    <pre class="cmd"><code>  [alice@submit]$ condor_submit -i docker.sub
+<pre class="term"><code>$ scp username@hostname:/home/username/file ./
 </code></pre>
-    <p>This should start a session inside the indicated Docker container and connect you to it using ssh. Type <code>exit</code> to end the interactive job. <em>Note</em>: Files generated during your interactive job with Docker will not be transfered back to the submit node.  If you have a directory on <code>staging</code>, you can transfer the files there instead; if you have questions about this, please contact a facilitator.</p>
-  </li>
+
+<p>Again, for many files, it will be easiest to create a compressed tarball
+(.tar.gz file) of your files and transfer that instead of each file
+individually.</p>
+
+<p><span name="transfer-winscp"></span></p>
+
+<h2 id="b-using-a-file-transfer-program-windowsmac">B. Using a file transfer program (Windows/Mac)</h2>
+
+<p>Windows and Mac users can also use special programs to help them
+transfer files between their computers and CHTC. For Windows, we
+recommend <a href="https://winscp.net/eng/download.php">WinSCP</a>. It requires the
+same information as Putty (hostname, username), and once it's set up,
+looks like this:</p>
+
+<p><img src="/images/WinSCPPortable.png" alt="" /></p>
+
+<p>The left window is a directory on your computer, the right window is
+your home directory in CHTC. To move files between the two, simply drag
+and drop.</p>
+
+<p>There are other programs besides WinSCP that do this. Another that works
+on Mac and Windows is called <a href="https://cyberduck.io">Cyberduck</a>.</p>
+
+<p><span name="transfer-many"></span></p>
+
+<h2 id="c-transferring-multiple-files">C. Transferring Multiple Files</h2>
+
+<p>If you are transferring many files, it is advantageous to compress them
+into a single compressed file, in order to facilitate transferring them.
+Place all the files you need in a directory, and then either zip it or
+use the "tar" command to compress them:</p>
+
+<pre class="term"><code>$ tar czf data_files.tar.gz file_directory/
+</code></pre>
+
+<p>To untar or unzip files on the submit server or head nodes, you can use
+either:</p>
+
+<pre class="term"><code>[alice@submit]$ tar xzf data_files.tar.gz
+</code></pre>
+
+<p>or</p>
+
+<pre class="term"><code>[alice@submit]$ unzip data_files.zip
+</code></pre>
+
+<p><span name="files"></span></p>
+
+<h1 id="2-creating-and-editing-files-in-chtc"><strong>2. Creating and Editing Files in CHTC</strong></h1>
+
+<p>Once you have logged in to a CHTC server, you can edit files from the
+command line, by using a command line file editor. Some common editing
+programs are:</p>
+
+<ul>
+  <li>nano</li>
+  <li>vi</li>
+  <li>emacs</li>
 </ul>
 
+<p><code>nano</code> is the most beginner-friendly, and <code>emacs</code> is the most advanced.
+<a href="https://swcarpentry.github.io/shell-novice/03-create.html">This Software Carpentry
+lesson</a> describes
+how to use <code>nano</code>, and there are many other resources online with
+instructions for these text editors.</p>
+
+<p>Some of the file transfer programs mentioned <a href="#transfer-winscp">above</a>
+allow you to edit files on CHTC servers through the interface.</p>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -384,32 +393,21 @@ interactive flag with <code>condor_submit</code>:
             
             
 
-            <h6 class="mt-5">HTC Guides</h6>
+            <h6 class="mt-5">General Guides</h6>
             <div class="accordion accordion-flush">
                 
                     
-
                         
 
                         
 
                         <div class="accordion-item">
                             <h2 class="accordion-header mt-0" id="basics-and-policies">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
+                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
                                     Basics and Policies
                                 </button>
                             </h2>
-                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc-overview">HTC System Overview</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/noShow-use-submit-node">Policies for Using HTC Submit Servers</a>
-                                    </div>
+                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse show " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
                                 
 
                                     <div class="document-link-wrapper bg-light">
@@ -418,7 +416,7 @@ interactive flag with <code>condor_submit</code>:
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/transfer-files-computer">Transfer Files between CHTC and your Computer</a>
+                                        <a class="fw-bolder" href="/uw-research-computing/transfer-files-computer">Transfer Files between CHTC and your Computer</a>
                                     </div>
                                 
 
@@ -433,256 +431,21 @@ interactive flag with <code>condor_submit</code>:
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/globus">Using Globus to Transfer Files to and from CHTC</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
                                         <a class="" href="/uw-research-computing/github-remote-access">Remotely Access a Private GitHub Repository</a>
                                     </div>
                                 
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/check-quota">Checking Disk Quota and Usage</a>
-                                    </div>
-                                
                             </div>
                         </div>
                     
                 
                     
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="job-submission">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#job-submission-collapse" aria-expanded="false" aria-controls="job-submission">
-                                    Job Submission
-                                </button>
-                            </h2>
-                            <div id="job-submission-collapse" class="accordion-collapse collapse " aria-labelledby="job-submission" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/helloworld">Running Your First HTC Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/condor_q">Learning About Your Jobs Using condor_q</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/multiple-jobs">Submitting Multiple Jobs Using HTCondor</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/dagman-workflows">Workflows with HTCondor's DAGMan</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/multiple-job-dirs">Submitting Multiple Jobs in Individual Directories</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
+                
                     
                 
                     
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="handling-data-in-jobs">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#handling-data-in-jobs-collapse" aria-expanded="false" aria-controls="handling-data-in-jobs">
-                                    Handling Data in Jobs
-                                </button>
-                            </h2>
-                            <div id="handling-data-in-jobs-collapse" class="accordion-collapse collapse " aria-labelledby="handling-data-in-jobs" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-availability">Small Input and Output File Availability Via HTCondor</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-squid">Transfer Large Input Files Via Squid</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
                 
                     
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="software-solutions">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
-                                    Software Solutions
-                                </button>
-                            </h2>
-                            <div id="software-solutions-collapse" class="accordion-collapse collapse show " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/matlab-jobs">Running Matlab Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/python-jobs">Running Python Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/conda-installation">Create a Portable Python Installation with Miniconda</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/r-jobs">Running R Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/java-jobs">Running Java Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/julia-jobs">Running Julia Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/docker-jobs">Running HTC Jobs Using Docker Containers</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-build">Building a Docker Container Image</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/licensed-software">Using Licensed Software</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/singularity-htc">Using Apptainer (Singularity) Environments</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
                 
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="special-use-cases">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-cases-collapse" aria-expanded="false" aria-controls="special-use-cases">
-                                    Special Use Cases
-                                </button>
-                            </h2>
-                            <div id="special-use-cases-collapse" class="accordion-collapse collapse " aria-labelledby="special-use-cases" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/gpu-jobs">Submitting Jobs That Use GPUs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/machine-learning-htc">Run Machine Learning Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/scaling-htc">Scaling Beyond Local HTC Capacity</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/checkpointing">Checkpointing Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/high-memory-jobs">Submitting High Memory Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc-modules">Use Software Available in Modules</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/mpi-jobs">Running MPI Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/os-transition-htc">Using Custom Linux Versions in CHTC</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="troubleshooting">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshooting-collapse" aria-expanded="false" aria-controls="troubleshooting">
-                                    Troubleshooting
-                                </button>
-                            </h2>
-                            <div id="troubleshooting-collapse" class="accordion-collapse collapse " aria-labelledby="troubleshooting" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/dos-unix">Windows / Linux Incompatibility</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-test">Explore and Test Docker Containers</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
                     
                 
             </div>

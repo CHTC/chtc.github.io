@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Running HTC Jobs Using Docker Containers</title>
+<title>HTC System Overview</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Running HTC Jobs Using Docker Containers | CHTC</title>
+<title>HTC System Overview | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Running HTC Jobs Using Docker Containers" />
+<meta property="og:title" content="HTC System Overview" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Linux containers are a way to build a self-contained environment that includes software, libraries, and other tools. This guide shows how to submit jobs that use Docker containers." />
-<meta property="og:description" content="Linux containers are a way to build a self-contained environment that includes software, libraries, and other tools. This guide shows how to submit jobs that use Docker containers." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/docker-jobs" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/docker-jobs" />
+<meta name="description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
+<meta property="og:description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/htc-overview" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc-overview" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-03-01T15:59:04+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Running HTC Jobs Using Docker Containers" />
+<meta property="twitter:title" content="HTC System Overview" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-01T15:59:04+00:00","datePublished":"2024-03-01T15:59:04+00:00","description":"Linux containers are a way to build a self-contained environment that includes software, libraries, and other tools. This guide shows how to submit jobs that use Docker containers.","headline":"Running HTC Jobs Using Docker Containers","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/docker-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/docker-jobs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-01T15:59:04+00:00","datePublished":"2024-03-01T15:59:04+00:00","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"HTC System Overview","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-overview"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-overview"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -249,127 +249,214 @@
     <div class="row justify-content-center">
         <div class="col-12 col-lg-9 mw-1000">
             <h1 class="uw-mini-bar mb-4">
-    Running HTC Jobs Using Docker Containers
+    HTC System Overview
 </h1>
 
-            <p>Linux containers are a way to build a self-contained environment that
-includes software, libraries, and other tools. This guide shows how to
-submit jobs that use Docker containers.</p>
+            
+<div class="d-flex flex-column mb-5">
 
-<h1 id="overview">Overview</h1>
+<h2>Table of Contents</h2>
 
-<p>Typically, software in CHTC jobs is installed or compiled locally by
-individual users and then brought along to each job, either using the
-default file transfer or our SQUID web server. However, another option
-is to use a <em>container</em> system, where the software is installed in a
-<em>container image</em>. Using a container to handle software can be
-advantageous if the software installation 1) has many dependencies, 2)
-requires installation to a specific location, or 3) “hard-codes” paths
-into the installation.</p>
+<div class="uw-sidebar-box me-auto">
+<div class="uw-directory">
 
-<p>CHTC has capabilities to access and start containers and
-run jobs inside them. This guide shows how to do this for
-<a href="https://www.docker.com/what-docker">Docker</a> containers.</p>
+      <ol>
+        <li><a href="#high-throughput-computing-at-chtc">High-Throughput Computing at CHTC</a></li>
+        <li><a href="#htc-system-user-policies">HTC User Policies</a>
+          <ul>
+            <li><a href="#htc-system-specific-policies">HTC System Specific Policies</a></li>
+          </ul>
+        </li>
+        <li><a href="#htc-hardware-and-configuration">HTC Hardware and Configuration</a>
+          <ul>
+            <li><a href="#htc-operating-system-and-software">HTC Operating System and Hardware</a></li>
+            <li><a href="#submit-servers">HTC Sumbmit Servers</a></li>
+            <li><a href="#execute-nodes">HTC Execute Nodes</a></li>
+            <li><a href="#operating-system-and-software">HTC Operating System and Software</a></li>
+          </ul>
+        </li>
+        <li><a href="#data-storage-and-management">Data Storage and Management</a>
+          <ul>
+            <li><a href="#tools-for-managing-home-and-staging-space">Tools for managing /home and /staging space</a></li>
+          </ul>
+        </li>
+      </ol>
 
-<h1 id="1-use-a-docker-container-in-a-job">1. Use a Docker Container in a Job</h1>
+    </div>
+</div>
+</div>
 
-<p>Jobs that run inside a Docker container will be almost exactly the same
-as “vanilla” HTCondor jobs. The main change is indicating which Docker 
-container to use and an optional “container universe” option:</p>
+<p><span name="high-throughput-computing-at-chtc"></span></p>
+<h1 id="high-throughput-computing-at-chtc">High-Throughput Computing at CHTC</h1>
 
-<pre><code># HTC Submit File
+<p>The CHTC high-throughput computing (HTC) cluster provides support a variety of computational research tasks. The HTC system offers CPUs/GPUs, high-memory nodes, and other specialized hardware. Workflows that run well on this system include RNA/DNA sequencing, machine learning workflows, weather modeling, monte carlo simulations, etc.</p>
 
-# Provide HTCondor with the name of the Docker container
-container_image = docker://user/repo:tag
-universe = container
+<p>To get access to the HTC System, please complete our
+<a href="form.html">New User Consultation Form</a>. After your request is received, 
+a Research Computing Facilitator will follow up to discuss the computational needs 
+of your research and connect you with computing 
+resources (including non-CHTC services) that best fit your needs.</p>
 
-executable = myExecutable.sh
-transfer_input_files = other_job_files
+<p><span name="htc-system-user-policies"></span></p>
 
-log = job.log
-error = job.err
-output = job.out
+<h1 id="htc-system-user-policies">HTC System User Policies</h1>
 
-request_cpus = 1
-request_memory = 4GB
-request_disk = 2GB
+<p>See our <a href="user-expectations.html">User Policies and Expectations</a> for details on general CHTC policies.</p>
 
-queue
-</code></pre>
+<p><span name="htc-system-specific-policies"></span></p>
 
-<p>In the above, change the address of the Docker container image as 
-needed based on the container you are using. More information on finding 
-and making container is below.</p>
+<h2 id="htc-system-specific-policies">HTC System Specific Policies</h2>
 
-<h2 id="integration-with-htcondor">Integration with HTCondor</h2>
-
-<p>When your job starts, HTCondor will pull the indicated image from
-DockerHub, and use it to run your job. You do not need to run any 
-Docker commands yourself.</p>
-
-<p>Other pieces of the job (your executable and input files) should be just
-like a non-Docker job submission.</p>
-
-<p>The only additional change may be that your
-executable no longer needs to install or unpack your software, since it
-will already be present in the Docker container.</p>
-
-<h1 id="2-choose-or-create-a-docker-container-image">2. Choose or Create a Docker Container Image</h1>
-
-<p>To run a Docker job, you will first need access to a Docker container
-image that has been built and placed onto the
-<a href="https://hub.docker.com/">DockerHub</a> website. There are two primary ways
-to do this.</p>
-
-<h2 id="a-pre-existing-images">A. Pre-existing Images</h2>
-
-<p>The easiest way to get a Docker container image for running a job is to
-use a public or pre-existing image on DockerHub. You can find images by
-getting an account on DockerHub and searching for the software you want
-to use.</p>
-
-<p>Sample images:</p>
+<p>Below are some of the default limits on CHTC’s HTC system. Note that as a large-scale 
+computing center, we want you to be able to run at a large scale - often much larger 
+than these defaults. Please contact the facilitation team whenever you encounter one 
+of these limits so we can adjust your account settings or discuss alternative ways to 
+achieve your computing goals.</p>
 
 <ul>
-  <li><a href="https://hub.docker.com/_/python/">Python</a></li>
-  <li><a href="https://hub.docker.com/r/rocker/r-ver/">R</a></li>
-  <li>…and <a href="https://hub.docker.com/explore/">more</a></li>
+  <li><strong>Jobs with long runtimes.</strong> There is a default run limit of 72
+hours for each job queued in the HTC System, once it starts running.
+Jobs longer than this will be placed in HTCondor’s “hold” state.
+If your jobs will be longer, contact the CHTC facilitation team, and we’ll help you to determine the
+best solution.</li>
+  <li><strong>Submitting many jobs from one submit file.</strong> HTCondor is designed
+to submit thousands (or more) jobs from one submit file. If you are
+submitting <u>over 10,000 jobs per submit file</u> or want to queue 
+more than <u>50,000 total jobs as a single user</u>,
+please <a href="mailto:chtc@cs.wisc.edu">email us</a> as we have strategies to
+submit that many jobs in a way that will ensure you have as many
+jobs running as possible without also compromising queue performance.</li>
+  <li><strong>Submitting many <em>short</em> jobs from one submit file.</strong> While HTCondor
+is designed to submit thousands of jobs at a time, many <em>short</em> jobs
+can overwhelm the submit server, resulting in other jobs taking much
+longer to start than usual. <u> If you plan on submitting over
+1000 jobs per submit file, we ask that you ensure each job has a
+minimum run time of 5 minutes (on average). <u></u></u></li>
+  <li><strong>The default disk quota is 20 GB</strong> in your <code>/home</code> directory, as a 
+starting point. You can track your use of disk space and your quota value,
+using our <a href="check-quota.html">Quota Guide</a>. If you need more space
+for concurrent work, please send an email to chtc@cs.wisc.edu.</li>
+  <li><strong>Submitting jobs with "large" files:</strong> HTCondor's
+normal file transfer mechanism ("transfer_input_files") is good for 
+files up to 100MB in size (or 500MB total, per job). For jobs with larger
+files, please see our guide on <a href="file-availability.html">File Availability</a> 
+Options, and contact us to make arrangements.</li>
 </ul>
 
-<p>An image supported by a group will be continuously updated and the
-versions will be indicated by “tags”. We recommend choosing a specific
-tag (or tags) of the container to use in CHTC.</p>
+<p><span name="htc-hardware-and-configuration"></span></p>
 
-<h2 id="b-build-your-own-image">B. Build Your Own Image</h2>
+<h1 id="htc-hardware-and-configuration">HTC Hardware and Configuration</h1>
 
-<p>You can also build your own Docker container image and upload it to
-DockerHub. See <a href="docker-build.html">this link to our guide on building containers</a> or the <a href="https://docs.docker.com/engine/getstarted/">Docker
-documentation</a> for more
-information.</p>
+<p>The HTC System consists of several submit servers and many compute (aka execute) 
+nodes. All users log in at a login node, and submit their workflow as HTCondor jobs that run on execute points.</p>
 
-<p>Simiilarly, we recommend using container tags. Importantly, whenever you make a significant change
-to your container, you will want to use a new tag name to ensure that your jobs are getting an
-updated version of the container, and not an ‘old’ version that has been cached by DockerHub 
-or CHTC.</p>
+<p><span name="htc-operating-system-and-software"></span></p>
 
-<h1 id="3-testing">3. Testing</h1>
+<h2 id="htc-operating-system-and-software">HTC Operating System and Software</h2>
 
-<p>If you want to test your jobs, you have two options:</p>
+<p>Submit servers in the HTC System are running CentOS 7 Linux.</p>
 
-<ul>
-  <li>We have a guide on exploring and testing Docker containers on your own computer here:
-    <ul>
-      <li><a href="docker-test.html">Exploring and Testing Docker Containers</a></li>
-    </ul>
-  </li>
-  <li>You can test a container interactively in CHTC by using a normal Docker job submit file and using the 
-interactive flag with <code>condor_submit</code>:
-    <pre class="cmd"><code>  [alice@submit]$ condor_submit -i docker.sub
+<p>Due to the distributed and independent nature of the HTC system’s execute points, there can be a variety of operating systems on the pool of execution point resources (especially for users that opt into running jobs on the globally available OSPool operated by the OSG). However, the default operating system is CentOS 8 Stream Linux unless users request to run on a different operating system using their HTCondor submit file.</p>
+
+<p>The HTC system is a test bed for the <a href="https://htcondor.org/">HTCondor Software Suite</a>, and thus is typically running the latest or soon-to-be-released versions of HTCondor.</p>
+
+<p>To see more details of other software on the cluster, see our <a href="guides#htc-documentation">HTC Guides page</a>.</p>
+
+<p><span name="submit-servers"></span></p>
+
+<h2 id="htc-submit-servers">HTC Submit Servers</h2>
+
+<p>There are multiple submit servers for the HTC system. The two most common submit servers are <code>submit1.chtc.wisc.edu</code> and <code>submit2.chtc.wisc.edu</code>. All users will be notified what submit server they should log into when their account is created.</p>
+
+<p><span name="execute-nodes"></span></p>
+
+<h2 id="htc-execute-nodes">HTC Execute Nodes</h2>
+
+<p>Only execute nodes will be used for performing your computational work.</p>
+
+<p>By default, when users submit HTCondor jobs, their jobs will only run on execute points owned and managed by CHTC staff. As of January 2024, there are approximately 40,000 CPU slots and 80+ GPU slots available in the CHTC execute pool.</p>
+
+<p>Some users, particularly those requesting GPUs, may wish to access additional execute points so that they may have more jobs running simultantiously. HTC users can opt in to allowing their jobs to run on additional execute points not owned or managed by CHTC staff. There are two additional execute pools that users can opt into using: the UW Grid and the OSG’s OSPool. There are many advantages to opting into running on these execute pools, such as accessing more GPUs, accessing different computer architectures, and having more jobs running in parallel. However, because these machines are not managed by CHTC and thus are backfilling on hardware owned by other entities, it is recommended that users only opt into using these resources if they have short (&lt;~10 hours), inturruptable jobs. For more information, see the <a href="https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc">Scaling Beyond Local HTC Capacity</a> guide.</p>
+
+<h3 id="fair-share-allocation">Fair Share Allocation</h3>
+
+<p>To promote fair access to HTC computing resources, all users are subject to a fair-share policy. This “fair-share” policy means that users who have run many jobs in the near-past will have a lower priority, and users with little recent activity will see their waiting jobs start sooner. 
+(The HTC system does not have a strict “first-in-first-out” queue policy.)</p>
+
+<p>Resource requests will also impact the number of jobs a user has running. Smaller jobs (those requesting smaller amounts of CPUs, memory, and disk) as well as more flexible jobs (those requesting to use a variety of GPUs instead of a specific GPU type) are able to match to more execute points than larger, less flexible jobs. Thus, these jobs will start sooner and more jobs will run in parallel.</p>
+
+<p><span name="data-storage-and-management"></span></p>
+<h1 id="data-storage-and-management">Data Storage and Management</h1>
+
+<p><strong>Data space in the HTC system is not backed-up and should be
+treated as temporary by users</strong>. Only files necessary for
+<em>actively-running</em> jobs should be kept on the filesystem, and files
+should be removed from the system when jobs complete. A primary copy of any
+essential files (e.g. software, submit files, input) should be kept in an 
+alternate, non-CHTC storage location.</p>
+
+<p><strong>CHTC Staff reserve the right to remove any significant amounts of data
+on the HTC System</strong> in our efforts to maintain filesystem performance
+for all users.</p>
+
+<p><span name="tools-for-managing-home-and-staging-space"></span></p>
+
+<h2 id="tools-for-managing-home-and-staging-space">Tools for Managing <code>/home</code> and <code>/staging</code> Space</h2>
+
+<p><span name="check-home-quota-and-usage"></span></p>
+<h3 id="check-home-quota-and-usage">Check <code>/home</code> Quota and Usage</h3>
+<p>To see what disk and items quotas are currently set for your <code>/home</code> direcotry, use the 
+<code>quota -vs</code> command. See the example below:</p>
+
+<pre class="term"><code>[alice@submit]$ quota -vs
+Disk quotas for user alice (uid 20384): 
+     Filesystem   space   quota   limit   grace   files   quota   limit   grace
+      /dev/sdb1  12690M  20480M  30720M            161k       0       0        
 </code></pre>
-    <p>This should start a session inside the indicated Docker container and connect you to it using ssh. Type <code>exit</code> to end the interactive job. <em>Note</em>: Files generated during your interactive job with Docker will not be transfered back to the submit node.  If you have a directory on <code>staging</code>, you can transfer the files there instead; if you have questions about this, please contact a facilitator.</p>
-  </li>
+
+<p>The output will list your total data usage under <code>blocks</code> on the <code>/dev/sbd1</code> filesystem that manages user <code>/home</code> data:</p>
+<ul>
+  <li><code>space</code> (MB): the amount of disk space you are currently using</li>
+  <li><code>quota</code> (MB): your soft <code>quota</code>. This is the value we recommend you consider to be your “quota”.</li>
+  <li><code>limit</code> (MB): the hard <code>limit</code> or absolute maximum amount of space you can use. This value is almost always 10GB larger than your soft quota, and is only provided as a helpful spillover space. <strong>Once you hit this hard limit value, you and your jobs will no longer be allowed to save data.</strong></li>
+  <li><code>files</code>: the number of files in your <code>/home</code> directory. <code>/home</code> does not typically restrict the number of files a user can have, which is why there are no values for file <code>quota</code> and <code>limit</code></li>
 </ul>
 
+<p>Each of the disk space values are given in megabytes (MB), which can be converted to gigabytes (GB) by dividing by 1024.</p>
+
+<p><span name="check-staging-quota-and-usage"></span></p>
+
+<h3 id="check-staging-quota-and-usage">Check <code>/staging</code> Quota and Usage</h3>
+
+<p>To see your <code>/staging</code> quota and usage, use the <code>get_quotas &lt;NetID&gt;</code> command. For example,</p>
+<pre class="term"><code>[NetID@submit1 ~]$ get_quotas /staging/NetID
+</code></pre>
+
+<p>If the output of this command is blank, it means you do not have a <code>/staging</code> directory. Contact CHTC staff to request one at any time.</p>
+
+<p><span name="alt-commands-to-check-quotas"></span></p>
+
+<h3 id="alternative-commands-to-check-quotas">Alternative Commands to Check Quotas</h3>
+<p>Alternatively, the <code>ncdu</code> command can also be used to see how many 
+files and directories are contained in a given path:</p>
+
+<pre class="term"><code>[NetID@submit1 ~]$ ncdu /home/NetID
+[NetID@submit1 ~]$ ncdu /staging/NetID
+</code></pre>
+
+<p>When <code>ncdu</code> has finished running, the output will give you a total file
+count and allow you to navigate between subdirectories for even more
+details. Type <code>q</code> when you're ready to exit the output viewer. More
+info here: <a href="https://lintut.com/ncdu-check-disk-usage/">https://lintut.com/ncdu-check-disk-usage/</a></p>
+
+<p><span name="request-a-quota-increase"></span></p>
+<h3 id="request-a-quota-increase">Request a Quota Increase</h3>
+<p>Increased quotas on either of these locations are available upon email 
+request to <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> after a user has 
+cleared out old data and run relevant test jobs to inform the request. In your request, 
+please include both size (in GB) and file/directory counts. If you don't 
+know how many files your installation creates, because it's more than 
+the current items quota, simply indicate that in your request.</p>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -395,15 +482,15 @@ interactive flag with <code>condor_submit</code>:
 
                         <div class="accordion-item">
                             <h2 class="accordion-header mt-0" id="basics-and-policies">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
+                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
                                     Basics and Policies
                                 </button>
                             </h2>
-                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
+                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse show " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc-overview">HTC System Overview</a>
+                                        <a class="fw-bolder" href="/uw-research-computing/htc-overview">HTC System Overview</a>
                                     </div>
                                 
 
@@ -534,11 +621,11 @@ interactive flag with <code>condor_submit</code>:
 
                         <div class="accordion-item">
                             <h2 class="accordion-header mt-0" id="software-solutions">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
                                     Software Solutions
                                 </button>
                             </h2>
-                            <div id="software-solutions-collapse" class="accordion-collapse collapse show " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
+                            <div id="software-solutions-collapse" class="accordion-collapse collapse " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
                                 
 
                                     <div class="document-link-wrapper bg-light">
@@ -577,7 +664,7 @@ interactive flag with <code>condor_submit</code>:
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/docker-jobs">Running HTC Jobs Using Docker Containers</a>
+                                        <a class="" href="/uw-research-computing/docker-jobs">Running HTC Jobs Using Docker Containers</a>
                                     </div>
                                 
 

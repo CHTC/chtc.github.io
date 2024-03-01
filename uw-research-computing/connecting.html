@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Connecting to CHTC Using CHTC's HTC Submit Nodes</title>
+<title>Log In to CHTC Resources</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,9 +22,9 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Connecting to CHTC Using CHTC’s HTC Submit Nodes | CHTC</title>
+<title>Log In to CHTC Resources | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Connecting to CHTC Using CHTC’s HTC Submit Nodes" />
+<meta property="og:title" content="Log In to CHTC Resources" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="This guide assumes that you have already gotten a CHTC account for either our high throughput or high performance compute systems. If you haven&#39;t, see our getting started page." />
 <meta property="og:description" content="This guide assumes that you have already gotten a CHTC account for either our high throughput or high performance compute systems. If you haven&#39;t, see our getting started page." />
@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/connecting" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-03-01T00:31:22+00:00" />
+<meta property="article:published_time" content="2024-03-01T15:59:04+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Connecting to CHTC Using CHTC’s HTC Submit Nodes" />
+<meta property="twitter:title" content="Log In to CHTC Resources" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-01T00:31:22+00:00","datePublished":"2024-03-01T00:31:22+00:00","description":"This guide assumes that you have already gotten a CHTC account for either our high throughput or high performance compute systems. If you haven&#39;t, see our getting started page.","headline":"Connecting to CHTC Using CHTC’s HTC Submit Nodes","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/connecting"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/connecting"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-01T15:59:04+00:00","datePublished":"2024-03-01T15:59:04+00:00","description":"This guide assumes that you have already gotten a CHTC account for either our high throughput or high performance compute systems. If you haven&#39;t, see our getting started page.","headline":"Log In to CHTC Resources","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/connecting"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/connecting"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -249,7 +249,7 @@
     <div class="row justify-content-center">
         <div class="col-12 col-lg-9 mw-1000">
             <h1 class="uw-mini-bar mb-4">
-    Connecting to CHTC Using CHTC's HTC Submit Nodes
+    Log In to CHTC Resources
 </h1>
 
             <p>This guide assumes
@@ -273,14 +273,6 @@ throughput or high performance compute systems. If you haven't, see our
             <li><a href="#c-re-using-ssh-connections">Re-using SSH connections</a></li>
           </ul>
         </li>
-        <li><a href="#transfer">Transferring Files</a>
-          <ul>
-            <li><a href="#transfer-scp">On the command line</a></li>
-            <li><a href="#transfer-winscp">Using a file transfer program (Windows/Mac)</a></li>
-            <li><a href="#transfer-winscp">Transferring Multiple Files</a></li>
-          </ul>
-        </li>
-        <li><a href="#files">Creating and Editing Files</a></li>
         <li><a href="#learn">Learning about the command line</a></li>
       </ol>
 
@@ -345,9 +337,9 @@ log-ins from off-campus. If you are off-campus and want to log in, you
 can either:</p>
 
   <ul>
-    <li>Activate the campus VPN (more details on how to set this up
-<a href="https://it.wisc.edu/services/wiscvpn/">here</a>).</li>
-    <li>Log into another computer that is on campus.</li>
+    <li>Activate the campus Virtual Private Network (VPN) (more details on how to set this up
+<a href="https://it.wisc.edu/services/wiscvpn/">DoIT’s VPN webpage</a>). This will allow you join the campus network when working off-campus.</li>
+    <li>Log into another computer that is on campus (typically by SSH-ing into that computer) and then SSH to our submit server.</li>
   </ul>
 
   <p>In either case, it will appear like you are on-campus, and you should
@@ -415,114 +407,9 @@ possible to customize your SSH configuration in a way that allows you to “reus
 a connection for logging in again or moving files. More details are shown 
 in this guide: <a href="/uw-research-computing/configure-ssh.html">Automating CHTC Log In</a></p>
 
-<p><span name="transfer"></span></p>
-
-<h1 id="3-transferring-files"><strong>3. Transferring Files</strong></h1>
-
-<p>To transfer files to and from CHTC, you will need the same username and
-hostname information for <a href="#login">logging in</a>, as well as understanding
-where your files are and where you would like them to go.</p>
-
-<p><span name="transfer-scp"></span></p>
-
-<h2 id="a-on-the-command-line-1">A. On the command line</h2>
-
-<p>On Mac, Linux, or modern Windows (10+) systems, you can use the "Terminal" application and
-the <code>scp</code> command to copy files between your computer and CHTC servers.</p>
-
-<p><strong>Your computer to CHTC</strong></p>
-
-<p>First, open the "Terminal" application and navigate to the directory
-with the files or directories you want to transfer. Then, use this
-command to copy these files to CHTC:</p>
-
-<pre class="term"><code>$ scp file username@hostname:/home/username
-</code></pre>
-
-<p>If you would like these files to end up in a different directory inside
-your home directory, just add it to the path at the end of the command.</p>
-
-<p><strong>CHTC to your computer</strong></p>
-
-<p>Open the "Terminal" application. Do NOT log into CHTC. Instead,
-navigate to where you want the files to go on your computer. Then, use
-this command to copy these files there:</p>
-
-<pre class="term"><code>$ scp username@hostname:/home/username/file ./
-</code></pre>
-
-<p>Again, for many files, it will be easiest to create a compressed tarball
-(.tar.gz file) of your files and transfer that instead of each file
-individually.</p>
-
-<p><span name="transfer-winscp"></span></p>
-
-<h2 id="b-using-a-file-transfer-program-windowsmac">B. Using a file transfer program (Windows/Mac)</h2>
-
-<p>Windows and Mac users can also use special programs to help them
-transfer files between their computers and CHTC. For Windows, we
-recommend <a href="https://winscp.net/eng/download.php">WinSCP</a>. It requires the
-same information as Putty (hostname, username), and once it's set up,
-looks like this:</p>
-
-<p><img src="/images/WinSCPPortable.png" alt="" /></p>
-
-<p>The left window is a directory on your computer, the right window is
-your home directory in CHTC. To move files between the two, simply drag
-and drop.</p>
-
-<p>There are other programs besides WinSCP that do this. Another that works
-on Mac and Windows is called <a href="https://cyberduck.io">Cyberduck</a>.</p>
-
-<p><span name="transfer-many"></span></p>
-
-<h2 id="c-transferring-multiple-files">C. Transferring Multiple Files</h2>
-
-<p>If you are transferring many files, it is advantageous to compress them
-into a single compressed file, in order to facilitate transferring them.
-Place all the files you need in a directory, and then either zip it or
-use the "tar" command to compress them:</p>
-
-<pre class="term"><code>$ tar czf data_files.tar.gz file_directory/
-</code></pre>
-
-<p>To untar or unzip files on the submit server or head nodes, you can use
-either:</p>
-
-<pre class="term"><code>[alice@submit]$ tar xzf data_files.tar.gz
-</code></pre>
-
-<p>or</p>
-
-<pre class="term"><code>[alice@submit]$ unzip data_files.zip
-</code></pre>
-
-<p><span name="files"></span></p>
-
-<h1 id="4-creating-and-editing-files-in-chtc"><strong>4. Creating and Editing Files in CHTC</strong></h1>
-
-<p>Once you have logged in to a CHTC server, you can edit files from the
-command line, by using a command line file editor. Some common editing
-programs are:</p>
-
-<ul>
-  <li>nano</li>
-  <li>vi</li>
-  <li>emacs</li>
-</ul>
-
-<p><code>nano</code> is the most beginner-friendly, and <code>emacs</code> is the most advanced.
-<a href="https://swcarpentry.github.io/shell-novice/03-create.html">This Software Carpentry
-lesson</a> describes
-how to use <code>nano</code>, and there are many other resources online with
-instructions for these text editors.</p>
-
-<p>Some of the file transfer programs mentioned <a href="#transfer-winscp">above</a>
-allow you to edit files on CHTC servers through the interface.</p>
-
 <p><span name="learn"></span></p>
 
-<h1 id="5-learning-about-the-command-line"><strong>5. Learning About the Command Line</strong></h1>
+<h1 id="3-learning-about-the-command-line"><strong>3. Learning About the Command Line</strong></h1>
 
 <p><strong>Why learn about the command line?</strong> If you haven't used the command
 line before, it might seem like a big challenge to get started, and
@@ -590,7 +477,12 @@ Scripts</a>)</li>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/connecting">Connecting to CHTC Using CHTC's HTC Submit Nodes</a>
+                                        <a class="fw-bolder" href="/uw-research-computing/connecting">Log In to CHTC Resources</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/transfer-files-computer">Transfer Files between CHTC and your Computer</a>
                                     </div>
                                 
 

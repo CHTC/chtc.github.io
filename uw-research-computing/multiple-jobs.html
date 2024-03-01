@@ -26,18 +26,18 @@
 <meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="Submitting Multiple Jobs Using HTCondor" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Overview" />
-<meta property="og:description" content="Overview" />
+<meta name="description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
+<meta property="og:description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
 <link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs" />
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-03-01T00:31:22+00:00" />
+<meta property="article:published_time" content="2024-03-01T15:59:04+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Submitting Multiple Jobs Using HTCondor" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-01T00:31:22+00:00","datePublished":"2024-03-01T00:31:22+00:00","description":"Overview","headline":"Submitting Multiple Jobs Using HTCondor","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-01T15:59:04+00:00","datePublished":"2024-03-01T15:59:04+00:00","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"Submitting Multiple Jobs Using HTCondor","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -252,8 +252,41 @@
     Submitting Multiple Jobs Using HTCondor
 </h1>
 
-            <h1 id="overview">Overview</h1>
+            
+<div class="d-flex flex-column mb-5">
 
+<h2>Table of Contents</h2>
+
+<div class="uw-sidebar-box me-auto">
+<div class="uw-directory">
+
+      <ol>
+        <li><a href="#queue">Submit Multiple Jobs Using queue</a></li>
+        <li><a href="#queueN">Use queue N in your HTCondor submit files</a>
+          <ul>
+            <li><a href="#integer"><em>2A.</em> Use integer numbered input files</a></li>
+            <li><a href="#rowcol"><em>2B.</em> Specify a row or column number for each job</a></li>
+            <li><a href="#n1"><em>3C.</em> Need <em>N</em> to start at 1</a></li>
+          </ul>
+        </li>
+        <li><a href="#variables">Submit multiple jobs with one or more distinct variables per job</a>
+          <ul>
+            <li><a href="#multiple_variables"><em>3A.</em> Use multiple variables for each job</a></li>
+          </ul>
+        </li>
+        <li><a href="#initialdir">Organizing Jobs Into Individual Directories</a>
+          <ul>
+            <li><a href="#initialdir_states"><em>4A.</em> Submitting Multiple Jobs in Different Directories with <code>queue &lt;variable&gt; from list</code></a></li>
+            <li><a href="#initialdir_jobs"><em>4B.</em> Submitting Multiple Jobs in Different Directories with <code>queue &lt;directory&gt; matching *</code></a></li>
+          </ul>
+        </li>
+      </ol>
+
+    </div>
+</div>
+</div>
+
+<h2 id="overview">Overview</h2>
 <p>HTCondor has several convenient features for streamlining high-throughput 
 job submission. This guide provides several examples 
 of how to leverage these features to <strong>submit multiple jobs with a 
@@ -285,7 +318,8 @@ Therefore, plan ahead for the following to scenarios:</p>
 
 </blockquote>
 
-<h1>Submit Multiple Jobs Using <code class="h1">queue</code></h1>
+<p><span name="queue"></span></p>
+<h1>1. Submit Multiple Jobs Using <code class="h1">queue</code></h1>
 
 <p>All HTCondor submit files require a <code>queue</code> attribute (which must also be 
 the last line of the submit file). By default, <code>queue</code> will submit one job, but 
@@ -297,11 +331,11 @@ jobs and, where applicable, how to indicate the differences between jobs in a ba
 with user-defined variables. Additional examples and use cases are provided further below:</p>
 
 <ol>
-  <li><strong><em><a href="#process">queue &lt;N&gt;</a></em></strong> - will submit <em>N</em> number of jobs. Examples 
+  <li><strong><em><a href="#queueN">queue &lt;N&gt;</a></em></strong> - will submit <em>N</em> number of jobs. Examples 
 include performing replications, where the same job must be repeated <em>N</em> number 
 of times, looping through files named with numbers, and looping through 
 a matrix where each job uses information from a specific row or column.</li>
-  <li><strong><em><a href="#foreach">queue &lt;var&gt; from &lt;list&gt;</a></em></strong> - will loop through a 
+  <li><strong><em><a href="#variables">queue &lt;var&gt; from &lt;list&gt;</a></em></strong> - will loop through a 
 list of file names, parameters, etc. as defined in separate text file (i.e. *<list>*). 
 This `queue` option is very flexible and provides users with many options for 
 submitting multiple jobs.</list></li>
@@ -322,8 +356,8 @@ like input file names, file locations (aka paths), etc. <strong>When selecting a
 variable name, users must avoid bespoke HTCondor submit file variables 
 such as <code>Cluster</code>, <code>Process</code>, <code>output</code>, and <code>input</code>, <code>arguments</code>, etc.</strong></p>
 
-<h2>1. Use <code class="h2">queue N</code> in your HTCondor submit files</h2>
-<p><span name="process"></span></p>
+<h2>2. Use <code class="h2">queue N</code> in your HTCondor submit files</h2>
+<p><span name="queueN"></span></p>
 
 <p>When using <code>queue N</code>, HTCondor will submit a total of <em>N</em> 
 jobs, counting from 0 to <em>N</em> - 1 and each job will be assigned 
@@ -371,7 +405,8 @@ executable used by the job.</p>
 <p><strong><em>What if my jobs are not identical?</em></strong> <code>queue N</code> may still be a great 
 option! Additional examples for using this option include:</p>
 
-<h3 id="a-use-integer-numbered-input-files">A. Use integer numbered input files</h3>
+<p><span name="integer"></span></p>
+<h3 id="2a-use-integer-numbered-input-files">2A. Use integer numbered input files</h3>
 
 <pre class="term"><code>[user@login]$ ls *.data
 0.data   1.data   2.data   3.data
@@ -387,7 +422,8 @@ option! Additional examples for using this option include:</p>
 queue 100
 </code></pre>
 
-<h3 id="b-specify-a-row-or-column-number-for-each-job">B. Specify a row or column number for each job</h3>
+<p><span name="rowcol"></span></p>
+<h3 id="2b-specify-a-row-or-column-number-for-each-job">2B. Specify a row or column number for each job</h3>
 
 <p>$(Process) can be used to specify a unique row or column of information in a 
 matrix to be used by each job in the batch. The matrix needs to then be transferred 
@@ -404,7 +440,8 @@ queue 100
 <p>The above exmaples assumes that your job is set up to use an argument to 
 specify the row or column to be used by your software.</p>
 
-<h3 id="c-need-n-to-start-at-1">C. Need <em>N</em> to start at 1</h3>
+<p><span name="n1"></span></p>
+<h3 id="2c-need-n-to-start-at-1">2C. Need <em>N</em> to start at 1</h3>
 
 <p>If your input files are numbered 1 - 100 instead of 0 - 99, or your matrix 
 row starts with 1 instead of 0, you can perform basic arithmetic in the submit 
@@ -423,7 +460,8 @@ queue 100
 have otherwise used <code>$(Process)</code>. Note that there is nothing special about the 
 names <code>plusone</code> and <code>NewProcess</code>, you can use any names you want as variables.</p>
 
-<h2 id="2-submit-multiple-jobs-with-one-or-more-distinct-variables-per-job">2. Submit multiple jobs with one or more distinct variables per job<span name="foreach"></span></h2>
+<p><span name="variables"></span></p>
+<h2 id="3-submit-multiple-jobs-with-one-or-more-distinct-variables-per-job">3. Submit multiple jobs with one or more distinct variables per job</h2>
 
 <p>Think about what’s different between each job that needs to be submitted. 
 Will each job use a different input file or combination of software parameters? Do 
@@ -471,7 +509,8 @@ executable = compare_states
 queue state from states.txt
 </code></pre>
 
-<h3 id="use-multiple-variables-for-each-job">Use multiple variables for each job</h3>
+<p><span name="multiple_variables"></span></p>
+<h3 id="3a-use-multiple-variables-for-each-job">3A. Use multiple variables for each job</h3>
 
 <p>Let’s imagine that each state <code>.data</code> file contains data spanning several 
 years and that each job needs to analyze a specific year of data. Then 
@@ -504,7 +543,10 @@ queue state,year from states.txt
 </code></pre>
 
 <p><span name="initialdir"></span></p>
-<h2 id="3-organizing-jobs-into-individual-directories">3. Organizing Jobs Into Individual Directories</h2>
+<h2 id="4-organizing-jobs-into-individual-directories">4. Organizing Jobs Into Individual Directories</h2>
+
+<p><span name="initialdir_states"></span></p>
+<h3 id="4a-submitting-multiple-jobs-in-different-directories-with-queue-variable-from-list">4A. Submitting Multiple Jobs in Different Directories with <code>queue &lt;variable&gt; from list</code></h3>
 
 <p>One way to organize jobs is to assign each job to its own directory,
 instead of putting files in the same directory with unique names. To
@@ -535,7 +577,7 @@ the path to each state directory and `initialdir` set to this path for
 each job:</list></p>
 
 <pre class="sub"><code>#state-per-dir-job.sub
-initial_dir = $(state_dir)
+initialdir = $(state_dir)
 transfer_input_files = input.data	
 executable = compare_states
 
@@ -561,6 +603,85 @@ that state's directory as the <code>initialdir</code> from which the job will be
 Therefore, <code>transfer_input_files = input.data</code> can be used without specifying 
 the path to this <code>input.data</code> file. Any output generated by the job will then be returned to the <code>initialdir</code> 
 location.</p>
+
+<p><span name="initialdir_jobs"></span></p>
+<h3 id="4b-submitting-multiple-jobs-in-different-directories-with-queue-directory-matching-">4B. Submitting Multiple Jobs in Different Directories with <code>queue &lt;directory&gt; matching *</code></h3>
+
+<p>This section demonstrates how to submit multiple jobs, using a specific
+directory structure where folder names have a string of text in common. It is relevant to anyone who wants to submit multiple jobs, where each job has its own directory for input/output files on the submit server.</p>
+
+<p><strong>Directory Structure</strong>
+For a single batch of jobs, the directories will look like this:</p>
+
+<pre class="other"><code>project_name/
+    run_code.sh
+    submit.sub
+    shared/
+        scripts, code_package
+        shared_input
+    job1/
+        input/
+            job_input
+    job2/
+        input/
+            job_input
+    job3/
+        input/
+            job_input
+</code></pre>
+
+<p>You'll want to put all your code and files required for every job in
+<code>shared/</code> and individual input files in the individual job directories
+in an <code>input</code> folder. In the submit file below, it matters that the
+individual job directories start with the word "job". Your directories should all have a string of text in common, so that you can use the <code>queue &lt;directory&gt; matching &lt;commonString&gt;*</code> syntax to queue a job for each directory.</p>
+
+<blockquote>
+  <p><strong>Note: the job directories need to be hosted in your <code>/home</code> directory 
+on the submit node. The following instructions will not work for files 
+hosted on <code>/staging</code>!</strong></p>
+</blockquote>
+
+<p><strong>Submit File</strong>
+Your submit file, which should go in your main project directory, should
+look like this:</p>
+
+<pre><code class="language-{.sub}"># Specify your executable (single binary or a script that runs several
+#  commands) and arguments
+executable = run_code.sh
+# arguments = arguments to your script go here
+#
+# Specify the desired name of the HTCondor log file,
+#  and the desired name of the standard error and standard output file.  
+log = process.log
+error = process.err
+output = process.out
+#
+# Specify that HTCondor should transfer files to and from the
+#  computer where each job runs. 
+should_transfer_files = YES
+# Set the submission directory for each job with the $(directory)
+# variable (set below in the queue statement).  Then transfer all 
+# files in the shared directory, and from the input folder in the 
+# submission directory
+initialdir = $(directory)
+transfer_input_files = ../shared/,input/
+#
+# Tell HTCondor what amount of compute resources
+#  each job will need on the computer where it runs.
+request_cpus = 1
+request_memory = 1GB
+request_disk = 1GB
+#
+# Create a job for each "job" directory.
+queue directory matching job*
+</code></pre>
+
+<p>Note that the final line matches the pattern of your directory names that you previously
+created. You can use a different name for the
+directories (like <code>data</code>, <code>sample</code>, or <code>seed</code>), but you should use whatever word
+the directories have in common in the final queue statement in place of "job".</p>
+
+<p>Jobs can then be submitted using <code>condor_submit</code>.</p>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -594,12 +715,22 @@ location.</p>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/use-submit-node">Policies for Using HTC Submit Servers</a>
+                                        <a class="" href="/uw-research-computing/htc-overview">HTC System Overview</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/connecting">Connecting to CHTC Using CHTC's HTC Submit Nodes</a>
+                                        <a class="" href="/uw-research-computing/noShow-use-submit-node">Policies for Using HTC Submit Servers</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/connecting">Log In to CHTC Resources</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/transfer-files-computer">Transfer Files between CHTC and your Computer</a>
                                     </div>
                                 
 
@@ -817,6 +948,11 @@ location.</p>
 
                                     <div class="document-link-wrapper bg-light">
                                         <a class="" href="/uw-research-computing/high-memory-jobs">Submitting High Memory Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-modules">Use Software Available in Modules</a>
                                     </div>
                                 
 
