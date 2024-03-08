@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-03-08T17:35:09+00:00" />
+<meta property="article:published_time" content="2024-03-08T21:17:10+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Managing Large Data in HTC Jobs" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-08T17:35:09+00:00","datePublished":"2024-03-08T17:35:09+00:00","description":"When submitting jobs to CHTC’s High Throughput Computing (HTC) system, there is a distinct location for staging data that is too large to be handled at scale via the default HTCondor file transfer mechanism. This location should be used for jobs that require input files larger than 100MB and/or that generate output files larger than 3-4GB.","headline":"Managing Large Data in HTC Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-08T21:17:10+00:00","datePublished":"2024-03-08T21:17:10+00:00","description":"When submitting jobs to CHTC’s High Throughput Computing (HTC) system, there is a distinct location for staging data that is too large to be handled at scale via the default HTCondor file transfer mechanism. This location should be used for jobs that require input files larger than 100MB and/or that generate output files larger than 3-4GB.","headline":"Managing Large Data in HTC Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -210,7 +210,7 @@
         </li>
     
         <li>
-            <a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a>
+            <a href="https://htcondor.org/manual/">HTCondor Project</a>
         </li>
     
         <li>
@@ -381,7 +381,7 @@ PROBLEMATIC USER DATA AT ANY TIME IN ORDER TO PRESERVE PERFORMANCE.</strong></p>
 
 <p>Our large data staging location is only for input and output files that 
 are individually too large to be managed by our other data movement 
-methods, <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> file transfer or SQUID. This includes individual input files 
+methods, <a href="https://htcondor.org">HTCondor</a> file transfer or SQUID. This includes individual input files 
 greater than 100MB and individual output files greater than 3-4GB.</p>
 
 <p>Users are expected to abide by this intended use expectation and follow the 
@@ -555,7 +555,7 @@ rm other_large_files.txt
 
 <p>In some instances, your software may produce very large standard output
 (what would typically be output to the command screen, if you ran the
-command for yourself, instead of having <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> do it). Because such
+command for yourself, instead of having <a href="https://htcondor.org">HTCondor</a> do it). Because such
 standard output from your software will usually be captured by HTCondor
 in the submit file “output” file, this “output” file WILL still be
 transferred by HTCondor back to your home directory on the submit
