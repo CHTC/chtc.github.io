@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/matlab-jobs" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-03-18T00:28:31+00:00" />
+<meta property="article:published_time" content="2024-03-18T22:22:16+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Running Matlab Jobs" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-18T00:28:31+00:00","datePublished":"2024-03-18T00:28:31+00:00","description":"To best understand the below information, users should already have an understanding of:","headline":"Running Matlab Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/matlab-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/matlab-jobs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-18T22:22:16+00:00","datePublished":"2024-03-18T22:22:16+00:00","description":"To best understand the below information, users should already have an understanding of:","headline":"Running Matlab Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/matlab-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/matlab-jobs"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -342,6 +342,10 @@ it something like <code>build.sub</code>.</p>
 
 universe = vanilla
 log = interactive.log
+
+# In the latest version of HTCondor on CHTC, interactive jobs require an executable.
+# If you do not have an existing executable, use a generic linux command like hostname as shown below.
+executable = /usr/bin/hostname
 
 # List all of your .m files, or a tar.gz file if you've combined them.
 transfer_input_files = script.m, functions.tar.gz

@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/singularity-htc" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-03-18T00:28:31+00:00" />
+<meta property="article:published_time" content="2024-03-18T22:22:16+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Use Apptainer (Singularity) Environments" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-18T00:28:31+00:00","datePublished":"2024-03-18T00:28:31+00:00","description":"Overview HTCondor supports the use of Apptainer (formerly known as Singularity) environments for jobs on the High Throughput Computing system.","headline":"Use Apptainer (Singularity) Environments","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/singularity-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/singularity-htc"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-18T22:22:16+00:00","datePublished":"2024-03-18T22:22:16+00:00","description":"Overview HTCondor supports the use of Apptainer (formerly known as Singularity) environments for jobs on the High Throughput Computing system.","headline":"Use Apptainer (Singularity) Environments","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/singularity-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/singularity-htc"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -290,14 +290,18 @@ The majority of the guide that follows explains how to customize your base image
 universe = vanilla
 log = interactive.log
 
+# In the latest version of HTCondor on CHTC, interactive jobs require an executable.
+# If you do not have an existing executable, use a generic linux command like hostname as shown below.
+executable = /usr/bin/hostname
+
 # If your build job needs access to any files in your /home directory, transfer them to your job using transfer_input_files
 # transfer_input_files = 
 
 +IsBuildJob = true
 requirements = (OpSysMajorVer =?= 8)
-request_cpus = 1
-request_memory = 4GB
-request_disk = 4GB
+request_cpus = 4
+request_memory = 16GB
+request_disk = 16GB
 
 queue
 </code></pre>
