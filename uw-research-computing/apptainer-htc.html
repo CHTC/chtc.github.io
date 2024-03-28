@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Transfer Files between CHTC and your Computer</title>
+<title>Use Apptainer Containers</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Transfer Files between CHTC and your Computer | CHTC</title>
+<title>Use Apptainer Containers | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Transfer Files between CHTC and your Computer" />
+<meta property="og:title" content="Use Apptainer Containers" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Table of Contents Transferring Files On the command line Using an SSH program (Windows/Mac) Re-using SSH connections Creating and Editing Files in CHTC" />
-<meta property="og:description" content="Table of Contents Transferring Files On the command line Using an SSH program (Windows/Mac) Re-using SSH connections Creating and Editing Files in CHTC" />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-03-28T17:26:57+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Transfer Files between CHTC and your Computer" />
+<meta property="twitter:title" content="Use Apptainer Containers" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-28T17:26:57+00:00","datePublished":"2024-03-28T17:26:57+00:00","description":"Table of Contents Transferring Files On the command line Using an SSH program (Windows/Mac) Re-using SSH connections Creating and Editing Files in CHTC","headline":"Transfer Files between CHTC and your Computer","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-28T17:26:57+00:00","datePublished":"2024-03-28T17:26:57+00:00","description":"Introduction","headline":"Use Apptainer Containers","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -269,10 +269,18 @@
             
 
             <h1 class="uw-mini-bar mb-4">
-    Transfer Files between CHTC and your Computer
+    Use Apptainer Containers
 </h1>
 
-            
+            <h2 id="introduction">Introduction</h2>
+
+<p>HTCondor supports the use of Apptainer (formerly known as Singularity) environments for jobs on the High Throughput Computing system.</p>
+
+<p>Similar to Docker containers, Apptainer environments allow users to prepare portable software and computing environments that can be sent to many jobs. 
+This means your jobs will run in a more consistent environment that is easily reproducible by others.</p>
+
+<p>Container jobs are able to take advantage of more of CHTC’s High Throughput resources because the operating system where the job is running does not need to match the operating system where the container was built.</p>
+
 <div class="d-flex flex-column mb-5">
 
 <h2>Table of Contents</h2>
@@ -280,125 +288,375 @@
 <div class="uw-sidebar-box me-auto">
 <div class="uw-directory">
 
-      <ol>
-        <li><a href="#transfer">Transferring Files</a>
-          <ul>
-            <li><a href="#transfer-scp">On the command line</a></li>
-            <li><a href="#transfer-winscp">Using an SSH program (Windows/Mac)</a></li>
-            <li><a href="#transfer-many">Re-using SSH connections</a></li>
-          </ul>
-        </li>
-        <li><a href="#files">Creating and Editing Files in CHTC</a></li>
-      </ol>
+      <p><a href="#quickstart">Quickstart</a></p>
+
+      <ul>
+        <li><a href="#use-an-existing-container">Use an existing container</a></li>
+        <li><a href="#build-your-own-container">Build your own container</a></li>
+      </ul>
+
+      <p><a href="#create-a-definition-file">Create a Definition File</a></p>
+
+      <p><a href="#start-an-interactive-build-job">Start an Interactive Build Job</a></p>
+
+      <p><a href="#build-your-container">Build Your Container</a></p>
+
+      <p><a href="#test-your-container">Test Your Container</a></p>
+
+      <p><a href="#move-the-container-sif-file-to-staging">Move the Container .sif File to Staging</a></p>
+
+      <p><a href="#use-an-apptainer-container-in-htc-jobs">Use an Apptainer Container in HTC Jobs</a></p>
 
     </div>
 </div>
 </div>
 
-<p><a name="transfer"></a></p>
+<h2 id="quickstart-">Quickstart <a name="quickstart"></a></h2>
 
-<h1 id="1-transferring-files"><strong>1. Transferring Files</strong></h1>
+<h3 id="use-an-existing-container">Use an existing container</h3>
 
-<p>To transfer files to and from CHTC, you will need the same username and
-hostname information for <a href="#login">logging in</a>, as well as understanding
-where your files are and where you would like them to go.</p>
+<p>If you or a group member have already created the Apptainer <code>.sif</code> file, or using a container from reputable sources such as the <a href="https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/">OSG</a>, follow these steps to use it in an HTCondor job.</p>
 
-<p><a name="transfer-scp"></a></p>
+<h4 id="1-add-the-container-sif-file-to-your-submit-file-">1. Add the container <code>.sif</code> file to your submit file <a name="quickstart-use-submit"></a></h4>
 
-<h2 id="a-on-the-command-line">A. On the command line</h2>
+<p>If the <code>.sif</code> file is <strong>on the submit server</strong>:</p>
 
-<p>On Mac, Linux, or modern Windows (10+) systems, you can use the "Terminal" application and
-the <code>scp</code> command to copy files between your computer and CHTC servers.</p>
-
-<p><strong>Your computer to CHTC</strong></p>
-
-<p>First, open the "Terminal" application and navigate to the directory
-with the files or directories you want to transfer. Then, use this
-command to copy these files to CHTC:</p>
-
-<pre class="term"><code>$ scp file username@hostname:/home/username
+<pre><code>container_image = path/to/my-container.sif
 </code></pre>
 
-<p>If you would like these files to end up in a different directory inside
-your home directory, just add it to the path at the end of the command.</p>
+<p>If the <code>.sif</code> file is <strong>on the <code>/staging</code> server</strong>:</p>
 
-<p><strong>CHTC to your computer</strong></p>
-
-<p>Open the "Terminal" application. Do NOT log into CHTC. Instead,
-navigate to where you want the files to go on your computer. Then, use
-this command to copy these files there:</p>
-
-<pre class="term"><code>$ scp username@hostname:/home/username/file ./
+<pre><code>container_image = file:///staging/path/to/my-container.sif
 </code></pre>
 
-<p>Again, for many files, it will be easiest to create a compressed tarball
-(.tar.gz file) of your files and transfer that instead of each file
-individually.</p>
+<p>If the <code>.sif</code> file is <strong>on the <code>/staging</code> server AND you are using <code>+WantFlocking</code> or <code>+WantGliding</code></strong>:</p>
 
-<p><a name="transfer-winscp"></a></p>
-
-<h2 id="b-using-a-file-transfer-program-windowsmac">B. Using a file transfer program (Windows/Mac)</h2>
-
-<p>Windows and Mac users can also use special programs to help them
-transfer files between their computers and CHTC. For Windows, we
-recommend <a href="https://winscp.net/eng/download.php">WinSCP</a>. It requires the
-same information as Putty (hostname, username), and once it's set up,
-looks like this:</p>
-
-<p><img src="/images/WinSCPPortable.png" alt="" /></p>
-
-<p>The left window is a directory on your computer, the right window is
-your home directory in CHTC. To move files between the two, simply drag
-and drop.</p>
-
-<p>There are other programs besides WinSCP that do this. Another that works
-on Mac and Windows is called <a href="https://cyberduck.io">Cyberduck</a>.</p>
-
-<p><a name="transfer-many"></a></p>
-
-<h2 id="c-transferring-multiple-files">C. Transferring Multiple Files</h2>
-
-<p>If you are transferring many files, it is advantageous to compress them
-into a single compressed file, in order to facilitate transferring them.
-Place all the files you need in a directory, and then either zip it or
-use the "tar" command to compress them:</p>
-
-<pre class="term"><code>$ tar czf data_files.tar.gz file_directory/
+<pre><code>container_image = osdf:///chtc/staging/path/to/my-container.sif
 </code></pre>
 
-<p>To untar or unzip files on the submit server or head nodes, you can use
-either:</p>
+<p><a href="#use-an-apptainer-container-in-htc-jobs">Jump to more information</a></p>
 
-<pre class="term"><code>[alice@submit]$ tar xzf data_files.tar.gz
+<h4 id="2-test-your-container-job-">2. Test your container job <a name="quickstart-use-test"></a></h4>
+
+<p>As always with the High Throughput system, submit a single test job and confirm that your job behaves as expected.
+If there are issues with the job, you may need to modify your executable, or even (re)build your own container.</p>
+
+<h3 id="build-your-own-container">Build your own container</h3>
+
+<p>If you need to create your own container for the software you want to use, follow these steps.
+For more information on any particular step, jump to the corresponding section later in this guide.</p>
+
+<!-- 
+Might be worth setting up the quick-start items as dropdown items.
+Need help from Cannon; default approach does not render well on the website.
+-->
+
+<h4 id="1-create-a-definition-file-">1. Create a definition file <a name="quickstart-build-definition-file"></a></h4>
+
+<p>The definition (<code>.def</code>) file contains the instructions for what software to install while building the container.
+CHTC provides example definition files in the <code>software</code> folder of our <a href="https://github.com/CHTC/recipes">Recipes GitHub repository</a>. Choose from one of the existing examples, or create your own using the instructions later in this guide.</p>
+
+<p><a href="#create-a-definition-file">Jump to more information</a></p>
+
+<h4 id="2-start-an-interactive-build-job-">2. Start an interactive build job <a name="quickstart-build-interactive"></a></h4>
+
+<p>Start an interactive build job (<a href="#build-submit-file">an example submit file  <code>build.sub</code> is provided below</a>).
+Be sure to include your <code>.def</code> file in the <code>transfer_input_files</code> line, or else create the file once the interactive job starts using a command line editor.</p>
+
+<p>Then submit the interactive build job with</p>
+
+<pre class="term"><code>condor_submit -i build.sub
 </code></pre>
 
-<p>or</p>
+<p><a href="#start-an-interactive-build-job">Jump to more information</a></p>
 
-<pre class="term"><code>[alice@submit]$ unzip data_files.zip
+<h4 id="3-build-your-container-">3. Build your container <a name="quickstart-build-build"></a></h4>
+
+<p>While in an interactive build job, run the command</p>
+
+<pre class="term"><code>apptainer build my-container.sif image.def
 </code></pre>
 
-<p><a name="files"></a></p>
+<p>If the container build finishes successfully, then the container image (<code>.sif</code>) file is created.
+This file is used for actually executing the container.</p>
 
-<h1 id="2-creating-and-editing-files-in-chtc"><strong>2. Creating and Editing Files in CHTC</strong></h1>
+<p><a href="#build-your-container">Jump to more information</a></p>
 
-<p>Once you have logged in to a CHTC server, you can edit files from the
-command line, by using a command line file editor. Some common editing
-programs are:</p>
+<h4 id="4-test-your-container-">4. Test your container <a name="quickstart-build-test"></a></h4>
 
-<ul>
-  <li>nano</li>
-  <li>vi</li>
-  <li>emacs</li>
-</ul>
+<p>While still in the interactive build job, run the command</p>
 
-<p><code>nano</code> is the most beginner-friendly, and <code>emacs</code> is the most advanced.
-<a href="https://swcarpentry.github.io/shell-novice/03-create.html">This Software Carpentry
-lesson</a> describes
-how to use <code>nano</code>, and there are many other resources online with
-instructions for these text editors.</p>
+<pre class="term"><code>apptainer shell my-container.sif
+</code></pre>
 
-<p>Some of the file transfer programs mentioned <a href="#transfer-winscp">above</a>
-allow you to edit files on CHTC servers through the interface.</p>
+<p>This command will start the container and log you into it, allowing you to test your software commands.</p>
+
+<p>Once you are done testing the container, enter</p>
+
+<pre class="term"><code>exit
+</code></pre>
+
+<p><strong>once</strong> to exit the container.</p>
+
+<p><a href="#test-your-container">Jump to more information</a></p>
+
+<h4 id="5-move-the-container-sif-file-to-staging-">5. Move the container .sif file to staging <a name="quickstart-build-move"></a></h4>
+
+<p>Once you are satisfied that your container is built correctly, copy your <code>.sif</code> file to your staging directory.</p>
+
+<pre class="term"><code>mv my-container.sif /staging/$USER
+</code></pre>
+
+<p>Once the file has transferred, exit the interactive job with</p>
+
+<pre class="term"><code>exit
+</code></pre>
+
+<p><a href="">Jump to more information</a></p>
+
+<p>Once you’ve built the container, use the instructions <a href="#use-an-existing-container">above</a> to use the container in your HTCondor job.</p>
+
+<h2 id="create-a-definition-file">Create a Definition File</h2>
+
+<p>To create your own container using Apptainer, you will need to create a definition (<code>.def</code>) file. 
+For the purposes of this guide, we will call the definition file <code>image.def</code>.</p>
+
+<p>CHTC provides example definition files in the <code>software</code> folder of our <a href="https://github.com/CHTC/recipes">Recipes GitHub repository</a>. We strongly recommend that you use one of the existing examples as the starting point for creating your own container.</p>
+
+<p>If the software you want to use is not in the CHTC Recipes repository, you can create your own container. Here is general process for creating your own definition file for building your custom container:</p>
+
+<ol>
+  <li>
+    <p><strong>Consult your software’s documentation</strong></p>
+
+    <p>Determine the requirements for installing the software you want to use.
+In particular you are looking for (a) the operating systems it is compatible with and (b) the prerequisite libraries or packages.</p>
+  </li>
+  <li>
+    <p><strong>Choose a base container</strong></p>
+
+    <p>The base container should at minimum use an operating system compatible with your software. 
+Ideally the container you choose also has many of the prerequisite libraries/programs already installed.</p>
+  </li>
+  <li>
+    <p><strong>Create your own definition file</strong></p>
+
+    <p>The definition file contains the installation commands needed to set up your software.
+We encourage you to read our <a href="apptainer-build.html">Building an Apptainer Container</a> guide to learn more about the components of the Apptainer definition file.
+An advanced example of a definition file is provided in our <a href="apptainer-htc-advanced-example.html">Advanced Apptainer Example - SUMO</a> guide.</p>
+  </li>
+</ol>
+
+<p><a href="#quickstart-build-definition-file">Jump back to Quickstart</a></p>
+
+<h2 id="start-an-interactive-build-job">Start an Interactive Build Job</h2>
+
+<p>Building a container can be a computationally intense process. 
+As such, we require that you only build containers while in an interactive build job.
+On the High Throughput system, you can use the following submit file <code>build.sub</code>:</p>
+
+<p><a name="build-submit-file"></a></p>
+<pre><code># build.sub
+# For building an Apptainer container
+
+universe = vanilla
+log = build.log
+
+# In the latest version of HTCondor on CHTC, interactive jobs require an executable.
+# If you do not have an existing executable, use a generic linux command like hostname as shown below.
+executable = /usr/bin/hostname
+
+# If you have additional files in your /home directory that are required for your container, add them to the transfer_input_files line as a comma-separated list.
+transfer_input_files = image.def
+
++IsBuildJob = true
+request_cpus = 4
+request_memory = 16GB
+request_disk = 16GB
+
+queue
+</code></pre>
+
+<p>Note that this submit file assumes you have a definition file named <code>image.def</code> in the same directory as the submit file.</p>
+
+<p>Once you’ve created the submit file, you can submit an interactive job with the command</p>
+
+<pre class="term"><code>condor_submit -i build.sub
+</code></pre>
+
+<blockquote>
+  <p>Apptainer <code>.sif</code> files can be fairly large, especially if you have a complex software stack. 
+If your interactive job abruptly fails during the build step, you may need to increase the value of <code>request_disk</code> in your submit file.
+In this case, the <code>.log</code> file should have a message about the reason the interactive job was interrupted.</p>
+</blockquote>
+
+<p><a href="#quickstart-build-interactive">Jump back to Quickstart</a></p>
+
+<h2 id="build-your-container">Build Your Container</h2>
+
+<p>Once the interactive build job starts, confirm that your <code>image.def</code> was transferred to the current directory.</p>
+
+<p>To build a container, Apptainer uses the instructions in the <code>.def</code> file to create a <code>.sif</code> file. The <code>.sif</code> file is the compressed collection of all the files that comprise the container.</p>
+
+<p>To build your container, run this command:</p>
+
+<pre class="term"><code>apptainer build my-container.sif image.def
+</code></pre>
+
+<p>Feel free to rename the <code>.sif</code> file as you desire; for the purposes of this guide we are using <code>my-container.sif</code>.</p>
+
+<p>As the command runs, a variety of information will be printed to the terminal regarding the container build process.
+Unless something goes wrong, this information can be safely ignored.
+Once the command has finished running, you should see <code>INFO:    Build complete: my-container.sif</code>.
+Using the <code>ls</code> command, you should now see the container file <code>my-container.sif</code>.</p>
+
+<p>If the build command fails, examine the output for error messages that may explain why the build was unsuccessful.
+Typically there is an issue with a package installation, such as a typo or a missing but required dependency.
+Sometimes there will be an error during an earlier package installation that doesn’t immediately cause the container build to fail.
+But, when you test the container, you may notice an issue with the package.</p>
+
+<p>If you are having trouble finding the error message, edit the definition file and remove (or comment out) the installation commands that come after the package in question.
+Then rebuild the image, and now the relevant error messages should be near the end of the build output.</p>
+
+<p>Once the image is built, it is important to test it to make sure you have all software, packages, and libraries installed correctly.</p>
+
+<p>For more information on building Apptainer containers, see our <a href="apptainer-build.html">Building an Apptainer Container</a> guide.</p>
+
+<p><a href="#quickstart-build-build">Jump back to Quickstart</a></p>
+
+<h2 id="test-your-container">Test Your Container</h2>
+
+<p>Once your container builds successfully, we highly encourage you to immediately test the container while still in the interactive build session.</p>
+
+<p>To test your container, use the command</p>
+
+<pre class="term"><code>apptainer shell -e my-container.sif
+</code></pre>
+
+<p>You should see your command prompt change to <code>Apptainer&gt;</code>.</p>
+
+<p>The <code>shell</code> command logs you into a terminal “inside” the container, with access to the libraries, packages, and programs that were installed in the container following the instructions in your <code>image.def</code> file.
+(The <code>-e</code> option is used to prevent this terminal from trying to use the host system’s programs.)</p>
+
+<p>While “inside” the container, try to run your program(s) that you installed in the container. 
+Typically it is easiest to try to print your program’s “help” text, e.g., <code>my-program --help</code>. 
+If using a programming language such as <code>python3</code> or <code>R</code>, try to start an interactive code session and load the packages that you installed.</p>
+
+<p>If you installed your program in a custom location, consider using <code>ls</code> to verify the files are in the right location. 
+You may need to manually set the <code>PATH</code> environment variable to point to the location of your program’s executable binaries.
+For example,</p>
+
+<pre class="term"><code>export PATH=/opt/my-program/bin:$PATH
+</code></pre>
+
+<p>Consult the “Special Considerations” section of our <a href="apptainer-build.html#special-considerations-for-building-your-container">Building an Apptainer Container</a> guide for additional information on setting up and testing your container.</p>
+
+<p>When you are finished running commands inside the container, run the command <code>exit</code> to exit the container. 
+Your prompt should change back to something like <code>[username@build4000 ~]$</code>.</p>
+
+<p><a href="#quickstart-build-test">Jump back to Quickstart</a></p>
+
+<h2 id="move-the-container-sif-file-to-staging">Move the Container .sif File to Staging</h2>
+
+<p>Since Apptainer <code>.sif</code> files are routinely more than 1GB in size, we recommend that you transfer <code>my-container.sif</code> to your <code>/staging</code> directory.
+It is usually easiest to move the container file directly to staging while still in the interactive build job:</p>
+
+<pre class="term"><code>mv my-container.sif /staging/$USER
+</code></pre>
+
+<p>If you do not have a <code>/staging</code> directory, you can skip this step and the <code>.sif</code> file will be automatically transferred back to the login server when you exit the interactive job.
+We encourage you to request a <code>/staging</code> directory, especially if you plan on running many jobs using this container.
+See our <a href="file-avail-largedata.html">Managing Large Data in Jobs</a> guide for more information on using staging.</p>
+
+<p><a href="#quickstart-build-move">Jump back to Quickstart</a></p>
+
+<h2 id="use-an-apptainer-container-in-htc-jobs">Use an Apptainer Container in HTC Jobs</h2>
+
+<p>Now that you have the container image saved in the form of the <code>.sif</code> file, you can use it as the environment for running your HTCondor jobs.
+In your submit file, specify the image file using the <code>container_image</code> command.
+HTCondor will automatically transfer the <code>.sif</code> file and automatically execute your <code>executable</code> file inside of the container; you do not need to include any <code>apptainer</code> commands in your <code>executable</code> file.</p>
+
+<p>If the <code>.sif</code> file is located on the login server, you can use</p>
+
+<pre><code>container_image = my-container.sif
+</code></pre>
+
+<p>although we generally don’t recommend this, since <code>.sif</code> files are large and should instead be located in <a href="file-avail-largedata.html">staging</a>.</p>
+
+<p>Therefore, we recommend using</p>
+
+<pre><code>container_image = file:///staging/path/to/my-container.sif
+</code></pre>
+
+<p>The full submit file otherwise looks like normal, for example:</p>
+
+<pre><code># apptainer.sub
+
+# Provide HTCondor with the name of your .sif file and universe information
+container_image = file:///staging/path/to/my-container.sif
+
+executable = myExecutable.sh
+
+# Include other files that need to be transferred here.
+# transfer_input_files = other_job_files
+
+log = job.log
+error = job.err
+output = job.out
+
+# Make sure you request enough disk for the container image in addition to your other input files
+request_cpus = 1
+request_memory = 4GB
+request_disk = 10GB      
+
+queue
+</code></pre>
+
+<p>Then use <code>condor_submit</code> with the name of your submit file:</p>
+
+<pre class="term"><code>condor_submit apptainer.sub
+</code></pre>
+
+<p>If you are using <code>+WantFlocking</code> or <code>+WantGliding</code> as described in our <a href="scale-htc.html">Scale Beyond Local HTC Capacity</a> guide, then you should instead use</p>
+
+<pre><code>container_image = osdf:///chtc/staging/path/to/my-container.sif
+</code></pre>
+
+<p>to enable transferring of the <code>.sif</code> file via the <a href="https://osg-htc.org/services/osdf.html">OSDF</a> to compute capacity beyond CHTC.</p>
+
+<p><a href="#quickstart-use-submit">Jump back to Quickstart</a></p>
+
+<blockquote>
+  <p>From the user’s perspective, a container job is practically identical to a regular job.
+The main difference is that instead of running on the execute point’s default operation system, the job is run inside the container.</p>
+
+  <p>When you submit a job to HTCondor using a submit file with <code>container_image</code> set, HTCondor automatically handles the process of obtaining and running the container.
+The process looks roughly like</p>
+
+  <ul>
+    <li>Claim machine that satisifies submit file requirements</li>
+    <li>Pull (or transfer) the container image</li>
+    <li>Transfer input files, executable to working directory</li>
+    <li>Run the executable script inside the container, as the submit user, with key directories mounted inside (such as the working directory, /staging directories, etc.)</li>
+    <li>Transfer output files back to the submit server</li>
+  </ul>
+
+  <p>For testing purposes, you can replicate the behavior of a container job with the following command (remember to first start an interactive job if you are logged in to the submit server).</p>
+
+  <pre class="term"><code>apptainer exec \
+        --scratch /tmp \
+        --scratch /var/tmp \
+        --workdir $(pwd) \
+        --pwd $(pwd) \
+        --bind $(pwd) \
+        --no-home \
+        --containall \
+        my-container.sif \
+        /bin/bash myExecutable.sh 1&gt; job.out 2&gt; job.err
+</code></pre>
+
+</blockquote>
+
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -413,21 +671,32 @@ allow you to edit files on CHTC servers through the interface.</p>
             
             
 
-            <h6 class="mt-5">General Guides</h6>
+            <h6 class="mt-5">HTC Guides</h6>
             <div class="accordion accordion-flush">
                 
                     
+
                         
 
                         
 
                         <div class="accordion-item">
                             <h2 class="accordion-header mt-0" id="basics-and-policies">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
                                     Basics and Policies
                                 </button>
                             </h2>
-                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse show " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
+                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-overview">HTC System Overview</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/noShow-use-submit-node">Policies for Using HTC Submit Servers</a>
+                                    </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
@@ -436,7 +705,7 @@ allow you to edit files on CHTC servers through the interface.</p>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/transfer-files-computer">Transfer Files between CHTC and your Computer</a>
+                                        <a class="" href="/uw-research-computing/transfer-files-computer">Transfer Files between CHTC and your Computer</a>
                                     </div>
                                 
 
@@ -451,7 +720,17 @@ allow you to edit files on CHTC servers through the interface.</p>
                                 
 
                                     <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/globus">Use Globus to Transfer Files to and from CHTC</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
                                         <a class="" href="/uw-research-computing/github-remote-access">Access a Private GitHub Repository Remotely</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/check-quota">Check Disk Quota and Usage</a>
                                     </div>
                                 
                             </div>
@@ -459,25 +738,158 @@ allow you to edit files on CHTC servers through the interface.</p>
                     
                 
                     
-                
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="job-submission">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#job-submission-collapse" aria-expanded="false" aria-controls="job-submission">
+                                    Job Submission
+                                </button>
+                            </h2>
+                            <div id="job-submission-collapse" class="accordion-collapse collapse " aria-labelledby="job-submission" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/condor_q">Learn About Your Jobs Using condor_q</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htcondor-job-submission">Practice: Submit HTC Jobs using HTCondor</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/multiple-jobs">Submitting Multiple Jobs Using HTCondor</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/dagman-workflows">Workflows with HTCondor's DAGMan</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/multiple-job-dirs">Submitting Multiple Jobs in Individual Directories</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
                     
                 
                     
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="handling-data-in-jobs">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#handling-data-in-jobs-collapse" aria-expanded="false" aria-controls="handling-data-in-jobs">
+                                    Handling Data in Jobs
+                                </button>
+                            </h2>
+                            <div id="handling-data-in-jobs-collapse" class="accordion-collapse collapse " aria-labelledby="handling-data-in-jobs" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-availability">Small Input and Output File Availability Via HTCondor</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-avail-squid">Transfer Large Input Files Via Squid</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+
                         
 
                         
 
                         <div class="accordion-item">
                             <h2 class="accordion-header mt-0" id="software-solutions">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
+                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
                                     Software Solutions
                                 </button>
                             </h2>
-                            <div id="software-solutions-collapse" class="accordion-collapse collapse " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
+                            <div id="software-solutions-collapse" class="accordion-collapse collapse show " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/matlab-jobs">Running Matlab Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/python-jobs">Run Python Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/conda-installation">Create a Portable Python Installation with Miniconda</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/r-jobs">Run R Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/java-jobs">Run Java Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/julia-jobs">Run Julia Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/docker-jobs">Running HTC Jobs Using Docker Containers</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/docker-build">Build a Docker Container Image</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/licensed-software">Use Licensed Software</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="fw-bolder" href="/uw-research-computing/apptainer-htc">Use Apptainer Containers</a>
+                                    </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
                                         <a class="" href="/uw-research-computing/apptainer-build">Building an Apptainer Container</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/apptainer-htc-advanced-example">Advanced Apptainer Example - SUMO</a>
                                     </div>
                                 
                             </div>
@@ -485,7 +897,84 @@ allow you to edit files on CHTC servers through the interface.</p>
                     
                 
                     
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="special-use-cases">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-cases-collapse" aria-expanded="false" aria-controls="special-use-cases">
+                                    Special Use Cases
+                                </button>
+                            </h2>
+                            <div id="special-use-cases-collapse" class="accordion-collapse collapse " aria-labelledby="special-use-cases" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/gpu-jobs">Use GPUs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/machine-learning-htc">Run Machine Learning Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/scaling-htc">Scale Beyond Local HTC Capacity</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/checkpointing">Checkpointing Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/high-memory-jobs">Submit High Memory Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-modules">Use Software Available in Modules</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/os-transition-htc">Use Custom Linux Versions in CHTC</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
                 
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="troubleshooting">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshooting-collapse" aria-expanded="false" aria-controls="troubleshooting">
+                                    Troubleshooting
+                                </button>
+                            </h2>
+                            <div id="troubleshooting-collapse" class="accordion-collapse collapse " aria-labelledby="troubleshooting" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/dos-unix">Windows / Linux Incompatibility</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/docker-test">Explore and Test Docker Containers</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
                     
                 
             </div>

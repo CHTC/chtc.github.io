@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Transfer Files between CHTC and your Computer</title>
+<title>Advanced Apptainer Example - SUMO</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Transfer Files between CHTC and your Computer | CHTC</title>
+<title>Advanced Apptainer Example - SUMO | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Transfer Files between CHTC and your Computer" />
+<meta property="og:title" content="Advanced Apptainer Example - SUMO" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Table of Contents Transferring Files On the command line Using an SSH program (Windows/Mac) Re-using SSH connections Creating and Editing Files in CHTC" />
-<meta property="og:description" content="Table of Contents Transferring Files On the command line Using an SSH program (Windows/Mac) Re-using SSH connections Creating and Editing Files in CHTC" />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer" />
+<meta name="description" content="Sometimes the program you want to use does not have a pre-existing container that you can build on top of. Then you will need to install the program and its dependencies inside of the container. In this example, we will show how to install the program SUMO in a container, as an illustration of how to build a container more-or-less from scratch." />
+<meta property="og:description" content="Sometimes the program you want to use does not have a pre-existing container that you can build on top of. Then you will need to install the program and its dependencies inside of the container. In this example, we will show how to install the program SUMO in a container, as an illustration of how to build a container more-or-less from scratch." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc-advanced-example" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc-advanced-example" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-03-28T17:26:57+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Transfer Files between CHTC and your Computer" />
+<meta property="twitter:title" content="Advanced Apptainer Example - SUMO" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-28T17:26:57+00:00","datePublished":"2024-03-28T17:26:57+00:00","description":"Table of Contents Transferring Files On the command line Using an SSH program (Windows/Mac) Re-using SSH connections Creating and Editing Files in CHTC","headline":"Transfer Files between CHTC and your Computer","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-28T17:26:57+00:00","datePublished":"2024-03-28T17:26:57+00:00","description":"Sometimes the program you want to use does not have a pre-existing container that you can build on top of. Then you will need to install the program and its dependencies inside of the container. In this example, we will show how to install the program SUMO in a container, as an illustration of how to build a container more-or-less from scratch.","headline":"Advanced Apptainer Example - SUMO","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc-advanced-example"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc-advanced-example"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -269,10 +269,13 @@
             
 
             <h1 class="uw-mini-bar mb-4">
-    Transfer Files between CHTC and your Computer
+    Advanced Apptainer Example - SUMO
 </h1>
 
-            
+            <p>Sometimes the program you want to use does not have a pre-existing container that you can build on top of.
+Then you will need to install the program and its dependencies inside of the container.
+In this example, we will show how to install the program <a href="https://sumo.dlr.de/docs/index.html">SUMO</a> in a container, as an illustration of how to build a container more-or-less from scratch.</p>
+
 <div class="d-flex flex-column mb-5">
 
 <h2>Table of Contents</h2>
@@ -280,125 +283,241 @@
 <div class="uw-sidebar-box me-auto">
 <div class="uw-directory">
 
-      <ol>
-        <li><a href="#transfer">Transferring Files</a>
-          <ul>
-            <li><a href="#transfer-scp">On the command line</a></li>
-            <li><a href="#transfer-winscp">Using an SSH program (Windows/Mac)</a></li>
-            <li><a href="#transfer-many">Re-using SSH connections</a></li>
-          </ul>
-        </li>
-        <li><a href="#files">Creating and Editing Files in CHTC</a></li>
-      </ol>
+      <p><a href="#1-choose-the-base-container-image">1. Choose the Base Container Image</a></p>
+
+      <p><a href="#2-add-the-installation-commands">2. Add the Installation Commands</a></p>
+
+      <p><a href="#3-add-environment-variables">3. Add the Environment Variables</a></p>
+
+      <p><a href="#summary">Summary</a></p>
 
     </div>
 </div>
 </div>
 
-<p><a name="transfer"></a></p>
+<h2 id="1-choose-the-base-container-image">1. Choose the Base Container Image</h2>
 
-<h1 id="1-transferring-files"><strong>1. Transferring Files</strong></h1>
+<p>First, you will need to choose a base image for the container.
+Consult the documentation for the program you want to install to make sure you select a compatible operating system.</p>
 
-<p>To transfer files to and from CHTC, you will need the same username and
-hostname information for <a href="#login">logging in</a>, as well as understanding
-where your files are and where you would like them to go.</p>
+<p>For this example, we will use the most recent LTS version of Ubuntu from Docker.
+The beginning of the <code>image.def</code> file should look like this:</p>
 
-<p><a name="transfer-scp"></a></p>
-
-<h2 id="a-on-the-command-line">A. On the command line</h2>
-
-<p>On Mac, Linux, or modern Windows (10+) systems, you can use the "Terminal" application and
-the <code>scp</code> command to copy files between your computer and CHTC servers.</p>
-
-<p><strong>Your computer to CHTC</strong></p>
-
-<p>First, open the "Terminal" application and navigate to the directory
-with the files or directories you want to transfer. Then, use this
-command to copy these files to CHTC:</p>
-
-<pre class="term"><code>$ scp file username@hostname:/home/username
+<pre><code>Bootstrap: docker
+From: ubuntu:22.04
 </code></pre>
 
-<p>If you would like these files to end up in a different directory inside
-your home directory, just add it to the path at the end of the command.</p>
+<h2 id="2-add-the-installation-commands">2. Add the Installation Commands</h2>
 
-<p><strong>CHTC to your computer</strong></p>
+<p>All of the installation commands that you want Apptainer to execute during the container build step are provided in the <code>%post</code> section of the definition file.</p>
 
-<p>Open the "Terminal" application. Do NOT log into CHTC. Instead,
-navigate to where you want the files to go on your computer. Then, use
-this command to copy these files there:</p>
+<h3 id="setting-up-non-interactive-installation">Setting up non-interactive installation</h3>
 
-<pre class="term"><code>$ scp username@hostname:/home/username/file ./
+<p>First, you may need to instruct programs that you are executing commands in a non-interactive environment.
+There can be issues with installing packages in a container that would not normally occur when installing manually in the terminal.</p>
+
+<p>On the HTC system in particular, the <code>/tmp</code> directory inside of the container needs to be given global read/write permissions.
+This can be done by adding the following line at the start of the <code>%post</code> section:</p>
+
+<pre><code>   chmod 777 /tmp
 </code></pre>
 
-<p>Again, for many files, it will be easiest to create a compressed tarball
-(.tar.gz file) of your files and transfer that instead of each file
-individually.</p>
+<p>Similarly, some packages require that the user answer interactive prompts for selecting various options.
+Since the Apptainer build is non-interactive, this can cause the package installation to hang.
+While this isn’t an issue in the present example, the issue can be avoided by adding the following line near the start of the <code>%post</code> section:</p>
 
-<p><a name="transfer-winscp"></a></p>
-
-<h2 id="b-using-a-file-transfer-program-windowsmac">B. Using a file transfer program (Windows/Mac)</h2>
-
-<p>Windows and Mac users can also use special programs to help them
-transfer files between their computers and CHTC. For Windows, we
-recommend <a href="https://winscp.net/eng/download.php">WinSCP</a>. It requires the
-same information as Putty (hostname, username), and once it's set up,
-looks like this:</p>
-
-<p><img src="/images/WinSCPPortable.png" alt="" /></p>
-
-<p>The left window is a directory on your computer, the right window is
-your home directory in CHTC. To move files between the two, simply drag
-and drop.</p>
-
-<p>There are other programs besides WinSCP that do this. Another that works
-on Mac and Windows is called <a href="https://cyberduck.io">Cyberduck</a>.</p>
-
-<p><a name="transfer-many"></a></p>
-
-<h2 id="c-transferring-multiple-files">C. Transferring Multiple Files</h2>
-
-<p>If you are transferring many files, it is advantageous to compress them
-into a single compressed file, in order to facilitate transferring them.
-Place all the files you need in a directory, and then either zip it or
-use the "tar" command to compress them:</p>
-
-<pre class="term"><code>$ tar czf data_files.tar.gz file_directory/
+<pre><code>   DEBIAN_FRONTEND=noninteractive
 </code></pre>
 
-<p>To untar or unzip files on the submit server or head nodes, you can use
-either:</p>
+<p>Note that this particular command only applies to Debian-based container images, such as Ubuntu.</p>
 
-<pre class="term"><code>[alice@submit]$ tar xzf data_files.tar.gz
+<p>The <code>image.def</code> so far looks like this:</p>
+
+<pre><code>Bootstrap: docker
+From: ubuntu:22.04
+
+%post
+    chmod 777 /tmp
+    DEBIAN_FRONTEND=noninteractive
 </code></pre>
 
-<p>or</p>
+<h3 id="install-dependencies">Install dependencies</h3>
 
-<pre class="term"><code>[alice@submit]$ unzip data_files.zip
+<p>First, you should install the dependencies that your program requires.</p>
+
+<p>Following the <a href="https://sumo.dlr.de/docs/Installing/Linux_Build.html">program’s instructions</a>, we can do install the dependencies with the following set of commands.</p>
+
+<pre><code>apt-get update -y
+apt-get install -y \
+    git \
+    cmake \
+    python3 \
+    g++ \
+    libxerces-c-dev \
+    libfox-1.6-dev \
+    libgdal-dev \
+    libproj-dev \
+    libgl2ps-dev \
+    python3-dev \
+    swig \
+    default-jdk \
+    maven \
+    libeigen3-dev
 </code></pre>
 
-<p><a name="files"></a></p>
+<p>Note that we are using the built-in package manager (<code>apt</code>) of Ubuntu, since that is the base operating system we chose to build on top of.
+If you choose a different operating system, you may need to use a different package manager.</p>
 
-<h1 id="2-creating-and-editing-files-in-chtc"><strong>2. Creating and Editing Files in CHTC</strong></h1>
+<p>In this case, the first command is <code>apt-get update</code> which will update the list of available packages.
+This is necessary to get the latest versions of the packages in the following <code>apt-get install</code> command.</p>
 
-<p>Once you have logged in to a CHTC server, you can edit files from the
-command line, by using a command line file editor. Some common editing
-programs are:</p>
+<p>The <code>apt-get install</code> command will install the dependencies required by the SUMO program.</p>
+
+<blockquote>
+  <p>Note that these installation commands do not use <code>sudo</code>, as Apptainer already has permissions to install programs in the container.</p>
+</blockquote>
+
+<p>The <code>image.def</code> file now looks like this:</p>
+
+<pre><code>Bootstrap: docker
+From: ubuntu:22.04
+
+%post
+    chmod 777 /tmp
+    DEBIAN_FRONTEND=noninteractive
+
+    apt-get update -y
+    apt-get install -y \
+        git \
+        cmake \
+        python3 \
+        g++ \
+        libxerces-c-dev \
+        libfox-1.6-dev \
+        libgdal-dev \
+        libproj-dev \
+        libgl2ps-dev \
+        python3-dev \
+        swig \
+        default-jdk \
+        maven \
+        libeigen3-dev
+</code></pre>
+
+<h4 id="compile-the-program">Compile the program</h4>
+
+<p>After installing the dependencies, you can provide the commands for actually compiling your program.</p>
+
+<p>We now add the commands for compiling the SUMO program itself:</p>
+
+<pre><code>    git clone --recursive https://github.com/eclipse/sumo
+    export SUMO_HOME=/sumo
+    mkdir sumo/build/cmake-build &amp;&amp; cd sumo/build/cmake-build
+    cmake ../..
+    make
+</code></pre>
+
+<p>The <code>%post</code> section is now complete and will install SUMO and its dependencies in the container at build time.</p>
+
+<p>The <code>image.def</code> file now looks like this:</p>
+
+<pre><code>Bootstrap: docker
+From: ubuntu:22.04
+
+%post
+    chmod 777 /tmp
+    DEBIAN_FRONTEND=noninteractive
+
+    apt-get update -y
+    apt-get install -y \
+        git \
+        cmake \
+        python3 \
+        g++ \
+        libxerces-c-dev \
+        libfox-1.6-dev \
+        libgdal-dev \
+        libproj-dev \
+        libgl2ps-dev \
+        python3-dev \
+        swig \
+        default-jdk \
+        maven \
+        libeigen3-dev
+    
+    git clone --recursive https://github.com/eclipse/sumo
+    export SUMO_HOME=/sumo
+    mkdir sumo/build/cmake-build &amp;&amp; cd sumo/build/cmake-build
+    cmake ../..
+    make
+</code></pre>
+
+<h2 id="3-add-environment-variables">3. Add Environment Variables</h2>
+
+<p>While the <code>%post</code> section now contains all of the instructions for installing and compiling your desired program, 
+you likely need to add commands for setting up the environment so that the shell recognizes your program.
+This is typically the case if your program compiled successfully but you still get a “command not found” error when you try to execute it.</p>
+
+<p>To set environment variables automatically when your container runs, you need to add them to the <code>%environment</code> section before you build the container.</p>
+
+<p>For example, in the <code>%post</code> section there is the command <code>export SUMO_HOME=/sumo</code>, which sets the environment variable <code>SUMO_HOME</code> to the location of the <code>sumo</code> directory.
+This environment variable, however, is only active during the installation phase of the container build, and will not be set when the container is actually run.
+Thus, we need to set <code>SUMO_HOME</code> and update <code>PATH</code> with the location of the SUMO <code>bin</code> folder by using the <code>%environment</code> section.</p>
+
+<p>We therefore add the following lines to the <code>image.def</code> file:</p>
+
+<pre><code>%environment
+    export SUMO_HOME=/sumo
+    export PATH=/sumo/bin:$PATH
+</code></pre>
+
+<p>These environment variables will be set when the container starts, so that the <code>sumo</code> command is automatically found when we try to execute it.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>The full <code>image.def</code> file for this advanced example is now:</p>
+
+<pre><code>Bootstrap: docker
+From: ubuntu:22.04
+
+%post
+    chmod 777 /tmp
+    DEBIAN_FRONTEND=noninteractive
+
+    apt-get update -y
+    apt-get install -y \
+        git \
+        cmake \
+        python3 \
+        g++ \
+        libxerces-c-dev \
+        libfox-1.6-dev \
+        libgdal-dev \
+        libproj-dev \
+        libgl2ps-dev \
+        python3-dev \
+        swig \
+        default-jdk \
+        maven \
+        libeigen3-dev
+
+    git clone --recursive https://github.com/eclipse/sumo
+    export SUMO_HOME=/sumo
+    mkdir sumo/build/cmake-build &amp;&amp; cd sumo/build/cmake-build
+    cmake ../..
+    make
+
+%environment
+    export SUMO_HOME=/sumo
+    export PATH=/sumo/bin:$PATH
+</code></pre>
+
+<p>We can now build the container using this definition file.</p>
 
 <ul>
-  <li>nano</li>
-  <li>vi</li>
-  <li>emacs</li>
+  <li>For more information on the components of an Apptainer definition (<code>.def</code>) file and container image file (<code>.sif</code>), see our <a href="apptainer-build.html">Building an Apptainer Container</a> guide.</li>
+  <li>For information on building and using the container on the HTC system, see our <a href="apptainer-htc.html">Use Apptainer Containers</a> guide.</li>
 </ul>
-
-<p><code>nano</code> is the most beginner-friendly, and <code>emacs</code> is the most advanced.
-<a href="https://swcarpentry.github.io/shell-novice/03-create.html">This Software Carpentry
-lesson</a> describes
-how to use <code>nano</code>, and there are many other resources online with
-instructions for these text editors.</p>
-
-<p>Some of the file transfer programs mentioned <a href="#transfer-winscp">above</a>
-allow you to edit files on CHTC servers through the interface.</p>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -413,21 +532,32 @@ allow you to edit files on CHTC servers through the interface.</p>
             
             
 
-            <h6 class="mt-5">General Guides</h6>
+            <h6 class="mt-5">HTC Guides</h6>
             <div class="accordion accordion-flush">
                 
                     
+
                         
 
                         
 
                         <div class="accordion-item">
                             <h2 class="accordion-header mt-0" id="basics-and-policies">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
                                     Basics and Policies
                                 </button>
                             </h2>
-                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse show " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
+                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-overview">HTC System Overview</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/noShow-use-submit-node">Policies for Using HTC Submit Servers</a>
+                                    </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
@@ -436,7 +566,7 @@ allow you to edit files on CHTC servers through the interface.</p>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/transfer-files-computer">Transfer Files between CHTC and your Computer</a>
+                                        <a class="" href="/uw-research-computing/transfer-files-computer">Transfer Files between CHTC and your Computer</a>
                                     </div>
                                 
 
@@ -451,7 +581,17 @@ allow you to edit files on CHTC servers through the interface.</p>
                                 
 
                                     <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/globus">Use Globus to Transfer Files to and from CHTC</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
                                         <a class="" href="/uw-research-computing/github-remote-access">Access a Private GitHub Repository Remotely</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/check-quota">Check Disk Quota and Usage</a>
                                     </div>
                                 
                             </div>
@@ -459,25 +599,158 @@ allow you to edit files on CHTC servers through the interface.</p>
                     
                 
                     
-                
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="job-submission">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#job-submission-collapse" aria-expanded="false" aria-controls="job-submission">
+                                    Job Submission
+                                </button>
+                            </h2>
+                            <div id="job-submission-collapse" class="accordion-collapse collapse " aria-labelledby="job-submission" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/condor_q">Learn About Your Jobs Using condor_q</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htcondor-job-submission">Practice: Submit HTC Jobs using HTCondor</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/multiple-jobs">Submitting Multiple Jobs Using HTCondor</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/dagman-workflows">Workflows with HTCondor's DAGMan</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/multiple-job-dirs">Submitting Multiple Jobs in Individual Directories</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
                     
                 
                     
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="handling-data-in-jobs">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#handling-data-in-jobs-collapse" aria-expanded="false" aria-controls="handling-data-in-jobs">
+                                    Handling Data in Jobs
+                                </button>
+                            </h2>
+                            <div id="handling-data-in-jobs-collapse" class="accordion-collapse collapse " aria-labelledby="handling-data-in-jobs" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-availability">Small Input and Output File Availability Via HTCondor</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-avail-squid">Transfer Large Input Files Via Squid</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+
                         
 
                         
 
                         <div class="accordion-item">
                             <h2 class="accordion-header mt-0" id="software-solutions">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
+                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
                                     Software Solutions
                                 </button>
                             </h2>
-                            <div id="software-solutions-collapse" class="accordion-collapse collapse " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
+                            <div id="software-solutions-collapse" class="accordion-collapse collapse show " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/matlab-jobs">Running Matlab Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/python-jobs">Run Python Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/conda-installation">Create a Portable Python Installation with Miniconda</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/r-jobs">Run R Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/java-jobs">Run Java Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/julia-jobs">Run Julia Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/docker-jobs">Running HTC Jobs Using Docker Containers</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/docker-build">Build a Docker Container Image</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/licensed-software">Use Licensed Software</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/apptainer-htc">Use Apptainer Containers</a>
+                                    </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
                                         <a class="" href="/uw-research-computing/apptainer-build">Building an Apptainer Container</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="fw-bolder" href="/uw-research-computing/apptainer-htc-advanced-example">Advanced Apptainer Example - SUMO</a>
                                     </div>
                                 
                             </div>
@@ -485,7 +758,84 @@ allow you to edit files on CHTC servers through the interface.</p>
                     
                 
                     
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="special-use-cases">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-cases-collapse" aria-expanded="false" aria-controls="special-use-cases">
+                                    Special Use Cases
+                                </button>
+                            </h2>
+                            <div id="special-use-cases-collapse" class="accordion-collapse collapse " aria-labelledby="special-use-cases" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/gpu-jobs">Use GPUs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/machine-learning-htc">Run Machine Learning Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/scaling-htc">Scale Beyond Local HTC Capacity</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/checkpointing">Checkpointing Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/high-memory-jobs">Submit High Memory Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-modules">Use Software Available in Modules</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/os-transition-htc">Use Custom Linux Versions in CHTC</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
                 
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="troubleshooting">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshooting-collapse" aria-expanded="false" aria-controls="troubleshooting">
+                                    Troubleshooting
+                                </button>
+                            </h2>
+                            <div id="troubleshooting-collapse" class="accordion-collapse collapse " aria-labelledby="troubleshooting" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/dos-unix">Windows / Linux Incompatibility</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/docker-test">Explore and Test Docker Containers</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
                     
                 
             </div>
