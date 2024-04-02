@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-04-01T16:54:39+00:00" />
+<meta property="article:published_time" content="2024-04-02T00:27:25+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Use Apptainer Containers" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-04-01T16:54:39+00:00","datePublished":"2024-04-01T16:54:39+00:00","description":"Introduction","headline":"Use Apptainer Containers","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-04-02T00:27:25+00:00","datePublished":"2024-04-02T00:27:25+00:00","description":"Introduction","headline":"Use Apptainer Containers","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -315,21 +315,21 @@ This means your jobs will run in a more consistent environment that is easily re
 
 <h3 id="use-an-existing-container">Use an existing container</h3>
 
-<p>If you or a group member have already created the Apptainer <code>.sif</code> file, or using a container from reputable sources such as the <a href="https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/">OSG</a>, follow these steps to use it in an HTCondor job.</p>
+<p>If you or a group member have already created the Apptainer <code>.sif</code> file, or are using a container from reputable sources such as the <a href="https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/">OSG</a>, follow these steps to use it in an HTCondor job.</p>
 
 <h4 id="1-add-the-container-sif-file-to-your-submit-file-">1. Add the container <code>.sif</code> file to your submit file <a name="quickstart-use-submit"></a></h4>
 
-<p>If the <code>.sif</code> file is <strong>on the submit server</strong>:</p>
+<p>If the <code>.sif</code> file is <strong>in a <code>/home</code> directory</strong>:</p>
 
 <pre><code>container_image = path/to/my-container.sif
 </code></pre>
 
-<p>If the <code>.sif</code> file is <strong>on the <code>/staging</code> server</strong>:</p>
+<p>If the <code>.sif</code> file is <strong>in a <code>/staging</code> directory</strong>:</p>
 
 <pre><code>container_image = file:///staging/path/to/my-container.sif
 </code></pre>
 
-<p>If the <code>.sif</code> file is <strong>on the <code>/staging</code> server AND you are using <code>+WantFlocking</code> or <code>+WantGliding</code></strong>:</p>
+<p>If the <code>.sif</code> file is <strong>in a <code>/staging</code> directory AND you are using <code>+WantFlocking</code> or <code>+WantGliding</code></strong>:</p>
 
 <pre><code>container_image = osdf:///chtc/staging/path/to/my-container.sif
 </code></pre>
@@ -386,7 +386,7 @@ This file is used for actually executing the container.</p>
 
 <p>While still in the interactive build job, run the command</p>
 
-<pre class="term"><code>apptainer shell my-container.sif
+<pre class="term"><code>apptainer shell -e my-container.sif
 </code></pre>
 
 <p>This command will start the container and log you into it, allowing you to test your software commands.</p>
@@ -447,6 +447,21 @@ An advanced example of a definition file is provided in our <a href="apptainer-h
   </li>
 </ol>
 
+<h3 id="a-simple-definition-file">A simple definition file</h3>
+
+<p>As a simple example, here is the <code>.def</code> file that uses an existing container with python installed inside (<code>python:3.11</code>, <a href="https://hub.docker.com/_/python">from DockerHub</a>), 
+and furthermore installs the desired packages <code>cowsay</code> and <code>tqdm</code>:</p>
+
+<pre><code>Bootstrap: docker
+From: python:3.11
+
+%post
+    python3 -m pip install cowsay tqdm
+</code></pre>
+
+<p>Remember that the <code>.def</code> file contains the <em>instructions</em> for creating your container and is not itself the container. 
+To use the software defined within the <code>.def</code> file, you will need to first “build” the container and create the <code>.sif</code> file, as described in the following sections.</p>
+
 <p><a href="#quickstart-build-definition-file">Jump back to Quickstart</a></p>
 
 <h2 id="start-an-interactive-build-job">Start an Interactive Build Job</h2>
@@ -468,6 +483,8 @@ executable = /usr/bin/hostname
 
 # If you have additional files in your /home directory that are required for your container, add them to the transfer_input_files line as a comma-separated list.
 transfer_input_files = image.def
+
+requirements = (HasCHTCStaging == true)
 
 +IsBuildJob = true
 request_cpus = 4
@@ -604,6 +621,8 @@ log = job.log
 error = job.err
 output = job.out
 
+requirements = (HasCHTCStaging == true)
+
 # Make sure you request enough disk for the container image in addition to your other input files
 request_cpus = 1
 request_memory = 4GB
@@ -641,7 +660,9 @@ The process looks roughly like</p>
     <li>Transfer output files back to the submit server</li>
   </ul>
 
-  <p>For testing purposes, you can replicate the behavior of a container job with the following command (remember to first start an interactive job if you are logged in to the submit server).</p>
+  <p>For testing purposes, you can replicate the behavior of a container job with the following command.
+First, start an interactive job.
+Then run this command but change <code>my-container.sif</code> and <code>myExecutable.sh</code> to the names of the <code>.sif</code> and <code>.sh</code> files that you are using:</p>
 
   <pre class="term"><code>apptainer exec \
         --scratch /tmp \
