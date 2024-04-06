@@ -280,7 +280,7 @@
             
                 <div class="rounded p-4 mb-3 shadow">
     <div>
-        <h3 id="distributed-training-of-ml-models" class="my-2 mb-1 uw-mini-bar">Distributed training of ML models</h3>
+        <h3 id="synchronizing-datasets-via-the-osdf" class="my-2 mb-1 uw-mini-bar">Synchronizing datasets via the OSDF</h3>
         <div class="row justify-content-between d-flex">
             <div class="col-auto">
                 <span class="fw-light">Large</span>
@@ -289,12 +289,38 @@
         </div>
         
     </div>
-    <p>As machine learning models become larger and more complex, the computational needs expand beyond
-single-GPU and single-machine capabilities. This project aims to leverage distributed ML software 
-(e.g. PyTorch elastic) within the HTCondor Software Suite (HTCSS) to utilize CHTC resources in 
-these large computing tasks. Students will develop strategies, software components, and guides 
-to enable researchers to distribute training tasks across multiple GPU nodes within the cluster.
-Students working on this project will develop valuable ML and distributed computing knowledge.</p>
+    <p>The <code>pelican</code> client tool provides a standalone mechanism to upload and download single
+files from a data federation.  While the client works well, a typical use case is downloading
+an entire dataset - potentially, tens of thousands of files or hundreds of terabytes.
+When moving a dataset, features like state management and resumption become important.</p>
+
+<p>In this project, we will explore better ways to automate dataset movement to and from the 
+OSDF, exploring approaches like the <a href="https://github.com/htcondor/htcondor-file-transfer">HTCondor file transfer tool</a>. 
+The goal for the end of the summer would be to move a 100TB dataset using a single command.</p>
+
+    
+</div>
+
+            
+                <div class="rounded p-4 mb-3 shadow">
+    <div>
+        <h3 id="database-techniques-and-data-architecture" class="my-2 mb-1 uw-mini-bar">Database techniques and data architecture</h3>
+        <div class="row justify-content-between d-flex">
+            <div class="col-auto">
+                <span class="fw-light">Medium</span>
+            </div>
+            
+        </div>
+        
+    </div>
+    <p>The HTCondor scheduler stores historical information about completed and 
+removed jobs in a single, flat, sequential file on disk with little indexing.
+As such, querying this file for information about a single job is very slow.
+This project will add an index, perhaps with an off-the-shelf open source 
+database or on-disk hashing tool to provide quick access to single entries 
+in the history, and use this index in the python based cli tool. Students 
+completing this project will gain real world experience in database
+techniques and Python programming.</p>
 
     
 </div>
@@ -328,7 +354,7 @@ understanding of how a distributed High Throughput System works.</p>
             
                 <div class="rounded p-4 mb-3 shadow">
     <div>
-        <h3 id="synchronizing-datasets-via-the-osdf" class="my-2 mb-1 uw-mini-bar">Synchronizing datasets via the OSDF</h3>
+        <h3 id="distributed-training-of-ml-models" class="my-2 mb-1 uw-mini-bar">Distributed training of ML models</h3>
         <div class="row justify-content-between d-flex">
             <div class="col-auto">
                 <span class="fw-light">Large</span>
@@ -337,38 +363,12 @@ understanding of how a distributed High Throughput System works.</p>
         </div>
         
     </div>
-    <p>The <code>pelican</code> client tool provides a standalone mechanism to upload and download single
-files from a data federation.  While the client works well, a typical use case is downloading
-an entire dataset - potentially, tens of thousands of files or hundreds of terabytes.
-When moving a dataset, features like state management and resumption become important.</p>
-
-<p>In this project, we will explore better ways to automate dataset movement to and from the 
-OSDF, exploring approaches like the <a href="https://github.com/htcondor/htcondor-file-transfer">HTCondor file transfer tool</a>. 
-The goal for the end of the summer would be to move a 100TB dataset using a single command.</p>
-
-    
-</div>
-
-            
-                <div class="rounded p-4 mb-3 shadow">
-    <div>
-        <h3 id="integrating-pytorch-and-pelican" class="my-2 mb-1 uw-mini-bar">Integrating Pytorch and Pelican</h3>
-        <div class="row justify-content-between d-flex">
-            <div class="col-auto">
-                <span class="fw-light">Large</span>
-            </div>
-            
-        </div>
-        
-    </div>
-    <p>PyTorch is one of the most popular machine learning frameworks.  An important aspect of 
-using it is the data engineering: how is input data fed into the model during training?<br />
-Going from “tutorial scale” problems to cutting-edge research requires drastically different 
-techniques around data handling.</p>
-
-<p>For this project, we aim to better integrate Pelican into the PyTorch community, providing both
-technical mechanisms (implementing the fsspec interface for Pelican) and documentation by providing
-tutorials and recipes for scaling PyTorch-based training using a combination of HTCondor and Pelican.</p>
+    <p>As machine learning models become larger and more complex, the computational needs expand beyond
+single-GPU and single-machine capabilities. This project aims to leverage distributed ML software 
+(e.g. PyTorch elastic) within the HTCondor Software Suite (HTCSS) to utilize CHTC resources in 
+these large computing tasks. Students will develop strategies, software components, and guides 
+to enable researchers to distribute training tasks across multiple GPU nodes within the cluster.
+Students working on this project will develop valuable ML and distributed computing knowledge.</p>
 
     
 </div>
@@ -401,23 +401,23 @@ a morning snapshot of the federation’s status.</p>
             
                 <div class="rounded p-4 mb-3 shadow">
     <div>
-        <h3 id="database-techniques-and-data-architecture" class="my-2 mb-1 uw-mini-bar">Database techniques and data architecture</h3>
+        <h3 id="integrating-pytorch-and-pelican" class="my-2 mb-1 uw-mini-bar">Integrating Pytorch and Pelican</h3>
         <div class="row justify-content-between d-flex">
             <div class="col-auto">
-                <span class="fw-light">Medium</span>
+                <span class="fw-light">Large</span>
             </div>
             
         </div>
         
     </div>
-    <p>The HTCondor scheduler stores historical information about completed and 
-removed jobs in a single, flat, sequential file on disk with little indexing.
-As such, querying this file for information about a single job is very slow.
-This project will add an index, perhaps with an off-the-shelf open source 
-database or on-disk hashing tool to provide quick access to single entries 
-in the history, and use this index in the python based cli tool. Students 
-completing this project will gain real world experience in database
-techniques and Python programming.</p>
+    <p>PyTorch is one of the most popular machine learning frameworks.  An important aspect of 
+using it is the data engineering: how is input data fed into the model during training?<br />
+Going from “tutorial scale” problems to cutting-edge research requires drastically different 
+techniques around data handling.</p>
+
+<p>For this project, we aim to better integrate Pelican into the PyTorch community, providing both
+technical mechanisms (implementing the fsspec interface for Pelican) and documentation by providing
+tutorials and recipes for scaling PyTorch-based training using a combination of HTCondor and Pelican.</p>
 
     
 </div>
@@ -478,25 +478,6 @@ in Python and monitoring and Google Docs APIs.</p>
             
                 <div class="rounded p-4 mb-3 shadow">
     <div>
-        <h3 id="easy-code-profiling" class="my-2 mb-1 uw-mini-bar">Easy Code Profiling</h3>
-        <div class="row justify-content-between d-flex">
-            <div class="col-auto">
-                <span class="fw-light">Medium</span>
-            </div>
-            
-        </div>
-        
-    </div>
-    <p>Develop and publish recommendations for how researchers can better profile and understand
-their code. Run 1-2 focus groups to gather ideas and get feedback, and then organize a 
-short workshop sharing recommendations and providing hands-on examples.</p>
-
-    
-</div>
-
-            
-                <div class="rounded p-4 mb-3 shadow">
-    <div>
         <h3 id="building-training-materials" class="my-2 mb-1 uw-mini-bar">Building training materials</h3>
         <div class="row justify-content-between d-flex">
             <div class="col-auto">
@@ -509,6 +490,25 @@ short workshop sharing recommendations and providing hands-on examples.</p>
     <p>Catalog existing training materials for the OSPool / OSDF. Archive
 outdated materials and develop new training materials for using Pelican.
 Run an online workshop to test the new materials.</p>
+
+    
+</div>
+
+            
+                <div class="rounded p-4 mb-3 shadow">
+    <div>
+        <h3 id="easy-code-profiling" class="my-2 mb-1 uw-mini-bar">Easy Code Profiling</h3>
+        <div class="row justify-content-between d-flex">
+            <div class="col-auto">
+                <span class="fw-light">Medium</span>
+            </div>
+            
+        </div>
+        
+    </div>
+    <p>Develop and publish recommendations for how researchers can better profile and understand
+their code. Run 1-2 focus groups to gather ideas and get feedback, and then organize a 
+short workshop sharing recommendations and providing hands-on examples.</p>
 
     
 </div>
@@ -543,27 +543,27 @@ repository and OSPool guides to build your own container.</p>
                             <h3>Fellowships</h3>
                             <ul>
                                 
-                                    <li><a href="#tracking-server-inventory-and-elevation">Tracking server inventory and elevation</a></li>
+                                    <li><a href="#synchronizing-datasets-via-the-osdf">Synchronizing datasets via the OSDF</a></li>
+                                
+                                    <li><a href="#building-training-materials">Building training materials</a></li>
+                                
+                                    <li><a href="#database-techniques-and-data-architecture">Database techniques and data architecture</a></li>
+                                
+                                    <li><a href="#user-interface-and-jupyter-widgets">User interface and Jupyter widgets</a></li>
                                 
                                     <li><a href="#distributed-training-of-ml-models">Distributed training of ML models</a></li>
                                 
                                     <li><a href="#easy-code-profiling">Easy Code Profiling</a></li>
                                 
-                                    <li><a href="#building-training-materials">Building training materials</a></li>
+                                    <li><a href="#benchmarking-osdf-performance-via-the-ospool">Benchmarking OSDF Performance via the OSPool</a></li>
                                 
-                                    <li><a href="#developing-software-recipes">Developing software recipes</a></li>
-                                
-                                    <li><a href="#user-interface-and-jupyter-widgets">User interface and Jupyter widgets</a></li>
-                                
-                                    <li><a href="#synchronizing-datasets-via-the-osdf">Synchronizing datasets via the OSDF</a></li>
+                                    <li><a href="#tracking-server-inventory-and-elevation">Tracking server inventory and elevation</a></li>
                                 
                                     <li><a href="#integrating-pytorch-and-pelican">Integrating Pytorch and Pelican</a></li>
                                 
-                                    <li><a href="#benchmarking-osdf-performance-via-the-ospool">Benchmarking OSDF Performance via the OSPool</a></li>
-                                
-                                    <li><a href="#database-techniques-and-data-architecture">Database techniques and data architecture</a></li>
-                                
                                     <li><a href="#grid-exerciser">Grid Exerciser</a></li>
+                                
+                                    <li><a href="#developing-software-recipes">Developing software recipes</a></li>
                                 
                             </ul>
                         </div>
