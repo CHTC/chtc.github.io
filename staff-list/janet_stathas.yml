@@ -1,0 +1,14 @@
+name: "Janet Stathas"
+date: 2020-10-27T10:47:58+10:00
+draft: false
+image: "images/janet_stathas.jpg"
+title: "Project Manager"
+institution: "Morgridge Institute for Research"
+#website: ""
+linkedinurl: ""
+status: Staff
+weight: 5
+organizations: 
+    - path
+    - chtc
+    - osg

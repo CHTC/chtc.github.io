@@ -1,0 +1,15 @@
+name: "Derek Weitzel"
+date: 2018-11-19T10:47:58+10:00
+draft: false
+image: "images/derek_weitzel.png"
+title: "Institutional PI"
+institution: "University of Nebraska-Lincoln"
+status: Staff
+website: "https://derekweitzel.com"
+description: Derek Weitzel is an Assistant Research Professor at the Univeristy of Nebraska-Lincoln's Computer Science and Engineering Department.
+osg:
+    title: Software Integration Developer
+    website: https://github.com/djw8605
+organizations: 
+    - path
+    - osg

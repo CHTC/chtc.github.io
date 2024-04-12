@@ -1,0 +1,14 @@
+name: "Rachel Lombardi"
+date: 2021-11-23T19:31:00-05:00
+draft: false
+image: "images/rachel_lombardi.jpg"
+title: "Research Computing Facilitator"
+institution: "University of Wisconsin–Madison"
+status: Staff
+#website: ""
+linkedinurl: ""
+weight: 5
+organizations: 
+    - path
+    - chtc
+    - osg

@@ -1,0 +1,15 @@
+name: "Mátyás Selmeci"
+shortname: matyasselmeci
+date: 2020-09-18T15:46:09-05:00
+draft: false
+image: "images/matyas_selmeci.jpg"
+title: "Software Integration Developer"
+institution: "University of Wisconsin–Madison"
+status: Staff
+linkedinurl: ""
+weight: 5
+organizations: 
+    - path
+    - chtc
+    - osg
+    - pelican

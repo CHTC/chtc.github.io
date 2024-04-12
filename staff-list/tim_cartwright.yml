@@ -1,0 +1,18 @@
+name: "Tim Cartwright"
+shortname: osg-cat
+date: 2020-09-21T05:00:01-05:00
+draft: false
+image: "images/tim_cartwright.jpg"
+title: "Research Services Manager"
+institution: "University of Wisconsin–Madison"
+website: http://pages.cs.wisc.edu/~cat/
+status: Staff
+weight: 5
+chtc:
+    title: OSG Deputy Director/XO
+osg:
+    title: CC* Coordinator
+organizations: 
+    - path
+    - chtc
+    - osg

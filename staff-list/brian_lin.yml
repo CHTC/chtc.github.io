@@ -1,0 +1,21 @@
+name: "Brian Lin"
+date: 2018-11-19T10:47:58+10:00
+draft: false
+image: "images/brian_lin.jpg"
+title: "Infrastructure Services Lead"
+institution: "University of Wisconsin–Madison"
+#website: ""
+linkedinurl: ""
+weight: 5
+status: Staff
+chtc:
+    title: OSG Software Area Coordinator
+osg: 
+    title: Software Area Coordinator
+pelican:
+    title: OSG Software Area Coordinator
+organizations: 
+    - path
+    - chtc
+    - osg
+    - pelican

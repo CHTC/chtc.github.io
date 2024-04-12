@@ -1,0 +1,12 @@
+name: "Jason Patton"
+date: 2018-11-19T10:47:58+10:00
+draft: false
+image: "images/jason_patton.png"
+title: "Software Integration Developer"
+#website: ""
+institution: "University of Wisconsin-Madison"
+weight: 5
+status: Staff
+organizations: 
+    - path
+    - chtc

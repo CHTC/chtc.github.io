@@ -1,0 +1,13 @@
+name: "Mats Rynge"
+shortname: rynge
+date: 2018-11-19T10:47:58+10:00
+draft: false
+image: "images/mats_rynge.jpg"
+title: "Systems Integrator"
+institution: "University of Southern California - Information Sciences Institute"
+#website: ""
+linkedinurl: ""
+weight: 5
+organizations: 
+    - path
+    - osg

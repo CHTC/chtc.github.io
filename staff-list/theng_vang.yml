@@ -1,0 +1,12 @@
+name: Theng Vang
+shortname: theng
+title: System Administrator
+active: green
+institution: University of Wisconsin-Madison
+website:
+image: images/theng_vang.jpg
+status: Staff
+organizations: 
+    - path
+    - chtc
+    - osg

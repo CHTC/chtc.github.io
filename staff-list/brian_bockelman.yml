@@ -1,0 +1,21 @@
+name: "Brian Bockelman"
+date: 2018-11-19T10:47:58+10:00
+draft: false
+image: "images/brian_bockelman.jpg"
+title: "FoCaS co-lead"
+#website: ""
+institution: "Morgridge Institute for Research"
+promoted: true
+weight: 3
+description: Bockelman is an Investigator at the Morgridge Institute for Research and co-lead of the FoCaS area.
+status: Leadership
+osg:
+    title: OSG Technology Lead
+    website: "https://opensciencegrid.org"
+pelican:
+    title: Principal Investigator
+organizations: 
+    - path
+    - chtc
+    - osg
+    - pelican

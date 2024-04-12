@@ -1,0 +1,10 @@
+image: images/emma_turetsky.jpg
+institution: Morgridge Institute for Research
+title: Research Software Engineer
+name: Emma Turetsky
+status: Staff
+pelican:
+    title: Software Engineer
+organizations:
+    - chtc
+    - pelican

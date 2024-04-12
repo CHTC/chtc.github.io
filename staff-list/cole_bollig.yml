@@ -1,0 +1,10 @@
+name: "Cole Bollig"
+status: Staff
+image: "images/cole_bollig.jpg"
+title: "Systems Software Developer"
+institution: "University of Wisconsin - Madison"
+chtc: 
+    title: HTCondor Core Developer
+organizations: 
+    - path
+    - chtc

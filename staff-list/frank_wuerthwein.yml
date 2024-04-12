@@ -1,0 +1,16 @@
+name: "Frank Wuerthwein"
+date: 2018-11-19T10:47:58+10:00
+draft: false
+image: "images/frank_wuerthwein.jpg"
+title: "OSG Executive Director"
+website: 
+institution: "University of California San Diego"
+promoted: true
+weight: 2
+description: Wuerthwein is a Professor of Physics at UCSD and the Executive Director of the OSG.
+pelican:
+    title: Co-Principal Investigator
+organizations: 
+    - path
+    - osg
+    - pelican

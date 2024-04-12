@@ -1,0 +1,22 @@
+name: "Christina Koch"
+date: 2018-11-19T10:47:58+10:00
+draft: false
+image: "images/christina_koch.jpg"
+title: "Research Facilitator Manager"
+institution: "University of Wisconsin - Madison"
+website: https://wid.wisc.edu/people/christina-koch/
+is_facilitator: 1
+status: Staff
+linkedinurl: ""
+weight: 5
+chtc:
+    title: Lead Research Computing Facilitator
+pelican:
+    title: Lead Research Computing Facilitator
+osg:
+    title: OSG Research Facilitation Lead
+organizations: 
+    - path
+    - chtc
+    - osg
+    - pelican

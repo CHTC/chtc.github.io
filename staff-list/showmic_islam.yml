@@ -1,0 +1,9 @@
+name: "Showmic Islam"
+image: "images/showmic_islam.jpg"
+title: "Research Facilitator"
+#website: ""
+institution: "University of Nebraska-Lincoln"
+weight: 5
+organizations: 
+    - path
+    - osg

@@ -1,0 +1,13 @@
+name: "Cannon Lock"
+draft: false
+image: "images/cannon_lock.jpg"
+title: "Web Developer"
+institution: "Morgridge Institute for Research"
+status: Staff
+linkedinurl: ""
+weight: 5
+organizations: 
+    - path
+    - chtc
+    - osg
+    - pelican

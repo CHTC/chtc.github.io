@@ -1,0 +1,13 @@
+name: "Todd L Miller"
+date: 2018-11-19T10:47:58+10:00
+draft: false
+image: "images/todd_miller.png"
+title: "Senior Systems Software Developer"
+status: Staff
+institution: "University of Wisconsin-Madison"
+weight: 5
+chtc: 
+    title: HTCondor Core Developer
+organizations: 
+    - path
+    - chtc

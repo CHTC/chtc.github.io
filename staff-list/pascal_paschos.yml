@@ -1,0 +1,10 @@
+name: "Pascal Paschos"
+date: 2020-09-28T05:00:01-05:00
+draft: false
+image: "images/pascal_paschos.png"
+title: "Senior Computational Scientist"
+institution: "University of Chicago"
+#website: ""
+weight: 5
+organizations: 
+    - path

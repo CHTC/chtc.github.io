@@ -1,0 +1,14 @@
+name: "Greg Thain"
+date: 2018-11-19T10:47:58+10:00
+draft: false
+image: "images/greg_thain.jpg"
+title: "Senior Systems Software Developer"
+#website: ""
+institution: "University of Wisconsin-Madison"
+status: Staff
+weight: 5
+chtc: 
+    title: HTCondor Core Developer
+organizations: 
+    - path
+    - chtc

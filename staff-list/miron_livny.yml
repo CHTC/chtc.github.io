@@ -1,0 +1,23 @@
+name: "Miron Livny"
+shortname: miron
+date: 2018-11-19T10:47:58+10:00
+draft: false
+image: "images/miron_livny.png"
+title: "PATh PI"
+website: "https://wid.wisc.edu/people/miron-livny/"
+institution: "University of Wisconsin–Madison"
+promoted: true
+weight: 1
+status: Leadership
+description: Livny is a Professor of Computer Science and the lead of the PATh project.
+chtc:
+    title: Director
+osg:
+    title: OSG Technical Director and PI
+pelican:
+    title: Co-Principal Investigator
+organizations: 
+    - path
+    - chtc
+    - osg
+    - pelican
