@@ -12,6 +12,8 @@ chtc:
     title: OSG Deputy Director/XO
 osg:
     title: CC* Coordinator
+    promoted: true
+    weight: 5
 organizations: 
     - path
     - chtc

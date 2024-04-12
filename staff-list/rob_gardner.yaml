@@ -6,6 +6,8 @@ title: Institutional PI
 website: https://efi.uchicago.edu/people/profile/rob-gardner/
 osg:
     title: OSG Collaboration Support Lead and OSG Council Chair
+    promoted: true
+    weight: 4
 organizations: 
     - path
     - osg
