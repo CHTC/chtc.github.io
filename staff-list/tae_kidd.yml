@@ -4,6 +4,9 @@ title: Project Manager
 name: Tae Kidd
 status: Staff
 website: null
+pelican:
+    title: Project Manager
+    weight: 4
 organizations: 
     - path
     - chtc

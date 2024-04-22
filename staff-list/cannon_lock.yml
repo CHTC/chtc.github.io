@@ -6,6 +6,9 @@ institution: "Morgridge Institute for Research"
 status: Staff
 linkedinurl: ""
 weight: 5
+pelican:
+    title: "Web Developer"
+    weight: 6
 organizations: 
     - path
     - chtc

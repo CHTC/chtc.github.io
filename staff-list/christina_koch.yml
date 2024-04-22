@@ -13,6 +13,7 @@ chtc:
     title: Lead Research Computing Facilitator
 pelican:
     title: Lead Research Computing Facilitator
+    weight: 14
 osg:
     title: OSG Research Facilitation Lead
     promoted: true
