@@ -4,8 +4,6 @@ title: Student Web Developer
 name: Alperen Bakirci
 status: Student
 website: null
-pelican:
-    weight: 18
 organizations: 
     - path
     - chtc

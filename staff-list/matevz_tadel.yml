@@ -4,7 +4,5 @@ title: Project Scientist
 name: Matevz Tadel
 status: Staff
 website: null
-pelican:
-    weight: 10
 organizations: 
     - pelican

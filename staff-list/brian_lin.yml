@@ -14,7 +14,6 @@ osg:
     title: Software Area Coordinator
 pelican:
     title: OSG Software Area Coordinator
-    weight: 13
 organizations: 
     - path
     - chtc
