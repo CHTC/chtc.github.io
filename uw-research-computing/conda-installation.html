@@ -26,18 +26,18 @@
 <meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="Create a Portable Python Installation with Miniconda" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The Anaconda/Miniconda distribution of Python is a common tool for installing and managing Python-based software and other tools. This guide describes how to use Miniconda to create a Python environment for use in CHTC jobs." />
-<meta property="og:description" content="The Anaconda/Miniconda distribution of Python is a common tool for installing and managing Python-based software and other tools. This guide describes how to use Miniconda to create a Python environment for use in CHTC jobs." />
+<meta name="description" content="The Anaconda/Miniconda distribution of Python is a common tool for installing and managing Python-based software and other tools. This guide describes how to use Miniconda to create a portable Python environment for use in CHTC jobs." />
+<meta property="og:description" content="The Anaconda/Miniconda distribution of Python is a common tool for installing and managing Python-based software and other tools. This guide describes how to use Miniconda to create a portable Python environment for use in CHTC jobs." />
 <link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/conda-installation" />
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/conda-installation" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-04-29T00:28:53+00:00" />
+<meta property="article:published_time" content="2024-04-29T20:28:30+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Create a Portable Python Installation with Miniconda" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-04-29T00:28:53+00:00","datePublished":"2024-04-29T00:28:53+00:00","description":"The Anaconda/Miniconda distribution of Python is a common tool for installing and managing Python-based software and other tools. This guide describes how to use Miniconda to create a Python environment for use in CHTC jobs.","headline":"Create a Portable Python Installation with Miniconda","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/conda-installation"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/conda-installation"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-04-29T20:28:30+00:00","datePublished":"2024-04-29T20:28:30+00:00","description":"The Anaconda/Miniconda distribution of Python is a common tool for installing and managing Python-based software and other tools. This guide describes how to use Miniconda to create a portable Python environment for use in CHTC jobs.","headline":"Create a Portable Python Installation with Miniconda","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/conda-installation"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/conda-installation"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -274,55 +274,51 @@
 
             <p>The Anaconda/Miniconda distribution of Python is a common tool for 
 installing and managing Python-based software and other tools. This guide 
-describes how to use Miniconda to create a Python 
+describes how to use Miniconda to create a portable Python 
 environment for use in CHTC jobs.</p>
 
-<h1 id="overview">Overview</h1>
+<p><strong>We recommend setting up a container for using Conda, as described <a href="software-overview-htc.md#miniconda-quickstart-a">here</a>.</strong>
+We are keeping this process as an alternative.</p>
 
-<p>When should you use Miniconda as an installation method in CHTC?</p>
-<ul>
-  <li>Your software has specific conda-centric installation instructions.</li>
-  <li>The above is true <em>and</em> the software has a lot of dependencies.</li>
-  <li>You mainly use Python to do your work.</li>
-</ul>
+<!--
+# Overview
 
-<p>Notes on terminology:</p>
-<ul>
-  <li><strong>conda</strong> is a Python package manager and package ecosystem that exists in
-parallel with <code>pip</code> and <a href="https://pypi.org/">PyPI</a>.</li>
-  <li><strong>Miniconda</strong> is a slim Python distribution, containing the minimum amount
-of packages necessary for a Python installation that can use conda.</li>
-  <li><strong>Anaconda</strong> is a pre-built scientific Python distribution based on 
-Miniconda that has many useful scientific packages pre-installed.</li>
-</ul>
+When should you use Miniconda as an installation method in CHTC? 
+- Your software has specific conda-centric installation instructions.
+- The above is true *and* the software has a lot of dependencies.
+- You mainly use Python to do your work. 
 
-<p>To create the smallest, most portable Python installation possible, 
+Notes on terminology:
+- **conda** is a Python package manager and package ecosystem that exists in
+  parallel with `pip` and [PyPI](https://pypi.org/).
+- **Miniconda** is a slim Python distribution, containing the minimum amount
+  of packages necessary for a Python installation that can use conda.
+- **Anaconda** is a pre-built scientific Python distribution based on 
+  Miniconda that has many useful scientific packages pre-installed.
+
+To create the smallest, most portable Python installation possible, 
 we recommend starting with Miniconda and installing only the packages you 
-actually require.</p>
+actually require.
 
-<p>There are two ways to create a Miniconda installation on CHTC’s HTC system. 
+There are two ways to create a Miniconda installation on CHTC's HTC system. 
 The first is to create your 
 installation environment on the submit server and send a zipped version to 
 your jobs. The other option is to install Miniconda inside each job. 
 The first option is more efficient, especially for complex installations, 
 but there may be rare situations where installing with each job is better. 
 We recommend trying the pre-installation option first.
-If it doesn’t work, discuss the second option with a facilitator.</p>
+If it doesn't work, discuss the second option with a facilitator.
 
-<ul>
-  <li>Recommended: <a href="#option-1-pre-install-miniconda-and-transfer-to-jobs">Option 1: Pre-Install Miniconda and Transfer to Jobs</a></li>
-  <li>Alternative: <a href="#option-2-install-miniconda-inside-each-job">Option 2: Install Miniconda Inside Each Job</a></li>
-</ul>
+- Recommended: [Option 1: Pre-Install Miniconda and Transfer to Jobs](#option-1-pre-install-miniconda-and-transfer-to-jobs)
+- Alternative: [Option 2: Install Miniconda Inside Each Job](#option-2-install-miniconda-inside-each-job)
 
-<p>This guide also discusses how to 
-<a href="#specifying-exact-dependency-versions">“pin” your conda environment</a>
+This guide also discusses how to 
+["pin" your conda environment](#specifying-exact-dependency-versions)
 to create a more consistent and reproducible environment with specified versions of 
-packages.</p>
+packages.
 
-<h1 id="option-1-pre-install-miniconda-and-transfer-to-jobs">Option 1: Pre-Install Miniconda and Transfer to Jobs</h1>
-
-<p>In this approach, we will create an entire software installation inside Miniconda 
-and then use a tool called <code>conda pack</code> to package it up for running jobs.</p>
+# Option 1: Pre-Install Miniconda and Transfer to Jobs
+-->
 
 <h2 id="1-create-a-miniconda-installation">1. Create a Miniconda installation</h2>
 
@@ -486,35 +482,37 @@ delivering the installation to your jobs,
 likely our <a href="file-avail-squid.html">SQUID web proxy</a>.</strong></li>
 </ul>
 
-<h1 id="option-2-install-miniconda-inside-each-job">Option 2: Install Miniconda Inside Each Job</h1>
+<!--
+# Option 2: Install Miniconda Inside Each Job
 
-<p>In this approach, rather than copying the Miniconda installation with each job, 
-we will copy the Miniconda <em>installer</em> and install a new copy of Miniconda with 
-each job.</p>
+In this approach, rather than copying the Miniconda installation with each job, 
+we will copy the Miniconda *installer* and install a new copy of Miniconda with 
+each job.
 
-<p><strong>Do not use this installation method unless directed to do by a facilitator!</strong></p>
+**Do not use this installation method unless directed to do by a facilitator!**
 
-<h2 id="1-download-the-miniconda-installer-and-test-installation">1. Download the Miniconda Installer and Test Installation</h2>
+## 1. Download the Miniconda Installer and Test Installation
 
-<p>If you haven’t already, download the latest Miniconda installer for Linux from the 
-<a href="https://docs.conda.io/en/latest/miniconda.html#linux-installers">Miniconda website</a> 
-and place it in your home directory on a CHTC submit server.</p>
+If you haven't already, download the latest Miniconda installer for Linux from the 
+[Miniconda website](https://docs.conda.io/en/latest/miniconda.html#linux-installers) 
+and place it in your home directory on a CHTC submit server. 
 
-<p>We strongly recommend testing the installation steps for your particular program 
+We strongly recommend testing the installation steps for your particular program 
 or packages - either on your own computer or similar to the 
-<a href="#option-1-pre-install-miniconda-and-transfer-to-jobs">directions above</a> - 
-before trying to submit the installation as part of a job to CHTC.</p>
+[directions above](#option-1-pre-install-miniconda-and-transfer-to-jobs) - 
+before trying to submit the installation as part of a job to CHTC. 
 
-<h2 id="2-create-an-executable-script">2. Create an Executable Script</h2>
+## 2. Create an Executable Script
 
-<p>Our plan here is to run the Miniconda installer inside the job, build an environment 
+Our plan here is to run the Miniconda installer inside the job, build an environment 
 with needed packages, and then run our desired script or program. The following 
-script should work verbatim except for changing the <code>conda install</code> step to the packages 
-you need or the instructions for your program. See <a href="#specifying-exact-dependency-versions">below</a>
-for instructions on using an <code>environment.yml</code> environment specification instead
-of “manually” listing packages in your job script.</p>
+script should work verbatim except for changing the `conda install` step to the packages 
+you need or the instructions for your program. See [below](#specifying-exact-dependency-versions)
+for instructions on using an `environment.yml` environment specification instead
+of "manually" listing packages in your job script.
 
-<pre class="file"><code>#!/bin/bash
+```
+#!/bin/bash
 
 set -e
 
@@ -529,21 +527,25 @@ conda install numpy matplotlib
 
 # modify this line to run your desired Python script
 python3 hello.py
-</code></pre>
+```
+{:.file}
 
-<h2 id="3-submit-file">3. Submit File</h2>
+## 3. Submit File
 
-<p>In your submit file, include the executable you wrote (as described above)
-and in <code>transfer_input_files</code> include the Miniconda installer and any other scripts 
-or data files you want to include with the job:</p>
+In your submit file, include the executable you wrote (as described above)
+and in `transfer_input_files` include the Miniconda installer and any other scripts 
+or data files you want to include with the job: 
 
-<pre class="sub"><code>executable = run_with_conda.sh
+```
+executable = run_with_conda.sh
 arguments = myscript.py
 
 transfer_input_files = Miniconda3-latest-Linux-x86_64.sh, script.py, other_input.file
-</code></pre>
+```
+{:.sub}
+-->
 
-<h1 id="specifying-exact-dependency-versions">Specifying Exact Dependency Versions</h1>
+<h2 id="specifying-exact-dependency-versions">Specifying Exact Dependency Versions</h2>
 
 <p>An important part of improving reproducibility and consistency between runs
 is to ensure that you use the correct/expected versions of your dependencies.</p>
@@ -565,6 +567,7 @@ This file can be re-used by a different conda command to recreate that
 exact environment on another computer.</p>
 
 <p>To create an <code>environment.yml</code> file from your currently-activated environment, run</p>
+
 <pre class="term"><code>[alice@submit]$ conda env export &gt; environment.yml
 </code></pre>
 
@@ -573,8 +576,10 @@ environment</em>. This can sometimes be problematic if you are moving between
 platforms because a package version may not be available on some other platform,
 causing an “unsatisfiable dependency” or “inconsistent environment” error.
 A much less strict pinning is</p>
+
 <pre class="term"><code>[alice@submit]$ conda env export --from-history &gt; environment.yml
 </code></pre>
+
 <p>which only lists packages that you installed manually, and <strong>does not pin their
 versions unless you yourself pinned them during installation</strong>. 
 If you need an intermediate solution, it is also possible to manually edit 
@@ -586,8 +591,10 @@ transferable between platforms (e.g., between Windows and Linux).
 <strong>We strongly recommend using the strictest possible pinning available to you.</strong></p>
 
 <p>To create an environment from an <code>environment.yml</code> file, run</p>
+
 <pre class="term"><code>[alice@submit]$ conda env create -f environment.yml
 </code></pre>
+
 <p>By default, the name of the environment will be whatever the name of the source
 environment was; you can change the name by adding a <code>-n &lt;name&gt;</code> option to the
 <code>conda env create</code> command.</p>
@@ -782,45 +789,20 @@ then pack it for use in your jobs, as per
 
                         <div class="accordion-item">
                             <h2 class="accordion-header mt-0" id="software-solutions">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
                                     Software Solutions
                                 </button>
                             </h2>
-                            <div id="software-solutions-collapse" class="accordion-collapse collapse show " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
+                            <div id="software-solutions-collapse" class="accordion-collapse collapse " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/software-overview-htc">Overview: How to Use Software</a>
+                                    </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
                                         <a class="" href="/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/matlab-jobs">Running Matlab Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/python-jobs">Run Python Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/conda-installation">Create a Portable Python Installation with Miniconda</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/r-jobs">Run R Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/java-jobs">Run Java Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/julia-jobs">Run Julia Jobs</a>
                                     </div>
                                 
 

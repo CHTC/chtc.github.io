@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Run Python Jobs</title>
+<title>Overview: How to Use Software</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Run Python Jobs | CHTC</title>
+<title>Overview: How to Use Software | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Run Python Jobs" />
+<meta property="og:title" content="Overview: How to Use Software" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="ACTION REQUIRED: As of September 29th, the HTC system’s default operating system will transition to CentOS Stream 8. This may impact users who use Python in their jobs. For more information, see the HTC Operating System Transition guide." />
-<meta property="og:description" content="ACTION REQUIRED: As of September 29th, the HTC system’s default operating system will transition to CentOS Stream 8. This may impact users who use Python in their jobs. For more information, see the HTC Operating System Transition guide." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/python-jobs" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/python-jobs" />
+<meta name="description" content="In order to run jobs on the High Throughput Computing (HTC) system, researchers need to set up their software on the system. This guide introduces how to build software in a container (our recommended strategy), links to a repository with a selection of software installation “recipes”, and quick links to common software packages and their installation recommendations." />
+<meta property="og:description" content="In order to run jobs on the High Throughput Computing (HTC) system, researchers need to set up their software on the system. This guide introduces how to build software in a container (our recommended strategy), links to a repository with a selection of software installation “recipes”, and quick links to common software packages and their installation recommendations." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/software-overview-htc" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/software-overview-htc" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-04-29T00:28:53+00:00" />
+<meta property="article:published_time" content="2024-04-29T20:28:30+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Run Python Jobs" />
+<meta property="twitter:title" content="Overview: How to Use Software" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-04-29T00:28:53+00:00","datePublished":"2024-04-29T00:28:53+00:00","description":"ACTION REQUIRED: As of September 29th, the HTC system’s default operating system will transition to CentOS Stream 8. This may impact users who use Python in their jobs. For more information, see the HTC Operating System Transition guide.","headline":"Run Python Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/python-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/python-jobs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-04-29T20:28:30+00:00","datePublished":"2024-04-29T20:28:30+00:00","description":"In order to run jobs on the High Throughput Computing (HTC) system, researchers need to set up their software on the system. This guide introduces how to build software in a container (our recommended strategy), links to a repository with a selection of software installation “recipes”, and quick links to common software packages and their installation recommendations.","headline":"Overview: How to Use Software","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/software-overview-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/software-overview-htc"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -269,421 +269,645 @@
             
 
             <h1 class="uw-mini-bar mb-4">
-    Run Python Jobs
+    Overview: How to Use Software
 </h1>
 
-            <p><em>ACTION REQUIRED: As of September 29th, the HTC system’s default operating system will transition to CentOS Stream 8. This may impact users who use Python in their jobs. For more information, see the <a href="/uw-research-computing/os-transition-htc.html">HTC Operating System Transition</a> guide.</em></p>
+            <p><a name="top"></a>
+In order to run jobs on the High Throughput Computing (HTC) system, researchers need to set up their software on the system. 
+This guide introduces how to build software in a container (our recommended strategy), links to a repository with a selection of software installation “recipes”, and quick links to common software packages and their installation recommendations.</p>
 
-<p><strong>To best understand the below information, you should already have an
-understanding of:</strong></p>
+<div class="d-flex flex-column mb-5">
 
-<ul>
-  <li>Using the command line to: navigate within directories,
-create/copy/move/delete files and directories, and run their
-intended programs (aka "executables").</li>
-  <li><a href="helloworld.html">The CHTC's Intro to Running HTCondor
-Jobs</a></li>
-</ul>
+<h2>Table of Contents</h2>
 
-<h1 id="overview">Overview</h1>
+<div class="uw-sidebar-box me-auto">
+<div class="uw-directory">
 
-<p>CHTC provides several copies of Python that can be used to run Python
-code in jobs. See our list of supported versions here: <a href="#supported">CHTC Supported
-Python</a></p>
+      <p><a href="#quickstart">Quickstart</a></p>
 
-<p>This guide details the steps needed to:</p>
+      <p><a href="#recipes">Recipes</a></p>
+
+      <p><a href="#containers">Containers</a></p>
+
+      <p><a href="#software">Software</a></p>
+
+    </div>
+</div>
+</div>
+
+<hr />
+
+<h2 id="quickstart">Quickstart</h2>
+
+<p>Click the link in the table below to jump to the instructions for the language/program/software that you want to use.
+More information is provided in the <a href="#recipes">CHTC Recipes Repository</a> and <a href="#containers">Containers</a> sections.</p>
+
+<table>
+    <tr>
+        <td><a href="#java">Java</a></td>
+        <td><a href="#julia">Julia</a></td>
+        <td><a href="#matlab">Matlab</a></td>
+    </tr>
+    <tr>
+        <td><a href="#miniconda">Miniconda</a></td>
+        <td><a href="#python">Python</a></td>
+        <td><a href="#r">R</a></td>
+    </tr>
+</table>
+
+<hr />
+
+<h2 id="recipes">Recipes</h2>
+
+<p>CHTC provides specific examples for software and workflows for use on our systems in our “Recipes” repository on Github: 
+<a href="https://github.com/CHTC/recipes">https://github.com/CHTC/recipes</a>.</p>
+
+<p>Links to specific recipes are used in the <a href="#software">Software</a> section for certain softwares and coding languages.</p>
+
+<hr />
+
+<h2 id="containers">Containers</h2>
+
+<p>Many of the recipes in our Recipes repository involve building your own container. 
+In this section, we provide a brief introduction into how to use containers for setting up your own software to run on the High Throughput system.</p>
+
+<h3 id="what-is-a-container">What is a Container?</h3>
+
+<p><em>“A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.”</em> 
+– <a href="https://www.docker.com/resources/what-container/">Docker</a></p>
+
+<p>A container is a portable, self-contained operating system and can be easily executed on different computers regardless of their operating systems or programs.
+When building the container you can choose the operating system you want to use, and can install programs as if you were the owner of the computer.</p>
+
+<p>While there are some caveats, containers are useful for deploying software on shared computing systems like CHTC, where you do not have permission to install programs directly.</p>
+
+<p><em>“You can build a container using Apptainer on your laptop, and then run it on many of the largest HPC clusters in the world, local university or company clusters, a single server, in the cloud, or on a workstation down the hall.”</em>
+– <a href="https://apptainer.org/docs/user/main/introduction.html">Apptainer</a></p>
+
+<blockquote>
+  <p><em>What is a Container</em> <strong><em>Image</em></strong>? <a name="what-is-container-image"></a></p>
+
+  <p>A “container image” is the persistent, on-disk copy of the container. 
+When we talk about building or moving or distributing a container, we’re actually talking about the file(s) that constitute the container. 
+When a container is “running” or “executed”, the container image is used to create the run time environment for executing the programs installed inside of it.</p>
+</blockquote>
+
+<h3 id="container-technologies">Container Technologies</h3>
+
+<p>There are two container technologies supported by CHTC: <a href="https://www.docker.com/">Docker</a> and <a href="https://apptainer.org/">Apptainer</a>.
+Here we briefly discuss the advantages of each.</p>
+
+<h4 id="docker-">Docker <a name="docker-info"></a></h4>
+
+<p><a href="https://www.docker.com/">https://www.docker.com/</a></p>
+
+<p>Docker is a commercial container technology for building and distributing containers.
+Docker provides a platform for distributing containers, called <a href="https://hub.docker.com/">Docker Hub</a>.
+Docker Hub can make it easy to share containers with colleagues without having to worry about the minutiae of moving files around.</p>
+
+<p>On the HTC system, you can provide the name of your Docker Hub container in your submit file, 
+and HTCondor will automatically pull (download) the container and use it to create the software environment for executing your job.
+Unfortunately, however, you are unable to build a Docker container and upload it to Docker Hub from CHTC servers, 
+so your container must already exist on Docker Hub in a public repository.
+This requires that you have Docker installed on your computer so that you can build the container and upload it to Docker Hub.</p>
+
+<h4 id="apptainer-">Apptainer <a name="apptainer-info"></a></h4>
+
+<p><a href="https://apptainer.org/">https://apptainer.org/</a></p>
+
+<p>Apptainer is an open-source container technology for building containers. 
+Apptainer creates a single, stand-alone file that is the (<a href="#what-is-container-image">container image</a>).
+As long as you have the container image file, you can use Apptainer to run your container.</p>
+
+<p>On the HTC system, you can provide the name of your Apptainer file in your submit file,
+and HTCondor will use a copy of it to create the software environment for executing your job.
+You can use Apptainer to build the container image file on CHTC servers, so there is no need to install the container software on your own computer.</p>
+
+<h3 id="use-an-existing-container">Use an Existing Container</h3>
+
+<p>If you or a colleague have already built a container for use on CHTC, it is fairly straightforward to modify your jobs to use the container environment as discussed below.</p>
+
+<h4 id="use-a-docker-container">Use a Docker container</h4>
+
+<p><em>Full Guide</em>: <a href="docker-jobs.html">Running HTC Jobs Using Docker Containers</a></p>
+
+<p>If the container you want to use is hosted on Docker Hub, find the container “address” and provide it in your submit file.
+The address typically has the convention of <code>user/repository:tag</code>, though official repositories such as Python are just <code>repository:tag</code>.
+In your submit file, use</p>
+
+<pre class="sub"><code>container_image = docker://user/repository:tag
+</code></pre>
+
+<p>If the container you want to use is hosted in a different container registry, there should still be a container “address” to use,
+but now there will be a website prefix.</p>
+
+<pre class="sub"><code>container_image = docker://registry_address/user/repository:tag
+</code></pre>
+
+<p>For example, to use a container from the <a href="https://catalog.ngc.nvidia.com/containers">NVIDIA Container Registry</a> (<code>nvcr</code>), 
+you would have <code>docker://nvcr.io/nvidia/repository:tag</code>.</p>
+
+<p><a href="#top">Back to Top</a></p>
+
+<h4 id="use-an-apptainer-container">Use an Apptainer container</h4>
+
+<p><em>Full Guide</em>: <a href="apptainer-htc.html">Use Apptainer Containers</a></p>
+
+<p>For historical reasons, the Apptainer container file has the file extension <code>.sif</code>. 
+The syntax for giving HTCondor the name of the container file depends on where it is located on the CHTC system.</p>
+
+<p>If the <code>.sif</code> file is in a <strong><code>/home</code> directory</strong>:</p>
+
+<pre class="sub"><code>container_image = path/to/my-container.sif
+</code></pre>
+
+<p>If the <code>.sif</code> file is in a <strong><code>/staging</code> directory</strong>:</p>
+
+<pre class="sub"><code>container_image = file:///staging/path/to/my-container.sif
+</code></pre>
+
+<p>If the <code>.sif</code> file is <strong>in a <code>/staging</code> directory AND you are using <code>+WantFlocking</code> or <code>+WantGliding</code></strong>:</p>
+
+<pre class="sub"><code>container_image = osdf:///chtc/staging/path/to/my-container.sif
+</code></pre>
+
+<p><a href="#top">Back to Top</a></p>
+
+<h3 id="build-your-own-container">Build Your Own Container</h3>
+
+<p>You can build your own container with the operating system and software that you want to use.
+The general process is the same whether you are using Docker or Apptainer.</p>
 
 <ol>
-  <li><a href="#build">Create a portable copy of your Python packages</a></li>
-  <li><a href="#script">Write a script that uses Python and your packages</a></li>
-  <li><a href="#submit">Submit jobs</a></li>
+  <li>
+    <p><strong>Consult your software’s documentation</strong></p>
+
+    <p>Determine the requirements for installing the software you want to use.
+In particular you are looking for (a) the operating systems it is compatible with and (b) the prerequisite libraries or packages.</p>
+  </li>
+  <li>
+    <p><strong>Choose a base container</strong></p>
+
+    <p>The base container should at minimum use an operating system compatible with your software. 
+Ideally the container you choose also has many of the prerequisite libraries/programs already installed.</p>
+  </li>
+  <li>
+    <p><strong>Create your own definition file</strong></p>
+
+    <p>The definition file contains the installation commands needed to set up your software.
+(The structure of the container “definition” file differs between Docker and Apptainer, but it is fairly straightforward to translate between the two.)</p>
+  </li>
+  <li>
+    <p><strong>Build the container</strong></p>
+
+    <p>Once the definition file has been written, you must “build” the container. 
+The computer you use to build the container will run through the installation commands, almost as if you were actually installing the software on that computer,
+but will save the results into the container file(s) for later use.</p>
+  </li>
+  <li>
+    <p><strong>Distribute the container</strong></p>
+
+    <p>To use the container on CHTC servers, you’ll need to distribute the container to right location.
+For Docker containers, this means “pushing” the container to Docker Hub or similar container registry.
+For Apptainer containers, this typically means copying the container <code>.sif</code> file to the <a href="file-avail-largedata.html">/staging system</a>.</p>
+  </li>
 </ol>
 
-<p>If you want to use conda to manage your Python package dependencies, 
-read this guide as background material,
-then read <a href="conda-installation.html">our guide on using conda</a>.</p>
+<p>You can then use the container following the <a href="#use-an-existing-container">instructions above</a>.</p>
 
-<p><span name="supported"></span></p>
+<blockquote>
+  <p>A common question is whether the software installation process is repeated each time a container is used. 
+The answer is “no”. 
+The software installation process only occurs when the container is actually being built.
+Once the container has been built, no changes can be made to the container when being used (on CHTC systems).</p>
+</blockquote>
 
-<h1 id="chtc-provided-python-installations">CHTC-Provided Python Installations</h1>
+<h4 id="build-your-own-docker-container">Build your own Docker container</h4>
 
-<p>CHTC provides a pre-built copy of the following versions of Python:</p>
+<p>Please follow the instructions in our guide <a href="docker-build.html">Build a Docker Container Image</a> to build your own container using Docker.
+As mentioned above, you will need to have Docker installed on your own computer.
+This is so that you can push the completed container to Docker Hub.</p>
 
-<h3 id="building-on-centos-7-linux-soon-to-be-phased-out">Building on CentOS 7 Linux <em>(Soon to be Phased Out)</em></h3>
+<p><em>You are unable to push containers from CHTC to Docker Hub, so please do not build Docker containers using CHTC!</em></p>
 
-<table class="gtable">
-  <thead>
+<h4 id="build-your-own-apptainer-container">Build your own Apptainer container</h4>
+
+<p>Please follow the instructions in our guide <a href="apptainer-htc.html">Use Apptainer Containers</a> to build your own container using Apptainer.
+You can use CHTC servers to build the container, so there is no need to install any software on your computer.</p>
+
+<p><a href="#top">Back to Top</a></p>
+
+<hr />
+
+<h2 id="software">Software</h2>
+
+<p>The following sections cover how to deploy specific softwares and coding langauges on the HTC system.</p>
+
+<table>
     <tr>
-      <th>Python version</th>
-      <th>Name of Python installation file</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Python 2.7</td>
-      <td>python27.tar.gz</td>
-    </tr>
-    <tr>
-      <td>Python 3.6</td>
-      <td>python36.tar.gz</td>
-    </tr>
-    <tr>
-      <td>Python 3.7</td>
-      <td>python37.tar.gz</td>
-    </tr>
-    <tr>
-      <td>Python 3.8</td>
-      <td>python38.tar.gz</td>
+        <td><a href="#java">Java</a></td>
+        <td><a href="#julia">Julia</a></td>
+        <td><a href="#matlab">Matlab</a></td>
     </tr>
     <tr>
-      <td>Python 3.9</td>
-      <td>python39.tar.gz</td>
+        <td><a href="#miniconda">Miniconda</a></td>
+        <td><a href="#python">Python</a></td>
+        <td><a href="#r">R</a></td>
     </tr>
-  </tbody>
 </table>
 
-<h3 id="building-on-centos-stream-8-linux-recommended">Building on CentOS Stream 8 Linux <em>(RECOMMENDED)</em></h3>
-
-<table class="gtable">
-  <thead>
-    <tr>
-      <th>Python version</th>
-      <th>Name of Python installation file</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Python 3.7</td>
-      <td>python37.tar.gz</td>
-    </tr>
-    <tr>
-      <td>Python 3.8</td>
-      <td>python38.tar.gz</td>
-    </tr>
-    <tr>
-      <td>Python 3.9</td>
-      <td>python39.tar.gz</td>
-    </tr>
-    <tr>
-      <td>Python 3.10</td>
-      <td>python310.tar.gz</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>If you need a specific version of Python not shown 
-above, <a href="mailto:chtc@cs.wisc.edu">contact the Research Computing Facilitators</a> to 
-see if we can build it for you; if 
-we can’t, we can send you instructions for how to build your own copy of Python 
-or use a Docker container for running your jobs.</p>
-
-<h1 id="1-adding-python-packages"><strong>1. Adding Python Packages</strong></h1>
-<p><span name="build"></span></p>
-
-<p>If your code uses specific Python packages (like <code>numpy</code>, <code>matplotlib</code>,
-<code>sci-kit learn</code>, etc) follow the directions below to download and
-prepare the packages you need for job submission. <strong>If your job does not
-require any extra Python packages, skip to parts 2 and 3.</strong></p>
-
-<p>You are going to start an interactive job that runs on the HTC build
-servers and that downloads a copy of Python. You will then install your
-packages to a folder and zip those files to return to the submit server.</p>
-
 <blockquote>
-  <p>These instructions are primarily about adding packages to a fresh
-install of Python; if you want to add packages to a pre-existing
-package folder, there will be notes below in boxes like this one.</p>
+  <p>Note: we are planning to move each section to a standalone webpage in the future, but they will still be linked through this webpage.</p>
 </blockquote>
 
-<h2 id="preliminary-step-choose-a-linux-version-to-build-on">Preliminary Step: Choose a Linux Version to Build On</h2>
+<hr />
 
-<p>As of August 2022, the newest hardware in the HTC system is running a newer version of Linux, 
-CentOS Stream 8. A limited amount of our older hardware is still running CentOS 7 but these machines will be upgraded to the new operating system in the near future. More information about this transition can be found in the <a href="/uw-research-computing/os-transition-htc.html">HTC Operating System Transition</a> guide.</p>
+<h2 id="java">Java</h2>
 
-<p>There are two approaches to running on our pool:</p>
+<h3 id="quickstart-1">Quickstart<a name="java-quickstart"></a></h3>
 
-<ul>
+<p>To use Java on the HTC system, we recommend that you use the Java Development Kit (JDK).</p>
+
+<ol>
   <li>
-    <p><strong>compile on CentOS 8, run on CentOS8</strong>: This is the recommended option for (1) all new users and for (2) existing users who have tested their CentOS 7 builds and determined they are not compatabile with CentOS 8 machines. By choosing this option, you will have access to the vast majority of the HTC system’s capacity.</p>
+    <p>Obtain a copy of the pre-compiled JDK for “Linux/x64” from <a href="https://jdk.java.net/">https://jdk.java.net/</a>.</p>
   </li>
   <li>
-    <p><strong>compile on CentOS 7, run on both versions of CentOS</strong>: This is a <strong>temporary</strong> option available to users who previously compiled their software on CHTC’s CentOS 7 machines. In <em>some</em> cases, it is possible to use the same software, library, and packages on both CentOS 7 and CentOS Stream 8 machines. Existing users who compiled their software on CentOS 7 machines will need to (1) test their jobs to ensure they run successfully on CentOS Stream 8 machines and (2) plan for the phasing out of CentOS 7 machines (expected Fall 2022).</p>
-  </li>
-</ul>
+    <p>Include the JDK <code>.tar.gz</code> file in your submit file with the list of files to be transferred:</p>
 
-<h2 id="a-submit-an-interactive-job">A. Submit an Interactive Job</h2>
-<p><span name="version"></span>
-Create the following special submit file on the submit server, calling
-it something like <code>build.sub</code>. **Make sure that you choose the appropriate 
-Python tar.gz file and requirements if you want to build on CentOS 7 versus 
-CentOS Stream 8. **</p>
-
-<pre class="sub"><code># Python build file
-
-universe = vanilla
-log = interactive.log
-
-# In the latest version of HTCondor on CHTC, interactive jobs require an executable.
-# If you do not have an existing executable, use a generic linux command like hostname as shown below.
-executable = /usr/bin/hostname
-
-# Choose a version of Python from the tables above
-# If building on CentOS 7 (To be Phased Out)
-# transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/python##.tar.gz
-
-# If building on CentOS 8 (Recommended)
-transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/el8/python##.tar.gz
-
-+IsBuildJob = true
-# Indicate which version of Linux (CentOS) you want to build your packages on
-requirements = (OpSysMajorVer =?= 8)
-request_cpus = 1
-request_memory = 4GB
-request_disk = 2GB
-
-queue
-</code></pre>
-
-<blockquote>
-  <p>If you want to add packages to a pre-existing package directory, add
-the <code>tar.gz</code> file with the packages to the <code>transfer_input_files</code>
-line:</p>
-
-  <pre><code class="language-{.sub}">transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/el8/python##.tar.gz, packages.tar.gz
-</code></pre>
-</blockquote>
-
-<p>Once this submit file is created, you will start the interactive job by
-running the following command:</p>
-
-<pre class="term"><code>[alice@submit]$ condor_submit -i build.sub
-</code></pre>
-
-<p>It may take a few minutes for the build job to start.</p>
-
-<h2 id="b-install-the-packages">B. Install the Packages</h2>
-
-<p>Once the interactive build job starts, you should see the Python that
-you specified inside the working directory:</p>
-
-<pre class="term"><code>[alice@build]$ ls -lh
--rw-r--r-- 1 alice alice  78M Mar 26 12:24 python##.tar.gz
-drwx------ 2 alice alice 4.0K Mar 26 12:24 tmp
-drwx------ 3 alice alice 4.0K Mar 26 12:24 var
-</code></pre>
-
-<p>We'll now unzip the copy of Python and set the <code>PATH</code> variable to
-reference that version of Python:</p>
-
-<pre class="term"><code>[alice@build]$ tar -xzf python##.tar.gz
-[alice@build]$ export PATH=$PWD/python/bin:$PATH
-</code></pre>
-
-<p>To make sure that your setup worked, try running:</p>
-
-<pre class="term"><code>[alice@build]$ python3 --version
-</code></pre>
-
-<p>You can also try running this command to make sure the copy of python
-that is now active is the one you just installed:</p>
-
-<pre class="term"><code>[alice@build]$ echo `which python3`
-</code></pre>
-
-<p>The command above should return a path that includes the prefix
-<code>/var/lib/condor/</code>, indicating that it is installed in your job's
-working directory.</p>
-
-<p>If you're using Python 2, use <code>python2</code> instead of <code>python3</code> above (and
-in what follows). The output should match the version number that you
-want to be using!</p>
-
-<blockquote>
-  <p>If you brought along your own package directory, un-tar it here and
-skip the directory creation step below.</p>
-</blockquote>
-
-<p>First, create a directory to put your packages into and then add that directory to our list of enviornmental variables that can be used by HTCondor to find the package directory:</p>
-
-<pre class="term"><code>[alice@build]$ mkdir packages
-[alice@build]$ export PYTHONPATH=$PWD/packages
-</code></pre>
-
-<p>You can choose what name to use for this directory -- if you have
-different sets of packages that you use for different jobs, you could
-use a more descriptive name than "packages"</p>
-
-<p>To install the Python packages run the following command:</p>
-
-<pre class="term"><code>[alice@build]$ python3 -m pip install --target=$PWD/packages package1 package2 etc.
-</code></pre>
-
-<p>Replace <em>package1</em> <em>package2</em> with the names of packages you want to
-install. <code>pip</code> should download all dependent packages and install them.
-Certain packages may take longer than others.</p>
-
-<blockquote>
-  <p>If a specific version of a package is required, you can provide the version number using the syntax <code>packagename==X.Y.Z</code>.
-For example, <code>numpy==1.23.5</code> would install version <code>1.23.5</code> of <code>numpy</code>.</p>
-</blockquote>
-
-<p>If you have difficulties installing a package, we recommend you upgrade <code>pip</code> and then try reinstalling your packages:</p>
-
-<pre class="term"><code>[alice@build]$ python3 -m pip install --upgrade pip
-[alice@build]$ python3 -m pip install --target=$PWD/packages package1 package2 etc.
-</code></pre>
-
-<blockquote>
-  <p>The python packages (and versions) can instead be installed using the file <code>requirements.txt</code>, which contains one package name (and versions, if needed) per line.<br />
-This file can be created manually or, if you have a working python installation that you want to duplicate, by running</p>
-
-  <pre class="term"><code>python3 -m pip freeze &gt; requirements.txt
-</code></pre>
-
-  <p>To install the packages contained within <code>requirements.txt</code>, run</p>
-
-  <pre class="term"><code>python3 -m pip install -r requirements.txt
-</code></pre>
-</blockquote>
-
-<h2 id="c-finish-up">C. Finish Up</h2>
-
-<p>Right now, if we exit the interactive job, nothing will be transferred
-back because we haven't created any new <strong>files</strong> in the working
-directory, just <strong>sub-directories</strong>. In order to transfer back our
-installation, we will need to compress it into a tarball file - not only
-will HTCondor then transfer back the file, it is generally easier to
-transfer a single, compressed tarball file than an uncompressed set of
-directories.</p>
-
-<p>Run the following command to create your own tarball of your packages:</p>
-
-<pre class="term"><code>[alice@build]$ tar -czf packages.tar.gz packages/
-</code></pre>
-
-<p>Again, you can use a different name for the <code>tar.gz</code> file, if you want.</p>
-
-<p>We now have our packages bundled and ready for CHTC! You can now exit
-the interactive job and the tar.gz file with your Python packages will
-return to the submit server with you (this sometimes takes a few extra
-seconds after exiting).</p>
-
-<pre class="term"><code>[alice@build]$ exit 
-</code></pre>
-
-<h1 id="2-creating-a-script"><strong>2. Creating a Script</strong></h1>
-<p><span name="script"></span>
-In order to use CHTC's copy of Python and the packages you have
-prepared in an HTCondor job, we will need to write a script that unpacks
-both Python and the packages and then runs our Python code. We will use
-this script as as the <code>executable</code> of our HTCondor submit file.</p>
-
-<p>A sample script (<code>run_python.sh</code>) appears below. After the first line, the lines starting
-with hash marks are comments . You should replace "my_script.py" with
-the name of the script you would like to run, and modify the Python
-version numbers to be the same as what you used above to install your
-packages.</p>
-
-<pre class="file"><code>#!/bin/bash
-
-# untar your Python installation. Make sure you are using the right version!
-tar -xzf python##.tar.gz
-# (optional) if you have a set of packages (created in Part 1), untar them also
-tar -xzf packages.tar.gz
-
-# make sure the script will use your Python installation, 
-# and the working directory as its home location
-export PATH=$PWD/python/bin:$PATH
-export PYTHONPATH=$PWD/packages
-export HOME=$PWD
-
-# run your script
-python3 my_script.py
-</code></pre>
-
-<p>If you have additional commands you would like to be run within the job,
-you can add them to this base script. Once your script does what you
-would like, give it executable permissions by running:</p>
-
-<pre class="term"><code>[alice@submit] chmod +x run_python.sh
-</code></pre>
-
-<blockquote>
-  <h2 id="arguments-in-python">Arguments in Python</h2>
-
-  <p>To pass arguments to a Python script within a job, you'll need to use the
-following syntax in your main executable script, in place of the
-generic command above:</p>
-
-  <pre class="file"><code>python3 my_script.py $1 $2
-</code></pre>
-
-  <p>Here, <code>$1</code> and <code>$2</code> are the first and second arguments passed to the
-bash script from the submit file (see below), which are then sent on
-to the Python script. For more (or fewer) arguments, simply add more
-(or fewer) arguments and numbers.</p>
-
-  <p>In addition, your Python script will need to be able to accept
-arguments from the command line. There is an explanation of how to do
-this in <a href="https://swcarpentry.github.io/python-novice-inflammation/12-cmdline.html">this Software Carpentry
-lesson</a>.</p>
-</blockquote>
-
-<h1 id="3-submitting-jobs"><strong>3. Submitting Jobs</strong></h1>
-<p><span name="submit"></span>
-A sample submit file can be found in our <a href="helloworld.html">hello
-world</a> example page. You should make the following
-changes in order to run Python jobs:</p>
-
-<ul>
-  <li><strong>What version of Linux can you run on?</strong>
-    <ul>
-      <li>If you compiled your packages on CentOS7, 
-  you can try running your jobs on servers that have either version of Linux. This requires 
-  an additional requirement, shown 
-  in <a href="/uw-research-computing/os-transition-htc.html">this guide</a>.</li>
-      <li>If you compiled your packages on CentOS Stream 8, your jobs should ONLY run on 
-servers using CentOS Stream 8. This will be the default as of September 29. Before 
-then, make sure to opt into using that operating system, as described in the same 
-guide linked above.</li>
-    </ul>
-  </li>
-  <li>
-    <p>Your <code>executable</code> should be the script that you wrote
-<a href="#script">above</a>.</p>
-
-    <pre class="sub"><code>executable = run_python.sh
-</code></pre>
-  </li>
-  <li>Modify the CPU/memory request lines.  Test a few jobs for disk space/memory usage in 
-order to make sure your requests for a large batch are accurate!<br />
-Disk space and memory usage can be found in the log file after the job completes.</li>
-  <li>Change transfer_input_files to include the python tar file, packages, script, and any other 
-needed files. <strong>If you used our CentOS 7 version of Python</strong>, this may look like:
-    <pre class="sub"><code>transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/python##.tar.gz, packages.tar.gz, my_script.py
-</code></pre>
-
-    <p><strong>If you used our CentOS Stream 8 version of Python</strong>, this may look like:</p>
-    <pre class="sub"><code>transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/el8/python##.tar.gz, packages.tar.gz, my_script.py
+    <pre class="sub"><code>transfer_input_files = openjdk-22_linux-x64_bin.tar.gz, program.jar
 </code></pre>
   </li>
   <li>
-    <p>If your script takes arguments (see the box from the previous
-section), include those in the arguments line:</p>
+    <p>Include instructions for using the JDK in your <code>executable</code> file:</p>
 
-    <pre><code class="language-{.sub}">arguments = value1 value2
+    <pre><code>#!/bin/bash
+
+tar -xzf openjdk-22_linux-x64_bin.tar.gz
+export JAVA_HOME=$PWD/jdk-22
+export PATH=$JAVA_HOME/bin:$PATH
+
+java -jar program.jar
 </code></pre>
   </li>
-</ul>
+</ol>
+
+<p><a href="#top">Back to Top</a></p>
+
+<h3 id="more-information">More information<a name="java-info"></a></h3>
+
+<p>To obtain your copy of the Java Development Kit (JDK), go to <a href="https://jdk.java.net/">https://jdk.java.net/</a>.
+Click the link for the JDK that is “Ready for use”.
+There will be a download link “tar.gz” under the “Builds” section for “Linux/x64”.
+You can then either (a) right-click the download link and copy the link address, sign in to the submit server, and use the <code>wget</code> command with that link, 
+or (b) click the link to download to your computer, then manually upload the file from your computer to the submit server.</p>
+
+<p>The example above uses file names for JDK 22 as of 2024-04.
+Be sure to change the file names for the version that you actually use.
+We recommend that you test and explore your setup using an <a href="inter-submit.html">interactive job</a>.</p>
+
+<h4 id="executable">Executable<a name="java-executable"></a></h4>
+
+<p>A bash <code>.sh</code> file is used as the <code>executable</code> file in order to unpack and set up the JDK environment for use by your script.
+Here is the executable from the <a href="#java-quickstart">Quickstart</a> section with comments:</p>
+
+<pre><code>#!/bin/bash
+
+# Decompress the JDK
+tar -xzf openjdk-22_linux-x64_bin.tar.gz
+
+# Add the new JDK folder to the bash environment
+export JAVA_HOME=$PWD/jdk-22
+export PATH=$JAVA_HOME/bin:$PATH
+
+# Run your program
+java -jar program.jar
+</code></pre>
+
+<hr />
+
+<h2 id="julia">Julia</h2>
+
+<h3 id="quickstart-2">Quickstart<a name="julia-quickstart"></a></h3>
+
+<h4 id="option-a-recommended">Option A (recommended)<a name="julia-quickstart-a"></a></h4>
+
+<p>Build a container with Julia &amp; packages installed inside:</p>
+
+<ol>
+  <li><a href="#build-your-own-container">How to build your own container</a></li>
+  <li><a href="https://github.com/CHTC/recipes/tree/main/software/Julia">Example container recipes for Julia</a></li>
+  <li><a href="#use-an-existing-container">Use your container in your HTC jobs</a></li>
+</ol>
+
+<h4 id="option-b">Option B<a name="julia-quickstart-b"></a></h4>
+
+<p>Use a portable copy of Julia and create your own portable copy of your Julia packages:</p>
+
+<ol>
+  <li>Follow the instructions in our guide <a href="julia-jobs.html">Run Julia Jobs</a>.</li>
+</ol>
 
 <blockquote>
-  <h3 id="how-big-is-your-package-tarball">How big is your package tarball?</h3>
-
-  <p>If your package tarball is larger than 100 MB, you should NOT transfer
-the tarball using <code>transfer_input_files</code>. Instead, you should use
-CHTC's web proxy, <code>squid</code>. In order to request space on <code>squid</code>,
-email the research computing facilitators at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.</p>
+  <p>Option B may be sensitive to the operating system of the execution point.
+If you run into issues, we recommend using Option A instead.</p>
 </blockquote>
+
+<p><a href="#top">Back to Top</a></p>
+
+<h3 id="more-information-1">More information<a name="julia-info"></a></h3>
+
+<p>No CHTC machine has Julia pre-installed, so you <strong>must</strong> configure a portable copy of Julia to work on the HTC system.
+Using a container as described above is the easiest way to accomplish this.</p>
+
+<h4 id="executable-1">Executable</h4>
+
+<p>When using a container, you can use a <code>.jl</code> script as the submit file <code>executable</code>, provided that the first line (the “shebang”) in the <code>.jl</code> file is</p>
+
+<pre><code>#!/usr/bin/env julia
+</code></pre>
+
+<p>with the rest of the file containing the commands you want to run using Julia.</p>
+
+<p>Alternatively, you can use a bash <code>.sh</code> script as the submit file <code>executable</code>, and in that file you can use the <code>julia</code> command:</p>
+
+<pre><code>#!/bin/bash
+
+julia my-script.jl
+</code></pre>
+
+<p>In this case, remember to include your <code>.jl</code> file in the <code>transfer_input_files</code> line of your submit file.</p>
+
+<h4 id="arguments">Arguments</h4>
+
+<p>For more information on passing arguments to a Julia script, see the 
+<a href="https://docs.julialang.org/en/v1/manual/command-line-interface/#Using-arguments-inside-scripts">Julia documentation</a>.</p>
+
+<hr />
+
+<h2 id="matlab">Matlab</h2>
+
+<h3 id="quickstart-3">Quickstart<a name="matlab-quickstart"></a></h3>
+
+<p>Build a container with Matlab &amp; toolboxes installed inside:</p>
+
+<ol>
+  <li><a href="#build-your-own-container">How to build your own container</a></li>
+  <li><a href="https://github.com/CHTC/recipes/tree/main/software/Matlab">Example container recipes for Matlab</a></li>
+  <li><a href="#use-an-existing-container">Use your container in your HTC jobs</a></li>
+</ol>
+
+<blockquote>
+  <p><strong>Note</strong>: Because Matlab is a licensed software, you <strong>must</strong> add the following line to your submit file:</p>
+
+  <pre class="sub"><code>concurrency_limits = MATLAB:1
+</code></pre>
+
+  <p>Failure to do so may cause your or other users’ jobs to fail to obtain a license from the license server.</p>
+</blockquote>
+
+<p><a href="#top">Back to Top</a></p>
+
+<h3 id="more-information-2">More information<a name="matlab-info"></a></h3>
+
+<p>CHTC has a site license for Matlab that allows for up to 10,000 jobs to run at any given time across <em>all CHTC users</em>. 
+Hence the requirement for adding the line <code>concurrency_limits = MATLAB:1</code> to your submit files, so that HTCondor can keep track of which jobs are using or will use a license.</p>
+
+<p>Following the instructions above, you are able to install a variety of Matlab Toolboxes when building the container.
+The Toolboxes available for each supported version of Matlab are described here: https://github.com/mathworks-ref-arch/matlab-dockerfile/blob/main/mpm-input-files/.
+Navigate to the text file for the version of interest, and look at the section named “INSTALL PRODUCTS”.
+The example recipes linked above provide instructions on how to specify the packages you want to install when building the container.</p>
+
+<h4 id="executable-2">Executable<a name="matlab-executable"></a></h4>
+
+<p>When using the Matlab container, we recommend the following process for executing your Matlab commands in an HTCondor job:</p>
+
+<ol>
+  <li>
+    <p>Put your Matlab commands in a <code>.m</code> script. For this example, we’ll call it <code>my-script.m</code>.</p>
+  </li>
+  <li>
+    <p>Create the file <code>run-matlab.sh</code> with the following contents:</p>
+
+    <pre><code>#!/bin/bash
+   
+matlab -batch "my-script"
+</code></pre>
+
+    <p>Note that in the script, the <code>.m</code> extension has been dropped from the file name (uses <code>"my-script"</code> instead of <code>"my-script.m"</code>).</p>
+  </li>
+  <li>
+    <p>In your submit file, set the <code>.sh</code> script as the executable and list the <code>.m</code> file to be transferred:</p>
+
+    <pre class="sub"><code>executable = run-matlab.sh
+transfer_input_files = my-script.m
+</code></pre>
+  </li>
+</ol>
+
+<h4 id="arguments-1">Arguments<a name="matlab-arguments"></a></h4>
+
+<p>To pass arguments from the submit file to your <code>.m</code> script, you need to set up your executable <code>.sh</code> file to create an additional <code>.m</code> file with the desired variable definitions.
+For example, to use an argument to define a different value of <code>data_file</code> for each job, you would use the following executable:</p>
+
+<pre><code>#!/bin/bash
+
+cat &lt;&lt; EOF &gt; variables.m
+data_file = '${1}'
+EOF
+
+matlab -batch "variables;my-script"
+
+rm variables.m
+</code></pre>
+
+<p>The <code>variables.m</code> file is created with <code>data_file</code> defined as the value passed from the submit file <code>arguments</code> line.
+Then when matlab is started, it first loads the definitions from the <code>variables.m</code> line before executing your main <code>my-script.m</code>.
+(Of course, for this to be useful, the code in <code>my-script.m</code> needs to use the variable <code>data_file</code> to do something.)
+Finally, the temporary <code>variables.m</code> file is removed so that it is not brought back to the submit server when the job completes.</p>
+
+<p>More than one variable can be defined.
+For example, if we wanted to add the variable <code>x</code>, we would use this:</p>
+
+<pre><code>cat &lt;&lt; EOF &gt; variables.m
+data_file = '${1}'
+x = ${2}
+EOF
+</code></pre>
+
+<p>where the values of <code>data_file</code> and <code>x</code> will correspond to the first and second values of the submit file <code>arguments</code> line, respectively.</p>
+
+<hr />
+
+<h2 id="miniconda">Miniconda</h2>
+
+<h3 id="quickstart-4">Quickstart<a name="miniconda-quickstart"></a></h3>
+
+<h4 id="option-a-recommended-1">Option A (recommended)<a name="miniconda-quickstart-a"></a></h4>
+
+<p>Build a container with Conda packages installed inside:</p>
+
+<ol>
+  <li><a href="#build-your-own-container">How to build your own container</a></li>
+  <li><a href="https://github.com/CHTC/recipes/tree/main/software/Conda">Example container recipes for Conda</a></li>
+  <li><a href="#use-an-existing-container">Use your container in your HTC jobs</a></li>
+</ol>
+
+<h4 id="option-b-1">Option B<a name="miniconda-quickstart-b"></a></h4>
+
+<p>Create your own portable copy of your Conda packages:</p>
+
+<ol>
+  <li>Follow the instructions in our guide <a href="conda-installation.html">Use Conda Environments to Run Python Jobs</a></li>
+</ol>
+
+<blockquote>
+  <p>Option B may be sensitive to the operating system of the execution point, and not all conda packages can be made portable using this process.
+If you run into issues, we recommend using Option A instead.</p>
+</blockquote>
+
+<p><a href="#top">Back to Top</a></p>
+
+<h3 id="more-information-3">More information<a name="miniconda-info"></a></h3>
+
+<p>The above instructions are intended for if you have package(s) that need to be installed using <code>conda install</code>. 
+Miniconda can be used to install Python and R and corresponding packages. 
+But if you only need to install Python or R, and do not otherwise need to use a <code>conda install</code> command to set up the packages, 
+you should see our instructions for setting up <a href="#python">Python</a> or <a href="#r">R</a> because there is less chance of obscure errors when building your container.</p>
+
+<p>When building or using a Miniconda container, you do not need to create or activate a conda environment.
+For the build process, you skip directly to the <code>conda install</code> commands you want to run.
+Similarly, when executing a script in a Miniconda container, the packages are loaded when the container starts.</p>
+
+<h4 id="executable-3">Executable</h4>
+
+<p>If you are planning to execute a python <code>.py</code> script using your Miniconda container, you can follow the instructions in the <a href="#python-executable">Python Executable</a> section.</p>
+
+<p>If you are planning to execute a <code>.R</code> script using your Miniconda container, you can follow the instructions in the <a href="#r-executable">R Executable</a> section.</p>
+
+<p>Otherwise, you can use a bash <code>.sh</code> script as the submit file <code>executable</code>:</p>
+
+<pre><code>#!/bin/bash
+
+&lt;your commands go here&gt;
+</code></pre>
+
+<p>where the contents of the file are the commands that you want to execute using your conda environment.
+You do not and should not try to activate the conda environment in the executable if you are using a container.</p>
+
+<hr />
+
+<h2 id="python">Python</h2>
+
+<h3 id="quickstart-5">Quickstart<a name="python-quickstart"></a></h3>
+
+<h4 id="option-a-recommended-2">Option A (recommended)<a name="python-quickstart-a"></a></h4>
+
+<p>Build a container with Python &amp; packages installed inside:</p>
+
+<ol>
+  <li><a href="#build-your-own-container">How to build your own container</a></li>
+  <li><a href="https://github.com/CHTC/recipes/tree/main/software/Python/">Example container recipes for Python</a></li>
+  <li><a href="#use-an-existing-container">Use your container in your HTC jobs</a></li>
+</ol>
+
+<h4 id="option-b-2">Option B<a name="python-quickstart-b"></a></h4>
+
+<p>Use an existing container with a base installation of Python:</p>
+
+<ol>
+  <li>Choose an existing container. See 
+<a href="https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/#base">OSG Base Containers</a>
+or
+<a href="https://hub.docker.com/_/python">DockerHub Python Containers</a>.</li>
+  <li><a href="#use-an-existing-container">Use the container in your HTC jobs</a></li>
+</ol>
+
+<p><a href="#top">Back to Top</a></p>
+
+<h3 id="more-information-4">More information<a name="python-info"></a></h3>
+
+<p>All CHTC machines have a base installation of Python 3.
+The exact versions and packages installed, however, can vary from machine to machine.
+You should be able to include simple python commands in your calculations, i.e., <code>python3 simple-script.py</code>.</p>
+
+<p>If you need a specific version of Python 3 or would like to install your own packages, we recommend that you use a container as described above.</p>
+
+<p>The example recipes provided above for building your own container are intended for python packages that can be installed using <code>python3 -m pip install</code>. 
+Additional software can be installed when building your own container.</p>
+
+<p>For packages that need to be installed with <code>conda install</code>, see the section on <a href="#miniconda">Miniconda</a>.</p>
+
+<h4 id="executable-4">Executable<a name="python-executable"></a></h4>
+
+<p>When using a container, you can use a python <code>.py</code> script as the submit file <code>executable</code>, provided that the first line (the “shebang”) in the <code>.py</code> file is</p>
+
+<pre><code>#!/usr/bin/env python3
+</code></pre>
+
+<p>with the rest of the file containing the commands that you want to run using Python.</p>
+
+<p>Alternatively, you can use a bash <code>.sh</code> script as the submit file <code>executable</code>, and in that file you can use the <code>python3</code> command:</p>
+
+<pre><code>#!/bin/bash
+
+python3 my-script.py
+</code></pre>
+
+<p>In this case, remember to include your <code>.py</code> file in the <code>transfer_input_files</code> line of your submit file.</p>
+
+<hr />
+
+<h2 id="r">R</h2>
+
+<h3 id="quickstart-6">Quickstart<a name="r-quickstart"></a></h3>
+
+<h4 id="option-a-recommended-3">Option A (recommended)<a name="r-quickstart-a"></a></h4>
+
+<p>Build a container with Python &amp; packages installed inside:</p>
+
+<ol>
+  <li><a href="#build-your-own-container">How to build your own container</a></li>
+  <li><a href="https://github.com/CHTC/recipes/tree/main/software/R/">Example container recipes for R</a></li>
+  <li><a href="#use-an-existing-container">Use your container in your HTC jobs</a></li>
+</ol>
+
+<h4 id="option-b-3">Option B<a name="r-quickstart-b"></a></h4>
+
+<p>Use an existing container with a base installation of R:</p>
+
+<ol>
+  <li>Choose an existing container. See 
+<a href="https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/#:~:text=R%20(opensciencegrid/osgvo%2Dr)">OSG R containers</a>
+or 
+<a href="https://rocker-project.org/images/">Rocker R containers</a>.</li>
+  <li><a href="#use-an-existing-container">Use the container in your HTC jobs</a></li>
+</ol>
+
+<p><a href="#top">Back to Top</a></p>
+
+<h3 id="more-information-5">More information<a name="r-info"></a></h3>
+
+<p>No CHTC machine has R pre-installed, so you <strong>must</strong> configure a portable copy of R to work on the HTC system.
+Using a container as described above is the easiest way to accomplish this.</p>
+
+<h4 id="executable-5">Executable<a name="r-executable"></a></h4>
+
+<p>When using a container, you can use a <code>.R</code> script as the submit file <code>executable</code>, provided that the first line (the “shebang”) in the <code>.R</code> file is</p>
+
+<pre><code>#!/usr/bin/env Rscript
+</code></pre>
+
+<p>with the rest of the file containing the commands that you want to run using R.</p>
+
+<p>Alternatively, you can use a bash <code>.sh</code> script as the submit file <code>executable</code>, and in that file you can use the <code>Rscript</code> command:</p>
+
+<pre><code>#!/bin/bash
+
+Rscript my-script.R
+</code></pre>
+
+<p>In this case, remember to include your <code>.R</code> file in the <code>transfer_input_files</code> line of your submit file.</p>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -861,37 +1085,12 @@ email the research computing facilitators at <a href="mailto:chtc@cs.wisc.edu">c
                                 
 
                                     <div class="document-link-wrapper bg-light">
+                                        <a class="fw-bolder" href="/uw-research-computing/software-overview-htc">Overview: How to Use Software</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
                                         <a class="" href="/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/matlab-jobs">Running Matlab Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/python-jobs">Run Python Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/conda-installation">Create a Portable Python Installation with Miniconda</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/r-jobs">Run R Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/java-jobs">Run Java Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/julia-jobs">Run Julia Jobs</a>
                                     </div>
                                 
 
