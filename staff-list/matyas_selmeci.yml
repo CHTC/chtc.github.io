@@ -8,6 +8,8 @@ institution: "University of Wisconsin–Madison"
 status: Staff
 linkedinurl: ""
 weight: 5
+pelican:
+    weight: 15
 organizations: 
     - path
     - chtc

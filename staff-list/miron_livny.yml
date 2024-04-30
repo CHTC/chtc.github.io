@@ -18,6 +18,7 @@ osg:
     weight: 1
 pelican:
     title: Co-Principal Investigator
+    weight: 2
 organizations: 
     - path
     - chtc

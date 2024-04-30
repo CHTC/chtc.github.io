@@ -10,6 +10,7 @@ weight: 2
 description: Wuerthwein is a Professor of Physics at UCSD and the Executive Director of the OSG.
 pelican:
     title: Co-Principal Investigator
+    weight: 3
 osg:
     title: OSG Executive Director
     promoted: true

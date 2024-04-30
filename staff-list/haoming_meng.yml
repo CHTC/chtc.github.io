@@ -4,6 +4,8 @@ title: Research Software Engineer
 name: Haoming Meng
 status: Staff
 website: null
+pelican:
+    weight: 12
 organizations:
     - chtc
     - pelican

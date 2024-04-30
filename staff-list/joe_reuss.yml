@@ -4,6 +4,9 @@ title: Software Engineer
 name: Joe Reuss
 status: Staff
 website: null
+pelican :
+    title: Software Engineer
+    weight: 8
 organizations: 
     - path
     - chtc

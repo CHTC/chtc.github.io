@@ -4,5 +4,7 @@ title: Analytic Programmer
 name: Alja Mrak Tadel
 status: Staff
 website: null
+pelican:
+    weight: 9
 organizations: 
     - pelican

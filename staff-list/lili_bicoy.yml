@@ -4,6 +4,8 @@ title: Student Science Writer
 name: Lili Bicoy
 status: Student
 website: null
+pelican:
+    weight: 17
 organizations: 
     - chtc
     - osg
