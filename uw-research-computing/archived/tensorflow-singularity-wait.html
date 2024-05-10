@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Status</title>
+<title>Running Tensorflow Jobs</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Status | CHTC</title>
+<title>Running Tensorflow Jobs | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Status" />
+<meta property="og:title" content="Running Tensorflow Jobs" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Below is a list of important user news updates, sorted by date. Please stay up to date with news which is relevant to you, as CHTC policy changes may affect the jobs of users." />
-<meta property="og:description" content="Below is a list of important user news updates, sorted by date. Please stay up to date with news which is relevant to you, as CHTC policy changes may affect the jobs of users." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/user-news" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/user-news" />
+<meta name="description" content="This guide describes how to use a pre-built Tensorflow environment (implemented as a Singularity container) to run Tensorflow jobs in CHTC and on the OS Pool." />
+<meta property="og:description" content="This guide describes how to use a pre-built Tensorflow environment (implemented as a Singularity container) to run Tensorflow jobs in CHTC and on the OS Pool." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/archived/tensorflow-singularity-wait" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/archived/tensorflow-singularity-wait" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-05-10T00:28:29+00:00" />
+<meta property="article:published_time" content="2024-05-10T19:51:19+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Status" />
+<meta property="twitter:title" content="Running Tensorflow Jobs" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-05-10T00:28:29+00:00","datePublished":"2024-05-10T00:28:29+00:00","description":"Below is a list of important user news updates, sorted by date. Please stay up to date with news which is relevant to you, as CHTC policy changes may affect the jobs of users.","headline":"Status","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/user-news"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/user-news"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-05-10T19:51:19+00:00","datePublished":"2024-05-10T19:51:19+00:00","description":"This guide describes how to use a pre-built Tensorflow environment (implemented as a Singularity container) to run Tensorflow jobs in CHTC and on the OS Pool.","headline":"Running Tensorflow Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/archived/tensorflow-singularity-wait"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/archived/tensorflow-singularity-wait"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -253,131 +253,150 @@
         <main id="main" style="min-height: 60vh;">
     <div class="container-xxl mb-5">
     <div class="row justify-content-center">
-        <div class="col mw-1000">
+        <div class="col-12 col-lg-9 mw-1000">
+            
+
             <h1 class="uw-mini-bar mb-4">
-    Status
+    Running Tensorflow Jobs
 </h1>
 
-            <p>Below is a list of important user news updates, sorted by date. Please
-stay up to date with news which is relevant to you, as CHTC policy
-changes may affect the jobs of users.</p>
+            <p>This guide describes how to use a pre-built Tensorflow environment
+(implemented as a <a href="http://singularity.lbl.gov/">Singularity container</a>)
+to run Tensorflow jobs in CHTC and on the <a href="https://osg-htc.org/about/open_science_pool/">OS Pool</a>.</p>
 
-<p>For older updates not shown on this page, see our <a href="https://www-auth.cs.wisc.edu/lists/chtc-users/">user mailing list
-archives</a>.</p>
+<h2 id="overview">Overview</h2>
 
-<hr />
+<p>Typically, software in CHTC jobs is installed or compiled locally by
+individual users and then brought along to each job, either using the
+default file transfer or our SQUID web server. However, another option
+is to use a <em>container</em> system, where the software is installed in a
+<em>container image</em>. CHTC (and the OS Pool) have capabilities to access and
+start containers and run jobs inside them. One container option
+available in CHTC is <a href="docker-jobs.html">Docker</a>; another is
+Singularity.</p>
 
-<h2 id="delayed-email-responses-no-thursday-office-hours">Delayed email responses, no Thursday office hours</h2>
-<h3 id="november-22-2022">November 22, 2022</h3>
+<p>In CHTC, our Singularity support consists of running jobs inside a
+pre-made Singularity container with an installation of Tensorflow. This
+Singularity set up is very flexible: it is accessible both in CHTC and
+on the OS Pool, and can be used to run Tensorflow either with
+CPUs or GPUs. This guide starts with a basic CPU example, but then goes
+on to describe how to use the Singularity Tensorflow container for GPUs,
+and also how to run on the <a href="https://osg-htc.org/about/open_science_pool/">OS Pool</a>.</p>
 
-<p>Dear CHTC users,</p>
+<ol>
+  <li><a href="#template">Basic Tensorflow Job Template</a></li>
+  <li><a href="#gpus">Using Tensorflow on GPUs</a></li>
+  <li><a href="#osg">Using Tensorflow on the OS Pool</a></li>
+</ol>
 
-<p>Due to the upcoming Thanksgiving holiday, users should expect delayed responses to emails the week of November 21st-25th. Additionally, office hours will be canceled on Thursday, November 24th.</p>
+<p><span name="template"></span></p>
 
-<p>Best,
-Your CHTC Team</p>
+<h2 id="1-basic-tensorflow-job-template"><strong>1. Basic Tensorflow Job Template</strong></h2>
 
-<hr />
+<p>The submit file for jobs that use the Tensorflow singularity container
+will look similar to other CHTC jobs, except for the additional
+Singularity options seen below.</p>
 
-<h2 id="updated-transition-timeline-for-htc-system-linux-changes-take-advantage-of-new-htc-hardware">Updated Transition Timeline for HTC System Linux Changes; Take Advantage of New HTC Hardware</h2>
-<h3 id="september-13-2022">September 13, 2022</h3>
+<p><strong>Submit File</strong></p>
 
-<p>Greetings CHTC users,</p>
+<pre><code class="language-{.sub}"># Typical submit file options
+universe = vanilla
+log = $(Cluster).$(Process).log
+error = $(Cluster).$(Process).err
+output = $(Cluster).$(Process).out
 
-<p>This email is for users of our high throughput computing (HTC) system.</p>
+# Fill in with your own script, arguments and input files
+# Note that you don't need to transfer any software
+executable = run_tensorflow.sh
+arguments =
+transfer_input_files = 
 
-<p>In a previous email (copied below), we announced that our HTC system is undergoing an operating system upgrade, with most of our capacity using CentOS Stream 8 Linux. We planned to change the default Linux version required by jobs to CentOS Stream 8 this Thursday, September 15. However, because users have noticed some impacts to compiling new software, programs, and libraries on this new operating system, <strong>we have decided to push back this milestone to Thursday, September 29</strong>. This will allow us additional time to ensure minimal impact to user’s jobs upon transitioning to CentOS Stream 8 as the default Linux version on the HTC system. This change has been reflected in our <a href="/uw-research-computing/os-transition-htc">operating system transition page</a>.</p>
+# Singularity settings
++SingularityImage = "/cvmfs/singularity.opensciencegrid.org/opensciencegrid/tensorflow:latest"
+Requirements = HAS_SINGULARITY == True
 
-<p><strong>HTC Users should test your jobs on servers running CentOS Stream 8 as soon as possible</strong>, if you have not already done so. For more information on testing your jobs, see our <a href="/uw-research-computing/os-transition-htc">operating system transition page</a>.</p>
+# Resource requirements
+request_cpus = 1
+request_memory = 2GB
+request_disk = 4GB
 
-<p>If you have tested your jobs on CentOS 8, we recommend using the job options that allow your jobs to run on servers with either operating system version, as this will maximize the capacity of the HTC system that you can access. As <a href="https://chtc.cs.wisc.edu/Technology-Refresh.html">previously announced</a>, the CHTC Infrastructure team has been busy incorporating new hardware into our HTC system and we want all of our HTC users to take advantage of these new resources!</p>
+# Number of jobs
+queue 1
+</code></pre>
 
-<p>If you have any questions about our operating system transition or hardware refresh, don’t hesitate to reach out to us at chtc@cs.wisc.edu.</p>
+<p><strong>Sample Executable (Wrapper Script)</strong></p>
 
-<p>Best,</p>
+<p>Your job will be running inside a container that has Tensorflow
+installed, so there should be no need to set any environment variables.</p>
 
-<p>Your CHTC Team</p>
+<pre class="file"><code>#!/bin/bash
 
-<hr />
+# your own code here 
+python test.py
+</code></pre>
 
-<h2 id="htc-users-start-planning-and-testing-for-operating-system-transition">HTC users: start planning and testing for operating system transition</h2>
-<h3 id="august-13-2022">August 13, 2022</h3>
+<p><span name="gpus"></span></p>
 
-<p>Greetings CHTC users,</p>
+<h2 id="2-cpus-vs-gpus"><strong>2. CPUs vs GPUs</strong></h2>
 
-<p>For users of our high throughput computing (HTC) system: over the next several weeks, we will be transitioning all of our HTC system servers to run a new version of Linux. We currently use CentOS 7 Linux and will be switching to CentOS Stream 8 Linux.</p>
-
-<p><strong>This transition may impact the ability of some software, library, and executable code to run.</strong> We highly recommend all HTC system users begin testing jobs on the updated CentOS Stream 8 servers in case they need to recompile their software or modify their jobs to run successfully on the new operating system.</p>
-
-<p>Complete information about the transition, including important dates, current available capacity, and how to request servers with different operating systems is on this page: <a href="https://chtc.cs.wisc.edu/uw-research-computing/os-transition-htc">HTC System Transitioning to a New Linux Version (CentOS Stream 8)</a></p>
-
-<p>This page will be updated as the transition progresses.</p>
-
-<p>For users of our HPC Cluster: the default Linux version running on the HPC Cluster servers will also be upgraded from CentOS 7 Linux to CentOS Stream 8 Linux in the future. We are still planning a timeline for this transition and will provide</p>
-
-<p>If you have any questions about this transition, contact chtc@cs.wisc.edu.</p>
-
-<p>Best,</p>
-
-<p>Your CHTC Team</p>
-
-<hr />
-
-<h2 id="disruptions-to-chtc-systems-on-tues-aug-23">Disruptions to CHTC systems on Tues, Aug 23</h2>
-<h3 id="thursday-august-11">Thursday, August 11</h3>
-
-<p>Greetings CHTC users,</p>
-
-<p>On Tuesday, August 23, many different components of CHTC systems will be updated with a needed 
-operating system patch. We anticipate disruptions across all CHTC services, including (but not 
-limited to) the submit servers and /staging file space on the HTC system as well as the login nodes 
-and home directories on the HPC cluster.</p>
-
-<p>Potential issues that may occur include:</p>
+<p>The submit file above use a CPU-enabled version of Tensorflow. In order
+to take advantage of GPUs, make the following changes to the submit file
+above:</p>
 
 <ul>
-  <li>Not being able to log in</li>
-  <li>Job failures due to not being able to read or write files</li>
-  <li>Job interruptions due to login node maintenance</li>
+  <li>
+    <p>Request GPUs in addition to CPUs:</p>
+
+    <pre><code class="language-{.sub}">request_gpus = 1
+</code></pre>
+  </li>
+  <li>
+    <p>Change the Singularity image to tensorflow with GPUs:</p>
+
+    <pre><code class="language-{.sub}">+SingularityImage = "/cvmfs/singularity.opensciencegrid.org/opensciencegrid/tensorflow-gpu:latest"
+</code></pre>
+  </li>
+  <li>
+    <p>Add a GPU card requirement to the requirements line:</p>
+
+    <pre><code class="language-{.sub}">requirements = HAS_SINGULARITY == True &amp;&amp; CUDACapability &gt;= 3
+</code></pre>
+  </li>
 </ul>
 
-<p>This is also an opportune time to remind all CHTC users that our file systems are not backed up and 
-it is your responsibility to make backups of important files and to move files that you are no longer 
-using off CHTC systems.</p>
+<p>For more information about GPUs and how GPU jobs work in CHTC, see our
+<a href="gpu-jobs.html">GPU Jobs guide</a>.</p>
 
-<p>Please contact us at chtc@cs.wisc.edu with any questions or concerns in advance of this planned 
-maintenance.</p>
+<blockquote>
+  <p><strong>Limited GPU availablity in CHTC</strong><br />
+This Singularity/Tensorflow functionality is not yet available on
+CHTC's newer GPUs with a sufficiently high CUDA Capability.
+Therefore, for now, the best way to use this Singularity/Tensorflow
+environment with GPUs is by running jobs on the OS Pool (see
+below). We are working on having Singularity support on all CHTC GPUs
+soon.</p>
+</blockquote>
 
-<p>Best,</p>
+<p><span name="osg"></span></p>
 
-<p>Your CHTC team</p>
+<h2 id="3-running-on-os-pool"><strong>3. Running on OS Pool</strong></h2>
 
-<hr />
+<p>This Tensorflow environment can also be run on the OS Pool either as the CPU or GPU version.</p>
 
-<h2 id="new-requirement-syntax-for-gpu-jobs-on-htc-system">New requirement syntax for GPU jobs on HTC system</h2>
-<h3 id="tuesday-june-28-2022">Tuesday, June 28, 2022</h3>
+<p>For more details on accessing the OS Pool, see <a href="scaling-htc.html">our guide for running
+outside CHTC, sections 3 and 4</a>.</p>
 
-<p>Dear CHTC GPU users,</p>
+        </div>
+        <div class="col-3 d-none d-lg-block">
+            
 
-<p>This message is for users of our high throughput computing (HTC) system who are using GPUs in their jobs.</p>
 
-<p>Due to recent updates in HTCondor, specific GPU qualities like GPU Memory and GPU compute “capability” are being utilized by HTCondor in a different manner. <strong>If your jobs require specific GPU qualities like these, the mechanism and syntax for requesting them in jobs has changed.</strong></p>
 
-<p>See our updated GPU Jobs guide for more details: <a href="https://chtc.cs.wisc.edu/uw-research-computing/gpu-jobs">GPU Jobs Guide</a></p>
+    <div id="guide-sidebar">
+        
+    </div>
 
-<p>The old syntax for requesting certain GPU qualities using a “requirements” statement in the submit file will continue to work, with plans to phase it out by fall 2022. <strong>The old syntax may limit the number of servers your jobs match to, so we recommend transitioning to the new syntax to maximize the GPU capacity available to your jobs.</strong></p>
 
-<p>If your jobs simply request any GPUs (no additional requirements), then nothing needs to be changed in your job submission.</p>
-
-<p>We are happy to answer any questions about this transition. As always, we can be reached at chtc@cs.wisc.edu.</p>
-
-<p>Best,</p>
-
-<p>Your CHTC team</p>
-
-<hr />
-
-<center><a class="twitter-timeline" data-width="800" data-height="500" data-theme="light" data-link-color="#2B7BB9" href="https://twitter.com/CHTC_UW?ref_src=twsrc%5Etfw">Tweets by CHTC_UW</a> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center>
 
         </div>
     </div>
