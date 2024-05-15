@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Transitioning to a New HPC Cluster</title>
+<title>Addressing the challenges of transferring large datasets with the OSDF</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,28 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Transitioning to a New HPC Cluster | CHTC</title>
+<title>Addressing the challenges of transferring large datasets with the OSDF | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Transitioning to a New HPC Cluster" />
+<meta property="og:title" content="Addressing the challenges of transferring large datasets with the OSDF" />
+<meta name="author" content="Sarah Matysiak" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The Center for High Throughput Computing’s High Performance Cluster is being replaced by a new High Performance System! All components of the system (execute nodes, network, shared file system) are new and we expect an improved experience for our HPC users." />
-<meta property="og:description" content="The Center for High Throughput Computing’s High Performance Cluster is being replaced by a new High Performance System! All components of the system (execute nodes, network, shared file system) are new and we expect an improved experience for our HPC users." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/archived/hpc-transition-2023" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/archived/hpc-transition-2023" />
+<meta name="description" content="Aashish Tripathee has used multiple file transfer systems and experienced challenges with each before using the Open Science Data Federation (OSDF). With the OSDF, Tripathee has already seen an improvement in data transfers." />
+<meta property="og:description" content="Aashish Tripathee has used multiple file transfer systems and experienced challenges with each before using the Open Science Data Federation (OSDF). With the OSDF, Tripathee has already seen an improvement in data transfers." />
+<link rel="canonical" href="https://pelicanplatform.org/user-stories/2024/05/14/big-data-with-osdf" />
+<meta property="og:url" content="https://pelicanplatform.org/user-stories/2024/05/14/big-data-with-osdf" />
 <meta property="og:site_name" content="CHTC" />
+<meta property="og:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/sites-use-of-osdf.png" />
+<meta property="og:image:alt" content="HTCondor logo" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-05-15T15:57:32+00:00" />
+<meta property="article:published_time" content="2024-05-14T00:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Transitioning to a New HPC Cluster" />
+<meta property="twitter:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/sites-use-of-osdf.png" />
+<meta name="twitter:image:alt" content="HTCondor logo" />
+<meta property="twitter:title" content="Addressing the challenges of transferring large datasets with the OSDF" />
 <meta name="twitter:site" content="@chtc_uw" />
+<meta name="twitter:creator" content="@Sarah Matysiak" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-05-15T15:57:32+00:00","datePublished":"2024-05-15T15:57:32+00:00","description":"The Center for High Throughput Computing’s High Performance Cluster is being replaced by a new High Performance System! All components of the system (execute nodes, network, shared file system) are new and we expect an improved experience for our HPC users.","headline":"Transitioning to a New HPC Cluster","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/archived/hpc-transition-2023"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/archived/hpc-transition-2023"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Sarah Matysiak"},"dateModified":"2024-05-14T00:00:00+00:00","datePublished":"2024-05-14T00:00:00+00:00","description":"Aashish Tripathee has used multiple file transfer systems and experienced challenges with each before using the Open Science Data Federation (OSDF). With the OSDF, Tripathee has already seen an improvement in data transfers.","headline":"Addressing the challenges of transferring large datasets with the OSDF","image":{"alt":"HTCondor logo","url":"https://raw.githubusercontent.com/CHTC/Articles/main/images/sites-use-of-osdf.png","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://pelicanplatform.org/user-stories/2024/05/14/big-data-with-osdf"},"url":"https://pelicanplatform.org/user-stories/2024/05/14/big-data-with-osdf"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -53,7 +59,7 @@
 <link type="text/css" href="/assets/fonts/fonts.0.0.1.css" rel="stylesheet">
 <link type="text/css" href="/assets/css/style-v10.css" rel="stylesheet">
 
-<link type="text/css" href="/assets/css/research-style.css" rel="stylesheet">
+
 
 <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'')})(document.documentElement)</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -77,7 +83,7 @@
             <div class="row">
                 <div class="col-auto pe-0">
                     
-                    <a class="uw-global-name-link" href="/" aria-label="University home page">Go to CHTC Home</a>
+                    <a class="uw-global-name-link" href="/uw-research-computing" aria-label="UW Research Computing Homepage">Go to UW Research Computing Home</a>
                     
                 </div>
                 <div class="col-auto d-flex">
@@ -97,7 +103,7 @@
 
 
 
-<header id="branding-sub" class="uw-header circuit-background">
+<header id="branding" class="uw-header ">
     <div class="uw-header-container mt-2 mb-2">
         <div class="uw-header-crest-title">
             <div class="uw-header-crest">
@@ -109,13 +115,8 @@
 </header>
     
 
-
-
     
-
-
-    
-    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">UW-Research Computing<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
+    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">Menu<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
 <div id="uw-top-menus" class="uw-is-visible uw-horizontal" aria-hidden="false">
     <div class="uw-main-nav">
         <nav class="uw-nav-menu uw-nav-menu-reverse" aria-label="Main Menu">
@@ -123,27 +124,9 @@
                 
                     
 
-
-<li id="home">
-    <a href="/uw-research-computing/index.html" aria-current="page">Home</a>
-</li>
-
-
-                
-                    
-
-
-<li id="get-started">
-    <a href="/uw-research-computing/form.html" aria-current="page">Get Started</a>
-</li>
-
-
-                
-                    
-
-<li id="menu-how-tos" class="uw-dropdown">
-    <a href="/uw-research-computing/how-tos.html" role="button" aria-haspopup="true" aria-expanded="false">
-        How To's
+<li id="about" class="uw-dropdown">
+    <a href="/about.html" role="button" aria-haspopup="true" aria-expanded="false">
+        About
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -151,27 +134,35 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="How To's submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="About submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/account-details.html">Get an Account</a>
+            <a href="/htc.html">What is HTC?</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/user-expectations.html">User Expectations</a>
+            <a href="/approach.html">Our Approach</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/htc/guides.html">HTC Guides</a>
+            <a href="/projects.html">Our Customers</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/hpc/guides.html">HPC Guides</a>
+            <a href="/people.html">Our Staff</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/cite-chtc.html">Cite CHTC Resources</a>
+            <a href="/jobs.html">Our Open Positions</a>
+        </li>
+    
+        <li>
+            <a href="/internships.html">Internships</a>
+        </li>
+    
+        <li>
+            <a href="/fellowships/index.html">Fellowships</a>
         </li>
     
     </ul>    
@@ -181,8 +172,8 @@
                     
 
 
-<li id="get-help">
-    <a href="/uw-research-computing/get-help.html" aria-current="page">Get Help</a>
+<li id="uw-research-computing">
+    <a href="/uw-research-computing/index.html" aria-current="page">UW Research Computing</a>
 </li>
 
 
@@ -190,17 +181,35 @@
                     
 
 
-<li id="status-page">
-    <a href="https://status.chtc.wisc.edu/" aria-current="page">System Status</a>
+<li id="guides">
+    <a href="/uw-research-computing/guides.html" aria-current="page">Guides</a>
 </li>
 
 
                 
                     
 
-<li id="menu-other-resources" class="uw-dropdown">
-    <a href="/uw-research-computing/other-resources.html" role="button" aria-haspopup="true" aria-expanded="false">
-        Other Resources
+
+<li id="technologies">
+    <a href="/technologies.html" aria-current="page">Technologies</a>
+</li>
+
+
+                
+                    
+
+
+<li id="research">
+    <a href="/research.html" aria-current="page">Research</a>
+</li>
+
+
+                
+                    
+
+<li id="news" class="uw-dropdown">
+    <a href="/news-navigation.html" role="button" aria-haspopup="true" aria-expanded="false">
+        News
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -208,27 +217,15 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="Other Resources submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="News submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/gpu-lab.html">CHTC GPU Lab</a>
+            <a href="/news.html">CHTC News</a>
         </li>
     
         <li>
-            <a href="https://htcondor.org/manual/">HTCondor Project</a>
-        </li>
-    
-        <li>
-            <a href="http://www.neos-server.org/">NEOS Optimization Service</a>
-        </li>
-    
-        <li>
-            <a href="http://www.osg-htc.org/">OSG Consortium</a>
-        </li>
-    
-        <li>
-            <a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a>
+            <a href="/events.html">Events</a>
         </li>
     
     </ul>    
@@ -249,175 +246,54 @@
 </div>
 
 
+
+    
+
     <main id="main" style="min-height: 60vh;">
         <main id="main" style="min-height: 60vh;">
-    <div class="container-xxl mb-5">
+    <!-- This Layout is to adhere the page to the optimal char per lines for accessibility -->
+
+
+<div class="container-xxl">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-9 mw-1000">
-            
-
+        <div class="col-12 col-sm-11 col-md-9 col-lg-8">
             <h1 class="uw-mini-bar mb-4">
-    Transitioning to a New HPC Cluster
-</h1>
+                Addressing the challenges of transferring large datasets with the OSDF
+            </h1>
+            <p><em>Aashish Tripathee has used multiple file transfer systems and experienced challenges with each before using the Open Science Data Federation (OSDF). With the OSDF, Tripathee has already seen an improvement in data transfers.</em></p>
 
-            <p>The Center for High Throughput Computing’s High Performance Cluster is being 
-replaced by a new High Performance System! All components of the system (execute 
-nodes, network, shared file system) are new and we expect an improved experience for our HPC users.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/CHTC/Articles/main/images/sites-use-of-osdf.png" alt="Map of OSDF use" />
+</figure>
 
-<p>ALL USERS OF THE EXISTING HPC SYSTEM WILL NEED TO MIGRATE TO THIS NEW CLUSTER. 
-Importantly, access to the existing cluster will be phased out in early 2022. 
-CHTC staff are here to assist with your transition.</p>
+<p>Map featuring the locations of current OSDF <a href="https://osg-htc.org/docs/data/stashcache/overview/#architecture">caches in the federation</a>.</p>
 
-<h2 id="highlights">Highlights</h2>
+<p>When transferring big datasets, researchers may face numerous obstacles. University of Michigan Physics post-doctoral research fellow and <a href="https://osg-htc.org/spotlights/david-swanson-awardees-2023.html">OSG David Swanson Awardee</a>  <a href="https://lsa.umich.edu/physics/people/research-fellows/aashisht.html">Aashish Tripathee</a> faced these challenges too while conducting research on ripples in space-time, or continuous gravitational waves. Due to the sizing of his datasets, Tripathee needed to transfer over 30,000 gigabytes.</p>
 
-<ul>
-  <li>The existing HPC cluster is being replaced by a new cluster. After <strong>February 2023</strong> 
-ALL users will lose access to the existing cluster, and all user files will be 
-deleted.</li>
-  <li>Custom software will need to be reinstalled and jobs will need to be tested on 
-the new cluster.</li>
-  <li>The <code>univ2</code> partition is being renamed, and partition policies have changed.</li>
-  <li>Users should avoid using <code>mpirun</code> and instead should use <code>srun</code> to execute their 
-MPI code.
-    <blockquote>
-      <p>Note: At this time, interactive jobs on the “Spark” HPC Cluster can not be 
-used to run MPI code.</p>
-    </blockquote>
-  </li>
-  <li>File system conventions have changed - jobs will now use <code>/scratch/$USER</code> to run, 
-and <code>/home/$USER</code> will be mainly used for software installations and reference 
-files.</li>
-</ul>
+<p>Over a year ago, Tripathee began using the <a href="https://osg-htc.org/services/osdf">Open Science Data Federation (OSDF)</a> service that allows for the efficient delivery of data to compute as part of his workflows on the <a href="https://osg-htc.org/">OSPool</a>. The OSDF supports the sharing of datasets staged in autonomous “origins” that can move data to compute resources around the world through a global network of caches.</p>
 
-<h2 id="important-dates">Important Dates</h2>
+<p>Before using the OSDF, Tripathee had experimented with a variety of data delivery systems. Though Tripathee saw successes with these systems, he was still encountering problems due to the type of data he was using and the volume he was transferring. Tripathee saw about 2–3% of his jobs failing because of completely halted transfers or far too slow transfers.</p>
 
-<ul>
-  <li><strong>Mid January 2023:</strong> New cluster available for general use</li>
-  <li><strong>February 28, 2023:</strong> Jobs will no longer run on the old cluster</li>
-  <li><strong>March 15, 2023:</strong> Access to <code>hpclogin1.chtc.wisc.edu</code> login node and old file 
-system removed, <strong>Data for all users will be deleted on the old HPC system.</strong></li>
-</ul>
+<p>Upon switching to the OSDF, Tripathee saw substantial improvements and noticed a significant number of jobs now run to completion while facing far fewer data transfer issues: With the OSDF, only about 0.5% of his jobs still show transfer issues.</p>
 
-<h2 id="what-you-need-to-do">What You Need to Do</h2>
+<figure class="figure float-end" style="margin-left: 1em">
+ <img src="https://raw.githubusercontent.com/CHTC/Articles/main/images/headshot-use-of-osdf.png" height="200" width="200" class="figure-img img-fluid rounded" alt="Physics post-doctoral research fellow at the University of Michigan Aashish Tripathee." />
+  <figcaption class="figure-caption">Physics post-doctoral research fellow at <br />the University of Michigan Aashish Tripathee.</figcaption>
+</figure>
 
-<h3 id="move-data">Move Data</h3>
+<p>The data transfer and storage problems Tripathee encountered are not isolated — difficulties in combining datasets and computing infrastructure are endemic across science. The OSDF is powered by the <a href="https://pelicanplatform.org/">Pelican Platform</a>, which is supported by a new $7.0 million grant from the <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2331480">National Science Foundation (NSF)</a> (OAC-2331480). The project is led by <a href="https://morgridge.org/profile/brian-bockelman/">Brian Bockelman</a> from the Morgridge Institute for Research, director of the <a href="https://chtc.cs.wisc.edu/">Center for High Throughput Computing (CHTC)</a> at University of Wisconsin–Madison <a href="https://morgridge.org/profile/miron-livny/">Miron Livny</a>, and <a href="https://www.sdsc.edu/research/researcher_spotlight/wuerthwein_frank.html">Frank Würthwein</a>, Executive Director of the San Diego Supercomputing Center at the University of California, San Diego. Through this project, the Pelican software will be enhanced to make the OSDF more reliable, easier to use, and more accessible to other fields of science.</p>
 
-<p>Back up files from the old cluster to another system (e.g. your laptop), copy 
-files you are actively working with to the new cluster, and delete all data off 
-the old HPC system. <strong>All files in <code>/home</code> and <code>/software</code> will be deleted off the 
-existing system starting March 15, 2023.</strong></p>
+<p>The switch to the new platform was simple given its integration within the OSPool, which is closely related to the Pelican project at the CHTC. Tripathee reports the few changes he did make were well-documented in the <a href="https://portal.osg-htc.org/documentation/htc_workloads/managing_data/osdf/">OSPool documentation</a>, which “tells you exactly what you change depending on, for example, what submit node you’re running from and where you want to store the data.” What it came down to for Tripathee, ultimately, was changing a few lines of code.</p>
 
-<h3 id="log-in-and-quota-check">Log In and Quota Check</h3>
+<p>Tripathee is part of the <a href="https://www.ligo.caltech.edu/">Laser Interferometer Gravitational-Wave Observatory (LIGO)</a> collaboration, which is starting to adopt the OSDF as part of its computing infrastructure, he mentions. While LIGO’s use of the OSDF is not yet widespread, Tripathee says he’s been using it for a couple of months and plans to continue with it since it’s been working well for him. As more LIGO members begin using the OSDF, Tripathee predicts that it is “definitely going to make a big difference in the jobs’ efficiency and reduce the number of wasted job hours.”</p>
 
-<p>Confirm you can access the new cluster by logging into the new login node.</p>
+<p>In May 2023, LIGO started its fourth observation run, meaning researchers, including Tripathee, will be able to analyze that data soon, which he looks forward to doing. Tripathee recalls that during the third observation round, the researchers experienced hiccups with file transfers, but now hopes retrieving the data from the OSDF should go more quickly and more smoothly. Tripathee anticipates fewer failed jobs and fewer wasted computing cycles. “As more and more universities start attaching servers, it’s going to make it even faster and faster. I’m very excited about its prospects going into the future,” Tripathee says.</p>
 
-<h3 id="prepare-and-submit-test-jobs">Prepare and Submit Test Jobs</h3>
+<p>Sharing the results of the work in February 2024, Tripathree’s research from the third observation run was <a href="https://journals.aps.org/prd/abstract/10.1103/PhysRevD.109.043049#">published</a> in the “Physical Review D.” Searching for gravitational waves, Tripathree focused on isolated neutron stars, a potential source for these waves. Working alongside Dr. <a href="https://lsa.umich.edu/physics/people/faculty/kriles.html">Keith Riles</a> of the University of Michigan, the duo determined the best upper limits for circular polarization — bringing researchers closer to detecting a continuous wave signal.</p>
 
-<p>After logging in, prepare and submit a few test jobs to confirm that your work 
-will run, paying attention to these important changes:</p>
+<p>What he learned from the other services he used compared to the OSDF was that “for OSDF, people from all over the world are using it — it’s distributed everywhere, so it serves as a more general-purpose storage,” enabling his jobs to access from close by hardware instead of potentially retrieving it from across the world.</p>
 
-<ol>
-  <li><strong>Appropriate usage of <code>/home</code> and <code>/scratch</code>:</strong>
-    <ul>
-      <li>Jobs should be run out of <code>/scratch/$USER</code>. Your scratch directory has a quota of  100GB disk space and 250,000 items</li>
-      <li>Only use your <code>/home</code> directory for software installations and general job files and templates.
-Your <code>/home</code> directory has a quota of 20GB disk space and 250,000 items.</li>
-      <li>The <code>/software</code> directory is being phased out.</li>
-    </ul>
-  </li>
-  <li>
-    <p><strong>Build software with new modules:</strong> users will need to reinstall and/or rebuild 
-their software on the new HPC cluster. Users may encounter different versions of 
-common tools on the new cluster, so it is important to try installing your 
-software early to ensure compatibility. If a software or library is not available 
-that is necessary for your installation is not installed, contact CHTC staff (see 
-our <a href="/uw-research-computing/get-help.html">get help page</a>).</p>
-  </li>
-  <li>
-    <p><strong>Change MPI execution:</strong> Our systems administrators now recommend using <code>srun</code> 
-with the <code>--mpi=pmix</code> flag instead of <code>mpirun</code> or <code>mpiexec</code> to execute MPI type code. It
-should look like this:
-     srun –mpi=pmix mpi_program</p>
-  </li>
-  <li><strong>Change #SBATCH options:</strong> The new cluster has different partition names <em>and</em> 
-different sized nodes. The main general use partition is now called <code>shared</code> 
-instead of <code>univ2</code> or <code>univ3</code>. We also recommend the following changes because 
-most of our nodes now have 128 cores, so requesting multiple nodes is not 
-advantageous if your jobs are smaller than 128 cores. We also now recommend requesting 
-memory per core instead of memory per node, for similar reasons, using the <code>--mem-per-cpu</code>
-flag with units of MB. Here are our recommendations for different sized jobs:</li>
-</ol>
-
-<table>
-	<tr>
-		<th>Job size</th>
-		<th>Recommended <code>#SBATCH</code> flags</th>
-	</tr>
-	<tr>
-		<td>32-128 cores</td>
-		<td>Example for 32 cores: <pre>
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=32 # recommend multiples of 16
-#SBATCH --mem-per-cpu=4000</pre></td>
-	</tr>
-	<tr>
-		<td>96 - 256 cores</td>
-		<td>Split over a few nodes, for example for 160 cores: <pre>
-#SBATCH --nodes=2
-#SBATCH --ntasks-per-node=80 # designate cores per node
-#SBATCH --mem-per-cpu=4000</pre> 
-	OR:  <pre>
-#SBATCH --nodes=2
-#SBATCH --ntasks=160 # designate overall cores
-#SBATCH --mem-per-cpu=4000</pre></td>
-	</tr>
-	<tr>
-		<td>128 or 256 cores (whole nodes)</td>
-		<td>Example for 256 cores: <pre>
-#SBATCH --nodes=2
-#SBATCH --ntasks-per-node=128
-#SBATCH --mem-per-cpu=4000</pre></td>
-	</tr>
-</table>
-
-<h3 id="optimizing-jobs-optional">Optimizing Jobs (Optional)</h3>
-
-<p>The new cluster nodes have very fast local disk space on each node. If your code 
-is able to use local space for certain parts of its calculations or is able to 
-sync data between local spaces, it may be advantageous to use this disk to speed 
-up your jobs. It is located at the following path on each node:</p>
-
-<pre><code>/local/$USER
-</code></pre>
-
-<h2 id="new-cluster-specifications">New Cluster Specifications</h2>
-
-<p><strong>Execute Nodes</strong></p>
-
-<p>We have 40 general use execute nodes, representing 5,120 cores of capacity. 
-Server specs (Dell Poweredge R6525):</p>
-<ul>
-  <li>128 cores using the AMD Epyc 7763 processor</li>
-  <li>512GB of memory</li>
-  <li>1.5TB of local (not shared) fast NVME disk</li>
-</ul>
-
-<p>Operating System: CentOS Stream 8</p>
-
-<p>Scheduler: SLURM 22.05.6</p>
-
-
-        </div>
-        <div class="col-3 d-none d-lg-block">
-            
-
-
-
-    <div id="guide-sidebar">
-        
-    </div>
-
-
+<p>When working with big datasets that require a great amount of computing power, researchers — not so different from what Tripathee — will face obstacles that they need to jump over or duck under. Although going through may be the quickest and most direct solution to maneuver around the obstacle, this path often takes more resources. The OSDF wants to be that invaluable resource researchers will reach for when they need to push their way through that obstacle.</p>
 
         </div>
     </div>
