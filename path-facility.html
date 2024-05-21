@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Managing Large Data in HTC Jobs with S3 Buckets</title>
+<title>PATh Facility provides dedicated HTC capacity to NSF-funded projects</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,28 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Managing Large Data in HTC Jobs with S3 Buckets | CHTC</title>
+<title>PATh Facility provides dedicated HTC capacity to NSF-funded projects | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Managing Large Data in HTC Jobs with S3 Buckets" />
+<meta property="og:title" content="PATh Facility provides dedicated HTC capacity to NSF-funded projects" />
+<meta name="author" content="Bryna Goeking" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="When submitting jobs to CHTC’s High Throughput Computing (HTC) system, there is a distinct location for staging data that is too large to be handled at scale via the default HTCondor file transfer mechanism but needs to be accessed outside of CHTC (for example, data for jobs that run on the OS Pool)." />
-<meta property="og:description" content="When submitting jobs to CHTC’s High Throughput Computing (HTC) system, there is a distinct location for staging data that is too large to be handled at scale via the default HTCondor file transfer mechanism but needs to be accessed outside of CHTC (for example, data for jobs that run on the OS Pool)." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/file-avail-s3" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/file-avail-s3" />
+<meta name="description" content="Since 2022, the Partnership to Advance Throughput Computing (PATh) Facility has provided dedicated high throughput computing (HTC) capacity to researchers nationwide. Following a year of expansion, here’s a look into the researchers’ work and how it has been enabled by the PATh Facility." />
+<meta property="og:description" content="Since 2022, the Partnership to Advance Throughput Computing (PATh) Facility has provided dedicated high throughput computing (HTC) capacity to researchers nationwide. Following a year of expansion, here’s a look into the researchers’ work and how it has been enabled by the PATh Facility." />
+<link rel="canonical" href="https://path-cc.io/news/2024-05-21-path-facility.html" />
+<meta property="og:url" content="https://path-cc.io/news/2024-05-21-path-facility.html" />
 <meta property="og:site_name" content="CHTC" />
+<meta property="og:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/PATh-Facility-Hardware.jpg" />
+<meta property="og:image:alt" content="PATh Facility hardware" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-05-21T17:09:04+00:00" />
+<meta property="article:published_time" content="2024-05-21T00:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Managing Large Data in HTC Jobs with S3 Buckets" />
+<meta property="twitter:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/PATh-Facility-Hardware.jpg" />
+<meta name="twitter:image:alt" content="PATh Facility hardware" />
+<meta property="twitter:title" content="PATh Facility provides dedicated HTC capacity to NSF-funded projects" />
 <meta name="twitter:site" content="@chtc_uw" />
+<meta name="twitter:creator" content="@Bryna Goeking" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-05-21T17:09:04+00:00","datePublished":"2024-05-21T17:09:04+00:00","description":"When submitting jobs to CHTC’s High Throughput Computing (HTC) system, there is a distinct location for staging data that is too large to be handled at scale via the default HTCondor file transfer mechanism but needs to be accessed outside of CHTC (for example, data for jobs that run on the OS Pool).","headline":"Managing Large Data in HTC Jobs with S3 Buckets","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-s3"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-s3"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Bryna Goeking"},"dateModified":"2024-05-21T00:00:00+00:00","datePublished":"2024-05-21T00:00:00+00:00","description":"Since 2022, the Partnership to Advance Throughput Computing (PATh) Facility has provided dedicated high throughput computing (HTC) capacity to researchers nationwide. Following a year of expansion, here’s a look into the researchers’ work and how it has been enabled by the PATh Facility.","headline":"PATh Facility provides dedicated HTC capacity to NSF-funded projects","image":{"alt":"PATh Facility hardware","url":"https://raw.githubusercontent.com/CHTC/Articles/main/images/PATh-Facility-Hardware.jpg","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://path-cc.io/news/2024-05-21-path-facility.html"},"url":"https://path-cc.io/news/2024-05-21-path-facility.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -53,7 +59,7 @@
 <link type="text/css" href="/assets/fonts/fonts.0.0.1.css" rel="stylesheet">
 <link type="text/css" href="/assets/css/style-v10.css" rel="stylesheet">
 
-<link type="text/css" href="/assets/css/research-style.css" rel="stylesheet">
+
 
 <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'')})(document.documentElement)</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -77,7 +83,7 @@
             <div class="row">
                 <div class="col-auto pe-0">
                     
-                    <a class="uw-global-name-link" href="/" aria-label="University home page">Go to CHTC Home</a>
+                    <a class="uw-global-name-link" href="/uw-research-computing" aria-label="UW Research Computing Homepage">Go to UW Research Computing Home</a>
                     
                 </div>
                 <div class="col-auto d-flex">
@@ -97,7 +103,7 @@
 
 
 
-<header id="branding-sub" class="uw-header circuit-background">
+<header id="branding" class="uw-header ">
     <div class="uw-header-container mt-2 mb-2">
         <div class="uw-header-crest-title">
             <div class="uw-header-crest">
@@ -109,13 +115,8 @@
 </header>
     
 
-
-
     
-
-
-    
-    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">UW-Research Computing<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
+    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">Menu<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
 <div id="uw-top-menus" class="uw-is-visible uw-horizontal" aria-hidden="false">
     <div class="uw-main-nav">
         <nav class="uw-nav-menu uw-nav-menu-reverse" aria-label="Main Menu">
@@ -123,27 +124,9 @@
                 
                     
 
-
-<li id="home">
-    <a href="/uw-research-computing/index.html" aria-current="page">Home</a>
-</li>
-
-
-                
-                    
-
-
-<li id="get-started">
-    <a href="/uw-research-computing/form.html" aria-current="page">Get Started</a>
-</li>
-
-
-                
-                    
-
-<li id="menu-how-tos" class="uw-dropdown">
-    <a href="/uw-research-computing/how-tos.html" role="button" aria-haspopup="true" aria-expanded="false">
-        How To's
+<li id="about" class="uw-dropdown">
+    <a href="/about.html" role="button" aria-haspopup="true" aria-expanded="false">
+        About
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -151,27 +134,35 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="How To's submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="About submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/account-details.html">Get an Account</a>
+            <a href="/htc.html">What is HTC?</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/user-expectations.html">User Expectations</a>
+            <a href="/approach.html">Our Approach</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/htc/guides.html">HTC Guides</a>
+            <a href="/projects.html">Our Customers</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/hpc/guides.html">HPC Guides</a>
+            <a href="/people.html">Our Staff</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/cite-chtc.html">Cite CHTC Resources</a>
+            <a href="/jobs.html">Our Open Positions</a>
+        </li>
+    
+        <li>
+            <a href="/internships.html">Internships</a>
+        </li>
+    
+        <li>
+            <a href="/fellowships/index.html">Fellowships</a>
         </li>
     
     </ul>    
@@ -181,8 +172,8 @@
                     
 
 
-<li id="get-help">
-    <a href="/uw-research-computing/get-help.html" aria-current="page">Get Help</a>
+<li id="uw-research-computing">
+    <a href="/uw-research-computing/index.html" aria-current="page">UW Research Computing</a>
 </li>
 
 
@@ -190,17 +181,35 @@
                     
 
 
-<li id="status-page">
-    <a href="https://status.chtc.wisc.edu/" aria-current="page">System Status</a>
+<li id="guides">
+    <a href="/uw-research-computing/guides.html" aria-current="page">Guides</a>
 </li>
 
 
                 
                     
 
-<li id="menu-other-resources" class="uw-dropdown">
-    <a href="/uw-research-computing/other-resources.html" role="button" aria-haspopup="true" aria-expanded="false">
-        Other Resources
+
+<li id="technologies">
+    <a href="/technologies.html" aria-current="page">Technologies</a>
+</li>
+
+
+                
+                    
+
+
+<li id="research">
+    <a href="/research.html" aria-current="page">Research</a>
+</li>
+
+
+                
+                    
+
+<li id="news" class="uw-dropdown">
+    <a href="/news-navigation.html" role="button" aria-haspopup="true" aria-expanded="false">
+        News
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -208,27 +217,15 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="Other Resources submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="News submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/gpu-lab.html">CHTC GPU Lab</a>
+            <a href="/news.html">CHTC News</a>
         </li>
     
         <li>
-            <a href="https://htcondor.org/manual/">HTCondor Project</a>
-        </li>
-    
-        <li>
-            <a href="http://www.neos-server.org/">NEOS Optimization Service</a>
-        </li>
-    
-        <li>
-            <a href="http://www.osg-htc.org/">OSG Consortium</a>
-        </li>
-    
-        <li>
-            <a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a>
+            <a href="/events.html">Events</a>
         </li>
     
     </ul>    
@@ -249,346 +246,114 @@
 </div>
 
 
+
+    
+
     <main id="main" style="min-height: 60vh;">
         <main id="main" style="min-height: 60vh;">
-    <div class="container-xxl mb-5">
+    <!-- This Layout is to adhere the page to the optimal char per lines for accessibility -->
+
+
+<div class="container-xxl">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-9 mw-1000">
-            
-
+        <div class="col-12 col-sm-11 col-md-9 col-lg-8">
             <h1 class="uw-mini-bar mb-4">
-    Managing Large Data in HTC Jobs with S3 Buckets
-</h1>
-
-            <h2>Which Option is the Best for Your Files?</h2>
-<br>
-<table class="gtable">
-    <tr>
-        <th>Input Sizes</th>
-        <th>Output Sizes</th>
-        <th>Link to Guide</th>
-        <th>File Location</th>
-        <th>How to Transfer</th>
-        <th>Availability, Security</th>
-        <!--<th>Special Considerations</th>-->
-    </tr>
-
-    <tr>
-        <td>0 - 100 MB per file, up to 500 MB per job</td>
-        <td>0 - 5 GB per job</td>
-        <td><a href="file-availability.html">Small Input/Output File Transfer via <b>HTCondor</b></a></td>
-        <td><code>/home</code></td>
-        <td><b>submit file</b>; filename in <small><code>transfer_input_files</code></small></td>
-        <td>CHTC, UW Grid, and OSG; works for <i>your</i> jobs</td>
-        <!--<td><font color="red">DO NOT USE HTCondor transfer for files in <code>/staging</code> OR <code>/squid</code></font></td>-->
-    </tr>
-
-    <tr>
-        <td>100 MB - 1 GB per repeatedly-used file</td>
-        <td>Not available for output</td>
-        <td><a href="file-avail-squid.html">Large Input File Availability Via <b>Squid</b></a></td>
-        <td><code>/squid</code></td>
-        <td><b>submit file</b>; http link in <small><code>transfer_input_files</code></small></td>
-        <td>CHTC, UW Grid, and OSG; files are made *publicly-readable* via an HTTP address</i></td>
-        <!--<td>large files unique to individual jobs are better for large data staging</td>-->
-    </tr>
-
-    <tr>
-        <td>100 MB - TBs per job-specific file; repeatedly-used files > 1GB</td>
-        <td>4 GB - TBs per job</td>
-        <td><a href="file-avail-largedata.html">Large Input and Output File Availability Via <b>Staging</b></a></td>
-         <td><code>/staging</code></td>
-        <td><b>job executable</b>; copy or move within the job</td>
-        <td>a portion of CHTC; accessible only to <i>your</i> jobs</td>
-        <!--<td>special submit "Requirements"</td>-->
-    </tr>
-
-</table>
-
-<!--
-<h2>Best Practices for File Delivery</h2>
-
-<p>Remember to review best practices in our File Handling guide,
-including the following:</p>
-
-<ul>
-<li>Pre-split large input files when each of many jobs will only need a portion of the
-large input data.</li>
-<li>Remove ALL unwanted/temporary files in the working director of the job that have
-appeared since the job started.</li>
-<li>Use tar with compression (*.tar.gz) for any relevant input/output files and ALL
-desired output directories prior to their transfer/delivery.</li>
-</ul>
--->
-
-<p>When submitting jobs to CHTC’s High Throughput Computing (HTC) system,
-there is a distinct location for staging data that is too large to be
-handled at scale via the default HTCondor file transfer mechanism
-but needs to be accessed outside of CHTC
-(for example, data for jobs that run on the <a href="https://osg-htc.org/about/open_science_pool/">OS Pool</a>).</p>
-
-<p><strong>To best understand the below information, users should already be
-familiar with:</strong></p>
-
-<ol>
-  <li>Using the command-line to: navigate directories,
-create/edit/copy/move/delete files and directories, and run intended
-programs (aka “executables”).</li>
-  <li>CHTC’s <a href="helloworld.html">Intro to Running HTCondor Jobs</a></li>
-  <li>CHTC’s guide for <a href="file-availability.html">Typical File Transfer</a></li>
-</ol>
-
-<h2 id="contents">Contents</h2>
-
-<ol>
-  <li><a href="#1-policies-and-intended-use">Policies and Intended Use</a></li>
-  <li><a href="#2-staging-large-data-in-s3-buckets">Staging Large Data in S3 Buckets</a></li>
-  <li><a href="#3-using-staged-files-in-a-job">Using Staged Files in a Job</a>
-    <ul>
-      <li><a href="#a-transferring-large-input-files">Transferring Large Input Files</a></li>
-      <li><a href="#b-moving-large-output-files">Moving Large Output Files</a></li>
-    </ul>
-  </li>
-  <li><a href="#4-checking-your-data-use-and-file-counts">Checking your Data Use and File Counts</a></li>
-</ol>
-
-<h1 id="1-policies-and-intended-use">1. Policies and Intended Use</h1>
-
-<blockquote>
-  <p><strong>USERS VIOLATING ANY OF THE POLICIES IN THIS GUIDE WILL
-HAVE THEIR DATA STAGING ACCESS AND/OR CHTC ACCOUNT REVOKED UNTIL CORRECTIVE
-MEASURES ARE TAKEN. CHTC STAFF RESERVE THE RIGHT TO REMOVE ANY
-PROBLEMATIC USER DATA AT ANY TIME IN ORDER TO PRESERVE PERFORMANCE.</strong></p>
-</blockquote>
-
-<h2 id="a-intended-use">A. Intended Use</h2>
-
-<p>Our S3 data storage is only for input and output files that
-are individually too large to be managed by our other data movement
-methods, HTCondor file transfer or SQUID, and when these files are
-expected to be accessed outside of CHTC. This includes individual input files
-greater than 100MB and individual output files greater than 3-4GB.</p>
-
-<p>Files in our S3 data storage are organized in storage units called
-“buckets.” You can think of an S3 bucket like a folder containing a
-set of data. Each bucket has a unique name of your choosing and can
-contain folders, executable files, data files, and most other types of
-files. S3 buckets are protected with a key that is unique to you
-(similar to a password) and, when provided with the key, buckets
-can be accessed from any machine with an internet connection. CHTC
-automatically creates and manages keys for users, so you do not have
-to provide your key when manging files in your S3 buckets on CHTC
-transfer servers or when submitting jobs on CHTC submit servers that
-transfer data from S3 buckets.</p>
-
-<p>Users are expected to abide by this intended use expectation and follow the
-instructions for using S3 buckets written in this guide (e.g. files placed
-in S3 buckets should ALWAYS be listed in the submit file).</p>
-
-<h2 id="b-getting-access-to-create-s3-buckets">B. Getting Access to Create S3 Buckets</h2>
-
-<p>Any one with a CHTC account whose data meets the intended use above
-can request access to create S3 buckets inside CHTC’s S3 data
-storage. A Research Computing Facilitator will review the request and
-follow up. If appropriate, S3 bucket creation will be enabled for and
-a quota will be set on your account. Quotas are based on individual
-user needs; if a larger quota is needed, email chtc@cs.wisc.edu with
-your request.</p>
-
-<h2 id="c-user-data-management-responsibilities">C. User Data Management Responsibilities</h2>
-
-<p>As with all CHTC file spaces:</p>
-
-<ul>
-  <li><strong>Keep copies</strong>: Our S3 buckets are not backed up and have the
-possibility of data loss; keep copies of ANY and ALL data in S3
-buckets in another, non-CHTC location.</li>
-  <li><strong>Remove data</strong>: We expect that users remove data from S3 buckets AS
-SOON AS IT IS NO LONGER NEEDED FOR ACTIVELY-RUNNING JOBS.</li>
-  <li><strong>Monitor usage and quota</strong>: Your account has both a size and
-number of files quota that applies across all buckets owned by your
-account. Quota changes can be requested by emailing chtc@cs.wisc.edu.</li>
-</ul>
-
-<p>CHTC staff reserve the right to remove S3 buckets or revoke bucket
-creation permission at any time.</p>
-
-<h2 id="d-data-access-within-jobs">D. Data Access Within Jobs</h2>
-
-<p>Data in a CHTC S3 bucket can be accessed from jobs running almost
-anywhere (including most of OS Pool). HTCondor automatically matches and
-runs jobs that use S3 buckets only on machines that support S3 data
-transfers.</p>
-
-<p>Data in CHTC S3 buckets are owned by the user (or a set of users), and
-only the user’s (or users’) own jobs can access these files.</p>
-
-<h1 id="2-staging-large-data-in-s3-buckets">2. Staging Large Data in S3 Buckets</h1>
-
-<p>In order to stage data in an S3 bucket for use on CHTC’s HTC system:</p>
-
-<ul>
-  <li><strong>Get S3 bucket creation access</strong>: Bucket creation access is granted by request.</li>
-  <li><strong>Create an S3 bucket</strong>: Create a bucket that will contain the data for your project.</li>
-  <li><strong>Reduce file counts</strong>: Combine and compress files that are used together.</li>
-  <li><strong>Use the transfer server</strong>: Upload your data to your bucket via our dedicated file transfer server.</li>
-  <li><strong>Remove files after jobs complete</strong>: Data in S3 buckets are quota controlled and not backed up.</li>
-</ul>
-
-<h2 id="a-get-s3-bucket-creation-access">A. Get S3 Bucket Creation Access</h2>
-
-<p>CHTC S3 bucket creation access is granted by request. If you think you need
-to create S3 buckets, email CHTC’s Research Computing Facilitators (chtc@cs.wisc.edu).</p>
-
-<h2 id="b-create-an-s3-bucket">B. Create an S3 Bucket</h2>
-
-<p>Buckets can be created on a CHTC submit server or the CHTC transfer server
-using the <code>mc</code> command:</p>
-
-<pre class="term"><code>[alice@transfer]$ mc mb chtc/my-bucket-name
-</code></pre>
-
-<p>Each bucket in CHTC must have a unique name, so be descriptive! We
-recommend creating a bucket per dataset or per batch of jobs.</p>
-
-<h2 id="c-reduce-file-counts">C. Reduce File Counts</h2>
-
-<p>Data placed in S3 buckets should be stored in as few files as possible
-(ideally, one file per job). Similarly, large output should first be
-written to the job working directory then compressed in to a single
-file before being transferred back to an S3 bucket at the end of the job.</p>
-
-<p>To prepare job-specific data that is large enough
-and exists as multiple files or directories (or a directory of multiple
-files), first create a compressed tar package before placing the file in
-an S3 bucket (either before submitting jobs, or within jobs before
-transferring output to). For example:</p>
-
-<pre class="term"><code>$ tar -czvf job_package.tar.gz file_or_dir
-</code></pre>
-
-<h2 id="d-use-the-transfer-server">D. Use the Transfer Server</h2>
-
-<p>Movement of large data into/out of S3 buckets before and after jobs
-should be performed via CHTC’s transfer server, as below, and
-<strong>not via a CHTC submit server.</strong> After obtaining an account on the
-transfer server and creating an S3 bucket, copy relevant files directly into your
-home directory from your own computer:</p>
-
-<ul>
-  <li>Example <code>scp</code> command on your own Linux or Mac computer:
-    <pre class="term"><code>$ scp large-input.file username@transfer.chtc.wisc.edu:/home/username/
-</code></pre>
-  </li>
-  <li>If using a Windows computer:
-    <ul>
-      <li>Using a file transfer application, like WinSCP, directly drag the large
-file from its location on your computer to a location within
-<code>/home/username/</code> on transfer.chtc.wisc.edu.</li>
-    </ul>
-  </li>
-</ul>
-
-<p>Then in an SSH session on the transfer server, copy files in to your
-S3 bucket:</p>
-
-<pre class="term"><code>[alice@transfer]$ mc cp large-input.file chtc/my-bucket
-</code></pre>
-
-<h2 id="e-remove-files-after-jobs-complete">E. Remove Files After Jobs Complete</h2>
-
-<p>As with all CHTC file spaces, data should be removed from S3 buckets AS
-SOON AS IT IS NO LONGER NEEDED FOR ACTIVELY-RUNNING JOBS. Even if it
-will be used again in the future, it should be deleted from and copied
-back at a later date. Files can be taken out of S3 buckets using similar
-mechanisms as uploaded files. In an SSH session on the transfer
-server, copy files from your bucket to your home directory:</p>
-
-<pre class="term"><code>[alice@transfer]$ mc cp chtc/my-bucket/large-output.file .
-</code></pre>
-
-<p>Then copy files from the transfer server to your own computer:</p>
-
-<ul>
-  <li>Example <code>scp</code> command on your own Linux or Mac computer:
-    <pre class="term"><code>$ scp username@transfer.chtc.wisc.edu:/home/username/large-output.file .
-</code></pre>
-  </li>
-  <li>If using a Windows computer:
-    <ul>
-      <li>Using a file transfer application, like WinSCP, directly drag the large
-file from its location within <code>/home/username/</code> on
-transfer.chtc.wisc.edu to your computer.</li>
-    </ul>
-  </li>
-</ul>
-
-<p>To remove a file inside your S3 bucket, in an SSH session on the
-transfer server:</p>
-
-<pre class="term"><code>[alice@transfer]$ mc rm chtc/my-bucket/large-input.file
-[alice@transfer]$ mc rm chtc/my-bucket/large-output.file
-</code></pre>
-
-<p>To remove an entire bucket (<strong>only do this if you are certain the
-bucket is no longer needed</strong>):</p>
-
-<pre class="term"><code>[alice@transfer]$ mc rb chtc/my-bucket
-</code></pre>
-
-<h1 id="3-using-staged-files-in-a-job">3. Using Staged Files in a Job</h1>
-
-<h2 id="a-transferring-large-input-files">A. Transferring Large Input Files</h2>
-
-<p>To use data placed in a CHTC S3 bucket, add files to your submit
-file’s <code>transfer_input_files</code> that point to the filename
-(e.g. <code>large-input.file</code>) inside your bucket (e.g. <code>my-bucket</code>) on
-CHTC’s S3 storage (<code>s3dev.chtc.wisc.edu</code>):</p>
-
-<pre class="sub"><code>...
-executable = my_script.sh
-transfer_input_files = s3://s3dev.chtc.wisc.edu/my-bucket/large-input.file
-arguments = large-input.file
-...
-</code></pre>
-
-<h2 id="b-moving-large-output-files">B. Moving Large Output Files</h2>
-
-<p>To have your job automatically copy data back to your CHTC S3 bucket,
-add file mappings to a <code>transfer_output_remaps</code> command inside your
-submit file:</p>
-
-<pre class="sub"><code>transfer_output_remaps = "large-output.file = s3://s3dev.chtc.wisc.edu/my-bucket/large-output.file"
-</code></pre>
-
-<h1 id="4-checking-your-data-use-and-file-counts">4. Checking Your Data Use and File Counts</h1>
-
-<p>To check what files are in your bucket and the size of the files:</p>
-<pre class="term"><code>[alice@submit]$ mc ls chtc/my-bucket
-</code></pre>
-
-<p>To check your bucket’s total data usage:</p>
-<pre class="term"><code>[alice@submit]$ mc du chtc/my-bucket
-</code></pre>
-
-<p>To check your bucket’s file count:</p>
-<pre class="term"><code>[alice@submit]$ mc find chtc/my-bucket | wc -l
-</code></pre>
-
-
-
-
-        </div>
-        <div class="col-3 d-none d-lg-block">
-            
-
-
-
-    <div id="guide-sidebar">
-        
-    </div>
-
-
+                PATh Facility provides dedicated HTC capacity to NSF-funded projects
+            </h1>
+            <p><em>Since 2022, the <a href="https://path-cc.io/">Partnership to Advance Throughput Computing</a> (PATh) Facility has provided dedicated high throughput
+computing (HTC) 
+capacity to researchers nationwide. Following a year of expansion, here’s a look into the researchers’ work and how it has been enabled by
+the PATh Facility.</em></p>
+
+<p>Searching for more computing capacity, Dr. <a href="https://www.nwmissouri.edu/naturalsciences/directory/chakraborty.htm">Himadri Chakraborty</a> of 
+<a href="https://www.nwmissouri.edu/">Northwest Missouri State University</a> first heard of the <a href="https://path-cc.io/facility/">PATh Facility</a>, a
+purpose-built,
+national-scale distributed high throughput computing (HTC) resource, from his NSF program director. After approaching PATh Research
+Facilitators to 
+acquire an account and computing “credits,” Chakraborty’s team was able to advance their work in physics using computing resources from the
+PATh Facility.
+<a href="https://www.cs.wisc.edu/staff/koch-christina/">Christina Koch</a>, Lead Research Facilitator at CHTC guided Chakraborty’s team in
+transitioning workflows to run within HTCondor.</p>
+
+<p>“As our ambition grew, we were looking out for a larger system, PATh came as a blessing,” Chakraborty reflected. “The ultimate satisfaction is to get 
+some new understanding and learning of the science we are working on. We hope that this will be one of our first major achievements using 
+the PATh Facility.”</p>
+
+<figure class="figure float-end" style="margin-left: 1em">
+  <img src="https://raw.githubusercontent.com/CHTC/Articles/main/images/HimadriChakraborty2024.jpg" height="240" width="190" class="figure-img img-fluid rounded" alt="Himadri Chakraborty" />
+  <figcaption class="figure-caption">Himadri Chakraborty. <br /></figcaption>
+</figure>
+
+<p>The PATh Facility, created through the Partnership to Advance Throughput Computing (PATh; NSF grant #2030508), enables researchers of an NSF-funded project 
+to use its dedicated distributed high-throughput computing (HTC) capacity. PATh is an ongoing collaboration between the <a href="https://chtc.cs.wisc.edu/">Center for High Throughput Computing</a> (CHTC) 
+and the <a href="https://osg-htc.org/">OSG Consortium</a> to support HTC-enabled research by improving national cyberinfrastructure. The PATh Facility acquires capacity 
+from six institutions — the <a href="https://www.unl.edu/">University of Nebraska-Lincoln</a>, <a href="https://www.syracuse.edu/">Syracuse University</a>, <a href="https://www.fiu.edu/">Florida International University</a>,
+the <a href="https://www.sdsc.edu/">San Diego Supercomputing Center</a>, the <a href="https://www.wisc.edu/">University of Wisconsin-Madison</a> and the <a href="https://tacc.utexas.edu/">Texas Advanced Computing Center</a> 
+— integrated into a single pool of capacity available to users. After becoming fully operational in mid-2022, it saw “the most growth in terms of new projects 
+joining and getting started in 2023,” Koch said.</p>
+
+<p>The PATh Facility guarantees users access through <a href="https://path-cc.io/services/credit-accounts/">credits</a>. Credits operate as a stand-in unit to ensure no 
+one user is monopolizing the Facility’s capacity. Users receive 1,000 start-up credits to test if the PATh Facility is a good fit for them, available as Central
+Processing Unit (CPU) or Graphic Processing Unit (GPU) charges. After this initial testing period, they can apply for supplemental credits by contacting PATh 
+Facilitators and their NSF officer. If users run through all their credits, they are still able to keep running and facilitators will work with them to request 
+additional credits.</p>
+
+<p>In comparison to the PATh Facility, the <a href="https://osg-htc.org/services/open_science_pool">Open Science Pool</a> (OSPool) — another distributed HTC resource created
+by the OSG Consortium — acquires available capacity from idle resources across <a href="https://osg-htc.org/services/open_science_pool/institutions">70 institutions</a> 
+nationwide. Projects may be better suited for the PATh Facility than the OSPool if they need additional cores, memory, data or dedicated time. “Since the PATh 
+Facility is hardware owned and operated by PATh, we can make more guarantees about how long individual computations can run, that people will be able to get certain 
+resources and run computations of a certain size,” Koch explained.</p>
+
+<p>Following the PATh Facility’s growth, some OSPool users have begun to use the Facility’s dedicated capacity in tandem. One example is <a href="https://www.ncsu.edu/">North Carolina State University</a> 
+Ph.D. candidate Matthew Dorsey, who relied on capacity from the OSPool for two years before expanding his research to the newer <a href="https://path-cc.io/facility/">PATh Facility</a>.
+In doing so, he was able to run larger jobs without worrying about running out of capacity. “The transition to the PATh Facility was extremely easy,” Dorsey said. 
+“I was pleased with how seamless it was.”</p>
+
+<p>Dorsey became interested in the OSPool after attending <a href="https://osg-htc.org/school-2024/">OSG School</a> in the summer of 2022. There, he learned the basics of
+<a href="https://htcondor.org/">HTCondor</a> and got to know Koch and other facilitators. Dorsey’s research specializes in statistical physics. He uses computational models
+to study magnetic materials and how magnetic fields can be used to alter properties made from different kinds of magnetic nanoparticles. His work benefits from the 
+consistent access to computing for runs that accumulate over a long period of time.</p>
+
+<figure class="figure float-end" style="margin-left: 1em">
+  <img src="https://raw.githubusercontent.com/CHTC/Articles/main/images/Dorsey-headshot.jpg" height="240" width="190" class="figure-img img-fluid rounded" alt="Matthew Dorsey" />
+  <figcaption class="figure-caption">Matthew Dorsey. <br /></figcaption>
+</figure>
+
+<p>Dorsey acknowledges that each system has its advantages and disadvantages. For Dorsey, the PATh Facility is better equipped for more complex jobs due to capacity and
+allocated time, while the OSPool is better for testing out comparatively smaller runs. “It was really easy to translate what I was doing on the OSPool to the PATh 
+Facility and quickly scale it up,” Dorsey said.</p>
+
+<p>A testament to the strength of the PATh Facility, the <a href="https://public.nrao.edu/">National Radio Astronomy Observatory</a> (NRAO) used its capacity with the OSPool to 
+develop one of the <a href="https://chtc.cs.wisc.edu/nrao.html">oldest radio images</a> of a well-studied area in space. Working alongside PATh and CHTC staff, the capacity
+from the PATh Facility was instrumental in planning when certain jobs would run, without the risk of reduced capacity from the OSPool.</p>
+
+<p>The PATh Facility makes it possible to support projects with larger computational requirements. <a href="https://metallurgy.mines.edu/project/stevanovic-vladan/">Dr. Vladan Stevanovic</a> 
+of the <a href="https://www.mines.edu/">Colorado School of Mines</a> is studying computational material science and relies heavily on the PATh Facility to plan and run data workflows. 
+Stevanovic became familiar with the PATh Facility after receiving a <a href="https://new.nsf.gov/cise/dear-colleague-letters">Dear Colleague Letter</a> from the NSF.</p>
+
+<p>His work requires more cores than what the OSPool alone could offer, and he was drawn to the PATh Facility due to its specialization in HTC and ability to guarantee 
+availability. Stevanovic and his team hope to develop computational tools to reliably predict the metastable states of solid matter. He describes this work as very 
+computational, and has worked with HTC workflows for over 12 years. “PATh is amazing for my research because its primary purpose is HTC, which I rely on,” he said. 
+“I’m grateful because my project critically depends on PATh,” he said.</p>
+
+<p>Stevanovic also appreciates how easy it was to start using the PATh Facility. Start-up credits are typically granted while or directly after meeting with the Facilitation
+team, and Koch’s team continues to support researchers as they ask the NSF for more credits. “The onboarding process was great, and the support from Christina was amazing.
+We were able to get running and get up to speed quickly.”</p>
+
+<p>Chakraborty’s team faced some initial challenges in switching workflows from in-house to distributed, but coming to the PATh Facility nonetheless expanded the capacity
+available to his team. He recounted that his previous in-house system provided about 28 CPUs per node, while the PATh Facility offers up to 150 CPUs. Overall, Chakraborty
+is optimistic that the new capacity will improve his findings for the future. “We are happy we took that plunge because we went through some difficult times and got help 
+from the PATh folks,” he said. “We’ve made some pretty good progress in making our codes run on PATh. It was mostly to be able to use a larger pool of computer power.”</p>
+
+<p>His work focuses on the simulation of electronic and phonontonic coupled ultrafast relaxation of photoexcited large molecules. The PATh Facility’s new capacity allowed 
+his team to make new advances “of a polymer functional system that has a lot of applications,” he said. “It’s not the end, it’s still preliminary and intermediate, and 
+they are so exciting. We are looking forward to the final results and finding out new physics.”</p>
+
+<p>Interested PIs can submit an interest form on the <a href="https://portal.path-cc.io/documentation/">PATh website</a>, to then meet a research computing facilitator for a consultation. 
+If the researcher is a good fit, PATh Facilitators help the researcher log in and begin using their start-up credits. If they wish to continue, the researcher begins 
+drafting a proposal letter to the NSF, requesting credits. Koch notes that the credit proposal is simpler than a typical project proposal, and the Facilitation team provides
+a multitude of resources such as credit calculators and proposal templates. For users who encounter issues, the facilitation team is available through support email address, 
+and weekly <a href="https://portal.path-cc.io/documentation/support_and_training/support/getting-help-from-RCFs/">support hours</a>, as well as maintaining documentation on the website.</p>
 
         </div>
     </div>
