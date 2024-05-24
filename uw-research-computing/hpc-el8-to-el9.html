@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HPC Cluster Overview</title>
+<title></title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>HPC Cluster Overview | CHTC</title>
+<title>CHTC | Center for High Throughput Computing</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="HPC Cluster Overview" />
+<meta property="og:title" content="CHTC" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Table of Contents High-Performance Computing at CHTC HPC User Policies HPC Hardware and Configuration Execute Nodes and Partitions Operating System and Software Data Storage and Management Tools for managing home and software space High-Performance Computing at CHTC" />
-<meta property="og:description" content="Table of Contents High-Performance Computing at CHTC HPC User Policies HPC Hardware and Configuration Execute Nodes and Partitions Operating System and Software Data Storage and Management Tools for managing home and software space High-Performance Computing at CHTC" />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/hpc-overview" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc-overview" />
+<meta name="description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
+<meta property="og:description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/hpc-el8-to-el9" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc-el8-to-el9" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-05-24T14:21:37+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="HPC Cluster Overview" />
+<meta property="twitter:title" content="CHTC" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-05-24T14:21:37+00:00","datePublished":"2024-05-24T14:21:37+00:00","description":"Table of Contents High-Performance Computing at CHTC HPC User Policies HPC Hardware and Configuration Execute Nodes and Partitions Operating System and Software Data Storage and Management Tools for managing home and software space High-Performance Computing at CHTC","headline":"HPC Cluster Overview","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-overview"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-overview"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-05-24T14:21:37+00:00","datePublished":"2024-05-24T14:21:37+00:00","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"CHTC","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-el8-to-el9"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-el8-to-el9"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -250,422 +250,64 @@
 
 
     <main id="main" style="min-height: 60vh;">
-        <div class="container-xxl mb-5">
-    <div class="row justify-content-center">
-        <div class="col-12 col-lg-9 mw-1000">
-            <h1 class="uw-mini-bar mb-4">
-    HPC Cluster Overview
-</h1>
+        <p>Starting in May 2024, CHTC’s high performance computing (HPC) cluster began upgrading
+the Linux distribution and version we use on our servers to <strong>CentOS Stream 9</strong>. This transition is expected to complete in June 2024.</p>
 
-            
-<div class="d-flex flex-column mb-5">
+<p>Note that this page only applies to a transition on the HPC cluster. For information 
+on the HTC system transition, see <a href="htc-el8-to-el9.html">HPC System Transition to a New Linux Version (CentOS Stream 9)</a></p>
 
-<h2>Table of Contents</h2>
+<p>All updates to the HPC Cluster will be reflected on this page; significant changes may 
+also include a notification to the <code>chtc-users</code> mailing list.</p>
 
-<div class="uw-sidebar-box me-auto">
-<div class="uw-directory">
-
-      <ol>
-        <li><a href="#high-performance-computing-at-chtc">High-Performance Computing at CHTC</a></li>
-        <li><a href="#hpc-cluster-user-policies">HPC User Policies</a></li>
-        <li><a href="#hpc-hardware-and-configuration">HPC Hardware and Configuration</a>
-          <ul>
-            <li><a href="#execute-nodes-and-partitions">Execute Nodes and Partitions</a></li>
-            <li><a href="#operating-system-and-software">Operating System and Software</a></li>
-          </ul>
-        </li>
-        <li><a href="#data-storage-and-management">Data Storage and Management</a>
-          <ul>
-            <li><a href="#tools-for-managing-home-and-software-space">Tools for managing home and software space</a></li>
-          </ul>
-        </li>
-      </ol>
-
-    </div>
-</div>
-</div>
-
-<h1 id="high-performance-computing-at-chtc">High-Performance Computing at CHTC</h1>
-
-<p>The CHTC high-performance computing (HPC) cluster provides dedicated support for large, 
-singular computations that use specialized software (i.e. MPI) to achieve internal 
-parallelization of work across multiple servers of dozens to hundreds of cores.</p>
-
-<p><strong><em>Is high-performance computing right for me?</em></strong> Only computational work that 
-fits that above description is appropriate for the HPC Cluster. Computational 
-work that can complete on a single node in less than a few days will be 
-best supported by our larger high-throughput computing (HTC) system (which also
-includes specialized hardware for extreme memory, GPUs, and other cases). For more 
-information, please see <a href="/approach.html">Our Approach</a>.</p>
-
-<p>To get access to the HPC Cluster, please complete our
-<a href="form.html">New User Consultation Form</a>. After your request is received, 
-a Research Computing Facilitator will follow up to discuss the computational needs 
-of your research and connect you with computing 
-resources (including non-CHTC services) that best fit your needs.</p>
-
-<h1 id="hpc-cluster-user-policies">HPC Cluster User Policies</h1>
-
-<p>See our <a href="user-expectations.html">User Policies and Expectations</a> for details on general CHTC and HPC cluster policies.</p>
-
-<h1 id="hpc-hardware-and-configuration">HPC Hardware and Configuration</h1>
-
-<p>The HPC Cluster consists of two login nodes and many compute (aka execute) 
-nodes. All users log in at a login node, and all user files on the shared file sytem are accessible on all nodes.
-Additionally, all nodes are tightly networked (200 Gbit/s Infiniband) so
-they can work together as a single "supercomputer", depending on the
-number of CPUs you specify.</p>
-
-<h2 id="operating-system-and-software">Operating System and Software</h2>
-
-<p>All nodes in the HPC Cluster are running CentOS 8 Stream Linux.</p>
-
-<p>The SLURM scheduler version is 22.05.6.</p>
-
-<p>To see more details of other software on the cluster, see the <a href="hpc-software.html">HPC Software page</a>.</p>
-
-<h2 id="login-nodes">Login Nodes</h2>
-
-<p>The login node for the cluster is: <code>hpclogin3.chtc.wisc.edu</code></p>
-
-<p>For more details on logging in, see the “Connecting to CHTC” guide linked above.</p>
-
-<h2 id="execute-nodes-and-partitions">Execute Nodes and Partitions</h2>
-
-<p>Only execute nodes will be used for performing your computational work. 
-The execute nodes are organized into several "partitions", including 
-the <code>shared</code>, <code>pre</code>, and <code>int</code> partitions which are available to 
-all HPC users as well as research group specific partitions that consist 
-of researcher-owned hardware and which all HPC users can access on a 
-backfill capacity via the <code>pre</code> partition (more details below).</p>
-
-<table class="gtable">
-  <thead>
-    <tr>
-      <th>Partition</th>
-      <th>p-name</th>
-      <th># nodes (N)</th>
-      <th>t-default</th>
-      <th>t-max</th>
-      <th>max cores/job</th>
-      <th>cores/node (n)</th>
-      <th>RAM/node (GB)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Shared</td>
-      <td>shared</td>
-      <td>45</td>
-      <td>1 day</td>
-      <td>7 day</td>
-      <td>320</td>
-      <td>64 or 128</td>
-      <td>512</td>
-    </tr>
-    <tr>
-      <td>Interactive</td>
-      <td>int</td>
-      <td>2</td>
-      <td>1 hr</td>
-      <td>4 hrs</td>
-      <td>16</td>
-      <td>64 or 128</td>
-      <td>512 (max 64 per job)</td>
-    </tr>
-    <tr>
-      <td>Pre-emptable (backfill)</td>
-      <td>pre</td>
-      <td>45</td>
-      <td>4 hrs</td>
-      <td>24 hrs</td>
-      <td>320</td>
-      <td>64 or 128</td>
-      <td>512</td>
-    </tr>
-    <tr>
-      <td>Owners</td>
-      <td><em>unique</em></td>
-      <td>19</td>
-      <td>24 hrs</td>
-      <td>7 days</td>
-      <td><em>unique</em></td>
-      <td>64 or 128</td>
-      <td>512</td>
-    </tr>
-  </tbody>
-</table>
+<h2 id="important-dates">Important Dates</h2>
 
 <ul>
-  <li>
-    <p><code>shared</code> compute nodes each have 64 or 128 cores and 512 GB of RAM.<br />
-Jobs submitted to this partition 
-can request and use up to 7 days of running time.</p>
-  </li>
-  <li>
-    <p><code>int</code> consists of two compute nodes is intended for short and immediate interactive 
-testing on a single node (up to 16 CPUs, 64 GB RAM). Jobs submitted to this partition 
-can run for up to 4 hours.</p>
-  </li>
-  <li>
-    <p><code>pre</code> (i.e. pre-emptable) is an under-layed partition encompassing all HPC Cluster 
-nodes and is intended for more immediate turn-around of shorter, smaller, and/or 
-interactive sessions requiring more than the 4 hour time limit of the <code>int</code> partition. 
-Jobs submitted to <code>pre</code> are run as back-fill on any idle nodes, including researcher-owned 
-compute nodes, meaning these jobs may be pre-empted by higher priority 
-jobs. By default, pre-empted jobs will be re-queued (to run again) if they were submitted with 
-an sbatch script.</p>
-  </li>
+  <li><strong>May 15</strong>: Worker nodes start transitioning from the existing cluster to upgraded cluster partitions.</li>
+  <li><strong>May 22</strong>: Log in to upgraded cluster login node is available.</li>
+  <li><strong>May 22 - May 31</strong>: Users should rebuild their code and test jobs on</li>
+  <li><strong>June 1, 2024</strong>: The old cluster partitions are closed.</li>
 </ul>
 
-<h3 id="fair-share-allocation">Fair Share Allocation</h3>
+<h2 id="what-is-changing">What is Changing</h2>
 
-<p>To promote fair access to HPC computing resources, all users are limited to 10 concurrently 
-running jobs (if you need to queue more, please get in touch). Additionally, users are restricted to a total of 720 cores 
-across all running jobs (core limits do not apply on research group partitions of
-more than 720 cores).</p>
+<p>As part of this transition, there will be a new login node for 
+the HPC cluster: <code>spark-login.chtc.wisc.edu</code>.</p>
 
-<p>When determining which order to run jobs, the following policies are applies, in order or significance
-to job priority determinations:</p>
+<p>If you log into <code>spark-login</code>, you will have access to a new 
+module stack, compiled on CentOS Stream 9, and the partitions available will 
+have worker nodes that are running CentOS Stream 9.</p>
 
-<p>A. User priority decreases as the user accumulates hours of CPU time over the last 21 days, across 
-all queues. This “fair-share” policy means that users who have run many/larger jobs in the near-past 
-will have a lower priority, and users with little recent activity will see their waiting jobs start sooner. 
-(The cluster does not have a strict “first-in-first-out” queue policy.)</p>
+<p>The files in your <code>/home</code> and <code>/scratch</code> directories will be unchanged.</p>
 
-<p>B. Job priority increases with job wait time. After the history-based user priority calculation in (A), 
-the next most important factor for each job’s priority is the amount of time that each job has already 
-waited in the queue. For all the jobs of a single user, these jobs will most closely follow a “first-in-first-out” policy.</p>
+<h2 id="what-you-need-to-do">What You Need to Do</h2>
 
-<p>C. Job priority increases with job size, in cores. This least important factor slightly favors larger jobs, so that 
-the scheduler can take advantage when large numbers of newly-available nodes happen to become available (requiring less 
-wasted time to deliberately drain nodes for larger jobs). So, among a user’s jobs submitted at roughly the same time, 
-a larger job may run first, if the number of nodes necessary for the larger job is already available.</p>
-
-<h1 id="data-storage-and-management">Data Storage and Management</h1>
-
-<p><strong>Data space in the HPC Cluster filesystem is not backed-up and should be
-treated as temporary by users</strong>. Only files necessary for
-<em>actively-running</em> jobs should be kept on the filesystem, and files
-should be removed from the cluster when jobs complete. A primary copy of any
-essential files (e.g. software, submit files, input) should be kept in an 
-alternate, non-CHTC storage location.</p>
-
-<p>Each user will receive two primary data storage locations:</p>
+<p><strong>As soon as possible</strong>, do the following:</p>
 
 <ol>
   <li>
-    <p><code>/home/username</code> with an initial disk quota of 30GB 
-and 250,000 items. Your home directory is meant to be used for files 
-you use repeatedly, like submit file templates, source code, software 
-installations, and reference data files.</p>
+    <p>Log into the new login node <code>spark-login.chtc.wisc.edu</code>.</p>
   </li>
   <li>
-    <p><code>/scratch/username</code> with an initial disk quota of 100GB and 
-250,000 items. Jobs should always be submitted and run out of 
-<code>/scratch</code>. It is the space for all working data, including individual 
-job inputs, job outputs, and job log/stderr/stdout files.</p>
+    <p>Run a typical job as a test. It is highly likely that certain codes will 
+fail on the new worker nodes, as the underlying dependencies of your code, including 
+the operating system, and any modules used, have changed.</p>
   </li>
+  <li>If your jobs no longer run, archive your previous software installation(s) and 
+rebuild your software. Some tips:
+    <ul>
+      <li>We strongly recommend comping in an interactive job, to confirm your 
+ compiled code will be compatible with all worker nodes in the cluster.</li>
+      <li>If you are using a custom spack installation, we recommend archiving your 
+ existing <code>~/.spack</code> directory and recreating your spack environment from 
+ scratch as described in <a href="hpc-spack-setup.html">Set Up Spack on HPC</a></li>
+    </ul>
+  </li>
+  <li>If you recompiled your code, run a few small test jobs to confirm that the 
+code is working correctly.</li>
 </ol>
 
-<blockquote>
-  <h3 id="what-about-software">What about <code>/software</code>?</h3>
-
-  <p>If you are installing software meant to be shared within a group, 
-we can create a dedicated folder for you in the <code>/software</code> space
-email us (chtc@cs.wisc.edu) if this is you!</p>
-</blockquote>
-
-<p>To check how many files and directories you have in
-your <code>/home</code> or <code>/scratch</code> directory see the 
-<a href="#tools-for-managing-home-and-software-space">instructions below</a>.</p>
-
-<p>Changes to quotas for either of these locations are available upon request
-per our <a href="quota-request">Request a Quota Change</a> guide. If you don't 
-know how many files your installation creates, because it's more than 
-the current items quota, simply indicate that in your request.</p>
-
-<p><strong>CHTC Staff reserve the right to remove any significant amounts of data
-on the HPC Cluster</strong> in our efforts to maintain filesystem performance
-for all users.</p>
-
-<p><strong>Local scratch space</strong> is available on each execute node in <code>/local/$USER</code>.
-This space is <strong>NOT</strong> automatically cleaned out, so if you use this space,
-be sure to remove the files before the end of your job script or 
-interactive session.</p>
-
-<h2 id="tools-for-managing-home-and-software-space">Tools for managing home and software space</h2>
-
-<p>You can use the command <code>get_quotas</code> to see what disk 
-and items quotas are currently set for a given directory path. 
-This command will also let you see how much disk is in use and how many 
-items are present in a directory:</p>
-
-<pre class="term"><code>[username@hpclogin1 ~]$ get_quotas /home/username /scratch/username
-</code></pre>
-
-<p>Alternatively, the <code>ncdu</code> command can also be used to see how many 
-files and directories are contained in a given path:</p>
-
-<pre class="term"><code>[username@hpclogin1 ~]$ ncdu /home/username
-[username@hpclogin1 ~]$ ncdu /scratch/username
-</code></pre>
-
-<p>When <code>ncdu</code> has finished running, the output will give you a total file
-count and allow you to navigate between subdirectories for even more
-details. Type <code>q</code> when you're ready to exit the output viewer. More
-info here: <a href="https://lintut.com/ncdu-check-disk-usage/">https://lintut.com/ncdu-check-disk-usage/</a></p>
-
-        </div>
-        <div class="col-3 d-none d-lg-block">
-            
-
-
-
-    <div id="guide-sidebar">
-        
-            
-
-            
-            
-
-            <h6 class="mt-5">HPC Guides</h6>
-            <div class="accordion accordion-flush">
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="basics-and-policies">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
-                                    Basics and Policies
-                                </button>
-                            </h2>
-                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse show " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/hpc-overview">HPC Cluster Overview</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/connecting">Log In to CHTC Resources</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/transfer-files-computer">Transfer Files between CHTC and your Computer</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/configure-ssh">Automate CHTC Log In</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/transfer-data-researchdrive">Transfer Files Between CHTC and ResearchDrive</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/github-remote-access">Access a Private GitHub Repository Remotely</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="job-submission">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#job-submission-collapse" aria-expanded="false" aria-controls="job-submission">
-                                    Job Submission
-                                </button>
-                            </h2>
-                            <div id="job-submission-collapse" class="accordion-collapse collapse " aria-labelledby="job-submission" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-job-submission">Submitting and Managing Jobs Using SLURM</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-                
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="software-solutions">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
-                                    Software Solutions
-                                </button>
-                            </h2>
-                            <div id="software-solutions-collapse" class="accordion-collapse collapse " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-software">Use Software on the HPC Cluster</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-spack-setup">Set Up Spack on HPC</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-spack-install">Install Software Using Spack</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-spack-modules">Create Custom Modules Using Spack</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/apptainer-hpc">Using Apptainer Containers on HPC</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/apptainer-build">Building an Apptainer Container</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-                
-                    
-                
-            </div>
-        
-    </div>
-
-
-
-        </div>
-    </div>
-</div>
+<p><strong>If you are having trouble getting your jobs to run successfully on the new operating system</strong>, 
+please contact the facilitation team at chtc@cs.wisc.edu or <a href="/uw-research-computing/get-help.html">come to office hours</a></p>
 
     </main>
     <footer id="colophon" class="uw-footer">
