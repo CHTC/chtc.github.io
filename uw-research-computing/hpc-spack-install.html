@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-install" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-05-31T00:29:02+00:00" />
+<meta property="article:published_time" content="2024-05-31T18:17:06+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Install Software Using Spack" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-05-31T00:29:02+00:00","datePublished":"2024-05-31T00:29:02+00:00","description":"CHTC uses Spack (https://github.com/spack/spack) for installing and managing software packages on the HPC cluster for all users to use, via the module command. Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software’s dependencies (similar to Conda and Miniconda).","headline":"Install Software Using Spack","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-install"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-install"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-05-31T18:17:06+00:00","datePublished":"2024-05-31T18:17:06+00:00","description":"CHTC uses Spack (https://github.com/spack/spack) for installing and managing software packages on the HPC cluster for all users to use, via the module command. Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software’s dependencies (similar to Conda and Miniconda).","headline":"Install Software Using Spack","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-install"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-install"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -281,7 +281,21 @@
   <p><strong>Note</strong>: For a group installation of Spack, you will not be able to modify or remove the packages installed by a different user. We recommend that you consult with the rest of your group for permission before proceeding.</p>
 </blockquote>
 
-<h2 id="a-creating-and-using-a-spack-environment">A. Creating and Using a Spack Environment</h2>
+<h2 id="a-start-an-interactive-job">A. Start an Interactive Job</h2>
+
+<p>Before creating a Spack environment or installing packages using Spack, <strong>first start an interactive Slurm job</strong>:</p>
+
+<pre class="term"><code>srun --mpi=pmix -n4 -N1 -t 240 -p int --pty bash
+</code></pre>
+
+<p>For more information on interactive Slurm jobs, see our guide <a href="hpc-job-submission.html#for-simple-testing-or-compiling">Submitting and Managing Jobs Using SLURM</a>.</p>
+
+<blockquote>
+  <p>When creating an environment, Spack automatically detects the hardware of the machine being used at the time and configures the packages as such.
+Since the login server uses newer hardware than the execute servers, creating an environment on the login server (not in an interactive job) is a bad idea.</p>
+</blockquote>
+
+<h2 id="b-creating-and-using-a-spack-environment">B. Creating and Using a Spack Environment</h2>
 
 <p>Software installations with Spack should be done inside of a Spack environment, to help manage the shell and the paths to access programs and libraries needed for a particular software installation.</p>
 
@@ -316,7 +330,7 @@
   <p>or close the terminal session.</p>
 </blockquote>
 
-<h2 id="b-finding-program-packages-in-spack">B. Finding Program Packages in Spack</h2>
+<h2 id="c-finding-program-packages-in-spack">C. Finding Program Packages in Spack</h2>
 
 <p>Once inside an active Spack environment, you can run the following command to see what packages are installed in the current environment</p>
 
@@ -339,7 +353,7 @@
 
 <p>This will print out information about the program, including a short description of the program, a link to the developer’s website, and the available versions of the program and its dependencies.</p>
 
-<h2 id="c-adding-package-specifications-to-the-environment">C. Adding Package Specifications to the Environment</h2>
+<h2 id="d-adding-package-specifications-to-the-environment">D. Adding Package Specifications to the Environment</h2>
 
 <p>Once you find the packages that you want to install, add their specifications to the environment using</p>
 
@@ -357,28 +371,11 @@
 
 <p><em>If you need to install a compiler, or need to use a specific compiler to install the desired packages, see section <a href="#3-installing-and-using-a-specific-compiler">3. Installing and Using a Specific Compiler</a>.</em></p>
 
-<h2 id="d-installing-packages-in-an-environment">D. Installing Packages in an Environment</h2>
+<h2 id="e-installing-packages-in-an-environment">E. Installing Packages in an Environment</h2>
 
-<p>Once you have identified the package(s) you would like to install and have added the specifications to your environment, you should start an interactive Slurm session for the actual installation and compilation of the package.</p>
+<p>Once you have identified the package(s) you would like to install and have added the specifications to your environment,</p>
 
-<h3 id="i-start-an-interactive-session">i. Start an interactive session</h3>
-
-<p>Deactivate the current Spack environment and then start the interactive session:</p>
-
-<pre class="term"><code>spack env deactivate
-srun --mpi=pmix -n4 -N1 -t 240 -p int --pty bash
-</code></pre>
-
-<p>Note the number associated with <code>-n</code>, as that is the number of processors you are requesting to use. This number will be used later in the install command itself to specify the number of threads to use for the installation and compiling.  For large and complex installations, you may want to increase the number of processors (and correspondingly the number of threads) to speed up the process.</p>
-
-<p>Next, remember to reload the Spack environment</p>
-
-<pre class="term"><code>spack env activate yourEnvironmentName
-</code></pre>
-
-<p>since the interactive session will start with the environment deactivated.</p>
-
-<h3 id="ii-create-the-local-scratch-directory">ii. Create the local scratch directory</h3>
+<h3 id="i-create-the-local-scratch-directory">i. Create the local scratch directory</h3>
 
 <p>Using the default configuration from <a href="hpc-spack-setup.html">Setting Up Spack on HPC</a>, Spack will try to use the machine’s local disk space for staging and compiling files before transferring the finished results to the final installation directory.  Using this space will greatly improve the speed of the installation process. Create the local directory with the command</p>
 
@@ -395,7 +392,7 @@ mkdir /local/yourNetID/spack_build
 </code></pre>
 </blockquote>
 
-<h3 id="iii-check-the-programspackages-to-be-installed">iii. Check the programs/packages to be installed</h3>
+<h3 id="ii-check-the-programspackages-to-be-installed">ii. Check the programs/packages to be installed</h3>
 
 <p>If you’ve added the installation specifications to the environment, then you can check the installation plan using the command</p>
 
@@ -404,11 +401,23 @@ mkdir /local/yourNetID/spack_build
 
 <p>(the first letter after the hyphen is a lowercase “L” and the second letter is an uppercase “i”).</p>
 
-<p>This command identifies what dependencies Spack needs in order to install your desired packages along with how it will obtain them.  Assuming their are no problems, then it will print a list of the packages and their dependencies, where entries that begin with a green <code>[+]</code> have already been installed somewhere in your local Spack installation, while those that begin with a green <code>[^]</code> are referencing the system installation, and those beginning with a gray <code>-</code> will need to be downloaded and installed.</p>
+<blockquote>
+  <p>This command identifies what dependencies Spack needs in order to install your desired packages along with how it will obtain them.  Assuming their are no problems, then it will print a list of the packages and their dependencies, where entries that begin with a green <code>[+]</code> have already been installed somewhere in your local Spack installation, while those that begin with a green <code>[^]</code> are referencing the system installation, and those beginning with a gray <code>-</code> will need to be downloaded and installed.</p>
+</blockquote>
+
+<p><strong>Most users should see a bunch of packages with a green <code>[^]</code> in the first column.</strong>
+If you do not, then there are several possible explanations:</p>
+
+<ul>
+  <li>The package only has a couple dependencies</li>
+  <li>You are not in an interactive Slurm job before running the command <a href="#a-start-an-interactive-job">as discussed previously</a></li>
+  <li>You are installing packages using a <a href="#3-installing-and-using-a-specific-compiler">custom compiler</a></li>
+  <li>There is an issue with your Spack configuration from <a href="hpc-spack-setup.html">Set Up Spack on HPC</a></li>
+</ul>
 
 <p>If you are satisfied with the results, then you can proceed to install the programs.</p>
 
-<h3 id="iv-install-the-environment-packages">iv. Install the environment packages</h3>
+<h3 id="iii-install-the-environment-packages">iii. Install the environment packages</h3>
 
 <p>Assuming that you are in an interactive Slurm session and have activated the desired environment containing the package specifications, you can run</p>
 
@@ -423,7 +432,7 @@ mkdir /local/yourNetID/spack_build
   <p>If something goes wrong or your connection is interrupted, the installation process can be resumed at a later time without having to start over from the beginning. Make sure that you are in an interactive Slurm session and that you have activated the Spack environment, then simply rerun the <code>spack install</code> command again.</p>
 </blockquote>
 
-<h3 id="v-finishing-the-installation">v. Finishing the installation</h3>
+<h3 id="iv-finishing-the-installation">iv. Finishing the installation</h3>
 
 <p>After the installation has successfully finished, you should be able to see that the programs have been installed by running</p>
 
@@ -452,7 +461,7 @@ spack env activate yourEnvironmentName
 
 <p>To use the packages that you installed, follow the instructions in the next section, <a href="#2-using-software-installed-in-spack">2. Using Software Installed in Spack</a>. If you want to create custom modules using the installed packages, see our guide <a href="hpc-spack-modules.html">Creating Custom Modules Using Spack</a>.</p>
 
-<h2 id="e-removing-an-environment-and-uninstalling-unneeded-packages">E. Removing an Environment and Uninstalling Unneeded Packages</h2>
+<h2 id="f-removing-an-environment-and-uninstalling-unneeded-packages">F. Removing an Environment and Uninstalling Unneeded Packages</h2>
 
 <p>You may find it necessary to remove a Spack environment, or packages installed using Spack. To uninstall a package, simply run</p>
 
@@ -524,7 +533,7 @@ srun --mpi=pmix -n 64 /home/username/mpiprogram
 
 <h3 id="i-identify-the-compiler-and-version">i. Identify the compiler and version</h3>
 
-<p>The first step is to identify the compiler and version you need for your program. Consult your program’s documentation for the requirements that it has. Then follow the instructions in <a href="#b-finding-program-packages-in-spack">B. Finding Program Packages in Spack</a> to find the package name and confirm the version is available.</p>
+<p>The first step is to identify the compiler and version you need for your program. Consult your program’s documentation for the requirements that it has. Then follow the instructions in <a href="#c-finding-program-packages-in-spack">C. Finding Program Packages in Spack</a> to find the package name and confirm the version is available.</p>
 
 <h3 id="ii-create-the-compilers-environment">ii. Create the compiler’s environment</h3>
 
@@ -547,7 +556,7 @@ spack env activate compilerName_compilerVersion
 
 <h3 id="iv-install-the-compiler-in-its-environment">iv. Install the compiler in its environment</h3>
 
-<p>Next, follow the instructions in <a href="#d-installing-packages-in-an-environment">D. Installing Packages in an Environment</a> to install the desired compiler in this environment. Installing the compiler may take several hours, so consider increasing the number of threads to speed up the installation.</p>
+<p>Next, follow the instructions in <a href="#e-installing-packages-in-an-environment">E. Installing Packages in an Environment</a> to install the desired compiler in this environment. Installing the compiler may take several hours, so consider increasing the number of threads to speed up the installation.</p>
 
 <h2 id="b-add-the-compiler-to-spack">B. Add the Compiler to Spack</h2>
 
@@ -580,7 +589,7 @@ spack env activate compilerName_compilerVersion
 
 <p>Once the compiler has been installed and recognized by Spack, you can now create and activate a new environment for installing your desired packages, following the instructions in <a href="#1-installing-software-using-spack">Installing Software Using Spack</a>.</p>
 
-<p><strong>To make sure the packages are installed using your desired compiler</strong>, you need to include the compiler when you add the package specification to the environment (<a href="#c-adding-package-specifications-to-the-environment">C. Adding Package Specifications to the Environment</a>). To include the compiler in the specification, you need to add the symbol <code>%</code> followed by the compiler name and version to the end of the <code>spack add</code> command. For example,</p>
+<p><strong>To make sure the packages are installed using your desired compiler</strong>, you need to include the compiler when you add the package specification to the environment (<a href="#d-adding-package-specifications-to-the-environment">D. Adding Package Specifications to the Environment</a>). To include the compiler in the specification, you need to add the symbol <code>%</code> followed by the compiler name and version to the end of the <code>spack add</code> command. For example,</p>
 
 <pre class="term"><code>spack add python@=3.10 %gcc@=9.5.0
 </code></pre>
@@ -616,6 +625,11 @@ spack env activate compilerName_compilerVersion
                                 </button>
                             </h2>
                             <div id="basics-and-policies-collapse" class="accordion-collapse collapse " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/hpc-el8-to-el9">HPC System Transition to a New Linux Version (CentOS Stream 9)</a>
+                                    </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
