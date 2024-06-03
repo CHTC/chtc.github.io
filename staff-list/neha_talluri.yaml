@@ -1,0 +1,20 @@
+name: Neha Talluri
+title: Fellow
+institution: Morgridge Institute for Research
+status: Student
+organizations:
+  - chtc
+image: images/neha_talluri.jpg
+
+fellowship:
+  name: Where in the world am I
+  description: |
+    In PATh, an important part of the infrastructure is the “glidein”, a client that
+    starts at a remote location and provides computational cycles for research.
+    In the past, glideins have relied on configuration at remote locations to
+    determine their location but this often results in missing or incorrect 
+    information. This project will focus on enhancing glideins so that they
+    can detect and report where they are running in the world, possibly including
+    data like geolocation and institutional owner. After a successful summer,
+    the student fellow will gain skills in Python, bash, and layer 3 networking.
+  mentor: Jason Patton

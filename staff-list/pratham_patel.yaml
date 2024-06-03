@@ -1,0 +1,19 @@
+name: Pratham Patel
+title: Fellow
+institution: Morgridge Institute for Research
+status: Student
+organizations:
+  - chtc
+image: images/pratham_patel.jpg
+
+fellowship:
+  name: Enhancing container image build system
+  description: |
+    Container images are a widely used technology to package and distribute 
+    software and services for use in systems such as Docker or Kubernetes.
+    The PATh project builds hundreds of these images on a weekly basis but 
+    the build system needs improvement to support more images and additional
+    use cases. This project will focus on taking the existing system and 
+    adding configurable, per-image build options. After a successful summer,
+    the student fellow will gain skills in Docker containers, GitHub actions, and Bash.
+  mentor: Brian Lin
