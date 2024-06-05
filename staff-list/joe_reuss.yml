@@ -2,7 +2,7 @@ image: images/joe_reuss.jpeg
 institution: University of Wisconsin-Madison
 title: Software Engineer
 name: Joe Reuss
-status: Staff
+status: Past
 website: null
 pelican :
     title: Software Engineer

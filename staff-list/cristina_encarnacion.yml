@@ -1,0 +1,12 @@
+name: "Cristina Encarnacion"
+image: "images/cristina_encarnacion.jpeg"
+title: "Student Science Writer"
+institution: "Morgridge Institute for Research"
+website: null
+weight: 3
+status: Student
+organizations:
+  - path
+  - chtc
+  - osg
+  - pelican

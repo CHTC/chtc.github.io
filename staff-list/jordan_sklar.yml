@@ -1,0 +1,12 @@
+name: "Jordan Sklar"
+image: "images/jordan_sklar.jpg"
+title: "Student Science Writer"
+institution: "Morgridge Institute for Research"
+website: null
+weight: 3
+status: Student
+organizations:
+  - path
+  - chtc
+  - osg
+  - pelican
