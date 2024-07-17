@@ -5,7 +5,6 @@ name: Justin Hiemstra
 status: Staff
 website: null
 pelican:
-    title: Software Engineer
     weight: 5
 organizations: 
     - chtc

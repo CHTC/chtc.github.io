@@ -4,7 +4,6 @@ title: Research Software Engineer
 name: Emma Turetsky
 status: Staff
 pelican:
-    title: Software Engineer
     weight: 7
 organizations:
     - chtc
