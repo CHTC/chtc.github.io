@@ -3,7 +3,7 @@ image: "images/bryna_goeking.jpg"
 title: "Student Writer"
 institution: "Morgridge Institute for Research"
 weight: 5
-status: "Student"
+status: Past
 organizations: 
     - path
     - chtc
