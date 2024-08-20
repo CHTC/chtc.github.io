@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Run Julia Jobs</title>
+<title>Running Julia Jobs</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Run Julia Jobs | CHTC</title>
+<title>Running Julia Jobs | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Run Julia Jobs" />
+<meta property="og:title" content="Running Julia Jobs" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Overview" />
-<meta property="og:description" content="Overview" />
+<meta name="description" content="Quickstart: Julia Option A (recommended) Build a container with Julia &amp; packages installed inside: How to build your own container Example container recipes for Julia Use your container in your HTC jobs Option B Use a portable copy of Julia and create your own portable copy of your Julia packages: Follow the instructions in our guide Run Julia Jobs. This approach may be sensitive to the operating system of the execution point. We recommend building a container instead, but are keeping these instructions as a backup." />
+<meta property="og:description" content="Quickstart: Julia Option A (recommended) Build a container with Julia &amp; packages installed inside: How to build your own container Example container recipes for Julia Use your container in your HTC jobs Option B Use a portable copy of Julia and create your own portable copy of your Julia packages: Follow the instructions in our guide Run Julia Jobs. This approach may be sensitive to the operating system of the execution point. We recommend building a container instead, but are keeping these instructions as a backup." />
 <link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/julia-jobs" />
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/julia-jobs" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-08-20T00:32:11+00:00" />
+<meta property="article:published_time" content="2024-08-20T16:41:28+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Run Julia Jobs" />
+<meta property="twitter:title" content="Running Julia Jobs" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-08-20T00:32:11+00:00","datePublished":"2024-08-20T00:32:11+00:00","description":"Overview","headline":"Run Julia Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/julia-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/julia-jobs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-08-20T16:41:28+00:00","datePublished":"2024-08-20T16:41:28+00:00","description":"Quickstart: Julia Option A (recommended) Build a container with Julia &amp; packages installed inside: How to build your own container Example container recipes for Julia Use your container in your HTC jobs Option B Use a portable copy of Julia and create your own portable copy of your Julia packages: Follow the instructions in our guide Run Julia Jobs. This approach may be sensitive to the operating system of the execution point. We recommend building a container instead, but are keeping these instructions as a backup.","headline":"Running Julia Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/julia-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/julia-jobs"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -242,26 +242,69 @@
         <div class="col-12 col-lg-9 mw-1000">
 
             <h1 class="uw-mini-bar mb-4">
-    Run Julia Jobs
+    Running Julia Jobs
 </h1>
 
-            <h1 id="overview">Overview</h1>
+            <h2 id="quickstart-julia">Quickstart: Julia</h2>
 
-<p>This guide documents steps for submitting jobs that will execute 
-Julia code, including preliminary steps for installing specific Julia 
-packages that may be required for your work.</p>
+<h3 id="option-a-recommended">Option A (recommended)</h3>
 
-<p><strong>We recommend setting up a container for using Julia, as described <a href="software-overview-htc.md#julia-quickstart-a">here</a>.</strong>
-We are keeping this process as an alternative.</p>
+<p>Build a container with Julia &amp; packages installed inside:</p>
 
-<h1 id="table-of-contents">Table of Contents</h1>
 <ol>
-  <li><a href="#quickstart-instructions">Quickstart Instructions</a></li>
-  <li><a href="#install-julia-packages">Install Julia Packages</a></li>
-  <li><a href="#submit-julia-jobs">Submit Julia Jobs</a></li>
+  <li><a href="software-overview-htc.html#build-your-own-container">How to build your own container</a></li>
+  <li><a href="https://github.com/CHTC/recipes/tree/main/software/Julia">Example container recipes for Julia</a></li>
+  <li><a href="software-overview-htc.html#use-an-existing-container">Use your container in your HTC jobs</a></li>
 </ol>
 
-<h1 id="quickstart-instructions">Quickstart Instructions</h1>
+<h3 id="option-b">Option B</h3>
+
+<p>Use a portable copy of Julia and create your own portable copy of your Julia packages:</p>
+
+<ol>
+  <li>Follow the instructions in our guide <a href="julia-jobs.html#option-b-create-your-own-portable-copy">Run Julia Jobs</a>.</li>
+</ol>
+
+<blockquote>
+  <p>This approach may be sensitive to the operating system of the execution point. 
+We recommend building a container instead, but are keeping these instructions as a backup.</p>
+</blockquote>
+
+<!--more-->
+
+<h2 id="more-information">More information</h2>
+
+<p>No CHTC machine has Julia pre-installed, so you <strong>must</strong> configure a portable copy of Julia to work on the HTC system.
+Using a container as described above is the easiest way to accomplish this.</p>
+
+<h4 id="executable">Executable</h4>
+
+<p>When using a container, you can use a <code>.jl</code> script as the submit file <code>executable</code>, provided that the first line (the “shebang”) in the <code>.jl</code> file is</p>
+
+<pre><code>#!/usr/bin/env julia
+</code></pre>
+
+<p>with the rest of the file containing the commands you want to run using Julia.</p>
+
+<p>Alternatively, you can use a bash <code>.sh</code> script as the submit file <code>executable</code>, and in that file you can use the <code>julia</code> command:</p>
+
+<pre><code>#!/bin/bash
+
+julia my-script.jl
+</code></pre>
+
+<p>In this case, remember to include your <code>.jl</code> file in the <code>transfer_input_files</code> line of your submit file.</p>
+
+<h4 id="arguments">Arguments</h4>
+
+<p>For more information on passing arguments to a Julia script, see the 
+<a href="https://docs.julialang.org/en/v1/manual/command-line-interface/#Using-arguments-inside-scripts">Julia documentation</a>.</p>
+
+<h2 id="option-b-create-your-own-portable-copy">Option B: Create your own portable copy</h2>
+
+<p>Use a portable copy of Julia and create your own portable copy of your Julia packages</p>
+
+<p><strong>This approach may be sensitive to the operating system of the execution point. We recommend building a container instead, but are keeping these instructions as a backup.</strong></p>
 
 <ol>
   <li>
@@ -306,14 +349,14 @@ with base Julia and Standard Library.</p>
   </li>
 </ol>
 
-<h1 id="install-julia-packages">Install Julia Packages</h1>
+<h3 id="install-julia-packages">Install Julia Packages</h3>
 
 <p>If your work requires additional Julia packages, you will need to peform a one-time 
 installation of these packages within a Julia project. A copy of the project 
 can then be saved for use in subsequent job submissions. For more details, 
 please see Julia’s documentation at <a href="https://julialang.github.io/Pkg.jl">Julia Pkg.jl</a>.</p>
 
-<h2 id="create-an-interactive-build-job-submit-file">Create An Interactive Build Job Submit File</h2>
+<h3 id="create-an-interactive-build-job-submit-file">Create An Interactive Build Job Submit File</h3>
 
 <p>To install your Julia packages, first create an HTCondor submit for 
 submitting an “interactive build” job which is a job that will run 
@@ -348,7 +391,7 @@ queue
 <p>The only thing you should need to change in the above file is the name
 of the Julia tarball file in the "transfer_input_files" line.</p>
 
-<h2 id="submit-your-interactive-build-job">Submit Your Interactive Build Job</h2>
+<h3 id="submit-your-interactive-build-job">Submit Your Interactive Build Job</h3>
 
 <p>Once this submit file is created, submit the job using the following command:</p>
 
@@ -357,7 +400,7 @@ of the Julia tarball file in the "transfer_input_files" line.</p>
 
 <p>It may take a few minutes for the build job to start.</p>
 
-<h2 id="install-julia-packages-interactively">Install Julia Packages Interactively</h2>
+<h3 id="install-julia-packages-interactively">Install Julia Packages Interactively</h3>
 
 <p>Once the interactive jobs starts you should see the following
 inside the job’s working directory:</p>
@@ -428,7 +471,7 @@ contact us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.</strong></
 julia&gt; exit()
 </code></pre>
 
-<h2 id="save-installed-packages-for-later-jobs">Save Installed Packages For Later Jobs</h2>
+<h3 id="save-installed-packages-for-later-jobs">Save Installed Packages For Later Jobs</h3>
 
 <p>To use this project, and the associated installed packages, in 
 subsequent jobs, we need to have <a href="https://htcondor.org">HTCondor</a> return some files to 
@@ -453,7 +496,7 @@ my-project.tar.gz
 [alice@submit]$ ls -sh my-project.tar.gz
 </code></pre>
 
-<h1 id="submit-julia-jobs">Submit Julia Jobs</h1>
+<h2 id="submit-julia-jobs">Submit Julia Jobs</h2>
 
 <p>To submit a job that runs a Julia script, create a bash 
 script and <a href="https://htcondor.org">HTCondor</a> submit file following the examples in this section.
@@ -461,7 +504,7 @@ These examples assume that you have downloaded a copy of Julia for Linux as a <c
 file and if using packages, you have gone through the steps above to install them 
 and create an additional <code>tar.gz</code> file of the installed packages.</p>
 
-<h2 id="create-executable-bash-script">Create Executable Bash Script</h2>
+<h3 id="create-executable-bash-script">Create Executable Bash Script</h3>
 
 <p>Your job will use a bash script as the HTCondor <code>executable</code>. This script 
 will contain all the steps needed to unpack the Julia binaries and 
@@ -469,7 +512,7 @@ execute your Julia script (<code>script.jl</code>). Below are two example bash s
 one which can be used to execute a script with base Julia, and one that 
 will use packages installed in Julia project (see <a href="#install-julia-packages">Install Julia Packages</a>).</p>
 
-<h3 id="example-bash-script-for-base-julia-only">Example Bash Script For Base Julia Only</h3>
+<h4 id="example-bash-script-for-base-julia-only">Example Bash Script For Base Julia Only</h4>
 
 <p>If your Julia script can run without additional packages (other than base Julia and 
 the Julia Standard library) use the example script directly below.</p>
@@ -488,7 +531,7 @@ export PATH=$_CONDOR_SCRATCH_DIR/julia-#.#.#/bin:$PATH
 julia script.jl
 </code></pre>
 
-<h3 id="example-bash-script-for-julia-with-installed-packages">Example Bash Script For Julia With Installed Packages</h3>
+<h4 id="example-bash-script-for-julia-with-installed-packages">Example Bash Script For Julia With Installed Packages</h4>
 
 <pre class="file"><code>#!/bin/bash
 
@@ -507,7 +550,7 @@ export JULIA_DEPOT_PATH=$_CONDOR_SCRATCH_DIR/my-project
 julia --project=my-project script.jl
 </code></pre>
 
-<h2 id="create-htcondor-submit-file">Create HTCondor Submit File</h2>
+<h3 id="create-htcondor-submit-file">Create HTCondor Submit File</h3>
 
 <p>After creating a bash script to run Julia, then create a submit file 
 to submit the job to run.</p>
@@ -551,7 +594,7 @@ Test a few jobs for disk space/memory usage in order to make sure your
 requests for a large batch are accurate! Disk space and memory usage can be found in the 
 log file after the job completes.</p>
 
-<h2 id="submit-your-julia-job">Submit Your Julia Job</h2>
+<h3 id="submit-your-julia-job">Submit Your Julia Job</h3>
 
 <p>Once you have created an executable bash script and submit file, you can 
 submit the job to run using the following command:</p>

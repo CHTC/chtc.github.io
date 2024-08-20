@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Using Apptainer Containers on HPC</title>
+<title>Running Matlab Jobs</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Using Apptainer Containers on HPC | CHTC</title>
+<title>Running Matlab Jobs | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Using Apptainer Containers on HPC" />
+<meta property="og:title" content="Running Matlab Jobs" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Introduction" />
-<meta property="og:description" content="Introduction" />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/apptainer-hpc" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/apptainer-hpc" />
+<meta name="description" content="Quickstart: Matlab Build a container with Matlab &amp; toolboxes installed inside: How to build your own container Example container recipes for Matlab Use your container in your HTC jobs Note: Because Matlab is a licensed software, you must add the following line to your submit file: concurrency_limits = MATLAB:1 Failure to do so may cause your or other users’ jobs to fail to obtain a license from the license server." />
+<meta property="og:description" content="Quickstart: Matlab Build a container with Matlab &amp; toolboxes installed inside: How to build your own container Example container recipes for Matlab Use your container in your HTC jobs Note: Because Matlab is a licensed software, you must add the following line to your submit file: concurrency_limits = MATLAB:1 Failure to do so may cause your or other users’ jobs to fail to obtain a license from the license server." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/matlab-jobs" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/matlab-jobs" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-08-20T16:41:28+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Using Apptainer Containers on HPC" />
+<meta property="twitter:title" content="Running Matlab Jobs" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-08-20T16:41:28+00:00","datePublished":"2024-08-20T16:41:28+00:00","description":"Introduction","headline":"Using Apptainer Containers on HPC","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/apptainer-hpc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/apptainer-hpc"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-08-20T16:41:28+00:00","datePublished":"2024-08-20T16:41:28+00:00","description":"Quickstart: Matlab Build a container with Matlab &amp; toolboxes installed inside: How to build your own container Example container recipes for Matlab Use your container in your HTC jobs Note: Because Matlab is a licensed software, you must add the following line to your submit file: concurrency_limits = MATLAB:1 Failure to do so may cause your or other users’ jobs to fail to obtain a license from the license server.","headline":"Running Matlab Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/matlab-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/matlab-jobs"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -242,150 +242,409 @@
         <div class="col-12 col-lg-9 mw-1000">
 
             <h1 class="uw-mini-bar mb-4">
-    Using Apptainer Containers on HPC
+    Running Matlab Jobs
 </h1>
 
-            <h2 id="introduction">Introduction</h2>
+            <h2 id="quickstart-matlab">Quickstart: Matlab</h2>
 
-<p>Similar to Docker containers, Apptainer environments allow users to prepare portable software and computing environments that can be sent to many jobs. 
-This means your jobs will run in a more consistent environment that is easily reproducible by others.</p>
+<p>Build a container with Matlab &amp; toolboxes installed inside:</p>
 
-<div class="d-flex flex-column mb-5">
+<ol>
+  <li><a href="software-overview-htc.html#build-your-own-container">How to build your own container</a></li>
+  <li><a href="https://github.com/CHTC/recipes/tree/main/software/Matlab">Example container recipes for Matlab</a></li>
+  <li><a href="software-overview-htc.html#use-an-existing-container">Use your container in your HTC jobs</a></li>
+</ol>
 
-<h2>Table of Contents</h2>
+<blockquote>
+  <p><strong>Note</strong>: Because Matlab is a licensed software, you <strong>must</strong> add the following line to your submit file:</p>
 
-<div class="uw-sidebar-box me-auto">
-<div class="uw-directory">
-
-      <p><a href="#create-a-definition-file">Create a Definition File</a></p>
-
-      <p><a href="#start-an-interactive-session">Start an Interactive Session</a></p>
-
-      <p><a href="#build-your-container">Build Your Container</a></p>
-
-      <p><a href="#test-your-container">Test Your Container</a></p>
-
-      <p><a href="#use-an-apptainer-container-in-hpc-jobs">Use an Apptainer Container in HPC Jobs</a></p>
-
-    </div>
-</div>
-</div>
-
-<h2 id="create-a-definition-file">Create a Definition File</h2>
-
-<p>The definition (<code>.def</code>) file contains the instructions for what software to install while building the container.
-CHTC provides example definition files in the <code>software</code> folder of our <a href="https://github.com/CHTC/recipes">Recipes GitHub repository</a>. We strongly recommend that you use one of the existing examples as the starting point for creating your own container.</p>
-
-<p>To create your own container using Apptainer, you will need to create a definition (<code>.def</code>) file. 
-We encourage you to read our <a href="apptainer-build.html">Building an Apptainer Container</a> guide to learn more about the components of the Apptainer definition file.</p>
-
-<h3 id="regarding-mpi">Regarding MPI</h3>
-
-<p><strong>We are still in the process of developing guidance for deploying MPI-based software in containers on the High Performance system.</strong>
-The instructions in this guide should work for <em>single</em>-node jobs.
-<em>Multi</em>-node jobs require the MPI installed in the container to integrate with Slurm and/or the cluster installation of MPI, and we are still exploring how to do so.</p>
-
-<h2 id="start-an-interactive-session">Start an Interactive Session</h2>
-
-<p>Building a container can be a computationally intense process. 
-As such, we require that you only build containers while in an interactive session.
-On the High Performance system, you can use the following command to start the interactive session:</p>
-
-<pre class="term"><code>srun --mpi=pmix -n4 -N1 -t 240 -p int --pty bash
+  <pre class="sub"><code>concurrency_limits = MATLAB:1
 </code></pre>
 
-<h2 id="build-your-container">Build Your Container</h2>
+  <p>Failure to do so may cause your or other users’ jobs to fail to obtain a license from the license server.</p>
+</blockquote>
 
-<p>We recommend working from your <code>/scratch</code> directory when first building your container.</p>
+<!--more-->
 
-<p>Once the interactive session starts, set the Apptainer temporary directory:</p>
+<h2 id="more-information">More information</h2>
 
-<pre class="term"><code>export APPTAINER_TMPDIR=/scratch/$USER/apptainer/tmp
-mkdir -p $APPTAINER_TMPDIR
+<p>CHTC has a site license for Matlab that allows for up to 10,000 jobs to run at any given time across <em>all CHTC users</em>. 
+Hence the requirement for adding the line <code>concurrency_limits = MATLAB:1</code> to your submit files, so that HTCondor can keep track of which jobs are using or will use a license.</p>
+
+<p>Following the instructions above, you are able to install a variety of Matlab Toolboxes when building the container.
+The Toolboxes available for each supported version of Matlab are described here: https://github.com/mathworks-ref-arch/matlab-dockerfile/blob/main/mpm-input-files/.
+Navigate to the text file for the version of interest, and look at the section named “INSTALL PRODUCTS”.
+The example recipes linked above provide instructions on how to specify the packages you want to install when building the container.</p>
+
+<h3 id="executable">Executable<a name="matlab-executable"></a></h3>
+
+<p>When using the Matlab container, we recommend the following process for executing your Matlab commands in an HTCondor job:</p>
+
+<ol>
+  <li>
+    <p>Put your Matlab commands in a <code>.m</code> script. For this example, we’ll call it <code>my-script.m</code>.</p>
+  </li>
+  <li>
+    <p>Create the file <code>run-matlab.sh</code> with the following contents:</p>
+
+    <pre><code>#!/bin/bash
+   
+matlab -batch "my-script"
 </code></pre>
 
-<p>To build a container, Apptainer uses the instructions in the <code>.def</code> file to create a <code>.sif</code> file. The <code>.sif</code> file is the compressed collection of all the files that comprise the container.</p>
+    <p>Note that in the script, the <code>.m</code> extension has been dropped from the file name (uses <code>"my-script"</code> instead of <code>"my-script.m"</code>).</p>
+  </li>
+  <li>
+    <p>In your submit file, set the <code>.sh</code> script as the executable and list the <code>.m</code> file to be transferred:</p>
 
-<p>To build your container, run this command:</p>
+    <pre class="sub"><code>executable = run-matlab.sh
+transfer_input_files = my-script.m
+</code></pre>
+  </li>
+</ol>
 
-<pre class="term"><code>apptainer build my-container.sif image.def
+<h3 id="arguments">Arguments<a name="matlab-arguments"></a></h3>
+
+<p>You can pass arguments from your submit file to your Matlab code via your executable <code>.sh</code> and the <code>matlab -batch</code> command. 
+Arguments in your submit file are accessible inside your executable <code>.sh</code> script with the syntax <code>${n}</code>, where <code>n</code> is the nth value passed in the arguments line.
+You can use this syntax inside of the <code>matlab -batch</code> command.</p>
+
+<p>For example, if your Matlab script (<code>my-script.m</code>) is expecting a variable <code>foo</code>, you can add <code>foo=${1}</code> before calling <code>my-script</code>:</p>
+
+<pre><code>#!/bin/bash
+
+matlab -batch "foo=${1};my-script"
 </code></pre>
 
-<p>Feel free to rename the <code>.sif</code> file as you desire; for the purposes of this guide we are using <code>my-container.sif</code>.</p>
+<p>This will use the first argument from the submit file to define the Matlab variable <code>foo</code>.
+By default, such values are read in by Matlab as numeric values (or as a Matlab function/variable that evaluates to a numeric function).
+If you want Matlab to read in the argument as a string, you need to add apostrophes around the value, like this:</p>
 
-<p>As the command runs, a variety of information will be printed to the terminal regarding the container build process.
-Unless something goes wrong, this information can be safely ignored.
-Once the command has finished running, you should see <code>INFO:    Build complete: my-container.sif</code>.
-Using the <code>ls</code> command, you should now see the container file <code>my-container.sif</code>.</p>
+<pre><code>#!/bin/bash
 
-<p>If the build command fails, examine the output for error messages that may explain why the build was unsuccessful.
-Typically there is an issue with a package installation, such as a typo or a missing but required dependency.
-Sometimes there will be an error during an earlier package installation that doesn’t immediately cause the container build to fail.
-But, when you test the container, you may notice an issue with the package.</p>
-
-<p>If you are having trouble finding the error message, edit the definition file and remove (or comment out) the installation commands that come after the package in question.
-Then rebuild the image, and now the relevant error messages should be near the end of the build output.</p>
-
-<p>For more information on building Apptainer containers, see our <a href="apptainer-build.html">Building an Apptainer Container</a> guide.</p>
-
-<h2 id="test-your-container">Test Your Container</h2>
-
-<p>Once your container builds successfully, it is important to test it to make sure you have all software, packages, and libraries installed correctly.</p>
-
-<p>To test your container, use the command</p>
-
-<pre class="term"><code>apptainer shell -e my-container.sif
+matlab -batch "foo=${1};bar='${2}';my-script"
 </code></pre>
 
-<p>You should see your command prompt change to <code>Apptainer&gt;</code>.</p>
+<p>Here, the value of <code>bar</code> is defined as the second argument from the submit file, and will be identified by Matlab as a string because it’s wrapped in apostrophes (<code>'${2}'</code>).</p>
 
-<p>The <code>shell</code> command logs you into a terminal “inside” the container, with access to the libraries, packages, and programs that were installed in the container following the instructions in your <code>image.def</code> file.
-(The <code>-e</code> option is used to prevent this terminal from trying to use the host system’s programs.)</p>
+<p>If you have defined your script to act as a function, you can call the function directly and pass the arguments directly as well.
+For example, if you have constructed your <code>my-script.m</code> as a function, then you can do</p>
 
-<p>While “inside” the container, try to run your program(s) that you installed in the container. 
-Typically it is easiest to try to print your program’s “help” text, e.g., <code>my-program --help</code>. 
-If using a programming language such as <code>python3</code> or <code>R</code>, try to start an interactive code session and load the packages that you installed.</p>
+<pre><code>#!/bin/bash
 
-<p>If you installed your program in a custom location, consider using <code>ls</code> to verify the files are in the right location. 
-You may need to manually set the <code>PATH</code> environment variable to point to the location of your program’s executable binaries.
-For example,</p>
-
-<pre class="term"><code>export PATH=/opt/my-program/bin:$PATH
+matlab -batch "my-script(${1}, ${2})"
 </code></pre>
 
-<p>Consult the “Special Considerations” section of our <a href="apptainer-build.html#special-considerations-for-building-your-container">Building an Apptainer Container</a> guide for additional information on setting up and testing your container.</p>
+<p>Again, by default Matlab will interpret these value of these variables as numeric values, unless you wrap the argument in apostrophes as described above.</p>
 
-<p>When you are finished running commands inside the container, run the command <code>exit</code> to exit the container. 
-Your prompt should change back to something like <code>[username@spark-a006 directory]$</code>.
-If you are satisfied with the container that you built, run the <code>exit</code> command again to exit the interactive Slurm session.</p>
+<!-- Archived 2024-05
 
-<h2 id="use-an-apptainer-container-in-hpc-jobs">Use an Apptainer Container in HPC Jobs</h2>
+**To best understand the below information, users should already have an understanding of:**
 
-<p>Now that you have the container image saved in the form of the <code>.sif</code> file, you can use it as the environment for running your HPC jobs.</p>
+-   Using the command line to: navigate within directories, create/copy/move/delete files and directories, and run their intended programs (aka \"executables\").
+-   [The CHTC's Intro to Running HTCondor Jobs](helloworld.html)
 
-<p>For execution on a <strong>single node</strong>, we recommend adding the following commands to your sbatch script:</p>
+Overview
+========
 
-<pre><code>export TMPDIR=/scratch/$USER/apptainer_tmp/${SLURM_JOB_ID}
-mkdir -p $TMPDIR
+Like most programs, Matlab is not installed on CHTC\'s high throughput
+compute system. One way to run Matlab where it isn\'t installed is to
+compile Matlab `.m` files into a binary file and run the binary by using
+a set of files called the Matlab runtime. In order to run Matlab in
+CHTC, it is therefore necessary to perform the following steps which
+will be detailed in the guide below (click on the links to go to the
+relevant section):
 
-srun apptainer exec -e \
-    --bind /home/$USER \
-    --bind /scratch/$USER \
-    --bind $TMPDIR \
-    my-container.sif my-job-script.sh
+1.  [Prepare your Matlab program](#prepare)
+    -   [Compile your Matlab code](#compile)
+    -   [Edit the script that runs Matlab](#script)
+2.  [Write a submit file that uses the compiled code and script](#submit)
 
-rm -rf $TMPDIR
-</code></pre>
+If your Matlab code depends on random number generation, using a
+function like `rand` or `randperm`, please see the section on [ensuring
+randomness](#random) below.
 
-<p>All of the commands that you want to execute using the container should go into <code>my-job-script.sh</code>.</p>
 
-<p>Then submit your job to Slurm as usual, as described in our <a href="hpc-job-submission.html">Submitting and Managing Jobs Using SLURM</a> guide.</p>
+<span name="supported"></span>
 
-<h3 id="on-multiple-nodes">On multiple nodes</h3>
+Supported Versions of Matlab
+============================
 
-<p>We are still in the early stages of deploying containers on the High Performance system.
-A complicating factor is the construction of the <code>.def</code> file to deploy MPI on the system to allow for execution across multiple nodes.
-If you are interested in mutli-node execution using containers, contact a facilitator for more information.</p>
+{:.gtable}
+  | Matlab version  |
+  | --- |
+  | Matlab 2015b | 
+  | Matlab 2018b |
+  | Matlab 2022b | 
+
+
+**A. Preparing Your Matlab Program** 
+============================
+<span name="prepare"></span>
+You can compile `.m` files into a Matlab binary yourself by requesting
+an interactive session on one of our build machines. The session is
+essentially a job without an executable; **you** are the one running the
+commands instead (in this case, to compile the code).
+
+
+<span name="compile"></span>
+
+**1. Start an Interactive Build Job**
+---------------------------------
+
+Start by uploading all of the Matlab code files (usually `.m`, *not*,
+`.mat` files) that you need to run your code to the submit server.
+
+> If you have many of Matlab code files (more than 1-5), it\'s a good
+> idea to combine them into a `.tar.gz` file (like a zip file), so that
+> you can simply transfer the single `.tar.gz` file for compiling the
+> code. You can create a tar file by running this command:
+> `tar -czf code.tar.gz files and folders`
+
+Create the following special submit file on the submit server, calling
+it something like `build.sub`.
+
+``` {.sub}
+# Matlab build file
+
+universe = vanilla
+log = interactive.log
+
+# In the latest version of HTCondor on CHTC, interactive jobs require an executable.
+# If you do not have an existing executable, use a generic linux command like hostname as shown below.
+executable = /usr/bin/hostname
+
+# List all of your .m files, or a tar.gz file if you've combined them.
+transfer_input_files = script.m, functions.tar.gz
+
++IsBuildJob = true
+requirements = (OpSysMajorVer =?= 8)
+request_cpus = 1
+request_memory = 4GB
+request_disk = 2GB
+
+queue
+```
+
+Fill in the \"transfer\_input\_files\" line with *your* Matlab .m files,
+or a tar.gz file with all of the Matlab files your code uses.
+
+Once this submit file is created, you will start the interactive job by
+running the following command:
+
+```
+[alice@submit]$ condor_submit -i build.sub
+```
+{:.term}
+
+It may take a few minutes for the build job to start.
+
+<span name="compile"></span>
+
+
+**2. Compile Matlab Code and Exit Interactive Job**
+-----------------------------------------------
+
+Once the interactive job has started, you can compile your code. In this
+example, `script.m` represents the name of the primary Matlab script;
+you should replace `script.m` with the name of your own primary script.
+Note that if your main script references other `.m` files, as long as
+they are present in the working directory, they will all be compiled
+together with the main script into one binary.
+
+> If you combined your Matlab `.m` files into one `.tar.gz` file, make
+> sure to \"un-tar\" that file before running the compiling steps below.
+
+To access the Matlab compiler on the build node, you\'ll need to load a
+the appropriate Matlab module. For Matlab 2015b, the module load command
+will look like this:
+
+``` 
+[alice@build]$ module load MATLAB/R2015b
+```
+{:.term}
+
+If you want to use a different version of Matlab, change the name after the `load` command. Once the
+module is loaded, run the compilation command:
+
+``` 
+[alice@build]$ mcc -m -R -singleCompThread -R -nodisplay -R -nojvm script.m
+```
+{:.term}
+
+> **Compilation Options**
+>
+> There are other options for the `mcc` Matlab compiler that might be
+> necessary for specific compiling situations. For example, if your main
+> .m script uses a set of Matlab functions or .m files that are
+> contained in a subdirectory (called, say, `functions`), then your
+> compiling command will need to use the `-a` flag at the end of the
+> command like so:
+>
+> ``` 
+> [alice@build]$ mcc -m \
+>                 -R -singleCompThread -R -nodisplay -R -nojvm \
+>                 script.m -a functions/
+> ```
+> {:.term}
+>
+> (The backslashes, \\, are there just to break up the full command.)
+>
+> If you have questions about compiling your particular code, [contact a
+> facilitator](mailto:chtc@cs.wisc.edu) or see the [Matlab
+> documentation](http://www.mathworks.com/help/compiler/mcc.html) for
+> more information about using `mcc`.
+
+Exit the interactive session after you have compiled your code:
+
+``` 
+[alice@build]$ exit
+```
+{:.term}
+
+Condor will transfer your compiled code and its scripts back
+automatically.
+
+Back on the submit node, you should now have the following files:
+
+``` 
+[alice@submit]$ ls -l 
+
+-rw-rw-r-- 1 user user 581724 Feb 19 14:21 mccExcludedFiles.log
+-rwxrw-r-- 1 user user  94858 Feb 19 14:21 script
+-rwxrw-r-- 1 user user   1024 Feb 19 14:00 script.m
+-rw-rw-r-- 1 user user   3092 Feb 19 14:21 readme.txt
+-rw-rw-r-- 1 user user 581724 Feb 19 14:21 requiredMCRProducts.txt
+-rwxrw-r-- 1 user user   1195 Feb 19 14:21 run_script.sh
+```
+{:.term}
+
+The file `script` is the compiled Matlab binary. You will not need the
+`mccExcludedFiles.log`, `requiredMCRProducts.txt` or `readme.txt` to run
+your jobs.
+
+<span name="script"></span>
+
+**3. Modifying the Executable**
+---------------------------
+
+The `mcc` command should have created a script called `run_*.sh` (where
+\* is the name of your Matlab script; our example uses the name
+`script`). This `run_*.sh` script will be the executable for your Matlab
+jobs and already has almost all the necessary commands for running your
+Matlab code.
+
+You\'ll need to add one line at the beginning of the `run_*.sh` script
+that unpacks the Matlab runtime. We\'ll also add some extra options to
+ensure Matlab runs smoothly on any Linux system.
+
+The commands that need to be added, and their location looks like this
+(**replace `r2015b.tar.gz` with the appropriate version of Matlab, if
+you used something different to compile**):
+
+``` 
+#!/bin/sh
+# script for execution of deployed applications
+#
+# Sets up the MATLAB Runtime environment for the current $ARCH and executes 
+# the specified command.
+
+# Add these lines to run_script.sh
+tar -xzf r2015b.tar.gz
+mkdir cache
+export MCR_CACHE_ROOT=$PWD/cache
+
+# Rest of script follows
+```
+{:.file}
+
+
+
+
+**B. Running Matlab Jobs**
+======================
+<span name="submit"></span>
+This section shows the important elements of creating a submit file for
+Matlab jobs. The submit file for your job will be different than the one
+used to compile your code. As a starting point for a submit file, see
+our \"hello world\" example:
+[http://chtc.cs.wisc.edu/helloworld](helloworld.html). In what
+follows, replace our example `script` and `run_script.sh` with the name
+of your binary and scripts.
+
+1. Use `run_script.sh` as the executable:
+```{.sub}
+executable = run_script.sh
+```
+2.  In order for your Matlab code to run, you will need to use a Matlab
+    runtime package. This package is easily downloaded from CHTC\'s web
+    proxy; the version **must** match the version you used to compile
+    your code. Options available on our proxy include:
+    
+    -   `r2015b.tar.gz`
+    -   `r2018b.tar.gz`
+    -   `r2022b.tar.gz`<br>
+    
+    To send the runtime package to your jobs, list a link to the
+    appropriate version in your `transfer_input_files` line, as well as
+    your compiled binary and any necessary input files:
+    ``` {.sub}
+    transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/r2015b.tar.gz,script,input_data
+    ```
+3.  The `run_script.sh` will expect the runtime directory name to be
+    provided as an argument specified in the submit file (as described
+    in `readme.txt`).
+
+
+    {:.gtable}
+      | Matlab version | Runtime directory name |
+      | --- | --- |
+      | `r2015b.tar.gz` | `v90` |
+      | `r2018b.tar.gz` | `v95` |
+      | `r2022b.tar.gz` | `R2022b` | 
+ 
+    So to run a Matlab job using `r2015b` and no additional arguments, the arguments line in the submit file should read:
+    ```{:.sub}
+    arguments = v90
+    ```
+    If you *are* passing additional arguments to the script, they can go after the first \"runtime\" argument:
+
+    ``` {.sub}
+    arguments = v90 $(Cluster) $(Process) 
+    ```
+    **If you are passing numerical values as arguments to your Matlab binary, you will need to revise your Matlab 
+    code so that the values are interpreted as numbers instead of as characters (the default).** To do this, you can use that Matlab 
+    `str2num` function, more information is available at [Matlab Str2num](https://www.mathworks.com/help/matlab/ref/str2num.html).
+    
+4.  As always, test a few jobs for disk space/memory usage in order to
+    make sure your requests for a large batch are accurate! Disk space
+    and memory usage can be found in the log file after the job
+    completes. **If you are using Matlab 2018b or 2022b, request at least 8-10GB
+    of DISK** as the runtime is very large for this version of Matlab.
+
+<span name="random"></span>
+
+Ensuring Randomness
+===================
+
+This section is only relevant for Matlab scripts that use Matlab\'s
+random number functions like `rand`.
+
+Whenever Matlab is started for the first time on a new computer, the
+random number generator begins from the same state. When you run
+multiple Matlab jobs, each job is using a copy of Matlab that is being
+used for the first time \-- thus, every job will start with the same
+random number generator and produce identical results.
+
+There are different ways to ensure that each job is using different
+randomly generated numbers. [This Mathworks
+page](http://www.mathworks.com/help/matlab/math/why-do-random-numbers-repeat-after-startup.html?refresh=true)
+describes one way to \"reset\" the random number generator so that it
+produces different random values when Matlab runs for the first time.
+Deliberately choosing your own different random seed values for each job
+can be another way to ensure different results.
+
+ -->
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -400,7 +659,7 @@ If you are interested in mutli-node execution using containers, contact a facili
             
             
 
-            <h6 class="mt-5">HPC Guides</h6>
+            <h6 class="mt-5">HTC Guides</h6>
             <div class="accordion accordion-flush">
                 
                     
@@ -419,12 +678,17 @@ If you are interested in mutli-node execution using containers, contact a facili
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-el8-to-el9">HPC System Transition to a New Linux Version (CentOS Stream 9)</a>
+                                        <a class="" href="/uw-research-computing/htc-el8-to-el9-transition">HTC System Transition to a New Linux Version (CentOS Stream 9)</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-overview">HPC Cluster Overview</a>
+                                        <a class="" href="/uw-research-computing/htc-overview">HTC System Overview</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/noShow-use-submit-node">Policies for Using HTC Submit Servers</a>
                                     </div>
                                 
 
@@ -449,7 +713,17 @@ If you are interested in mutli-node execution using containers, contact a facili
                                 
 
                                     <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/globus">Use Globus to Transfer Files to and from CHTC</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
                                         <a class="" href="/uw-research-computing/github-remote-access">Access a Private GitHub Repository Remotely</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/check-quota">Check Disk Quota and Usage</a>
                                     </div>
                                 
                             </div>
@@ -472,13 +746,64 @@ If you are interested in mutli-node execution using containers, contact a facili
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-job-submission">Submitting and Managing Jobs Using SLURM</a>
+                                        <a class="" href="/uw-research-computing/htcondor-job-submission">Practice: Submit HTC Jobs using HTCondor</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/condor_q">Learn About Your Jobs Using condor_q</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/multiple-jobs">Submitting Multiple Jobs Using HTCondor</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/dagman-workflows">Workflows with HTCondor's DAGMan</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/multiple-job-dirs">Submitting Multiple Jobs in Individual Directories</a>
                                     </div>
                                 
                             </div>
                         </div>
                     
                 
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="handling-data-in-jobs">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#handling-data-in-jobs-collapse" aria-expanded="false" aria-controls="handling-data-in-jobs">
+                                    Handling Data in Jobs
+                                </button>
+                            </h2>
+                            <div id="handling-data-in-jobs-collapse" class="accordion-collapse collapse " aria-labelledby="handling-data-in-jobs" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-availability">Small Input and Output File Availability Via HTCondor</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-avail-squid">Transfer Large Input Files Via Squid</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
                     
                 
                     
@@ -489,35 +814,40 @@ If you are interested in mutli-node execution using containers, contact a facili
 
                         <div class="accordion-item">
                             <h2 class="accordion-header mt-0" id="software-solutions">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
                                     Software Solutions
                                 </button>
                             </h2>
-                            <div id="software-solutions-collapse" class="accordion-collapse collapse show " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
+                            <div id="software-solutions-collapse" class="accordion-collapse collapse " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-software">Use Software on the HPC Cluster</a>
+                                        <a class="" href="/uw-research-computing/software-overview-htc">Overview: How to Use Software</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-spack-setup">Set Up Spack on HPC</a>
+                                        <a class="" href="/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-spack-install">Install Software Using Spack</a>
+                                        <a class="" href="/uw-research-computing/docker-jobs">Running HTC Jobs Using Docker Containers</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-spack-modules">Create Custom Modules Using Spack</a>
+                                        <a class="" href="/uw-research-computing/docker-build">Build a Docker Container Image</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/apptainer-hpc">Using Apptainer Containers on HPC</a>
+                                        <a class="" href="/uw-research-computing/licensed-software">Use Licensed Software</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/apptainer-htc">Use Apptainer Containers</a>
                                     </div>
                                 
 
@@ -525,12 +855,99 @@ If you are interested in mutli-node execution using containers, contact a facili
                                         <a class="" href="/uw-research-computing/apptainer-build">Building an Apptainer Container</a>
                                     </div>
                                 
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/apptainer-htc-advanced-example">Advanced Apptainer Example - SUMO</a>
+                                    </div>
+                                
                             </div>
                         </div>
                     
                 
                     
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="special-use-cases">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-cases-collapse" aria-expanded="false" aria-controls="special-use-cases">
+                                    Special Use Cases
+                                </button>
+                            </h2>
+                            <div id="special-use-cases-collapse" class="accordion-collapse collapse " aria-labelledby="special-use-cases" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/gpu-jobs">Use GPUs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/machine-learning-htc">Run Machine Learning Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/scaling-htc">Scale Beyond Local HTC Capacity</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/checkpointing">Checkpointing Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/high-memory-jobs">Submit High Memory Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-modules">Use Software Available in Modules</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/os-request-htc">Use Custom Linux Versions in CHTC</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
                 
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="troubleshooting">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshooting-collapse" aria-expanded="false" aria-controls="troubleshooting">
+                                    Troubleshooting
+                                </button>
+                            </h2>
+                            <div id="troubleshooting-collapse" class="accordion-collapse collapse " aria-labelledby="troubleshooting" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/dos-unix">Windows / Linux Incompatibility</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/docker-test">Explore and Test Docker Containers</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-known-issues">Known Issues on the HTC</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
                     
                 
             </div>
