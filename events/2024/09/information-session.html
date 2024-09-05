@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Running Tensorflow Jobs</title>
+<title>CHTC Information Session - September</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,24 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Running Tensorflow Jobs | CHTC</title>
+<title>CHTC Information Session - September | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Running Tensorflow Jobs" />
+<meta property="og:title" content="CHTC Information Session - September" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="This guide describes how to use a pre-built Tensorflow environment (implemented as a Singularity container) to run Tensorflow jobs in CHTC and on the OS Pool." />
-<meta property="og:description" content="This guide describes how to use a pre-built Tensorflow environment (implemented as a Singularity container) to run Tensorflow jobs in CHTC and on the OS Pool." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/archived/tensorflow-singularity-wait" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/archived/tensorflow-singularity-wait" />
+<meta name="description" content="Want to learn more about how the CHTC could support your research or how to get started? Come to an information session!" />
+<meta property="og:description" content="Want to learn more about how the CHTC could support your research or how to get started? Come to an information session!" />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/events/2024/09/information-session" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/events/2024/09/information-session" />
 <meta property="og:site_name" content="CHTC" />
+<meta property="og:image" content="https://chtc.cs.wisc.edu/images/20240308_Morgridge_RCFs.jpg" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-09-05T18:14:00+00:00" />
+<meta property="article:published_time" content="2024-09-18T00:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Running Tensorflow Jobs" />
+<meta property="twitter:image" content="https://chtc.cs.wisc.edu/images/20240308_Morgridge_RCFs.jpg" />
+<meta property="twitter:title" content="CHTC Information Session - September" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-05T18:14:00+00:00","datePublished":"2024-09-05T18:14:00+00:00","description":"This guide describes how to use a pre-built Tensorflow environment (implemented as a Singularity container) to run Tensorflow jobs in CHTC and on the OS Pool.","headline":"Running Tensorflow Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/archived/tensorflow-singularity-wait"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/archived/tensorflow-singularity-wait"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-18T00:00:00+00:00","datePublished":"2024-09-18T00:00:00+00:00","description":"Want to learn more about how the CHTC could support your research or how to get started? Come to an information session!","headline":"CHTC Information Session - September","image":"https://chtc.cs.wisc.edu/images/20240308_Morgridge_RCFs.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/events/2024/09/information-session"},"url":"https://chtc.cs.wisc.edu/events/2024/09/information-session"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -53,7 +55,7 @@
 <link type="text/css" href="/assets/fonts/fonts.0.0.1.css" rel="stylesheet">
 <link type="text/css" href="/assets/css/style-v10.css" rel="stylesheet">
 
-<link type="text/css" href="/assets/css/research-style.css" rel="stylesheet">
+
 
 <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'')})(document.documentElement)</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -77,7 +79,7 @@
             <div class="row">
                 <div class="col-auto pe-0">
                     
-                    <a class="uw-global-name-link" href="/" aria-label="University home page">Go to CHTC Home</a>
+                    <a class="uw-global-name-link" href="/uw-research-computing" aria-label="UW Research Computing Homepage">Go to UW Research Computing Home</a>
                     
                 </div>
                 <div class="col-auto d-flex">
@@ -92,13 +94,8 @@
     
     
 
-
-
     
-
-
-    
-    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">UW-Research Computing<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
+    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">Menu<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
 <div id="uw-top-menus" class="uw-is-visible uw-horizontal" aria-hidden="false">
     <div class="uw-main-nav">
         <nav class="uw-nav-menu uw-nav-menu-reverse" aria-label="Main Menu">
@@ -109,27 +106,9 @@
                 
                     
 
-
-<li id="home">
-    <a href="/uw-research-computing/index.html" aria-current="page">Home</a>
-</li>
-
-
-                
-                    
-
-
-<li id="get-started">
-    <a href="/uw-research-computing/form.html" aria-current="page">Get Started</a>
-</li>
-
-
-                
-                    
-
-<li id="menu-how-tos" class="uw-dropdown">
-    <a href="/uw-research-computing/how-tos.html" role="button" aria-haspopup="true" aria-expanded="false">
-        How To's
+<li id="about" class="uw-dropdown">
+    <a href="/about.html" role="button" aria-haspopup="true" aria-expanded="false">
+        About
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -137,27 +116,35 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="How To's submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="About submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/account-details.html">Get an Account</a>
+            <a href="/htc.html">What is HTC?</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/user-expectations.html">User Expectations</a>
+            <a href="/approach.html">Our Approach</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/htc/guides.html">HTC Guides</a>
+            <a href="/projects.html">Our Customers</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/hpc/guides.html">HPC Guides</a>
+            <a href="/people.html">Our Staff</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/cite-chtc.html">Cite CHTC Resources</a>
+            <a href="/jobs.html">Our Open Positions</a>
+        </li>
+    
+        <li>
+            <a href="/internships.html">Internships</a>
+        </li>
+    
+        <li>
+            <a href="/fellowships/index.html">Fellowships</a>
         </li>
     
     </ul>    
@@ -167,8 +154,8 @@
                     
 
 
-<li id="get-help">
-    <a href="/uw-research-computing/get-help.html" aria-current="page">Get Help</a>
+<li id="uw-research-computing">
+    <a href="/uw-research-computing/index.html" aria-current="page">UW Research Computing</a>
 </li>
 
 
@@ -176,17 +163,35 @@
                     
 
 
-<li id="status-page">
-    <a href="https://status.chtc.wisc.edu/" aria-current="page">System Status</a>
+<li id="guides">
+    <a href="/uw-research-computing/guides.html" aria-current="page">Guides</a>
 </li>
 
 
                 
                     
 
-<li id="menu-other-resources" class="uw-dropdown">
-    <a href="/uw-research-computing/other-resources.html" role="button" aria-haspopup="true" aria-expanded="false">
-        Other Resources
+
+<li id="technologies">
+    <a href="/technologies.html" aria-current="page">Technologies</a>
+</li>
+
+
+                
+                    
+
+
+<li id="research">
+    <a href="/research.html" aria-current="page">Research</a>
+</li>
+
+
+                
+                    
+
+<li id="news" class="uw-dropdown">
+    <a href="/news-navigation.html" role="button" aria-haspopup="true" aria-expanded="false">
+        News
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -194,27 +199,15 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="Other Resources submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="News submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/gpu-lab.html">CHTC GPU Lab</a>
+            <a href="/news.html">CHTC News</a>
         </li>
     
         <li>
-            <a href="https://htcondor.org/manual/">HTCondor Project</a>
-        </li>
-    
-        <li>
-            <a href="http://www.neos-server.org/">NEOS Optimization Service</a>
-        </li>
-    
-        <li>
-            <a href="http://www.osg-htc.org/">OSG Consortium</a>
-        </li>
-    
-        <li>
-            <a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a>
+            <a href="/events.html">Events</a>
         </li>
     
     </ul>    
@@ -235,157 +228,114 @@
 </div>
 
 
+
+    
+
     <main id="main" style="min-height: 60vh;">
         <main id="main" style="min-height: 60vh;">
-    <div class="container-xxl mb-5">
+    <div class="container-xxl">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-9 mw-1000">
+        <div class="col mw-1000 pb-5">
+            <div class="event">
+    <div class="event-header pt-4 pt-md-4">
+    <div class="row justify-content-end">
+        <div class="col-auto">
+            <h2 class="subtitle">
+                
+                
 
-            <h1 class="uw-mini-bar mb-4">
-    Running Tensorflow Jobs
-</h1>
+                
+                
 
-            <p>This guide describes how to use a pre-built Tensorflow environment
-(implemented as a <a href="http://singularity.lbl.gov/">Singularity container</a>)
-to run Tensorflow jobs in CHTC and on the <a href="https://osg-htc.org/about/open_science_pool/">OS Pool</a>.</p>
-
-<h2 id="overview">Overview</h2>
-
-<p>Typically, software in CHTC jobs is installed or compiled locally by
-individual users and then brought along to each job, either using the
-default file transfer or our SQUID web server. However, another option
-is to use a <em>container</em> system, where the software is installed in a
-<em>container image</em>. CHTC (and the OS Pool) have capabilities to access and
-start containers and run jobs inside them. One container option
-available in CHTC is <a href="docker-jobs.html">Docker</a>; another is
-Singularity.</p>
-
-<p>In CHTC, our Singularity support consists of running jobs inside a
-pre-made Singularity container with an installation of Tensorflow. This
-Singularity set up is very flexible: it is accessible both in CHTC and
-on the OS Pool, and can be used to run Tensorflow either with
-CPUs or GPUs. This guide starts with a basic CPU example, but then goes
-on to describe how to use the Singularity Tensorflow container for GPUs,
-and also how to run on the <a href="https://osg-htc.org/about/open_science_pool/">OS Pool</a>.</p>
-
-<ol>
-  <li><a href="#template">Basic Tensorflow Job Template</a></li>
-  <li><a href="#gpus">Using Tensorflow on GPUs</a></li>
-  <li><a href="#osg">Using Tensorflow on the OS Pool</a></li>
-</ol>
-
-<p><span name="template"></span></p>
-
-<h2 id="1-basic-tensorflow-job-template"><strong>1. Basic Tensorflow Job Template</strong></h2>
-
-<p>The submit file for jobs that use the Tensorflow singularity container
-will look similar to other CHTC jobs, except for the additional
-Singularity options seen below.</p>
-
-<p><strong>Submit File</strong></p>
-
-<pre><code class="language-{.sub}"># Typical submit file options
-universe = vanilla
-log = $(Cluster).$(Process).log
-error = $(Cluster).$(Process).err
-output = $(Cluster).$(Process).out
-
-# Fill in with your own script, arguments and input files
-# Note that you don't need to transfer any software
-executable = run_tensorflow.sh
-arguments =
-transfer_input_files = 
-
-# Singularity settings
-+SingularityImage = "/cvmfs/singularity.opensciencegrid.org/opensciencegrid/tensorflow:latest"
-Requirements = HAS_SINGULARITY == True
-
-# Resource requirements
-request_cpus = 1
-request_memory = 2GB
-request_disk = 4GB
-
-# Number of jobs
-queue 1
-</code></pre>
-
-<p><strong>Sample Executable (Wrapper Script)</strong></p>
-
-<p>Your job will be running inside a container that has Tensorflow
-installed, so there should be no need to set any environment variables.</p>
-
-<pre class="file"><code>#!/bin/bash
-
-# your own code here 
-python test.py
-</code></pre>
-
-<p><span name="gpus"></span></p>
-
-<h2 id="2-cpus-vs-gpus"><strong>2. CPUs vs GPUs</strong></h2>
-
-<p>The submit file above use a CPU-enabled version of Tensorflow. In order
-to take advantage of GPUs, make the following changes to the submit file
-above:</p>
-
-<ul>
-  <li>
-    <p>Request GPUs in addition to CPUs:</p>
-
-    <pre><code class="language-{.sub}">request_gpus = 1
-</code></pre>
-  </li>
-  <li>
-    <p>Change the Singularity image to tensorflow with GPUs:</p>
-
-    <pre><code class="language-{.sub}">+SingularityImage = "/cvmfs/singularity.opensciencegrid.org/opensciencegrid/tensorflow-gpu:latest"
-</code></pre>
-  </li>
-  <li>
-    <p>Add a GPU card requirement to the requirements line:</p>
-
-    <pre><code class="language-{.sub}">requirements = HAS_SINGULARITY == True &amp;&amp; CUDACapability &gt;= 3
-</code></pre>
-  </li>
-</ul>
-
-<p>For more information about GPUs and how GPU jobs work in CHTC, see our
-<a href="gpu-jobs.html">GPU Jobs guide</a>.</p>
-
-<blockquote>
-  <p><strong>Limited GPU availablity in CHTC</strong><br />
-This Singularity/Tensorflow functionality is not yet available on
-CHTC's newer GPUs with a sufficiently high CUDA Capability.
-Therefore, for now, the best way to use this Singularity/Tensorflow
-environment with GPUs is by running jobs on the OS Pool (see
-below). We are working on having Singularity support on all CHTC GPUs
-soon.</p>
-</blockquote>
-
-<p><span name="osg"></span></p>
-
-<h2 id="3-running-on-os-pool"><strong>3. Running on OS Pool</strong></h2>
-
-<p>This Tensorflow environment can also be run on the OS Pool either as the CPU or GPU version.</p>
-
-<p>For more details on accessing the OS Pool, see <a href="scaling-htc.html">our guide for running
-outside CHTC, sections 3 and 4</a>.</p>
-
+                
+                    Upcoming Event | September 18
+                
+            </h2>
         </div>
-        <div class="col-3 d-none d-lg-block">
-            
-
-
-
-    <div id="guide-sidebar">
-        
     </div>
+    <div class="row">
+        <div class="col-12 image-container">
+            <img src="/images/20240308_Morgridge_RCFs.jpg"/>
+        </div>
+        <div class="col-12">
+            <div class="bg-light p-1">
+                <small class="text-muted"></small>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-12 col-xl-7 col-lg-8 col-md-8">
+            <h1 class="title">
+                CHTC Information Session - September
+            </h1>
+        </div>
+    </div>
+</div>
+
+    
+<div class="row event pt-3">
+<div class="main col-12 col-md-8 order-1 order-md-1">
+
+    <p style="font-size: larger; font-weight: bold;">Learn about CHTC's computing 
+and data services for UW-Madison affiliates at this information session!</p>
+
+    <p>CHTC staff will present an overview of CHTC services and how these services can help 
+researchers accomplish their research and computational goals. CHTC staff will also 
+help attendees identify the next steps for getting started - whether that is 
+getting an account, how to log in, or how to start running work. After 
+the presentation, there will be time for Q+A and hands-on help from the CHTC 
+Facilitation Team.</p>
+
+    <p>This is the perfect opportunity for any UW Madison researcher to learn more 
+about CHTC - whether you are just curious or have already gotten an account.</p>
+
+    <p><a href="https://calendly.com/schedulechtc/chtc-information-session">Register Here</a></p>
+
+  </div>
+<div class="subsection col-12 col-md-4 order-2 order-md-2">
+<div class="ms-md-4  bg-light p-3">
+
+      <h3 class="mt-0" id="who">Who</h3>
+
+      <ul>
+        <li>Any UW - Madison researcher who wants to learn more about CHTC and tackling computational problems</li>
+        <li>Any UW - Madison researcher who has recently gotten a CHTC account</li>
+      </ul>
+
+      <h3 id="when">When</h3>
+
+      <p>Wednesday, September 18, 2023, 10:30 am - 12:00 pm CST</p>
+
+      <h3 id="where">Where</h3>
+
+      <p>In-Person only</p>
+
+      <p>Computer Sciences Building, Room 1240, UW-Madison Campus</p>
+
+      <h2 id="registration">Registration</h2>
+
+      <p><a href="https://calendly.com/schedulechtc/chtc-information-session">Register Here</a></p>
+
+      <h3 id="questions">Questions?</h3>
+
+      <p>Please email <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> with any questions.</p>
+
+    </div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+
+  </div>
+</div>
 
 
+</div>
 
         </div>
     </div>
 </div>
+
 
 </main>
     </main>
