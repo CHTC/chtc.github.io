@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Submitting Multiple Jobs Using HTCondor</title>
+<title>Known Issues on the HPC</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Submitting Multiple Jobs Using HTCondor | CHTC</title>
+<title>Known Issues on the HPC | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Submitting Multiple Jobs Using HTCondor" />
+<meta property="og:title" content="Known Issues on the HPC" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
-<meta property="og:description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs" />
+<meta name="description" content="This page documents some common and known issues encountered on the HPC system. While this page can be beneficial in troubleshooting, it does not contain a comprehensive list of errors." />
+<meta property="og:description" content="This page documents some common and known issues encountered on the HPC system. While this page can be beneficial in troubleshooting, it does not contain a comprehensive list of errors." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/hpc-known-issues" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc-known-issues" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-09-11T14:17:20+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Submitting Multiple Jobs Using HTCondor" />
+<meta property="twitter:title" content="Known Issues on the HPC" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-11T14:17:20+00:00","datePublished":"2024-09-11T14:17:20+00:00","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"Submitting Multiple Jobs Using HTCondor","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-11T14:17:20+00:00","datePublished":"2024-09-11T14:17:20+00:00","description":"This page documents some common and known issues encountered on the HPC system. While this page can be beneficial in troubleshooting, it does not contain a comprehensive list of errors.","headline":"Known Issues on the HPC","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-known-issues"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-known-issues"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -242,10 +242,13 @@
         <div class="col-12 col-lg-9 mw-1000">
 
             <h1 class="uw-mini-bar mb-4">
-    Submitting Multiple Jobs Using HTCondor
+    Known Issues on the HPC
 </h1>
 
-            
+            <p>This page documents some common and known issues encountered on the HPC system. While this page can be beneficial in troubleshooting, it does not contain a comprehensive list of errors.</p>
+
+<p>Visit our <a href="get-help">Get Help</a> page to find more resources for troubleshooting.</p>
+
 <div class="d-flex flex-column mb-5">
 
 <h2>Table of Contents</h2>
@@ -254,427 +257,26 @@
 <div class="uw-directory">
 
       <ol>
-        <li><a href="#queue">Submit Multiple Jobs Using queue</a></li>
-        <li><a href="#queueN">Use queue N in your HTCondor submit files</a>
-          <ul>
-            <li><a href="#integer"><em>2A.</em> Use integer numbered input files</a></li>
-            <li><a href="#rowcol"><em>2B.</em> Specify a row or column number for each job</a></li>
-            <li><a href="#n1"><em>3C.</em> Need <em>N</em> to start at 1</a></li>
-          </ul>
-        </li>
-        <li><a href="#variables">Submit multiple jobs with one or more distinct variables per job</a>
-          <ul>
-            <li><a href="#multiple_variables"><em>3A.</em> Use multiple variables for each job</a></li>
-          </ul>
-        </li>
-        <li><a href="#initialdir">Organizing Jobs Into Individual Directories</a>
-          <ul>
-            <li><a href="#initialdir_states"><em>4A.</em> Submitting Multiple Jobs in Different Directories with <code>queue &lt;variable&gt; from list</code></a></li>
-            <li><a href="#initialdir_jobs"><em>4B.</em> Submitting Multiple Jobs in Different Directories with <code>queue &lt;directory&gt; matching *</code></a></li>
-          </ul>
-        </li>
+        <li><a href="software-when-compiling-code-i-get-multiple-errors">[Software] When compiling code, I get multiple errors such as “[library], needed by [library] not found” and “undefined reference to [library]”.</a></li>
       </ol>
 
     </div>
 </div>
 </div>
 
-<h2 id="overview">Overview</h2>
-<p>HTCondor has several convenient features for streamlining high-throughput 
-job submission. This guide provides several examples 
-of how to leverage these features to <strong>submit multiple jobs with a 
-single submit file.</strong></p>
+<hr width="100%" size="2" />
 
-<p><em>Why submit multiple jobs with a single submit file?</em></p>
+<h3 style="color:#c5050c" id="software-when-compiling-code-i-get-multiple-errors">[Software] When compiling code, I get multiple errors such as "[library], needed by [library] not found" and "undefined reference to [library]".</h3>
 
-<p>Users should submit multiple jobs using a single submit file, or where applicable, as few 
-separate submit files as needed. Using HTCondor multi-job submission features is more 
-efficient for users and will help ensure reliable operation of the the login nodes.</p>
+<h4 id="cause">Cause:</h4>
+<p>This occurs when you try to compile code on the login server. System-installed libraries are only for use on the execute servers, not the login server. When trying to use the modules, the compilation fails because the login server does not have the same libraries as the execut servers.</p>
+<h4 id="solution">Solution:</h4>
+<p>Make sure you are compiling your code in an interactive job on the HPC.</p>
 
-<p>Many options exist for streamlining your submission of multiple jobs, 
-and this guide only covers a few examples of what is truly possible with 
-HTCondor. If you are interested in a particular approach that isn’t described here, 
-please contact <a href="mailto:chtc@cs.wisc.edu">CHTC’s research computing facilitators</a> and we will 
-work with you to identify options to meet the needs of your work.</p>
+<hr width="100%" size="2" />
 
-<blockquote>
-  <p><strong>Before you continue reading:</strong> While HTCondor is designed to submit many jobs at a
-time using a single submit file, the hardware of the submit server can be overwhelmed
-if there are a significant number of jobs submitted at once or rapidly starting and finishing.
-Therefore, plan ahead for the following to scenarios:</p>
-
-  <p>1) If you plan to submit 10,000+ jobs at a time, please let us
-   know, so we can provide options that will protect the queue’s performance. 
-2) If you plan to submit 1000+ jobs, please make sure that each job
-   has a minimum run time of 10 minutes (on average). If your calculations are shorter than
-   10 minutes, then modify your workflow to run multiple calculations per job.</p>
-
-</blockquote>
-
-<p><a name="queue"></a></p>
-<h1>1. Submit Multiple Jobs Using <code class="h1">queue</code></h1>
-
-<p>All HTCondor submit files require a <code>queue</code> attribute (which must also be 
-the last line of the submit file). By default, <code>queue</code> will submit one job, but 
-users can also configure the <code>queue</code> attribute to behave like a for loop 
-that will submit multiple jobs, with each job varying as predefined by the user.</p>
-
-<p>Below are different HTCondor submit file examples for submitting batches of multiple 
-jobs and, where applicable, how to indicate the differences between jobs in a batch 
-with user-defined variables. Additional examples and use cases are provided further below:</p>
-
-<ol>
-  <li><strong><em><a href="#queueN">queue &lt;N&gt;</a></em></strong> - will submit <em>N</em> number of jobs. Examples 
-include performing replications, where the same job must be repeated <em>N</em> number 
-of times, looping through files named with numbers, and looping through 
-a matrix where each job uses information from a specific row or column.</li>
-  <li><strong><em><a href="#variables">queue &lt;var&gt; from &lt;list&gt;</a></em></strong> - will loop through a 
-list of file names, parameters, etc. as defined in separate text file (i.e. *<list>*). 
-This `queue` option is very flexible and provides users with many options for 
-submitting multiple jobs.</list></li>
-  <li><strong><a href="#initialdir">Organizing Jobs Into Individual Directories</a></strong> -
-another option that can be helpful in organizing multi-job submissions.</li>
-</ol>
-
-<p>These <code>queue</code> options are also described in the following video from HTCondor Week 2020: 
-<a href="https://www.youtube.com/watch?v=m7dQChJH5LU">
-	<img alt="2020 HTCondor Week Presentation" src="https://raw.githubusercontent.com/CHTC/chtc-website-source/master/images/multi-job-submit-video-thumbnail.png" width="360" height="204" /></a></p>
-
-<p><a href="https://www.youtube.com/watch?v=m7dQChJH5LU">Submitting Multiple Jobs Using HTCondor Video</a></p>
-
-<p>What makes these <code>queue</code> options powerful is the ability to use user-defined 
-variables to specify details about your jobs in the HTCondor submit file. The 
-examples below will include the use of <code>$(variable_name)</code> to specify details 
-like input file names, file locations (aka paths), etc. <strong>When selecting a 
-variable name, users must avoid bespoke HTCondor submit file variables 
-such as <code>Cluster</code>, <code>Process</code>, <code>output</code>, and <code>input</code>, <code>arguments</code>, etc.</strong></p>
-
-<h2>2. Use <code class="h2">queue N</code> in your HTCondor submit files</h2>
-<p><a name="queueN"></a></p>
-
-<p>When using <code>queue N</code>, HTCondor will submit a total of <em>N</em> 
-jobs, counting from 0 to <em>N</em> - 1 and each job will be assigned 
-a unique <code>Process</code> id number spanning this range of values. Because 
-the <code>Process</code> variable will be unique for each job, it can be used in 
-the submit file to indicate unique filenames and filepaths for each job.</p>
-
-<p>The most straightforward example of using <code>queue N</code> is to submit 
-<em>N</em> number of identical jobs. The example shown below demonstrates 
-how to use the <code>Cluster</code> and <code>Process</code> variables to assign unique names 
-for the HTCondor <code>error</code>, <code>output</code>, and <code>log</code> files for each job in the batch:</p>
-
-<pre class="sub"><code># 100jobs.sub
-# submit 100 identical jobs
-
-log = job_$(Cluster)_$(Process).log
-error = job_$(Cluster)_$(Process).err
-output = job_$(Cluster)_$(Process).out
-
-... remaining submit details ...
-
-queue 100
-</code></pre>
-
-<p>For each job, the appropriate number, <code>0, 1, 2, ... 99</code> will replace <code>$(Process)</code>. 
-<code>$(Cluster)</code> will be a unique number assigned to the entire 100 job batch. Each 
-time you run <code>condor_submit job.sub</code>, you will be provided 
-with the <code>Cluster</code> number which you will also see in the output produced by 
-the command <code>condor_q</code>.</p>
-
-<p>If a uniquely named results file needs to be returned by each job, 
-<code>$(Process)</code> and <code>$(Cluster)</code> can also be used as <code>arguments</code>, and anywhere 
-else as needed, in the submit file:</p>
-
-<pre class="sub"><code>arguments = $(Cluster)_$(Process).results
-
-... remaining submit details ...
-
-queue 100
-</code></pre>
-
-<p>Be sure to properly format the <code>arguments</code> statement according to the 
-executable used by the job.</p>
-
-<p><strong><em>What if my jobs are not identical?</em></strong> <code>queue N</code> may still be a great 
-option! Additional examples for using this option include:</p>
-
-<p><a name="integer"></a></p>
-<h3 id="2a-use-integer-numbered-input-files">2A. Use integer numbered input files</h3>
-
-<pre class="term"><code>[user@login]$ ls *.data
-0.data   1.data   2.data   3.data
-...      97.data  98.data  99.data
-</code></pre>
-
-<p>In the submit file, use:</p>
-
-<pre class="sub"><code>transfer_input_files = $(Process).data
-
-... remaining submit details ...
-
-queue 100
-</code></pre>
-
-<p><a name="rowcol"></a></p>
-<h3 id="2b-specify-a-row-or-column-number-for-each-job">2B. Specify a row or column number for each job</h3>
-
-<p>$(Process) can be used to specify a unique row or column of information in a 
-matrix to be used by each job in the batch. The matrix needs to then be transferred 
-with each job as input. For exmaple:</p>
-
-<pre class="sub"><code>transfer_input_files = matrix.csv
-arguments = $(Process)
-
-... remaining submit details ...
-
-queue 100
-</code></pre>
-
-<p>The above exmaples assumes that your job is set up to use an argument to 
-specify the row or column to be used by your software.</p>
-
-<p><a name="n1"></a></p>
-<h3 id="2c-need-n-to-start-at-1">2C. Need <em>N</em> to start at 1</h3>
-
-<p>If your input files are numbered 1 - 100 instead of 0 - 99, or your matrix 
-row starts with 1 instead of 0, you can perform basic arithmetic in the submit 
-file:</p>
-
-<pre class="sub"><code>plusone = $(Process) + 1
-NewProcess = $INT(plusone,%d)
-arguments = $(NewProcess)
-
-... remaining submit details ...
-
-queue 100
-</code></pre>
-
-<p>Then use <code>$(NewProcess)</code> anywhere in the submit file that you would
-have otherwise used <code>$(Process)</code>. Note that there is nothing special about the 
-names <code>plusone</code> and <code>NewProcess</code>, you can use any names you want as variables.</p>
-
-<p><a name="variables"></a></p>
-<h2 id="3-submit-multiple-jobs-with-one-or-more-distinct-variables-per-job">3. Submit multiple jobs with one or more distinct variables per job</h2>
-
-<p>Think about what’s different between each job that needs to be submitted. 
-Will each job use a different input file or combination of software parameters? Do 
-some of the jobs need more memory or disk space? Do you want to use a different 
-software or script on a common set of input files? Using <code>queue &lt;var&gt; from &lt;list&gt;</code> 
-in your submit files can make that possible! <code>&lt;var&gt;</code> can be a single user-defined 
-variable or comma-separated list of variables to be used anywhere in the submit file. 
-<code>&lt;list&gt;</code> is a plain text file that defines <code>&lt;var&gt;</code> for each individual job to be submitted in the batch.</p>
-
-<p>Suppose you need to run a program called <code>compare_states</code> that will run on 
-on the following set of input files: <code>illinois.data</code>, <code>nebraska.data</code>, and 
-<code>wisconsin.data</code> and each input file can analyzed as a separate job.</p>
-
-<p>To create a submit file that will submit all three jobs, first create a 
-text file that lists each <code>.data</code> file (one file per line). 
-This step can be performed directly on the login node, for example:</p>
-
-<pre class="term"><code>[user@state-analysis]$ ls *.data &gt; states.txt
-[user@state-analysis]$ cat states.txt
-illinois.data
-nebraska.data
-wisconsin.data
-</code></pre>
-
-<p>Then, in the submit file, following the pattern <code>queue &lt;var&gt; from &lt;list&gt;</code>,
-replace <code>&lt;var&gt;</code> with a variable name like <code>state</code> and replace <code>&lt;list&gt;</code> 
-with the list of <code>.data</code> files saved in <code>states.txt</code>:</p>
-
-<pre class="sub"><code>queue state from states.txt
-</code></pre>
-
-<p>For each line in <code>states.txt</code>, HTCondor will submit a job and the variable 
-<code>$(state)</code> can be used anywhere in the submit file to represent the name of the <code>.data</code> file 
-to be used by that job. For the first job, <code>$(state)</code> will be <code>illinois.data</code>, for the 
-second job <code>$(state)</code> will be <code>nebraska.data</code>, and so on. For example:</p>
-
-<pre class="sub"><code># run_compare_states_per_state.sub
-
-transfer_input_files = $(state)
-arguments = $(state)
-executable = compare_states
-
-... remaining submit details ...
-
-queue state from states.txt
-</code></pre>
-
-<p><a name="multiple_variables"></a></p>
-<h3 id="3a-use-multiple-variables-for-each-job">3A. Use multiple variables for each job</h3>
-
-<p>Let’s imagine that each state <code>.data</code> file contains data spanning several 
-years and that each job needs to analyze a specific year of data. Then 
-the <code>states.txt</code> file can be modified to specify this information:</p>
-
-<pre class="term"><code>[user@state-analysis]$ cat states.txt
-illinois.data, 1995
-illinois.data, 2005
-nebraska.data, 1999
-nebraska.data, 2005
-wisconsin.data, 2000
-wisconsin.data, 2015
-</code></pre>
-
-<p>Then modify the <code>queue</code> to define two <code>&lt;var&gt;</code> named <code>state</code> and <code>year</code>:</p>
-
-<pre class="sub"><code>queue state,year from states.txt
-</code></pre>
-
-<p>Then the variables <code>$(state)</code> and <code>$(year)</code> can be used in the submit file:</p>
-
-<pre class="sub"><code># run_compare_states_by_year.sub
-arguments = $(state) $(year)
-transfer_input_files = $(state)
-executable = compare_states
-
-... remaining submit details ...
-
-queue state,year from states.txt
-</code></pre>
-
-<p><a name="initialdir"></a></p>
-<h2 id="4-organizing-jobs-into-individual-directories">4. Organizing Jobs Into Individual Directories</h2>
-
-<p><a name="initialdir_states"></a></p>
-<h3 id="4a-submitting-multiple-jobs-in-different-directories-with-queue-variable-from-list">4A. Submitting Multiple Jobs in Different Directories with <code>queue &lt;variable&gt; from list</code></h3>
-
-<p>One way to organize jobs is to assign each job to its own directory,
-instead of putting files in the same directory with unique names. To
-continue our "compare_states" example, suppose there's a directory
-for each state you want to analyze, and each of those directories has
-its own input file named <code>input.data</code>:</p>
-
-<pre class="term"><code>[user@state-analysis]$ ls -F
-compare_states  illinois/  nebraska/  wisconsin/
-
-[user@state-analysis]$ ls -F illinois/
-input.data
-
-[user@state-analysis]$ ls -F nebraska/
-input.data
-
-[user@state-analysis]$ ls -F wisconsin/
-input.data
-</code></pre>
-
-<p>The HTCondor submit file attribute <code>initialdir</code> can be used 
-to define a specific directory from which each job in the batch will be 
-submitted. The default <code>initialdir</code> location is the directory from which the 
-command <code>condor_submit myjob.sub</code> is executed.</p>
-
-<p>Combining <code>queue var from list</code> with <code>initiadir</code>, each line of *<list>* will include 
-the path to each state directory and `initialdir` set to this path for 
-each job:</list></p>
-
-<pre class="sub"><code>#state-per-dir-job.sub
-initialdir = $(state_dir)
-transfer_input_files = input.data	
-executable = compare_states
-
-... remaining submit details ...
-
-queue state_dir from state-dirs.txt
-</code></pre>
-
-<p>Where <code>state-dirs.txt</code> is a list of each directory with state data:</p>
-
-<pre class="term"><code>[user@state-analysis]$ cat state-dirs.txt
-illinois
-nebraska
-wisconsin
-</code></pre>
-
-<p><strong>Notice that <code>executable = compare_states</code> has remained unchanged in the above example. 
-When using <code>initialdir</code>, only the input and output file path (including the HTCondor log, error, and 
-output files) will be changed by <code>initialdir</code></strong>.</p>
-
-<p>In this example, HTCondor will create a job for each directory in <code>state-dirs.txt</code> and use 
-that state's directory as the <code>initialdir</code> from which the job will be submitted. 
-Therefore, <code>transfer_input_files = input.data</code> can be used without specifying 
-the path to this <code>input.data</code> file. Any output generated by the job will then be returned to the <code>initialdir</code> 
-location.</p>
-
-<p><a name="initialdir_jobs"></a></p>
-<h3 id="4b-submitting-multiple-jobs-in-different-directories-with-queue-directory-matching-">4B. Submitting Multiple Jobs in Different Directories with <code>queue &lt;directory&gt; matching *</code></h3>
-
-<p>This section demonstrates how to submit multiple jobs, using a specific
-directory structure where folder names have a string of text in common. It is relevant to anyone who wants to submit multiple jobs, where each job has its own directory for input/output files on the submit server.</p>
-
-<p><strong>Directory Structure</strong>
-For a single batch of jobs, the directories will look like this:</p>
-
-<pre class="other"><code>project_name/
-    run_code.sh
-    submit.sub
-    shared/
-        scripts, code_package
-        shared_input
-    job1/
-        input/
-            job_input
-    job2/
-        input/
-            job_input
-    job3/
-        input/
-            job_input
-</code></pre>
-
-<p>You'll want to put all your code and files required for every job in
-<code>shared/</code> and individual input files in the individual job directories
-in an <code>input</code> folder. In the submit file below, it matters that the
-individual job directories start with the word "job". Your directories should all have a string of text in common, so that you can use the <code>queue &lt;directory&gt; matching &lt;commonString&gt;*</code> syntax to queue a job for each directory.</p>
-
-<blockquote>
-  <p><strong>Note: the job directories need to be hosted in your <code>/home</code> directory 
-on the submit node. The following instructions will not work for files 
-hosted on <code>/staging</code>!</strong></p>
-</blockquote>
-
-<p><strong>Submit File</strong>
-Your submit file, which should go in your main project directory, should
-look like this:</p>
-
-<pre><code class="language-{.sub}"># Specify your executable (single binary or a script that runs several
-#  commands) and arguments
-executable = run_code.sh
-# arguments = arguments to your script go here
-#
-# Specify the desired name of the HTCondor log file,
-#  and the desired name of the standard error and standard output file.  
-log = process.log
-error = process.err
-output = process.out
-#
-# Specify that HTCondor should transfer files to and from the
-#  computer where each job runs. 
-should_transfer_files = YES
-# Set the submission directory for each job with the $(directory)
-# variable (set below in the queue statement).  Then transfer all 
-# files in the shared directory, and from the input folder in the 
-# submission directory
-initialdir = $(directory)
-transfer_input_files = ../shared/,input/
-#
-# Tell HTCondor what amount of compute resources
-#  each job will need on the computer where it runs.
-request_cpus = 1
-request_memory = 1GB
-request_disk = 1GB
-#
-# Create a job for each "job" directory.
-queue directory matching job*
-</code></pre>
-
-<p>Note that the final line matches the pattern of your directory names that you previously
-created. You can use a different name for the
-directories (like <code>data</code>, <code>sample</code>, or <code>seed</code>), but you should use whatever word
-the directories have in common in the final queue statement in place of "job".</p>
-
-<p>Jobs can then be submitted using <code>condor_submit</code>.</p>
+<h2 id="cant-find-your-issue">Can’t find your issue?</h2>
+<p>Visit our <a href="get-help">Get Help</a> page.</p>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -689,7 +291,7 @@ the directories have in common in the final queue statement in place of "job".</
             
             
 
-            <h6 class="mt-5">HTC Guides</h6>
+            <h6 class="mt-5">HPC Guides</h6>
             <div class="accordion accordion-flush">
                 
                     
@@ -700,25 +302,20 @@ the directories have in common in the final queue statement in place of "job".</
 
                         <div class="accordion-item">
                             <h2 class="accordion-header mt-0" id="basics-and-policies">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
+                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
                                     Basics and Policies
                                 </button>
                             </h2>
-                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
+                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse show " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc-el8-to-el9-transition">HTC System Transition to a New Linux Version (CentOS Stream 9)</a>
+                                        <a class="" href="/uw-research-computing/hpc-el8-to-el9">HPC System Transition to a New Linux Version (CentOS Stream 9)</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc-overview">HTC System Overview</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/noShow-use-submit-node">Policies for Using HTC Submit Servers</a>
+                                        <a class="" href="/uw-research-computing/hpc-overview">HPC Cluster Overview</a>
                                     </div>
                                 
 
@@ -743,17 +340,12 @@ the directories have in common in the final queue statement in place of "job".</
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/globus">Use Globus to Transfer Files to and from CHTC</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
                                         <a class="" href="/uw-research-computing/github-remote-access">Access a Private GitHub Repository Remotely</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/check-quota">Check Disk Quota and Usage</a>
+                                        <a class="fw-bolder" href="/uw-research-computing/hpc-known-issues">Known Issues on the HPC</a>
                                     </div>
                                 
                             </div>
@@ -768,72 +360,21 @@ the directories have in common in the final queue statement in place of "job".</
 
                         <div class="accordion-item">
                             <h2 class="accordion-header mt-0" id="job-submission">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#job-submission-collapse" aria-expanded="false" aria-controls="job-submission">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#job-submission-collapse" aria-expanded="false" aria-controls="job-submission">
                                     Job Submission
                                 </button>
                             </h2>
-                            <div id="job-submission-collapse" class="accordion-collapse collapse show " aria-labelledby="job-submission" data-bs-parent="#guide-sidebar">
+                            <div id="job-submission-collapse" class="accordion-collapse collapse " aria-labelledby="job-submission" data-bs-parent="#guide-sidebar">
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htcondor-job-submission">Practice: Submit HTC Jobs using HTCondor</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/condor_q">Learn About Your Jobs Using condor_q</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/multiple-jobs">Submitting Multiple Jobs Using HTCondor</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/dagman-workflows">Workflows with HTCondor's DAGMan</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/multiple-job-dirs">Submitting Multiple Jobs in Individual Directories</a>
+                                        <a class="" href="/uw-research-computing/hpc-job-submission">Submitting and Managing Jobs Using SLURM</a>
                                     </div>
                                 
                             </div>
                         </div>
                     
                 
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="handling-data-in-jobs">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#handling-data-in-jobs-collapse" aria-expanded="false" aria-controls="handling-data-in-jobs">
-                                    Handling Data in Jobs
-                                </button>
-                            </h2>
-                            <div id="handling-data-in-jobs-collapse" class="accordion-collapse collapse " aria-labelledby="handling-data-in-jobs" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-availability">Small Input and Output File Availability Via HTCondor</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-squid">Transfer Large Input Files Via Squid</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
                     
                 
                     
@@ -852,32 +393,27 @@ the directories have in common in the final queue statement in place of "job".</
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/software-overview-htc">Overview: How to Use Software</a>
+                                        <a class="" href="/uw-research-computing/hpc-software">Use Software on the HPC Cluster</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>
+                                        <a class="" href="/uw-research-computing/hpc-spack-setup">Set Up Spack on HPC</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-jobs">Running HTC Jobs Using Docker Containers</a>
+                                        <a class="" href="/uw-research-computing/hpc-spack-install">Install Software Using Spack</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-build">Build a Docker Container Image</a>
+                                        <a class="" href="/uw-research-computing/hpc-spack-modules">Create Custom Modules Using Spack</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/licensed-software">Use Licensed Software</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/apptainer-htc">Use Apptainer Containers</a>
+                                        <a class="" href="/uw-research-computing/apptainer-hpc">Using Apptainer Containers on HPC</a>
                                     </div>
                                 
 
@@ -885,99 +421,12 @@ the directories have in common in the final queue statement in place of "job".</
                                         <a class="" href="/uw-research-computing/apptainer-build">Building an Apptainer Container</a>
                                     </div>
                                 
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/apptainer-htc-advanced-example">Advanced Apptainer Example - SUMO</a>
-                                    </div>
-                                
                             </div>
                         </div>
                     
                 
                     
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="special-use-cases">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-cases-collapse" aria-expanded="false" aria-controls="special-use-cases">
-                                    Special Use Cases
-                                </button>
-                            </h2>
-                            <div id="special-use-cases-collapse" class="accordion-collapse collapse " aria-labelledby="special-use-cases" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/gpu-jobs">Use GPUs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/machine-learning-htc">Run Machine Learning Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/scaling-htc">Scale Beyond Local HTC Capacity</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/checkpointing">Checkpointing Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/high-memory-jobs">Submit High Memory Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc-modules">Use Software Available in Modules</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/os-request-htc">Use Custom Linux Versions in CHTC</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
                 
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="troubleshooting">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshooting-collapse" aria-expanded="false" aria-controls="troubleshooting">
-                                    Troubleshooting
-                                </button>
-                            </h2>
-                            <div id="troubleshooting-collapse" class="accordion-collapse collapse " aria-labelledby="troubleshooting" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/dos-unix">Windows / Linux Incompatibility</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-test">Explore and Test Docker Containers</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc-known-issues">Known Issues on the HTC</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
                     
                 
             </div>
