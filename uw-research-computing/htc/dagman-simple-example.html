@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Submitting Multiple Jobs in Individual Directories</title>
+<title>Simple Example of a DAGMan workflow</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Submitting Multiple Jobs in Individual Directories | CHTC</title>
+<title>Simple Example of a DAGMan workflow | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Submitting Multiple Jobs in Individual Directories" />
+<meta property="og:title" content="Simple Example of a DAGMan workflow" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="This guide demonstrates how to submit multiple jobs, using a specific directory structure. It is relevant to:" />
-<meta property="og:description" content="This guide demonstrates how to submit multiple jobs, using a specific directory structure. It is relevant to:" />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/multiple-job-dirs" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/multiple-job-dirs" />
+<meta name="description" content="This guide walks you step-by-step through the construction and submission of a simple DAGMan workflow. We recommend this guide if you are interested in automating your job submissions." />
+<meta property="og:description" content="This guide walks you step-by-step through the construction and submission of a simple DAGMan workflow. We recommend this guide if you are interested in automating your job submissions." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/htc/dagman-simple-example" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc/dagman-simple-example" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-09-13T19:10:22+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Submitting Multiple Jobs in Individual Directories" />
+<meta property="twitter:title" content="Simple Example of a DAGMan workflow" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-13T19:10:22+00:00","datePublished":"2024-09-13T19:10:22+00:00","description":"This guide demonstrates how to submit multiple jobs, using a specific directory structure. It is relevant to:","headline":"Submitting Multiple Jobs in Individual Directories","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-job-dirs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-job-dirs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-13T19:10:22+00:00","datePublished":"2024-09-13T19:10:22+00:00","description":"This guide walks you step-by-step through the construction and submission of a simple DAGMan workflow. We recommend this guide if you are interested in automating your job submissions.","headline":"Simple Example of a DAGMan workflow","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc/dagman-simple-example"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc/dagman-simple-example"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -242,123 +242,252 @@
         <div class="col-12 col-lg-9 mw-1000">
 
             <h1 class="uw-mini-bar mb-4">
-    Submitting Multiple Jobs in Individual Directories
+    Simple Example of a DAGMan workflow
 </h1>
 
-            <p>This guide demonstrates how to submit multiple jobs, using a specific
-directory structure. It is relevant to:</p>
+            <p>This guide walks you step-by-step through the construction and submission of a
+simple DAGMan workflow.
+We recommend this guide if you are interested in automating your job submissions.</p>
+
+<div class="d-flex flex-column mb-5">
+
+<h2>Table of Contents</h2>
+
+<div class="uw-sidebar-box me-auto">
+<div class="uw-directory">
+
+      <ol>
+        <li><a href="#1-introduction">Introduction</a></li>
+        <li><a href="#2-structure-of-the-dag">Structure of the DAG</a></li>
+        <li><a href="#3-the-minimal-dag-input-file">The Minimal DAG Input File</a></li>
+        <li><a href="#4-the-submit-files">The Submit Files</a></li>
+        <li><a href="#5-running-the-simple-dag">Running the Simple DAG</a></li>
+        <li><a href="#6-monitoring-the-simple-dag">Monitoring the Simple DAG</a></li>
+        <li><a href="#7-wrapping-up">Wrapping Up</a></li>
+      </ol>
+
+    </div>
+</div>
+</div>
+
+<p>For the full details on various DAGMan features, see the HTCondor manual pages:</p>
 
 <ul>
-  <li>Researchers who have used CHTC's "ChtcRun" tools in the past</li>
-  <li>Anyone who wants to submit multiple jobs, where each job has its own
-directory for input/output files on the submit server.</li>
+  <li><a href="https://htcondor.readthedocs.io/en/latest/automated-workflows/index.html">HTCondor’s DAGMan Documentation</a></li>
 </ul>
 
-<h2 id="1-software-and-input-preparation"><strong>1. Software and Input Preparation</strong></h2>
+<h2 id="1-introduction">1. Introduction</h2>
 
-<p>The first time you submit jobs, you will need to prepare a portable
-version of your software and a script (what we call the job's
-"executable") that runs your code. We have guides for preparing:</p>
+<p>Consider the case of two HTCondor jobs that use the submit files <code>A.sub</code> and <code>B.sub</code>.
+Let’s say that <code>A.sub</code> generates an output file (<code>output.txt</code>) that <code>B.sub</code> will analyze.
+To run this workflow manually, we would</p>
 
-<ul>
-  <li><a href="matlab-jobs.html">Matlab</a></li>
-  <li><a href="python-jobs.html">Python</a></li>
-  <li><a href="r-jobs.html">R</a></li>
-</ul>
+<ol>
+  <li>Submit the first HTCondor job with <code>condor_submit A.sub</code>.</li>
+  <li>Wait for the first HTCondor job to complete successfully.</li>
+  <li>Submit the second HTCondor job with <code>condor_submit B.sub</code>.</li>
+</ol>
 
-<p>Choose the right guide for you and follow the directions for compiling
-your code (Matlab) or building an installation (Python, R). Also follow
-the instructions for writing a shell script that runs your program.
-These are typically steps 1 and 2 of the above guides.</p>
+<p>If the first HTCondor job using <code>A.sub</code> is fairly short, then manually running this workflow is not a big deal. 
+But if the first HTCondor job takes a long time to complete (maybe takes several hours to run, or has to wait for special resources), 
+this can be very inconvenient.
+Instead, we can use DAGMan to automatically submit <code>B.sub</code> once the first HTCondor job using <code>A.sub</code> has completed successfully.
+This guide walks through the process of creating such a DAGMan workflow.</p>
 
-<h2 id="2-directory-structure"><strong>2. Directory Structure</strong></h2>
+<h2 id="2-structure-of-the-dag">2. Structure of the DAG</h2>
 
-<p>Once you've prepared your code and script, create the same directory
-structure that you would normally use with ChtcRun. For a single batch
-of jobs, the directories will look like this:</p>
+<p>In this scenario, our workflow could be described as a DAG consisting of two nodes (<code>A.sub</code> and <code>B.sub</code>) connected by a single edge (<code>output.txt</code>).
+To represent this relationship, we will define nodes <code>A</code> and <code>B</code> - corresponding to <code>A.sub</code> and <code>B.sub</code>, respectively - and connect them with a line pointing from <code>A</code> and <code>B</code>, like in this figure:</p>
 
-<pre class="other"><code>project_name/
-    run_code.sh
-    shared/
-        scripts, code_package
-        shared_input
-    job1/
-        input/
-            job_input
-    job2/
-        input/
-            job_input
-    job3/
-        input/
-            job_input
+<p><img src="../../assets/simple-DAG_fig.png" alt="Node A with arrow pointing to Node B" /></p>
+
+<p>In order to use DAGMan to run this workflow, we need to communicate this structure to DAGMan via the <code>.dag</code> input file.</p>
+
+<h2 id="3-the-minimal-dag-input-file">3. The Minimal DAG Input File</h2>
+
+<p>Let’s call the input file <code>simple.dag</code>.
+At minimum, the contents of the <code>simple.dag</code> input file are</p>
+
+<pre class="file"><code># simple.dag
+
+# Define the DAG jobs
+JOB A A.sub
+JOB B B.sub
+
+# Define the connections
+PARENT A CHILD B
 </code></pre>
 
-<p>You'll want to put all your code and files required for every job in
-<code>shared/</code> and individual input files in the individual job directories
-in an <code>input</code> folder. In the submit file below, it matters that the
-individual job directories start with the word "job".</p>
+<p>In a DAGMan input file, a node is defined using the <code>JOB</code> keyword, followed by the name of the node and the name of the corresponding submit file.
+In this case, we have created a node named <code>A</code> and instructed DAGMan to use the submit file <code>A.sub</code> for executing that node.
+We have similarly created node <code>B</code> and instructed DAGMan to use the submit file <code>B.sub</code>. 
+(While there is no requirement that the name of the node match the name of the corresponding submit file, it is convenient to use a consistent naming scheme.)</p>
 
-<blockquote>
-  <p><strong>Note: the job directories need to be hosted in your <code>/home</code> directory 
-on the submit node. The following instructions will not work for files 
-hosted on <code>/staging</code>!</strong></p>
-</blockquote>
+<p>To connect the nodes, we use the <code>PARENT .. CHILD ..</code> syntax. 
+Since node <code>B</code> requires that node <code>A</code> has completed successfully, we say that node <code>A</code> is the <code>PARENT</code> while node <code>B</code> is the <code>CHILD</code>.
+Note that we do not need to define <em>why</em> node <code>B</code> is dependent on node <code>A</code>, only that it is.</p>
 
-<h2 id="3-submit-file"><strong>3. Submit File</strong></h2>
+<h2 id="4-the-submit-files">4. The Submit Files</h2>
 
-<blockquote>
-  <p><strong>Note: if you are submitting more than 10,000 jobs at once, you'll
-need to use a different submit file. Please email the CHTC Research
-Computing Facilitators at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> if this is the case!</strong></p>
-</blockquote>
+<p>Now let’s define simple examples of the submit files <code>A.sub</code> and <code>B.sub</code>.</p>
 
-<p>Your submit file, which should go in your main project directory, should
-look like this:</p>
+<h3 id="node-a">Node A</h3>
 
-<pre><code class="language-{.sub}"># Specify the HTCondor Universe (vanilla is the default and is used
-#  for almost all jobs), the desired name of the HTCondor log file,
-#  and the desired name of the standard error and standard output file.  
-universe = vanilla
-log = process.log
-error = process.err
-output = process.out
-#
-# Specify your executable (single binary or a script that runs several
-#  commands) and arguments
-executable = run_code.sh
-# arguments = arguments to your script go here
-#
-# Specify that HTCondor should transfer files to and from the
-#  computer where each job runs. 
-should_transfer_files = YES
-when_to_transfer_output = ON_EXIT
-# Set the submission directory for each job with the $(directory)
-# variable (set below in the queue statement).  Then transfer all 
-# files in the shared directory, and from the input folder in the 
-# submission directory
-initialdir = $(directory)
-transfer_input_files = ../shared/,input/
-#
-# Tell HTCondor what amount of compute resources
-#  each job will need on the computer where it runs.
+<p>First, the submit file <code>A.sub</code> uses the executable <code>A.sh</code>, which will generate the file called <code>output.txt</code>.
+We have explicitly told HTCondor to transfer back this file by using the <code>transfer_output_files</code> command.</p>
+
+<pre class="sub"><code># A.sub
+
+executable = A.sh
+
+log = A.log
+output = A.out
+error = A.err
+
+transfer_output_files = output.txt
+
 request_cpus = 1
 request_memory = 1GB
 request_disk = 1GB
-#
-# Create a job for each "job" directory.
-queue directory matching job*
+
+queue
 </code></pre>
 
-<p>You <strong>must</strong> change the name of the executable to your own script, and
-in certain cases, add arguments.</p>
+<p>The executable file simply saves the hostname of the machine running the script:</p>
 
-<p>Note that the final line matches the pattern of your directory names
-created in the second step. You can use a different name for the
-directories (like <code>data</code> or <code>seed</code>), but you should use whatever word
-they share in the final queue statement in place of "job".</p>
+<pre class="file"><code>#!/bin/bash
 
-<p>Jobs can then be submitted as described in our <a href="helloworld.html">Introduction to HTC
-Guide</a>, using <code>condor_submit</code>.</p>
+# A.sh
+hostname &gt; output.txt
+
+sleep 1m  # so we can see the job in "running" status
+</code></pre>
+
+<h3 id="node-b">Node B</h3>
+
+<p>Second, the submit file <code>B.sub</code> uses the executable <code>B.sh</code> to print a message using the contents of the <code>output.txt</code> file generated by <code>A.sh</code>.
+We have explicitly told HTCondor to transfer <code>output.txt</code> as an <em>input</em> file for this job, using the <code>transfer_input_files</code> command. 
+Thus we have finally defined the “edge” that connects nodes <code>A</code> and <code>B</code>: the use of <code>output.txt</code>.</p>
+
+<pre class="sub"><code># B.sub
+
+executable = B.sh
+
+log = B.log
+output = B.out
+error = B.err
+
+transfer_input_files = output.txt
+
+request_cpus = 1
+request_memory = 1GB
+request_disk = 1GB
+
+queue
+</code></pre>
+
+<p>The executable file contains the command for printing the desired message, which will be printed to <code>B.out</code>.</p>
+
+<pre class="file"><code>#!/bin/bash
+
+# B.sh
+echo "The previous job was executed on the following machine:"
+cat output.txt
+
+sleep 1m  # so we can see the job in "running" status
+</code></pre>
+
+<h3 id="the-directory-structure">The directory structure</h3>
+
+<p>Based on the contents of <code>simple.dag</code>, DAGMan is expecting that the submit files <code>A.sub</code> and <code>B.sub</code> are in the same directory as <code>simple.dag</code>.
+The submit files in turn are expecting <code>A.sh</code> and <code>B.sh</code> be in the same directory as <code>A.sub</code> and <code>B.sub</code>.
+Thus, we have the following directory structure:</p>
+
+<pre class="term"><code>DAG_simple/
+|-- A.sh
+|-- A.sub
+|-- B.sh
+|-- B.sub
+|-- simple.dag
+</code></pre>
+
+<p>It is possible to organize each job into its own directory, but for now we will use this simple, flat organization.</p>
+
+<h2 id="5-running-the-simple-dag">5. Running the Simple DAG</h2>
+
+<p>To run the DAG workflow described by <code>simple.dag</code>, we use the HTCondor command <code>condor_submit_dag</code>:</p>
+
+<pre class="term"><code>condor_submit_dag simple.dag
+</code></pre>
+
+<p>The DAGMan utility will then parse the input file and generate an assortment of related files that it will use for monitoring and managing your workflow.
+Here is the output of running the above command:</p>
+
+<pre class="term"><code>[user@login DAG_simple]$ condor_submit_dag simple.dag
+
+Loading classad userMap 'checkpoint_destination_map' ts=1699037029 from /etc/condor/checkpoint-destination-mapfile
+-----------------------------------------------------------------------
+File for submitting this DAG to HTCondor           : simple.dag.condor.sub
+Log of DAGMan debugging messages                 : simple.dag.dagman.out
+Log of HTCondor library output                     : simple.dag.lib.out
+Log of HTCondor library error messages             : simple.dag.lib.err
+Log of the life of condor_dagman itself          : simple.dag.dagman.log
+
+Submitting job(s).
+1 job(s) submitted to cluster 562265.
+-----------------------------------------------------------------------
+</code></pre>
+
+<p>The output shows the list of standard files that are created with every DAG submission along with brief descriptions. 
+A couple of additional files, some of them temporary, will be created during the lifetime of the DAG.</p>
+
+<h2 id="6-monitoring-the-simple-dag">6. Monitoring the Simple DAG</h2>
+
+<p>You can see the status of the DAG in your queue just like with any other HTCondor job submission.</p>
+
+<pre class="term"><code>[user@login DAG_simple]$ condor_q
+
+-- Schedd: ap2002.chtc.wisc.edu : &lt;128.105.68.92:9618?... @ 12/14/23 11:26:51
+OWNER       BATCH_NAME           SUBMITTED   DONE   RUN    IDLE  TOTAL JOB_IDS
+user        simple.dag+562265  12/14 11:26      _      _      1      2 562279.0
+</code></pre>
+
+<p>There are a couple of things to note about the <code>condor_q</code> output:</p>
+
+<ul>
+  <li>The <code>BATCH_NAME</code> for the DAGMan job is the name of the input DAG file, <code>simple.dag</code>, plus the Job ID of the DAGMan scheduler job (<code>562265</code> in this case): <code>simple.dag+562265</code>.</li>
+  <li>The total number of jobs for <code>simple.dag+562265</code> corresponds to the total number of nodes in the DAG (2).</li>
+  <li>Only 1 node is listed as “Idle”, meaning that DAGMan has only submitted 1 job so far. This is consistent with the fact that node <code>A</code> has to complete before DAGMan can submit the job for node <code>B</code>.</li>
+</ul>
+
+<blockquote>
+  <p>Note that if you are very quick to run your <code>condor_q</code> command after running your <code>condor_submit_dag</code> command, then you may see only the DAGMan scheduler job. It may take a few seconds for DAGMan to start up and submit the HTCondor job associated with the first node.</p>
+</blockquote>
+
+<p>To see more detailed information about the DAG workflow, use <code>condor_q -nob -dag</code>.
+For example,</p>
+
+<pre class="term"><code>[user@login DAG_simple]$ condor_q -dag -nob
+
+-- Schedd: ap2002.chtc.wisc.edu : &lt;128.105.68.92:9618?... @ 12/14/23 11:27:03
+ ID        OWNER/NODENAME      SUBMITTED     RUN_TIME ST PRI SIZE CMD
+562265.0   user                12/14 11:26   0+00:00:37 R  0    0.5 condor_dagman -p 0 -f -l . -Loc
+562279.0    |-A                12/14 11:26   0+00:00:00 I  0    0.0 A.sh
+</code></pre>
+
+<p>In this case, the first entry is the DAGMan scheduler job that you created when you first submitted the DAG. 
+The following entries correspond to the nodes whose jobs are currently in the queue.
+Nodes that have not yet been submitted by DAGMan or that have completed and thus left the queue will not show up in your <code>condor_q</code> output.</p>
+
+<h2 id="7-wrapping-up">7. Wrapping Up</h2>
+
+<p>After waiting enough time, this simple DAG workflow should complete without any issues.
+But of course, that will not be the case for every DAG, especially as you start to create your own.
+DAGMan has a lot more features for managing and submitting DAG workflows, ranging from how to handle errors, combining DAG workflows, and restarting failed DAG workflows.</p>
+
+<p>For now, we recommend that you continue exploring DAGMan by going through our <a href="tutorial-dagman-intermediate">Intermediate DAGMan Tutorial</a>. There is also our guide <a href="dagman-workflows">Overview: Submit Workflows with HTCondor’s DAGMan</a>, which contains links to more resources in the <a href="dagman-workflows#more-resources">More Resources</a> section.</p>
+
+<p>Finally, the definitive guide to DAGMan and DAG workflows is <a href="https://htcondor.readthedocs.io/en/latest/automated-workflows/index.html">HTCondor’s DAGMan Documentation</a>.</p>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -465,7 +594,7 @@ Guide</a>, using <code>condor_submit</code>.</p>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/multiple-job-dirs">Submitting Multiple Jobs in Individual Directories</a>
+                                        <a class="" href="/uw-research-computing/multiple-job-dirs">Submitting Multiple Jobs in Individual Directories</a>
                                     </div>
                                 
 
@@ -475,7 +604,7 @@ Guide</a>, using <code>condor_submit</code>.</p>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc/dagman-simple-example">Simple Example of a DAGMan workflow</a>
+                                        <a class="fw-bolder" href="/uw-research-computing/htc/dagman-simple-example">Simple Example of a DAGMan workflow</a>
                                     </div>
                                 
 

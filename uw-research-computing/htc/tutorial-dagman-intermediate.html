@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Submitting Multiple Jobs in Individual Directories</title>
+<title>Intermediate DAGMan: Uses and Features</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Submitting Multiple Jobs in Individual Directories | CHTC</title>
+<title>Intermediate DAGMan: Uses and Features | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Submitting Multiple Jobs in Individual Directories" />
+<meta property="og:title" content="Intermediate DAGMan: Uses and Features" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="This guide demonstrates how to submit multiple jobs, using a specific directory structure. It is relevant to:" />
-<meta property="og:description" content="This guide demonstrates how to submit multiple jobs, using a specific directory structure. It is relevant to:" />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/multiple-job-dirs" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/multiple-job-dirs" />
+<meta name="description" content="This tutorial helps you explore HTCondor’s DAGMan and its many features. Download the tutorial files from Github." />
+<meta property="og:description" content="This tutorial helps you explore HTCondor’s DAGMan and its many features. Download the tutorial files from Github." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/htc/tutorial-dagman-intermediate" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc/tutorial-dagman-intermediate" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-09-13T19:10:22+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Submitting Multiple Jobs in Individual Directories" />
+<meta property="twitter:title" content="Intermediate DAGMan: Uses and Features" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-13T19:10:22+00:00","datePublished":"2024-09-13T19:10:22+00:00","description":"This guide demonstrates how to submit multiple jobs, using a specific directory structure. It is relevant to:","headline":"Submitting Multiple Jobs in Individual Directories","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-job-dirs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-job-dirs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-13T19:10:22+00:00","datePublished":"2024-09-13T19:10:22+00:00","description":"This tutorial helps you explore HTCondor’s DAGMan and its many features. Download the tutorial files from Github.","headline":"Intermediate DAGMan: Uses and Features","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc/tutorial-dagman-intermediate"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc/tutorial-dagman-intermediate"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -242,123 +242,198 @@
         <div class="col-12 col-lg-9 mw-1000">
 
             <h1 class="uw-mini-bar mb-4">
-    Submitting Multiple Jobs in Individual Directories
+    Intermediate DAGMan: Uses and Features
 </h1>
 
-            <p>This guide demonstrates how to submit multiple jobs, using a specific
-directory structure. It is relevant to:</p>
+            <p>This tutorial helps you explore HTCondor’s DAGMan and its many features. Download the tutorial files from <a href="https://github.com/OSGConnect/tutorial-dagman-intermediate/tree/main">Github</a>.</p>
+
+<p>Alternatively, you can download the tutorial materials on the command line with the following command:</p>
+
+<pre class="term"><code>$ git clone https://github.com/OSGConnect/tutorial-dagman-intermediate</code></pre>
+
+<p>Now move into the new directory to see the contents of the tutorial:</p>
+
+<pre class="term"><code>$ cd tutorial-dagman-intermediate</code></pre>
+
+<p>At the top level is a worked example of a “Diamond DAG” that summarizes the basic components of a creating, submitting, and managing DAGMan workflows.
+In the lower level <code>additional_examples</code> directory are more worked examples with their own <code>README</code>s highlighting specific features that can be used with DAGMan.
+Brief descriptions of these examples are provided in the <a href="#additional-examples">Additional Examples</a> section at the end of this tutorial.</p>
+
+<p>Before working on this tutorial, we recommend that you read through our other DAGMan guides:</p>
 
 <ul>
-  <li>Researchers who have used CHTC's "ChtcRun" tools in the past</li>
-  <li>Anyone who wants to submit multiple jobs, where each job has its own
-directory for input/output files on the submit server.</li>
+  <li><a href="dagman-workflows">Overview: Submit Workflows with HTCondor’s DAGMan</a></li>
+  <li><a href="dagman-simple-example">Simple Example of a DAGMan Workflow</a></li>
 </ul>
 
-<h2 id="1-software-and-input-preparation"><strong>1. Software and Input Preparation</strong></h2>
+<p>The definitive guide to DAGMan is <a href="https://htcondor.readthedocs.io/en/latest/automated-workflows/index.html">HTCondor’s DAGMan Documentation</a>.</p>
 
-<p>The first time you submit jobs, you will need to prepare a portable
-version of your software and a script (what we call the job's
-"executable") that runs your code. We have guides for preparing:</p>
+<h2 id="types-of-dags">Types of DAGs</h2>
+
+<p>While any workflow that satisfies the definition of a <a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">“Directed Acyclic Graph” (DAG)</a> can be executed using DAGMan, there are certain types that are the most commonly used:</p>
 
 <ul>
-  <li><a href="matlab-jobs.html">Matlab</a></li>
-  <li><a href="python-jobs.html">Python</a></li>
-  <li><a href="r-jobs.html">R</a></li>
+  <li><strong>Sequential DAG</strong>: all the nodes are connected in a sequence of one after the other, with no branching or splitting. This is good for conducting increasingly refined analyses of a dataset or initial result, or chaining together a long-running calculation. The simplest example of this type is used in the guide <a href="dagman-simple-example">Simple Example of a DAGMan Workflow</a>.</li>
+  <li><strong>Split and recombine DAG</strong>: the first node is connected to many nodes of the same layer (split) which then all connect back to the final node (recombine). Here, you can set up the shared environment in the first node and use it to parallelize the work into many individual jobs, then finally combine/analyze the results in the final node. The simplest example of this type is the “Diamond DAG” - the subject of this tutorial.</li>
+  <li><strong>Collection DAG</strong>: no node is connected to any other node. This is good for the situation where you need to run a bunch of otherwise unrelated jobs, perhaps ones that are competing for a limited resource. The simplest example of this type is a DAG consisting of a single node.</li>
 </ul>
 
-<p>Choose the right guide for you and follow the directions for compiling
-your code (Matlab) or building an installation (Python, R). Also follow
-the instructions for writing a shell script that runs your program.
-These are typically steps 1 and 2 of the above guides.</p>
+<p>These types are by no means “official”, nor are they the only types of structure that a DAG can take. Rather, they serve as starting points from which you can build your own DAG workflow, which will likely consist of some combination of the above elements.</p>
 
-<h2 id="2-directory-structure"><strong>2. Directory Structure</strong></h2>
+<h2 id="the-diamond-dag">The Diamond DAG</h2>
 
-<p>Once you've prepared your code and script, create the same directory
-structure that you would normally use with ChtcRun. For a single batch
-of jobs, the directories will look like this:</p>
+<p>As mentioned above, the “Diamond DAG” is the simplest example of a “split and recombine” DAG.
+In this case, the first node <code>TOP</code> is connected to two nodes <code>LEFT</code> and <code>RIGHT</code> (the “split”), which are then connected to the final node <code>BOTTOM</code> (the “recombine”).</p>
 
-<pre class="other"><code>project_name/
-    run_code.sh
-    shared/
-        scripts, code_package
-        shared_input
-    job1/
-        input/
-            job_input
-    job2/
-        input/
-            job_input
-    job3/
-        input/
-            job_input
-</code></pre>
+<p><img src="https://raw.githubusercontent.com/OSGConnect/tutorial-dagman-intermediate/main/.images/DiamondDAG.png" alt="Diamond DAG figure" /></p>
 
-<p>You'll want to put all your code and files required for every job in
-<code>shared/</code> and individual input files in the individual job directories
-in an <code>input</code> folder. In the submit file below, it matters that the
-individual job directories start with the word "job".</p>
+<p>To describe the flow of the DAG and the parts needed to execute it, DAGMan uses a custom description language in an input file, typically named <code>&lt;DAG Name&gt;.dag</code>. 
+The two most important commands in the DAG description language are:</p>
+
+<ol>
+  <li><code>JOB &lt;NodeName&gt; &lt;NodeSubmitFile&gt;</code> - Describes a node and the submit file it will use to run the node.</li>
+  <li><code>PARENT &lt;NodeName1&gt; CHILD &lt;NodeName2&gt;</code> - Describes the edge starting from <code>&lt;NodeName1&gt;</code> and pointing to <code>&lt;NodeName2&gt;</code>.</li>
+</ol>
+
+<p>These commands have been used to construct the Diamond DAG and are saved in the file <code>diamond.dag</code>. 
+To view the contents of <code>diamond.dag</code>, run</p>
+
+<pre class="term"><code>$ cat diamond.dag</code></pre>
+
+<p>Before you continue, we recommend that you closely examine the contents of <code>diamond.dag</code> and identify its components. 
+Furthermore, try to identify the submit file for each node, and use that submit file to determine the nature of the HTCondor job that will be submitted for each node.</p>
+
+<h2 id="submitting-a-dag">Submitting a DAG</h2>
+
+<p>To submit a DAGMan workflow to HTCondor, you can use one of the following commands:</p>
+
+<pre class="term"><code>$ condor_submit_dag diamond.dag
+  or
+$ htcondor dag submit diamond.dag</code></pre>
+
+<h2 id="what-happens">What Happens?</h2>
+
+<p>When a DAG is submitted to HTCondor a special job is created to run DAGMan
+on behalf of you the user. This job runs the provided HTCSS DAGMan executable
+in the AP job queue. This is an actual job that can be queried and acted upon.</p>
+
+<p>You may also notice that lots of files are created. These files are all part
+of DAGMan and have various purposes. In general, the files that should
+always exist are as follows:</p>
+
+<ul>
+  <li>DAGMan job proper files
+    <ol>
+      <li><code>&lt;DAG Name&gt;.condor.sub</code> - Submit file for the DAGMan job proper</li>
+      <li><code>&lt;DAG Name&gt;.dagman.log</code> - Job event log file for the DAGMan job proper</li>
+      <li><code>&lt;DAG Name&gt;.lib.err</code> - Standard error stream file for the DAGMan job proper</li>
+      <li><code>&lt;DAG Name&gt;.lib.out</code> - Standard output stream file for the DAGMan job proper</li>
+    </ol>
+  </li>
+  <li>Informational DAGMan files
+    <ol>
+      <li><code>&lt;DAG Name&gt;.dagman.out</code> - General DAGMan process logging file</li>
+      <li><code>&lt;DAG Name&gt;.nodes.log</code> - Collective job event log file for all managed jobs (Heart of DAGMan)</li>
+      <li><code>&lt;DAG Name&gt;.metrics</code> - JSON formatted information about the DAG</li>
+    </ol>
+  </li>
+</ul>
+
+<p>Of these files, the two most important are the <code>&lt;DAG Name&gt;.dagman.out</code> and <code>&lt;DAG Name&gt;.nodes.log</code>. 
+The <code>.dagman.out</code> file contains the entire history and status of DAGMan’s execution of your workflow. 
+The <code>.nodes.log</code> file on the other hand is the accumulated log entries for every HTCondor job that DAGMan submitted, 
+and DAGMan monitors the contents of this file to generate the contents of the  <code>.dagman.out</code> file.</p>
 
 <blockquote>
-  <p><strong>Note: the job directories need to be hosted in your <code>/home</code> directory 
-on the submit node. The following instructions will not work for files 
-hosted on <code>/staging</code>!</strong></p>
+  <p>Note: these are not all the files that DAGMan can produce.
+Depending on the options and features you employ in your DAG input file, more files with different purposes can be created.</p>
 </blockquote>
 
-<h2 id="3-submit-file"><strong>3. Submit File</strong></h2>
+<h2 id="monitoring-dagman">Monitoring DAGMan</h2>
+
+<p>The DAGMan job and the jobs in the DAG workflow can be found in the AP job queue 
+and so the normal methods of job monitoring work. 
+That also means that you can interact with these jobs, though in a more limited fashion than a regular job (see <a href="https://htcondor.readthedocs.io/en/latest/automated-workflows/dagman-interaction.html">Running and Managing DAGMan</a> for more details).</p>
+
+<p>A plain <code>condor_q</code> command will show a condensed batch view of the jobs submitted, running, and managed by the DAGMan job proper. 
+For more information about jobs running under DAGMan, use the <code>-nobatch</code> and <code>-dag</code> flags:</p>
+
+<pre class="term"><code># Basic job query (Batched/Condensed)
+$ condor_q
+
+# Non-Batched query
+$ condor_q -nobatch
+
+# Increased information
+$ condor_q -nobatch -dag</code></pre>
+
+<p>You can also watch the progress of the DAG and the jobs running under it
+by running:</p>
+
+<pre class="term"><code>$ condor_watch_q</code></pre>
 
 <blockquote>
-  <p><strong>Note: if you are submitting more than 10,000 jobs at once, you'll
-need to use a different submit file. Please email the CHTC Research
-Computing Facilitators at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> if this is the case!</strong></p>
+  <p>Note that <code>condor_watch_q</code> works by monitoring the log files of jobs that are in the queue, but only at the time of its execution. 
+Additional jobs submitted by DAGMan while <code>condor_watch_q</code> is running will not appear in <code>condor_watch_q</code>.
+To see additional jobs as they are submitted, wait for DAGMan to create the <code>.nodes.log</code> file, then run</p>
+
+  <pre class="term"><code>$ condor_watch_q -files *.log</code></pre>
+
 </blockquote>
 
-<p>Your submit file, which should go in your main project directory, should
-look like this:</p>
+<p>For more detail about the status and progress of your DAG workflow, you can use the noun-verb command:</p>
 
-<pre><code class="language-{.sub}"># Specify the HTCondor Universe (vanilla is the default and is used
-#  for almost all jobs), the desired name of the HTCondor log file,
-#  and the desired name of the standard error and standard output file.  
-universe = vanilla
-log = process.log
-error = process.err
-output = process.out
-#
-# Specify your executable (single binary or a script that runs several
-#  commands) and arguments
-executable = run_code.sh
-# arguments = arguments to your script go here
-#
-# Specify that HTCondor should transfer files to and from the
-#  computer where each job runs. 
-should_transfer_files = YES
-when_to_transfer_output = ON_EXIT
-# Set the submission directory for each job with the $(directory)
-# variable (set below in the queue statement).  Then transfer all 
-# files in the shared directory, and from the input folder in the 
-# submission directory
-initialdir = $(directory)
-transfer_input_files = ../shared/,input/
-#
-# Tell HTCondor what amount of compute resources
-#  each job will need on the computer where it runs.
-request_cpus = 1
-request_memory = 1GB
-request_disk = 1GB
-#
-# Create a job for each "job" directory.
-queue directory matching job*
+<pre class="term"><code>$ htcondor dag status DAGManJobID</code></pre>
+
+<p>where <code>DAGManJobID</code> is the ID for the DAGMan job proper. 
+Note that the information in the output of this command does not update frequently, and so it is not suited for short-lived DAG workflows such as the current example.</p>
+
+<p>When your DAG workflow has completed, the DAGMan job proper will disappear from the queue. 
+If the DAG workflow completed successfully, then the <code>.dag.dagman.out</code> file should have a message that <code>All jobs Completed!</code>, though it may be difficult to find manually (try using <code>grep "All jobs Completed!" *.dag.dagman.out</code> instead).
+If the DAG workflow was aborted due to an error, then the <code>.dag.dagman.out</code> file should have the message <code>Aborting DAG...</code>.
+Assuming that the DAGMan job proper did not crash, then regardless the final line of the <code>.dag.dagman.out</code> file should contain <code>(condor_DAGMAN) pid ####### EXITING WITH STATUS #</code>, where the number after <code>STATUS</code> is the exit code (0 if success, not 0 if failure).</p>
+
+<h2 id="how-dagman-handles-relative-paths">How DAGMan Handles Relative Paths</h2>
+
+<p>By default, the directory that DAGMan submits all jobs from is the same directory you are in when you run <code>condor_submit_dag</code>.
+This directory (let’s call it the submit directory) is the starting directory for any relative path in the <code>.dag</code> input file <em>or in the node <code>.sub</code> files that DAGMan submits</em>.</p>
+
+<p>This can be observed by inspecting the <code>sleep.sub</code> submit file in the <code>SleepJob</code> sub-directory and by inspecting the <code>diamond.dag</code> input file. 
+In the <code>diamond.dag</code> file, the jobs are declared using a relative path.
+For example:</p>
+
+<pre><code>JOB TOP ./SleepJob/sleep.sub
 </code></pre>
 
-<p>You <strong>must</strong> change the name of the executable to your own script, and
-in certain cases, add arguments.</p>
+<p>This tells DAGMan that the submit file for the <code>JOB</code> <code>TOP</code> is <code>sleep.sub</code>, located in the <code>SleepJob</code> in the submit directory (<code>.</code>). 
+Similarly, the submit file <code>sleep.sub</code> uses paths relative to the submit directory for defining the save locations for the <code>.log</code>, <code>.out</code>, and <code>.err</code> files, i.e.,</p>
 
-<p>Note that the final line matches the pattern of your directory names
-created in the second step. You can use a different name for the
-directories (like <code>data</code> or <code>seed</code>), but you should use whatever word
-they share in the final queue statement in place of "job".</p>
+<pre><code>log        = ./SleepJob/$(JOB).log
+</code></pre>
 
-<p>Jobs can then be submitted as described in our <a href="helloworld.html">Introduction to HTC
-Guide</a>, using <code>condor_submit</code>.</p>
+<p>This behavior is consistent with submission of regular (non-DAGMan) jobs, e.g. <code>condor_submit SleepJob/sleep.sub</code>.</p>
+
+<blockquote>
+  <p>Contrary to the above behavior, the <code>.dag.*</code> log/output files generated by the DAGMan job proper will always be in the same directory as the <code>.dag</code> input file.</p>
+</blockquote>
+
+<p>This is just the default behavior, and there are ways to make the location of job submission/management more obvious.
+See the HTCondor documentation for more details: <a href="https://htcondor.readthedocs.io/en/latest/automated-workflows/dagman-interaction.html#file-paths-in-dags">File Paths in DAGs</a>.</p>
+
+<h2 id="additional-examples">Additional Examples</h2>
+
+<p><a href="https://github.com/OSGConnect/tutorial-dagman-intermediate/tree/main/additional_examples">Additional examples</a> that cover various topics related to DAGMan are provided in the folder <code>additional_examples</code> with corresponding READMEs. 
+The following order of the examples is recommended:</p>
+
+<ol>
+  <li><code>RescueDag</code> - Example for DAGs that don’t exit successfully</li>
+  <li><code>PreScript</code>- Example using a pre-script for a node</li>
+  <li><code>PostScript</code> - Example using a post-script for a node</li>
+  <li><code>Retry</code> - Example for retrying a failed node</li>
+  <li><code>VARS</code> - Example of reusing a single submit file for multiple nodes with differing variables</li>
+  <li><code>SubDAG</code> (advanced) - Example using a subDAG</li>
+  <li><code>Splice</code> (advanced) - Example of using DAG splices</li>
+</ol>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -465,7 +540,7 @@ Guide</a>, using <code>condor_submit</code>.</p>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/multiple-job-dirs">Submitting Multiple Jobs in Individual Directories</a>
+                                        <a class="" href="/uw-research-computing/multiple-job-dirs">Submitting Multiple Jobs in Individual Directories</a>
                                     </div>
                                 
 
@@ -480,7 +555,7 @@ Guide</a>, using <code>condor_submit</code>.</p>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc/tutorial-dagman-intermediate">Intermediate DAGMan: Uses and Features</a>
+                                        <a class="fw-bolder" href="/uw-research-computing/htc/tutorial-dagman-intermediate">Intermediate DAGMan: Uses and Features</a>
                                     </div>
                                 
                             </div>
