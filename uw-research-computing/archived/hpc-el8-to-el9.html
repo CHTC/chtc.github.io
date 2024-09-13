@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HTC System Transition to a New Linux Version (CentOS Stream 9)</title>
+<title>HPC System Transition to a New Linux Version (CentOS Stream 9)</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>HTC System Transition to a New Linux Version (CentOS Stream 9) | CHTC</title>
+<title>HPC System Transition to a New Linux Version (CentOS Stream 9) | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="HTC System Transition to a New Linux Version (CentOS Stream 9)" />
+<meta property="og:title" content="HPC System Transition to a New Linux Version (CentOS Stream 9)" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Starting in March 2024, CHTC’s high throughput computing (HTC) system began upgrading the Linux distribution and version we use on our servers to CentOS Stream 9. This transition is expected to complete in May 2024." />
-<meta property="og:description" content="Starting in March 2024, CHTC’s high throughput computing (HTC) system began upgrading the Linux distribution and version we use on our servers to CentOS Stream 9. This transition is expected to complete in May 2024." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/htc-el8-to-el9-transition" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc-el8-to-el9-transition" />
+<meta name="description" content="Starting in May 2024, CHTC’s high performance computing (HPC) cluster began upgrading the Linux distribution and version we use on our servers to CentOS Stream 9 (EL9). This transition is expected to complete in June 2024." />
+<meta property="og:description" content="Starting in May 2024, CHTC’s high performance computing (HPC) cluster began upgrading the Linux distribution and version we use on our servers to CentOS Stream 9 (EL9). This transition is expected to complete in June 2024." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/archived/hpc-el8-to-el9" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/archived/hpc-el8-to-el9" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-09-12T00:34:32+00:00" />
+<meta property="article:published_time" content="2024-09-13T18:45:19+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="HTC System Transition to a New Linux Version (CentOS Stream 9)" />
+<meta property="twitter:title" content="HPC System Transition to a New Linux Version (CentOS Stream 9)" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-12T00:34:32+00:00","datePublished":"2024-09-12T00:34:32+00:00","description":"Starting in March 2024, CHTC’s high throughput computing (HTC) system began upgrading the Linux distribution and version we use on our servers to CentOS Stream 9. This transition is expected to complete in May 2024.","headline":"HTC System Transition to a New Linux Version (CentOS Stream 9)","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-el8-to-el9-transition"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-el8-to-el9-transition"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-13T18:45:19+00:00","datePublished":"2024-09-13T18:45:19+00:00","description":"Starting in May 2024, CHTC’s high performance computing (HPC) cluster began upgrading the Linux distribution and version we use on our servers to CentOS Stream 9 (EL9). This transition is expected to complete in June 2024.","headline":"HPC System Transition to a New Linux Version (CentOS Stream 9)","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/archived/hpc-el8-to-el9"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/archived/hpc-el8-to-el9"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -236,109 +236,349 @@
 
 
     <main id="main" style="min-height: 60vh;">
-        <main id="main" style="min-height: 60vh;">
-    <div class="container-xxl mb-5">
+        <div class="container-xxl mb-5">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-9 mw-1000">
-
             <h1 class="uw-mini-bar mb-4">
-    HTC System Transition to a New Linux Version (CentOS Stream 9)
+    HPC System Transition to a New Linux Version (CentOS Stream 9)
 </h1>
 
-            <p>Starting in March 2024, CHTC’s high throughput computing (HTC) system began upgrading
-the Linux distribution and version we use on our servers to <strong>CentOS Stream 9</strong>. This transition is expected to complete in May 2024.</p>
+            <p>Starting in May 2024, CHTC’s high performance computing (HPC) cluster began upgrading
+the Linux distribution and version we use on our servers to <strong>CentOS Stream 9</strong> (EL9). This transition is expected to complete in June 2024.</p>
 
-<p>Note that this page only applies to a transition on the HTC system (submitting jobs 
-with HTCondor). The high performance computing (HPC) cluster will be upgraded in 
-the near future as well and have a separate transition 
-page.</p>
+<p>Note that this page only applies to a transition on the HPC cluster. For information 
+on the HTC system transition, see <a href="htc-el8-to-el9-transition.html">HTC System Transition to a New Linux Version (CentOS Stream 9)</a></p>
 
-<p>All updates to the HTC system will be reflected on this page; significant changes may 
+<p>All updates to the HPC Cluster will be reflected on this page; significant changes may 
 also include a notification to the <code>chtc-users</code> mailing list.</p>
 
 <h2 id="important-dates">Important Dates</h2>
 
-<p><em>Note: By default, CHTC-managed submit servers automatically add a job 
-requirement that requires jobs to run on servers running our primary operating system unless otherwise specified by the user.</em></p>
-
 <ul>
-  <li><strong>April 2023</strong>: HTC system will support CentOS 7, CentOS Stream 8, and CentOS Stream 9. By default, 
-all jobs not using a software container will continue to match to servers running CentOS 8, however,
-<strong>users should begin using software containers or testing jobs on servers running CentOS Stream 9</strong>.</li>
-  <li><strong>May 2023</strong>: Default operating system requirements for jobs will change from CentOS 8 to 
-CentOS Stream 9.</li>
+  <li><strong>May 31</strong>: Log in to upgraded cluster login node is available. Worker nodes start transitioning from the existing cluster to upgraded cluster partitions.</li>
+  <li><strong>May 31 - June 17</strong>: Users should rebuild their code and test jobs on the upgraded cluster. Users should be running primarily on the upgraded cluster.</li>
+  <li><strong>June 17</strong>: Most nodes will have been upgraded and transitioned.</li>
+  <li><strong>June 24</strong>: The old cluster partitions are closed.</li>
 </ul>
+
+<h2 id="what-is-changing">What is Changing</h2>
+
+<p>As part of this transition, there will be a new login node for 
+the HPC cluster: <code>spark-login.chtc.wisc.edu</code>.</p>
+
+<p>If you log into <code>spark-login</code>, you will have access to a new 
+module stack, compiled on CentOS Stream 9, and the partitions available will 
+have worker nodes that are running CentOS Stream 9.</p>
+
+<p>The files in your <code>/home</code> and <code>/scratch</code> directories will be unchanged.</p>
 
 <h2 id="what-you-need-to-do">What You Need to Do</h2>
 
-<h3 id="if-your-jobs-use-containers-docker-singularityapptainer">If your jobs use containers (Docker, Singularity/Apptainer)</h3>
-
-<p><strong>No action is needed for researchers already using a Docker or Singularity/Apptainer software containers in their jobs.</strong> Becuase software containers have a small operating system installed inside of them, these jobs carry everything they need with them and do not rely signifcantly on the host operating system. By default, your jobs will match to any operating system in the HTC pool, including the new CentOS Stream 9 hosts.</p>
-
-<h3 id="all-other-jobs-not-using-containers">All other jobs (not using containers)</h3>
-
-<p><strong>Researchers not already using a Docker or Apptainer software container</strong> will need to either</p>
-
-<ul>
-  <li>(a) test their software/code on a CentOS Stream 9 machine to see their software needs to be reinstalled. See <a href="#option-2-transition-to-new-operations-system">Transition to New Operating System</a>.</li>
-  <li><strong>or</strong></li>
-  <li>(b) switch to using a software container (recommended). See the <a href="#option-1-using-a-container-recommended">below</a> for additional information.</li>
-</ul>
-
-<p>If you would like to access as much computing capacity as possible, consider using a Docker or Apptainer software container for your jobs so that your jobs can match to a variety of operating systems. See the <a href="#option-1-using-a-container-recommended">information below</a> for detailed instructions on creating and using software containers.</p>
-
-<h2 id="options-for-transitioning-your-jobs">Options For Transitioning Your Jobs</h2>
+<p><strong>As soon as possible</strong>, do the following:</p>
 
 <ol>
-  <li><a href="#option-1-using-a-container-recommended">Use a Container (recommended)</a></li>
-  <li><a href="#option-2-transition-to-new-operations-system">Transition to  New Operating System</a></li>
+  <li>
+    <p>Log into the new login node <code>spark-login.chtc.wisc.edu</code>.</p>
+  </li>
+  <li>
+    <p>Run a typical job as a test. It is highly likely that certain codes will 
+fail on the new worker nodes, as the underlying dependencies of your code, including 
+the operating system, and any modules used, have changed.</p>
+  </li>
+  <li>
+    <p>If your jobs no longer run, archive your previous software installation(s) and 
+rebuild your software. The <a href="#software-changes">Software Changes</a> section below has 
+more specific information about how to do this.</p>
+  </li>
+  <li>
+    <p>If you recompiled your code, run a few small test jobs to confirm that the 
+code is working correctly.</p>
+  </li>
 </ol>
-
-<h3 id="option-1-use-a-software-container-recommended">Option 1: Use a Software Container (Recommended)</h3>
-
-<p>Using a software container to provide a base version of Linux will allow you to 
-run on any nodes in the HTC system regardless of the operating system it is running, and not limit you to a subset of nodes.</p>
-
-<p>CHTC provides helpful information for learning about creating and using Docker and Apptainer software commands:</p>
-
-<p><strong>Apptainer</strong></p>
-<ul>
-  <li><a href="apptainer-htc.html">Use Apptainer Containers</a></li>
-  <li><a href="apptainer-build.html">Build an Apptainer Container</a></li>
-  <li><a href="apptainer-htc-advanced-example.html">Advanced Apptainer Example - SUMO</a></li>
-</ul>
-
-<p><strong>Docker</strong></p>
-<ul>
-  <li><a href="docker-test.html">Explore and Test Docker Containers</a></li>
-  <li><a href="docker-build.html">Build a Docker Container Image</a></li>
-  <li><a href="docker-jobs.html">Running HTC Jobs Using Docker Containers</a></li>
-</ul>
-
-<p><strong>CHTC users are welcome to reach out to the Facilitation team via email or in office hours for help installing their software into a container.</strong></p>
-
-<h3 id="option-2-transition-to-a-new-operating-system">Option 2: Transition to a New Operating System</h3>
-
-<p>At any time, you can require a specific operating system 
-version (or versions) for your jobs. Instructions for requesting a specific operating system(s) are outlined here:</p>
-
-<ul>
-  <li><a href="os-transition-htc.html">Use Custom Linux Versions in CHTC</a>.</li>
-</ul>
-
-<p>This option is more limiting because 
-you are restricted to operating systems used by CHTC, and the number of nodes 
-running that operating system.</p>
-
-<p>Researchers that do not wish to use containers for their job should test their jobs on the CentOS Stream 9 machines as soon as possible so that jobs are not significantly disrupted by this transition. We recommend:</p>
-
-<ul>
-  <li>Test your jobs by requesting the new operating system  (<code>chtc_want_el9 = true </code>) for 1-2 test jobs. (Note that after May 1, this option will not be required as EL9 will be default.)</li>
-  <li>If needed, recompile your code.</li>
-</ul>
 
 <p><strong>If you are having trouble getting your jobs to run successfully on the new operating system</strong>, 
 please contact the facilitation team at chtc@cs.wisc.edu or <a href="/uw-research-computing/get-help.html">come to office hours</a></p>
+
+<h2 id="software-changes">Software Changes</h2>
+
+<p>Almost all packages and libraries have been upgraded as part of the operating system transition. 
+Unless your code is fairly simple, you will likely need to recompile it.</p>
+
+<p><strong>Remember to always compile your code/programs in a (interactive) Slurm job! <a href="hpc-job-submission.html#for-simple-testing-or-compiling">How To</a></strong></p>
+
+<blockquote>
+  <p>Not only does this help avoid stressing the resources of the login server, but the upgraded login server uses a newer CPU architecture than the worker nodes in the cluster.
+Most compilers auto-detect the CPU architecture and adapt the compilation to use that architecture.
+Attempting to use such compiled code on a different/older CPU architecture can lead to “Illegal instruction” errors, among others.</p>
+</blockquote>
+
+<h3 id="modules">Modules</h3>
+
+<p>Most of the modules on the upgraded cluster have been kept, but with upgraded versions.
+The following table is a comparison of the modules on the old operating system (EL8) versus the new operating system (EL9).
+(Adapted from the output of <code>module avail</code> on the respective servers.)</p>
+
+<p>You will likely need to recompile your code to use the new module versions.
+Remember to also update any <code>module load</code> commands that specify a particular version of the module,
+otherwise you may encounter “module(s) are unknown” errors.</p>
+
+<h4 id="module-comparison">Module comparison</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Module name</th>
+      <th style="text-align: left">Old version (EL8)</th>
+      <th style="text-align: left">New version (EL9)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">abaqus</td>
+      <td style="text-align: left">2018-hotfix-1904</td>
+      <td style="text-align: left"><em>TBD</em></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ansys</td>
+      <td style="text-align: left">2022r24</td>
+      <td style="text-align: left">2024r1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">aocc</td>
+      <td style="text-align: left">3.2.0</td>
+      <td style="text-align: left">4.2.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cmake</td>
+      <td style="text-align: left">3.27.7</td>
+      <td style="text-align: left">3.27.9</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comsol</td>
+      <td style="text-align: left">6.0, 6.1, 6.2</td>
+      <td style="text-align: left">6.2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">gcc</td>
+      <td style="text-align: left">11.3.0</td>
+      <td style="text-align: left">13.2.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hdf5 (intel-oneapi-mpi)</td>
+      <td style="text-align: left">1.12.2</td>
+      <td style="text-align: left"><em>dropped</em></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hdf5 (openmpi)</td>
+      <td style="text-align: left">1.12.2</td>
+      <td style="text-align: left">1.14.3</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">intel-oneapi-compilers</td>
+      <td style="text-align: left">2023.2.1</td>
+      <td style="text-align: left">2024.1.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">intel-oneapi-mkl</td>
+      <td style="text-align: left">2023.2.0</td>
+      <td style="text-align: left">2024.0.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">intel-oneapi-mpi</td>
+      <td style="text-align: left">2021.10.0</td>
+      <td style="text-align: left">2021.12.1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">intel-tbb</td>
+      <td style="text-align: left">2021.9.0</td>
+      <td style="text-align: left"><em>deprecated</em></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lmstat.comsol</td>
+      <td style="text-align: left">6.0</td>
+      <td style="text-align: left"><em>TBD</em></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lumerical-fdtd</td>
+      <td style="text-align: left">2022-r2.4</td>
+      <td style="text-align: left">2024-R1.2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">matlab</td>
+      <td style="text-align: left">R2021b, R2022b</td>
+      <td style="text-align: left">R2024a</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mvapich2</td>
+      <td style="text-align: left">2.3.7-1</td>
+      <td style="text-align: left"><em>deprecated</em></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mvapich</td>
+      <td style="text-align: left"><em>n/a</em></td>
+      <td style="text-align: left">3.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">netcdf-c</td>
+      <td style="text-align: left">4.8.1</td>
+      <td style="text-align: left">4.9.2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">netcdf-cxx4</td>
+      <td style="text-align: left">4.3.1</td>
+      <td style="text-align: left">4.3.1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">netcdf-fortran</td>
+      <td style="text-align: left">4.5.4</td>
+      <td style="text-align: left">4.6.1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">openmpi (aocc)</td>
+      <td style="text-align: left">4.1.3</td>
+      <td style="text-align: left"><em>dropped</em></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">openmpi (gcc)</td>
+      <td style="text-align: left">4.1.3</td>
+      <td style="text-align: left">5.0.3</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patchelf (gcc)</td>
+      <td style="text-align: left">0.17.2</td>
+      <td style="text-align: left">0.17.2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patchelf (intel)</td>
+      <td style="text-align: left">0.18.0</td>
+      <td style="text-align: left"><em>dropped</em></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patchelf (oneapi)</td>
+      <td style="text-align: left">0.18.0</td>
+      <td style="text-align: left">0.17.2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">petsc</td>
+      <td style="text-align: left">3.18.1</td>
+      <td style="text-align: left">3.21.1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">pmix</td>
+      <td style="text-align: left"><em>n/a</em></td>
+      <td style="text-align: left">5.0.1</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Different versions of module packages, or packages that are “dropped” or “deprecated” may be manually installed by the user using <a href="#spack">Spack</a>.</p>
+</blockquote>
+
+<h3 id="spack">Spack</h3>
+
+<p>Spack is a package manager platform that allows users to install software without admin privileges.
+CHTC also uses Spack to install the software underlying the system-wide modules discussed above.</p>
+
+<blockquote>
+  <p>If you have not used Spack before, you can skip this section and go directly to the <a href="hpc-spack-setup.html">Set Up Spack on HPC</a> guide.</p>
+</blockquote>
+
+<p>Here is the general process for setting up your software on the upgraded EL9 system; detailed instructions are provided after the general process:</p>
+
+<ol>
+  <li>
+    <p>Identify the environments you currently have and which you want to reproduce on the upgraded system.</p>
+  </li>
+  <li>
+    <p>Remove your existing Spack folders.</p>
+  </li>
+  <li>
+    <p>Do a clean installation of Spack.</p>
+  </li>
+  <li>
+    <p>In an interactive job, create your Spack environment(s) and install the packages as you did previously.</p>
+  </li>
+  <li>
+    <p>Update your job submission scripts and/or recompile programs as needed to use the new Spack environment(s).</p>
+  </li>
+</ol>
+
+<p><em>The following instructions assume that you previously installed Spack in your home (<code>~/</code>) directory for individual use.</em></p>
+
+<h4 id="1-identify-your-environments">1. Identify your environments</h4>
+
+<p>You can see your Spack environments with</p>
+
+<pre class="term"><code>spack env list
+</code></pre>
+
+<p>Activate an environment that you want to replicate with</p>
+
+<pre class="term"><code>spack env activate environment_name
+</code></pre>
+
+<p>Then list your package “specs” with the command</p>
+
+<pre class="term"><code>spack find
+</code></pre>
+
+<p>There is a section “<code>==&gt; Root specs</code>” that lists the package specs you explicity added when you created your environment.
+Save a copy of these specs somewhere safe, so that you can use them to replicate the environment later on.
+You can ignore the “<code>installed packages</code>” section, as that will certainly change on the new system.</p>
+
+<p>Repeat the above steps for each environment you want to replicate on the upgraded system.</p>
+
+<h4 id="2-remove-your-existing-spack-folders">2. Remove your existing Spack folders</h4>
+
+<p>The easiest way to update Spack for the upgraded system is to remove the current Spack installation and reinstall from scratch.</p>
+
+<blockquote>
+  <p>Before proceeding, you may want to make a backup of each folder using</p>
+
+  <pre class="term"><code>tar -czf folder_name.tar.gz ~/folder_name
+</code></pre>
+</blockquote>
+
+<p>For most users, the following commands should work:</p>
+
+<pre class="term"><code>cd ~/
+rm -rf spack spack_programs spack_modules .spack
+</code></pre>
+
+<p>The command may take a while to run.</p>
+
+<h4 id="3-fresh-install-of-spack">3. Fresh install of Spack</h4>
+
+<p>Next, follow the instructions in our guide <a href="hpc-spack-setup.html">Set Up Spack on HPC</a> to do a fresh installation of Spack.
+The commands in the guide have been updated for setting up Spack on the new operating system.</p>
+
+<h4 id="4-recreate-your-environments">4. Recreate your environments</h4>
+
+<p>Follow the instructions in our guide <a href="hpc-spack-install.html">Install Software Using Spack</a> to create your desired environments
+using the “root specs” that you saved earlier.</p>
+
+<p><strong>NOTE</strong>: We’ve made small but important change to this guide: <strong>you should always start an interactive Slurm job before creating or modifying a Spack environment</strong>.
+The login server uses different hardware than the execute servers, and the mismatch leads to Spack using the wrong settings for installing packages.
+Of course, as before, you should only install packages while in interactive Slurm job.</p>
+
+<p>Behind the scenes, we’ve made a few changes to the configuration that will hopefully make the package installation much smoother.</p>
+
+<h4 id="5-update-your-workflow">5. Update your workflow</h4>
+
+<p>Finally, remember to update your workflow to use the new Spack environments and the packages installed therein.</p>
+
+<ul>
+  <li>
+    <p>If you explicitly provide paths to packages installed using Spack, be sure to update those paths in your compiler configuration or in your job submission script.</p>
+  </li>
+  <li>
+    <p>If you used Spack to provide dependencies for manually compiling a program, remember to recompile the program.</p>
+  </li>
+  <li>
+    <p>If you changed the name of your environment, be sure to update the name in your job submission script.</p>
+  </li>
+</ul>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -353,7 +593,7 @@ please contact the facilitation team at chtc@cs.wisc.edu or <a href="/uw-researc
             
             
 
-            <h6 class="mt-5">HTC Guides</h6>
+            <h6 class="mt-5">HPC Guides</h6>
             <div class="accordion accordion-flush">
                 
                     
@@ -372,17 +612,12 @@ please contact the facilitation team at chtc@cs.wisc.edu or <a href="/uw-researc
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/htc-el8-to-el9-transition">HTC System Transition to a New Linux Version (CentOS Stream 9)</a>
+                                        <a class="fw-bolder" href="/uw-research-computing/archived/hpc-el8-to-el9">HPC System Transition to a New Linux Version (CentOS Stream 9)</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc-overview">HTC System Overview</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/noShow-use-submit-node">Policies for Using HTC Submit Servers</a>
+                                        <a class="" href="/uw-research-computing/hpc-overview">HPC Cluster Overview</a>
                                     </div>
                                 
 
@@ -407,17 +642,12 @@ please contact the facilitation team at chtc@cs.wisc.edu or <a href="/uw-researc
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/globus">Use Globus to Transfer Files to and from CHTC</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
                                         <a class="" href="/uw-research-computing/github-remote-access">Access a Private GitHub Repository Remotely</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/check-quota">Check Disk Quota and Usage</a>
+                                        <a class="" href="/uw-research-computing/hpc-known-issues">Known Issues on the HPC</a>
                                     </div>
                                 
                             </div>
@@ -440,64 +670,13 @@ please contact the facilitation team at chtc@cs.wisc.edu or <a href="/uw-researc
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htcondor-job-submission">Practice: Submit HTC Jobs using HTCondor</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/condor_q">Learn About Your Jobs Using condor_q</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/multiple-jobs">Submitting Multiple Jobs Using HTCondor</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/dagman-workflows">Workflows with HTCondor's DAGMan</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/multiple-job-dirs">Submitting Multiple Jobs in Individual Directories</a>
+                                        <a class="" href="/uw-research-computing/hpc-job-submission">Submitting and Managing Jobs Using SLURM</a>
                                     </div>
                                 
                             </div>
                         </div>
                     
                 
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="handling-data-in-jobs">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#handling-data-in-jobs-collapse" aria-expanded="false" aria-controls="handling-data-in-jobs">
-                                    Handling Data in Jobs
-                                </button>
-                            </h2>
-                            <div id="handling-data-in-jobs-collapse" class="accordion-collapse collapse " aria-labelledby="handling-data-in-jobs" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-availability">Small Input and Output File Availability Via HTCondor</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-squid">Transfer Large Input Files Via Squid</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
                     
                 
                     
@@ -516,32 +695,32 @@ please contact the facilitation team at chtc@cs.wisc.edu or <a href="/uw-researc
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/software-overview-htc">Overview: How to Use Software</a>
+                                        <a class="" href="/uw-research-computing/hpc-software">Use Software on the HPC Cluster</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>
+                                        <a class="" href="/uw-research-computing/hpc-spack-setup">Set Up Spack on HPC</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-jobs">Running HTC Jobs Using Docker Containers</a>
+                                        <a class="" href="/uw-research-computing/hpc-spack-install">Install Software Using Spack</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-build">Build a Docker Container Image</a>
+                                        <a class="" href="/uw-research-computing/hpc-spack-modules">Create Custom Modules Using Spack</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/licensed-software">Use Licensed Software</a>
+                                        <a class="" href="/uw-research-computing/hpc-el9-spack">Recreating Spack Installs on a New Operating System</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/apptainer-htc">Use Apptainer Containers</a>
+                                        <a class="" href="/uw-research-computing/apptainer-hpc">Using Apptainer Containers on HPC</a>
                                     </div>
                                 
 
@@ -549,99 +728,12 @@ please contact the facilitation team at chtc@cs.wisc.edu or <a href="/uw-researc
                                         <a class="" href="/uw-research-computing/apptainer-build">Building an Apptainer Container</a>
                                     </div>
                                 
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/apptainer-htc-advanced-example">Advanced Apptainer Example - SUMO</a>
-                                    </div>
-                                
                             </div>
                         </div>
                     
                 
                     
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="special-use-cases">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-cases-collapse" aria-expanded="false" aria-controls="special-use-cases">
-                                    Special Use Cases
-                                </button>
-                            </h2>
-                            <div id="special-use-cases-collapse" class="accordion-collapse collapse " aria-labelledby="special-use-cases" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/gpu-jobs">Use GPUs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/machine-learning-htc">Run Machine Learning Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/scaling-htc">Scale Beyond Local HTC Capacity</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/checkpointing">Checkpointing Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/high-memory-jobs">Submit High Memory Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc-modules">Use Software Available in Modules</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/os-request-htc">Use Custom Linux Versions in CHTC</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
                 
-                    
-
-                        
-
-                        
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="troubleshooting">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshooting-collapse" aria-expanded="false" aria-controls="troubleshooting">
-                                    Troubleshooting
-                                </button>
-                            </h2>
-                            <div id="troubleshooting-collapse" class="accordion-collapse collapse " aria-labelledby="troubleshooting" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/dos-unix">Windows / Linux Incompatibility</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-test">Explore and Test Docker Containers</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc-known-issues">Known Issues on the HTC</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
                     
                 
             </div>
@@ -654,7 +746,6 @@ please contact the facilitation team at chtc@cs.wisc.edu or <a href="/uw-researc
     </div>
 </div>
 
-</main>
     </main>
     <footer id="colophon" class="uw-footer">
     <div class="uw-footer-content">

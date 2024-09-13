@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HPC System Transition to a New Linux Version (CentOS Stream 9)</title>
+<title>Recreating Spack Installs on a New Operating System</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>HPC System Transition to a New Linux Version (CentOS Stream 9) | CHTC</title>
+<title>Recreating Spack Installs on a New Operating System | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="HPC System Transition to a New Linux Version (CentOS Stream 9)" />
+<meta property="og:title" content="Recreating Spack Installs on a New Operating System" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Starting in May 2024, CHTC’s high performance computing (HPC) cluster began upgrading the Linux distribution and version we use on our servers to CentOS Stream 9 (EL9). This transition is expected to complete in June 2024." />
-<meta property="og:description" content="Starting in May 2024, CHTC’s high performance computing (HPC) cluster began upgrading the Linux distribution and version we use on our servers to CentOS Stream 9 (EL9). This transition is expected to complete in June 2024." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/hpc-el8-to-el9" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc-el8-to-el9" />
+<meta name="description" content="If you had a software install on the HPC cluster before June 2024 and need to update it, read through the details in this guide. Unless your code is fairly simple, you will likely need to recompile it." />
+<meta property="og:description" content="If you had a software install on the HPC cluster before June 2024 and need to update it, read through the details in this guide. Unless your code is fairly simple, you will likely need to recompile it." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/hpc-el9-spack" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc-el9-spack" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-09-12T00:34:32+00:00" />
+<meta property="article:published_time" content="2024-09-13T18:45:19+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="HPC System Transition to a New Linux Version (CentOS Stream 9)" />
+<meta property="twitter:title" content="Recreating Spack Installs on a New Operating System" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-12T00:34:32+00:00","datePublished":"2024-09-12T00:34:32+00:00","description":"Starting in May 2024, CHTC’s high performance computing (HPC) cluster began upgrading the Linux distribution and version we use on our servers to CentOS Stream 9 (EL9). This transition is expected to complete in June 2024.","headline":"HPC System Transition to a New Linux Version (CentOS Stream 9)","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-el8-to-el9"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-el8-to-el9"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-13T18:45:19+00:00","datePublished":"2024-09-13T18:45:19+00:00","description":"If you had a software install on the HPC cluster before June 2024 and need to update it, read through the details in this guide. Unless your code is fairly simple, you will likely need to recompile it.","headline":"Recreating Spack Installs on a New Operating System","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-el9-spack"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-el9-spack"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -240,69 +240,14 @@
     <div class="row justify-content-center">
         <div class="col-12 col-lg-9 mw-1000">
             <h1 class="uw-mini-bar mb-4">
-    HPC System Transition to a New Linux Version (CentOS Stream 9)
+    Recreating Spack Installs on a New Operating System
 </h1>
 
-            <p>Starting in May 2024, CHTC’s high performance computing (HPC) cluster began upgrading
-the Linux distribution and version we use on our servers to <strong>CentOS Stream 9</strong> (EL9). This transition is expected to complete in June 2024.</p>
+            <p>If you had a software install on the HPC cluster before June 2024 and need to update it, read through 
+the details in this guide. Unless your code is fairly simple, you will likely need to recompile it.</p>
 
-<p>Note that this page only applies to a transition on the HPC cluster. For information 
-on the HTC system transition, see <a href="htc-el8-to-el9-transition.html">HTC System Transition to a New Linux Version (CentOS Stream 9)</a></p>
-
-<p>All updates to the HPC Cluster will be reflected on this page; significant changes may 
-also include a notification to the <code>chtc-users</code> mailing list.</p>
-
-<h2 id="important-dates">Important Dates</h2>
-
-<ul>
-  <li><strong>May 31</strong>: Log in to upgraded cluster login node is available. Worker nodes start transitioning from the existing cluster to upgraded cluster partitions.</li>
-  <li><strong>May 31 - June 17</strong>: Users should rebuild their code and test jobs on the upgraded cluster. Users should be running primarily on the upgraded cluster.</li>
-  <li><strong>June 17</strong>: Most nodes will have been upgraded and transitioned.</li>
-  <li><strong>June 24</strong>: The old cluster partitions are closed.</li>
-</ul>
-
-<h2 id="what-is-changing">What is Changing</h2>
-
-<p>As part of this transition, there will be a new login node for 
-the HPC cluster: <code>spark-login.chtc.wisc.edu</code>.</p>
-
-<p>If you log into <code>spark-login</code>, you will have access to a new 
-module stack, compiled on CentOS Stream 9, and the partitions available will 
-have worker nodes that are running CentOS Stream 9.</p>
-
-<p>The files in your <code>/home</code> and <code>/scratch</code> directories will be unchanged.</p>
-
-<h2 id="what-you-need-to-do">What You Need to Do</h2>
-
-<p><strong>As soon as possible</strong>, do the following:</p>
-
-<ol>
-  <li>
-    <p>Log into the new login node <code>spark-login.chtc.wisc.edu</code>.</p>
-  </li>
-  <li>
-    <p>Run a typical job as a test. It is highly likely that certain codes will 
-fail on the new worker nodes, as the underlying dependencies of your code, including 
-the operating system, and any modules used, have changed.</p>
-  </li>
-  <li>
-    <p>If your jobs no longer run, archive your previous software installation(s) and 
-rebuild your software. The <a href="#software-changes">Software Changes</a> section below has 
-more specific information about how to do this.</p>
-  </li>
-  <li>
-    <p>If you recompiled your code, run a few small test jobs to confirm that the 
-code is working correctly.</p>
-  </li>
-</ol>
-
-<p><strong>If you are having trouble getting your jobs to run successfully on the new operating system</strong>, 
-please contact the facilitation team at chtc@cs.wisc.edu or <a href="/uw-research-computing/get-help.html">come to office hours</a></p>
-
-<h2 id="software-changes">Software Changes</h2>
-
-<p>Almost all packages and libraries have been upgraded as part of the operating system transition. 
-Unless your code is fairly simple, you will likely need to recompile it.</p>
+<p>If you are installing something on the HPC cluster for the first time, refer to our main software 
+guide to start: <a href="hpc-software">Use HPC Software</a></p>
 
 <p><strong>Remember to always compile your code/programs in a (interactive) Slurm job! <a href="hpc-job-submission.html#for-simple-testing-or-compiling">How To</a></strong></p>
 
@@ -312,7 +257,7 @@ Most compilers auto-detect the CPU architecture and adapt the compilation to use
 Attempting to use such compiled code on a different/older CPU architecture can lead to “Illegal instruction” errors, among others.</p>
 </blockquote>
 
-<h3 id="modules">Modules</h3>
+<h2 id="modules">Modules</h2>
 
 <p>Most of the modules on the upgraded cluster have been kept, but with upgraded versions.
 The following table is a comparison of the modules on the old operating system (EL8) versus the new operating system (EL9).
@@ -322,7 +267,7 @@ The following table is a comparison of the modules on the old operating system (
 Remember to also update any <code>module load</code> commands that specify a particular version of the module,
 otherwise you may encounter “module(s) are unknown” errors.</p>
 
-<h4 id="module-comparison">Module comparison</h4>
+<h3 id="module-comparison">Module comparison</h3>
 
 <table>
   <thead>
@@ -475,7 +420,7 @@ otherwise you may encounter “module(s) are unknown” errors.</p>
   <p>Different versions of module packages, or packages that are “dropped” or “deprecated” may be manually installed by the user using <a href="#spack">Spack</a>.</p>
 </blockquote>
 
-<h3 id="spack">Spack</h3>
+<h2 id="spack">Spack</h2>
 
 <p>Spack is a package manager platform that allows users to install software without admin privileges.
 CHTC also uses Spack to install the software underlying the system-wide modules discussed above.</p>
@@ -529,7 +474,7 @@ You can ignore the “<code>installed packages</code>” section, as that will c
 
 <p>Repeat the above steps for each environment you want to replicate on the upgraded system.</p>
 
-<h4 id="2-remove-your-existing-spack-folders">2. Remove your existing Spack folders</h4>
+<h3 id="2-remove-your-existing-spack-folders">2. Remove your existing Spack folders</h3>
 
 <p>The easiest way to update Spack for the upgraded system is to remove the current Spack installation and reinstall from scratch.</p>
 
@@ -548,12 +493,12 @@ rm -rf spack spack_programs spack_modules .spack
 
 <p>The command may take a while to run.</p>
 
-<h4 id="3-fresh-install-of-spack">3. Fresh install of Spack</h4>
+<h3 id="3-fresh-install-of-spack">3. Fresh install of Spack</h3>
 
 <p>Next, follow the instructions in our guide <a href="hpc-spack-setup.html">Set Up Spack on HPC</a> to do a fresh installation of Spack.
 The commands in the guide have been updated for setting up Spack on the new operating system.</p>
 
-<h4 id="4-recreate-your-environments">4. Recreate your environments</h4>
+<h3 id="4-recreate-your-environments">4. Recreate your environments</h3>
 
 <p>Follow the instructions in our guide <a href="hpc-spack-install.html">Install Software Using Spack</a> to create your desired environments
 using the “root specs” that you saved earlier.</p>
@@ -564,7 +509,7 @@ Of course, as before, you should only install packages while in interactive Slur
 
 <p>Behind the scenes, we’ve made a few changes to the configuration that will hopefully make the package installation much smoother.</p>
 
-<h4 id="5-update-your-workflow">5. Update your workflow</h4>
+<h3 id="5-update-your-workflow">5. Update your workflow</h3>
 
 <p>Finally, remember to update your workflow to use the new Spack environments and the packages installed therein.</p>
 
@@ -579,6 +524,7 @@ Of course, as before, you should only install packages while in interactive Slur
     <p>If you changed the name of your environment, be sure to update the name in your job submission script.</p>
   </li>
 </ul>
+
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -604,15 +550,15 @@ Of course, as before, you should only install packages while in interactive Slur
 
                         <div class="accordion-item">
                             <h2 class="accordion-header mt-0" id="basics-and-policies">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
                                     Basics and Policies
                                 </button>
                             </h2>
-                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse show " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
+                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/hpc-el8-to-el9">HPC System Transition to a New Linux Version (CentOS Stream 9)</a>
+                                        <a class="" href="/uw-research-computing/archived/hpc-el8-to-el9">HPC System Transition to a New Linux Version (CentOS Stream 9)</a>
                                     </div>
                                 
 
@@ -687,11 +633,11 @@ Of course, as before, you should only install packages while in interactive Slur
 
                         <div class="accordion-item">
                             <h2 class="accordion-header mt-0" id="software-solutions">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
+                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
                                     Software Solutions
                                 </button>
                             </h2>
-                            <div id="software-solutions-collapse" class="accordion-collapse collapse " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
+                            <div id="software-solutions-collapse" class="accordion-collapse collapse show " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
                                 
 
                                     <div class="document-link-wrapper bg-light">
@@ -711,6 +657,11 @@ Of course, as before, you should only install packages while in interactive Slur
 
                                     <div class="document-link-wrapper bg-light">
                                         <a class="" href="/uw-research-computing/hpc-spack-modules">Create Custom Modules Using Spack</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="fw-bolder" href="/uw-research-computing/hpc-el9-spack">Recreating Spack Installs on a New Operating System</a>
                                     </div>
                                 
 
