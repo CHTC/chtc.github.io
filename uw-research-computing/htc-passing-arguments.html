@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>How To's</title>
+<title>Practice: Passing Arguments from the Submit File to the Executable Script</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>How To’s | CHTC</title>
+<title>Practice: Passing Arguments from the Submit File to the Executable Script | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="How To’s" />
+<meta property="og:title" content="Practice: Passing Arguments from the Submit File to the Executable Script" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
 <meta property="og:description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/how-tos" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/how-tos" />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/htc-passing-arguments" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc-passing-arguments" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-09-13T19:41:55+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="How To’s" />
+<meta property="twitter:title" content="Practice: Passing Arguments from the Submit File to the Executable Script" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-13T19:41:55+00:00","datePublished":"2024-09-13T19:41:55+00:00","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"How To’s","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/how-tos"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/how-tos"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-13T19:41:55+00:00","datePublished":"2024-09-13T19:41:55+00:00","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"Practice: Passing Arguments from the Submit File to the Executable Script","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-passing-arguments"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-passing-arguments"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -237,48 +237,606 @@
 
     <main id="main" style="min-height: 60vh;">
         <main id="main" style="min-height: 60vh;">
-    <div class="container-xxl">
+    <div class="container-xxl mb-5">
     <div class="row justify-content-center">
-        <div class="col mw-1000">
-<h1 class="uw-mini-bar mb-4">
-    How To's
+        <div class="col-12 col-lg-9 mw-1000">
+
+            <h1 class="uw-mini-bar mb-4">
+    Practice: Passing Arguments from the Submit File to the Executable Script
 </h1>
+
+            
+<div class="d-flex flex-column mb-5">
+
+<h2>Table of Contents</h2>
+
+<div class="uw-sidebar-box me-auto">
+<div class="uw-directory">
+
+      <ul>
+        <li><a href="#purpose">Purpose</a></li>
+        <li><a href="#understand-and-test-the-script-with-arguments">Understand and test the script with arguments</a></li>
+        <li><a href="#write-and-submit-an-htcondor-submit-file-with-arguments">Write and submit an HTCondor submit file with arguments</a></li>
+        <li><a href="#pass-arguments-through-a-wrapper-script">Pass arguments through a wrapper script</a></li>
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#next-steps">Next steps</a></li>
+      </ul>
+
+    </div>
+</div>
+</div>
+
+<h2 id="purpose">Purpose</h2>
+
+<p>Many executables require arguments to perform tasks. As a user, you may need to specify 
+specific files or parameters for your calculations. This exercise will show how arguments are 
+used in a simple calculation and walk through how to write an HTCondor submit file to pass 
+these arguments to the executable. This guide builds on the concepts shown in  <a href="htc-basic-scripting">Basic Scripting 
+and Job Submission with Arguments</a>. To see how to submit multiple jobs 
+using arguments, see <a href="htc-passing-arguments-multiple">Passing Multiple Arguments to Multiple Jobs with One Submit 
+File</a>.</p>
+
+<h2 id="understand-and-test-the-script-with-arguments">Understand and test the script with arguments</h2>
+
+<p>In this exercise, we will perform a linear least squares regression analysis on life expectancy data for a country.We will need to understand how the script utilizes arguments.</p>
+
+<p>This exercise was adapted from the work by the <a href="https://software-carpentry.org/">Software Carpentry</a> under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0 license</a>.</p>
+
+<ol>
+  <li>
+    <p>In your working directory on the access point, download the data: <code>gapminder-life-expectancy.csv</code>.</p>
+
+    <pre class="term"><code>[user@ap2002]$ wget https://chtc.cs.wisc.edu/uw-research-computing/files/gapminder-life-expectancy.csv
+</code></pre>
+  </li>
+  <li>Download the script: <code>least_squares.py</code>.
+    <pre class="term"><code>[user@ap2002]$ wget https://chtc.cs.wisc.edu/uw-research-computing/files/least_squares.py
+</code></pre>
+  </li>
+  <li>
+    <p>For this exercise, it’s not necessary to understand each line of code, but in summary, this code reads a .csv file and performs a linear least squares regression on a specified country’s data. Let’s see how to use this code.</p>
+
+    <p>First we need to make our code executable:</p>
+
+    <pre class="term"><code>[user@ap2002]$ chmod +x least_squares.py
+</code></pre>
+
+    <p>From the terminal, we can run the code to preview its usage:</p>
+
+    <pre class="term"><code>[user@ap2002]$ ./least_squares.py
+Usage: least_squares.py [CSV] [Country] [Year, optional]
+</code></pre>
+
+    <p>From the returned line, we see how to use it. The executable is <code>least_squares.py</code>. The arguments are:</p>
+    <ul>
+      <li><code>[CSV]</code>: The .csv file containing our data</li>
+      <li><code>[Country]</code>: The name of the country we want to analyze</li>
+      <li><code>[Year]</code>: An optional argument that lets us estimate the life expectancy of the country for that year.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Let’s run the code to see what the output should look like. In the terminal, type:</p>
+
+    <pre class="term"><code> [user@ap2002]$ ./least_squares.py gapminder-life-expectancy.csv Brazil
+</code></pre>
+
+    <p>This should return the following:</p>
+
+    <pre class="term"><code> Linear regression (y = mx + b):
+ m = 0.205 b = -348.495
+</code></pre>
+  </li>
+  <li>
+    <p>If we put in the year 2000 as an optional argument:</p>
+
+    <pre class="term"><code>[user@ap2002]$ ./least_squares.py gapminder-life-expectancy.csv Brazil 2000
+Linear regression (y = mx + b):
+m = 0.205 b = -348.495
+Estimated life expectancy for Brazil in the year 2000
+61.280
+</code></pre>
+  </li>
+</ol>
+
+<h2 id="write-and-submit-an-htcondor-submit-file-with-arguments">Write and submit an HTCondor submit file with arguments</h2>
+
+<p>Now that we know how to run our script and what to expect, let’s translate this into a job for HTCondor.</p>
+
+<ol>
+  <li>
+    <p>Create a submit file for the job called <code>least_squares.sub.</code></p>
+
+    <pre class="sub"><code> # least_squares.sub - an example HTCondor submit file for passing arguments
+
+ # Custom variable can be specified
+ country = Brazil
+
+ # Specify your executable and your arguments
+ # Usage: least_squares.py [CSV] [Country] [Year, optional]
+ executable = least_squares.py
+ arguments = gapminder-life-expectancy.csv $(country)
+
+ # Specify the log, standard error, and standard output (or screen output) files
+ log = $(country).log
+ error = $(country).err
+ output = $(country).out
+
+ # We need to also transfer the csv file for the calculation
+ transfer_input_files = gapminder-life-expectancy.csv
+
+ # Requirements for our calculation
+ request_cpus = 1
+ request_memory = 1GB
+ request_disk = 1GB
+
+ # Tell HTCondor to run 1 instance of our calculation
+ queue
+</code></pre>
+
+    <p>Important notes:</p>
+    <ul>
+      <li>In this submit file, we created a custom variable called <code>country</code> set to the value “Brazil”, which we use later when specifying arguments.</li>
+      <li>We tell the job manager that our executable is <code>least_squares.py</code>.</li>
+      <li>In a separate line, we pass the arguments <code>gapminder-life-expectancy.csv $(country)</code> in the order that is required by <code>least_squares.py</code>.</li>
+      <li>We also need to transfer the csv with our data, which we do with <code>transfer_input_files = gapminder-life-expectancy.csv</code></li>
+    </ul>
+  </li>
+  <li>
+    <p>Submit the file.</p>
+
+    <pre class="term"><code>[user@ap2002]$ condor_submit least_squares.sub
+</code></pre>
+
+    <p>We can monitor the job with <code>condor_q</code>.</p>
+  </li>
+  <li>
+    <p>Once the job is completed, we can check <code>least_sq_Brazil.out</code> to see that the arguments passed to <code>least_squares.py</code> and works as expected.</p>
+
+    <pre class="term"><code>[user@ap2002]$ cat least_sq_Brazil.out
+Linear regression (y = mx + b):
+m = 0.205 b = -348.495
+</code></pre>
+  </li>
+</ol>
+
+<h2 id="pass-arguments-through-a-wrapper-script">Pass arguments through a wrapper script</h2>
+<p>A wrapper script can be useful in jobs, enabling more complex operations and simple pre- and post- calculation commands. Wrapper scripts can also take and pass on arguments. Let’s see how to write a simple wrapper script for our calculation.</p>
+
+<p>In this exercise, we will obtain data for multiple countries between the years 2024 and 2033 and return them in tarballs organized by country.</p>
+
+<ol>
+  <li>
+    <p>Create <code>least_squares_range.sh</code>.</p>
+
+    <pre><code>#!/bin/bash
+
+# This wrapper script takes in four arguments:
+# Usage: ./least_squares_range.sh [CSV] [Country] [Start Year] [End Year]
+
+# Assign variables for readability
+CSV=$1
+Country=$2
+StartY=$3
+EndY=$4
+
+# Loop least_squares.py over start and end years
+for i in $(seq $StartY $EndY);
+do
+    ./least_squares.py ${CSV} $Country $i &gt; ${Country}_${i}.txt
+done
+
+# Create tarball
+tar -czf ${Country}.tar.gz ${Country}*.txt
+
+# Delete text files
+rm *.txt
+</code></pre>
+
+    <p>In a shell script, arguments are assigned integers according to their order. The executable script itself, <code>least_squares_range.sh</code>, is assigned <code>$0</code>.</p>
+
+    <p>While not necessary, it’s useful to assign descriptive variables to input arguments to keep track of what’s happening in the wrapper script. <code>Country=$2</code> assigns the variable <code>$Country</code> with the same value as the second argument. Note that there must be no spaces around the <code>=</code> sign.</p>
+
+    <p>The script then uses a simple <code>for</code> loop to run <code>least_squares.py</code> over a range of years and writes them to text files.</p>
+
+    <p>Once the loop is complete, the text files are consolidated into a tarball. Since this object is in the top-level directory of the job, it will automatically be transferred back to the submit server.</p>
+  </li>
+  <li>
+    <p>Create a new submit script, <code>least_squares_range.sub</code>.</p>
+
+    <pre><code># least_squares_range.sub - an example HTCondor submit file for passing arguments
+
+# Custom variables can be specified
+country = Brazil
+
+# Specify your executable and your arguments
+# Usage: ./least_squares_range.sh [CSV] [Country] [Start Year] [End Year]
+executable = least_squares_range.sh
+arguments = gapminder-life-expectancy.csv $(country) 2024 2033
+
+# Specify the log, standard error, and standard output (or screen output) files
+log = $(country)_24_33.log
+error = $(country)_24_33.err
+output = $(country)_24_33.out
+
+# We need to also transfer the csv file for the calculation
+transfer_input_files = gapminder-life-expectancy.csv, least_squares.py
+
+# Requirements for our calculation
+request_cpus = 1
+request_memory = 1GB
+request_disk = 1GB
+
+# Tell HTCondor to run instances of our calculation
+queue
+</code></pre>
+
+    <p>Key highlights:</p>
+    <ul>
+      <li>The <code>executable</code> is now our wrapper script, <code>least_squares_range.sh</code></li>
+      <li>We edit the <code>arguments</code> line according to the usage of the wrapper script we wrote.</li>
+      <li><code>transfer_input_files</code> now includes <code>least_squares.py</code>. We now need to specify this file to be transferred over, since it is no longer our executable.</li>
+    </ul>
+  </li>
+  <li>Submit the job.
+    <pre class="term"><code> [user@ap2002]$ condor_submit least_squares_process.sub
+</code></pre>
+
+    <p>Monitor the job with <code>condor_q</code>.</p>
+  </li>
+  <li>If your job executed correctly, you should now have <code>Brazil.tar.gz</code>.
+    <pre class="term"><code> [user@ap2002]$ ls
+ Brazil_24_33.err
+ Brazil_24_33.log
+ Brazil_24_33.out
+ Brazil.tar.gz
+ least_squares_range.sh
+ least_squares_range.sub
+</code></pre>
+  </li>
+</ol>
+
+<h2 id="summary">Summary</h2>
+
+<ul>
+  <li>In the submit script, arguments are passed to the executable with the <code>arguments = </code> attribute.</li>
+  <li>Custom variables can be created within the submit script and utilized in arguments with the <code>$(variable)</code> syntax.</li>
+  <li>Wrapper scripts are useful for performing pre-/post- calculation commands or complex operations and can take and pass arguments.</li>
+</ul>
+
+<h2 id="next-steps">Next steps</h2>
+<p>In the next part of this guide, we will submit multiple jobs with different arguments with just one submit file.</p>
+
+<p><a href="htc-passing-arguments-multiple">Practice: Passing Multiple Arguments to Multiple Jobs with One Submit File</a></p>
+
+        </div>
+        <div class="col-3 d-none d-lg-block">
+            
+
+
+
+    <div id="guide-sidebar">
+        
+            
+
+            
+            
+
+            <h6 class="mt-5">HTC Guides</h6>
+            <div class="accordion accordion-flush">
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="basics-and-policies">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
+                                    Basics and Policies
+                                </button>
+                            </h2>
+                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-overview">HTC System Overview</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/connecting">Log In to CHTC Resources</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/transfer-files-computer">Transfer Files between CHTC and your Computer</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/configure-ssh">Automate CHTC Log In</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/transfer-data-researchdrive">Transfer Files Between CHTC and ResearchDrive</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/globus">Use Globus to Transfer Files to and from CHTC</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/github-remote-access">Access a Private GitHub Repository Remotely</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/check-quota">Check Disk Quota and Usage</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="job-submission">
+                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#job-submission-collapse" aria-expanded="false" aria-controls="job-submission">
+                                    Job Submission
+                                </button>
+                            </h2>
+                            <div id="job-submission-collapse" class="accordion-collapse collapse show " aria-labelledby="job-submission" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htcondor-job-submission">Practice: Submit HTC Jobs using HTCondor</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/condor_q">Learn About Your Jobs Using condor_q</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/multiple-jobs">Submitting Multiple Jobs Using HTCondor</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/multiple-job-dirs">Submitting Multiple Jobs in Individual Directories</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-basic-scripting">Basic Scripting and Job Submission with Arguments</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="fw-bolder" href="/uw-research-computing/htc-passing-arguments">Practice: Passing Arguments from the Submit File to the Executable Script</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-passing-arguments-multiple">Practice: Passing Multiple Arguments to Multiple Jobs with One Submit File</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc/dagman-workflows">Overview: Submit Workflows with HTCondor's DAGMan</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc/dagman-simple-example">Simple Example of a DAGMan workflow</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc/tutorial-dagman-intermediate">Intermediate DAGMan: Uses and Features</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="handling-data-in-jobs">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#handling-data-in-jobs-collapse" aria-expanded="false" aria-controls="handling-data-in-jobs">
+                                    Handling Data in Jobs
+                                </button>
+                            </h2>
+                            <div id="handling-data-in-jobs-collapse" class="accordion-collapse collapse " aria-labelledby="handling-data-in-jobs" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-availability">Small Input and Output File Availability Via HTCondor</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-avail-squid">Transfer Large Input Files Via Squid</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="software-solutions">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
+                                    Software Solutions
+                                </button>
+                            </h2>
+                            <div id="software-solutions-collapse" class="accordion-collapse collapse " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/software-overview-htc">Overview: How to Use Software</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/docker-jobs">Running HTC Jobs Using Docker Containers</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/docker-build">Build a Docker Container Image</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/licensed-software">Use Licensed Software</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/apptainer-htc">Use Apptainer Containers</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/apptainer-build">Building an Apptainer Container</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/apptainer-htc-advanced-example">Advanced Apptainer Example - SUMO</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="special-use-cases">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-cases-collapse" aria-expanded="false" aria-controls="special-use-cases">
+                                    Special Use Cases
+                                </button>
+                            </h2>
+                            <div id="special-use-cases-collapse" class="accordion-collapse collapse " aria-labelledby="special-use-cases" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/gpu-jobs">Use GPUs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/machine-learning-htc">Run Machine Learning Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/scaling-htc">Scale Beyond Local HTC Capacity</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/checkpointing">Checkpointing Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/high-memory-jobs">Submit High Memory Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-modules">Use Software Available in Modules</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/os-request-htc">Use Custom Linux Versions in CHTC</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="troubleshooting">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshooting-collapse" aria-expanded="false" aria-controls="troubleshooting">
+                                    Troubleshooting
+                                </button>
+                            </h2>
+                            <div id="troubleshooting-collapse" class="accordion-collapse collapse " aria-labelledby="troubleshooting" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/dos-unix">Windows / Linux Incompatibility</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/docker-test">Explore and Test Docker Containers</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-known-issues">Known Issues on the HTC</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+            </div>
+        
+    </div>
+
+
 
         </div>
     </div>
 </div>
 
-<div class="container-xxl">
-<div class="row justify-content-center">
-<div class="col mw-1000" markdown="block">
-
-<aside class="uw-sidebar">
-<button class="uw-button-unstyle uw-side-nav-button"><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use></svg> Select a section…</button>
-
-<!-- Sidebar nav -->
-<div class="uw-side-nav">
-<ul>
-<li>
-<a href="/uw-research-computing/get-help.html">Get Help</a>
-</li>
-<li>
-<a href="/uw-research-computing/account-details.html">Get an Account</a>
-</li>
-<li>
-<a href="/uw-research-computing/htc/guides.html">HTC Guides</a>
-</li>
-<li>
-<a href="/uw-research-computing/hpc/guides.html">HPC Guides</a>
-</li>
-<li>
-<a href="/uw-research-computing/cite-chtc.html">Cite CHTC Resources</a>
-</li>
-</ul>
-</div>
-</aside>
-</div>
-</div>
-</div>
 </main>
     </main>
     <footer id="colophon" class="uw-footer">

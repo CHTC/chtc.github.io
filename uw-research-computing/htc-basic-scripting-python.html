@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>How To's</title>
+<title>Basic scripting in Python</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>How To’s | CHTC</title>
+<title>Basic scripting in Python | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="How To’s" />
+<meta property="og:title" content="Basic scripting in Python" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
-<meta property="og:description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/how-tos" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/how-tos" />
+<meta name="description" content="Code Our executable written in Python, echo-next.py: import sys filename = sys.argv[1] print(filename) sys.argv is a list – if you have multiple arguments, you can reference each item in the list using Python’s usual notation (sys.argv[1], sys.argv[2], etc.). See Python documentation on sys.argv for details. We can use the script on the command line, assuming Python is installed and on the PATH: [user@login]$ python3 echo-next.py data.csv data.csv Wrapper script We can now write a wrapper script! This script checks that one argument is passed, and also allows room for pre- and post-processing in this simple workflow. Our wrapper script written in bash, wrapper.sh: #!/bin/bash # Check if an argument is provided if [ $# -ne 1 ]; then echo &#39;Please use one argument. Usage: wrapper.sh [arg]&#39; exit 1 fi # Set filename variable to the first argument to the bash script filename=$1 echo &#39;Pre-processing could go here.&#39; # Run code python3 echo-next.py ${filename} echo &#39;Post-processing could go here.&#39; Ensure wrapper.sh is executable with chmod +x wrapper.sh before running it on the command line: [user@login]$ chmod +x wrapper.sh [user@login]$ ./wrapper.sh Please use one argument. Usage: wrapper.sh [arg] [user@login]$ ./wrapper.sh data.csv Pre-processing could go here. data.csv Post-processing could go here. Passing arguments with the HTCondor submit file Now that we’ve understood how arguments work in Python and how to write simple wrapper scripts that pass those arguments, we can pass arguments in HTCondor’s submit file by specifying the arguments attribute, as shown in this excerpt: # Create custom variable called &quot;data&quot; data = data.csv # Specify the executable &amp; arguments executable = wrapper.sh arguments = $(data)" />
+<meta property="og:description" content="Code Our executable written in Python, echo-next.py: import sys filename = sys.argv[1] print(filename) sys.argv is a list – if you have multiple arguments, you can reference each item in the list using Python’s usual notation (sys.argv[1], sys.argv[2], etc.). See Python documentation on sys.argv for details. We can use the script on the command line, assuming Python is installed and on the PATH: [user@login]$ python3 echo-next.py data.csv data.csv Wrapper script We can now write a wrapper script! This script checks that one argument is passed, and also allows room for pre- and post-processing in this simple workflow. Our wrapper script written in bash, wrapper.sh: #!/bin/bash # Check if an argument is provided if [ $# -ne 1 ]; then echo &#39;Please use one argument. Usage: wrapper.sh [arg]&#39; exit 1 fi # Set filename variable to the first argument to the bash script filename=$1 echo &#39;Pre-processing could go here.&#39; # Run code python3 echo-next.py ${filename} echo &#39;Post-processing could go here.&#39; Ensure wrapper.sh is executable with chmod +x wrapper.sh before running it on the command line: [user@login]$ chmod +x wrapper.sh [user@login]$ ./wrapper.sh Please use one argument. Usage: wrapper.sh [arg] [user@login]$ ./wrapper.sh data.csv Pre-processing could go here. data.csv Post-processing could go here. Passing arguments with the HTCondor submit file Now that we’ve understood how arguments work in Python and how to write simple wrapper scripts that pass those arguments, we can pass arguments in HTCondor’s submit file by specifying the arguments attribute, as shown in this excerpt: # Create custom variable called &quot;data&quot; data = data.csv # Specify the executable &amp; arguments executable = wrapper.sh arguments = $(data)" />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/htc-basic-scripting-python" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc-basic-scripting-python" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-09-13T19:41:55+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="How To’s" />
+<meta property="twitter:title" content="Basic scripting in Python" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-13T19:41:55+00:00","datePublished":"2024-09-13T19:41:55+00:00","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"How To’s","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/how-tos"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/how-tos"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-13T19:41:55+00:00","datePublished":"2024-09-13T19:41:55+00:00","description":"Code Our executable written in Python, echo-next.py: import sys filename = sys.argv[1] print(filename) sys.argv is a list – if you have multiple arguments, you can reference each item in the list using Python’s usual notation (sys.argv[1], sys.argv[2], etc.). See Python documentation on sys.argv for details. We can use the script on the command line, assuming Python is installed and on the PATH: [user@login]$ python3 echo-next.py data.csv data.csv Wrapper script We can now write a wrapper script! This script checks that one argument is passed, and also allows room for pre- and post-processing in this simple workflow. Our wrapper script written in bash, wrapper.sh: #!/bin/bash # Check if an argument is provided if [ $# -ne 1 ]; then echo &#39;Please use one argument. Usage: wrapper.sh [arg]&#39; exit 1 fi # Set filename variable to the first argument to the bash script filename=$1 echo &#39;Pre-processing could go here.&#39; # Run code python3 echo-next.py ${filename} echo &#39;Post-processing could go here.&#39; Ensure wrapper.sh is executable with chmod +x wrapper.sh before running it on the command line: [user@login]$ chmod +x wrapper.sh [user@login]$ ./wrapper.sh Please use one argument. Usage: wrapper.sh [arg] [user@login]$ ./wrapper.sh data.csv Pre-processing could go here. data.csv Post-processing could go here. Passing arguments with the HTCondor submit file Now that we’ve understood how arguments work in Python and how to write simple wrapper scripts that pass those arguments, we can pass arguments in HTCondor’s submit file by specifying the arguments attribute, as shown in this excerpt: # Create custom variable called &quot;data&quot; data = data.csv # Specify the executable &amp; arguments executable = wrapper.sh arguments = $(data)","headline":"Basic scripting in Python","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-basic-scripting-python"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-basic-scripting-python"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -237,48 +237,406 @@
 
     <main id="main" style="min-height: 60vh;">
         <main id="main" style="min-height: 60vh;">
-    <div class="container-xxl">
+    <div class="container-xxl mb-5">
     <div class="row justify-content-center">
-        <div class="col mw-1000">
-<h1 class="uw-mini-bar mb-4">
-    How To's
+        <div class="col-12 col-lg-9 mw-1000">
+
+            <h1 class="uw-mini-bar mb-4">
+    Basic scripting in Python
 </h1>
+
+            <h3 id="code">Code</h3>
+<p>Our executable written in Python, <code>echo-next.py</code>:</p>
+<pre><code>import sys
+filename = sys.argv[1]
+print(filename)
+</code></pre>
+
+<p><code>sys.argv</code> is a list – if you have multiple arguments, you can reference each item in the 
+list using Python’s usual notation (<code>sys.argv[1]</code>, <code>sys.argv[2]</code>, etc.). 
+See <a href="https://docs.python.org/3/library/sys.html#sys.argv">Python documentation on sys.argv</a> for details.</p>
+
+<p>We can use the script on the command line, assuming Python is installed and on the <code>PATH</code>:</p>
+<pre class="term"><code>[user@login]$ python3 echo-next.py data.csv
+data.csv
+</code></pre>
+
+<h3 id="wrapper-script">Wrapper script</h3>
+
+<p>We can now write a wrapper script! This script checks that one argument is passed, and also allows room for pre- and post-processing in this simple workflow.</p>
+
+<p>Our wrapper script written in bash, <code>wrapper.sh</code>:</p>
+<pre><code>#!/bin/bash
+
+# Check if an argument is provided
+if [ $# -ne 1 ]; then
+    echo 'Please use one argument. Usage: wrapper.sh [arg]'
+    exit 1
+fi
+
+# Set filename variable to the first argument to the bash script
+filename=$1
+
+echo 'Pre-processing could go here.'
+
+# Run code
+python3 echo-next.py ${filename}
+
+echo 'Post-processing could go here.'
+</code></pre>
+
+<p>Ensure <code>wrapper.sh</code> is executable with <code>chmod +x wrapper.sh</code> before running it on the command line:</p>
+<pre class="term"><code>[user@login]$ chmod +x wrapper.sh
+[user@login]$ ./wrapper.sh
+Please use one argument. Usage: wrapper.sh [arg]
+[user@login]$ ./wrapper.sh data.csv
+Pre-processing could go here.
+data.csv
+Post-processing could go here.
+</code></pre>
+
+<h3 id="passing-arguments-with-the-htcondor-submit-file">Passing arguments with the HTCondor submit file</h3>
+
+<p>Now that we’ve understood how arguments work in Python and how to write simple wrapper scripts that pass those arguments, we can pass arguments in HTCondor’s submit file by specifying the <code>arguments</code> attribute, as shown in this excerpt:</p>
+
+<pre><code># Create custom variable called "data"
+data = data.csv
+
+# Specify the executable &amp; arguments
+executable = wrapper.sh
+arguments = $(data)
+</code></pre>
+<!--more-->
+
+        </div>
+        <div class="col-3 d-none d-lg-block">
+            
+
+
+
+    <div id="guide-sidebar">
+        
+            
+
+            
+            
+
+            <h6 class="mt-5">HTC Guides</h6>
+            <div class="accordion accordion-flush">
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="basics-and-policies">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
+                                    Basics and Policies
+                                </button>
+                            </h2>
+                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-overview">HTC System Overview</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/connecting">Log In to CHTC Resources</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/transfer-files-computer">Transfer Files between CHTC and your Computer</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/configure-ssh">Automate CHTC Log In</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/transfer-data-researchdrive">Transfer Files Between CHTC and ResearchDrive</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/globus">Use Globus to Transfer Files to and from CHTC</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/github-remote-access">Access a Private GitHub Repository Remotely</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/check-quota">Check Disk Quota and Usage</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="job-submission">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#job-submission-collapse" aria-expanded="false" aria-controls="job-submission">
+                                    Job Submission
+                                </button>
+                            </h2>
+                            <div id="job-submission-collapse" class="accordion-collapse collapse " aria-labelledby="job-submission" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htcondor-job-submission">Practice: Submit HTC Jobs using HTCondor</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/condor_q">Learn About Your Jobs Using condor_q</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/multiple-jobs">Submitting Multiple Jobs Using HTCondor</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/multiple-job-dirs">Submitting Multiple Jobs in Individual Directories</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-basic-scripting">Basic Scripting and Job Submission with Arguments</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-passing-arguments">Practice: Passing Arguments from the Submit File to the Executable Script</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-passing-arguments-multiple">Practice: Passing Multiple Arguments to Multiple Jobs with One Submit File</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc/dagman-workflows">Overview: Submit Workflows with HTCondor's DAGMan</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc/dagman-simple-example">Simple Example of a DAGMan workflow</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc/tutorial-dagman-intermediate">Intermediate DAGMan: Uses and Features</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="handling-data-in-jobs">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#handling-data-in-jobs-collapse" aria-expanded="false" aria-controls="handling-data-in-jobs">
+                                    Handling Data in Jobs
+                                </button>
+                            </h2>
+                            <div id="handling-data-in-jobs-collapse" class="accordion-collapse collapse " aria-labelledby="handling-data-in-jobs" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-availability">Small Input and Output File Availability Via HTCondor</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-avail-squid">Transfer Large Input Files Via Squid</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="software-solutions">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
+                                    Software Solutions
+                                </button>
+                            </h2>
+                            <div id="software-solutions-collapse" class="accordion-collapse collapse " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/software-overview-htc">Overview: How to Use Software</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/docker-jobs">Running HTC Jobs Using Docker Containers</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/docker-build">Build a Docker Container Image</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/licensed-software">Use Licensed Software</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/apptainer-htc">Use Apptainer Containers</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/apptainer-build">Building an Apptainer Container</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/apptainer-htc-advanced-example">Advanced Apptainer Example - SUMO</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="special-use-cases">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-cases-collapse" aria-expanded="false" aria-controls="special-use-cases">
+                                    Special Use Cases
+                                </button>
+                            </h2>
+                            <div id="special-use-cases-collapse" class="accordion-collapse collapse " aria-labelledby="special-use-cases" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/gpu-jobs">Use GPUs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/machine-learning-htc">Run Machine Learning Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/scaling-htc">Scale Beyond Local HTC Capacity</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/checkpointing">Checkpointing Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/high-memory-jobs">Submit High Memory Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-modules">Use Software Available in Modules</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/os-request-htc">Use Custom Linux Versions in CHTC</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="troubleshooting">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshooting-collapse" aria-expanded="false" aria-controls="troubleshooting">
+                                    Troubleshooting
+                                </button>
+                            </h2>
+                            <div id="troubleshooting-collapse" class="accordion-collapse collapse " aria-labelledby="troubleshooting" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/dos-unix">Windows / Linux Incompatibility</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/docker-test">Explore and Test Docker Containers</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-known-issues">Known Issues on the HTC</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+            </div>
+        
+    </div>
+
+
 
         </div>
     </div>
 </div>
 
-<div class="container-xxl">
-<div class="row justify-content-center">
-<div class="col mw-1000" markdown="block">
-
-<aside class="uw-sidebar">
-<button class="uw-button-unstyle uw-side-nav-button"><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use></svg> Select a section…</button>
-
-<!-- Sidebar nav -->
-<div class="uw-side-nav">
-<ul>
-<li>
-<a href="/uw-research-computing/get-help.html">Get Help</a>
-</li>
-<li>
-<a href="/uw-research-computing/account-details.html">Get an Account</a>
-</li>
-<li>
-<a href="/uw-research-computing/htc/guides.html">HTC Guides</a>
-</li>
-<li>
-<a href="/uw-research-computing/hpc/guides.html">HPC Guides</a>
-</li>
-<li>
-<a href="/uw-research-computing/cite-chtc.html">Cite CHTC Resources</a>
-</li>
-</ul>
-</div>
-</aside>
-</div>
-</div>
-</div>
 </main>
     </main>
     <footer id="colophon" class="uw-footer">
