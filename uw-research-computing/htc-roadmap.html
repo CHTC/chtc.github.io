@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HTC System Overview</title>
+<title>HTC Getting Started Roadmap</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>HTC System Overview | CHTC</title>
+<title>HTC Getting Started Roadmap | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="HTC System Overview" />
+<meta property="og:title" content="HTC Getting Started Roadmap" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
 <meta property="og:description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/htc-overview" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc-overview" />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/htc-roadmap" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc-roadmap" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-09-20T15:20:04+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="HTC System Overview" />
+<meta property="twitter:title" content="HTC Getting Started Roadmap" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-20T15:20:04+00:00","datePublished":"2024-09-20T15:20:04+00:00","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"HTC System Overview","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-overview"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-overview"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-20T15:20:04+00:00","datePublished":"2024-09-20T15:20:04+00:00","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"HTC Getting Started Roadmap","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-roadmap"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-roadmap"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -242,214 +242,178 @@
         <div class="col-12 col-lg-9 mw-1000">
 
             <h1 class="uw-mini-bar mb-4">
-    HTC System Overview
+    HTC Getting Started Roadmap
 </h1>
 
-            
-<div class="d-flex flex-column mb-5">
+            <style>
+summary {
+  margin-top: 10px;
+  cursor: pointer;
+  text-decoration: underline;
+  position: relative;
+  padding: 5px;
+  padding-left: 30px; /* Adjust padding to make space for the icon */
+  background-color: #f9e6e7;
+  border-left: #c5050c 4px solid;
+  border-radius: 5px;
+}
 
-<h2>Table of Contents</h2>
+summary:hover {
+  color: black;
+  background-color: #efc6c8;
+}
 
-<div class="uw-sidebar-box me-auto">
-<div class="uw-directory">
+summary::before {
+  content: url("/images/icons/pencil.svg"); /* Unicode for pencil icon */
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+</style>
 
-      <ol>
-        <li><a href="#high-throughput-computing-at-chtc">High-Throughput Computing at CHTC</a></li>
-        <li><a href="#htc-system-user-policies">HTC User Policies</a>
-          <ul>
-            <li><a href="#htc-system-specific-policies">HTC System Specific Policies</a></li>
-          </ul>
-        </li>
-        <li><a href="#htc-hardware-and-configuration">HTC Hardware and Configuration</a>
-          <ul>
-            <li><a href="#htc-operating-system-and-software">HTC Operating System and Hardware</a></li>
-            <li><a href="#submit-servers">HTC Sumbmit Servers</a></li>
-            <li><a href="#execute-nodes">HTC Execute Nodes</a></li>
-            <li><a href="#operating-system-and-software">HTC Operating System and Software</a></li>
-          </ul>
-        </li>
-        <li><a href="#data-storage-and-management">Data Storage and Management</a>
-          <ul>
-            <li><a href="#tools-for-managing-home-and-staging-space">Tools for managing /home and /staging space</a></li>
-          </ul>
-        </li>
-      </ol>
+<h4 id="step-one">Step One</h4>
 
-    </div>
-</div>
-</div>
+<details>
+<summary>Introduction to the High Throughput Computing Strategy</summary>
+<br />
+Like nearly all large-scale compute systems, users of both CHTC's High Throughput and High Performance systems prepare their computational work and submit them as tasks called "jobs" to run on execution points. 
+<br />
+   <br />
+High Throughput Computing systems specialize in running many small, independent jobs (&lt; ~20 CPUs/job). On the other hand, High Performance Computing systems speicalize in running a few, very large jobs that run on more than one node (~30+ CPUs/job).
+<br />
+   <br />
+It is best to keep this distinction in mind when setting up your jobs. On the HTC system, smaller jobs (i.e., those requesting smaller amounts of CPU, memory, and disk resources per job) are easier to find a slot to run on. This means that users will notice they will have jobs start quicker and will have more running simultaneously It is almost always beneficial to break up your analysis pipeline into smaller pieces to take advantage of getting more jobs up and running, quicker. 
+<br />
+   <br />
+Unlike the High Performance System, CHTC staff do not limit the number of jobs a user can have running in parallel, thus it is to your advantage to strategize your workflow to take advantage of as many compute resources as possible. 
+<br />
+   <br />
+More detailed information regarding CHTC's HTC system can be found in the <a href="https://chtc.cs.wisc.edu/uw-research-computing/htc-overview">HTC Overview Guide</a>.
+</details>
 
-<p><span name="high-throughput-computing-at-chtc"></span></p>
-<h1 id="high-throughput-computing-at-chtc">High-Throughput Computing at CHTC</h1>
+<h4 id="step-two">Step Two</h4>
 
-<p>The CHTC high-throughput computing (HTC) cluster provides support a variety of computational research tasks. The HTC system offers CPUs/GPUs, high-memory nodes, and other specialized hardware. Workflows that run well on this system include RNA/DNA sequencing, machine learning workflows, weather modeling, monte carlo simulations, etc.</p>
+<details>
+<summary>Log on to an HTCondor HTC Access Point</summary>
+<br />
+Once your request for an account has been approved by a Research Computing Facilitator, you will be emailed your login information.
+<br />
+   <br />
+For security purposes, every CHTC user is required to be connected to either a University of Wisconsin internet network or campus VPN and to use two-factor authentication when logging in to your HTC access point (also called a "submit server").  
+<br />
+</details>
 
-<p>To get access to the HTC System, please complete our
-<a href="form.html">New User Consultation Form</a>. After your request is received, 
-a Research Computing Facilitator will follow up to discuss the computational needs 
-of your research and connect you with computing 
-resources (including non-CHTC services) that best fit your needs.</p>
+<h4 id="step-three">Step Three</h4>
 
-<p><span name="htc-system-user-policies"></span></p>
+<details>
+<summary>Understand the Basics of Submitting HTCondor Jobs</summary>
+<br />
+Computational work is run on the the High Throughput Computing system's execution machines by submitting tasks as “jobs” to the HTCondor job scheduler. Before submitting your own computational work, it is necessary to understand how HTCondor job submission works. The following guide is a short step-by-step tutorial on how to submit basic HTCondor jobs: <a href="https://chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission">Practice: Submit HTC Jobs using HTCondor</a>. <b>It is highly recommended that every user follow this short tutorial as these are the steps you will need to know to complete your own analyses.</b>
+</details>
 
-<h1 id="htc-system-user-policies">HTC System User Policies</h1>
+<h4 id="step-four">Step Four</h4>
 
-<p>See our <a href="user-expectations.html">User Policies and Expectations</a> for details on general CHTC policies.</p>
+<details>
+<summary>Learn to Run Many HTCondor Jobs using one Submit File</summary>
+<br />
+After following this tutorial, we <b>highly recommend</b> users review the <a href="https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs">Easily Submit Multiple Jobs</a> guide to learn how you can configure HTCondor to automatically pass files or parameters to different jobs, return output to specific directories, and other easily automated organizational behaviors. 
+<br />
+</details>
 
-<p><span name="htc-system-specific-policies"></span></p>
+<h4 id="step-five">Step Five</h4>
 
-<h2 id="htc-system-specific-policies">HTC System Specific Policies</h2>
+<details>
+<summary>Install your Software</summary>
+<br />
+Our <a href="https://chtc.cs.wisc.edu/uw-research-computing/htc/guides.html">Software Solutions</a> guides contain information about how to install and use software on the HTC system.
+<br />
+<br />
+<b>Software Containers</b>
+   <br />
+In general, we recommend installing your software into a "container" if your software relies on a specific version of R/Python, can be installed with `conda`, if your software has many dependencies, or if it already has a pre-existing container (which many common software packages do). There are many advantages to using a software container; one example is that software containers contain their own operating system. As a result, jobs with software containers have the most flexibility with where they run on CHTC or the OSPool. The CHTC website provides several guides on building, testing, and using software containers.
+<br />
+<br />
+<b>Use Pre-installed Software in Modules</b>
+   <br />
+CHTC's infrastructure team has provided a limited collection of software as modules, which users can load and then use in their jobs. This collection includes tools shared across domains, including COMSOL, ANSYS, ABAQUS, GUROBI, and others. To learn how to load these software into your jobs, our <a href="https://chtc.cs.wisc.edu/uw-research-computing/htc-modules">Use Software Available in Modules</a> and <a href="https://chtc.cs.wisc.edu/uw-research-computing/licensed-software">Use Licensed Software</a> guides. 
+<br />
+<br />
+<b>Access Software Building Tools on CHTC's Software Building Machines</b>
+   <br />
+The HTC system contains several machines designed for users to use when building their software. These machines have access to common compilers (e.g., gcc) that are necessary to install many software packages. To learn how to submit an interactive job to log into these machines to build your software, see <a href="https://chtc.cs.wisc.edu/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>.  
+</details>
 
-<p>Below are some of the default limits on CHTC’s HTC system. Note that as a large-scale 
-computing center, we want you to be able to run at a large scale - often much larger 
-than these defaults. Please contact the facilitation team whenever you encounter one 
-of these limits so we can adjust your account settings or discuss alternative ways to 
-achieve your computing goals.</p>
+<h4 id="step-six">Step Six</h4>
 
-<ul>
-  <li><strong>Jobs with long runtimes.</strong> There is a default run limit of 72
-hours for each job queued in the HTC System, once it starts running.
-Jobs longer than this will be placed in HTCondor’s “hold” state.
-If your jobs will be longer, contact the CHTC facilitation team, and we’ll help you to determine the
-best solution.</li>
-  <li><strong>Submitting many jobs from one submit file.</strong> HTCondor is designed
-to submit thousands (or more) jobs from one submit file. If you are
-submitting <u>over 10,000 jobs per submit file</u> or want to queue 
-more than <u>50,000 total jobs as a single user</u>,
-please <a href="mailto:chtc@cs.wisc.edu">email us</a> as we have strategies to
-submit that many jobs in a way that will ensure you have as many
-jobs running as possible without also compromising queue performance.</li>
-  <li><strong>Submitting many <em>short</em> jobs from one submit file.</strong> While HTCondor
-is designed to submit thousands of jobs at a time, many <em>short</em> jobs
-can overwhelm the submit server, resulting in other jobs taking much
-longer to start than usual. <u> If you plan on submitting over
-1000 jobs per submit file, we ask that you ensure each job has a
-minimum run time of 5 minutes (on average). <u></u></u></li>
-  <li><strong>The default disk quota is 20 GB</strong> in your <code>/home</code> directory, as a 
-starting point. You can track your use of disk space and your quota value,
-using our <a href="check-quota.html">Quota Guide</a>. If you need more space
-for concurrent work, please send an email to chtc@cs.wisc.edu.</li>
-  <li><strong>Submitting jobs with "large" files:</strong> HTCondor's
-normal file transfer mechanism ("transfer_input_files") is good for 
-files up to 100MB in size (or 500MB total, per job). For jobs with larger
-files, please see our guide on <a href="file-availability.html">File Availability</a> 
-Options, and contact us to make arrangements.</li>
-</ul>
+<details>
+<summary>Access your Data on the HTC System</summary>
+   <br />
+<b>Upload your data to CHTC</b>
+   <br />
+When getting started on the HTC system, it is typically necessary to upload your data files to our system so that they can be used in jobs. For users that do not want to upload data to our system, it is possible to configure your HTCondor jobs to pull/push files using `s3` file transfer, pull data using standard unix commands (`wget`), among other transfer mechanisms. 
+<br />
+   <br />
+To learn how to upload data from different sources, including your laptop, see: 
+   <ul>
+      <li><a href="https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer">Transfer Files between CHTC and your Computer</a></li>
+      <li><a href="https://chtc.cs.wisc.edu/uw-research-computing/transfer-data-researchdrive">Transferring Files Between CHTC and ResearchDrive</a></li>
+      <li><a href="https://chtc.cs.wisc.edu/uw-research-computing/globus">Using Globus to Transfer Files to and from CHTC</a></li>
+      <li><a href="https://chtc.cs.wisc.edu/uw-research-computing/github-remote-access">Remotely Access a Private GitHub Repository</a></li>
+   </ul>
+   <br />
+<b>Choose a Location to Stage your Data</b>
+   <br />
+When uploading data to the HTC system, users need to choose a location to store that data on our system. There are two primary locations: `/home` and `/staging`. 
+   <br />
+   <br />
+`/home` is more efficient at handling "small" files, while `/staging` is more efficient at handling "large" files. For more information on what is considered "small" and "large" data files and to learn how to use files stored in these locations for jobs, visit our <a href="https://chtc.cs.wisc.edu/uw-research-computing/htc/guides.html">HTC Data</a> guides. 
+   <br />
+   </details>
 
-<p><span name="htc-hardware-and-configuration"></span></p>
+<h4 id="step-seven">Step Seven</h4>
 
-<h1 id="htc-hardware-and-configuration">HTC Hardware and Configuration</h1>
+<details>
+<summary>Run Test Jobs</summary>
+<br />
+Once you have your data, software, code, and HTCondor submit file prepared, you should submit several test jobs. The table created by HTCondor in the `.log` file will help you determine the amount of resources (CPUs/GPUs, memory, and disk) your job used, which is beneficial for understanding future job resource requests as well as troubleshooting. The standard out`.out` file will contain all text your code printed to the terminal screen while running, while the standard error `.err` file will contain any standard errors that your software printed out while running. 
+<br />
+   <br />
+Things to look for: 
+   <ul>
+      <li>Jobs being placed on hold (hold messages can be viewed using `condor_q jobID -hold`)</li>
+      <li>Jobs producing expected files</li>
+      <li>Size and number of output files (to make sure output is being directed to the correct location and that your quota is sufficient for all of your output data as you submit more jobs)</li>
+   </ul>
+</details>
 
-<p>The HTC System consists of several submit servers and many compute (aka execute) 
-nodes. All users log in at a login node, and submit their workflow as HTCondor jobs that run on execute points.</p>
+<h4 id="step-eight">Step Eight</h4>
+<details>
+   <summary>Submit Your Workflow</summary>
+<br />
+Once your jobs succeed and you have confirmed your quota is sufficient to store the files your job creates, you are ready to submit your full workflow. For researchers interested in queuing many jobs or accessing GPUs, we encourage you to consider accessing additional CPUs/GPUs outside of CHTC. Information is provided in the following step. 
+</details>
 
-<p><span name="htc-operating-system-and-software"></span></p>
+<h4 id="step-nine">Step Nine</h4>
+<details>
+   <summary>Access Additional Compute Capacity</summary>
+   <br />
+   Researchers with jobs that run for less than ~10 hours, use less than ~20GB of data per job, and do not require CHTC modules, can take advantage of additional CPUs/GPUs to run there jobs. These researchers can typically expect to have more jobs running simultaneously. 
+   <br />
+   <br />
+   To opt into using this additional capacity, your jobs will run on hardware that CHTC does not own. Instead, your jobs will "backfill" on resources owned by research groups, UW-Madison departments and organizations, and a national scale compute system: the OSG's Open Science Pool. This allows researchers to access capacity beyond what CHTC can provide. To learn how to take advantage of additional CPUs/GPUs, visit <a href="https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc">Scale Beyond Local HTC Capacity</a>.
+</details>
 
-<h2 id="htc-operating-system-and-software">HTC Operating System and Software</h2>
-
-<p>Submit servers in the HTC System are running CentOS 7 Linux.</p>
-
-<p>Due to the distributed and independent nature of the HTC system’s execute points, there can be a variety of operating systems on the pool of execution point resources (especially for users that opt into running jobs on the globally available OSPool operated by the OSG). However, the default operating system is CentOS 8 Stream Linux unless users request to run on a different operating system using their HTCondor submit file.</p>
-
-<p>The HTC system is a test bed for the <a href="https://htcondor.org/">HTCondor Software Suite</a>, and thus is typically running the latest or soon-to-be-released versions of HTCondor.</p>
-
-<p>To see more details of other software on the cluster, see our <a href="guides#htc-documentation">HTC Guides page</a>.</p>
-
-<p><span name="submit-servers"></span></p>
-
-<h2 id="htc-submit-servers">HTC Submit Servers</h2>
-
-<p>There are multiple submit servers for the HTC system. The two most common submit servers are <code>ap2001.chtc.wisc.edu</code> and <code>ap2002.chtc.wisc.edu</code> (formerly <code>submit1.chtc.wisc.edu</code> and <code>submit2.chtc.wisc.edu</code>, respectively). All users will be notified what submit server they should log into when their account is created.</p>
-
-<p><span name="execute-nodes"></span></p>
-
-<h2 id="htc-execute-nodes">HTC Execute Nodes</h2>
-
-<p>Only execute nodes will be used for performing your computational work.</p>
-
-<p>By default, when users submit HTCondor jobs, their jobs will only run on execute points owned and managed by CHTC staff. As of January 2024, there are approximately 40,000 CPU slots and 80+ GPU slots available in the CHTC execute pool.</p>
-
-<p>Some users, particularly those requesting GPUs, may wish to access additional execute points so that they may have more jobs running simultantiously. HTC users can opt in to allowing their jobs to run on additional execute points not owned or managed by CHTC staff. There are two additional execute pools that users can opt into using: the UW Grid and the OSG’s OSPool. There are many advantages to opting into running on these execute pools, such as accessing more GPUs, accessing different computer architectures, and having more jobs running in parallel. However, because these machines are not managed by CHTC and thus are backfilling on hardware owned by other entities, it is recommended that users only opt into using these resources if they have short (&lt;~10 hours), inturruptable jobs. For more information, see the <a href="https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc">Scaling Beyond Local HTC Capacity</a> guide.</p>
-
-<h3 id="fair-share-allocation">Fair Share Allocation</h3>
-
-<p>To promote fair access to HTC computing resources, all users are subject to a fair-share policy. This “fair-share” policy means that users who have run many jobs in the near-past will have a lower priority, and users with little recent activity will see their waiting jobs start sooner. 
-(The HTC system does not have a strict “first-in-first-out” queue policy.)</p>
-
-<p>Resource requests will also impact the number of jobs a user has running. Smaller jobs (those requesting smaller amounts of CPUs, memory, and disk) as well as more flexible jobs (those requesting to use a variety of GPUs instead of a specific GPU type) are able to match to more execute points than larger, less flexible jobs. Thus, these jobs will start sooner and more jobs will run in parallel.</p>
-
-<p><span name="data-storage-and-management"></span></p>
-<h1 id="data-storage-and-management">Data Storage and Management</h1>
-
-<p><strong>Data space in the HTC system is not backed-up and should be
-treated as temporary by users</strong>. Only files necessary for
-<em>actively-running</em> jobs should be kept on the filesystem, and files
-should be removed from the system when jobs complete. A primary copy of any
-essential files (e.g. software, submit files, input) should be kept in an 
-alternate, non-CHTC storage location.</p>
-
-<p><strong>CHTC Staff reserve the right to remove any significant amounts of data
-on the HTC System</strong> in our efforts to maintain filesystem performance
-for all users.</p>
-
-<p><span name="tools-for-managing-home-and-staging-space"></span></p>
-
-<h2 id="tools-for-managing-home-and-staging-space">Tools for Managing <code>/home</code> and <code>/staging</code> Space</h2>
-
-<p><span name="check-home-quota-and-usage"></span></p>
-<h3 id="check-home-quota-and-usage">Check <code>/home</code> Quota and Usage</h3>
-<p>To see what disk and items quotas are currently set for your <code>/home</code> direcotry, use the 
-<code>quota -vs</code> command. See the example below:</p>
-
-<pre class="term"><code>[alice@submit]$ quota -vs
-Disk quotas for user alice (uid 20384): 
-     Filesystem   space   quota   limit   grace   files   quota   limit   grace
-      /dev/sdb1  12690M  20480M  30720M            161k       0       0        
-</code></pre>
-
-<p>The output will list your total data usage under <code>blocks</code> on the <code>/dev/sbd1</code> filesystem that manages user <code>/home</code> data:</p>
-<ul>
-  <li><code>space</code> (MB): the amount of disk space you are currently using</li>
-  <li><code>quota</code> (MB): your soft <code>quota</code>. This is the value we recommend you consider to be your “quota”.</li>
-  <li><code>limit</code> (MB): the hard <code>limit</code> or absolute maximum amount of space you can use. This value is almost always 10GB larger than your soft quota, and is only provided as a helpful spillover space. <strong>Once you hit this hard limit value, you and your jobs will no longer be allowed to save data.</strong></li>
-  <li><code>files</code>: the number of files in your <code>/home</code> directory. <code>/home</code> does not typically restrict the number of files a user can have, which is why there are no values for file <code>quota</code> and <code>limit</code></li>
-</ul>
-
-<p>Each of the disk space values are given in megabytes (MB), which can be converted to gigabytes (GB) by dividing by 1024.</p>
-
-<p><span name="check-staging-quota-and-usage"></span></p>
-
-<h3 id="check-staging-quota-and-usage">Check <code>/staging</code> Quota and Usage</h3>
-
-<p>To see your <code>/staging</code> quota and usage, use the <code>get_quotas &lt;NetID&gt;</code> command. For example,</p>
-<pre class="term"><code>[NetID@ap2001 ~]$ get_quotas /staging/NetID
-</code></pre>
-
-<p>If the output of this command is blank, it means you do not have a <code>/staging</code> directory. Contact CHTC staff to request one at any time.</p>
-
-<p><span name="alt-commands-to-check-quotas"></span></p>
-
-<h3 id="alternative-commands-to-check-quotas">Alternative Commands to Check Quotas</h3>
-<p>Alternatively, the <code>ncdu</code> command can also be used to see how many 
-files and directories are contained in a given path:</p>
-
-<pre class="term"><code>[NetID@ap2001 ~]$ ncdu /home/NetID
-[NetID@ap2001 ~]$ ncdu /staging/NetID
-</code></pre>
-
-<p>When <code>ncdu</code> has finished running, the output will give you a total file
-count and allow you to navigate between subdirectories for even more
-details. Type <code>q</code> when you're ready to exit the output viewer. More
-info here: <a href="https://lintut.com/ncdu-check-disk-usage/">https://lintut.com/ncdu-check-disk-usage/</a></p>
-
-<p><span name="request-a-quota-increase"></span></p>
-<h3 id="request-a-quota-increase">Request a Quota Increase</h3>
-<p>Increased quotas on either of these locations are available upon email 
-request to <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> after a user has 
-cleared out old data and run relevant test jobs to inform the request. In your request, 
-please include both size (in GB) and file/directory counts. If you don't 
-know how many files your installation creates, because it's more than 
-the current items quota, simply indicate that in your request.</p>
+<h4 id="step-ten">Step Ten</h4>
+<details>
+   <summary>Move Your Data off CHTC</summary>
+   <br />
+   Data stored on CHTC systems is not backed up. While CHTC staff try to maintain a stable compute environment, it is possible for unexpected outages to occur that may impact your data on our system. <b>We highly recommend all CHTC users maintain copies of important scripts and input files on another compute system (your laptop, lab server, ResearchDrive, etc.) throughout their analysis. Additionally, as you complete your analysis on CHTC servers, we highly recommend you move your data off our system to a backed up storage location.</b>
+   <br />
+   <br />
+   CHTC staff periodically delete data of users that have not logged in or submitted jobs in several months to clear up space for new users. <b>Eventually, all users should expect their data to be deleted off CHTC servers and should plan accordingly. Data on CHTC is meant to be used for analyses actively being carried out - CHTC is not a long-term storage solution for your data storage needs.
+&lt;/details&gt;
+</b></details>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -483,7 +447,7 @@ the current items quota, simply indicate that in your request.</p>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/htc-overview">HTC System Overview</a>
+                                        <a class="" href="/uw-research-computing/htc-overview">HTC System Overview</a>
                                     </div>
                                 
 
@@ -498,7 +462,7 @@ the current items quota, simply indicate that in your request.</p>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc-roadmap">HTC Getting Started Roadmap</a>
+                                        <a class="fw-bolder" href="/uw-research-computing/htc-roadmap">HTC Getting Started Roadmap</a>
                                     </div>
                                 
 
