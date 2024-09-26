@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Policies and Expectations for Using CHTC</title>
+<title>Reviewing Job Information Using SLURM</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Policies and Expectations for Using CHTC | CHTC</title>
+<title>Reviewing Job Information Using SLURM | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="Policies and Expectations for Using CHTC" />
+<meta property="og:title" content="Reviewing Job Information Using SLURM" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="This page lists important policies and expectations for using CHTC computing and data services. Our goal is to support a community of users and a variety of research. If an individual user is taking action that negatively impacts our services, we reserve the right to deactivate their account or remove files without notice." />
-<meta property="og:description" content="This page lists important policies and expectations for using CHTC computing and data services. Our goal is to support a community of users and a variety of research. If an individual user is taking action that negatively impacts our services, we reserve the right to deactivate their account or remove files without notice." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/user-expectations" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/user-expectations" />
+<meta name="description" content="The HPC Cluster uses SLURM to manage jobs on the HPC Cluster. This page describes how to review job performance and monitor other job information." />
+<meta property="og:description" content="The HPC Cluster uses SLURM to manage jobs on the HPC Cluster. This page describes how to review job performance and monitor other job information." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/hpc-job-monitoring" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc-job-monitoring" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-09-26T18:17:54+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Policies and Expectations for Using CHTC" />
+<meta property="twitter:title" content="Reviewing Job Information Using SLURM" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-26T18:17:54+00:00","datePublished":"2024-09-26T18:17:54+00:00","description":"This page lists important policies and expectations for using CHTC computing and data services. Our goal is to support a community of users and a variety of research. If an individual user is taking action that negatively impacts our services, we reserve the right to deactivate their account or remove files without notice.","headline":"Policies and Expectations for Using CHTC","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/user-expectations"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/user-expectations"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-26T18:17:54+00:00","datePublished":"2024-09-26T18:17:54+00:00","description":"The HPC Cluster uses SLURM to manage jobs on the HPC Cluster. This page describes how to review job performance and monitor other job information.","headline":"Reviewing Job Information Using SLURM","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-job-monitoring"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-job-monitoring"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -236,102 +236,163 @@
 
 
     <main id="main" style="min-height: 60vh;">
-        <main id="main" style="min-height: 60vh;">
-    <div class="container-xxl mb-5">
+        <div class="container-xxl mb-5">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-9 mw-1000">
-
             <h1 class="uw-mini-bar mb-4">
-    Policies and Expectations for Using CHTC
+    Reviewing Job Information Using SLURM
 </h1>
 
-            <p>This page lists important policies and expectations for using CHTC computing and 
-data services. Our goal is to support a community of users and a variety of 
-research. If an individual user is taking 
-action that negatively impacts our services, we reserve the right to 
-deactivate their account or remove files without notice.</p>
+            <p>The HPC Cluster uses SLURM to manage jobs on the HPC Cluster. This page describes 
+how to review job performance and monitor other job information.</p>
 
-<h2 id="access-and-use">Access and Use</h2>
+<div class="d-flex flex-column mb-5">
 
-<p>Use of CHTC services are free to use in support of UW - Madison’s research and 
-teaching mission.</p>
+<h2>Table of Contents</h2>
 
-<p><strong>Accounts are linked to individuals and should NOT be shared.</strong> We are happy to make new
-accounts for individuals or group-owned spaces for sharing files. Accounts that we 
-notice being shared will be immediately disabled and a meeting with the PI 
-(faculty advisor) may be necessary to reinstate the account.</p>
+<div class="uw-sidebar-box me-auto">
+<div class="uw-directory">
 
-<p>For more information on the process for obtaining an account, see our 
-<a href="account-details.html">How to Request an Account</a> guide.</p>
+      <ul>
+        <li><a href="#view-job-performance-with-seff">View Job Performance with <code>seff</code></a></li>
+        <li><a href="#view-job-information-with-sacct">View Job Information with <code>sacct</code></a>
+          <ul>
+            <li><a href="#how-to-select-jobs">How To Select Jobs</a></li>
+            <li><a href="#displaying-specific-fields">Displaying Specific Fields</a></li>
+            <li><a href="#recommended-fields">Recommended Fields</a></li>
+            <li><a href="#other-useful-options">Other Useful Options</a></li>
+            <li><a href="#a-sample-sacct-query">A Sample <code>sacct</code> Query</a></li>
+          </ul>
+        </li>
+      </ul>
 
-<h2 id="data-policies">Data Policies</h2>
+    </div>
+</div>
+</div>
 
-<p><strong>CHTC data locations are not backed up</strong>, and users should
-treat CHTC compute systems as temporary storage locations for <em>active</em>,
-currently-queued computational work. Users should remove data from CHTC
-systems upon completion of a batch of computational work and keep copies of
-all essential files in a non-CHTC location. CHTC staff reserve the right
-to delete data from any CHTC data location at at any time, to preserve
-systems performance, and are not responsible for data loss or file system
-corruption, which are possible in the absence of back-ups.</p>
+<p>The following assumes that you have been granted access to the HPC cluster 
+and can log into the head node <code>spark-login.chtc.wisc.edu</code>. If this is not
+the case, please see the <a href="form.html">CHTC account application page</a> or email
+the facilitation team at chtc@cs.wisc.edu.</p>
 
-<p><strong>CHTC is not HIPAA-compliant</strong> and users should not bring HIPAA data into 
-CHTC services. If you have data security concerns or any questions about 
-data security in CHTC, <a href="https://chtc.cs.wisc.edu/uw-research-computing/get-help.html">please get in touch</a>!</p>
+<h2 id="view-job-performance-with-seff">View Job Performance with <code>seff</code></h2>
 
-<p>To request a change in the quotas for a storage location, please see
-our <a href="quota-request">Request a Quota Change</a> guide.</p>
+<p>The <code>seff</code> command will print out a summary of usage and efficiency metrics for 
+a specific job. The usage and output looks like this:</p>
 
-<h3 id="export-control">Export Control</h3>
+<pre class="term"><code>[alice@login]$ seff 79950
+Job ID: 79950
+Cluster: spark_el9
+User/Group: alice/alice
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 16
+CPU Utilized: 00:00:08
+CPU Efficiency: 1.61% of 00:08:16 core-walltime
+Job Wall-clock time: 00:00:31
+Memory Utilized: 876.69 MB (estimated maximum)
+Memory Efficiency: 2.74% of 31.25 GB (1.95 GB/core)
+</code></pre>
 
-<p>Users agree not to access, utilize, store, or in any way run export controlled data, information, 
-programs, etc. on CHTC software, equipment, or computing resources without prior review by the 
-UW-Madison Export Control Office.</p>
+<h2 id="view-job-information-with-sacct">View Job Information with <code>sacct</code></h2>
 
-<p>Export controlled information is subject to federal government rules on handling and viewing and has 
-restrictions on who and where it may be accessed. A license can be required for access by foreign 
-persons and in foreign jurisdictions so it’s important to ensure that all legal requirements are 
-followed.
-If you have export controlled information that you would like to use on the CHTC, or you are unsure 
-if the information you have is export controlled, please contact the Export Control Office at 
-<a href="mailto:exportcontrol@grad.wisc.edu">exportcontrol@grad.wisc.edu</a> for guidance.</p>
-
-<p><strong>Note: The CHTC is not compliant with Controlled Unclassified Information (CUI) requirements.</strong></p>
-
-<h2 id="user-expectations">User Expectations</h2>
-
-<p>Because our systems are shared by many CHTC users, everyone contributes to 
-helping the systems run smoothly. The following are some best practices 
-to get the most out of CHTC without harming other users. Our goal 
-is always to help you get your work done - if you think the following recommendations 
-limit your capacity to run work, please contact us to discuss alternatives.</p>
-
-<p><strong>Never run computationally intensive tasks on the login nodes</strong> for either 
-system. As a rule of thumb, anything that runs for more than a few seconds, or 
-is known to use a lot of cores or memory should not be run directly, but as a job. 
-Small scripts and commands (to compress data, create directories,
-etc.) that run within a few minutes on the submit server are okay,
-but their use should be minimized when possible. If you have questions about this, 
-please contact the facilitation team. CHTC staff reserve the right to kill any long-running or problematic processes on the 
-head nodes and/or disable user accounts that violate this policy</p>
-
-<p><strong>Avoid unsupervised scripts on the login nodes.</strong> Automating tasks via tools like 
-<code>cron</code>, <code>watch</code>, or using a workflow manager (not including HTCondor’s DAGMan) on the login node is not allowed without prior 
-discussion with the facilitation or infrastructure team.</p>
+<p>SLURM saves jobs information in a database that can be queried using the <code>sacct</code> command.</p>
 
 <blockquote>
-  <p><strong>(HTC system specific):</strong> Since use of <code>watch</code> with <code>condor_q</code> is prohibited, 
-we recommend using <code>condor_watch_q</code> as an alternative for live updates on your jobs 
-in the queue. <code>condor_watch_q</code> is more efficient and will not impair system performance.</p>
+  <p><strong>If you are having trouble viewing output from <code>sacct</code> try running this command first</strong></p>
+
+  <pre class="term"><code>[alice@login]$ sacct --start=2018-01-01
+</code></pre>
 </blockquote>
 
-<p><strong>Test your jobs</strong>. We recommend testing a small version of your overall workflow 
-before submitting your full workflow. By testing a smaller version of your jobs, 
-you can determine resource requests, runtimes, and whether you may need an increase 
-in your user quota. Both our HTC and HPC systems use a fair shair policy and each 
-researcher has a user priority. <strong>Submitting many jobs that fail or do not produce 
-the unexpected output will decrease your user priority without helping you complete 
-your research.</strong>  User priorities naturally reset over time.</p>
+<h3 id="how-to-select-jobs">How To Select Jobs</h3>
+
+<p>By default <code>sacct</code> shows only your jobs, that ran or were submitted on the current 
+date. See the following list for different ways to select groups of jobs to review. Some of the options – especially the time and user options – can both be added to the same query.</p>
+
+<ul>
+  <li>To display information about a <strong>specific job or list of jobs</strong> use <code>-j</code> or <code>--jobs</code> followed by a job number or comma separated list of job numbers.</li>
+</ul>
+
+<pre class="term"><code>[alice@login]$ sacct --jobs job1,job2,job3
+</code></pre>
+<!-- Sample output -->
+
+<ul>
+  <li>To select information about jobs in a <strong>certain date range</strong> use <code>--start</code> and <code>--end</code> Without it, <code>sacct</code> will only return jobs from the current day.</li>
+</ul>
+
+<pre class="term"><code>[alice@login]$ sacct --start=YYYY-MM-DD
+</code></pre>
+
+<ul>
+  <li>To select information about jobs in a <strong>certain time range</strong> use <code>--starttime</code> and <code>--endtime</code> The default start time is 00:00:00 of the current day, unless used with <code>-j</code>, then the default start time is Unix Epoch 0. The default end time is time of running the command. Valid time formats are
+    <pre><code>HH:MM[:SS] [AM|PM]
+MMDD[YY] or MM/DD[/YY] or MM.DD[.YY]
+MM/DD[/YY]-HH:MM[:SS]
+YYYY-MM-DD[THH:MM[:SS]] 
+</code></pre>
+  </li>
+</ul>
+
+<pre class="term"><code>[alice@login]$ sacct --starttime 08/23 --endtime 08/24
+</code></pre>
+
+<ul>
+  <li>To display another <strong>user’s</strong> jobs use <code>--user</code></li>
+</ul>
+
+<pre class="term"><code>[alice@login]$ sacct --user BuckyBadger
+</code></pre>
+<!-- Sample output -->
+
+<h3 id="displaying-specific-fields">Displaying Specific Fields</h3>
+
+<p><code>sacct</code> can display different fields about your jobs. You can use the <code>--helpformat</code> flag to get a full list.</p>
+
+<pre class="term"><code>[alice@login]$ sacct --helpformat
+</code></pre>
+
+<p>Once you know what fields to display, the format flag will allow you to list the ones you want to see:</p>
+
+<pre><code>[alice@login]$ sacct --format=JobId,Partition,NCpus,NNodes,State,Elapsed
+</code></pre>
+
+<h3 id="recommended-fields">Recommended Fields</h3>
+
+<p>When looking for information about your jobs CHTC recommends using these fields</p>
+<pre><code>elapsed
+end
+exitcode
+jobid
+ncpus
+nnodes
+nodelist
+ntasks
+partition
+start
+state
+submit
+user
+</code></pre>
+
+<h3 id="other-useful-options">Other Useful Options</h3>
+
+<p>To only show statistics relevant to the job allocation itself, not taking steps into consideration, use <code>-X</code>. This can be useful when trying to figure out which part of a job errored out.</p>
+
+<pre class="term"><code>[alice@login]$ sacct -X
+</code></pre>
+<!-- Sample Output -->
+
+<h3 id="a-sample-sacct-query">A Sample <code>sacct</code> Query</h3>
+
+<p>For example to view all of your jobs since January 1, 2024, printing 
+out which partition you used, how many nodes, and what the final status of the job was, 
+use:</p>
+
+<pre class="term"><code>[alice@login]$ sacct -X --start=2024-01-01 --format=jobid,partition,nnodes,state
+</code></pre>
+
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -341,6 +402,161 @@ your research.</strong>  User priorities naturally reset over time.</p>
 
     <div id="guide-sidebar">
         
+            
+
+            
+            
+
+            <h6 class="mt-5">HPC Guides</h6>
+            <div class="accordion accordion-flush">
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="basics-and-policies">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
+                                    Basics and Policies
+                                </button>
+                            </h2>
+                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/archived/hpc-el8-to-el9">HPC System Transition to a New Linux Version (CentOS Stream 9)</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/hpc-overview">HPC Cluster Overview</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/connecting">Log In to CHTC Resources</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/transfer-files-computer">Transfer Files between CHTC and your Computer</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/configure-ssh">Automate CHTC Log In</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/transfer-data-researchdrive">Transfer Files Between CHTC and ResearchDrive</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/github-remote-access">Access a Private GitHub Repository Remotely</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/hpc-known-issues">Known Issues on the HPC</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="job-submission">
+                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#job-submission-collapse" aria-expanded="false" aria-controls="job-submission">
+                                    Job Submission
+                                </button>
+                            </h2>
+                            <div id="job-submission-collapse" class="accordion-collapse collapse show " aria-labelledby="job-submission" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/hpc-job-submission">Submitting and Managing Jobs Using SLURM</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="fw-bolder" href="/uw-research-computing/hpc-job-monitoring">Reviewing Job Information Using SLURM</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="software-solutions">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
+                                    Software Solutions
+                                </button>
+                            </h2>
+                            <div id="software-solutions-collapse" class="accordion-collapse collapse " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/hpc-software">Use Software on the HPC Cluster</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/hpc-spack-setup">Set Up Spack on HPC</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/hpc-spack-install">Install Software Using Spack</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/hpc-spack-modules">Create Custom Modules Using Spack</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/hpc-el9-spack">Recreating Spack Installs on a New Operating System</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/apptainer-hpc">Using Apptainer Containers on HPC</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/apptainer-build">Building an Apptainer Container</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+                
+                    
+                
+            </div>
+        
     </div>
 
 
@@ -349,7 +565,6 @@ your research.</strong>  User priorities naturally reset over time.</p>
     </div>
 </div>
 
-</main>
     </main>
     <footer id="colophon" class="uw-footer">
     <div class="uw-footer-content">

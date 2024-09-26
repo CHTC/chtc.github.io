@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc-job-submission" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-09-26T00:35:42+00:00" />
+<meta property="article:published_time" content="2024-09-26T18:17:54+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Submitting and Managing Jobs Using SLURM" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-26T00:35:42+00:00","datePublished":"2024-09-26T00:35:42+00:00","description":"The HPC Cluster uses SLURM to manage jobs on the HPC Cluster. This page describes how to submit and manage jobs using SLURM.","headline":"Submitting and Managing Jobs Using SLURM","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-job-submission"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-job-submission"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-26T18:17:54+00:00","datePublished":"2024-09-26T18:17:54+00:00","description":"The HPC Cluster uses SLURM to manage jobs on the HPC Cluster. This page describes how to submit and manage jobs using SLURM.","headline":"Submitting and Managing Jobs Using SLURM","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-job-submission"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-job-submission"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -246,23 +246,42 @@
             <p>The HPC Cluster uses SLURM to manage jobs on the HPC Cluster. This page describes 
 how to submit and manage jobs using SLURM.</p>
 
-<h1 id="contents">Contents</h1>
+<div class="d-flex flex-column mb-5">
 
-<ol>
-  <li><a href="#1-submitting-jobs-using-slurm">Submitting Jobs Using SLURM</a></li>
-  <li><a href="#2-viewing-jobs-in-the-queue">Viewing Jobs in the Queue</a></li>
-  <li><a href="#3-viewing-additional-job-information">Viewing Additional Job Information</a></li>
-  <li><a href="#4-removing-or-holding-jobs">Removing or Holding Jobs</a></li>
-</ol>
+<h2>Table of Contents</h2>
+
+<div class="uw-sidebar-box me-auto">
+<div class="uw-directory">
+
+      <ul>
+        <li><a href="#1-submitting-jobs-using-slurm">1. Submitting Jobs Using SLURM</a>
+          <ul>
+            <li><a href="#a-submitting-a-job">A. Submitting a Job</a></li>
+            <li><a href="#b-optimizing-your-submit-file">B. Optimizing Your Submit File</a></li>
+            <li><a href="#c-requesting-an-interactive-job-int-and-pre-partitions">C. Requesting an Interactive Job ("int" and "pre" partitions)</a>
+              <ul>
+                <li><a href="#for-simple-testing-or-compiling">For simple testing or compiling</a></li>
+                <li><a href="#for-running-mpi-code">For running MPI code</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#2-viewing-jobs-in-the-queue">2. Viewing Jobs in the Queue</a></li>
+        <li><a href="#3-removing-or-holding-jobs">3. Removing or Holding Jobs</a></li>
+      </ul>
+
+    </div>
+</div>
+</div>
 
 <p>The following assumes that you have been granted access to the HPC cluster 
 and can log into the head node <code>spark-login.chtc.wisc.edu</code>. If this is not
 the case, please see the <a href="form.html">CHTC account application page</a> or email
 the facilitation team at chtc@cs.wisc.edu.</p>
 
-<h1 id="1-submitting-jobs-using-slurm"><strong>1. Submitting Jobs Using SLURM</strong></h1>
+<h1 id="1-submitting-jobs-using-slurm">1. Submitting Jobs Using SLURM</h1>
 
-<h2 id="a-submitting-a-job"><strong>A. Submitting a Job</strong></h2>
+<h2 id="a-submitting-a-job">A. Submitting a Job</h2>
 
 <p>Jobs can be submitted to the cluster using a submit file, sometimes also 
 called a “batch” file. The top half of the file consists of <code>#SBATCH</code> 
@@ -301,7 +320,7 @@ srun --mpi=pmix -n 64 /home/username/mpiprogram
 <pre class="term"><code>[alice@login]$ sbatch submit-script.sh
 </code></pre>
 
-<h2 id="b-optimizing-your-submit-file"><strong>B. Optimizing Your Submit File</strong></h2>
+<h2 id="b-optimizing-your-submit-file">B. Optimizing Your Submit File</h2>
 
 <p>The new cluster has different partition names and different sized nodes. <strong>We always recommend requesting cores per node (instead of total cores), using a multiple of 32 cores as your request per node.</strong> Requesting multiple nodes is not advantageous if your jobs are smaller than 128 cores. We also now recommend requesting memory per core instead of memory per node, for similar reasons, using the <code>--mem-per-cpu</code> flag with units of MB. Here are our recommendations for different sized jobs:</p>
 
@@ -334,7 +353,7 @@ srun --mpi=pmix -n 64 /home/username/mpiprogram
 	</tr>
 </table>
 
-<h2 id="c-requesting-an-interactive-job-int-and-pre-partitions"><strong>C. Requesting an Interactive Job ("int" and "pre" partitions)</strong></h2>
+<h2 id="c-requesting-an-interactive-job-int-and-pre-partitions">C. Requesting an Interactive Job ("int" and "pre" partitions)</h2>
 
 <p>If you want to run your job commands yourself, as a test before submitting 
 a job as described above, you can request an interactive job on the cluster.</p>
@@ -471,7 +490,7 @@ a <code>SLURM_JOB_UID</code> variable is created for the interactive <code>srun<
   </blockquote>
 </blockquote>
 
-<h1 id="2-viewing-jobs-in-the-queue"><strong>2. Viewing Jobs in the Queue</strong></h1>
+<h1 id="2-viewing-jobs-in-the-queue">2. Viewing Jobs in the Queue</h1>
 
 <p>To view your jobs in the SLURM queue, use the following command:</p>
 
@@ -481,90 +500,11 @@ a <code>SLURM_JOB_UID</code> variable is created for the interactive <code>srun<
 <p>Issuing <code>squeue</code> alone will show all user jobs in the queue. You can
 view all jobs for a particular partition with <code>squeue -p shared</code>.</p>
 
-<h1 id="3-viewing-additional-job-information"><strong>3. Viewing Additional Job Information</strong></h1>
+<blockquote>
+  <p>More commands to review job information and monitor jobs are described in <a href="hpc-job-monitoring">Reviewing Job Information Using SLURM</a>.</p>
+</blockquote>
 
-<p>Accounting information for jobs that are invoked with SLURM are logged. The <code>sacct</code> command displays job accouting data in a variety of forms for your analysis.</p>
-
-<p><strong>If you are having trouble viewing output from <code>sacct</code> try running this command first</strong></p>
-
-<pre class="term"><code>[alice@login]$ sacct --start=2018-01-01
-</code></pre>
-
-<h2 id="how-to-select-jobs">How To Select Jobs</h2>
-
-<ul>
-  <li>
-    <p>To display information about a specific job or list of jobs use <code>-j</code> or <code>--jobs</code> followed by a job number or comma separated list of job numbers.</p>
-
-    <pre class="term"><code>  [alice@login]$ sacct --jobs job1,job2,job3
-</code></pre>
-    <!-- Sample output -->
-  </li>
-  <li>
-    <p>To select information about jobs in a certain date range use <code>--start</code> and <code>--end</code> Without it, <code>sacct</code> will only return jobs from the current day.</p>
-
-    <pre class="term"><code>  [alice@login]$ sacct --start=YYYY-MM-DD
-</code></pre>
-  </li>
-  <li>To select information about jobs in a certian time range use <code>--starttime</code> and <code>--endtime</code> The default start time is 00:00:00 of the current day, unless used with <code>-j</code>, then the default start time is Unix Epoch 0. The default end time is time of running the command. Valid time formats are
-    <pre><code>  HH:MM[:SS] [AM|PM]
-  MMDD[YY] or MM/DD[/YY] or MM.DD[.YY]
-  MM/DD[/YY]-HH:MM[:SS]
-  YYYY-MM-DD[THH:MM[:SS]] 
-</code></pre>
-
-    <pre class="term"><code>  [alice@login]$ sacct --starttime 08/23 --endtime 08/24
-</code></pre>
-  </li>
-  <li>
-    <p>To display another user’s jobs use <code>--user</code></p>
-
-    <pre class="term"><code>  [alice@login]$ sacct --user BuckyBadger
-</code></pre>
-    <p><!-- Sample output --></p>
-  </li>
-  <li>
-    <p>To only show statistics relevant to the job allocation itself, not taking steps into consideration use <code>-X</code>. This can be useful when trying to figure out which part of a job errored out.</p>
-
-    <pre class="term"><code>  [alice@login]$ sacct -X
-</code></pre>
-    <p><!-- Sample Output --></p>
-  </li>
-</ul>
-
-<h2 id="displaying-specific-fields">Displaying Specific Fields</h2>
-
-<p><code>sacct</code> can display different fields about your jobs. You can use the <code>--helpformat</code> flag to get a full list.</p>
-
-<pre class="term"><code>[alice@login]$ sacct --helpformat
-</code></pre>
-
-<h3 id="recommended-fields">Recommended Fields</h3>
-
-<p>When looking for information about your jobs CHTC recommends using these fields</p>
-<pre><code>elapsed
-end
-exitcode
-jobid
-ncpus
-nnodes
-nodelist
-ntasks
-partition
-start
-state
-submit
-user
-</code></pre>
-
-<p>For example run</p>
-
-<pre class="term"><code>sacct --start=2020-01-01 --format=jobid
-</code></pre>
-
-<p>to see jobIDs of all jobs ran since 1/1/2020.</p>
-
-<h1 id="4-removing-or-holding-jobs"><strong>4. Removing or Holding Jobs</strong></h1>
+<h1 id="3-removing-or-holding-jobs">3. Removing or Holding Jobs</h1>
 
 <p>You can kill and/or remove your job from the
 queue with the following:</p>
@@ -676,6 +616,11 @@ you can “hold” a submitted job by using:</p>
 
                                     <div class="document-link-wrapper bg-light">
                                         <a class="fw-bolder" href="/uw-research-computing/hpc-job-submission">Submitting and Managing Jobs Using SLURM</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/hpc-job-monitoring">Reviewing Job Information Using SLURM</a>
                                     </div>
                                 
                             </div>
