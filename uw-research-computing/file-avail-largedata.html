@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-09-30T19:22:26+00:00" />
+<meta property="article:published_time" content="2024-09-30T19:45:28+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Managing Large Data in HTC Jobs" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-30T19:22:26+00:00","datePublished":"2024-09-30T19:22:26+00:00","description":"When submitting jobs to CHTC’s High Throughput Computing (HTC) system, there is a distinct location for staging data that is too large to be handled at scale via the default HTCondor file transfer mechanism. This location should be used for jobs that require input files larger than 100MB and/or that generate output files larger than 3-4GB.","headline":"Managing Large Data in HTC Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-30T19:45:28+00:00","datePublished":"2024-09-30T19:45:28+00:00","description":"When submitting jobs to CHTC’s High Throughput Computing (HTC) system, there is a distinct location for staging data that is too large to be handled at scale via the default HTCondor file transfer mechanism. This location should be used for jobs that require input files larger than 100MB and/or that generate output files larger than 3-4GB.","headline":"Managing Large Data in HTC Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -419,7 +419,7 @@ file permissions to make certain files available for other users).</p>
 <h2 id="a-get-a-directory">A. Get a Directory</h2>
 
 <p>Space in our large data staging area is granted by request. If you think you need 
-a directory, email CHTC’s Research Computing Facilitators (chtc@cs.wisc.edu).</p>
+a directory, fill out our <a href="https://chtc.cs.wisc.edu/uw-research-computing/quota-request.html">quota request form</a>.</p>
 
 <p>The created directory will exist at this path: <code>/staging/username</code></p>
 
@@ -450,12 +450,14 @@ CHTC submit server.</strong> After obtaining a user directory within
 <code>/staging</code> and an account on the transfer server, copy relevant
 files directly into this user directory from your own computer:</p>
 
-<ul>
+<ul class="term">
   <li>Example <code>scp</code> command on your own Linux or Mac computer:
     <pre><code>$ scp large.file username@transfer.chtc.wisc.edu:/staging/username/ 
 </code></pre>
-    <p>{.term}</p>
   </li>
+</ul>
+
+<ul>
   <li>If using a Windows computer:
     <ul>
       <li>Using a file transfer application, like WinSCP, directly drag the large
