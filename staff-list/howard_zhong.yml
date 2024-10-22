@@ -1,0 +1,10 @@
+image: images/howard_zhong.png
+institution: Morgridge Institute for Research
+title: Research Software Engineer
+name: Howard Zhong
+status: Staff
+pelican:
+  weight: 7
+organizations:
+  - chtc
+  - pelican
