@@ -1,14 +1,11 @@
 name: "Josh Drake"
 date: 2021-07-20T09:00:00+10:00
+status: Past
 draft: false
 image: "images/josh_drake.jpg"
 title: "Institutional PI"
 institution: "Indiana University"
 website: https://cacr.iu.edu/about/people/Josh_Drake.html
-osg:
-    title: OSG Information Security Officer
-    promoted: true
-    weight: 6
 organizations: 
     - path
     - osg
