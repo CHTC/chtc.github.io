@@ -246,10 +246,23 @@
 
             <p>
                 This page lists software development, infrastructure services, and research facilitation
-                projects for CHTC Fellow applicants to consider. Please check back in November 2024 for
-                the next round of fellowship opportunities.
+                projects for CHTC Fellow applicants to consider.
             </p>
-            <a href="/fellowships/fellows" class="btn btn-primary">View Summer 2024 Projects</a>
+
+            <div class="primary-callout mt-3">
+                <h2 class="mt-1">Applications are now open!</h2>
+
+                <p>To apply, send an email to <a href="mailto:chtc-jobs@g-groups.wisc.edu">chtc-jobs@g-groups.wisc.edu</a> with the following information:</p>
+
+                <ul class="mb-2">
+                    <li>A resume/CV (in PDF format) with contact information. Be sure to include your full name, email address, the name of your university or college and your current or planned major and/or area of study.</li>
+                    <li>A cover letter that describes your interest in the Fellowship Program. For example, you may wish to expand on 3 or 4 topics from the following list: your background, your skills, and strengths; what software, computing or scientific topics appeal to you; previous research experience, if any; what you may want to pursue as a future career; and what benefits you would like to gain from this program. If you already have a potential project which interests you from the project list, you can also mention them here. It is however not required to have a mentor/project finalized to submit an application. Successful applicants will be connected to mentors to select and define their projects in a 2nd step following this application.</li>
+                </ul>
+            </div>
+            <p>
+                Updated November 1st
+            </p>
+
 
             
 
@@ -260,14 +273,163 @@
 
             <h2 id="software-development">Software Development</h2>
             
-                <p>No software development projects are currently available.</p>
             
+                <div class="rounded p-4 mb-3 shadow">
+    <div>
+        <h3 id="high-throughput-inference-using-chtc-and-ospool" class="my-2 mb-1 uw-mini-bar">High Throughput Inference using CHTC and OSPool</h3>
+        <div class="row justify-content-between d-flex">
+            <div class="col-auto">
+                <span class="fw-light"></span>
+            </div>
+            
+        </div>
+        
+    </div>
+    <p>Advancements in the predictive powers of AI models have led to an expansion in their application and impact in scientific research. An increasing challenge with this rise in utility (and complexity) comes from the desire to leverage these models for enormous volumes of predictions. This project aims to profile technologies and strategies for high throughput inference, using the computing resources available in <a href="https://chtc.cs.wisc.edu/">CHTC</a> and the <a href="https://osg-htc.org/services/open_science_pool.html#:~:text=The%20OSPool%20is%20a%20source,with%20a%20US%20academic%20institution.">OSPool</a> to tackle these predictive tasks at enormous scale. By conducting experiments to measure overall performance of these approaches, we aim to be able to provide users guidance and insight into how best to leverage powerful models in their research. These explorations will include strategies for efficient model and data movement, batch processing, data splitting, and may include additional experiments into distributed inference, NVIDIA technologies (Triton, Multi-Process Service), and additional state-of-the-art AI inference technologies.</p>
+
+<h4 id="project-objectives">Project Objectives:</h4>
+
+<ul>
+  <li>Define a benchmark inference task using a model and dataset</li>
+  <li>Design a set of experiments to measure inference performance, focusing on overall throughput, resource utilization, efficiency, and scalability.</li>
+  <li>Profile variants of the inference task, comparing several approaches:
+    <ul>
+      <li>Baseline</li>
+      <li>Data movement via <a href="https://pelicanplatform.org/">Pelican</a></li>
+      <li>Data splitting and distribution across multiple execution points</li>
+      <li>Leveraging external software or advanced runtime configuration (NVIDIA Triton, Multi-Process Service (MPS), HuggingFace’s Accelerate)</li>
+    </ul>
+  </li>
+  <li>Create documentation, tutorials, and guides to inform CHTC and OSPool users of recommended practices.</li>
+</ul>
+
+<h4 id="prerequisite-skills-or-education">Prerequisite skills or education:</h4>
+
+<ul>
+  <li>Familiarity with machine learning frameworks (PyTorch, Tensorflow), preferred</li>
+  <li>Familiarity with <a href="https://htcondor.com/">HTCondor</a>, preferred</li>
+</ul>
+
+    
+</div>
+
+            
+                <div class="rounded p-4 mb-3 shadow">
+    <div>
+        <h3 id="expanded-pelican-cache-monitoring" class="my-2 mb-1 uw-mini-bar">Expanded Pelican Cache Monitoring</h3>
+        <div class="row justify-content-between d-flex">
+            <div class="col-auto">
+                <span class="fw-light"></span>
+            </div>
+            
+        </div>
+        
+    </div>
+    <p>Get ready to contribute to the national Cyber Infrastructure, because CHTC is a leader in the development and operation of nationally-distributed, heterogeneous systems — an environment in which services owned and operated by many different organizations spanning vast geographical regions are brought together to deliver cohesive experiences for users. Perhaps the most pressing challenge in this environment is that of system monitoring, or the task of understanding health for both the overall system and its individual components. Key questions include defining what it means for something to be “healthy/unhealthy” and detecting when a particular service requires human intervention. While monitoring requires both data collection and data presentation, the skills and interests of the fellow will guide which aspect is the focus of this project.</p>
+
+<p>In particular, the fellow will start this activity by getting hands on with the Pelican Platform (<a href="https://pelicanplatform.org">https://pelicanplatform.org</a>). Here, early focus will be on expanded monitoring for Pelican’s “cache” component, which allows researchers to stage large volumes of scientific data close to computational resources needed for analysis.</p>
+
+<h4 id="project-objectives">Project Objectives:</h4>
+
+<p>This project aims to:</p>
+
+<ul>
+  <li>Provide fellows a direct look at the challenges facing distributed systems at national and international scales</li>
+  <li>Develop an understanding of what it means for various components in a distributed system to be “healthy”</li>
+  <li>Create monitoring solutions (data collection, data presentation) that allow administrators to quickly assess the state of these systems</li>
+</ul>
+
+<p>By the end of the fellowship, the fellow will gain hands-on experience working with distributed systems, and depending on focus may have opportunities to work with any of Go, C++, Prometheus (and other Cloud Native tools), the XRootD software stack, and web design.</p>
+
+<h4 id="prerequisite-skills-or-education">Prerequisite skills or education:</h4>
+
+<ul>
+  <li>C++ or Golang (1 year) (required)</li>
+  <li>Linux/CLI (required)</li>
+  <li>React/NextJS (preferred)</li>
+  <li>Git/GitHub/GitHub Actions (preferred)</li>
+  <li>Docker/Kubernetes (preferred)</li>
+</ul>
+
+    
+</div>
+
+            
+                <div class="rounded p-4 mb-3 shadow">
+    <div>
+        <h3 id="pelican-passport-where-did-we-go-and-what-did-we-do-client-side-request-tracking-in-pelican" class="my-2 mb-1 uw-mini-bar">Pelican Passport: Where did we go and what did we do? — Client side request tracking in Pelican</h3>
+        <div class="row justify-content-between d-flex">
+            <div class="col-auto">
+                <span class="fw-light"></span>
+            </div>
+            
+        </div>
+        
+    </div>
+    <p>In a distributed system with multiple services communicating with one another, a key challenge is tracking each service that a job or request interacts with and reporting the success of those interactions. This project aims to design a method for monitoring which services are accessed by a client request and whether each interaction was successful. In addition to identifying where failures occur, this approach will help explain why certain successful tasks might exhibit different behaviors, such as performance slowdowns.</p>
+
+<p>Depending on the fellow’s interests and focus, this project may involve exploring tracking mechanisms in distributed systems, classifying requests and jobs, and engaging in client-side programming and troubleshooting, possibly including Python API development. It may also encompass the collection of client-side data and determining effective ways to present this information to both system users and administrators.</p>
+
+<h4 id="project-objectives">Project Objectives:</h4>
+
+<ul>
+  <li>Develop a method for error propagation across various clients accessing a distributed system.</li>
+  <li>Create a system for client-side request tracking and monitoring.</li>
+  <li>Enhance client-side monitoring and error understanding by enabling users to view exactly which services a job interacted with.</li>
+</ul>
+
+<p>By the end of the fellowship, the fellow will gain a comprehensive understanding of distributed data systems and client-side monitoring, as well as insights into distributed and heterogeneous computing using HTCondor. They will also learn to implement methods for error propagation across various clients for accessing the system as well as how to effectively convey that information to a user. Additionally, the fellow will acquire hands-on experience in Python and Go programming.</p>
+
+<h4 id="prerequisite-skills-or-education">Prerequisite skills or education:</h4>
+
+<ul>
+  <li>A willingness to tackle steep learning curves (required)</li>
+  <li>Python or Golang (1 year) (required)</li>
+  <li>HTTP development (1 year) (required)</li>
+  <li>Distributed Computing (preferred)</li>
+</ul>
+
+    
+</div>
+
             
 
             <h2 id="infrastructure-services">Infrastructure Services</h2>
             
-                <p>No software development projects are currently available.</p>
             
+                <div class="rounded p-4 mb-3 shadow">
+    <div>
+        <h3 id="monitoring-chtc" class="my-2 mb-1 uw-mini-bar">Monitoring CHTC</h3>
+        <div class="row justify-content-between d-flex">
+            <div class="col-auto">
+                <span class="fw-light"></span>
+            </div>
+            
+        </div>
+        
+    </div>
+    <p>Support high throughput computing at UW-Madison and around the world by joining the CHTC Fellowship Program, where through this project you will build and refine your skills in IT Observability by learning to use ubiquitous industry tools such as Prometheus and Grafana. Home of the <a href="https://htcondor.com/">HTCondor Software Suite</a>, this project is an excellent opportunity to expand your portfolio and IT skill set. In a distributed high throughput system, there are endless opportunities to collect and display metrics; however, discretion is the better part of observability. With the guidance of your mentor, you will strategically gather data with Prometheus, writing alerts to notify System Administrators and Research Computing Facilitators to call attention to system issues. Additionally, you will craft dashboards with just enough information to allow for rapid assessment of both individual components and overall system health and performance. Observability tools and systems designed during this fellowship are ultimately intended to ship worldwide with the HTcondor Software Suite and via dashboard sharing services such as Grafana.</p>
+
+<h4 id="project-objectives">Project Objectives:</h4>
+
+<ul>
+  <li>Acquire hands-on experience with Prometheus Monitoring tools and Grafana by creating Prometheus metrics and alerts as well as Grafana Dashboards for both HTCondor and system exported metrics</li>
+  <li>Build an understanding of high throughput computing architecture and systems performance in the context of the HTCondor Software Suite</li>
+  <li>Learn observability and Linux best practices in a dynamic and collaborative environment</li>
+  <li>Refine your abilities in public speaking, presentation, and the ability to communicate highly complex subject matter</li>
+</ul>
+
+<h4 id="prerequisite-skills-or-education">Prerequisite skills or education:</h4>
+
+<ul>
+  <li>Prior programming experience, required</li>
+  <li>Prior Linux experience, strongly preferred</li>
+  <li>Prior experience with Prometheus and Grafana (or similar), desired but not required</li>
+</ul>
+
+    
+</div>
+
             
 
             <h2 id="research-facilitation">Research Facilitation</h2>
@@ -282,8 +444,16 @@
                 <div class="pt-5">
                     <div class="uw-sidebar-box me-auto">
                         <div class="uw-directory">
-                            <h3>Fellowships</h3>
+                            <h3 class="mt-0">Fellowships</h3>
                             <ul>
+                                
+                                    <li><a href="#high-throughput-inference-using-chtc-and-ospool">High Throughput Inference using CHTC and OSPool</a></li>
+                                
+                                    <li><a href="#monitoring-chtc">Monitoring CHTC</a></li>
+                                
+                                    <li><a href="#expanded-pelican-cache-monitoring">Expanded Pelican Cache Monitoring</a></li>
+                                
+                                    <li><a href="#pelican-passport-where-did-we-go-and-what-did-we-do-client-side-request-tracking-in-pelican">Pelican Passport: Where did we go and what did we do? — Client side request tracking in Pelican</a></li>
                                 
                             </ul>
                         </div>
