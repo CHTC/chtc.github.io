@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Managing Large Data in HTC Jobs with S3 Buckets</title>
+<title>HTC Modules Transition to EL9</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Managing Large Data in HTC Jobs with S3 Buckets | CHTC</title>
+<title>HTC Modules Transition to EL9 | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="Managing Large Data in HTC Jobs with S3 Buckets" />
+<meta property="og:title" content="HTC Modules Transition to EL9" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="When submitting jobs to CHTC’s High Throughput Computing (HTC) system, there is a distinct location for staging data that is too large to be handled at scale via the default HTCondor file transfer mechanism but needs to be accessed outside of CHTC (for example, data for jobs that run on the OS Pool)." />
-<meta property="og:description" content="When submitting jobs to CHTC’s High Throughput Computing (HTC) system, there is a distinct location for staging data that is too large to be handled at scale via the default HTCondor file transfer mechanism but needs to be accessed outside of CHTC (for example, data for jobs that run on the OS Pool)." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/file-avail-s3" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/file-avail-s3" />
+<meta name="description" content="This announcement concerns users of the HTC system who rely on modules for their software needs." />
+<meta property="og:description" content="This announcement concerns users of the HTC system who rely on modules for their software needs." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/htc-modules-transition-to-el9" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc-modules-transition-to-el9" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-11-08T15:33:39+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Managing Large Data in HTC Jobs with S3 Buckets" />
+<meta property="twitter:title" content="HTC Modules Transition to EL9" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-11-08T15:33:39+00:00","datePublished":"2024-11-08T15:33:39+00:00","description":"When submitting jobs to CHTC’s High Throughput Computing (HTC) system, there is a distinct location for staging data that is too large to be handled at scale via the default HTCondor file transfer mechanism but needs to be accessed outside of CHTC (for example, data for jobs that run on the OS Pool).","headline":"Managing Large Data in HTC Jobs with S3 Buckets","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-s3"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-s3"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-11-08T15:33:39+00:00","datePublished":"2024-11-08T15:33:39+00:00","description":"This announcement concerns users of the HTC system who rely on modules for their software needs.","headline":"HTC Modules Transition to EL9","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-modules-transition-to-el9"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-modules-transition-to-el9"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -242,326 +242,121 @@
         <div class="col-12 col-lg-9 mw-1000">
 
             <h1 class="uw-mini-bar mb-4">
-    Managing Large Data in HTC Jobs with S3 Buckets
+    HTC Modules Transition to EL9
 </h1>
 
-            <h2>Which Option is the Best for Your Files?</h2>
-<br>
-<table class="gtable">
-    <tr>
-        <th>Input Sizes</th>
-        <th>Output Sizes</th>
-        <th>Link to Guide</th>
-        <th>File Location</th>
-        <th>How to Transfer</th>
-        <th>Availability, Security</th>
-        <!--<th>Special Considerations</th>-->
-    </tr>
+            <p><strong>This announcement concerns users of the HTC system who rely on modules for their software needs.</strong></p>
 
-    <tr>
-        <td>0 - 100 MB per file, up to 500 MB per job</td>
-        <td>0 - 5 GB per job</td>
-        <td><a href="file-availability.html">Small Input/Output File Transfer via <b>HTCondor</b></a></td>
-        <td><code>/home</code></td>
-        <td><b>submit file</b>; filename in <small><code>transfer_input_files</code></small></td>
-        <td>CHTC, UW Grid, and OSG; works for <i>your</i> jobs</td>
-        <!--<td><font color="red">DO NOT USE HTCondor transfer for files in <code>/staging</code> OR <code>/squid</code></font></td>-->
-    </tr>
+<p>As part of our operating system transition, we are depreciating modules that are compiled for EL7 and EL8 operating systems on <strong>Monday November 18</strong>. See the below table for affected modules and their corresponding solutions.</p>
 
-    <tr>
-        <td>100 MB - 1 GB per repeatedly-used file</td>
-        <td>Not available for output</td>
-        <td><a href="file-avail-squid.html">Large Input File Availability Via <b>Squid</b></a></td>
-        <td><code>/squid</code></td>
-        <td><b>submit file</b>; http link in <small><code>transfer_input_files</code></small></td>
-        <td>CHTC, UW Grid, and OSG; files are made *publicly-readable* via an HTTP address</i></td>
-        <!--<td>large files unique to individual jobs are better for large data staging</td>-->
-    </tr>
+<h2 id="affected-modules">Affected modules</h2>
 
+<table>
+  <thead>
     <tr>
-        <td>100 MB - TBs per job-specific file; repeatedly-used files > 1GB</td>
-        <td>4 GB - TBs per job</td>
-        <td><a href="file-avail-largedata.html">Large Input and Output File Availability Via <b>Staging</b></a></td>
-         <td><code>/staging</code></td>
-        <td><b>job executable</b>; copy or move within the job</td>
-        <td>a portion of CHTC; accessible only to <i>your</i> jobs</td>
-        <!--<td>special submit "Requirements"</td>-->
+      <th style="text-align: left">Module name</th>
+      <th style="text-align: left">Old version (EL7/EL8)</th>
+      <th style="text-align: left">Solution</th>
     </tr>
-
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">abaqus</td>
+      <td style="text-align: left">6.14.4, 2018-hotfix-1904</td>
+      <td style="text-align: left">Use abaqus/2024 module</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ansys</td>
+      <td style="text-align: left">2019r2, 2021r1, 17.2</td>
+      <td style="text-align: left">Use ansys/2024r1 module</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cmake</td>
+      <td style="text-align: left">3.16.5</td>
+      <td style="text-align: left"><a href="software-overview-htc.html#build-your-own-container">Use containers</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comsol</td>
+      <td style="text-align: left">5.4, 5.5, 5.6, 6.0, 6.1, 6.2</td>
+      <td style="text-align: left"><em>Installation in progress</em></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">gcc</td>
+      <td style="text-align: left">8.3.0</td>
+      <td style="text-align: left"><a href="software-overview-htc.html#build-your-own-container">Use containers</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">gurobi</td>
+      <td style="text-align: left">9.5.1</td>
+      <td style="text-align: left"><a href="software-overview-htc.html#build-your-own-container">Use containers</a> (<a href="https://github.com/CHTC/recipes/tree/main/software/Gurobi">recipe</a>)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lumerical</td>
+      <td style="text-align: left">2019b-R6, 2021-r2.4</td>
+      <td style="text-align: left"><em>Installation in progress</em></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">openmpi</td>
+      <td style="text-align: left">3.1.4-GCC-8.3.0</td>
+      <td style="text-align: left"><a href="software-overview-htc.html#build-your-own-container">Use containers</a></td>
+    </tr>
+  </tbody>
 </table>
 
-<!--
-<h2>Best Practices for File Delivery</h2>
+<h2 id="unaffected-modules">Unaffected modules</h2>
 
-<p>Remember to review best practices in our File Handling guide,
-including the following:</p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Module name</th>
+      <th style="text-align: left">Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">abaqus</td>
+      <td style="text-align: left">2024</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ansys</td>
+      <td style="text-align: left">2024r1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comsol</td>
+      <td style="text-align: left">6.0-physics</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cst</td>
+      <td style="text-align: left">ece-2022</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">wims</td>
+      <td style="text-align: left">wims_11b_ru0, wimsbuilder3b_ru0</td>
+    </tr>
+  </tbody>
+</table>
 
-<ul>
-<li>Pre-split large input files when each of many jobs will only need a portion of the
-large input data.</li>
-<li>Remove ALL unwanted/temporary files in the working director of the job that have
-appeared since the job started.</li>
-<li>Use tar with compression (*.tar.gz) for any relevant input/output files and ALL
-desired output directories prior to their transfer/delivery.</li>
-</ul>
--->
+<h2 id="more-information-and-next-steps">More information and next steps</h2>
 
-<p>When submitting jobs to CHTC’s High Throughput Computing (HTC) system,
-there is a distinct location for staging data that is too large to be
-handled at scale via the default HTCondor file transfer mechanism
-but needs to be accessed outside of CHTC
-(for example, data for jobs that run on the <a href="https://osg-htc.org/about/open_science_pool/">OS Pool</a>).</p>
+<p>Users can also view the list of modules using the <code>module avail</code> command.</p>
 
-<p><strong>To best understand the below information, users should already be
-familiar with:</strong></p>
+<p>Modules to be depreciated are listed under <code>/software/chtc/modules</code>.</p>
 
-<ol>
-  <li>Using the command-line to: navigate directories,
-create/edit/copy/move/delete files and directories, and run intended
-programs (aka “executables”).</li>
-  <li>CHTC’s <a href="helloworld.html">Intro to Running HTCondor Jobs</a></li>
-  <li>CHTC’s guide for <a href="file-availability.html">Typical File Transfer</a></li>
-</ol>
+<p>Unaffected modules are listed under <code>/software/chtc/manual/el9/modules</code>.</p>
 
-<h2 id="contents">Contents</h2>
+<pre class="term"><code>[user@ap2002 ~]$ module avail
+-------------------------------------- /software/chtc/modules ---------------------------------------
+ABAQUS/6.14.4            ANSYS/2021r1  COMSOL/5.6  GCC/8.3.0            OpenMPI/3.1.4-GCC-8.3.0
+ABAQUS/2018-hotfix-1904  CMake/3.16.5  COMSOL/6.0  GUROBI/9.5.1
+ANSYS/17.2               COMSOL/5.4    COMSOL/6.1  Lumerical/2019b-R6
+ANSYS/2019r2             COMSOL/5.5    COMSOL/6.2  Lumerical/2021-r2.4
 
-<ol>
-  <li><a href="#1-policies-and-intended-use">Policies and Intended Use</a></li>
-  <li><a href="#2-staging-large-data-in-s3-buckets">Staging Large Data in S3 Buckets</a></li>
-  <li><a href="#3-using-staged-files-in-a-job">Using Staged Files in a Job</a>
-    <ul>
-      <li><a href="#a-transferring-large-input-files">Transferring Large Input Files</a></li>
-      <li><a href="#b-moving-large-output-files">Moving Large Output Files</a></li>
-    </ul>
-  </li>
-  <li><a href="#4-checking-your-data-use-and-file-counts">Checking your Data Use and File Counts</a></li>
-</ol>
-
-<h1 id="1-policies-and-intended-use">1. Policies and Intended Use</h1>
-
-<blockquote>
-  <p><strong>USERS VIOLATING ANY OF THE POLICIES IN THIS GUIDE WILL
-HAVE THEIR DATA STAGING ACCESS AND/OR CHTC ACCOUNT REVOKED UNTIL CORRECTIVE
-MEASURES ARE TAKEN. CHTC STAFF RESERVE THE RIGHT TO REMOVE ANY
-PROBLEMATIC USER DATA AT ANY TIME IN ORDER TO PRESERVE PERFORMANCE.</strong></p>
-</blockquote>
-
-<h2 id="a-intended-use">A. Intended Use</h2>
-
-<p>Our S3 data storage is only for input and output files that
-are individually too large to be managed by our other data movement
-methods, HTCondor file transfer or SQUID, and when these files are
-expected to be accessed outside of CHTC. This includes individual input files
-greater than 100MB and individual output files greater than 3-4GB.</p>
-
-<p>Files in our S3 data storage are organized in storage units called
-“buckets.” You can think of an S3 bucket like a folder containing a
-set of data. Each bucket has a unique name of your choosing and can
-contain folders, executable files, data files, and most other types of
-files. S3 buckets are protected with a key that is unique to you
-(similar to a password) and, when provided with the key, buckets
-can be accessed from any machine with an internet connection. CHTC
-automatically creates and manages keys for users, so you do not have
-to provide your key when manging files in your S3 buckets on CHTC
-transfer servers or when submitting jobs on CHTC submit servers that
-transfer data from S3 buckets.</p>
-
-<p>Users are expected to abide by this intended use expectation and follow the
-instructions for using S3 buckets written in this guide (e.g. files placed
-in S3 buckets should ALWAYS be listed in the submit file).</p>
-
-<h2 id="b-getting-access-to-create-s3-buckets">B. Getting Access to Create S3 Buckets</h2>
-
-<p>Any one with a CHTC account whose data meets the intended use above
-can request access to create S3 buckets inside CHTC’s S3 data
-storage. A Research Computing Facilitator will review the request and
-follow up. If appropriate, S3 bucket creation will be enabled for and
-a quota will be set on your account. Quotas are based on individual
-user needs; if a larger quota is needed, email chtc@cs.wisc.edu with
-your request.</p>
-
-<h2 id="c-user-data-management-responsibilities">C. User Data Management Responsibilities</h2>
-
-<p>As with all CHTC file spaces:</p>
-
-<ul>
-  <li><strong>Keep copies</strong>: Our S3 buckets are not backed up and have the
-possibility of data loss; keep copies of ANY and ALL data in S3
-buckets in another, non-CHTC location.</li>
-  <li><strong>Remove data</strong>: We expect that users remove data from S3 buckets AS
-SOON AS IT IS NO LONGER NEEDED FOR ACTIVELY-RUNNING JOBS.</li>
-  <li><strong>Monitor usage and quota</strong>: Your account has both a size and
-number of files quota that applies across all buckets owned by your
-account. Quota changes can be requested by emailing chtc@cs.wisc.edu.</li>
-</ul>
-
-<p>CHTC staff reserve the right to remove S3 buckets or revoke bucket
-creation permission at any time.</p>
-
-<h2 id="d-data-access-within-jobs">D. Data Access Within Jobs</h2>
-
-<p>Data in a CHTC S3 bucket can be accessed from jobs running almost
-anywhere (including most of OS Pool). HTCondor automatically matches and
-runs jobs that use S3 buckets only on machines that support S3 data
-transfers.</p>
-
-<p>Data in CHTC S3 buckets are owned by the user (or a set of users), and
-only the user’s (or users’) own jobs can access these files.</p>
-
-<h1 id="2-staging-large-data-in-s3-buckets">2. Staging Large Data in S3 Buckets</h1>
-
-<p>In order to stage data in an S3 bucket for use on CHTC’s HTC system:</p>
-
-<ul>
-  <li><strong>Get S3 bucket creation access</strong>: Bucket creation access is granted by request.</li>
-  <li><strong>Create an S3 bucket</strong>: Create a bucket that will contain the data for your project.</li>
-  <li><strong>Reduce file counts</strong>: Combine and compress files that are used together.</li>
-  <li><strong>Use the transfer server</strong>: Upload your data to your bucket via our dedicated file transfer server.</li>
-  <li><strong>Remove files after jobs complete</strong>: Data in S3 buckets are quota controlled and not backed up.</li>
-</ul>
-
-<h2 id="a-get-s3-bucket-creation-access">A. Get S3 Bucket Creation Access</h2>
-
-<p>CHTC S3 bucket creation access is granted by request. If you think you need
-to create S3 buckets, email CHTC’s Research Computing Facilitators (chtc@cs.wisc.edu).</p>
-
-<h2 id="b-create-an-s3-bucket">B. Create an S3 Bucket</h2>
-
-<p>Buckets can be created on a CHTC submit server or the CHTC transfer server
-using the <code>mc</code> command:</p>
-
-<pre class="term"><code>[alice@transfer]$ mc mb chtc/my-bucket-name
+--------------------------------- /software/chtc/manual/el9/modules ---------------------------------
+abaqus/2024   comsol/6.0-physics  wims/wims_11b_ru0
+ansys/2024r1  cst/ece-2022        wims/wimsbuilder3b_ru0
 </code></pre>
 
-<p>Each bucket in CHTC must have a unique name, so be descriptive! We
-recommend creating a bucket per dataset or per batch of jobs.</p>
-
-<h2 id="c-reduce-file-counts">C. Reduce File Counts</h2>
-
-<p>Data placed in S3 buckets should be stored in as few files as possible
-(ideally, one file per job). Similarly, large output should first be
-written to the job working directory then compressed in to a single
-file before being transferred back to an S3 bucket at the end of the job.</p>
-
-<p>To prepare job-specific data that is large enough
-and exists as multiple files or directories (or a directory of multiple
-files), first create a compressed tar package before placing the file in
-an S3 bucket (either before submitting jobs, or within jobs before
-transferring output to). For example:</p>
-
-<pre class="term"><code>$ tar -czvf job_package.tar.gz file_or_dir
-</code></pre>
-
-<h2 id="d-use-the-transfer-server">D. Use the Transfer Server</h2>
-
-<p>Movement of large data into/out of S3 buckets before and after jobs
-should be performed via CHTC’s transfer server, as below, and
-<strong>not via a CHTC submit server.</strong> After obtaining an account on the
-transfer server and creating an S3 bucket, copy relevant files directly into your
-home directory from your own computer:</p>
-
-<ul>
-  <li>Example <code>scp</code> command on your own Linux or Mac computer:
-    <pre class="term"><code>$ scp large-input.file username@transfer.chtc.wisc.edu:/home/username/
-</code></pre>
-  </li>
-  <li>If using a Windows computer:
-    <ul>
-      <li>Using a file transfer application, like WinSCP, directly drag the large
-file from its location on your computer to a location within
-<code>/home/username/</code> on transfer.chtc.wisc.edu.</li>
-    </ul>
-  </li>
-</ul>
-
-<p>Then in an SSH session on the transfer server, copy files in to your
-S3 bucket:</p>
-
-<pre class="term"><code>[alice@transfer]$ mc cp large-input.file chtc/my-bucket
-</code></pre>
-
-<h2 id="e-remove-files-after-jobs-complete">E. Remove Files After Jobs Complete</h2>
-
-<p>As with all CHTC file spaces, data should be removed from S3 buckets AS
-SOON AS IT IS NO LONGER NEEDED FOR ACTIVELY-RUNNING JOBS. Even if it
-will be used again in the future, it should be deleted from and copied
-back at a later date. Files can be taken out of S3 buckets using similar
-mechanisms as uploaded files. In an SSH session on the transfer
-server, copy files from your bucket to your home directory:</p>
-
-<pre class="term"><code>[alice@transfer]$ mc cp chtc/my-bucket/large-output.file .
-</code></pre>
-
-<p>Then copy files from the transfer server to your own computer:</p>
-
-<ul>
-  <li>Example <code>scp</code> command on your own Linux or Mac computer:
-    <pre class="term"><code>$ scp username@transfer.chtc.wisc.edu:/home/username/large-output.file .
-</code></pre>
-  </li>
-  <li>If using a Windows computer:
-    <ul>
-      <li>Using a file transfer application, like WinSCP, directly drag the large
-file from its location within <code>/home/username/</code> on
-transfer.chtc.wisc.edu to your computer.</li>
-    </ul>
-  </li>
-</ul>
-
-<p>To remove a file inside your S3 bucket, in an SSH session on the
-transfer server:</p>
-
-<pre class="term"><code>[alice@transfer]$ mc rm chtc/my-bucket/large-input.file
-[alice@transfer]$ mc rm chtc/my-bucket/large-output.file
-</code></pre>
-
-<p>To remove an entire bucket (<strong>only do this if you are certain the
-bucket is no longer needed</strong>):</p>
-
-<pre class="term"><code>[alice@transfer]$ mc rb chtc/my-bucket
-</code></pre>
-
-<h1 id="3-using-staged-files-in-a-job">3. Using Staged Files in a Job</h1>
-
-<h2 id="a-transferring-large-input-files">A. Transferring Large Input Files</h2>
-
-<p>To use data placed in a CHTC S3 bucket, add files to your submit
-file’s <code>transfer_input_files</code> that point to the filename
-(e.g. <code>large-input.file</code>) inside your bucket (e.g. <code>my-bucket</code>) on
-CHTC’s S3 storage (<code>s3dev.chtc.wisc.edu</code>):</p>
-
-<pre class="sub"><code>...
-executable = my_script.sh
-transfer_input_files = s3://s3dev.chtc.wisc.edu/my-bucket/large-input.file
-arguments = large-input.file
-...
-</code></pre>
-
-<h2 id="b-moving-large-output-files">B. Moving Large Output Files</h2>
-
-<p>To have your job automatically copy data back to your CHTC S3 bucket,
-add file mappings to a <code>transfer_output_remaps</code> command inside your
-submit file:</p>
-
-<pre class="sub"><code>transfer_output_remaps = "large-output.file = s3://s3dev.chtc.wisc.edu/my-bucket/large-output.file"
-</code></pre>
-
-<h1 id="4-checking-your-data-use-and-file-counts">4. Checking Your Data Use and File Counts</h1>
-
-<p>To check what files are in your bucket and the size of the files:</p>
-<pre class="term"><code>[alice@submit]$ mc ls chtc/my-bucket
-</code></pre>
-
-<p>To check your bucket’s total data usage:</p>
-<pre class="term"><code>[alice@submit]$ mc du chtc/my-bucket
-</code></pre>
-
-<p>To check your bucket’s file count:</p>
-<pre class="term"><code>[alice@submit]$ mc find chtc/my-bucket | wc -l
-</code></pre>
-
-
-
+<p>If your computations rely on an affected module, please switch to an unaffected module or container solution, or contact us (<a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>) for assistance in planning your software transition.</p>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -570,6 +365,329 @@ submit file:</p>
 
 
     <div id="guide-sidebar">
+        
+            
+
+            
+            
+
+            <h6 class="mt-5">HTC Guides</h6>
+            <div class="accordion accordion-flush">
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="basics-and-policies">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
+                                    Basics and Policies
+                                </button>
+                            </h2>
+                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-overview">HTC System Overview</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/connecting">Log In to CHTC Resources</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/transfer-files-computer">Transfer Files between CHTC and your Computer</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-roadmap">HTC Getting Started Roadmap</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/configure-ssh">Automate CHTC Log In</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/transfer-data-researchdrive">Transfer Files Between CHTC and ResearchDrive</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/globus">Use Globus to Transfer Files to and from CHTC</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/github-remote-access">Access a Private GitHub Repository Remotely</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/check-quota">Check Disk Quota and Usage</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="job-submission">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#job-submission-collapse" aria-expanded="false" aria-controls="job-submission">
+                                    Job Submission
+                                </button>
+                            </h2>
+                            <div id="job-submission-collapse" class="accordion-collapse collapse " aria-labelledby="job-submission" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htcondor-job-submission">Practice: Submit HTC Jobs using HTCondor</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/condor_q">Learn About Your Jobs Using condor_q</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/multiple-jobs">Submitting Multiple Jobs Using HTCondor</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/multiple-job-dirs">Submitting Multiple Jobs in Individual Directories</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-basic-scripting">Basic Scripting and Job Submission with Arguments</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-passing-arguments">Practice: Passing Arguments from the Submit File to the Executable Script</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-passing-arguments-multiple">Practice: Passing Multiple Arguments to Multiple Jobs with One Submit File</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc/dagman-workflows">Overview: Submit Workflows with HTCondor's DAGMan</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc/dagman-simple-example">Simple Example of a DAGMan workflow</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc/tutorial-dagman-intermediate">Intermediate DAGMan: Uses and Features</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="handling-data-in-jobs">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#handling-data-in-jobs-collapse" aria-expanded="false" aria-controls="handling-data-in-jobs">
+                                    Handling Data in Jobs
+                                </button>
+                            </h2>
+                            <div id="handling-data-in-jobs-collapse" class="accordion-collapse collapse " aria-labelledby="handling-data-in-jobs" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-availability">Small Input and Output File Availability Via HTCondor</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-avail-squid">Transfer Large Input Files Via Squid</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="software-solutions">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
+                                    Software Solutions
+                                </button>
+                            </h2>
+                            <div id="software-solutions-collapse" class="accordion-collapse collapse " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/software-overview-htc">Overview: How to Use Software</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/docker-jobs">Running HTC Jobs Using Docker Containers</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/docker-build">Build a Docker Container Image</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/licensed-software">Use Licensed Software</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/apptainer-htc">Use Apptainer Containers</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/apptainer-build">Building an Apptainer Container</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/apptainer-htc-advanced-example">Advanced Apptainer Example - SUMO</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="special-use-cases">
+                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-cases-collapse" aria-expanded="false" aria-controls="special-use-cases">
+                                    Special Use Cases
+                                </button>
+                            </h2>
+                            <div id="special-use-cases-collapse" class="accordion-collapse collapse show " aria-labelledby="special-use-cases" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/gpu-jobs">Use GPUs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/machine-learning-htc">Run Machine Learning Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/scaling-htc">Scale Beyond Local HTC Capacity</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/checkpointing">Checkpointing Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/high-memory-jobs">Submit High Memory Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="fw-bolder" href="/uw-research-computing/htc-modules-transition-to-el9">HTC Modules Transition to EL9</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-modules">Use Software Available in Modules</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/os-request-htc">Use Custom Linux Versions in CHTC</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="troubleshooting">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshooting-collapse" aria-expanded="false" aria-controls="troubleshooting">
+                                    Troubleshooting
+                                </button>
+                            </h2>
+                            <div id="troubleshooting-collapse" class="accordion-collapse collapse " aria-labelledby="troubleshooting" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/dos-unix">Windows / Linux Incompatibility</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/docker-test">Explore and Test Docker Containers</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-known-issues">Known Issues on the HTC</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+            </div>
         
     </div>
 
