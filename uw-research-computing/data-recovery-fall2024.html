@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CHTC Services for Research Computing</title>
+<title>CHTC /staging and /projects Next Steps</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>CHTC Services for Research Computing | CHTC</title>
+<title>CHTC /staging and /projects Next Steps | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="CHTC Services for Research Computing" />
+<meta property="og:title" content="CHTC /staging and /projects Next Steps" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="This page outlines CHTC services offered to UW - Madison affiliates and general guidelines for their use. Users with existing accounts should also refer to our User Expectations pages for more specific limits and guidelines for using CHTC services. To apply for a CHTC account, fill out this form: Getting Started" />
-<meta property="og:description" content="This page outlines CHTC services offered to UW - Madison affiliates and general guidelines for their use. Users with existing accounts should also refer to our User Expectations pages for more specific limits and guidelines for using CHTC services. To apply for a CHTC account, fill out this form: Getting Started" />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/chtc-services" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/chtc-services" />
+<meta name="description" content="On Thursday, November 21, CHTC personnel were alerted to data issues in our /staging and /projects directories. We took immediate action on Thursday afternoon and have been working on it through the weekend." />
+<meta property="og:description" content="On Thursday, November 21, CHTC personnel were alerted to data issues in our /staging and /projects directories. We took immediate action on Thursday afternoon and have been working on it through the weekend." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-11-25T23:53:54+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="CHTC Services for Research Computing" />
+<meta property="twitter:title" content="CHTC /staging and /projects Next Steps" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-11-25T23:53:54+00:00","datePublished":"2024-11-25T23:53:54+00:00","description":"This page outlines CHTC services offered to UW - Madison affiliates and general guidelines for their use. Users with existing accounts should also refer to our User Expectations pages for more specific limits and guidelines for using CHTC services. To apply for a CHTC account, fill out this form: Getting Started","headline":"CHTC Services for Research Computing","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/chtc-services"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/chtc-services"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-11-25T23:53:54+00:00","datePublished":"2024-11-25T23:53:54+00:00","description":"On Thursday, November 21, CHTC personnel were alerted to data issues in our /staging and /projects directories. We took immediate action on Thursday afternoon and have been working on it through the weekend.","headline":"CHTC /staging and /projects Next Steps","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -244,64 +244,71 @@
         <div class="col-12 col-lg-9 mw-1000">
 
             <h1 class="uw-mini-bar mb-4">
-    CHTC Services for Research Computing
+    CHTC /staging and /projects Next Steps
 </h1>
 
-            <p>This page outlines CHTC services offered to UW - Madison affiliates and general guidelines for their use. Users with existing accounts should also refer to our <a href="user-expectations.html">User Expectations</a> pages for more specific limits and guidelines for using CHTC services. To apply for a CHTC account, fill out this form: <a href="form.html">Getting Started</a></p>
+            <p>On Thursday, November 21, CHTC personnel were alerted to data issues in our <code>/staging</code> and <code>/projects</code> directories. We took immediate action on Thursday afternoon and have been working on it through the weekend.</p>
 
-<h2 id="overview">Overview</h2>
+<p>The underlying cause has been identified and affected the <code>/squid</code>, <code>/staging</code>, <code>/projects</code> and HTC <code>/software</code> directories. We are able to prevent it from recurring; however, <strong>it resulted in significant data loss in /staging, /projects, HTC /software and /squid</strong> before CHTC personnel were able to react. All data in <code>/squid</code> is unrecoverable. Any remaining data in <code>/projects</code> and <code>/staging</code> is currently inaccessible as we work to recover whatever additional data we can. We hope to recover at least 50% of <code>/staging</code> and 60% of <code>/projects</code>.</p>
 
-<p>CHTC’s Research Computing activities aim to empower the research and teaching mission of the University of Wisconsin - Madison by providing access to scalable computing and data capacity.</p>
+<p>We recognize that this ongoing outage and accompanying data loss is disruptive to important work. Our plan to bring systems and data back online is outlined below.</p>
 
-<p>Access to standard CHTC services is free of charge.</p>
-
-<h2 id="who-can-use-chtc-services">Who can use CHTC services?</h2>
-
-<p>Access to CHTC services is available to:</p>
+<h2 id="chtc-next-steps-and-timeline">CHTC Next Steps and Timeline</h2>
 
 <ul>
-  <li>Current UW Madison affiliates (faculty, students, staff, post-docs)</li>
-  <li>Current UW System affiliates</li>
-  <li>Collaborators of UW Madison affiliates, where collaborator access benefits the work of the UW - Madison affiliate, e.g. recently graduated students, collaborators on multi-institution grants</li>
+  <li>Nov 25 - 27: New data backend for /staging and /projects
+    <ul>
+      <li>This week (Nov 25-27), we will create a new data store to serve the <code>/staging</code> and <code>/projects</code> directories. Initially, <em>there will be no data inside these directories.</em> This new data backend for the <code>/staging</code> and <code>/projects</code> directories will be used for CHTC data storage moving forward and will be usable in jobs <em>immediately</em> once it is available.</li>
+    </ul>
+  </li>
+  <li>Nov 25 - Dec 9: Recovering data from <code>/staging</code> directories
+    <ul>
+      <li>We will run multiple recovery processes on the old data store over the next 1-2 weeks. Once each recovery process is complete, CHTC users will be able to access recovered data and copy it to the new data store. CHTC will not overwrite or replace data created in the meantime.  <em>We are still developing the mechanism for this process and will provide more information as it becomes available.</em></li>
+    </ul>
+  </li>
+  <li>Dec 9 onward: Recovering data from <code>/projects</code>
+    <ul>
+      <li>This will be the same process as recovering data from <code>/staging</code>.</li>
+    </ul>
+  </li>
 </ul>
 
-<h2 id="computing">Computing</h2>
+<p><strong>Note that this timeline means that you will not know how much of your data from the previous data store was lost or recovered until after Dec 2, at the earliest.</strong>  Consider re-transferring or reproducing the data instead of waiting for potential recovery.</p>
 
-<p>CHTC operates two large-scale computing systems.</p>
+<p>Evaluation and restoration of HTC <code>/software</code> directories will happen after the process above is complete.</p>
 
-<h3 id="high-throughput-computing">High Throughput Computing</h3>
+<h2 id="user-next-steps">User Next Steps</h2>
 
+<h3 id="resume-running-jobs">Resume Running Jobs</h3>
+
+<p>By Tuesday, November 26, all HTC users should have access to a empty <code>/staging</code> directory with a default quota of 100GB / 1000 items. This space can be used exactly like the previous <code>/staging</code> directories to run jobs.</p>
+
+<p>A few notes about special circumstances:</p>
 <ul>
-  <li>Roughly 15k CPU cores, 100+ GPUs</li>
-  <li>Additional capacity available via campus HTC systems and the national OSPool.</li>
-  <li>Single user: 10s - 1000s of tasks (jobs) running at once</li>
-  <li>Scheduled using HTCondor</li>
+  <li><strong>Quota changes:</strong> Quotas from the previous file system will not transfer over, so if you anticipate needing space beyond the default quota, especially in the short term, please fill out our <a href="https://chtc.cs.wisc.edu/uw-research-computing/quota-request">Quota Request Form</a></li>
+  <li><strong>Immediate deadlines:</strong> If you have a short-term deadline (within the next 2-3 weeks) please reach out to see how we can support you. Email chtc@cs.wisc.edu with the following:
+    <ul>
+      <li>Include your name and the deadline date in the subject line</li>
+      <li>Cc your PI or advisor</li>
+      <li>Describe the nature of the deadline (paper submission, thesis defense, conference deadline, etc.)</li>
+      <li>Describe what specific computational or data capacity you need in order to meet the deadline (how many jobs, how many resources per job, how much data, etc.)</li>
+    </ul>
+  </li>
 </ul>
 
-<h3 id="high-performance-computing-spark">High Performance Computing (SPARK)</h3>
-<ul>
-  <li>About 8k CPU cores</li>
-  <li>Infiniband networking for multi-node capability</li>
-  <li>Single user: up to 10 jobs running or 720 cores in use</li>
-  <li>Jobs are scheduled using SLURM job scheduling software</li>
-</ul>
+<h3 id="access-recovered-data">Access Recovered Data</h3>
 
-<p>CHTC computing capacity is allocated via a fair-share scheduling algorithm. For groups that require additional or dedicated computing capacity, there is the option to purchase hardware. See our description of buy-in options here: <a href="https://docs.google.com/document/d/1uz0YRUNOoJdB1mCYwg7Z4YtJm9nRhBoj/edit#heading=h.gjdgxs">CHTC Buy-In Overview</a></p>
+<p>Instructions coming the week of Dec 2 or Dec 9.</p>
 
-<h2 id="data">Data</h2>
+<h2 id="stay-informed">Stay Informed</h2>
 
-<p>CHTC provides space for data, software and other files that are being used for active computational work. Our file systems have no backup or other redundancy and should not be used as a storage solution. Researchers are assigned a default space quota when their account is created that can be increased upon request. For needs greater than 2TB or for longer-term projects, contact us to sign a data use memorandum of understanding.</p>
+<p>In order to find out when the new file system is available and when recovered data is available, we recommend following the relevant incident(s) on the CHTC status page. You can subscribe to the status page for the latest updates: <a href="https://status.chtc.wisc.edu/">https://status.chtc.wisc.edu/</a></p>
 
-<h2 id="software">Software</h2>
+<p>This web guide will also be updated as changes occur.</p>
 
-<p>CHTC systems support software that runs on Linux. Whether or not licensed software 
-can be run on CHTC depends significantly on the type of license.</p>
+<h2 id="contact-us">Contact Us</h2>
 
-<p>Both CHTC computing systems support containers.</p>
-
-<h2 id="citing-chtc">Citing CHTC</h2>
-
-<p>In order to track our scientific impact we ask that users cite a DOI in all publications that have benefited from our services. See <a href="/uw-research-computing/cite-chtc">Citing CHTC</a> for more details.</p>
+<p>We understand the challenge of restarting your work after an event like this. If you have any questions or specific concerns after reading through this guide, please contact us at chtc@cs.wisc.edu. We will do our best to help all CHTC users get up and running again as soon as possible.</p>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -310,6 +317,93 @@ can be run on CHTC depends significantly on the type of license.</p>
 
 
     <div id="guide-sidebar">
+        
+            
+
+            
+            
+
+            <h6 class="mt-5">General Guides</h6>
+            <div class="accordion accordion-flush">
+                
+                    
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="basics-and-policies">
+                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
+                                    Basics and Policies
+                                </button>
+                            </h2>
+                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse show " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="fw-bolder" href="/uw-research-computing/data-recovery-fall2024">CHTC /staging and /projects Next Steps</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/connecting">Log In to CHTC Resources</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/transfer-files-computer">Transfer Files between CHTC and your Computer</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/configure-ssh">Automate CHTC Log In</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/transfer-data-researchdrive">Transfer Files Between CHTC and ResearchDrive</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/github-remote-access">Access a Private GitHub Repository Remotely</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+                
+                    
+                
+                    
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="software-solutions">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
+                                    Software Solutions
+                                </button>
+                            </h2>
+                            <div id="software-solutions-collapse" class="accordion-collapse collapse " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/apptainer-build">Building an Apptainer Container</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+                
+                    
+                
+            </div>
         
     </div>
 
