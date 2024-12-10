@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-12-10T21:18:01+00:00" />
+<meta property="article:published_time" content="2024-12-10T22:16:20+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="CHTC /staging and /projects Next Steps" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-12-10T21:18:01+00:00","datePublished":"2024-12-10T21:18:01+00:00","description":"On Thursday, November 21, CHTC personnel were alerted to data issues in our /staging and /projects directories. We took immediate action on Thursday afternoon and have been working on it through the weekend.","headline":"CHTC /staging and /projects Next Steps","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-12-10T22:16:20+00:00","datePublished":"2024-12-10T22:16:20+00:00","description":"On Thursday, November 21, CHTC personnel were alerted to data issues in our /staging and /projects directories. We took immediate action on Thursday afternoon and have been working on it through the weekend.","headline":"CHTC /staging and /projects Next Steps","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -253,30 +253,6 @@
 
 <p>We recognize that this ongoing outage and accompanying data loss is disruptive to important work. Our plan to bring systems and data back online is outlined below.</p>
 
-<h2 id="chtc-next-steps-and-timeline">CHTC Next Steps and Timeline</h2>
-
-<ul>
-  <li>Nov 25 - 27: New data backend for /staging and /projects
-    <ul>
-      <li>This week (Nov 25-27), we will create a new data store to serve the <code>/staging</code> and <code>/projects</code> directories. Initially, <em>there will be no data inside these directories.</em> This new data backend for the <code>/staging</code> and <code>/projects</code> directories will be used for CHTC data storage moving forward and will be usable in jobs <em>immediately</em> once it is available.</li>
-    </ul>
-  </li>
-  <li>Nov 25 - Dec 9: Recovering data from <code>/staging</code> directories
-    <ul>
-      <li>We will run multiple recovery processes on the old data store over the next 1-2 weeks. Once each recovery process is complete, CHTC users will be able to access recovered data and copy it to the new data store. CHTC will not overwrite or replace data created in the meantime.  <em>We are still developing the mechanism for this process and will provide more information as it becomes available.</em></li>
-    </ul>
-  </li>
-  <li>Dec 9 onward: Recovering data from <code>/projects</code>
-    <ul>
-      <li>This will be the same process as recovering data from <code>/staging</code>.</li>
-    </ul>
-  </li>
-</ul>
-
-<p><strong>Note that this timeline means that you will not know how much of your data from the previous data store was lost or recovered until after Dec 2, at the earliest.</strong>  Consider re-transferring or reproducing the data instead of waiting for potential recovery.</p>
-
-<p>Evaluation and restoration of HTC <code>/software</code> directories will happen after the process above is complete.</p>
-
 <h2 id="user-next-steps">User Next Steps</h2>
 
 <h3 id="resume-running-jobs">Resume Running Jobs</h3>
@@ -299,7 +275,31 @@
 
 <h3 id="access-recovered-data">Access Recovered Data</h3>
 
-<p>Instructions coming the week of Dec 2 or Dec 9.</p>
+<h4 id="recover-staging-and-software-data">Recover <code>/staging</code> and <code>/software</code> data</h4>
+
+<p>We are in the final stages of getting the recovered /staging data ready to share. There should be an update 12/11 with details about accessing recovered /staging data as well as an updated timeline for the rest of the recovery process.</p>
+
+<h2 id="chtc-next-steps-and-timeline">CHTC Next Steps and Timeline</h2>
+
+<ul>
+  <li>Nov 25 - 27: New data backend for /staging and /projects
+    <ul>
+      <li>During the week of Nov 25-27, we created a new data store to serve the <code>/staging</code> and <code>/projects</code> directories. Initially, <em>there is no data inside these directories.</em> This new data backend for the <code>/staging</code> and <code>/projects</code> directories will be used for CHTC data storage moving forward and is usable in jobs <em>immediately</em>.</li>
+    </ul>
+  </li>
+  <li>Nov 25 - Dec 10: Recovering data from <code>/staging</code> directories
+    <ul>
+      <li>We have run multiple recovery processes on the old data store. Once each recovery process is complete, CHTC users will be able to access recovered data and copy it to the new data store. CHTC will not overwrite or replace data created in the meantime.  <em>We are still developing the mechanism for this process and will provide more information as it becomes available.</em></li>
+    </ul>
+  </li>
+  <li>Dec 11 onward: Recovering data from <code>/projects</code>
+    <ul>
+      <li>This will be the same process as recovering data from <code>/staging</code>.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Note that this timeline means that you will not know how much of your data from the previous data store was lost or recovered until after Dec 2, at the earliest.</strong>  Consider re-transferring or reproducing the data instead of waiting for potential recovery.</p>
 
 <h2 id="stay-informed">Stay Informed</h2>
 
