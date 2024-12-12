@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-12-12T17:17:02+00:00" />
+<meta property="article:published_time" content="2024-12-12T18:04:08+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="CHTC /staging and /projects Next Steps" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-12-12T17:17:02+00:00","datePublished":"2024-12-12T17:17:02+00:00","description":"On Thursday, November 21, CHTC personnel were alerted to data issues in our /staging and /projects directories. We took immediate action on Thursday afternoon and have been working on it through the weekend.","headline":"CHTC /staging and /projects Next Steps","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-12-12T18:04:08+00:00","datePublished":"2024-12-12T18:04:08+00:00","description":"On Thursday, November 21, CHTC personnel were alerted to data issues in our /staging and /projects directories. We took immediate action on Thursday afternoon and have been working on it through the weekend.","headline":"CHTC /staging and /projects Next Steps","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -249,7 +249,7 @@
 
             <p>On Thursday, November 21, CHTC personnel were alerted to data issues in our <code>/staging</code> and <code>/projects</code> directories. We took immediate action on Thursday afternoon and have been working on it through the weekend.</p>
 
-<p>The underlying cause has been identified and affected the <code>/squid</code>, <code>/staging</code>, <code>/projects</code> and HTC <code>/software</code> directories. We are able to prevent it from recurring; however, <strong>it resulted in significant data loss in /staging, /projects, HTC /software and /squid</strong> before CHTC personnel were able to react. All data in <code>/squid</code> is unrecoverable. Any remaining data in <code>/projects</code> and <code>/staging</code> is currently inaccessible as we work to recover whatever additional data we can. We hope to recover at least 50% of <code>/staging</code> and 60% of <code>/projects</code>.</p>
+<p>The underlying cause has been identified and affected the <code>/squid</code>, <code>/staging</code>, <code>/projects</code> and HTC <code>/software</code> directories. We are able to prevent it from recurring; however, <strong>it resulted in significant data loss in /staging, /projects, HTC /software and /squid</strong> before CHTC personnel were able to react. All data in <code>/squid</code> is unrecoverable. Data recovery on <code>/staging</code> is complete; any remaining data in <code>/projects</code> is currently inaccessible as we work to recover whatever additional data we can.</p>
 
 <p>We recognize that this ongoing outage and accompanying data loss is disruptive to important work. Our plan to bring systems and data back online is outlined below.</p>
 
@@ -277,7 +277,23 @@
 
 <h4 id="recover-staging-and-software-data">Recover <code>/staging</code> and <code>/software</code> data</h4>
 
-<p>We are in the final stages of getting the recovered /staging data ready to share. There should be an update 12/11 with details about accessing recovered /staging data as well as an updated timeline for the rest of the recovery process.</p>
+<p>The data recovery process for <code>/staging</code> and <code>/software</code> was completed on 12/11. We believe we have recovered about 50% of the data that was originally present in these directories. Some of the metadata for files (like file creation date) may be incorrect; <strong><em>we strongly recommend validating any data that you copy from the recovered file system.</em></strong></p>
+
+<p>Any recovered data is available at this path:</p>
+<ul>
+  <li><code>/recovery/staging/&lt;your username&gt;</code></li>
+  <li><code>/recovery/software/&lt;your username&gt;</code></li>
+</ul>
+
+<p>Users should <strong>copy</strong> any recovered files they want to save into their new <code>/staging</code> directories.</p>
+
+<p>References to data using the paths to recovered staging directories should <strong><em>not</em></strong> be used in job submission. The directories for recovered data are read-only, and you will not be able to write into them.</p>
+
+<p><strong><em>If your directory doesn’t exist in the recovery path, that means that none of your data was recovered.</em></strong></p>
+
+<h4 id="updated-projects-timeline">Updated <code>/projects</code> timeline</h4>
+
+<p>We are now working on data recovery for <code>/projects</code> folders. Due to the large size of this data store, we anticipate that the recovery process will take longer than <code>/staging</code> and likely stretch into January.</p>
 
 <h2 id="chtc-next-steps-and-timeline">CHTC Next Steps and Timeline</h2>
 
@@ -298,8 +314,6 @@
     </ul>
   </li>
 </ul>
-
-<p><strong>Note that this timeline means that you will not know how much of your data from the previous data store was lost or recovered until after Dec 2, at the earliest.</strong>  Consider re-transferring or reproducing the data instead of waiting for potential recovery.</p>
 
 <h2 id="stay-informed">Stay Informed</h2>
 
