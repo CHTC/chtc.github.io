@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Automate CHTC Log In</title>
+<title>Automate CHTC login</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Automate CHTC Log In | CHTC</title>
+<title>Automate CHTC login | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="Automate CHTC Log In" />
+<meta property="og:title" content="Automate CHTC login" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="This guide describes how to authenticate with Duo when logging into CHTC’s HTC and HPC systems how to set your login (SSH) configuration to “reuse” a two-factor authenticated connection over a certain period of time. terminals and applications that are known to support persistent connections" />
-<meta property="og:description" content="This guide describes how to authenticate with Duo when logging into CHTC’s HTC and HPC systems how to set your login (SSH) configuration to “reuse” a two-factor authenticated connection over a certain period of time. terminals and applications that are known to support persistent connections" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
 <link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/configure-ssh" />
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/configure-ssh" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-01-08T21:16:30+00:00" />
+<meta property="article:published_time" content="2025-01-08T22:13:17+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Automate CHTC Log In" />
+<meta property="twitter:title" content="Automate CHTC login" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-01-08T21:16:30+00:00","datePublished":"2025-01-08T21:16:30+00:00","description":"This guide describes how to authenticate with Duo when logging into CHTC’s HTC and HPC systems how to set your login (SSH) configuration to “reuse” a two-factor authenticated connection over a certain period of time. terminals and applications that are known to support persistent connections","headline":"Automate CHTC Log In","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/configure-ssh"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/configure-ssh"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-01-08T22:13:17+00:00","datePublished":"2025-01-08T22:13:17+00:00","description":"Introduction","headline":"Automate CHTC login","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/configure-ssh"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/configure-ssh"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -244,53 +244,62 @@
         <div class="col-12 col-lg-9 mw-1000">
 
             <h1 class="uw-mini-bar mb-4">
-    Automate CHTC Log In
+    Automate CHTC login
 </h1>
 
-            <p>This guide describes</p>
-<ul>
-  <li>how to authenticate with Duo when logging into CHTC’s HTC and HPC systems</li>
-  <li>how to set your login (SSH) configuration to “reuse” a two-factor authenticated 
-connection over a certain period of time.</li>
-  <li>terminals and applications that are known to support persistent connections</li>
-</ul>
+            <h2 id="introduction">Introduction</h2>
 
-<h2 id="authentication-with-duo">Authentication with Duo</h2>
+<p>This guide describes how to set your login (SSH) configuration to reuse an authenticated connection over a certain period of time, also known as a persistent connection. Terminals and applications that are known to support persistent connections are also listed on this page.</p>
 
-<p>As of December 2022, accessing CHTC resources 
-now requires two-factor authentication. The first “factor” uses your NetID password 
-(or SSH keys) and the second “factor” is authentication using Duo, via either a 
-Duo fob or the Duo app.</p>
+<div class="d-flex flex-column mb-5">
 
-<p>See the following video for an demonstration of two-factor authentication with Duo 
-when logging into CHTC:</p>
+<h2>Table of Contents</h2>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/J-wxsrQ3v04" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<div class="uw-sidebar-box me-auto">
+<div class="uw-directory">
 
-<h2 id="re-using-ssh-connections">Re-Using SSH Connections</h2>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#reuse-ssh-connections-to-reduce-login-frequency">Reuse SSH connections to reduce login frequency</a></li>
+        <li><a href="#end-hanging-or-stuck-connections">End hanging or stuck connections</a></li>
+        <li><a href="#port-forwarding">Port forwarding</a></li>
+        <li><a href="#enable-persistent-connections-in-other-programs">Enable persistent connections in other programs</a>
+          <ul>
+            <li><a href="#winscp">WinSCP</a></li>
+            <li><a href="#cyberduck">Cyberduck</a></li>
+            <li><a href="#unsupported-programs">Unsupported programs</a></li>
+          </ul>
+        </li>
+        <li><a href="#other-tools">Other Tools</a></li>
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#related-pages">Related pages</a></li>
+      </ul>
 
-<p>To reduce the number of times it is necessary to enter your credentials, it’s possible 
-to customize your SSH configuration in a way that allows you to “reuse” a connection 
-for logging in again or moving files.  This configuration is optional, and 
-most useful if you will connect to 
-the same server multiple times in a short window, for example, when uploading or 
-downloading files.</p>
+    </div>
+</div>
+</div>
 
-<p><strong>WARNING:</strong> This guide describes how to configure your local machine to not require 
-reentering your NetID password or Duo authentication each time you login. 
-This should <strong>ONLY</strong> be used on secure devices that you manage - <strong>it should 
-not be used on any shared laptop, desktop, or research group resource. Users 
-found violating this policy risk having their CHTC account permanently deactivated.</strong></p>
+<h2 id="reuse-ssh-connections-to-reduce-login-frequency">Reuse SSH connections to reduce login frequency</h2>
 
-<p>The instructions below are meant for users who can use a terminal (Mac, Linux, newer Windows operating systems):</p>
+<p>In this optional configuration, you can reuse an SSH connection to reduce the number of times you need to re-enter your credentials and authenticate with Duo MFA. This can be useful when connecting to the same server multiple times within a short period of time, for example, when uploading or downloading files.</p>
+
+<blockquote class="tip-header">
+  <h3 id="️-caution">⚠️ Caution!</h3>
+</blockquote>
+
+<blockquote class="tip">
+  <p>This guide should <strong><em>ONLY</em></strong> be used on secure devices that you manage. It should <strong><em>not</em></strong> be used on any shared laptop, desktop, or research group resource. <strong>Users found violating this policy risk having their CHTC account permanently deactivated.</strong></p>
+</blockquote>
+
+<h3 id="configure-ssh-to-reuse-connections">Configure SSH to reuse connections</h3>
 
 <ol>
   <li>
     <p>Open a terminal window.</p>
   </li>
-  <li>Create (or edit) your personal SSH configuration file at <code>~/.ssh/config</code> to use 
-what’s called “ControlMaster”
-This is the text that should be added to a file called <code>config</code> in the <code>.ssh</code> directory in your computer’s home directory:
+  <li>
+    <p>Create (or edit) your personal SSH configuration file at <code>~/.ssh/config</code>. The configuration file is a text-based file. Within this file, we will enable some “ControlMaster” options.</p>
+
     <pre><code> Host *.chtc.wisc.edu
    # Turn ControlMaster on
    ControlMaster auto
@@ -302,8 +311,9 @@ This is the text that should be added to a file called <code>config</code> in th
    # the ControlMaster persistent connections
    ControlPath ~/.ssh/connections/%r@%h:%p
 </code></pre>
-    <p>If you’re not able to find or create the config file, executing the code below from a terminal on your computer
- will add the right information to the <code>config</code> file</p>
+
+    <p>If you’re not able to find or create the config file, executing the code below from the command line on your computer will add the right information to the <code>config</code> file</p>
+
     <pre class="term"><code> # Let's create (or add to) our SSH client configuration file. 
  echo "
  Host *.chtc.wisc.edu
@@ -318,106 +328,111 @@ This is the text that should be added to a file called <code>config</code> in th
    ControlPath ~/.ssh/connections/%r@%h:%p" &gt;&gt; ~/.ssh/config
 </code></pre>
   </li>
-  <li>You also create a directory that will be used to track connections. In 
-the same .ssh directory, make a folder called <code>connections</code> by typing:
-    <pre class="term"><code> $ mkdir -p ~/.ssh/connections
+  <li>
+    <p>You should also create a directory that will be used to track connections. In the same <code>.ssh</code> directory, make a folder called <code>connections</code> by typing:</p>
+
+    <pre class="term"><code> mkdir -p ~/.ssh/connections
 </code></pre>
 
-    <p>Once you login to a CHTC server, this is where the system will store information 
- about your previous connection information so that you do not have to reenter your 
- password or Duo authenticate.</p>
+    <p>Once you log in to a CHTC server, your computer will store previous connection information in the <code>connections</code> directory so that you do not have to re-enter your password or Duo authenticate.</p>
   </li>
-  <li>Now, log into your CHTC submit server or login node as normal. The first time you log in, you will need to use 
-two-factor authentication, but subsequent logins <strong>to that machine</strong> will not require 
-authentication as long as they occur within the time value used in 
-the <code>ControlPersist</code> configuration option (so in this example, 2 hours).</li>
+  <li>
+    <p>Log into your CHTC access point. The first time you log in, you will need to use Duo MFA, but subsequent logins <strong>to that machine</strong> will not require authentication as long as they occur within the time value used in the <code>ControlPersist</code> configuration option (in this example, 2 hours).</p>
+  </li>
 </ol>
 
-<p>For Windows users who use PuTTY to log in, you need to go to 
-the <code>Connection -&gt; SSH</code> section in the “Category” menu on the left side, 
-and then check the “Share SSH Connection if possible” box. If you don’t 
-see this option, try downloading a newer version of PuTTY.</p>
+<h3 id="putty-users">PuTTY users</h3>
 
-<h3 id="ending-stuck-connections">Ending “Stuck” Connections</h3>
+<ol>
+  <li>Go the <code>Connection -&gt; SSH</code> section in the “Category” menu on the left side.</li>
+  <li>Check the “Share SSH Connection if possible” box. If you don’t see this option, try downloading a newer version of PuTTY.</li>
+</ol>
 
-<p>Sometimes a connection goes stale and you can’t reconnect using it, even if 
-it is within the timeout window. In this case, you can avoid using the existing 
-connection by removing the relevant file in <code>~/.ssh/connections</code>; This will probably 
-look something like:</p>
+<h2 id="end-hanging-or-stuck-connections">End hanging or stuck connections</h2>
 
-<pre class="term"><code>$ ls ~/.ssh/connections/
-alice@submit.chtc.wisc.edu:22
-$ rm ~/.ssh/connections/alice@submit.chtc.wisc.edu:22
+<p>Sometimes, a connection goes stale. When trying to reconnect, the terminal hangs or gets stuck. This may occur even if within the timeout window. To fix this, we will need to remove the existing connection by removing the relevant file in <code>~/.ssh/connections</code>.</p>
+
+<ol>
+  <li>
+    <p>If the connection is hanging or stuck, use <code>CTRL + C</code> to cancel connecting.</p>
+  </li>
+  <li>
+    <p>Locate the connection in the <code>~/.ssh/connections</code> directory.</p>
+
+    <pre class="term"><code> [user@local]$ ls ~/.ssh/connections
+ user_ap2002_22
 </code></pre>
+  </li>
+  <li>
+    <p>Remove the connection.</p>
 
-<h3 id="connection-settings">Connection settings</h3>
+    <pre class="term"><code> [user@local]$ rm ~/.ssh/connections/user_ap2002_22
+</code></pre>
+  </li>
+  <li>
+    <p>Log in again.</p>
+  </li>
+</ol>
 
-<p>Note that all port forwarding, including X display forwarding, must be setup by 
-the initial connection and cannot be changed. If you forget to use <code>-Y</code> on the initial 
-connection, you will not be able to open X programs on subsequent connections.</p>
+<h2 id="port-forwarding">Port forwarding</h2>
 
-<h2 id="file-transfer-tools">File Transfer Tools</h2>
+<p>All port forwarding, including X display forwarding, must be set up by the initial connection and cannot be changed. If you forget to use <code>-Y</code> on the initial connection, you will not be able to open X programs on subsequent connections.</p>
 
-<p>There are a variety of tools that people use for transferring and editing files 
-like WinSCP and MobaXTerm. Some of these tools are able to use ssh configuration 
-or have options that do not require Duo 2FA every time a file is uploaded or 
-downloaded or edited, but some do not.</p>
+<h2 id="enable-persistent-connections-in-other-programs">Enable persistent connections in other programs</h2>
 
-<h3 id="known-to-support-persistent-connections">Known to support persistent connections</h3>
+<h3 id="winscp">WinSCP</h3>
+
+<p>Adjust preferences in WinSCP:</p>
+
+<ol>
+  <li>Go to Options, then Preferences, and click on Background under the Transfer section.</li>
+  <li>Set ‘Maximal number of transfers at the same time:’ to 1.</li>
+  <li>Make sure ‘Use multiple connections for single transfer’ checkbox is checked.</li>
+  <li>Click ‘OK’ to save.</li>
+</ol>
+
+<h3 id="cyberduck">Cyberduck</h3>
+
+<p>Cyberduck does not use SSH configurations but can be set to enable persistent connections. (Steps based off <a href="https://southernmethodistuniversity.github.io/hpc_docs/">these docs</a>).</p>
+
+<ol>
+  <li>Select Preferences, then the Transfers button, and then the General section.</li>
+  <li>Under “Transfers”, use the “Transfer Files” drop-down to select “Use browser connection”.</li>
+</ol>
+
+<h3 id="unsupported-programs">Unsupported programs</h3>
 
 <ul>
-  <li>
-    <p>Linux, Mac, and Windows Subsystem for Linux (WSL) terminals</p>
-  </li>
-  <li>
-    <p>WinSCP</p>
-
-    <p>May need to adjust preferences.  Within WinSCP:</p>
-
-    <ol>
-      <li>Go to Options, then Preferences, and click on Background under the Transfer section.</li>
-      <li>Set ‘Maximal number of transfers at the same time:’ to 1.</li>
-      <li>Make sure ‘Use multiple connections for single transfer’ checkbox is checked.</li>
-      <li>Click ‘OK’ to save.</li>
-    </ol>
-  </li>
-  <li>
-    <p>Cyberduck (taken from <a href="https://southernmethodistuniversity.github.io/hpc_docs/">these docs</a></p>
-
-    <p>Cyberduck does not use SSH configurations, therefore the following setting 
-  can be used to enable connection persistence. Within Cyberduck:</p>
-
-    <ol>
-      <li>Select Preferences, then the Transfers button, and then the General section.</li>
-      <li>Under “Transfers”, use the “Transfer Files” drop-down to select “Use browser 
-connection”.</li>
-    </ol>
-  </li>
-</ul>
-
-<h3>Known to NOT support <code class="h3">ControlMaster</code> or similar persistent connections</h3>
-
-<ul>
-  <li>
-    <p>Windows PowerShell</p>
-  </li>
-  <li>
-    <p>File transfer tools from <a href="https://panic.com/">Panic</a>, like Transmit and Nova</p>
-  </li>
+  <li>Windows PowerShell</li>
+  <li>File transfer tools from <a href="https://panic.com/">Panic</a>, like Transmit and Nova</li>
 </ul>
 
 <h2 id="other-tools">Other Tools</h2>
 
-<p>For those on spotty wireless or those who move a lot with their connection 
-(and on *nix) then the open source shell Mosh (https://mosh.org/) has capabilities 
-to keep sessions open as you change connections. Note that Mosh doesn’t support the 
-following SSH features:</p>
+<p>For those on spotty wireless or those who move a lot with their connection, then the open source shell <a href="https://mosh.org/">Mosh</a> has capabilities to keep sessions open as you change connections. Note that Mosh doesn’t support the following SSH features:</p>
+
 <ul>
   <li>ControlMaster (connection multiplexing)</li>
   <li>X11 forwarding</li>
   <li>Port forwarding</li>
 </ul>
 
+<h2 id="summary">Summary</h2>
+
+<p>Users should know:</p>
+
+<ul>
+  <li>the benefits of persistent connections</li>
+  <li>how to enable persistent connections in their SSH configuration file</li>
+  <li>how to enable persistent connections in programs like WinSCP and Cyberduck</li>
+  <li>how to enable persistent connections during port forwarding</li>
+</ul>
+
+<h2 id="related-pages">Related pages</h2>
+
+<ul>
+  <li><a href="connecting">Log in to CHTC</a></li>
+</ul>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -455,7 +470,7 @@ following SSH features:</p>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/connecting">Log In to CHTC Resources</a>
+                                        <a class="" href="/uw-research-computing/connecting">Log in to CHTC</a>
                                     </div>
                                 
 
@@ -465,7 +480,12 @@ following SSH features:</p>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/configure-ssh">Automate CHTC Log In</a>
+                                        <a class="" href="/uw-research-computing/basic-shell-commands">Basic shell commands</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="fw-bolder" href="/uw-research-computing/configure-ssh">Automate CHTC login</a>
                                     </div>
                                 
 

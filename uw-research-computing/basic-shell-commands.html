@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Policies and Expectations for Using CHTC</title>
+<title>Basic shell commands</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Policies and Expectations for Using CHTC | CHTC</title>
+<title>Basic shell commands | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="Policies and Expectations for Using CHTC" />
+<meta property="og:title" content="Basic shell commands" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="This page lists important policies and expectations for using CHTC computing and data services. Our goal is to support a community of users and a variety of research. If an individual user is taking action that negatively impacts our services, we reserve the right to deactivate their account or remove files without notice." />
-<meta property="og:description" content="This page lists important policies and expectations for using CHTC computing and data services. Our goal is to support a community of users and a variety of research. If an individual user is taking action that negatively impacts our services, we reserve the right to deactivate their account or remove files without notice." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/user-expectations" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/user-expectations" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/basic-shell-commands" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/basic-shell-commands" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-01-08T22:13:17+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Policies and Expectations for Using CHTC" />
+<meta property="twitter:title" content="Basic shell commands" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-01-08T22:13:17+00:00","datePublished":"2025-01-08T22:13:17+00:00","description":"This page lists important policies and expectations for using CHTC computing and data services. Our goal is to support a community of users and a variety of research. If an individual user is taking action that negatively impacts our services, we reserve the right to deactivate their account or remove files without notice.","headline":"Policies and Expectations for Using CHTC","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/user-expectations"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/user-expectations"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-01-08T22:13:17+00:00","datePublished":"2025-01-08T22:13:17+00:00","description":"Introduction","headline":"Basic shell commands","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/basic-shell-commands"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/basic-shell-commands"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -244,96 +244,260 @@
         <div class="col-12 col-lg-9 mw-1000">
 
             <h1 class="uw-mini-bar mb-4">
-    Policies and Expectations for Using CHTC
+    Basic shell commands
 </h1>
 
-            <p>This page lists important policies and expectations for using CHTC computing and 
-data services. Our goal is to support a community of users and a variety of 
-research. If an individual user is taking 
-action that negatively impacts our services, we reserve the right to 
-deactivate their account or remove files without notice.</p>
+            <h2 id="introduction">Introduction</h2>
 
-<h2 id="access-and-use">Access and Use</h2>
+<p>This page contains quick references for basic shell commands and links to more detailed resources. Users need to know basic shell commands to navigate directories and modify files for use on CHTC systems. Users can reference this page to gain familiarity or refresh their knowledge of shell commands.</p>
 
-<p>Use of CHTC services are free to use in support of UW - Madison’s research and 
-teaching mission.</p>
+<div class="d-flex flex-column mb-5">
 
-<p><strong>Accounts are linked to individuals and should NOT be shared.</strong> We are happy to make new
-accounts for individuals or group-owned spaces for sharing files. Accounts that we 
-notice being shared will be immediately disabled and a meeting with the PI 
-(faculty advisor) may be necessary to reinstate the account.</p>
+<h2>Table of Contents</h2>
 
-<p>For more information on the process for obtaining an account, see our 
-<a href="account-details.html">How to Request an Account</a> guide.</p>
+<div class="uw-sidebar-box me-auto">
+<div class="uw-directory">
 
-<h2 id="data-policies">Data Policies</h2>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#learn-about-the-command-line">Learn about the command line</a></li>
+        <li><a href="#quick-reference-basic-shell-commands">Quick reference: basic shell commands</a></li>
+        <li><a href="#related-pages">Related pages</a></li>
+      </ul>
 
-<p><strong>CHTC data locations are not backed up</strong>, and users should
-treat CHTC compute systems as temporary storage locations for <em>active</em>,
-currently-queued computational work. Users should remove data from CHTC
-systems upon completion of a batch of computational work and keep copies of
-all essential files in a non-CHTC location. CHTC staff reserve the right
-to delete data from any CHTC data location at at any time, to preserve
-systems performance, and are not responsible for data loss or file system
-corruption, which are possible in the absence of back-ups.</p>
+    </div>
+</div>
+</div>
 
-<p><strong>CHTC is not HIPAA-compliant</strong> and users should not bring HIPAA data into 
-CHTC services. If you have data security concerns or any questions about 
-data security in CHTC, <a href="https://chtc.cs.wisc.edu/uw-research-computing/get-help.html">please get in touch</a>!</p>
+<h2 id="learn-about-the-command-line">Learn about the command line</h2>
+<h3 id="why-should-you-learn-about-the-command-line">Why should you learn about the command line?</h3>
 
-<p>To request a change in the quotas for a storage location, please see
-our <a href="quota-request">Request a Quota Change</a> guide.</p>
+<p>If you haven’t used the command line before, it might seem like a big challenge to get started. However, we strongly recommend learning more about the command line for multiple reasons:</p>
 
-<h3 id="export-control">Export Control</h3>
+<ul>
+  <li>Only a few basic commands are needed to successfully submit jobs on CHTC.</li>
+  <li>With practice, typing on the command line is significantly faster and much more powerful than using a point-and-click graphic interface.</li>
+  <li>Command line skills are useful for more than just large-scale computing.</li>
+</ul>
 
-<p>Users agree not to access, utilize, store, or in any way run export controlled data, information, 
-programs, etc. on CHTC software, equipment, or computing resources without prior review by the 
-UW-Madison Export Control Office.</p>
-
-<p>Export controlled information is subject to federal government rules on handling and viewing and has 
-restrictions on who and where it may be accessed. A license can be required for access by foreign 
-persons and in foreign jurisdictions so it’s important to ensure that all legal requirements are 
-followed.
-If you have export controlled information that you would like to use on the CHTC, or you are unsure 
-if the information you have is export controlled, please contact the Export Control Office at 
-<a href="mailto:exportcontrol@grad.wisc.edu">exportcontrol@grad.wisc.edu</a> for guidance.</p>
-
-<p><strong>Note: The CHTC is not compliant with Controlled Unclassified Information (CUI) requirements.</strong></p>
-
-<h2 id="user-expectations">User Expectations</h2>
-
-<p>Because our systems are shared by many CHTC users, everyone contributes to 
-helping the systems run smoothly. The following are some best practices 
-to get the most out of CHTC without harming other users. Our goal 
-is always to help you get your work done - if you think the following recommendations 
-limit your capacity to run work, please contact us to discuss alternatives.</p>
-
-<p><strong>Never run computationally intensive tasks on the login nodes</strong> for either 
-system. As a rule of thumb, anything that runs for more than a few seconds, or 
-is known to use a lot of cores or memory should not be run directly, but as a job. 
-Small scripts and commands (to compress data, create directories,
-etc.) that run within a few minutes on the submit server are okay,
-but their use should be minimized when possible. If you have questions about this, 
-please contact the facilitation team. CHTC staff reserve the right to kill any long-running or problematic processes on the 
-head nodes and/or disable user accounts that violate this policy</p>
-
-<p><strong>Avoid unsupervised scripts on the login nodes.</strong> Automating tasks via tools like 
-<code>cron</code>, <code>watch</code>, or using a workflow manager (not including HTCondor’s DAGMan) on the login node is not allowed without prior 
-discussion with the facilitation or infrastructure team.</p>
-
-<blockquote>
-  <p><strong>(HTC system specific):</strong> Since use of <code>watch</code> with <code>condor_q</code> is prohibited, 
-we recommend using <code>condor_watch_q</code> as an alternative for live updates on your jobs 
-in the queue. <code>condor_watch_q</code> is more efficient and will not impair system performance.</p>
+<blockquote class="tip-header">
+  <h3 id="for-beginning-users-get-started-with-the-command-line">For beginning users: Get started with the command line</h3>
 </blockquote>
 
-<p><strong>Test your jobs</strong>. We recommend testing a small version of your overall workflow 
-before submitting your full workflow. By testing a smaller version of your jobs, 
-you can determine resource requests, runtimes, and whether you may need an increase 
-in your user quota. Both our HTC and HPC systems use a fair shair policy and each 
-researcher has a user priority. <strong>Submitting many jobs that fail or do not produce 
-the unexpected output will decrease your user priority without helping you complete 
-your research.</strong>  User priorities naturally reset over time.</p>
+<blockquote class="tip">
+  <p>For a good overview of command line tools, see the <a href="http://swcarpentry.github.io/shell-novice/">Software Carpentry Unix Shell</a> lesson. We recommend that you learn how to:</p>
+
+  <ul>
+    <li><a href="https://swcarpentry.github.io/shell-novice/02-filedir.html">understand the filesystem and how to navigate it</a></li>
+    <li><a href="https://swcarpentry.github.io/shell-novice/02-filedir.html#nelles-pipeline-organizing-files">use tab-completion</a></li>
+    <li><a href="https://swcarpentry.github.io/shell-novice/03-create.html">create files</a></li>
+    <li><a href="https://swcarpentry.github.io/shell-novice/04-pipefilter.html">use the star wildcard</a></li>
+    <li><a href="https://swcarpentry.github.io/shell-novice/06-script.html">write shell scripts</a></li>
+  </ul>
+</blockquote>
+
+<h2 id="quick-reference-basic-shell-commands">Quick reference: basic shell commands</h2>
+<p>Note: Bracketed items (<code>&lt;&gt;</code>) denote where to place your input. <em>Do not</em> include the brackets in your command.</p>
+
+<h3 id="navigate-directories">Navigate directories</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Use</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>cd &lt;path/to/directory&gt;</code></td>
+      <td>changes current directory to <code>path/to/directory</code></td>
+      <td><code>.</code> - the current directory</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td><code>..</code> - one level above the current directory</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td><code>~</code> - your home directory (<code>/home/username/</code>)</td>
+    </tr>
+    <tr>
+      <td><code>pwd</code></td>
+      <td>prints path of the working (current) directory</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>ls &lt;directory&gt;</code></td>
+      <td>lists files in <code>directory</code></td>
+      <td><code>-lh</code> prints human-readable information</td>
+    </tr>
+    <tr>
+      <td><code>ls</code></td>
+      <td>list files in current directory</td>
+      <td><code>-a</code> prints hidden files</td>
+    </tr>
+    <tr>
+      <td><code>mkdir &lt;directory&gt;</code></td>
+      <td>creates a directory</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>rmdir &lt;directory&gt;</code></td>
+      <td>removes a directory (must be empty)</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="inspect-files">Inspect files</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Use</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>cat &lt;file&gt;</code></td>
+      <td>prints contents of <code>file</code></td>
+    </tr>
+    <tr>
+      <td><code>less &lt;file&gt;</code></td>
+      <td>views contents of <code>file</code> (similar to <code>vim</code>, but without edit capabilities)</td>
+    </tr>
+    <tr>
+      <td><code>head &lt;file&gt;</code></td>
+      <td>prints the first ten lines of <code>file</code></td>
+    </tr>
+    <tr>
+      <td><code>tail &lt;file&gt;</code></td>
+      <td>prints the last ten lines of <code>file</code></td>
+    </tr>
+    <tr>
+      <td><code>grep &lt;phrase&gt; &lt;file&gt;</code></td>
+      <td>grabs and prints every instance of <code>phrase</code> in <code>file</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="edit-files">Edit files</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Use</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>nano &lt;file&gt;</code></td>
+      <td>opens or creates <code>file</code> in the <code>nano</code> text editor</td>
+      <td><a href="https://www.nano-editor.org/dist/latest/cheatsheet.html">cheatsheet for nano commands</a></td>
+    </tr>
+    <tr>
+      <td><code>vim &lt;file&gt;</code> or <code>vi &lt;file&gt;</code></td>
+      <td>opens or creates <code>file</code> in the <code>vim</code> text editor</td>
+      <td><a href="https://vimsheet.com/">cheatsheet for vim commands</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="copy-move-and-remove-files">Copy, move, and remove files</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Use</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>cp &lt;file1&gt; &lt;file2&gt;</code></td>
+      <td>copies <code>file1</code> to <code>file2</code></td>
+    </tr>
+    <tr>
+      <td><code>mv &lt;file1&gt; &lt;file2&gt;</code></td>
+      <td>moves or renames <code>file1</code> to <code>file2</code></td>
+    </tr>
+    <tr>
+      <td><code>rm &lt;file1&gt;</code></td>
+      <td>removes <code>file1</code></td>
+    </tr>
+    <tr>
+      <td><code>scp &lt;file&gt; &lt;destination&gt;</code></td>
+      <td>moves files between machines. See how to <a href="transfer-files-computer">transfer files to/from your local computer</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="wildcards">Wildcards</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Wildcard</th>
+      <th>Use</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>?</code></td>
+      <td>matching any character</td>
+      <td>Example: <code>rm ?.txt</code> removes <code>1.txt</code> and <code>b.txt</code> but not <code>24.txt</code></td>
+    </tr>
+    <tr>
+      <td><code>*</code></td>
+      <td>matching any characters of any length</td>
+      <td>Example: <code>rm *.txt</code> removes all files with the <code>.txt</code> extension</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="https://tldp.org/LDP/GNU-Linux-Tools-Summary/html/x11655.htm">Read more</a> about wildcards.</p>
+
+<h3 id="other-commands">Other commands</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Commmand</th>
+      <th>Use</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>echo &lt;$var&gt;</code></td>
+      <td>prints the value of <code>$var</code></td>
+      <td>Example: <code>echo $PWD</code> returns the current directory</td>
+    </tr>
+    <tr>
+      <td><code>chmod +x</code></td>
+      <td>adds executable permissions to a file</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="related-pages">Related pages</h2>
+
+<p>Below are more resources for learning the basic shell commands and the command line.</p>
+
+<ul>
+  <li><a href="http://swcarpentry.github.io/shell-novice/">Software Carpentry Unix Shell</a> lessons</li>
+  <li><a href="https://ubuntu.com/tutorials/command-line-for-beginners#1-overview">Ubuntu tutorial: The Linux command line for beginners</a></li>
+  <li><a href="https://files.fosswire.com/2007/08/fwunixref.pdf">Unix/Linux Command Reference cheat sheet</a></li>
+</ul>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -342,6 +506,98 @@ your research.</strong>  User priorities naturally reset over time.</p>
 
 
     <div id="guide-sidebar">
+        
+            
+
+            
+            
+
+            <h6 class="mt-5">General Guides</h6>
+            <div class="accordion accordion-flush">
+                
+                    
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="basics-and-policies">
+                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
+                                    Basics and Policies
+                                </button>
+                            </h2>
+                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse show " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/data-recovery-fall2024">CHTC /staging and /projects Next Steps</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/connecting">Log in to CHTC</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/transfer-files-computer">Transfer Files between CHTC and your Computer</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="fw-bolder" href="/uw-research-computing/basic-shell-commands">Basic shell commands</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/configure-ssh">Automate CHTC login</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/transfer-data-researchdrive">Transfer Files Between CHTC and ResearchDrive</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/github-remote-access">Access a Private GitHub Repository Remotely</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+                
+                    
+                
+                    
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="software-solutions">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#software-solutions-collapse" aria-expanded="false" aria-controls="software-solutions">
+                                    Software Solutions
+                                </button>
+                            </h2>
+                            <div id="software-solutions-collapse" class="accordion-collapse collapse " aria-labelledby="software-solutions" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/apptainer-build">Building an Apptainer Container</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                
+                    
+                
+                    
+                
+            </div>
         
     </div>
 

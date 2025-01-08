@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Log In to CHTC Resources</title>
+<title>Log in to CHTC</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Log In to CHTC Resources | CHTC</title>
+<title>Log in to CHTC | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="Log In to CHTC Resources" />
+<meta property="og:title" content="Log in to CHTC" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="This guide assumes that you have already gotten a CHTC account for either our high throughput or high performance compute systems. If you haven&#39;t, see our getting started page." />
-<meta property="og:description" content="This guide assumes that you have already gotten a CHTC account for either our high throughput or high performance compute systems. If you haven&#39;t, see our getting started page." />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
 <link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/connecting" />
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/connecting" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-01-08T21:16:30+00:00" />
+<meta property="article:published_time" content="2025-01-08T22:13:17+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Log In to CHTC Resources" />
+<meta property="twitter:title" content="Log in to CHTC" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-01-08T21:16:30+00:00","datePublished":"2025-01-08T21:16:30+00:00","description":"This guide assumes that you have already gotten a CHTC account for either our high throughput or high performance compute systems. If you haven&#39;t, see our getting started page.","headline":"Log In to CHTC Resources","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/connecting"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/connecting"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-01-08T22:13:17+00:00","datePublished":"2025-01-08T22:13:17+00:00","description":"Introduction","headline":"Log in to CHTC","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/connecting"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/connecting"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -244,13 +244,14 @@
         <div class="col-12 col-lg-9 mw-1000">
 
             <h1 class="uw-mini-bar mb-4">
-    Log In to CHTC Resources
+    Log in to CHTC
 </h1>
 
-            <p>This guide assumes
-that you have already gotten a CHTC account for either our high
-throughput or high performance compute systems. If you haven't, see our
-<a href="get-started.html">getting started</a> page.</p>
+            <h2 id="introduction">Introduction</h2>
+
+<p>This guide outlines login information for CHTC services, including how to log in to CHTC servers after your account has been created, access point information, and how to re-use ssh connections to reduce the frequency of using Duo Multi-factor Authentication (MFA).</p>
+
+<p>If you don’t have an account, see our <a href="get-started.html">getting started</a> page.</p>
 
 <div class="d-flex flex-column mb-5">
 
@@ -259,41 +260,44 @@ throughput or high performance compute systems. If you haven't, see our
 <div class="uw-sidebar-box me-auto">
 <div class="uw-directory">
 
-      <ol>
-        <li><a href="#access">Accessing the Submit Servers</a></li>
-        <li><a href="#login">Logging In</a>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#before-you-log-in">Before you log in</a></li>
+        <li><a href="#hostname--access-point-information">Hostname / Access point information</a></li>
+        <li><a href="#log-in">Log in</a>
           <ul>
-            <li><a href="#login-ssh">On the command line</a></li>
-            <li><a href="#login-putty">Using an SSH program (Windows/Mac)</a></li>
-            <li><a href="#c-re-using-ssh-connections">Re-using SSH connections</a></li>
+            <li><a href="#option-1-log-in-with-a-terminal">Option 1: Log in with a terminal</a></li>
+            <li><a href="#option-2-log-in-with-putty-an-ssh-program-for-windows">Option 2: Log in with PuTTY, an SSH program for Windows</a></li>
           </ul>
         </li>
-        <li><a href="#learn">Learning about the command line</a></li>
-      </ol>
+        <li><a href="#log-out">Log out</a></li>
+        <li><a href="#ssh-programs">SSH programs</a></li>
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#related-pages">Related pages</a></li>
+      </ul>
 
     </div>
 </div>
 </div>
 
-<p><a name="access"></a></p>
+<h2 id="before-you-log-in">Before you log in</h2>
 
-<h1 id="1-accessing-the-submit-servers"><strong>1. Accessing the Submit Servers</strong></h1>
-
-<p>You will need the following information to log into our CHTC submit
-servers or head nodes:</p>
-
-<p><strong>Username and Password</strong></p>
+<p>After obtaining a CHTC account, you will need the following to log into our CHTC access points:</p>
 
 <ul>
-  <li>UW-Madison NetID and password</li>
+  <li><a href="https://it.wisc.edu/services/duo-multi-factor-authentication-mfa/">Duo Multi-factor authentication (MFA)</a></li>
+  <li><a href="https://it.wisc.edu/services/wiscvpn/">a connection to the campus network or Virtual Private Network (VPN)</a></li>
+  <li>a username and password (typically your UW-Madison NetID and password)</li>
 </ul>
 
-<p><strong>Hostname</strong></p>
+<h2 id="hostname--access-point-information">Hostname / Access point information</h2>
+
+<p>Please use the access point specified in your welcome email.</p>
 
 <table class="gtable">
   <thead>
     <tr>
-      <th>HTC System</th>
+      <th>High Throughput Computing (HTC) System</th>
     </tr>
   </thead>
   <tbody>
@@ -309,7 +313,7 @@ servers or head nodes:</p>
 <table class="gtable">
   <thead>
     <tr>
-      <th>HPC Cluster</th>
+      <th>High Performance Computing (HPC) System</th>
     </tr>
   </thead>
   <tbody>
@@ -319,124 +323,163 @@ servers or head nodes:</p>
   </tbody>
 </table>
 
-<p>As of December 2022, we also require two-factor authentication with Duo to 
-access CHTC resources.</p>
+<h2 id="log-in">Log in</h2>
 
-<blockquote>
-  <p><strong>Are you off-campus?</strong><br />
-All of our CHTC submit servers and head nodes are firewalled to block
-log-ins from off-campus. If you are off-campus and want to log in, you
-can either:</p>
+<p>You can log in to the access points two different ways — from a terminal program or using an SSH program.</p>
 
-  <ul>
-    <li>Activate the campus Virtual Private Network (VPN) (more details on how to set this up
-<a href="https://it.wisc.edu/services/wiscvpn/">DoIT’s VPN webpage</a>). This will allow you join the campus network when working off-campus.</li>
-    <li>Log into another computer that is on campus (typically by SSH-ing into that computer) and then SSH to our submit server.</li>
-  </ul>
+<p>See <a href="#ssh-programs">this table</a> for a list of terminal/SSH programs.</p>
 
-  <p>In either case, it will appear like you are on-campus, and you should
-then be able to log into CHTC as usual.</p>
+<h3 id="option-1-log-in-with-a-terminal">Option 1: Log in with a terminal</h3>
+
+<ol>
+  <li>
+    <p>Open a terminal window. Enter the following command, where <code>user</code> is your username (typically your NetID) and <code>hostname.chtc.wisc.edu</code> is your assigned access point in your welcome email.</p>
+
+    <pre class="term"><code> ssh username@hostname.chtc.wisc.edu
+</code></pre>
+  </li>
+  <li>
+    <p>You will be prompted for your password, then for Duo MFA authentication.</p>
+  </li>
+</ol>
+
+<blockquote class="tip-header">
+  <h3 id="️-demo-log-into-a-chtc-access-point">🎞️ Demo: Log into a CHTC access point</h3>
 </blockquote>
 
-<p><a name="login"></a></p>
+<blockquote class="tip">
+  <p>This video demonstrates how to log into CHTC and authenticate with Duo MFA.</p>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/J-wxsrQ3v04" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</blockquote>
 
-<h1 id="2-logging-in"><strong>2. Logging In</strong></h1>
+<h3 id="option-2-log-in-with-putty-an-ssh-program-for-windows">Option 2: Log in with PuTTY, an SSH program for Windows</h3>
 
-<p>Using the information described above, you can log in to servers two
-different ways -- from the command line or using an SSH program:</p>
+<p>There are multiple programs to connect to remote servers for Windows. We recommend “PuTTy”, which can be downloaded <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">here</a>.</p>
 
-<p><a name="login-ssh"></a></p>
+<ol>
+  <li>
+    <p>To log in, run the PuTTy executable (<code>putty.exe</code>). The PuTTY Configuration options will load in a new window.</p>
 
-<h2 id="a-on-the-command-line">A. On the command line</h2>
+    <p><img src="/images/putty-7.jpeg" alt="The PuTTY Configuration window" /></p>
+  </li>
+  <li>
+    <p>Fill in the hostname with the <a href="#hostname">hostname for your access point</a>. Use Port 22 and the “SSH” connection type — these are usually the defaults.</p>
+  </li>
+  <li>
+    <p>After clicking “Open”, you will be prompted to fill in your username and password, then to authenticate with Duo.</p>
+  </li>
+</ol>
 
-<p>On Mac, Linux, and modern Windows (10+) systems, you can use the "Terminal" application to
-log in. Open a terminal window and use the following command to connect
-to the appropriate server:</p>
+<h2 id="log-out">Log out</h2>
 
-<pre class="term"><code>$ ssh username@hostname
-</code></pre>
+<p>Log out by entering <code>exit</code> into the command line. Any submitted jobs will run and return output without you needing to be connected.</p>
 
-<p>You will be prompted for your password, and then for Duo 
-authentication.</p>
+<h2 id="ssh-programs">SSH programs</h2>
 
-<p><a name="login-putty"></a></p>
+<p>This is a non-exhaustive list of programs that can be used to log into CHTC servers or transfer files.</p>
 
-<h2 id="b-using-an-ssh-program-windows">B. Using an SSH program (Windows)</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Operating system</th>
+      <th>Program</th>
+      <th>Type</th>
+      <th>Supports <a href="configure-ssh">persistent connections</a></th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Linux</td>
+      <td>Terminal</td>
+      <td>terminal</td>
+      <td>✓</td>
+      <td>pre-installed</td>
+    </tr>
+    <tr>
+      <td>MacOS</td>
+      <td>Terminal</td>
+      <td>terminal</td>
+      <td>✓</td>
+      <td>pre-installed</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><a href="https://cyberduck.io/">Cyberduck</a></td>
+      <td>file-transfer utility</td>
+      <td>✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Windows</td>
+      <td>Terminal (PowerShell)</td>
+      <td>terminal</td>
+      <td>X</td>
+      <td>pre-installed</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><a href="https://learn.microsoft.com/en-us/windows/wsl/install">Terminal (Windows Subshell for Linux)</a></td>
+      <td>terminal</td>
+      <td>✓</td>
+      <td>recommended for users familiar with the Unix shell</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><a href="https://mobaxterm.mobatek.net/">MobaXTerm</a></td>
+      <td>terminal, SSH client, file-transfer utility</td>
+      <td>✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><a href="https://winscp.net/eng/index.php">WinSCP</a></td>
+      <td>file-transfer utility</td>
+      <td>✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><a href="https://www.putty.org/">PuTTY</a></td>
+      <td>SSH client</td>
+      <td>✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Linux, MacOS, Windows</td>
+      <td><a href="https://code.visualstudio.com/">VSCode</a></td>
+      <td>terminal, limited file-transfer utility, integrated code editor</td>
+      <td>only on MacOS/Linux/WSL</td>
+      <td><a href="https://code.visualstudio.com/docs/remote/ssh-tutorial">setup</a> (ignore steps on creating a virtual machine)</td>
+    </tr>
+    <tr>
+      <td>Linux, MacOS, Chrome, and more</td>
+      <td><a href="https://mosh.org/">Mosh</a></td>
+      <td>terminal</td>
+      <td>X</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
-<p>There are multiple programs to connect to remote servers for Windows. We
-recommend "PuTTy", which can be downloaded
-<a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">here</a>.
-To log in, click on the PuTTy executable (<code>putty.exe</code>). You should see a
-screen like this:</p>
+<h2 id="summary">Summary</h2>
 
-<p><img src="/images/putty-7.jpeg" alt="" /></p>
-
-<p>Fill in the hostname as described in part 1. You should use Port 22 and
-connect using "ssh" -- these are usually the defaults. After you
-click "connect" you will be prompted to fill in your username and
-password, and then to authenticate with Duo.</p>
-
-<p>Note that once you have submitted jobs to the queue, you can leave your
-logged in session (by typing <code>exit</code>). Your jobs will run and return
-output without you needing to be connected.</p>
-
-<!-- <a name="ssh-keys"></a>
-
-C. Logging in automatically
----------------------------
-
-Tired of typing your password everytime you log in? It\'s possible to
-set up a file on your local computer called an ssh key, that allows you
-to log into CHTC and transfer files without entering your password. [See
-this guide](http://www.howtogeek.com/66776/how-to-remotely-copy-files-over-ssh-without-entering-your-password/)
-for instructions on how to do this, starting at the section titled
-**\"SSH and SCP Without Passwords\"**. -->
-
-<h2 id="c-re-using-ssh-connections">C. Re-Using SSH Connections</h2>
-
-<p>To reduce the number of times it is necessary to enter your credentials, it’s 
-possible to customize your SSH configuration in a way that allows you to “reuse” 
-a connection for logging in again or moving files. More details are shown 
-in this guide: <a href="/uw-research-computing/configure-ssh.html">Automating CHTC Log In</a></p>
-
-<p><a name="learn"></a></p>
-
-<h1 id="3-learning-about-the-command-line"><strong>3. Learning About the Command Line</strong></h1>
-
-<p><strong>Why learn about the command line?</strong> If you haven't used the command
-line before, it might seem like a big challenge to get started, and
-easier to use other tools, especially if you have a Windows computer.
-However, we strongly recommend learning more about the command line for
-multiple reasons:</p>
-
+<p>From this guide, users should know:</p>
 <ul>
-  <li>You can do most of what you need to do in CHTC by learning a few
-basic commands.</li>
-  <li>With a little practice, typing on the command line is significantly
-faster and much more powerful than using a point-and-click graphic
-interface.</li>
-  <li>Command line skills are useful for more than just large-scale
-computing.</li>
+  <li>the information and connections necessary to log in</li>
+  <li>hostname of their access point</li>
+  <li>how to log in to their CHTC access point</li>
+  <li>how to log out of their access point</li>
+  <li>programs they can use to log in to CHTC</li>
 </ul>
 
-<p>For a good overview of command line tools, see the <a href="http://swcarpentry.github.io/shell-novice/">Software Carpentry
-Unix Shell</a> lesson. In
-particular, we recommend the sections on:</p>
+<h2 id="related-pages">Related pages</h2>
 
 <ul>
-  <li>understanding the filesystem and how to navigate it (<a href="https://swcarpentry.github.io/shell-novice/02-filedir.html">Navigating
-Files and Directories</a>)</li>
-  <li>tab-completion (section entitled "Nelle's Pipeline, Organizing
-Files", in <a href="https://swcarpentry.github.io/shell-novice/02-filedir.html">Navigating Files and
-Directories</a>)</li>
-  <li>creating files (<a href="https://swcarpentry.github.io/shell-novice/03-create.html">Working With Files and
-Directories</a>)</li>
-  <li>using the star wildcard (first part of <a href="https://swcarpentry.github.io/shell-novice/04-pipefilter.html">Pipes and
-Filters</a>)</li>
-  <li>writing shell scripts (<a href="https://swcarpentry.github.io/shell-novice/06-script.html">Shell
-Scripts</a>)</li>
+  <li><a href="configure-ssh">Automate CHTC log in</a></li>
+  <li><a href="basic-shell-commands">Basic shell commands</a></li>
+  <li><a href="transfer-files-computer">Transfer files to/from CHTC and your computer</a></li>
 </ul>
-
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -474,7 +517,7 @@ Scripts</a>)</li>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/connecting">Log In to CHTC Resources</a>
+                                        <a class="fw-bolder" href="/uw-research-computing/connecting">Log in to CHTC</a>
                                     </div>
                                 
 
@@ -484,7 +527,12 @@ Scripts</a>)</li>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/configure-ssh">Automate CHTC Log In</a>
+                                        <a class="" href="/uw-research-computing/basic-shell-commands">Basic shell commands</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/configure-ssh">Automate CHTC login</a>
                                     </div>
                                 
 
