@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Submitting and Managing Jobs Using SLURM</title>
+<title>Quick reference: HTCondor commands</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Submitting and Managing Jobs Using SLURM | CHTC</title>
+<title>Quick reference: HTCondor commands | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="Submitting and Managing Jobs Using SLURM" />
+<meta property="og:title" content="Quick reference: HTCondor commands" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The HPC Cluster uses SLURM to manage jobs on the HPC Cluster. This page describes how to submit and manage jobs using SLURM." />
-<meta property="og:description" content="The HPC Cluster uses SLURM to manage jobs on the HPC Cluster. This page describes how to submit and manage jobs using SLURM." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/hpc-job-submission" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc-job-submission" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/htcondor-quick-ref" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htcondor-quick-ref" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-01-09T19:24:03+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Submitting and Managing Jobs Using SLURM" />
+<meta property="twitter:title" content="Quick reference: HTCondor commands" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-01-09T19:24:03+00:00","datePublished":"2025-01-09T19:24:03+00:00","description":"The HPC Cluster uses SLURM to manage jobs on the HPC Cluster. This page describes how to submit and manage jobs using SLURM.","headline":"Submitting and Managing Jobs Using SLURM","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-job-submission"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-job-submission"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-01-09T19:24:03+00:00","datePublished":"2025-01-09T19:24:03+00:00","description":"Introduction","headline":"Quick reference: HTCondor commands","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htcondor-quick-ref"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htcondor-quick-ref"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -238,15 +238,18 @@
 
 
     <main id="main" style="min-height: 60vh;">
-        <div class="container-xxl mb-5">
+        <main id="main" style="min-height: 60vh;">
+    <div class="container-xxl mb-5">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-9 mw-1000">
+
             <h1 class="uw-mini-bar mb-4">
-    Submitting and Managing Jobs Using SLURM
+    Quick reference: HTCondor commands
 </h1>
 
-            <p>The HPC Cluster uses SLURM to manage jobs on the HPC Cluster. This page describes 
-how to submit and manage jobs using SLURM.</p>
+            <h2 id="introduction">Introduction</h2>
+
+<p>This page lists common HTCondor commands and options for jobs. Users familiar with HTCondor and job submission on CHTC’s High Throughput Computing (HTC) system can use this page as a quick reference. For users who are just starting out, we suggest reading the full guides (linked) to understand the full context of each command or option.</p>
 
 <div class="d-flex flex-column mb-5">
 
@@ -256,276 +259,242 @@ how to submit and manage jobs using SLURM.</p>
 <div class="uw-directory">
 
       <ul>
-        <li><a href="#1-submitting-jobs-using-slurm">1. Submitting Jobs Using SLURM</a>
-          <ul>
-            <li><a href="#a-submitting-a-job">A. Submitting a Job</a></li>
-            <li><a href="#b-optimizing-your-submit-file">B. Optimizing Your Submit File</a></li>
-            <li><a href="#c-requesting-an-interactive-job-int-and-pre-partitions">C. Requesting an Interactive Job ("int" and "pre" partitions)</a>
-              <ul>
-                <li><a href="#for-simple-testing-or-compiling">For simple testing or compiling</a></li>
-                <li><a href="#for-running-mpi-code">For running MPI code</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li><a href="#2-viewing-jobs-in-the-queue">2. Viewing Jobs in the Queue</a></li>
-        <li><a href="#3-removing-or-holding-jobs">3. Removing or Holding Jobs</a></li>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#submit-jobs">Submit jobs</a></li>
+        <li><a href="#monitor-jobs">Monitor jobs</a></li>
+        <li><a href="#machine-information">Machine information</a></li>
+        <li><a href="#glossary">Glossary</a></li>
+        <li><a href="#related-pages">Related Pages</a></li>
       </ul>
 
     </div>
 </div>
 </div>
 
-<p>The following assumes that you have been granted access to the HPC cluster 
-and can log into the head node <code>spark-login.chtc.wisc.edu</code>. If this is not
-the case, please see the <a href="form.html">CHTC account application page</a> or email
-the facilitation team at chtc@cs.wisc.edu.</p>
-
-<h1 id="1-submitting-jobs-using-slurm">1. Submitting Jobs Using SLURM</h1>
-
-<h2 id="a-submitting-a-job">A. Submitting a Job</h2>
-
-<p>Jobs can be submitted to the cluster using a submit file, sometimes also 
-called a “batch” file. The top half of the file consists of <code>#SBATCH</code> 
-options which communicate needs or parameters of the job – these lines 
-are <strong>not</strong> comments, but essential options for the job. The values for 
-<code>#SBATCH</code> options should reflect the size of nodes and run time limits 
-described <a href="hpc-overview.html">here</a>.</p>
-
-<p>After the <code>#SBATCH</code> options, the submit file should contain the commands
-needed to run your job, including loading any needed software modules.</p>
-
-<p>An example submit file is given below. It requests 1 nodes of 64 cores 
-and 4GB of memory each (so 64 cores and 256 GB of memory total), on the 
-<code>shared</code> partition. It also specifies a run time limit of 4.5 hours.</p>
-
-<pre><code class="language-{.sub}">#!/bin/sh
-#This file is called submit-script.sh
-#SBATCH --partition=shared       # default "shared", if not specified
-#SBATCH --time=0-04:30:00       # run time in days-hh:mm:ss
-#SBATCH --nodes=1               # require 1 nodes
-#SBATCH --ntasks-per-node=64    # cpus per node (by default, "ntasks"="cpus")
-#SBATCH --mem=4000             # RAM per node in megabytes
-#SBATCH --error=job.%J.err
-#SBATCH --output=job.%J.out
-# Make sure to change the above two lines to reflect your appropriate
-# file locations for standard error and output
-
-# Now list your executable command (or a string of them).
-# Example for code compiled with a software module:
-module load mpimodule
-srun --mpi=pmix -n 64 /home/username/mpiprogram
-</code></pre>
-
-<p>Once the submit file is created, it can be submitted using the <code>sbatch</code> command:</p>
-
-<pre class="term"><code>[alice@login]$ sbatch submit-script.sh
-</code></pre>
-
-<h2 id="b-optimizing-your-submit-file">B. Optimizing Your Submit File</h2>
-
-<p>The new cluster has different partition names and different sized nodes. <strong>We always recommend requesting cores per node (instead of total cores), using a multiple of 32 cores as your request per node.</strong> Requesting multiple nodes is not advantageous if your jobs are smaller than 128 cores. We also now recommend requesting memory per core instead of memory per node, for similar reasons, using the <code>--mem-per-cpu</code> flag with units of MB. Here are our recommendations for different sized jobs:</p>
-
-<table>
-	<tr>
-		<th>Job size</th>
-		<th>Recommended <code>#SBATCH</code> flags</th>
-	</tr>
-	<tr>
-		<td>32-128 cores</td>
-		<td>Example for 64 cores: <pre>
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=64 # recommend multiples of 32
-#SBATCH --mem-per-cpu=4000</pre></td>
-	</tr>
-	<tr>
-		<td>128 - 256 cores</td>
-		<td>Split over a few nodes, for example for 128 cores: <pre>
-#SBATCH --nodes=2
-#SBATCH --ntasks-per-node=64 # designate cores per node
-#SBATCH --mem-per-cpu=4000</pre> 
-</td>
-	</tr>
-	<tr>
-		<td>128 or 256 cores (whole nodes)</td>
-		<td>Example for 256 cores: <pre>
-#SBATCH --nodes=2
-#SBATCH --ntasks-per-node=128
-#SBATCH --mem-per-cpu=4000</pre></td>
-	</tr>
-</table>
-
-<h2 id="c-requesting-an-interactive-job-int-and-pre-partitions">C. Requesting an Interactive Job ("int" and "pre" partitions)</h2>
-
-<p>If you want to run your job commands yourself, as a test before submitting 
-a job as described above, you can request an interactive job on the cluster.</p>
-
-<p>There is a dedicated partition 
-for interactive work called <code>int</code>; you may request up to 16 CPUS and 64GB of memory
-when requesting an interactive session in the "int" partition. By default,<br />
-the session is limited to 60 minutes though you can request up to 4 hours. 
-Using another partition (like <code>pre</code>) will 
-mean your interactive job is subject to the limits of that partition instead.</p>
-
-<h3 id="for-simple-testing-or-compiling">For simple testing or compiling</h3>
-
-<p>The command to request an interactive job is <code>srun --mpi=pmix</code>, and includes the partition
-in which you’d like to run the interactive job.</p>
-
-<pre class="term"><code>[alice@login]$ srun --mpi=pmix -n4 -N1 -p int --pty bash
-</code></pre>
-
 <blockquote>
-  <p>Note: You will not be able to run MPI code in this interactive session.</p>
-</blockquote>
-
-<p>The above example indicates a request for 4 CPUs (<code>-n4</code>) on a single
-node (<code>-N1</code>) in the "int" partition (<code>-p int</code>). Adding "<code>-t 15</code>" would
-indicate a request for 15 minutes, if desired, rather than the 60-minute
-default. After the interactive shell is created to a compute node with
-the above command, you'll have access to files on the shared file
-system and be able to execute code interactively as if you had directly
-logged in to that node. <strong>It is important to exit the interactive shell
-when you're done working by typing <code>exit</code></strong>.</p>
-
-<h3 id="for-running-mpi-code">For running MPI code</h3>
-
-<p>To run an MPI program in an interactive session, you will need to (1) allocate the 
-resources using <code>salloc</code>, then (2) use <code>srun</code> to run the MPI code, and finally (3)
-give up the allocated resources.</p>
-
-<ol>
-  <li>
-    <p><strong>Request resources</strong></p>
-
-    <pre class="term"><code>[alice@login]$ salloc -n4 -N1 -p int
-</code></pre>
-
-    <p>This command requests 4 CPUs (<code>-n4</code>) on a single node (<code>-N1</code>) in the "int"
-partition (<code>-p int</code>), and assigns the resources to a new terminal session
-on the login node.  When the allocation has started, you will see a message
-like this:</p>
-    <pre class="term"><code>salloc: Granted job allocation 18701
-            Guest on spark-a005.chtc.wisc.edu
-</code></pre>
-
-    <p><strong><em>To run code in this allocation, be sure to use <code>srun</code> as described in the next step!</em></strong></p>
-  </li>
-  <li>
-    <p><strong>Use resources</strong></p>
-
-    <p>At this point, your terminal is still running on the login node.  To run
-commands using the resources in the allocation, you will need to use <code>srun</code>.</p>
-    <pre class="term"><code>[alice@login]$ srun --mpi=pmix /path/to/mpi/script
-</code></pre>
-
-    <p>This will execute the specified script using the allocated resources.
-When the <code>srun</code> calculation has finished, you will remain in the allocation
-session, allowing you to run <code>srun</code> multiple times in quick succession.</p>
-
-    <p>You can also use the allocated resources interactively with</p>
-    <pre class="term"><code>[alice@login]$ srun --mpi=pmix --pty bash
-</code></pre>
-
-    <p>which will start an interactive terminal session in your allocation (this 
-is evident by the change in the command prompt from <code>[alice@login]</code> to 
-<code>[alice@spark-a###]</code>).  Keep in mind that you will not be able to use
-MPI inside the interactive session.  You can exit the interactive session
-and return to the allocation by entering <code>exit</code>.</p>
-  </li>
-  <li>
-    <p><strong>Give up resources</strong></p>
-
-    <p>To end your allocation, simply enter <code>exit</code>.  You will see a message like
-this:</p>
-    <pre class="term"><code>exit
-salloc: Relinquishing job allocation 18701
-salloc: Job allocation 18701 has been revoked.
-</code></pre>
-  </li>
-</ol>
-
-<blockquote>
-  <p>It can be difficult to remember whether or not you are currently using an
-allocation.  A quick way of checking is to see if the <code>SLURM_JOB_ID</code> is set
-by entering <code>echo $SLURM_JOB_ID</code>.  If you are in an allocation, this command
-will return the job ID number that corresponds to an entry in your SLURM queue
-(see below).</p>
-
-  <p>A more convenient option is to update your <code>.bashrc</code> file so that the command
-prompt changes when you are in an allocation.  This can be done using the
-following commands:</p>
-  <pre class="term"><code>echo 'PS1="$SLURM_JOB_ID[\u@\h \W]\$ " ' &gt;&gt; ~/.bashrc
-echo 'export PS1' &gt;&gt; ~/.bashrc
-</code></pre>
-
-  <p>Now when you run <code>salloc</code>, your command prompt will start with the corresponding
-SLURM job ID number.  This will also be the case for the interactive <code>srun</code> 
-command.  For example,</p>
-  <pre class="term"><code>[alice@login]$ salloc -n4 -N1 -p int
-salloc: Granted job allocation 18701
-            Guest on spark-a005.chtc.wisc.edu
-	       
-18701[alice@login]$ echo 'I am running an allocation.'
-I am running an allocation.
-18701[alice@login]$ srun --mpi=pmix --pty bash
-
-18701[alice@spark-a006] echo 'I am using the resources interactively.'
-I am using the resources interactively.
-18701[alice@spark-a006] exit
-exit
-18701[alice@login]$ exit
-exit
-salloc: Relinquishing job allocation 18701
-[alice@login]$
-</code></pre>
+  <p><strong>Please note the following!</strong></p>
 
   <ul>
-    <li>This can be undone by removing the two added lines from the <code>.bashrc</code> file 
- in your home directory.</li>
+    <li>Bracketed items (<code>&lt;&gt;</code>) denote where to place your input. 
+Do not include the brackets in your command.</li>
+    <li>All commands should be entered on a single line.</li>
   </ul>
-
-  <blockquote>
-    <p>More advanced users can manipulate their bash prompt further.<br />
-The <code>SLURM_JOB_ID</code> variable is created for the allocation, and 
-a <code>SLURM_JOB_UID</code> variable is created for the interactive <code>srun</code>.</p>
-  </blockquote>
 </blockquote>
 
-<h1 id="2-viewing-jobs-in-the-queue">2. Viewing Jobs in the Queue</h1>
+<h2 id="submit-jobs">Submit jobs</h2>
 
-<p>To view your jobs in the SLURM queue, use the following command:</p>
+<p>You can use these commands to submit, hold, or remove your jobs.</p>
 
-<pre class="term"><code>[alice@login]$ squeue -u username
-</code></pre>
+<table class="command-table">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Use</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>condor_submit &lt;submit_file&gt;</code></td>
+      <td>submits job(s) as specified by <code>submit_file</code></td>
+      <td>See <a href="htcondor-job-submission">job submission</a></td>
+    </tr>
+    <tr>
+      <td><code>condor_submit -i &lt;submit_file&gt;</code></td>
+      <td>submits an interactive job as specified by <code>submit_file</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>condor_rm &lt;username&gt;</code></td>
+      <td>removes all of your jobs</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>condor_rm &lt;job_ID&gt;</code></td>
+      <td>removes the job(s) associated with <code>job_ID</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>condor_hold &lt;job_ID&gt;</code></td>
+      <td>holds the job(s) associated with <code>job_ID</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>condor_release &lt;job_ID&gt;</code></td>
+      <td>releases the held job(s) associated with <code>job_ID</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>condor_ssh_to_job &lt;job_ID&gt;</code></td>
+      <td>allows you to “ssh” to the execution point on which the job associated with <code>job_ID</code> is running on</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
-<p>Issuing <code>squeue</code> alone will show all user jobs in the queue. You can
-view all jobs for a particular partition with <code>squeue -p shared</code>.</p>
+<h2 id="monitor-jobs">Monitor jobs</h2>
 
-<blockquote>
-  <p>More commands to review job information and monitor jobs are described in <a href="hpc-job-monitoring">Reviewing Job Information Using SLURM</a>.</p>
-</blockquote>
+<table class="command-table">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Use</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>condor_q</code></td>
+      <td>displays status of your submitted jobs; jobs are batched by default</td>
+      <td>See <a href="condor_q">monitor your jobs</a></td>
+    </tr>
+    <tr>
+      <td><code>condor_q -nobatch</code></td>
+      <td>displays status of your submitted jobs without the batched view</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>condor_q &lt;job_ID&gt;</code></td>
+      <td>displays status of the job(s) associated with <code>job_ID</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>condor_q -l &lt;job_ID&gt;</code></td>
+      <td>lists all attributes of the job(s) associated with <code>job_ID</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>condor_q -hold &lt;job_ID&gt;</code></td>
+      <td>displays the hold reason for job(s) associated with <code>job_ID</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>condor_q -better-analyze &lt;job_ID&gt;</code></td>
+      <td>displays <em>simulated</em> results of the matching process associated with the job</td>
+      <td>This is a <em>starting point</em> for troubleshooting jobs sitting in the idle state.</td>
+    </tr>
+    <tr>
+      <td><code>watch_condor_q</code></td>
+      <td>displays the “real-time” status of your jobs</td>
+      <td>Updated every 2 seconds. <code>CTRL + C</code> to exit.</td>
+    </tr>
+    <tr>
+      <td><code>condor_tail &lt;job_ID&gt;</code></td>
+      <td>prints the last 10 lines of the standard output the job associated with <code>job_ID</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
-<h1 id="3-removing-or-holding-jobs">3. Removing or Holding Jobs</h1>
+<h2 id="machine-information">Machine information</h2>
 
-<p>You can kill and/or remove your job from the
-queue with the following:</p>
+<p>These commands display information about the execution points - machines that execute/run jobs.</p>
 
-<pre class="term"><code>[alice@login]$ scancel job#
-</code></pre>
+<table class="command-table">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Use</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>condor_status</code></td>
+      <td>lists all execution point slots</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>condor_status &lt;execution_point&gt;</code></td>
+      <td>lists information about the specified <code>execution_point</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>condor_status -l &lt;execution_point&gt;</code></td>
+      <td>lists all attributes of <code>execution_point</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>condor_status -compact</code></td>
+      <td>lists all execution_point slots in a compact view</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>condor_status -gpus</code></td>
+      <td>lists all execution_point slots with GPUs</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
-<p>where <code>job#</code> is the number shown for your job in the <code>squeue</code> output.</p>
+<h2 id="glossary">Glossary</h2>
 
-<p>If you want to leave a job in the queue, but prevent it from running immediately, 
-you can “hold” a submitted job by using:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Term</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>access point</td>
+      <td>The machine which you log into to access CHTC’s servers. This is the machine you use to prepare files for job submission and submit jobs.</td>
+    </tr>
+    <tr>
+      <td>cluster ID</td>
+      <td>A unique number associated with a single job submission.</td>
+    </tr>
+    <tr>
+      <td>error file / standard error</td>
+      <td>The file in which your job typically prints any errors.</td>
+    </tr>
+    <tr>
+      <td>execution point</td>
+      <td>The machine that executes or runs your job.</td>
+    </tr>
+    <tr>
+      <td>held/hold</td>
+      <td>A job state in which your job has stopped running due to an error.</td>
+    </tr>
+    <tr>
+      <td>idle</td>
+      <td>A job state in which your job has not yet matched to an execution point and hasn’t started running yet.</td>
+    </tr>
+    <tr>
+      <td>job ID</td>
+      <td>The unique number associated with a job. This consists of a cluster ID, followed by a period and a process ID. For example, the job ID <code>12345.0</code> has a cluster ID of <code>12345</code> and a process ID of <code>0</code>.</td>
+    </tr>
+    <tr>
+      <td>log file</td>
+      <td>The file where HTCondor prints messages about your job’s execution and resource usage.</td>
+    </tr>
+    <tr>
+      <td>output file / standard out</td>
+      <td>The file where your job typically prints output. Any messages printed to the “screen” in a job will be saved in this file.</td>
+    </tr>
+    <tr>
+      <td>process ID</td>
+      <td>A unique number associated with each job within a job submission. See <a href="multiple-jobs">submit multiple jobs</a>.</td>
+    </tr>
+    <tr>
+      <td>running</td>
+      <td>A job state in which your job has matched to the execution point and is currently executing/running.</td>
+    </tr>
+    <tr>
+      <td>submit file</td>
+      <td>A text-based file that tells HTCondor details about your job, including the commands to run, what files need to be transferred, where to save the outputs, and more. See the <a href="htcondor-job-submission">job submission</a>.</td>
+    </tr>
+  </tbody>
+</table>
 
-<pre class="term"><code>[alice@login]$ scontrol hold job#
-</code></pre>
+<h2 id="related-pages">Related Pages</h2>
 
-<p>To release jobs that are held so that they can run, use this command:</p>
-
-<pre class="term"><code>[alice@login]$ scontrol release job#
-</code></pre>
+<ul>
+  <li><a href="htcondor-job-submission">Job submission</a></li>
+  <li><a href="condor_q">Monitor your jobs</a></li>
+  <li><a href="https://htcondor.readthedocs.io/en/latest/">HTCondor manual</a></li>
+</ul>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -540,7 +509,7 @@ you can “hold” a submitted job by using:</p>
             
             
 
-            <h6 class="mt-5">HPC Guides</h6>
+            <h6 class="mt-5">HTC Guides</h6>
             <div class="accordion accordion-flush">
                 
                     
@@ -551,16 +520,11 @@ you can “hold” a submitted job by using:</p>
 
                         <div class="accordion-item">
                             <h2 class="accordion-header mt-0" id="basics-and-policies">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
+                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#basics-and-policies-collapse" aria-expanded="false" aria-controls="basics-and-policies">
                                     Basics and Policies
                                 </button>
                             </h2>
-                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/archived/hpc-el8-to-el9">HPC System Transition to a New Linux Version (CentOS Stream 9)</a>
-                                    </div>
+                            <div id="basics-and-policies-collapse" class="accordion-collapse collapse show " aria-labelledby="basics-and-policies" data-bs-parent="#guide-sidebar">
                                 
 
                                     <div class="document-link-wrapper bg-light">
@@ -569,7 +533,7 @@ you can “hold” a submitted job by using:</p>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-overview">HPC Cluster Overview</a>
+                                        <a class="" href="/uw-research-computing/htc-overview">HTC System Overview</a>
                                     </div>
                                 
 
@@ -580,6 +544,11 @@ you can “hold” a submitted job by using:</p>
 
                                     <div class="document-link-wrapper bg-light">
                                         <a class="" href="/uw-research-computing/transfer-files-computer">Transfer Files between CHTC and your Computer</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-roadmap">HTC Getting Started Roadmap</a>
                                     </div>
                                 
 
@@ -599,12 +568,22 @@ you can “hold” a submitted job by using:</p>
                                 
 
                                     <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/globus">Use Globus to Transfer Files to and from CHTC</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="fw-bolder" href="/uw-research-computing/htcondor-quick-ref">Quick reference: HTCondor commands</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
                                         <a class="" href="/uw-research-computing/github-remote-access">Access a Private GitHub Repository Remotely</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-known-issues">Known Issues on the HPC</a>
+                                        <a class="" href="/uw-research-computing/check-quota">Check Disk Quota and Usage</a>
                                     </div>
                                 
                             </div>
@@ -619,26 +598,97 @@ you can “hold” a submitted job by using:</p>
 
                         <div class="accordion-item">
                             <h2 class="accordion-header mt-0" id="job-submission">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#job-submission-collapse" aria-expanded="false" aria-controls="job-submission">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#job-submission-collapse" aria-expanded="false" aria-controls="job-submission">
                                     Job Submission
                                 </button>
                             </h2>
-                            <div id="job-submission-collapse" class="accordion-collapse collapse show " aria-labelledby="job-submission" data-bs-parent="#guide-sidebar">
+                            <div id="job-submission-collapse" class="accordion-collapse collapse " aria-labelledby="job-submission" data-bs-parent="#guide-sidebar">
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="fw-bolder" href="/uw-research-computing/hpc-job-submission">Submitting and Managing Jobs Using SLURM</a>
+                                        <a class="" href="/uw-research-computing/htcondor-job-submission">Practice: Submit HTC Jobs using HTCondor</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-job-monitoring">Reviewing Job Information Using SLURM</a>
+                                        <a class="" href="/uw-research-computing/condor_q">Learn About Your Jobs Using condor_q</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/multiple-jobs">Submitting Multiple Jobs Using HTCondor</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/multiple-job-dirs">Submitting Multiple Jobs in Individual Directories</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-basic-scripting">Basic Scripting and Job Submission with Arguments</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-passing-arguments">Practice: Passing Arguments from the Submit File to the Executable Script</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-passing-arguments-multiple">Practice: Passing Multiple Arguments to Multiple Jobs with One Submit File</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc/dagman-workflows">Overview: Submit Workflows with HTCondor's DAGMan</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc/dagman-simple-example">Simple Example of a DAGMan workflow</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc/tutorial-dagman-intermediate">Intermediate DAGMan: Uses and Features</a>
                                     </div>
                                 
                             </div>
                         </div>
                     
                 
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="handling-data-in-jobs">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#handling-data-in-jobs-collapse" aria-expanded="false" aria-controls="handling-data-in-jobs">
+                                    Handling Data in Jobs
+                                </button>
+                            </h2>
+                            <div id="handling-data-in-jobs-collapse" class="accordion-collapse collapse " aria-labelledby="handling-data-in-jobs" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-availability">Small Input and Output File Availability Via HTCondor</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-avail-squid">Transfer Large Input Files Via Squid</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
                     
                 
                     
@@ -657,32 +707,37 @@ you can “hold” a submitted job by using:</p>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-software">Use Software on the HPC Cluster</a>
+                                        <a class="" href="/uw-research-computing/software-overview-htc">Overview: How to Use Software</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-spack-setup">Set Up Spack on HPC</a>
+                                        <a class="" href="/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-spack-install">Install Software Using Spack</a>
+                                        <a class="" href="/uw-research-computing/docker-jobs">Running HTC Jobs Using Docker Containers</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-spack-modules">Create Custom Modules Using Spack</a>
+                                        <a class="" href="/uw-research-computing/htc-docker-to-apptainer">Convert Docker images to Apptainer images</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/hpc-el9-spack">Recreating Spack Installs on a New Operating System</a>
+                                        <a class="" href="/uw-research-computing/docker-build">Build a Docker Container Image</a>
                                     </div>
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/apptainer-hpc">Using Apptainer Containers on HPC</a>
+                                        <a class="" href="/uw-research-computing/licensed-software">Use Licensed Software</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/apptainer-htc">Use Apptainer Containers</a>
                                     </div>
                                 
 
@@ -690,12 +745,104 @@ you can “hold” a submitted job by using:</p>
                                         <a class="" href="/uw-research-computing/apptainer-build">Building an Apptainer Container</a>
                                     </div>
                                 
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/apptainer-htc-advanced-example">Advanced Apptainer Example - SUMO</a>
+                                    </div>
+                                
                             </div>
                         </div>
                     
                 
                     
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="special-use-cases">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-cases-collapse" aria-expanded="false" aria-controls="special-use-cases">
+                                    Special Use Cases
+                                </button>
+                            </h2>
+                            <div id="special-use-cases-collapse" class="accordion-collapse collapse " aria-labelledby="special-use-cases" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/gpu-jobs">Use GPUs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/machine-learning-htc">Run Machine Learning Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/scaling-htc">Scale Beyond Local HTC Capacity</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/checkpointing">Checkpointing Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/high-memory-jobs">Submit High Memory Jobs</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-modules-transition-to-el9">HTC Modules Transition to EL9</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-modules">Use Software Available in Modules</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/os-request-htc">Use Custom Linux Versions in CHTC</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
                 
+                    
+
+                        
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header mt-0" id="troubleshooting">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshooting-collapse" aria-expanded="false" aria-controls="troubleshooting">
+                                    Troubleshooting
+                                </button>
+                            </h2>
+                            <div id="troubleshooting-collapse" class="accordion-collapse collapse " aria-labelledby="troubleshooting" data-bs-parent="#guide-sidebar">
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/dos-unix">Windows / Linux Incompatibility</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/docker-test">Explore and Test Docker Containers</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-known-issues">Known Issues on the HTC</a>
+                                    </div>
+                                
+                            </div>
+                        </div>
                     
                 
             </div>
@@ -708,6 +855,7 @@ you can “hold” a submitted job by using:</p>
     </div>
 </div>
 
+</main>
     </main>
     <footer id="colophon" class="uw-footer">
     <div class="uw-footer-content">
