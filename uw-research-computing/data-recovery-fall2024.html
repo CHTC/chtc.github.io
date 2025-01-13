@@ -26,18 +26,18 @@
 <meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="CHTC /staging and /projects Next Steps" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="On Thursday, November 21, CHTC personnel were alerted to data issues in our /staging and /projects directories. We took immediate action on Thursday afternoon and have been working on it through the weekend." />
-<meta property="og:description" content="On Thursday, November 21, CHTC personnel were alerted to data issues in our /staging and /projects directories. We took immediate action on Thursday afternoon and have been working on it through the weekend." />
+<meta name="description" content="On Thursday, November 21, CHTC personnel were alerted to data issues in our /staging and /projects directories. We took immediate action on Thursday afternoon and have been working on mitigation and data recovery since." />
+<meta property="og:description" content="On Thursday, November 21, CHTC personnel were alerted to data issues in our /staging and /projects directories. We took immediate action on Thursday afternoon and have been working on mitigation and data recovery since." />
 <link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024" />
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-01-13T20:19:01+00:00" />
+<meta property="article:published_time" content="2025-01-13T21:13:47+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="CHTC /staging and /projects Next Steps" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-01-13T20:19:01+00:00","datePublished":"2025-01-13T20:19:01+00:00","description":"On Thursday, November 21, CHTC personnel were alerted to data issues in our /staging and /projects directories. We took immediate action on Thursday afternoon and have been working on it through the weekend.","headline":"CHTC /staging and /projects Next Steps","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-01-13T21:13:47+00:00","datePublished":"2025-01-13T21:13:47+00:00","description":"On Thursday, November 21, CHTC personnel were alerted to data issues in our /staging and /projects directories. We took immediate action on Thursday afternoon and have been working on mitigation and data recovery since.","headline":"CHTC /staging and /projects Next Steps","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -247,11 +247,11 @@
     CHTC /staging and /projects Next Steps
 </h1>
 
-            <p>On Thursday, November 21, CHTC personnel were alerted to data issues in our <code>/staging</code> and <code>/projects</code> directories. We took immediate action on Thursday afternoon and have been working on it through the weekend.</p>
+            <p>On Thursday, November 21, CHTC personnel were alerted to data issues in our <code>/staging</code> and <code>/projects</code> directories. We took immediate action on Thursday afternoon and have been working on mitigation and data recovery since.</p>
 
-<p>The underlying cause has been identified and affected the <code>/squid</code>, <code>/staging</code>, <code>/projects</code> and HTC <code>/software</code> directories. We are able to prevent it from recurring; however, <strong>it resulted in significant data loss in /staging, /projects, HTC /software and /squid</strong> before CHTC personnel were able to react. All data in <code>/squid</code> is unrecoverable. Data recovery on <code>/staging</code> is complete; any remaining data in <code>/projects</code> is currently inaccessible as we work to recover whatever additional data we can.</p>
+<p>The underlying cause has been identified and affected the <code>/squid</code>, <code>/staging</code>, <code>/projects</code> and HTC <code>/software</code> directories. We are able to prevent it from recurring; however, <strong>it resulted in significant data loss in /staging, /projects, HTC /software and /squid</strong> before CHTC personnel were able to react. All data in <code>/squid</code> is unrecoverable. Data recovery on <code>/staging</code> is complete as of mid December 2024; Data recovery on <code>/projects</code> is complete as of mid January 2025.</p>
 
-<p>We recognize that this ongoing outage and accompanying data loss is disruptive to important work. Our plan to bring systems and data back online is outlined below.</p>
+<p>We recognize that this outage and accompanying data loss is disruptive to important work. Our plan to bring systems and data back online is outlined below.</p>
 
 <h2 id="user-next-steps">User Next Steps</h2>
 
@@ -291,9 +291,20 @@
 
 <p><strong><em>If your directory doesn’t exist in the recovery path, that means that none of your data was recovered.</em></strong></p>
 
-<h4 id="updated-projects-timeline">Updated <code>/projects</code> timeline</h4>
+<h4 id="recover-projects-data">Recover <code>/projects</code> data</h4>
 
-<p>We are now working on data recovery for <code>/projects</code> folders. Due to the large size of this data store, we anticipate that the recovery process will take longer than <code>/staging</code> and likely stretch into January.</p>
+<p>The data recovery process for <code>/projects</code> was completed on 1/10. We believe we have recovered most, if not all, of the data that was originally present in these directories. Some of the metadata for files (like file creation date) may be incorrect; <strong><em>we strongly recommend validating any data that you copy from the recovered file system.</em></strong></p>
+
+<p>Any recovered data is available at this path:</p>
+<ul>
+  <li><code>/recovery/projects/&lt;project-name&gt;</code></li>
+</ul>
+
+<p>Users should <strong>copy</strong> any recovered files they want to save into their new <code>/projects</code> directories.</p>
+
+<p>References to data using the paths to recovered staging directories should <strong><em>not</em></strong> be used in job submission. The directories for recovered data are read-only, and you will not be able to write into them.</p>
+
+<p><strong><em>If your directory doesn’t exist in the recovery path, that means that none of your data was recovered.</em></strong></p>
 
 <h2 id="chtc-next-steps-and-timeline">CHTC Next Steps and Timeline</h2>
 
@@ -305,12 +316,17 @@
   </li>
   <li>Nov 25 - Dec 10: Recovering data from <code>/staging</code> directories
     <ul>
-      <li>We have run multiple recovery processes on the old data store. Once each recovery process is complete, CHTC users will be able to access recovered data and copy it to the new data store. CHTC will not overwrite or replace data created in the meantime.  <em>We are still developing the mechanism for this process and will provide more information as it becomes available.</em></li>
+      <li>We have run multiple recovery processes on the old data store. Once each recovery process is complete, CHTC users will be able to access recovered data and copy it to the new data store. CHTC will not overwrite or replace data created in the meantime. See above for more details.</li>
     </ul>
   </li>
   <li>Dec 11 onward: Recovering data from <code>/projects</code>
     <ul>
       <li>This will be the same process as recovering data from <code>/staging</code>.</li>
+    </ul>
+  </li>
+  <li>Jan 13: Recovered data from <code>/projects</code> available
+    <ul>
+      <li>Data recovery for <code>/projects</code> is complete. See above for more details.</li>
     </ul>
   </li>
 </ul>
