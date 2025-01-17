@@ -26,18 +26,18 @@
 <meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="HTC Computing Guides" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Below is a list of guides for some of the most common tasks our users need to carry out as they begin and continue to use the HTC resources at the CHTC." />
-<meta property="og:description" content="Below is a list of guides for some of the most common tasks our users need to carry out as they begin and continue to use the HTC resources at the CHTC." />
+<meta name="description" content="HTC Computing Guides Get started CHTC /staging and /projects next steps System overview Roadmap to getting started Log into CHTC Quick reference: Basic shell commands Quick reference: HTCondor commands Submit jobs Submit jobs using HTCondor Job submission basics Submit multiple jobs Submit multiple jobs in different directories Submit an interactive job Monitor your job Arguments and shell scripting Basic scripting and job submission with arguments Practice: Pass arguments from the submit file to the executable script Practice: Pass multiple arguments to multiple jobs with one submit file Manage data Transfer small input and output Transfer large input files via Squid Transfer large input and output files via /staging Check disk quota and usage Transfer files to/from CHTC Local computer ResearchDrive Globus Private GitHub repo Software Overview and policies Containers Build a software environment with containers What are containers? Apptainer/Singularity Practice: Build a container Docker Explore and test Docker containers Recipes repository Convert Docker images to Apptainer/Singularity images Use Apptainer containers Use Docker containers Compile software in an interactive job Licensed software and modules Use software available in modules HTC modules transition to EL9 Workflows Checkpoint jobs DAGMan workflow manager Submit workflows with DAGman Practice: Run a simple DAGMan workflow Practice: Run an diamond DAGMan workflow Special use cases Use GPUs Scale beyond local HTC capacity Submit high memory jobs Machine learning jobs Custom Linux versions Troubleshooting Status page Known issues Windows/Linux incompatibility Get help External Resources HTCondor manual Software Carpentry UW-Madison software training for students Guide Sections Get started Submit jobs Manage data Software Workflows Special use cases Troubleshooting External Resources" />
+<meta property="og:description" content="HTC Computing Guides Get started CHTC /staging and /projects next steps System overview Roadmap to getting started Log into CHTC Quick reference: Basic shell commands Quick reference: HTCondor commands Submit jobs Submit jobs using HTCondor Job submission basics Submit multiple jobs Submit multiple jobs in different directories Submit an interactive job Monitor your job Arguments and shell scripting Basic scripting and job submission with arguments Practice: Pass arguments from the submit file to the executable script Practice: Pass multiple arguments to multiple jobs with one submit file Manage data Transfer small input and output Transfer large input files via Squid Transfer large input and output files via /staging Check disk quota and usage Transfer files to/from CHTC Local computer ResearchDrive Globus Private GitHub repo Software Overview and policies Containers Build a software environment with containers What are containers? Apptainer/Singularity Practice: Build a container Docker Explore and test Docker containers Recipes repository Convert Docker images to Apptainer/Singularity images Use Apptainer containers Use Docker containers Compile software in an interactive job Licensed software and modules Use software available in modules HTC modules transition to EL9 Workflows Checkpoint jobs DAGMan workflow manager Submit workflows with DAGman Practice: Run a simple DAGMan workflow Practice: Run an diamond DAGMan workflow Special use cases Use GPUs Scale beyond local HTC capacity Submit high memory jobs Machine learning jobs Custom Linux versions Troubleshooting Status page Known issues Windows/Linux incompatibility Get help External Resources HTCondor manual Software Carpentry UW-Madison software training for students Guide Sections Get started Submit jobs Manage data Software Workflows Special use cases Troubleshooting External Resources" />
 <link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/htc/guides" />
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc/guides" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-01-17T19:14:12+00:00" />
+<meta property="article:published_time" content="2025-01-17T20:06:08+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="HTC Computing Guides" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-01-17T19:14:12+00:00","datePublished":"2025-01-17T19:14:12+00:00","description":"Below is a list of guides for some of the most common tasks our users need to carry out as they begin and continue to use the HTC resources at the CHTC.","headline":"HTC Computing Guides","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc/guides"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc/guides"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-01-17T20:06:08+00:00","datePublished":"2025-01-17T20:06:08+00:00","description":"HTC Computing Guides Get started CHTC /staging and /projects next steps System overview Roadmap to getting started Log into CHTC Quick reference: Basic shell commands Quick reference: HTCondor commands Submit jobs Submit jobs using HTCondor Job submission basics Submit multiple jobs Submit multiple jobs in different directories Submit an interactive job Monitor your job Arguments and shell scripting Basic scripting and job submission with arguments Practice: Pass arguments from the submit file to the executable script Practice: Pass multiple arguments to multiple jobs with one submit file Manage data Transfer small input and output Transfer large input files via Squid Transfer large input and output files via /staging Check disk quota and usage Transfer files to/from CHTC Local computer ResearchDrive Globus Private GitHub repo Software Overview and policies Containers Build a software environment with containers What are containers? Apptainer/Singularity Practice: Build a container Docker Explore and test Docker containers Recipes repository Convert Docker images to Apptainer/Singularity images Use Apptainer containers Use Docker containers Compile software in an interactive job Licensed software and modules Use software available in modules HTC modules transition to EL9 Workflows Checkpoint jobs DAGMan workflow manager Submit workflows with DAGman Practice: Run a simple DAGMan workflow Practice: Run an diamond DAGMan workflow Special use cases Use GPUs Scale beyond local HTC capacity Submit high memory jobs Machine learning jobs Custom Linux versions Troubleshooting Status page Known issues Windows/Linux incompatibility Get help External Resources HTCondor manual Software Carpentry UW-Madison software training for students Guide Sections Get started Submit jobs Manage data Software Workflows Special use cases Troubleshooting External Resources","headline":"HTC Computing Guides","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc/guides"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc/guides"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -238,343 +238,794 @@
 
 
     <main id="main" style="min-height: 60vh;">
-        <main id="main" style="min-height: 60vh;">
-    <div class="container-xxl mb-5">
-    <div class="row justify-content-center">
-        <div class="col mw-1000">
-            <h1 class="uw-mini-bar mb-4">
-    HTC Computing Guides
-</h1>
+        <div class="container-xl">
+    <h1 class="uw-mini-bar mt-5 mb-4">HTC Computing Guides</h1>
+    <div class="row">
+        <div class="col-xl-8 col-lg-12 mb-4">
+            
+                <div class="mb-4">
+                    <div class="card">
+    <div class="card-header bg-primary">
+        <h2 id="get-started" class="m-0 text-light">
+            <i class="bi bi-rocket-takeoff me-2"></i>
+            Get started
+        </h2>
+    </div>
+    <div>
+        
+        
+            
+    <a href="/uw-research-computing/data-recovery-fall2024" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 rounded-1 bg-warning ">
 
-            <p>
-Below is a list of guides for some of the most common tasks our users need to
-carry out as they begin and continue to use the HTC resources at the CHTC.
-</p>
-
-<h2 id="user-expectations" class="">User Expectations</h2>
-
-Read through these user expectations and policies before using CHTC services.
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<div class="px-2 w-100">
-		<button class="navbar-toggler w-100 mb-2 mb-lg-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<a class="nav-link btn btn-primary text-white mb-2 mb-lg-0 w-100" aria-current="page" href="/uw-research-computing/user-expectations.html">User Expectations</a>
-		</div>
-	</div>
-</nav>
+        
+        CHTC /staging and /projects next steps
+    </a>
 
 
 
+        
+            
+    <a href="/uw-research-computing/htc-overview" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
 
-<h2 id="htc-documentation" class="">HTC Documentation</h2>
+        
+        System overview
+    </a>
 
-<div class="row gx-2">
 
-	
-	
-		<div class="col-12 col-sm-6 col-lg-4">
-			<div class="list-group mb-3">
-				<div class="list-group-item d-flex flex-column">
-					
-					
-					
-					
-					
-					
-					<img class="mx-auto" style="height: 60px;" src="/uw-research-computing/guide-icons/checkmark.png" />
-					<h4 class="mt-0 mx-auto">Basics and Policies</h4>
-				</div>
-				
-					
-					<a href="/uw-research-computing/data-recovery-fall2024" class="list-group-item list-group-item-action bg-warning">CHTC /staging and /projects Next Steps</a>
-					
-				
-					
-					<a href="/uw-research-computing/htc-overview" class="list-group-item list-group-item-action ">HTC System Overview</a>
-					
-				
-					
-					<a href="/uw-research-computing/connecting" class="list-group-item list-group-item-action ">Log in to CHTC</a>
-					
-				
-					
-					<a href="/uw-research-computing/transfer-files-computer" class="list-group-item list-group-item-action ">Transfer Files between CHTC and your Computer</a>
-					
-				
-					
-					<a href="/uw-research-computing/htc-roadmap" class="list-group-item list-group-item-action ">HTC Getting Started Roadmap</a>
-					
-				
-					
-					<a href="/uw-research-computing/basic-shell-commands" class="list-group-item list-group-item-action ">Basic shell commands</a>
-					
-				
-					
-					<a href="/uw-research-computing/configure-ssh" class="list-group-item list-group-item-action ">Automate CHTC login</a>
-					
-				
-					
-					<a href="/uw-research-computing/transfer-data-researchdrive" class="list-group-item list-group-item-action ">Transfer Files Between CHTC and ResearchDrive</a>
-					
-				
-					
-					<a href="/uw-research-computing/globus" class="list-group-item list-group-item-action ">Use Globus to Transfer Files to and from CHTC</a>
-					
-				
-					
-					<a href="/uw-research-computing/htcondor-quick-ref" class="list-group-item list-group-item-action ">Quick reference: HTCondor commands</a>
-					
-				
-					
-					<a href="/uw-research-computing/github-remote-access" class="list-group-item list-group-item-action ">Access a Private GitHub Repository Remotely</a>
-					
-				
-					
-					<a href="/uw-research-computing/check-quota" class="list-group-item list-group-item-action ">Check Disk Quota and Usage</a>
-					
-				
-			</div>
-		</div>
-	
 
-	
-	
-		<div class="col-12 col-sm-6 col-lg-4">
-			<div class="list-group mb-3">
-				<div class="list-group-item d-flex flex-column">
-					
-					
-					
-					
-					
-					
-					<img class="mx-auto" style="height: 60px;" src="/uw-research-computing/guide-icons/laptop_arrow.png" />
-					<h4 class="mt-0 mx-auto">Job Submission</h4>
-				</div>
-				
-					
-					<a href="/uw-research-computing/htcondor-job-submission" class="list-group-item list-group-item-action ">Practice: Submit HTC Jobs using HTCondor</a>
-					
-				
-					
-					<a href="/uw-research-computing/condor_q" class="list-group-item list-group-item-action ">Learn About Your Jobs Using condor_q</a>
-					
-				
-					
-					<a href="/uw-research-computing/multiple-jobs" class="list-group-item list-group-item-action ">Submitting Multiple Jobs Using HTCondor</a>
-					
-				
-					
-					<a href="/uw-research-computing/multiple-job-dirs" class="list-group-item list-group-item-action ">Submitting Multiple Jobs in Different Directories</a>
-					
-				
-					
-					<a href="/uw-research-computing/htc-basic-scripting" class="list-group-item list-group-item-action ">Basic Scripting and Job Submission with Arguments</a>
-					
-				
-					
-					<a href="/uw-research-computing/htc-passing-arguments" class="list-group-item list-group-item-action ">Practice: Passing Arguments from the Submit File to the Executable Script</a>
-					
-				
-					
-					<a href="/uw-research-computing/htc-passing-arguments-multiple" class="list-group-item list-group-item-action ">Practice: Passing Multiple Arguments to Multiple Jobs with One Submit File</a>
-					
-				
-					
-					<a href="/uw-research-computing/htc/dagman-workflows" class="list-group-item list-group-item-action ">Overview: Submit Workflows with HTCondor's DAGMan</a>
-					
-				
-					
-					<a href="/uw-research-computing/htc/dagman-simple-example" class="list-group-item list-group-item-action ">Simple Example of a DAGMan workflow</a>
-					
-				
-					
-					<a href="/uw-research-computing/htc/tutorial-dagman-intermediate" class="list-group-item list-group-item-action ">Intermediate DAGMan: Uses and Features</a>
-					
-				
-			</div>
-		</div>
-	
+        
+            
+    <a href="/uw-research-computing/htc-roadmap" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
 
-	
-	
-		<div class="col-12 col-sm-6 col-lg-4">
-			<div class="list-group mb-3">
-				<div class="list-group-item d-flex flex-column">
-					
-					
-					
-					
-					
-					
-					<img class="mx-auto" style="height: 60px;" src="/uw-research-computing/guide-icons/data.png" />
-					<h4 class="mt-0 mx-auto">Handling Data in Jobs</h4>
-				</div>
-				
-					
-					<a href="/uw-research-computing/file-availability" class="list-group-item list-group-item-action ">Transfer Small Input and Output</a>
-					
-				
-					
-					<a href="/uw-research-computing/file-avail-squid" class="list-group-item list-group-item-action ">Transfer Large Input Files Via Squid</a>
-					
-				
-					
-					<a href="/uw-research-computing/file-avail-largedata" class="list-group-item list-group-item-action ">Use Large Input and Output Files Via Staging</a>
-					
-				
-			</div>
-		</div>
-	
+        
+        Roadmap to getting started
+    </a>
 
-	
-	
-		<div class="col-12 col-sm-6 col-lg-4">
-			<div class="list-group mb-3">
-				<div class="list-group-item d-flex flex-column">
-					
-					
-					
-					
-					
-					
-					<img class="mx-auto" style="height: 60px;" src="/uw-research-computing/guide-icons/gear.png" />
-					<h4 class="mt-0 mx-auto">Software Solutions</h4>
-				</div>
-				
-					
-					<a href="/uw-research-computing/software-overview-htc" class="list-group-item list-group-item-action "><b>Overview: How to Use Software</b></a>
-					
-				
-					
-					<a href="/uw-research-computing/inter-submit" class="list-group-item list-group-item-action ">Compile Software in an Interactive Job</a>
-					
-				
-					
-					<a href="/uw-research-computing/docker-jobs" class="list-group-item list-group-item-action ">Use Software Installed in a Docker Container</a>
-					
-				
-					
-					<a href="/uw-research-computing/htc-docker-to-apptainer" class="list-group-item list-group-item-action ">Convert Docker images to Apptainer images</a>
-					
-				
-					
-					<a href="/uw-research-computing/docker-build" class="list-group-item list-group-item-action ">Build a Docker Container Image</a>
-					
-				
-					
-					<a href="/uw-research-computing/licensed-software" class="list-group-item list-group-item-action ">Use Licensed Software</a>
-					
-				
-					
-					<a href="/uw-research-computing/apptainer-htc" class="list-group-item list-group-item-action ">Use Apptainer Containers</a>
-					
-				
-					
-					<a href="/uw-research-computing/apptainer-build" class="list-group-item list-group-item-action ">Building an Apptainer Container</a>
-					
-				
-					
-					<a href="/uw-research-computing/apptainer-htc-advanced-example" class="list-group-item list-group-item-action ">Advanced Apptainer Example - SUMO</a>
-					
-				
-			</div>
-		</div>
-	
 
-	
-	
-		<div class="col-12 col-sm-6 col-lg-4">
-			<div class="list-group mb-3">
-				<div class="list-group-item d-flex flex-column">
-					
-					
-					
-					
-					
-					
-					<img class="mx-auto" style="height: 60px;" src="/uw-research-computing/guide-icons/processor.png" />
-					<h4 class="mt-0 mx-auto">Special Use Cases</h4>
-				</div>
-				
-					
-					<a href="/uw-research-computing/gpu-jobs" class="list-group-item list-group-item-action ">Use GPUs</a>
-					
-				
-					
-					<a href="/uw-research-computing/machine-learning-htc" class="list-group-item list-group-item-action ">Run Machine Learning Jobs</a>
-					
-				
-					
-					<a href="/uw-research-computing/scaling-htc" class="list-group-item list-group-item-action ">Scale Beyond Local HTC Capacity</a>
-					
-				
-					
-					<a href="/uw-research-computing/checkpointing" class="list-group-item list-group-item-action ">Checkpointing Jobs</a>
-					
-				
-					
-					<a href="/uw-research-computing/high-memory-jobs" class="list-group-item list-group-item-action ">Submit High Memory Jobs</a>
-					
-				
-					
-					<a href="/uw-research-computing/htc-modules-transition-to-el9" class="list-group-item list-group-item-action ">HTC Modules Transition to EL9</a>
-					
-				
-					
-					<a href="/uw-research-computing/htc-modules" class="list-group-item list-group-item-action ">Use Software Available in Modules</a>
-					
-				
-					
-					<a href="/uw-research-computing/os-request-htc" class="list-group-item list-group-item-action ">Use Custom Linux Versions in CHTC</a>
-					
-				
-			</div>
-		</div>
-	
 
-	
-	
-		<div class="col-12 col-sm-6 col-lg-4">
-			<div class="list-group mb-3">
-				<div class="list-group-item d-flex flex-column">
-					
-					
-					
-					
-					
-					
-					<img class="mx-auto" style="height: 60px;" src="/uw-research-computing/guide-icons/trouble.png" />
-					<h4 class="mt-0 mx-auto">Troubleshooting</h4>
-				</div>
-				
-					
-					<a href="/uw-research-computing/dos-unix" class="list-group-item list-group-item-action ">Windows / Linux Incompatibility</a>
-					
-				
-					
-					<a href="/uw-research-computing/docker-test" class="list-group-item list-group-item-action ">Explore and Test Docker Containers</a>
-					
-				
-					
-					<a href="/uw-research-computing/htc-known-issues" class="list-group-item list-group-item-action ">Known Issues on the HTC</a>
-					
-				
-			</div>
-		</div>
-	
+        
+            
+    <a href="/uw-research-computing/connecting" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
 
+        
+        Log into CHTC
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/basic-shell-commands" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+            <i class="bi bi-book me-2"></i>
+        
+        Quick reference: Basic shell commands
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/htcondor-quick-ref" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+            <i class="bi bi-book me-2"></i>
+        
+        Quick reference: HTCondor commands
+    </a>
+
+
+
+        
+    </div>
 </div>
+                </div>
+            
+                <div class="mb-4">
+                    <div class="card">
+    <div class="card-header bg-primary">
+        <h2 id="submit-jobs" class="m-0 text-light">
+            <i class="bi bi-send me-2"></i>
+            Submit jobs
+        </h2>
+    </div>
+    <div>
+        
+        
+            
+    <span style="background-color: #d3d3d3" class="list-group-item d-flex align-items-center rounded-0 border-0 p-1 px-3 fs-5">
+        <i class="bi bi-folder me-2"></i>
+        Submit jobs using HTCondor 
+    </span>
 
-<a href="/icon_credits.html">Icon Credits</a>
 
+    <div class="list-group ms-4 border-start">
+        
+            
+    <a href="/uw-research-computing/htcondor-job-submission" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Job submission basics
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/multiple-jobs" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Submit multiple jobs
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/multiple-job-dirs" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Submit multiple jobs in different directories
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/inter-submit" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Submit an interactive job
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/condor_q" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Monitor your job
+    </a>
+
+
+
+        
+    </div>
+
+
+        
+            
+    <span style="background-color: #d3d3d3" class="list-group-item d-flex align-items-center rounded-0 border-0 p-1 px-3 fs-5">
+        <i class="bi bi-folder me-2"></i>
+        Arguments and shell scripting 
+    </span>
+
+
+    <div class="list-group ms-4 border-start">
+        
+            
+    <a href="/uw-research-computing/htc-basic-scripting" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Basic scripting and job submission with arguments
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/htc-passing-arguments" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+            <i class="bi bi-clipboard-check me-2"></i>
+        
+        Practice: Pass arguments from the submit file to the executable script
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/htc-passing-arguments-multiple" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+            <i class="bi bi-clipboard-check me-2"></i>
+        
+        Practice: Pass multiple arguments to multiple jobs with one submit file
+    </a>
+
+
+
+        
+    </div>
+
+
+        
+    </div>
+</div>
+                </div>
+            
+                <div class="mb-4">
+                    <div class="card">
+    <div class="card-header bg-primary">
+        <h2 id="manage-data" class="m-0 text-light">
+            <i class="bi bi-file-earmark-text me-2"></i>
+            Manage data
+        </h2>
+    </div>
+    <div>
+        
+        
+            
+    <a href="/uw-research-computing/file-availability" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Transfer small input and output
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/file-avail-squid" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Transfer large input files via Squid
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/file-avail-largedata" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Transfer large input and output files via /staging
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/check-quota" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Check disk quota and usage
+    </a>
+
+
+
+        
+            
+    <span style="background-color: #d3d3d3" class="list-group-item d-flex align-items-center rounded-0 border-0 p-1 px-3 fs-5">
+        <i class="bi bi-folder me-2"></i>
+        Transfer files to/from CHTC 
+    </span>
+
+
+    <div class="list-group ms-4 border-start">
+        
+            
+    <a href="/uw-research-computing/transfer-files-computer" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Local computer
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/transfer-data-researchdrive" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        ResearchDrive
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/globus" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Globus
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/github-remote-access" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Private GitHub repo
+    </a>
+
+
+
+        
+    </div>
+
+
+        
+    </div>
+</div>
+                </div>
+            
+                <div class="mb-4">
+                    <div class="card">
+    <div class="card-header bg-primary">
+        <h2 id="software" class="m-0 text-light">
+            <i class="bi bi-pc-display me-2"></i>
+            Software
+        </h2>
+    </div>
+    <div>
+        
+        
+            
+    <a href="/uw-research-computing/software-overview-htc" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Overview and policies
+    </a>
+
+
+
+        
+            
+    <span style="background-color: #d3d3d3" class="list-group-item d-flex align-items-center rounded-0 border-0 p-1 px-3 fs-5">
+        <i class="bi bi-folder me-2"></i>
+        Containers 
+    </span>
+
+
+    <div class="list-group ms-4 border-start">
+        
+            
+    <span style="background-color: #d3d3d3" class="list-group-item d-flex align-items-center rounded-0 border-0 p-1 px-3 fs-5">
+        <i class="bi bi-folder me-2"></i>
+        Build a software environment with containers 
+    </span>
+
+
+    <div class="list-group ms-4 border-start">
+        
+            
+    <a href="/uw-research-computing/software-overview-htc#containers" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        What are containers?
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/apptainer-build" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Apptainer/Singularity
+    </a>
+
+
+    <div class="list-group ms-4 border-start">
+        
+            
+    <a href="/uw-research-computing/apptainer-htc-advanced-example" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+            <i class="bi bi-clipboard-check me-2"></i>
+        
+        Practice: Build a container
+    </a>
+
+
+
+        
+    </div>
+
+
+        
+            
+    <a href="/uw-research-computing/docker-build" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Docker
+    </a>
+
+
+    <div class="list-group ms-4 border-start">
+        
+            
+    <a href="/uw-research-computing/docker-test" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Explore and test Docker containers
+    </a>
+
+
+
+        
+    </div>
+
+
+        
+            
+    <a href="https://github.com/CHTC/recipes/tree/main/software" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Recipes repository
+    </a>
+
+
+
+        
+    </div>
+
+
+        
+            
+    <a href="/uw-research-computing/htc-docker-to-apptainer" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Convert Docker images to Apptainer/Singularity images
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/apptainer-htc" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Use Apptainer containers
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/docker-jobs" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Use Docker containers
+    </a>
+
+
+
+        
+    </div>
+
+
+        
+            
+    <a href="/uw-research-computing/inter-submit" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Compile software in an interactive job
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/licensed-software" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Licensed software and modules
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/htc-modules" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Use software available in modules
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/htc-modules-transition-to-el9" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        HTC modules transition to EL9
+    </a>
+
+
+
+        
+    </div>
+</div>
+                </div>
+            
+                <div class="mb-4">
+                    <div class="card">
+    <div class="card-header bg-primary">
+        <h2 id="workflows" class="m-0 text-light">
+            <i class="bi bi-diagram-2 me-2"></i>
+            Workflows
+        </h2>
+    </div>
+    <div>
+        
+        
+            
+    <a href="/uw-research-computing/checkpointing" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Checkpoint jobs
+    </a>
+
+
+
+        
+            
+    <span style="background-color: #d3d3d3" class="list-group-item d-flex align-items-center rounded-0 border-0 p-1 px-3 fs-5">
+        <i class="bi bi-folder me-2"></i>
+        DAGMan workflow manager 
+    </span>
+
+
+    <div class="list-group ms-4 border-start">
+        
+            
+    <a href="/uw-research-computing/htc/dagman-workflows" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Submit workflows with DAGman
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/htc/dagman-simple-example" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+            <i class="bi bi-clipboard-check me-2"></i>
+        
+        Practice: Run a simple DAGMan workflow
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/htc/tutorial-dagman-intermediate" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+            <i class="bi bi-clipboard-check me-2"></i>
+        
+        Practice: Run an diamond DAGMan workflow
+    </a>
+
+
+
+        
+    </div>
+
+
+        
+    </div>
+</div>
+                </div>
+            
+                <div class="mb-4">
+                    <div class="card">
+    <div class="card-header bg-primary">
+        <h2 id="special-use-cases" class="m-0 text-light">
+            <i class="bi bi-cpu me-2"></i>
+            Special use cases
+        </h2>
+    </div>
+    <div>
+        
+        
+            
+    <a href="/uw-research-computing/gpu-jobs" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Use GPUs
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/scaling-htc" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Scale beyond local HTC capacity
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/high-memory-jobs" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Submit high memory jobs
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/machine-learning-htc" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Machine learning jobs
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/os-request-htc" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Custom Linux versions
+    </a>
+
+
+
+        
+    </div>
+</div>
+                </div>
+            
+                <div class="mb-4">
+                    <div class="card">
+    <div class="card-header bg-primary">
+        <h2 id="troubleshooting" class="m-0 text-light">
+            <i class="bi bi-question-circle me-2"></i>
+            Troubleshooting
+        </h2>
+    </div>
+    <div>
+        
+        
+            
+    <a href="http://status.chtc.wisc.edu" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Status page
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/htc-known-issues" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Known issues
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/dos-unix" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Windows/Linux incompatibility
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/get-help.html" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Get help
+    </a>
+
+
+
+        
+    </div>
+</div>
+                </div>
+            
+                <div class="mb-4">
+                    <div class="card">
+    <div class="card-header bg-primary">
+        <h2 id="external-resources" class="m-0 text-light">
+            <i class="bi bi-box-arrow-up-right me-2"></i>
+            External Resources
+        </h2>
+    </div>
+    <div>
+        
+        
+            
+    <a href="https://htcondor.org/manual/" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        HTCondor manual
+    </a>
+
+
+
+        
+            
+    <a href="https://software-carpentry.org/lessons/" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Software Carpentry
+    </a>
+
+
+
+        
+            
+    <a href="https://sts.doit.wisc.edu/workshops/" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        UW-Madison software training for students
+    </a>
+
+
+
+        
+    </div>
+</div>
+                </div>
+            
+        </div>
+        <div class="col-xl-4 d-none d-xl-block">
+            <div class="position-sticky" style="top: 20px;">
+                <h2 class="mt-0">Guide Sections</h2>
+                <div class="list-group border-start">
+                    
+                        <a href="#get-started" class="list-group-item list-group-item-action d-flex align-items-">
+                            <i class="bi bi-rocket-takeoff me-2"></i>Get started
+                        </a>
+                    
+                        <a href="#submit-jobs" class="list-group-item list-group-item-action d-flex align-items-">
+                            <i class="bi bi-send me-2"></i>Submit jobs
+                        </a>
+                    
+                        <a href="#manage-data" class="list-group-item list-group-item-action d-flex align-items-">
+                            <i class="bi bi-file-earmark-text me-2"></i>Manage data
+                        </a>
+                    
+                        <a href="#software" class="list-group-item list-group-item-action d-flex align-items-">
+                            <i class="bi bi-pc-display me-2"></i>Software
+                        </a>
+                    
+                        <a href="#workflows" class="list-group-item list-group-item-action d-flex align-items-">
+                            <i class="bi bi-diagram-2 me-2"></i>Workflows
+                        </a>
+                    
+                        <a href="#special-use-cases" class="list-group-item list-group-item-action d-flex align-items-">
+                            <i class="bi bi-cpu me-2"></i>Special use cases
+                        </a>
+                    
+                        <a href="#troubleshooting" class="list-group-item list-group-item-action d-flex align-items-">
+                            <i class="bi bi-question-circle me-2"></i>Troubleshooting
+                        </a>
+                    
+                        <a href="#external-resources" class="list-group-item list-group-item-action d-flex align-items-">
+                            <i class="bi bi-box-arrow-up-right me-2"></i>External Resources
+                        </a>
+                    
+                </div>
+            </div>
         </div>
     </div>
 </div>
-</main>
     </main>
     <footer id="colophon" class="uw-footer">
     <div class="uw-footer-content">

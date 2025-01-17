@@ -26,18 +26,18 @@
 <meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="HPC Computing Guides" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Below is a list of guides for some of the most common tasks our users need to carry out as they begin and continue to use the HPC resources at the CHTC." />
-<meta property="og:description" content="Below is a list of guides for some of the most common tasks our users need to carry out as they begin and continue to use the HPC resources at the CHTC." />
+<meta name="description" content="HPC Computing Guides Get started HPC system transition to a new Linux Version (CentOS Stream 9) CHTC /staging and /projects next steps System overview Log in to CHTC Automate CHTC login Basic shell commands Submit jobs Submitting and managing jobs using SLURM Reviewing job information using SLURM Manage data Transfer files to/from CHTC Local computer ResearchDrive Private GitHub repo Software Overview and Policies Spack Set up Install software Create custom modules Recreate Spack installs on a new operating system Containers Use Apptainer containers Build an Apptainer container Troubleshooting Known issues on the HPC External resources Slurm manual Software Carpentry UW-Madison software training for students Guide Sections Get started Submit jobs Manage data Software Troubleshooting External resources" />
+<meta property="og:description" content="HPC Computing Guides Get started HPC system transition to a new Linux Version (CentOS Stream 9) CHTC /staging and /projects next steps System overview Log in to CHTC Automate CHTC login Basic shell commands Submit jobs Submitting and managing jobs using SLURM Reviewing job information using SLURM Manage data Transfer files to/from CHTC Local computer ResearchDrive Private GitHub repo Software Overview and Policies Spack Set up Install software Create custom modules Recreate Spack installs on a new operating system Containers Use Apptainer containers Build an Apptainer container Troubleshooting Known issues on the HPC External resources Slurm manual Software Carpentry UW-Madison software training for students Guide Sections Get started Submit jobs Manage data Software Troubleshooting External resources" />
 <link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/hpc/guides" />
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc/guides" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-01-17T19:14:12+00:00" />
+<meta property="article:published_time" content="2025-01-17T20:06:08+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="HPC Computing Guides" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-01-17T19:14:12+00:00","datePublished":"2025-01-17T19:14:12+00:00","description":"Below is a list of guides for some of the most common tasks our users need to carry out as they begin and continue to use the HPC resources at the CHTC.","headline":"HPC Computing Guides","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc/guides"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc/guides"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-01-17T20:06:08+00:00","datePublished":"2025-01-17T20:06:08+00:00","description":"HPC Computing Guides Get started HPC system transition to a new Linux Version (CentOS Stream 9) CHTC /staging and /projects next steps System overview Log in to CHTC Automate CHTC login Basic shell commands Submit jobs Submitting and managing jobs using SLURM Reviewing job information using SLURM Manage data Transfer files to/from CHTC Local computer ResearchDrive Private GitHub repo Software Overview and Policies Spack Set up Install software Create custom modules Recreate Spack installs on a new operating system Containers Use Apptainer containers Build an Apptainer container Troubleshooting Known issues on the HPC External resources Slurm manual Software Carpentry UW-Madison software training for students Guide Sections Get started Submit jobs Manage data Software Troubleshooting External resources","headline":"HPC Computing Guides","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc/guides"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc/guides"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -238,201 +238,395 @@
 
 
     <main id="main" style="min-height: 60vh;">
-        <main id="main" style="min-height: 60vh;">
-    <div class="container-xxl mb-5">
-    <div class="row justify-content-center">
-        <div class="col mw-1000">
-            <h1 class="uw-mini-bar mb-4">
-    HPC Computing Guides
-</h1>
+        <div class="container-xl">
+    <h1 class="uw-mini-bar mt-5 mb-4">HPC Computing Guides</h1>
+    <div class="row">
+        <div class="col-xl-8 col-lg-12 mb-4">
+            
+                <div class="mb-4">
+                    <div class="card">
+    <div class="card-header bg-primary">
+        <h2 id="get-started" class="m-0 text-light">
+            <i class="bi bi-rocket-takeoff me-2"></i>
+            Get started
+        </h2>
+    </div>
+    <div>
+        
+        
+            
+    <a href="/uw-research-computing/archived/hpc-el8-to-el9" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 rounded-1 bg-warning ">
 
-            <p>
-Below is a list of guides for some of the most common tasks our users need to
-carry out as they begin and continue to use the HPC resources at the CHTC.
-</p>
-
-<h2 id="user-expectations" class="">User Expectations</h2>
-
-Read through these user expectations and policies before using CHTC services.
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<div class="px-2 w-100">
-		<button class="navbar-toggler w-100 mb-2 mb-lg-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<a class="nav-link btn btn-primary text-white mb-2 mb-lg-0 w-100" aria-current="page" href="/uw-research-computing/user-expectations.html">User Expectations</a>
-		</div>
-	</div>
-</nav>
+        
+        HPC system transition to a new Linux Version (CentOS Stream 9)
+    </a>
 
 
 
+        
+            
+    <a href="/uw-research-computing/data-recovery-fall2024" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 rounded-1 bg-warning ">
 
-<h2 id="hpc-documentation">HPC Documentation</h2>
+        
+        CHTC /staging and /projects next steps
+    </a>
 
-<div class="row gx-2">
-	
-		
-		
-			<div class="col-12 col-sm-6 col-lg-4">
-				<div class="list-group mb-3">
-					<div class="list-group-item d-flex flex-column">
-						
-						
-						
-						
-						
-						
-						<img class="mx-auto" style="height: 60px;" src="/uw-research-computing/guide-icons/checkmark.png" />
-						<h4 class="mt-0 mx-auto">Basics and Policies</h4>
-					</div>
-					
-						
-						<a href="/uw-research-computing/archived/hpc-el8-to-el9" class="list-group-item list-group-item-action bg-warning">HPC System Transition to a New Linux Version (CentOS Stream 9)</a>
-						
-					
-						
-						<a href="/uw-research-computing/data-recovery-fall2024" class="list-group-item list-group-item-action bg-warning">CHTC /staging and /projects Next Steps</a>
-						
-					
-						
-						<a href="/uw-research-computing/hpc-overview" class="list-group-item list-group-item-action ">HPC Cluster Overview</a>
-						
-					
-						
-						<a href="/uw-research-computing/connecting" class="list-group-item list-group-item-action ">Log in to CHTC</a>
-						
-					
-						
-						<a href="/uw-research-computing/transfer-files-computer" class="list-group-item list-group-item-action ">Transfer Files between CHTC and your Computer</a>
-						
-					
-						
-						<a href="/uw-research-computing/basic-shell-commands" class="list-group-item list-group-item-action ">Basic shell commands</a>
-						
-					
-						
-						<a href="/uw-research-computing/configure-ssh" class="list-group-item list-group-item-action ">Automate CHTC login</a>
-						
-					
-						
-						<a href="/uw-research-computing/transfer-data-researchdrive" class="list-group-item list-group-item-action ">Transfer Files Between CHTC and ResearchDrive</a>
-						
-					
-						
-						<a href="/uw-research-computing/github-remote-access" class="list-group-item list-group-item-action ">Access a Private GitHub Repository Remotely</a>
-						
-					
-						
-						<a href="/uw-research-computing/hpc-known-issues" class="list-group-item list-group-item-action ">Known Issues on the HPC</a>
-						
-					
-				</div>
-			</div>
-		
-	
-		
-		
-			<div class="col-12 col-sm-6 col-lg-4">
-				<div class="list-group mb-3">
-					<div class="list-group-item d-flex flex-column">
-						
-						
-						
-						
-						
-						
-						<img class="mx-auto" style="height: 60px;" src="/uw-research-computing/guide-icons/laptop_arrow.png" />
-						<h4 class="mt-0 mx-auto">Job Submission</h4>
-					</div>
-					
-						
-						<a href="/uw-research-computing/hpc-job-submission" class="list-group-item list-group-item-action ">Submitting and Managing Jobs Using SLURM</a>
-						
-					
-						
-						<a href="/uw-research-computing/hpc-job-monitoring" class="list-group-item list-group-item-action ">Reviewing Job Information Using SLURM</a>
-						
-					
-				</div>
-			</div>
-		
-	
-		
-		
-	
-		
-		
-			<div class="col-12 col-sm-6 col-lg-4">
-				<div class="list-group mb-3">
-					<div class="list-group-item d-flex flex-column">
-						
-						
-						
-						
-						
-						
-						<img class="mx-auto" style="height: 60px;" src="/uw-research-computing/guide-icons/gear.png" />
-						<h4 class="mt-0 mx-auto">Software Solutions</h4>
-					</div>
-					
-						
-						<a href="/uw-research-computing/hpc-software" class="list-group-item list-group-item-action ">Use Software on the HPC Cluster</a>
-						
-					
-						
-						<a href="/uw-research-computing/hpc-spack-setup" class="list-group-item list-group-item-action ">Set Up Spack on HPC</a>
-						
-					
-						
-						<a href="/uw-research-computing/hpc-spack-install" class="list-group-item list-group-item-action ">Install Software Using Spack</a>
-						
-					
-						
-						<a href="/uw-research-computing/hpc-spack-modules" class="list-group-item list-group-item-action ">Create Custom Modules Using Spack</a>
-						
-					
-						
-						<a href="/uw-research-computing/hpc-el9-spack" class="list-group-item list-group-item-action ">Recreating Spack Installs on a New Operating System</a>
-						
-					
-						
-						<a href="/uw-research-computing/apptainer-hpc" class="list-group-item list-group-item-action ">Using Apptainer Containers on HPC</a>
-						
-					
-						
-						<a href="/uw-research-computing/apptainer-build" class="list-group-item list-group-item-action ">Building an Apptainer Container</a>
-						
-					
-				</div>
-			</div>
-		
-	
-		
-		
-	
-		
-		
-	
+
+
+        
+            
+    <a href="/uw-research-computing/hpc-overview" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        System overview
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/connecting" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Log in to CHTC
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/configure-ssh" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Automate CHTC login
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/basic-shell-commands" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Basic shell commands
+    </a>
+
+
+
+        
+    </div>
 </div>
+                </div>
+            
+                <div class="mb-4">
+                    <div class="card">
+    <div class="card-header bg-primary">
+        <h2 id="submit-jobs" class="m-0 text-light">
+            <i class="bi bi-send me-2"></i>
+            Submit jobs
+        </h2>
+    </div>
+    <div>
+        
+        
+            
+    <a href="/uw-research-computing/hpc-job-submission" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
 
-<h2 id="external-documentation">External Documentation</h2>
-<div class="list-group">
-	<a href="http://software-carpentry.org/lessons/" class="list-group-item list-group-item-action">Software Carpentry ( Online courses and videos; readings )</a>
-	<a href="https://htcondor.org/manual/" class="list-group-item list-group-item-action">HTCondor Manual</a>
-	<a href="http://slurm.schedmd.com/" class="list-group-item list-group-item-action">Slurm Manual</a>
-	<a href="http://www.doit.wisc.edu/training/student/" class="list-group-item list-group-item-action">DoIT Software Training for Students ( free on-campus courses )</a>
+        
+        Submitting and managing jobs using SLURM
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/hpc-job-monitoring" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Reviewing job information using SLURM
+    </a>
+
+
+
+        
+    </div>
 </div>
+                </div>
+            
+                <div class="mb-4">
+                    <div class="card">
+    <div class="card-header bg-primary">
+        <h2 id="manage-data" class="m-0 text-light">
+            <i class="bi bi-file-earmark-text me-2"></i>
+            Manage data
+        </h2>
+    </div>
+    <div>
+        
+        
+            
+    <span style="background-color: #d3d3d3" class="list-group-item d-flex align-items-center rounded-0 border-0 p-1 px-3 fs-5">
+        <i class="bi bi-folder me-2"></i>
+        Transfer files to/from CHTC
+    </span>
+
+
+    <div class="list-group ms-4 border-start">
+        
+            
+    <a href="/uw-research-computing/transfer-files-computer" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Local computer
+    </a>
 
 
 
-<a href="/icon_credits.html">Icon Credits</a>
+        
+            
+    <a href="/uw-research-computing/transfer-data-researchdrive" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
 
+        
+        ResearchDrive
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/github-remote-access" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Private GitHub repo
+    </a>
+
+
+
+        
+    </div>
+
+
+        
+    </div>
+</div>
+                </div>
+            
+                <div class="mb-4">
+                    <div class="card">
+    <div class="card-header bg-primary">
+        <h2 id="software" class="m-0 text-light">
+            <i class="bi bi-pc-display me-2"></i>
+            Software
+        </h2>
+    </div>
+    <div>
+        
+        
+            
+    <a href="/uw-research-computing/hpc-software" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Overview and Policies
+    </a>
+
+
+
+        
+            
+    <span style="background-color: #d3d3d3" class="list-group-item d-flex align-items-center rounded-0 border-0 p-1 px-3 fs-5">
+        <i class="bi bi-folder me-2"></i>
+        Spack
+    </span>
+
+
+    <div class="list-group ms-4 border-start">
+        
+            
+    <a href="/uw-research-computing/hpc-spack-setup" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Set up
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/hpc-spack-install" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Install software
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/hpc-spack-modules" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Create custom modules
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/hpc-el9-spack" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Recreate Spack installs on a new operating system
+    </a>
+
+
+
+        
+    </div>
+
+
+        
+            
+    <span style="background-color: #d3d3d3" class="list-group-item d-flex align-items-center rounded-0 border-0 p-1 px-3 fs-5">
+        <i class="bi bi-folder me-2"></i>
+        Containers
+    </span>
+
+
+    <div class="list-group ms-4 border-start">
+        
+            
+    <a href="/uw-research-computing/apptainer-hpc" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Use Apptainer containers
+    </a>
+
+
+
+        
+            
+    <a href="/uw-research-computing/apptainer-build" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Build an Apptainer container
+    </a>
+
+
+
+        
+    </div>
+
+
+        
+    </div>
+</div>
+                </div>
+            
+                <div class="mb-4">
+                    <div class="card">
+    <div class="card-header bg-primary">
+        <h2 id="troubleshooting" class="m-0 text-light">
+            <i class="bi bi-question-circle me-2"></i>
+            Troubleshooting
+        </h2>
+    </div>
+    <div>
+        
+        
+            
+    <a href="/uw-research-computing/hpc-known-issues" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Known issues on the HPC
+    </a>
+
+
+
+        
+    </div>
+</div>
+                </div>
+            
+                <div class="mb-4">
+                    <div class="card">
+    <div class="card-header bg-primary">
+        <h2 id="external-resources" class="m-0 text-light">
+            <i class="bi bi-box-arrow-up-right me-2"></i>
+            External resources
+        </h2>
+    </div>
+    <div>
+        
+        
+            
+    <a href="http://slurm.schedmd.com/" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Slurm manual
+    </a>
+
+
+
+        
+            
+    <a href="http://software-carpentry.org/lessons/" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        Software Carpentry
+    </a>
+
+
+
+        
+            
+    <a href="http://www.doit.wisc.edu/training/student/" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3 ">
+
+        
+        UW-Madison software training for students
+    </a>
+
+
+
+        
+    </div>
+</div>
+                </div>
+            
+        </div>
+        <div class="col-xl-4 d-none d-xl-block">
+            <div class="position-sticky" style="top: 20px;">
+                <h2 class="mt-0">Guide Sections</h2>
+                <div class="list-group border-start">
+                    
+                        <a href="#get-started" class="list-group-item list-group-item-action d-flex align-items-">
+                            <i class="bi bi-rocket-takeoff me-2"></i>Get started
+                        </a>
+                    
+                        <a href="#submit-jobs" class="list-group-item list-group-item-action d-flex align-items-">
+                            <i class="bi bi-send me-2"></i>Submit jobs
+                        </a>
+                    
+                        <a href="#manage-data" class="list-group-item list-group-item-action d-flex align-items-">
+                            <i class="bi bi-file-earmark-text me-2"></i>Manage data
+                        </a>
+                    
+                        <a href="#software" class="list-group-item list-group-item-action d-flex align-items-">
+                            <i class="bi bi-pc-display me-2"></i>Software
+                        </a>
+                    
+                        <a href="#troubleshooting" class="list-group-item list-group-item-action d-flex align-items-">
+                            <i class="bi bi-question-circle me-2"></i>Troubleshooting
+                        </a>
+                    
+                        <a href="#external-resources" class="list-group-item list-group-item-action d-flex align-items-">
+                            <i class="bi bi-box-arrow-up-right me-2"></i>External resources
+                        </a>
+                    
+                </div>
+            </div>
         </div>
     </div>
 </div>
-</main>
     </main>
     <footer id="colophon" class="uw-footer">
     <div class="uw-footer-content">
