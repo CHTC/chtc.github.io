@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-01-21T21:16:32+00:00" />
+<meta property="article:published_time" content="2025-01-21T21:55:57+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="CHTC /staging and /projects Next Steps" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-01-21T21:16:32+00:00","datePublished":"2025-01-21T21:16:32+00:00","description":"On Thursday, November 21, CHTC personnel were alerted to data issues in our /staging and /projects directories. We took immediate action on Thursday afternoon and have been working on mitigation and data recovery since.","headline":"CHTC /staging and /projects Next Steps","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-01-21T21:55:57+00:00","datePublished":"2025-01-21T21:55:57+00:00","description":"On Thursday, November 21, CHTC personnel were alerted to data issues in our /staging and /projects directories. We took immediate action on Thursday afternoon and have been working on mitigation and data recovery since.","headline":"CHTC /staging and /projects Next Steps","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/data-recovery-fall2024"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -249,7 +249,7 @@
 
             <p>On Thursday, November 21, CHTC personnel were alerted to data issues in our <code>/staging</code> and <code>/projects</code> directories. We took immediate action on Thursday afternoon and have been working on mitigation and data recovery since.</p>
 
-<p>The underlying cause has been identified and affected the <code>/squid</code>, <code>/staging</code>, <code>/projects</code> and HTC <code>/software</code> directories. We are able to prevent it from recurring; however, <strong>it resulted in significant data loss in /staging, /projects, HTC /software and /squid</strong> before CHTC personnel were able to react. All data in <code>/squid</code> is unrecoverable. Data recovery on <code>/staging</code> is complete as of mid December 2024; Data recovery on <code>/projects</code> is complete as of mid January 2025.</p>
+<p>The underlying cause was identified and affected the <code>/squid</code>, <code>/staging</code>, <code>/projects</code> and HTC <code>/software</code> directories. We are able to prevent it from recurring; however, <strong>it resulted in significant data loss in /staging, /projects, HTC /software and /squid</strong> before CHTC personnel were able to react. All data in <code>/squid</code> is unrecoverable. Data recovery on <code>/staging</code> is complete as of mid December 2024; Data recovery on <code>/projects</code> is complete as of mid January 2025.</p>
 
 <p>We recognize that this outage and accompanying data loss is disruptive to important work. Our plan to bring systems and data back online is outlined below.</p>
 
@@ -275,6 +275,24 @@
 
 <h3 id="access-recovered-data">Access Recovered Data</h3>
 
+<blockquote class="tip-header">
+  <h3 id="️-data-removal-for-recovered-files-on-feb-17">⚠️ Data removal for recovered files on Feb 17</h3>
+</blockquote>
+
+<blockquote class="tip">
+  <p>Data in the <code>/recovery</code> space will be available until Monday, February 17. 
+<br /><br />
+<strong>Before Feb 17, you should move all data you want to keep</strong> to your new <code>/staging</code> or <code>/projects</code> directory or other locations such as ResearchDrive.
+<br /><br />
+If you are moving data to new <code>/staging</code> or <code>/projects</code> spaces, we recommend that you <em>move</em> data (<code>mv</code>) instead of copying data (<code>cp</code>), as moving data is more efficient than copying.
+<br /><br />
+If you have files you no longer need in <code>/recovery</code> directories, please delete them.
+<br /><br />
+<em><strong>After February 17, all data in /recovery will no longer be accessible.</strong></em>
+<br /><br />
+More information about recovering <code>/staging</code>, <code>/software</code>, and <code>/projects</code> data is presented in the below sections. If you have concerns about this timeline or other factors, please reach out to us as soon as possible at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.</p>
+</blockquote>
+
 <h4 id="recover-staging-and-software-data">Recover <code>/staging</code> and <code>/software</code> data</h4>
 
 <p>The data recovery process for <code>/staging</code> and <code>/software</code> was completed on 12/11. We believe we have recovered about 50% of the data that was originally present in these directories. Some of the metadata for files (like file creation date) may be incorrect; <strong><em>we strongly recommend validating any data that you copy from the recovered file system.</em></strong></p>
@@ -285,9 +303,9 @@
   <li><code>/recovery/software/&lt;your username&gt;</code></li>
 </ul>
 
-<p>Users should <strong>copy</strong> any recovered files they want to save into their new <code>/staging</code> directories.</p>
+<p>Users should <strong>move</strong> any recovered files they want to save into their new <code>/staging</code> directories.</p>
 
-<p>References to data using the paths to recovered staging directories should <strong><em>not</em></strong> be used in job submission. The directories for recovered data are read-only, and you will not be able to write into them.</p>
+<p>References to data using the paths to recovered staging directories should <strong><em>not</em></strong> be used in job submission.</p>
 
 <p><strong><em>If your directory doesn’t exist in the recovery path, that means that none of your data was recovered.</em></strong></p>
 
@@ -300,9 +318,9 @@
   <li><code>/recovery/projects/&lt;project-name&gt;</code></li>
 </ul>
 
-<p>Users should <strong>copy</strong> any recovered files they want to save into their new <code>/projects</code> directories.</p>
+<p>Users should <strong>move</strong> any recovered files they want to save into their new <code>/projects</code> directories.</p>
 
-<p>References to data using the paths to recovered staging directories should <strong><em>not</em></strong> be used in job submission. The directories for recovered data are read-only, and you will not be able to write into them.</p>
+<p>References to data using the paths to recovered staging directories should <strong><em>not</em></strong> be used in job submission.</p>
 
 <p><strong><em>If your directory doesn’t exist in the recovery path, that means that none of your data was recovered.</em></strong></p>
 
@@ -327,6 +345,11 @@
   <li>Jan 13: Recovered data from <code>/projects</code> available
     <ul>
       <li>Data recovery for <code>/projects</code> is complete. See above for more details.</li>
+    </ul>
+  </li>
+  <li>Feb 17: Recovered data in <code>/recovery</code> will be deleted
+    <ul>
+      <li>Recovered data in <code>/recovery</code> will be deleted to improve file system performance. See above for more details.</li>
     </ul>
   </li>
 </ul>
