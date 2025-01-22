@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Basic scripting in Julia</title>
+<title>CHTC Researcher Forum 2025</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,24 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Basic scripting in Julia | CHTC</title>
+<title>CHTC Researcher Forum 2025 | CHTC</title>
 <meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="Basic scripting in Julia" />
+<meta property="og:title" content="CHTC Researcher Forum 2025" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Code Our executable written in Julia, echo-next.jl: filename = ARGS[1] println(filename) The ARGS constant is an array – if you have multiple arguments, you can reference them using Julia’s usual notation (ARGS[1], ARGS[2], etc.) See Julia documentation on arguments for details. We can use the script on the command line, assuming Julia is installed and on the PATH: [user@login]$ julia echo-next.jl data.csv data.csv Wrapper script We can now write a wrapper script! This script checks that one argument is passed, and also allows room for pre- and post-processing in this simple workflow. Our wrapper script written in bash, wrapper.sh: #!/bin/bash # Check if an argument is provided if [ $# -ne 1 ]; then echo &#39;Please use one argument. Usage: wrapper.sh [arg]&#39; exit 1 fi # Set filename variable to the first argument to the bash script filename=$1 echo &#39;Pre-processing could go here.&#39; # Run code julia echo-next.jl ${filename} echo &#39;Post-processing could go here.&#39; Ensure wrapper.sh is executable with chmod +x wrapper.sh before running it on the command line: [user@login]$ chmod +x wrapper.sh [user@login]$ ./wrapper.sh Please use one argument. Usage: wrapper.sh [arg] [user@login]$ ./wrapper.sh data.csv Pre-processing could go here. data.csv Post-processing could go here. Passing arguments with the HTCondor submit file Now that we’ve understood how arguments work in Julia and how to write simple wrapper scripts that pass those arguments, we can pass arguments in HTCondor’s submit file by specifying the arguments attribute, as shown in this excerpt: # Create custom variable called &quot;data&quot; data = data.csv # Specify the executable &amp; arguments executable = wrapper.sh arguments = $(data)" />
-<meta property="og:description" content="Code Our executable written in Julia, echo-next.jl: filename = ARGS[1] println(filename) The ARGS constant is an array – if you have multiple arguments, you can reference them using Julia’s usual notation (ARGS[1], ARGS[2], etc.) See Julia documentation on arguments for details. We can use the script on the command line, assuming Julia is installed and on the PATH: [user@login]$ julia echo-next.jl data.csv data.csv Wrapper script We can now write a wrapper script! This script checks that one argument is passed, and also allows room for pre- and post-processing in this simple workflow. Our wrapper script written in bash, wrapper.sh: #!/bin/bash # Check if an argument is provided if [ $# -ne 1 ]; then echo &#39;Please use one argument. Usage: wrapper.sh [arg]&#39; exit 1 fi # Set filename variable to the first argument to the bash script filename=$1 echo &#39;Pre-processing could go here.&#39; # Run code julia echo-next.jl ${filename} echo &#39;Post-processing could go here.&#39; Ensure wrapper.sh is executable with chmod +x wrapper.sh before running it on the command line: [user@login]$ chmod +x wrapper.sh [user@login]$ ./wrapper.sh Please use one argument. Usage: wrapper.sh [arg] [user@login]$ ./wrapper.sh data.csv Pre-processing could go here. data.csv Post-processing could go here. Passing arguments with the HTCondor submit file Now that we’ve understood how arguments work in Julia and how to write simple wrapper scripts that pass those arguments, we can pass arguments in HTCondor’s submit file by specifying the arguments attribute, as shown in this excerpt: # Create custom variable called &quot;data&quot; data = data.csv # Specify the executable &amp; arguments executable = wrapper.sh arguments = $(data)" />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/htc-basic-scripting-julia" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc-basic-scripting-julia" />
+<meta name="description" content="We invite all CHTC users and the UW Madison research computing community to join us at the inaugural CHTC Researcher Forum this February!" />
+<meta property="og:description" content="We invite all CHTC users and the UW Madison research computing community to join us at the inaugural CHTC Researcher Forum this February!" />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/events/2025/02/researcher-forum" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/events/2025/02/researcher-forum" />
 <meta property="og:site_name" content="CHTC" />
+<meta property="og:image" content="https://chtc.cs.wisc.edu/images/2024_HTC_attendees_chatting.JPG" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-01-22T22:30:12+00:00" />
+<meta property="article:published_time" content="2025-02-26T00:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Basic scripting in Julia" />
+<meta property="twitter:image" content="https://chtc.cs.wisc.edu/images/2024_HTC_attendees_chatting.JPG" />
+<meta property="twitter:title" content="CHTC Researcher Forum 2025" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-01-22T22:30:12+00:00","datePublished":"2025-01-22T22:30:12+00:00","description":"Code Our executable written in Julia, echo-next.jl: filename = ARGS[1] println(filename) The ARGS constant is an array – if you have multiple arguments, you can reference them using Julia’s usual notation (ARGS[1], ARGS[2], etc.) See Julia documentation on arguments for details. We can use the script on the command line, assuming Julia is installed and on the PATH: [user@login]$ julia echo-next.jl data.csv data.csv Wrapper script We can now write a wrapper script! This script checks that one argument is passed, and also allows room for pre- and post-processing in this simple workflow. Our wrapper script written in bash, wrapper.sh: #!/bin/bash # Check if an argument is provided if [ $# -ne 1 ]; then echo &#39;Please use one argument. Usage: wrapper.sh [arg]&#39; exit 1 fi # Set filename variable to the first argument to the bash script filename=$1 echo &#39;Pre-processing could go here.&#39; # Run code julia echo-next.jl ${filename} echo &#39;Post-processing could go here.&#39; Ensure wrapper.sh is executable with chmod +x wrapper.sh before running it on the command line: [user@login]$ chmod +x wrapper.sh [user@login]$ ./wrapper.sh Please use one argument. Usage: wrapper.sh [arg] [user@login]$ ./wrapper.sh data.csv Pre-processing could go here. data.csv Post-processing could go here. Passing arguments with the HTCondor submit file Now that we’ve understood how arguments work in Julia and how to write simple wrapper scripts that pass those arguments, we can pass arguments in HTCondor’s submit file by specifying the arguments attribute, as shown in this excerpt: # Create custom variable called &quot;data&quot; data = data.csv # Specify the executable &amp; arguments executable = wrapper.sh arguments = $(data)","headline":"Basic scripting in Julia","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-basic-scripting-julia"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-basic-scripting-julia"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-02-26T00:00:00+00:00","datePublished":"2025-02-26T00:00:00+00:00","description":"We invite all CHTC users and the UW Madison research computing community to join us at the inaugural CHTC Researcher Forum this February!","headline":"CHTC Researcher Forum 2025","image":"https://chtc.cs.wisc.edu/images/2024_HTC_attendees_chatting.JPG","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/events/2025/02/researcher-forum"},"url":"https://chtc.cs.wisc.edu/events/2025/02/researcher-forum"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -55,7 +57,7 @@
 <link type="text/css" href="/assets/fonts/fonts.0.0.1.css" rel="stylesheet">
 <link type="text/css" href="/assets/css/style-v12.css" rel="stylesheet">
 
-<link type="text/css" href="/assets/css/research-style.css" rel="stylesheet">
+
 
 <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'')})(document.documentElement)</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -79,7 +81,7 @@
             <div class="row">
                 <div class="col-auto pe-0">
                     
-                    <a class="uw-global-name-link" href="/" aria-label="University home page">Go to CHTC Home</a>
+                    <a class="uw-global-name-link" href="/uw-research-computing" aria-label="UW Research Computing Homepage">Go to UW Research Computing Home</a>
                     
                 </div>
                 <div class="col-auto d-flex">
@@ -94,13 +96,8 @@
     
     
 
-
-
     
-
-
-    
-    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">UW-Research Computing<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
+    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">Menu<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
 <div id="uw-top-menus" class="uw-is-visible uw-horizontal" aria-hidden="false">
     <div class="uw-main-nav">
         <nav class="uw-nav-menu uw-nav-menu-reverse" aria-label="Main Menu">
@@ -111,27 +108,9 @@
                 
                     
 
-
-<li id="home">
-    <a href="/uw-research-computing/index.html" aria-current="page">Home</a>
-</li>
-
-
-                
-                    
-
-
-<li id="get-started">
-    <a href="/uw-research-computing/form.html" aria-current="page">Get Started</a>
-</li>
-
-
-                
-                    
-
-<li id="menu-how-tos" class="uw-dropdown">
-    <a href="/uw-research-computing/how-tos.html" role="button" aria-haspopup="true" aria-expanded="false">
-        How To's
+<li id="about" class="uw-dropdown">
+    <a href="/about.html" role="button" aria-haspopup="true" aria-expanded="false">
+        About
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -139,27 +118,27 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="How To's submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="About submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/account-details.html">Get an Account</a>
+            <a href="/htc.html">What is HTC?</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/user-expectations.html">User Expectations</a>
+            <a href="/approach.html">Our Approach</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/htc/guides.html">HTC Guides</a>
+            <a href="/projects.html">Our Customers</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/hpc/guides.html">HPC Guides</a>
+            <a href="/people.html">Our Staff</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/cite-chtc.html">Cite CHTC Resources</a>
+            <a href="/jobs.html">Our Open Positions</a>
         </li>
     
     </ul>    
@@ -169,8 +148,8 @@
                     
 
 
-<li id="get-help">
-    <a href="/uw-research-computing/get-help.html" aria-current="page">Get Help</a>
+<li id="uw-research-computing">
+    <a href="/uw-research-computing/index.html" aria-current="page">Research Computing</a>
 </li>
 
 
@@ -178,48 +157,36 @@
                     
 
 
-<li id="status-page">
-    <a href="https://status.chtc.wisc.edu/" aria-current="page">System Status</a>
+<li id="technologies">
+    <a href="/technologies.html" aria-current="page">Technologies</a>
 </li>
 
 
                 
                     
 
-<li id="menu-other-resources" class="uw-dropdown">
-    <a href="/uw-research-computing/other-resources.html" role="button" aria-haspopup="true" aria-expanded="false">
-        Other Resources
-        <svg aria-hidden="true" class="uw-caret" focusable="false">
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
-        </svg>
-        <svg aria-hidden="true" class="uw-caret" focusable="false">
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
-        </svg>
-    </a>
-    <ul aria-hidden="true" aria-label="Other Resources submenu" class="uw-child-menu">
 
-    
-        <li>
-            <a href="/uw-research-computing/gpu-lab.html">CHTC GPU Lab</a>
-        </li>
-    
-        <li>
-            <a href="https://htcondor.org/manual/">HTCondor Project</a>
-        </li>
-    
-        <li>
-            <a href="http://www.neos-server.org/">NEOS Optimization Service</a>
-        </li>
-    
-        <li>
-            <a href="http://www.osg-htc.org/">OSG Consortium</a>
-        </li>
-    
-        <li>
-            <a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a>
-        </li>
-    
-    </ul>    
+<li id="research">
+    <a href="/research.html" aria-current="page">Research</a>
+</li>
+
+
+                
+                    
+
+
+<li id="news">
+    <a href="/news.html" aria-current="page">News</a>
+</li>
+
+
+                
+                    
+
+
+<li id="events">
+    <a href="/events.html" aria-current="page">Events</a>
+</li>
 
 
                 
@@ -237,383 +204,124 @@
 </div>
 
 
+
+    
+
     <main id="main" style="min-height: 60vh;">
         <main id="main" style="min-height: 60vh;">
-    <div class="container-xxl mb-5">
+    <div class="container-xxl">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-9 mw-1000">
+        <div class="col mw-1000 pb-5">
+            <div class="event">
+    <div class="event-header pt-4 pt-md-4">
+    <div class="row justify-content-end">
+        <div class="col-auto">
+            <h2 class="subtitle">
+                
+                
 
-            <h1 class="uw-mini-bar mb-4">
-    Basic scripting in Julia
-</h1>
+                
+                
 
-            <h3 id="code">Code</h3>
-
-<p>Our executable written in Julia, <code>echo-next.jl</code>:</p>
-<pre><code>filename = ARGS[1]
-println(filename)
-</code></pre>
-
-<p>The <code>ARGS</code> constant is an array – if you have multiple arguments, you can reference 
-them using Julia’s usual notation (<code>ARGS[1]</code>, <code>ARGS[2]</code>, etc.)
-See <a href="https://docs.julialang.org/en/v1/manual/command-line-interface/">Julia documentation on arguments</a> for details.</p>
-
-<p>We can use the script on the command line, assuming Julia is installed and on the <code>PATH</code>:</p>
-<pre class="term"><code>[user@login]$ julia echo-next.jl data.csv
-data.csv
-</code></pre>
-
-<h3 id="wrapper-script">Wrapper script</h3>
-
-<p>We can now write a wrapper script! This script checks that one argument is passed, and also allows room for pre- and post-processing in this simple workflow.</p>
-
-<p>Our wrapper script written in bash, <code>wrapper.sh</code>:</p>
-<pre><code>#!/bin/bash
-
-# Check if an argument is provided
-if [ $# -ne 1 ]; then
-    echo 'Please use one argument. Usage: wrapper.sh [arg]'
-    exit 1
-fi
-
-# Set filename variable to the first argument to the bash script
-filename=$1
-
-echo 'Pre-processing could go here.'
-
-# Run code
-julia echo-next.jl ${filename}
-
-echo 'Post-processing could go here.'
-</code></pre>
-
-<p>Ensure <code>wrapper.sh</code> is executable with <code>chmod +x wrapper.sh</code> before running it on the command line:</p>
-<pre class="term"><code>[user@login]$ chmod +x wrapper.sh
-[user@login]$ ./wrapper.sh
-Please use one argument. Usage: wrapper.sh [arg]
-[user@login]$ ./wrapper.sh data.csv
-Pre-processing could go here.
-data.csv
-Post-processing could go here.
-</code></pre>
-
-<h3 id="passing-arguments-with-the-htcondor-submit-file">Passing arguments with the HTCondor submit file</h3>
-
-<p>Now that we’ve understood how arguments work in Julia and how to write simple wrapper scripts that pass those arguments, we can pass arguments in HTCondor’s submit file by specifying the <code>arguments</code> attribute, as shown in this excerpt:</p>
-
-<pre><code># Create custom variable called "data"
-data = data.csv
-
-# Specify the executable &amp; arguments
-executable = wrapper.sh
-arguments = $(data)
-</code></pre>
-<!--more-->
-
+                
+                    Upcoming Event | February 26
+                
+            </h2>
         </div>
-        <div class="col-3 d-none d-lg-block">
-            
-
-
-
-    <div id="guide-sidebar">
-        
-        
-            
-
-            
-            
-
-            <h6 class="mt-5">HTC Guides</h6>
-            <div class="accordion accordion-flush">
-                
-                    
-
-                        
-
-                        
-                        
-
-                        <div class="accordion-item">
-                            <span class="accordion-header mt-0" id="get-started-htc">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#get-started-htc-collapse" aria-expanded="false" aria-controls="get-started-htc">
-                                    Get started
-                                </button>
-                            </span>
-                            <div id="get-started-htc-collapse" class="accordion-collapse collapse " aria-labelledby="get-started-htc" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/basic-shell-commands">Basic shell commands</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/configure-ssh">Automate CHTC login</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/connecting">Log in to CHTC</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/data-recovery-fall2024">CHTC /staging and /projects Next Steps</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc-overview">System Overview</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc-roadmap">Roadmap to getting started</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htcondor-quick-ref">Quick reference: HTCondor commands</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-                        
-
-                        <div class="accordion-item">
-                            <span class="accordion-header mt-0" id="submit-jobs-htc">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#submit-jobs-htc-collapse" aria-expanded="false" aria-controls="submit-jobs-htc">
-                                    Submit jobs
-                                </button>
-                            </span>
-                            <div id="submit-jobs-htc-collapse" class="accordion-collapse collapse " aria-labelledby="submit-jobs-htc" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/condor_q">Learn About Your Jobs Using condor_q</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc-basic-scripting">Basic Scripting and Job Submission with Arguments</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc-passing-arguments-multiple">Practice: Passing Multiple Arguments to Multiple Jobs with One Submit File</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc-passing-arguments">Practice: Passing Arguments from the Submit File to the Executable Script</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htcondor-job-submission">Practice: Submit HTC Jobs using HTCondor</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/multiple-job-dirs">Submitting Multiple Jobs in Individual Directories</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/multiple-jobs">Submitting Multiple Jobs Using HTCondor</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-                        
-
-                        <div class="accordion-item">
-                            <span class="accordion-header mt-0" id="manage-data-htc">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#manage-data-htc-collapse" aria-expanded="false" aria-controls="manage-data-htc">
-                                    Manage data
-                                </button>
-                            </span>
-                            <div id="manage-data-htc-collapse" class="accordion-collapse collapse " aria-labelledby="manage-data-htc" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/check-quota">Check Disk Quota and Usage</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-squid">Transfer Large Input Files Via Squid</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-availability">Small Input and Output File Availability Via HTCondor</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/github-remote-access">Access a Private GitHub Repository Remotely</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/globus">Use Globus to Transfer Files to and from CHTC</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/transfer-data-researchdrive">Transfer Files Between CHTC and ResearchDrive</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/transfer-files-computer">Transfer Files between CHTC and your Computer</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-                        
-
-                        <div class="accordion-item">
-                            <span class="accordion-header mt-0" id="software-htc">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#software-htc-collapse" aria-expanded="false" aria-controls="software-htc">
-                                    Software
-                                </button>
-                            </span>
-                            <div id="software-htc-collapse" class="accordion-collapse collapse " aria-labelledby="software-htc" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/apptainer-build">Building an Apptainer Container</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/apptainer-htc-advanced-example">Advanced Apptainer Example - SUMO</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/apptainer-htc">Use Apptainer Containers</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-build">Build a Docker Container Image</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-jobs">Running HTC Jobs Using Docker Containers</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/docker-test">Explore and Test Docker Containers</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc-docker-to-apptainer">Convert Docker images to Apptainer images</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc-modules-transition-to-el9">HTC Modules Transition to EL9</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc-modules">Use Software Available in Modules</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/licensed-software">Use Licensed Software</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/software-overview-htc">Overview: How to Use Software</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-
-                        
-
-                        
-                        
-
-                        <div class="accordion-item">
-                            <span class="accordion-header mt-0" id="troubleshooting-htc">
-                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshooting-htc-collapse" aria-expanded="false" aria-controls="troubleshooting-htc">
-                                    Troubleshooting
-                                </button>
-                            </span>
-                            <div id="troubleshooting-htc-collapse" class="accordion-collapse collapse " aria-labelledby="troubleshooting-htc" data-bs-parent="#guide-sidebar">
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/dos-unix">Windows / Linux Incompatibility</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/htc-known-issues">Known Issues on the HTC</a>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    
-                
-                    
-                
-            </div>
-        
-        
     </div>
+    <div class="row">
+        <div class="col-12 image-container">
+            <img src="/images/2024_HTC_attendees_chatting.JPG"/>
+        </div>
+        <div class="col-12">
+            <div class="bg-light p-1">
+                <small class="text-muted"></small>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-12 col-md-8">
+            <h1 class="title">
+                CHTC Researcher Forum 2025
+            </h1>
+        </div>
+    </div>
+</div>
+
+    
+<div class="row event pt-3">
+<div class="main col-12 col-md-8 order-1 order-md-1">
+
+    <p>We invite all CHTC users and the UW Madison research computing community to join us at the inaugural CHTC Researcher Forum this February!</p>
+
+    <div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="https://uwmadison.co1.qualtrics.com/jfe/form/SV_elMPzasJgsUGxfw">Register here</a>
+	</div>
+</div>
+
+    <p>In this 2 hour event, you will have a chance to:</p>
+    <ul>
+      <li>Learn about recent changes at CHTC and what’s new and upcoming</li>
+      <li>Connect with CHTC users and learn from each other about their use of CHTC at a mini poster session</li>
+      <li>Engage with CHTC staff – ask questions, provide suggestions, and more!</li>
+      <li>Meet a server 🙂</li>
+    </ul>
+
+    <p>We hope that this is an event that empowers all CHTC users and relevant community members to start and continue conversations with us as collaborative research partners.</p>
+
+    <p>Schedule:</p>
+    <ul>
+      <li>2:30 – 3:10 – Updates from CHTC staff</li>
+      <li>3:10 – 3:30 – Q+A time</li>
+      <li>3:30 – 4:15 – Poster session</li>
+      <li>4:15 – 5:00 – Stay and chat!</li>
+    </ul>
+
+  </div>
+<div class="subsection col-12 col-md-4 order-2 order-md-2">
+<div class="ms-md-4  bg-light p-3">
+
+      <h3 class="mt-0" id="who">Who</h3>
+
+      <ul>
+        <li>Anyone who wants to connect with the CHTC community</li>
+      </ul>
+
+      <h3 id="when">When</h3>
+
+      <p>Wednesday, February 26, 2:30 pm - 4:30 pm</p>
+
+      <h3 id="where">Where</h3>
+
+      <p>In-Person</p>
+
+      <p>Discovery Building Orchard View Room</p>
+
+      <h2 id="registration">Registration</h2>
+
+      <p><a href="https://uwmadison.co1.qualtrics.com/jfe/form/SV_elMPzasJgsUGxfw">Register here</a></p>
+
+      <h3 id="questions">Questions?</h3>
+
+      <p>Please email <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> with any questions.</p>
+
+    </div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+
+  </div>
+</div>
 
 
+</div>
 
         </div>
     </div>
 </div>
+
 
 </main>
     </main>
