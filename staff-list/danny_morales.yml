@@ -1,0 +1,11 @@
+name: "Danny Morales"
+image: "images/danny_morales.jpg"
+title: "Research Computing Facilitator"
+institution: "University of Wisconsin - Madison"
+is_facilitator: 1
+status: Staff
+organizations: 
+    - path
+    - chtc
+    - osg
+    
