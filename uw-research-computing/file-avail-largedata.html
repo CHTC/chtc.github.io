@@ -23,7 +23,7 @@
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Managing Large Data in HTC Jobs | CHTC</title>
-<meta name="generator" content="Jekyll v4.3.4" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Managing Large Data in HTC Jobs" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="When submitting jobs to CHTC’s High Throughput Computing (HTC) system, there is a distinct location for staging data that is too large to be handled at scale via the default HTCondor file transfer mechanism. This location should be used for jobs that require input files larger than 100MB and/or that generate output files larger than 3-4GB." />
@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-03-03T16:25:11+00:00" />
+<meta property="article:published_time" content="2025-03-04T18:19:09+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Managing Large Data in HTC Jobs" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-03-03T16:25:11+00:00","datePublished":"2025-03-03T16:25:11+00:00","description":"When submitting jobs to CHTC’s High Throughput Computing (HTC) system, there is a distinct location for staging data that is too large to be handled at scale via the default HTCondor file transfer mechanism. This location should be used for jobs that require input files larger than 100MB and/or that generate output files larger than 3-4GB.","headline":"Managing Large Data in HTC Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-03-04T18:19:09+00:00","datePublished":"2025-03-04T18:19:09+00:00","description":"When submitting jobs to CHTC’s High Throughput Computing (HTC) system, there is a distinct location for staging data that is too large to be handled at scale via the default HTCondor file transfer mechanism. This location should be used for jobs that require input files larger than 100MB and/or that generate output files larger than 3-4GB.","headline":"Managing Large Data in HTC Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -253,9 +253,8 @@
     <tr>
         <th>Input Sizes</th>
         <th>Output Sizes</th>
-        <th>Link to Guide</th>
         <th>File Location</th>
-        <th>How to Transfer</th>
+        <th>Syntax for <code>transfer_input_files</code></th>
         <th>Availability, Security</th>
         <!--<th>Special Considerations</th>-->
     </tr>
@@ -263,30 +262,18 @@
     <tr>
         <td>0 - 100 MB per file, up to 500 MB per job</td>
         <td>0 - 5 GB per job</td>
-        <td><a href="file-availability.html">Small Input/Output File Transfer via <b>HTCondor</b></a></td>
         <td><code>/home</code></td>
-        <td><b>submit file</b>; filename in <small><code>transfer_input_files</code></small></td>
-        <td>CHTC, UW Grid, and OSG; works for <i>your</i> jobs</td>
+        <td>No special syntax</td>
+        <td>CHTC and external pools</td>
         <!--<td><font color="red">DO NOT USE HTCondor transfer for files in <code>/staging</code> OR <code>/squid</code></font></td>-->
-    </tr>
-
-    <tr>
-        <td>100 MB - 1 GB per repeatedly-used file</td>
-        <td>Not available for output</td>
-        <td><a href="file-avail-squid.html">Large Input File Availability Via <b>Squid</b></a></td>
-        <td><code>/squid</code></td>
-        <td><b>submit file</b>; http link in <small><code>transfer_input_files</code></small></td>
-        <td>CHTC, UW Grid, and OSG; files are made *publicly-readable* via an HTTP address</i></td>
-        <!--<td>large files unique to individual jobs are better for large data staging</td>-->
     </tr>
 
     <tr>
         <td>100 MB - TBs per job-specific file; repeatedly-used files > 1GB</td>
         <td>4 GB - TBs per job</td>
-        <td><a href="file-avail-largedata.html">Large Input and Output File Availability Via <b>Staging</b></a></td>
          <td><code>/staging</code></td>
-        <td><b>job executable</b>; copy or move within the job</td>
-        <td>a portion of CHTC; accessible only to <i>your</i> jobs</td>
+        <td><code>osdf:///</code> or <code>file:///</code></td>
+        <td>all of CHTC/external pools or a subset of CHTC</td>
         <!--<td>special submit "Requirements"</td>-->
     </tr>
 
@@ -321,8 +308,8 @@ familiar with:</strong></p>
   <li>Using the command-line to: navigate directories,
 create/edit/copy/move/delete files and directories, and run intended
 programs (aka “executables”).</li>
-  <li>CHTC’s <a href="helloworld.html">Intro to Running HTCondor Jobs</a></li>
-  <li>CHTC’s guide for <a href="file-availability.html">Typical File Transfer</a></li>
+  <li>CHTC’s <a href="htcondor-job-submission">Intro to Running HTCondor Jobs</a></li>
+  <li>CHTC’s guide for <a href="htc-job-file-transfer">Typical File Transfer</a></li>
 </ol>
 
 <div class="d-flex flex-column mb-5">
@@ -332,18 +319,32 @@ programs (aka “executables”).</li>
 <div class="uw-sidebar-box me-auto">
 <div class="uw-directory">
 
-      <ol>
-        <li><a href="#1-policies-and-intended-use">Policies and Intended Use</a></li>
-        <li><a href="#2-staging-large-data">Staging Large Data</a></li>
-        <li><a href="#3-using-staged-files-in-a-job">Using Staged Files in a Job</a>
+      <ul>
+        <li><a href="#1-policies-and-intended-use">1. Policies and Intended Use</a>
           <ul>
-            <li><a href="#a-accessing-large-input-files">Accessing Large Input Files</a></li>
-            <li><a href="#b-moving-large-output-files">Moving Large Output Files</a></li>
+            <li><a href="#a-intended-use">A. Intended Use</a></li>
+            <li><a href="#b-access-to-large-data-staging">B. Access to Large Data Staging</a></li>
+            <li><a href="#c-user-data-management-responsibilities">C. User Data Management Responsibilities</a></li>
+            <li><a href="#d-data-access-within-jobs">D. Data Access Within Jobs</a></li>
           </ul>
         </li>
-        <li><a href="#4-submit-jobs-using-staged-data">Submit Jobs Using Staged Data</a></li>
-        <li><a href="#5-checking-your-quota-data-use-and-file-counts">Checking your Quota, Data Use, and File Counts</a></li>
-      </ol>
+        <li><a href="#2-staging-large-data">2. Staging Large Data</a>
+          <ul>
+            <li><a href="#a-get-a-directory">A. Get a Directory</a></li>
+            <li><a href="#b-reduce-file-counts">B. Reduce File Counts</a></li>
+            <li><a href="#c-use-the-transfer-server">C. Use the Transfer Server</a></li>
+            <li><a href="#d-remove-files-after-jobs-complete">D. Remove Files After Jobs Complete</a></li>
+          </ul>
+        </li>
+        <li><a href="#3-using-staged-files-in-a-job">3. Using Staged Files in a Job</a>
+          <ul>
+            <li><a href="#a-transferring-large-input-files">A. Transferring Large Input Files</a></li>
+            <li><a href="#b-transferring-large-output-files">B. Transferring Large Output Files</a></li>
+          </ul>
+        </li>
+        <li><a href="#4-submit-jobs-using-staged-data">4. Submit Jobs Using Staged Data</a></li>
+        <li><a href="#5-related-pages">5. Related Pages</a></li>
+      </ul>
 
     </div>
 </div>
@@ -362,13 +363,11 @@ PROBLEMATIC USER DATA AT ANY TIME IN ORDER TO PRESERVE PERFORMANCE.</strong></p>
 
 <p>Our large data staging location is only for input and output files that 
 are individually too large to be managed by our other data movement 
-methods, <a href="https://htcondor.org">HTCondor</a> file transfer or SQUID. This includes individual input files 
+methods, <a href="https://htcondor.org">HTCondor</a> file transfer. This includes individual input files 
 greater than 100MB and individual output files greater than 3-4GB.</p>
 
 <p>Users are expected to abide by this intended use expectation and follow the 
-instructions for using <code>/staging</code> written in this guide (e.g. files placed 
-in <code>/staging </code>should NEVER be listed in the submit file, but rather accessed 
-via the job’s executable (aka .sh) script).</p>
+instructions for using <code>/staging</code> written in this guide.</p>
 
 <h2 id="b-access-to-large-data-staging">B. Access to Large Data Staging</h2>
 
@@ -403,7 +402,7 @@ location (or any CHTC file system) at any time.</p>
 be available only within the the CHTC pool, on a subset of our total 
 capacity.</p>
 
-<p>Staged data are owned by the user, and only the user’s own
+<p>Staged data are owned by the user and only the user’s own
 jobs can access these files (unless the user specifically modifies unix
 file permissions to make certain files available for other users).</p>
 
@@ -478,92 +477,21 @@ back at a later date. Files can be taken off of <code>/staging</code> using simi
 mechanisms as uploaded files (as above).</p>
 
 <h1 id="3-using-staged-files-in-a-job">3. Using Staged Files in a Job</h1>
+<h2 id="a-transferring-large-input-files">A. Transferring Large Input Files</h2>
+<p>Staged files should be specified in the job submit file using the <code>osdf:///</code> or <code>file:///</code> syntax,
+depending on the size of the files to be transferred. <a href="htc-job-file-transfer#transferring-data-to-jobs-with-transfer_input_files">See this table for more information</a>.</p>
 
-<p>As shown above, the staging directory for large data is <code>/staging/username</code>. 
-All interaction with files in this location should occur within your job’s 
-main executable.</p>
-
-<h2 id="a-accessing-large-input-files">A. Accessing Large Input Files</h2>
-
-<p>To use large data placed in the <code>/staging</code> location, add commands to your 
-job executable that copy input 
-from <code>/staging</code> into the working directory of the job. Program should then use 
-files from the working directory, being careful to remove the coiped 
-files from the working
-directory before the completion of the job (so that they’re not copied
-back to the submit server as perceived output).</p>
-
-<p>Example, if executable is a shell script:</p>
-
-<pre class="file"><code>#!/bin/bash
-#
-# First, copy the compressed tar file from /staging into the working directory,
-#  and un-tar it to reveal your large input file(s) or directories:
-cp /staging/username/large_input.tar.gz ./
-tar -xzvf large_input.tar.gz
-#
-# Command for myprogram, which will use files from the working directory
-./myprogram large_input.txt myoutput.txt
-#
-# Before the script exits, make sure to remove the file(s) from the working directory
-rm large_input.tar.gz large_input.txt
-#
-# END
+<pre class="sub"><code>transfer_input_files = osdf:///chtc/staging/username/file1, file:///staging/username/file2, file3 
 </code></pre>
 
-<h2 id="b-moving-large-output-files">B. Moving Large Output Files</h2>
+<h2 id="b-transferring-large-output-files">B. Transferring Large Output Files</h2>
 
-<p>If jobs produce large (more than 3-4GB) output files, have 
-your executable write the output file(s) to a location within
-the working directory, and then make sure to move this large file to
-the <code>/staging</code> folder, so that it’s not transferred back to the home directory, as
-all other “new” files in the working directory will be.</p>
+<p>By default, any new or changed files in the top-level directory are transferred to your working directory on <code>/home</code>. If you have large output files, this is undesirable.</p>
 
-<p>Example, if executable is a shell script:</p>
+<p>Large outputs should be transferred to staging using the same file transfer protocols in HTCondor’s <code>transfer_output_remaps</code> option:</p>
 
-<pre class="file"><code>#!/bin/bash
-# 
-# Command to save output to the working directory:
-./myprogram myinput.txt output_dir/
-#
-# Tar and mv output to staging, then delete from the job working directory:
-tar -czvf large_output.tar.gz output_dir/ other_large_files.txt
-mv large_output.tar.gz /staging/username/
-rm other_large_files.txt
-#
-# END
-</code></pre>
-
-<h2 id="c-handling-standard-output-if-needed">C. Handling Standard Output (if needed)</h2>
-
-<p>In some instances, your software may produce very large standard output
-(what would typically be output to the command screen, if you ran the
-command for yourself, instead of having <a href="https://htcondor.org">HTCondor</a> do it). Because such
-standard output from your software will usually be captured by HTCondor
-in the submit file “output” file, this “output” file WILL still be
-transferred by HTCondor back to your home directory on the submit
-server, which may be very bad for you and others, if that captured
-standard output is very large.</p>
-
-<p>In these cases, it is useful to redirect the standard output of commands
-in your executable to a file in the working directory, and then move it
-into <code>/staging</code> at the end of the job.</p>
-
-<p>Example, if “<code>myprogram</code>” produces very large standard output, and is
-run from a script (bash) executable:</p>
-
-<pre class="file"><code>#!/bin/bash
-#
-# script to run myprogram,
-# 
-# redirecting large standard output to a file in the working directory:
-./myprogram myinput.txt myoutput.txt &gt; large_std.out
-# 
-# tar and move large files to staging so they're not copied to the submit server:
-tar -czvf large_stdout.tar.gz large_std.out
-cp large_stdout.tar.gz /staging/username/subdirectory
-rm large_std.out large_stdout.tar.gz
-# END
+<pre class="sub"><code>transfer_output_files = file1, file2
+transfer_output_remaps = "file1 = osdf:///chtc/staging/username/file1; file2 = file:///staging/username/file2"
 </code></pre>
 
 <h1 id="4-submit-jobs-using-staged-data">4. Submit Jobs Using Staged Data</h1>
@@ -578,13 +506,9 @@ rm large_std.out large_stdout.tar.gz
 <p>In your submit file:</p>
 
 <ul>
-  <li><strong>No large data in the submit file</strong>:  Do NOT list any <code>/staging</code> files in any of the submit file
-  lines, including: <code>executable, log, output, error, transfer_input_files</code>. Rather, your
-  job’s ENTIRE interaction with files in <code>/staging</code> needs to occur
-  WITHIN each job’s executable, when it runs within the job (as shown <a href="#3-using-staged-files-in-a-job">above</a>)</li>
   <li><strong>Request sufficient disk space</strong>: Using <code>request_disk</code>, request an amount of disk 
-space that reflects the total of a) input data that each job will copy into
-  the job working directory from <code>/staging,</code> and b) any output that
+space that reflects the total of (a) input data that each job will copy into
+  the job working directory from <code>/staging,</code> and (b) any output that
   will be created in the job working directory.</li>
   <li><strong>Require access to <code>/staging</code></strong>: Include the CHTC specific attribute that requires 
 servers with access to <code>/staging</code></li>
@@ -602,8 +526,7 @@ log = myprogram.log
 output = $(Cluster).out
 error = $(Cluster).err
 
-## Do NOT list the large data files here
-transfer_input_files = myprogram
+transfer_input_files = osdf:///chtc/staging/username/myprogram, file:///staging/username/largedata.tar.gz
 
 # IMPORTANT! Require execute servers that can access /staging
 Requirements = (Target.HasCHTCStaging == true)
@@ -613,33 +536,13 @@ Requirements = (Target.HasCHTCStaging == true)
 queue
 </code></pre>
 
-<blockquote>
-  <p><strong>Note: in no way should files on <code>/staging</code> be specified in the submit file, 
-directly or indirectly!</strong> For example, do not use the <code>initialdir</code> option (
-<a href="multiple-job-dirs.html">Submitting Multiple Jobs in Individual Directories</a>)
-to specify a directory on <code>/staging</code>.</p>
-</blockquote>
+<h1 id="5-related-pages">5. Related Pages</h1>
 
-<h1 id="5-checking-your-quota-data-use-and-file-counts">5. Checking your Quota, Data Use, and File Counts</h1>
-
-<p>You can use the command <code>get_quotas</code> to see what disk 
-and items quotas are currently set for a given directory path. 
-This command will also let you see how much disk is in use and how many 
-items are present in a directory:</p>
-
-<pre class="term"><code>[username@transfer ~]$ get_quotas /staging/username
-</code></pre>
-
-<p>Alternatively, the <code>ncdu</code> command can also be used to see how many 
-files and directories are contained in a given path:</p>
-
-<pre class="term"><code>[username@transfer ~]$ ncdu /staging/username
-</code></pre>
-
-<p>When <code>ncdu</code> has finished running, the output will give you a total file
-count and allow you to navigate between subdirectories for even more
-details. Type <code>q</code> when you're ready to exit the output viewer. More
-info here: <a href="https://lintut.com/ncdu-check-disk-usage/">https://lintut.com/ncdu-check-disk-usage/</a></p>
+<ul>
+  <li><a href="htc-job-file-transfer">Data Storage Locations on the HTC</a></li>
+  <li><a href="check-quota">Check Disk Quota and Usage</a></li>
+  <li><a href="quota-request">Request a /staging directory or quota change</a></li>
+</ul>
 
 
 
@@ -792,16 +695,6 @@ info here: <a href="https://lintut.com/ncdu-check-disk-usage/">https://lintut.co
 
                                     <div class="document-link-wrapper bg-light">
                                         <a class="fw-bolder" href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-squid">Transfer Large Input Files Via Squid</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-availability">Small Input and Output File Availability Via HTCondor</a>
                                     </div>
                                 
 

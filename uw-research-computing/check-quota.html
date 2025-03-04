@@ -23,21 +23,21 @@
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Check Disk Quota and Usage | CHTC</title>
-<meta name="generator" content="Jekyll v4.3.4" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Check Disk Quota and Usage" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The following commands will allow you to monitor the amount of disk space you are using in your home directory on our (or another) submit node and to determine the amount of disk space you have been allotted (your quota)." />
-<meta property="og:description" content="The following commands will allow you to monitor the amount of disk space you are using in your home directory on our (or another) submit node and to determine the amount of disk space you have been allotted (your quota)." />
+<meta name="description" content="The following commands will allow you to monitor the amount of disk space you are using in your home directory on the access point and to determine the amount of disk space you have been allotted (your quota)." />
+<meta property="og:description" content="The following commands will allow you to monitor the amount of disk space you are using in your home directory on the access point and to determine the amount of disk space you have been allotted (your quota)." />
 <link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/check-quota" />
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/check-quota" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-03-03T16:25:11+00:00" />
+<meta property="article:published_time" content="2025-03-04T18:19:09+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Check Disk Quota and Usage" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-03-03T16:25:11+00:00","datePublished":"2025-03-03T16:25:11+00:00","description":"The following commands will allow you to monitor the amount of disk space you are using in your home directory on our (or another) submit node and to determine the amount of disk space you have been allotted (your quota).","headline":"Check Disk Quota and Usage","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/check-quota"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/check-quota"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-03-04T18:19:09+00:00","datePublished":"2025-03-04T18:19:09+00:00","description":"The following commands will allow you to monitor the amount of disk space you are using in your home directory on the access point and to determine the amount of disk space you have been allotted (your quota).","headline":"Check Disk Quota and Usage","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/check-quota"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/check-quota"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -248,28 +248,24 @@
 </h1>
 
             <p>The following commands will allow you to monitor the amount of disk
-space you are using in your home directory on our (or another) submit node and to determine the
+space you are using in your home directory on the access point and to determine the
 amount of disk space you have been allotted (your quota).</p>
 
-<p>If you also have a <code>/staging</code> directory on the HTC system, see our 
-<a href="file-avail-largedata.html#5-checking-your-quota-data-use-and-file-counts">staging guide</a> for 
-details on how to check your quota and usage. 
-<br />
-The default quota allotment on CHTC submit nodes is 20 GB with a hard
-limit of 30 GB (at which point you cannot write more files).<br />
-<br />
-<strong>Note: The CHTC submit nodes are not backed up, so you will want to
+<p>The default quota allotment in your <code>/home</code> directory is 20 GB with a hard
+limit of 30 GB (at which point you cannot write more files).</p>
+
+<p><strong>Note: The CHTC access points are not backed up, so you should
 copy completed jobs to a secure location as soon as a batch completes,
 and then delete them on the submit node in order to make room for future
-jobs.</strong> If you need more disk space to run a single batch or concurrent
-batches of jobs, please contact us (<a href="get-help.html">Get Help!</a>). We have multiple ways of dealing with large disk space
-requirements to make things easier for you.</p>
+jobs.</strong> Disk space provided is intended for <em>active</em> calculations only, not permanent storage.
+If you need more disk space to run a single batch or concurrent
+batches of jobs, please contact us (<a href="get-help.html">Get Help!</a>). We have multiple ways of dealing with large disk space requirements to make things easier for you.</p>
 
 <p>If you wish to change your quotas, please see <a href="quota-request">Request a Quota Change</a>.</p>
 
-<h2 id="1-checking-your-user-quota-and-usage"><strong>1. Checking Your User Quota and Usage</strong></h2>
+<h2 id="1-checking-your-home-quota-and-usage"><strong>1. Checking Your <code>/home</code> Quota and Usage</strong></h2>
 
-<p>From any directory location within your home directory, type
+<p>From any directory location within your <code>/home</code> directory, use the command
 <code>quota -vs</code>. See the example below:</p>
 
 <pre class="term"><code>[alice@submit]$ quota -vs
@@ -278,17 +274,35 @@ Disk quotas for user alice (uid 20384):
       /dev/sdb1  12690M  20480M  30720M            161k       0       0        
 </code></pre>
 
-<p>The output will list your total data usage under <code>blocks</code>, your soft
+<p>The output will list your total data usage under <code>space</code>, your soft
 <code>quota</code>, and your hard <code>limit</code> at which point your jobs will no longer
-be allowed to save data. Each of the values given are in 1-kilobyte
+be allowed to save data. Each value is given in 1-kilobyte
 blocks, so you can divide each number by 1024 to get megabytes (MB), and
-again for gigabytes (GB). (It also lists information for ` files`, but
-we don't typically allocate disk space by file count.)</p>
+again for gigabytes (GB). (It also lists information for number of <code>files</code>, but
+we don’t typically allocate disk space in <code>/home</code> by file count.)</p>
 
-<h2 id="2-checking-the-size-of-directories-and-contents"><strong>2. Checking the Size of Directories and Contents</strong></h2>
+<h2 id="2-checking-your-staging-quota-and-usage"><strong>2. Checking Your <code>/staging</code> Quota and Usage</strong></h2>
+<p>Users may have a <code>/staging</code> directory, meant for staging large files and data intended for
+job submission. See our <a href="file-avail-largedata">Managing Large Data in HTC Jobs</a> guide for
+more information.</p>
 
-<p>Move to the directory you'd like to check and type <code>du</code> . After several
-moments (longer if you're directory contents are large), the command
+<p>To check your <code>/staging</code> quota, use the command <code>get_quotas /staging/username</code>.</p>
+
+<pre class="term"><code>[alice@submit]$ get_quotas /staging/alice
+Path            Quota(GB)  Items  Disk_Usage(GB)  Items_Usage
+/staging/alice  20         5      3.18969         5
+</code></pre>
+
+<p>Your <code>/staging</code> directory has a disk and item quota. In the example above, the disk quota is
+20 GB, and the items quota is 5 items. The current usage is printed in the following columns;
+in the example, the user has used 3.19 GB and 5 items.</p>
+
+<p>To request a quota increase, <a href="quota-request">fill out our quota request form</a>.</p>
+
+<h2 id="3-checking-the-size-of-directories-and-contents"><strong>3. Checking the Size of Directories and Contents</strong></h2>
+
+<p>Move to the directory you’d like to check and type <code>du</code> . After several
+moments (longer if the contents of your directory are large), the command
 will add up the sizes of directory contents and output the total size of
 each contained directory in units of kilobytes with the total size of
 that directory listed last. See the example below:</p>
@@ -464,16 +478,6 @@ below example from the <code>home</code> directory which contains the directory
 
                                     <div class="document-link-wrapper bg-light">
                                         <a class="" href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-squid">Transfer Large Input Files Via Squid</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-availability">Small Input and Output File Availability Via HTCondor</a>
                                     </div>
                                 
 

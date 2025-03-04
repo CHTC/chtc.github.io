@@ -23,7 +23,7 @@
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Basic scripting in Python | CHTC</title>
-<meta name="generator" content="Jekyll v4.3.4" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Basic scripting in Python" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Code Our executable written in Python, echo-next.py: import sys filename = sys.argv[1] print(filename) sys.argv is a list – if you have multiple arguments, you can reference each item in the list using Python’s usual notation (sys.argv[1], sys.argv[2], etc.). See Python documentation on sys.argv for details. We can use the script on the command line, assuming Python is installed and on the PATH: [user@login]$ python3 echo-next.py data.csv data.csv Wrapper script We can now write a wrapper script! This script checks that one argument is passed, and also allows room for pre- and post-processing in this simple workflow. Our wrapper script written in bash, wrapper.sh: #!/bin/bash # Check if an argument is provided if [ $# -ne 1 ]; then echo &#39;Please use one argument. Usage: wrapper.sh [arg]&#39; exit 1 fi # Set filename variable to the first argument to the bash script filename=$1 echo &#39;Pre-processing could go here.&#39; # Run code python3 echo-next.py ${filename} echo &#39;Post-processing could go here.&#39; Ensure wrapper.sh is executable with chmod +x wrapper.sh before running it on the command line: [user@login]$ chmod +x wrapper.sh [user@login]$ ./wrapper.sh Please use one argument. Usage: wrapper.sh [arg] [user@login]$ ./wrapper.sh data.csv Pre-processing could go here. data.csv Post-processing could go here. Passing arguments with the HTCondor submit file Now that we’ve understood how arguments work in Python and how to write simple wrapper scripts that pass those arguments, we can pass arguments in HTCondor’s submit file by specifying the arguments attribute, as shown in this excerpt: # Create custom variable called &quot;data&quot; data = data.csv # Specify the executable &amp; arguments executable = wrapper.sh arguments = $(data)" />
@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc-basic-scripting-python" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-03-03T16:25:11+00:00" />
+<meta property="article:published_time" content="2025-03-04T18:19:09+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Basic scripting in Python" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-03-03T16:25:11+00:00","datePublished":"2025-03-03T16:25:11+00:00","description":"Code Our executable written in Python, echo-next.py: import sys filename = sys.argv[1] print(filename) sys.argv is a list – if you have multiple arguments, you can reference each item in the list using Python’s usual notation (sys.argv[1], sys.argv[2], etc.). See Python documentation on sys.argv for details. We can use the script on the command line, assuming Python is installed and on the PATH: [user@login]$ python3 echo-next.py data.csv data.csv Wrapper script We can now write a wrapper script! This script checks that one argument is passed, and also allows room for pre- and post-processing in this simple workflow. Our wrapper script written in bash, wrapper.sh: #!/bin/bash # Check if an argument is provided if [ $# -ne 1 ]; then echo &#39;Please use one argument. Usage: wrapper.sh [arg]&#39; exit 1 fi # Set filename variable to the first argument to the bash script filename=$1 echo &#39;Pre-processing could go here.&#39; # Run code python3 echo-next.py ${filename} echo &#39;Post-processing could go here.&#39; Ensure wrapper.sh is executable with chmod +x wrapper.sh before running it on the command line: [user@login]$ chmod +x wrapper.sh [user@login]$ ./wrapper.sh Please use one argument. Usage: wrapper.sh [arg] [user@login]$ ./wrapper.sh data.csv Pre-processing could go here. data.csv Post-processing could go here. Passing arguments with the HTCondor submit file Now that we’ve understood how arguments work in Python and how to write simple wrapper scripts that pass those arguments, we can pass arguments in HTCondor’s submit file by specifying the arguments attribute, as shown in this excerpt: # Create custom variable called &quot;data&quot; data = data.csv # Specify the executable &amp; arguments executable = wrapper.sh arguments = $(data)","headline":"Basic scripting in Python","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-basic-scripting-python"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-basic-scripting-python"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-03-04T18:19:09+00:00","datePublished":"2025-03-04T18:19:09+00:00","description":"Code Our executable written in Python, echo-next.py: import sys filename = sys.argv[1] print(filename) sys.argv is a list – if you have multiple arguments, you can reference each item in the list using Python’s usual notation (sys.argv[1], sys.argv[2], etc.). See Python documentation on sys.argv for details. We can use the script on the command line, assuming Python is installed and on the PATH: [user@login]$ python3 echo-next.py data.csv data.csv Wrapper script We can now write a wrapper script! This script checks that one argument is passed, and also allows room for pre- and post-processing in this simple workflow. Our wrapper script written in bash, wrapper.sh: #!/bin/bash # Check if an argument is provided if [ $# -ne 1 ]; then echo &#39;Please use one argument. Usage: wrapper.sh [arg]&#39; exit 1 fi # Set filename variable to the first argument to the bash script filename=$1 echo &#39;Pre-processing could go here.&#39; # Run code python3 echo-next.py ${filename} echo &#39;Post-processing could go here.&#39; Ensure wrapper.sh is executable with chmod +x wrapper.sh before running it on the command line: [user@login]$ chmod +x wrapper.sh [user@login]$ ./wrapper.sh Please use one argument. Usage: wrapper.sh [arg] [user@login]$ ./wrapper.sh data.csv Pre-processing could go here. data.csv Post-processing could go here. Passing arguments with the HTCondor submit file Now that we’ve understood how arguments work in Python and how to write simple wrapper scripts that pass those arguments, we can pass arguments in HTCondor’s submit file by specifying the arguments attribute, as shown in this excerpt: # Create custom variable called &quot;data&quot; data = data.csv # Specify the executable &amp; arguments executable = wrapper.sh arguments = $(data)","headline":"Basic scripting in Python","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-basic-scripting-python"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-basic-scripting-python"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -458,16 +458,6 @@ arguments = $(data)
 
                                     <div class="document-link-wrapper bg-light">
                                         <a class="" href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-squid">Transfer Large Input Files Via Squid</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-availability">Small Input and Output File Availability Via HTCondor</a>
                                     </div>
                                 
 

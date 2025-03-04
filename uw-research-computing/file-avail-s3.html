@@ -23,7 +23,7 @@
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Managing Large Data in HTC Jobs with S3 Buckets | CHTC</title>
-<meta name="generator" content="Jekyll v4.3.4" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Managing Large Data in HTC Jobs with S3 Buckets" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="When submitting jobs to CHTC’s High Throughput Computing (HTC) system, there is a distinct location for staging data that is too large to be handled at scale via the default HTCondor file transfer mechanism but needs to be accessed outside of CHTC (for example, data for jobs that run on the OS Pool)." />
@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/file-avail-s3" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-03-03T16:25:11+00:00" />
+<meta property="article:published_time" content="2025-03-04T18:19:09+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Managing Large Data in HTC Jobs with S3 Buckets" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-03-03T16:25:11+00:00","datePublished":"2025-03-03T16:25:11+00:00","description":"When submitting jobs to CHTC’s High Throughput Computing (HTC) system, there is a distinct location for staging data that is too large to be handled at scale via the default HTCondor file transfer mechanism but needs to be accessed outside of CHTC (for example, data for jobs that run on the OS Pool).","headline":"Managing Large Data in HTC Jobs with S3 Buckets","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-s3"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-s3"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-03-04T18:19:09+00:00","datePublished":"2025-03-04T18:19:09+00:00","description":"When submitting jobs to CHTC’s High Throughput Computing (HTC) system, there is a distinct location for staging data that is too large to be handled at scale via the default HTCondor file transfer mechanism but needs to be accessed outside of CHTC (for example, data for jobs that run on the OS Pool).","headline":"Managing Large Data in HTC Jobs with S3 Buckets","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-s3"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-s3"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -253,9 +253,8 @@
     <tr>
         <th>Input Sizes</th>
         <th>Output Sizes</th>
-        <th>Link to Guide</th>
         <th>File Location</th>
-        <th>How to Transfer</th>
+        <th>Syntax for <code>transfer_input_files</code></th>
         <th>Availability, Security</th>
         <!--<th>Special Considerations</th>-->
     </tr>
@@ -263,30 +262,18 @@
     <tr>
         <td>0 - 100 MB per file, up to 500 MB per job</td>
         <td>0 - 5 GB per job</td>
-        <td><a href="file-availability.html">Small Input/Output File Transfer via <b>HTCondor</b></a></td>
         <td><code>/home</code></td>
-        <td><b>submit file</b>; filename in <small><code>transfer_input_files</code></small></td>
-        <td>CHTC, UW Grid, and OSG; works for <i>your</i> jobs</td>
+        <td>No special syntax</td>
+        <td>CHTC and external pools</td>
         <!--<td><font color="red">DO NOT USE HTCondor transfer for files in <code>/staging</code> OR <code>/squid</code></font></td>-->
-    </tr>
-
-    <tr>
-        <td>100 MB - 1 GB per repeatedly-used file</td>
-        <td>Not available for output</td>
-        <td><a href="file-avail-squid.html">Large Input File Availability Via <b>Squid</b></a></td>
-        <td><code>/squid</code></td>
-        <td><b>submit file</b>; http link in <small><code>transfer_input_files</code></small></td>
-        <td>CHTC, UW Grid, and OSG; files are made *publicly-readable* via an HTTP address</i></td>
-        <!--<td>large files unique to individual jobs are better for large data staging</td>-->
     </tr>
 
     <tr>
         <td>100 MB - TBs per job-specific file; repeatedly-used files > 1GB</td>
         <td>4 GB - TBs per job</td>
-        <td><a href="file-avail-largedata.html">Large Input and Output File Availability Via <b>Staging</b></a></td>
          <td><code>/staging</code></td>
-        <td><b>job executable</b>; copy or move within the job</td>
-        <td>a portion of CHTC; accessible only to <i>your</i> jobs</td>
+        <td><code>osdf:///</code> or <code>file:///</code></td>
+        <td>all of CHTC/external pools or a subset of CHTC</td>
         <!--<td>special submit "Requirements"</td>-->
     </tr>
 

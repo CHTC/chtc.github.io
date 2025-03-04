@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HTC Data Storage Locations</title>
+<title>Using and transferring data in jobs on the HTC system</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>HTC Data Storage Locations | CHTC</title>
-<meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="HTC Data Storage Locations" />
+<title>Using and transferring data in jobs on the HTC system | CHTC</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Using and transferring data in jobs on the HTC system" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="[toc]" />
-<meta property="og:description" content="[toc]" />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/osdf-fileXfer-draft" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/osdf-fileXfer-draft" />
+<meta name="description" content="Table of Contents Data Storage Locations /home /staging Transferring Data to Jobs with transfer_input_files Important Note: File Transfers and Caching with osdf:/// Transferring Data Back from Jobs to /home or /staging Default Behavior for Transferring Output Files Specify Which Output Files to Transfer with transfer_output_files and transfer_output_remaps Related pages" />
+<meta property="og:description" content="Table of Contents Data Storage Locations /home /staging Transferring Data to Jobs with transfer_input_files Important Note: File Transfers and Caching with osdf:/// Transferring Data Back from Jobs to /home or /staging Default Behavior for Transferring Output Files Specify Which Output Files to Transfer with transfer_output_files and transfer_output_remaps Related pages" />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/htc-job-file-transfer" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc-job-file-transfer" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-03-03T16:25:11+00:00" />
+<meta property="article:published_time" content="2025-03-04T18:19:09+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="HTC Data Storage Locations" />
+<meta property="twitter:title" content="Using and transferring data in jobs on the HTC system" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-03-03T16:25:11+00:00","datePublished":"2025-03-03T16:25:11+00:00","description":"[toc]","headline":"HTC Data Storage Locations","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/osdf-fileXfer-draft"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/osdf-fileXfer-draft"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-03-04T18:19:09+00:00","datePublished":"2025-03-04T18:19:09+00:00","description":"Table of Contents Data Storage Locations /home /staging Transferring Data to Jobs with transfer_input_files Important Note: File Transfers and Caching with osdf:/// Transferring Data Back from Jobs to /home or /staging Default Behavior for Transferring Output Files Specify Which Output Files to Transfer with transfer_output_files and transfer_output_remaps Related pages","headline":"Using and transferring data in jobs on the HTC system","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-job-file-transfer"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-job-file-transfer"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -244,33 +244,114 @@
         <div class="col-12 col-lg-9 mw-1000">
 
             <h1 class="uw-mini-bar mb-4">
-    HTC Data Storage Locations
+    Using and transferring data in jobs on the HTC system
 </h1>
 
-            <p>[toc]</p>
+            <h2>Which Option is the Best for Your Files?</h2>
+<br>
+<table class="gtable">
+    <tr>
+        <th>Input Sizes</th>
+        <th>Output Sizes</th>
+        <th>File Location</th>
+        <th>Syntax for <code>transfer_input_files</code></th>
+        <th>Availability, Security</th>
+        <!--<th>Special Considerations</th>-->
+    </tr>
 
-<h1 id="data-storage-locations">Data Storage Locations</h1>
-<p>The HTC system has two primary locations where users can store files: <code>/home</code> and <code>/staging</code>.</p>
+    <tr>
+        <td>0 - 100 MB per file, up to 500 MB per job</td>
+        <td>0 - 5 GB per job</td>
+        <td><code>/home</code></td>
+        <td>No special syntax</td>
+        <td>CHTC and external pools</td>
+        <!--<td><font color="red">DO NOT USE HTCondor transfer for files in <code>/staging</code> OR <code>/squid</code></font></td>-->
+    </tr>
 
-<p>The mechanisms behind <code>/home</code> and <code>/staging</code> that manage data are different and are optimized to handle different file sizes. <code>/home</code> is more efficient at managing small files, while <code>/staging</code> is more efficient at managing larger files. It’s important to place your files in the correct location, as it will improve the speed and efficiency at which your data is handled and will help maintain the stability of the HTC filesystem.</p>
+    <tr>
+        <td>100 MB - TBs per job-specific file; repeatedly-used files > 1GB</td>
+        <td>4 GB - TBs per job</td>
+         <td><code>/staging</code></td>
+        <td><code>osdf:///</code> or <code>file:///</code></td>
+        <td>all of CHTC/external pools or a subset of CHTC</td>
+        <!--<td>special submit "Requirements"</td>-->
+    </tr>
 
-<h1 id="understand-your-file-sizes">Understand your file sizes</h1>
-<p>To know whether a file should be placed in <code>/home</code> or in <code>/staging</code>, you will need to know it’s file size (also known as the amount of “disk space” a file uses). There are many commands to print out your file sizes, but here are a few of our favorite:</p>
+</table>
 
-<h2 id="use-ls-with--lh-flags">Use <code>ls</code> with <code>-lh</code> flags</h2>
-<p>The command <code>ls</code> stands for “list” and, by default, lists the files in your current directory. The flag <code>-l</code> stands for “long” and <code>-h</code> stands for “human-readable”. When the flags are combined and passed to the <code>ls</code> command, it prints out the long metadata associated with the files and converts values such as file sizes into human-readable formats (instead of a computer readable format).</p>
+<!--
+<h2>Best Practices for File Delivery</h2>
 
-<pre><code>NetID@submit$ ls -lh
-</code></pre>
+<p>Remember to review best practices in our File Handling guide,
+including the following:</p>
 
-<h2 id="use-du--h">Use <code>du -h</code></h2>
-<p>Similar to <code>ls -lh</code>, <code>du -h</code> prints out the “disk usage” of directories in a human-readable format.</p>
+<ul>
+<li>Pre-split large input files when each of many jobs will only need a portion of the
+large input data.</li>
+<li>Remove ALL unwanted/temporary files in the working director of the job that have
+appeared since the job started.</li>
+<li>Use tar with compression (*.tar.gz) for any relevant input/output files and ALL
+desired output directories prior to their transfer/delivery.</li>
+</ul>
+-->
 
-<pre><code>NetID@submit$ du -h
-</code></pre>
 
-<h1 id="transferring-data-to-jobs">Transferring Data to Jobs</h1>
-<p>The HTCondor submit file <code>transfer_input_files =</code> line should always be used to tell HTCondor what files to transfer to each job, regardless of if that file is origionating from your <code>/home</code> or <code>/staging</code> directory. However, the syntax you use to tell HTCondor to fetch files from <code>/home</code> and <code>/staging</code> and transfer to your running job will change:</p>
+<div class="d-flex flex-column mb-5">
+
+<h2>Table of Contents</h2>
+
+<div class="uw-sidebar-box me-auto">
+<div class="uw-directory">
+
+      <ul>
+        <li><a href="#data-storage-locations">Data Storage Locations</a>
+          <ul>
+            <li><a href="#home">/home</a></li>
+            <li><a href="#staging">/staging</a></li>
+          </ul>
+        </li>
+        <li><a href="#transferring-data-to-jobs-with-transfer_input_files">Transferring Data to Jobs with <code>transfer_input_files</code></a>
+          <ul>
+            <li><a href="#important-note-file-transfers-and-caching-with-osdf">Important Note: File Transfers and Caching with <code>osdf:///</code></a></li>
+          </ul>
+        </li>
+        <li><a href="#transferring-data-back-from-jobs-to-home-or-staging">Transferring Data Back from Jobs to <code>/home</code> or <code>/staging</code></a>
+          <ul>
+            <li><a href="#default-behavior-for-transferring-output-files">Default Behavior for Transferring Output Files</a></li>
+            <li><a href="#specify-which-output-files-to-transfer-with-transfer_output_files-and-transfer_output_remaps">Specify Which Output Files to Transfer with <code>transfer_output_files</code> and <code>transfer_output_remaps</code></a></li>
+          </ul>
+        </li>
+        <li><a href="#related-pages">Related pages</a></li>
+      </ul>
+
+    </div>
+</div>
+</div>
+
+<h2 id="data-storage-locations">Data Storage Locations</h2>
+<p>The HTC system has two primary locations where users can place their files:</p>
+<h3 id="home">/home</h3>
+<ul>
+  <li>The default location for files and job submission</li>
+  <li>Efficiently handles many files</li>
+  <li>Smaller input files (&lt;100 MB) should be placed here</li>
+</ul>
+
+<h3 id="staging">/staging</h3>
+<ul>
+  <li>Expandable storage system but cannot efficiently handle many small (few MB or less) files</li>
+  <li>Larger input files (&gt;100 MB) should be placed here, including container images (.sif)</li>
+</ul>
+
+<p>The data management mechanisms behind <code>/home</code> and <code>/staging</code> are different and are optimized to handle different file sizes and numbers of files. It’s important to place your files in the correct location, as it will improve the speed and efficiency at which your data is handled and will help maintain the stability of the HTC filesystem.</p>
+
+<blockquote>
+  <p>If you need a <code>/staging</code> directory, <a href="quota-request">request one here</a>.</p>
+</blockquote>
+
+<h2 id="transferring-data-to-jobs-with-transfer_input_files">Transferring Data to Jobs with <code>transfer_input_files</code></h2>
+
+<p>In the HTCondor submit file, <code>transfer_input_files</code> should always be used to tell HTCondor what files to transfer to each job, regardless of if that file originates from your <code>/home</code> or <code>/staging</code> directory. However, the syntax you use to tell HTCondor to fetch files from <code>/home</code> and <code>/staging</code> and transfer to your job will change depending on the file size.</p>
 
 <table>
   <thead>
@@ -282,34 +363,80 @@
   </thead>
   <tbody>
     <tr>
-      <td>0-500 MB</td>
-      <td>/home</td>
-      <td>transfer_input_files = input.txt</td>
+      <td>0 - 100 MB</td>
+      <td><code>/home</code></td>
+      <td><code>transfer_input_files = input.txt</code></td>
     </tr>
     <tr>
-      <td>500-10GB</td>
-      <td>/staging</td>
-      <td>transfer_input_files = **osdf:///chtc/staging/NetID/input.txt</td>
+      <td>100 MB - 30 GB</td>
+      <td><code>/staging</code></td>
+      <td><code>transfer_input_files = osdf:///chtc/staging/NetID/input.txt</code></td>
     </tr>
     <tr>
-      <td>10GB +</td>
-      <td>/staging</td>
-      <td>transfer_input_files = **file:///staging/NetID/input.txt</td>
+      <td>&gt; 100 MB - 100 GB</td>
+      <td><code>/staging/groups</code></td>
+      <td><code>transfer_input_files = file:///staging/NetID/input.txt</code></td>
+    </tr>
+    <tr>
+      <td>&gt; 30 GB</td>
+      <td><code>/staging</code></td>
+      <td><code>transfer_input_files = file:///staging/NetID/input.txt</code></td>
+    </tr>
+    <tr>
+      <td>&gt; 100 GB</td>
+      <td> </td>
+      <td>For larger datasets (100GB+ per job), contact the facilitation team about the best strategy to stage your data</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="transfer-data-back-from-jobs-to-home-or-staging">Transfer Data Back from Jobs to <code>/home</code> or <code>/staging</code></h2>
+<p>Multiple input files and file transfer protocols can be specified and delimited by commas, as shown below:</p>
 
-<p>When a job completes, by default, HTCondor will return newly created or edited files on the top level directory back to your <code>/home</code> directory.</p>
+<pre class="sub"><code># My job submit file
 
-<p>To transfer files or folders back to <code>/staging</code>, in your HTCondor submit file, use 
-transfer_output_remaps = “output1.txt = file:///staging/NetID/output1.txt”, where <code>output1.txt</code> is the name of the output file or folder you would like transfered back to a /staging directory.</p>
+transfer_input_files = file1, osdf:///chtc/staging/username/file2, file:///staging/username/file3, dir1, dir2/
 
-<p>If you have more than one file or folder to transfer back to <code>/staging</code>, use a semicolon (;) to seperate multiple files for HTCondor to transfer back like so: 
-transfer_output_remaps = “output1.txt = file:///staging/NetID/output1.txt; output2.txt = file:///staging/NetID/output2.txt”</p>
+... other submit file details ...
+</code></pre>
 
-<p>Make sure to only include one set of quotation marks that wraps around the information you are feeding to <code>transfer_output_remaps =</code>.</p>
+<p>Ensure you are using the correct file transfer protocol for efficiency. Failure to use the right protocol can result in slow file transfers or overloading the system.</p>
+
+<h3 id="important-note-file-transfers-and-caching-with-osdf">Important Note: File Transfers and Caching with <code>osdf:///</code></h3>
+<p>The <code>osdf:///</code> file transfer protocol uses a <a href="https://en.wikipedia.org/wiki/Cache_(computing)">caching</a> mechanism for input files to reduce file transfers over the network. This can affect users who refer to input files that are frequently modified.</p>
+
+<p><em>If you are changing the contents of the input files frequently, you should rename the file or change its path to ensure the new version is transferred.</em></p>
+
+<h2 id="transferring-data-back-from-jobs-to-home-or-staging">Transferring Data Back from Jobs to <code>/home</code> or <code>/staging</code></h2>
+
+<h3 id="default-behavior-for-transferring-output-files">Default Behavior for Transferring Output Files</h3>
+<p>When a job completes, by default, HTCondor will return <strong>newly created or edited files only in top-level directory</strong> back to your <code>/home</code> directory. <strong>Files in subdirectories are <em>not</em> transferred.</strong> Ensure that the files you want are in the top-level directory by moving them or <a href="transfer-files-computer#c-transferring-multiple-files">creating tarballs</a>.</p>
+
+<h3 id="specify-which-output-files-to-transfer-with-transfer_output_files-and-transfer_output_remaps">Specify Which Output Files to Transfer with <code>transfer_output_files</code> and <code>transfer_output_remaps</code></h3>
+<p>If you don’t want to transfer all files but only <em>specific files</em>, in your HTCondor submit file, use</p>
+<pre class="sub"><code>transfer_output_files = file1.txt, file2.txt, file3.txt
+</code></pre>
+
+<p>To transfer a file or folder back to <code>/staging</code>, you will need an additional line in your HTCondor submit file:</p>
+<pre class="sub"><code>transfer_output_remaps = "file1.txt = file:///staging/NetID/output1.txt; file2.txt = /home/NetId/outputs/output2.txt"
+</code></pre>
+
+<p>In this example above, <code>file1.txt</code> is remapped to the staging directory using the <code>file:///</code> transfer protocol and simultaneously renamed <code>output1.txt</code>. In addition, <code>file2.txt</code> is renamed to <code>output2.txt</code>and will be transferred to a different directory on <code>/home</code>. Ensure you have the right file transfer syntax (<code>osdf:///</code> or <code>file:///</code> depending on the anticipated file size).</p>
+
+<p>If you have multiple files or folders to transfer back to <code>/staging</code>, use a semicolon (;) to separate each object:</p>
+<pre class="sub"><code>transfer_output_remaps = "output1.txt = file:///staging/NetID/output1.txt; output2.txt = file:///staging/NetID/output2.txt"
+</code></pre>
+
+<p>Make sure to only include one set of quotation marks that wraps around the information you are feeding to <code>transfer_output_remaps</code>.</p>
+
+<h2 id="related-pages">Related pages</h2>
+<ul>
+  <li><a href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a></li>
+  <li><a href="/uw-research-computing/transfer-files-computer">Transfer files between CHTC and your computer</a></li>
+  <li><a href="/uw-research-computing/transfer-data-researchdrive">Transfer files between CHTC and ResearchDrive</a></li>
+</ul>
+
+
+
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -459,16 +586,6 @@ transfer_output_remaps = “output1.txt = file:///staging/NetID/output1.txt; out
 
                                     <div class="document-link-wrapper bg-light">
                                         <a class="" href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-squid">Transfer Large Input Files Via Squid</a>
-                                    </div>
-                                
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-availability">Small Input and Output File Availability Via HTCondor</a>
                                     </div>
                                 
 
