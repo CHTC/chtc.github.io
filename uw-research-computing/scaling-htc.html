@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-03-05T22:17:32+00:00" />
+<meta property="article:published_time" content="2025-03-05T23:10:02+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Scale Beyond Local HTC Capacity" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-03-05T22:17:32+00:00","datePublished":"2025-03-05T22:17:32+00:00","description":"This guide provides an introduction to running jobs outside of CHTC: why using these resources is beneficial, what resources are available, and how to use them.","headline":"Scale Beyond Local HTC Capacity","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-03-05T23:10:02+00:00","datePublished":"2025-03-05T23:10:02+00:00","description":"This guide provides an introduction to running jobs outside of CHTC: why using these resources is beneficial, what resources are available, and how to use them.","headline":"Scale Beyond Local HTC Capacity","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -319,6 +319,12 @@ self-checkpoints at least that frequently. If you would like to implement
 self-checkpointing for a longer code, we are happy to provide resources 
 and guidance.</p>
   </li>
+  <li>
+    <p><strong>No files in <code>/staging/groups</code></strong>: We are currently unable to transfer files from
+<code>/staging/groups</code> to resources outside of CHTC. If you want to use these
+files, please transfer them to your individual <code>/staging</code> directory first, then use
+the <code>osdf:///</code> file transfer plugin as described in <a href="file-avail-largedata">our guides</a>.</p>
+  </li>
 </ul>
 
 <p><span name="submit"></span></p>
@@ -521,7 +527,7 @@ requirement from the test jobs but leave the <code>want_campus_pools</code> and
                                 
 
                                     <div class="document-link-wrapper bg-light">
-                                        <a class="" href="/uw-research-computing/file-avail-largedata">Managing Large Data in HTC Jobs</a>
+                                        <a class="" href="/uw-research-computing/file-avail-largedata">Manage Large Data in HTC Jobs</a>
                                     </div>
                                 
 
@@ -532,6 +538,11 @@ requirement from the test jobs but leave the <code>want_campus_pools</code> and
 
                                     <div class="document-link-wrapper bg-light">
                                         <a class="" href="/uw-research-computing/globus">Use Globus to Transfer Files to and from CHTC</a>
+                                    </div>
+                                
+
+                                    <div class="document-link-wrapper bg-light">
+                                        <a class="" href="/uw-research-computing/htc-job-file-transfer">Use and transfer data in jobs on the HTC system</a>
                                     </div>
                                 
 
