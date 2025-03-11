@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/connecting" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-03-11T20:20:14+00:00" />
+<meta property="article:published_time" content="2025-03-11T21:08:32+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Log in to CHTC" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-03-11T20:20:14+00:00","datePublished":"2025-03-11T20:20:14+00:00","description":"Introduction","headline":"Log in to CHTC","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/connecting"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/connecting"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-03-11T21:08:32+00:00","datePublished":"2025-03-11T21:08:32+00:00","description":"Introduction","headline":"Log in to CHTC","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/connecting"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/connecting"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -263,7 +263,6 @@
       <ul>
         <li><a href="#introduction">Introduction</a></li>
         <li><a href="#before-you-log-in">Before you log in</a></li>
-        <li><a href="#hostname--access-point-information">Hostname / Access point information</a></li>
         <li><a href="#log-in">Log in</a>
           <ul>
             <li><a href="#option-1-log-in-with-a-terminal">Option 1: Log in with a terminal</a></li>
@@ -272,6 +271,7 @@
         </li>
         <li><a href="#log-out">Log out</a></li>
         <li><a href="#ssh-programs">SSH programs</a></li>
+        <li><a href="#hostname--access-point-information">Hostname / Access point information</a></li>
         <li><a href="#summary">Summary</a></li>
         <li><a href="#related-pages">Related pages</a></li>
       </ul>
@@ -288,40 +288,8 @@
   <li><a href="https://it.wisc.edu/services/duo-multi-factor-authentication-mfa/">Duo Multi-factor authentication (MFA)</a></li>
   <li><a href="https://it.wisc.edu/services/wiscvpn/">a connection to the campus network or Virtual Private Network (VPN)</a></li>
   <li>a username and password (typically your UW-Madison NetID and password)</li>
+  <li>an <a href="#ssh-programs">SSH program</a>, such as a terminal</li>
 </ul>
-
-<h2 id="hostname--access-point-information">Hostname / Access point information</h2>
-
-<p>Please use the access point specified in your welcome email.</p>
-
-<table class="gtable">
-  <thead>
-    <tr>
-      <th>High Throughput Computing (HTC) System</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>ap2001.chtc.wisc.edu</code></td>
-    </tr>
-    <tr>
-      <td><code>ap2002.chtc.wisc.edu</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="gtable">
-  <thead>
-    <tr>
-      <th>High Performance Computing (HPC) System</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>spark-login.chtc.wisc.edu</code></td>
-    </tr>
-  </tbody>
-</table>
 
 <h2 id="log-in">Log in</h2>
 
@@ -333,7 +301,7 @@
 
 <ol>
   <li>
-    <p>Open a terminal window. Enter the following command, where <code>user</code> is your username (typically your NetID) and <code>hostname.chtc.wisc.edu</code> is your assigned access point in your welcome email.</p>
+    <p>Open a terminal window. Enter the following command, where <code>user</code> is your username (typically your NetID) and <code>hostname.chtc.wisc.edu</code> is <a href="#hostname--access-point-information">your assigned access point</a> in your welcome email.</p>
 
     <pre class="term"><code> ssh username@hostname.chtc.wisc.edu
 </code></pre>
@@ -458,6 +426,39 @@
       <td>terminal</td>
       <td>X</td>
       <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="hostname--access-point-information">Hostname / Access point information</h2>
+
+<p>Please use the access point specified in your welcome email.</p>
+
+<table class="gtable">
+  <thead>
+    <tr>
+      <th>High Throughput Computing (HTC) System</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>ap2001.chtc.wisc.edu</code></td>
+    </tr>
+    <tr>
+      <td><code>ap2002.chtc.wisc.edu</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="gtable">
+  <thead>
+    <tr>
+      <th>High Performance Computing (HPC) System</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>spark-login.chtc.wisc.edu</code></td>
     </tr>
   </tbody>
 </table>
