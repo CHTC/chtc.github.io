@@ -5,6 +5,7 @@ draft: false
 image: "images/mats_rynge.jpg"
 title: "Systems Integrator"
 institution: "University of Southern California - Information Sciences Institute"
+is_facilitator: 1
 #website: ""
 linkedinurl: ""
 weight: 5

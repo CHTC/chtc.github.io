@@ -3,6 +3,7 @@ image: "images/showmic_islam.jpg"
 title: "Research Facilitator"
 #website: ""
 institution: "University of Nebraska-Lincoln"
+is_facilitator: 1
 weight: 5
 organizations: 
     - path
