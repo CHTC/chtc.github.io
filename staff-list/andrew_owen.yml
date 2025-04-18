@@ -5,7 +5,8 @@ is_facilitator: 1
 weight: 5
 name: Andrew Owen
 status: Staff
-website: null
+website: https://orcid.org/0000-0001-5903-1651
+description: "While earning his PhD in Chemistry, Andrew became the go-to person for research computing questions, despite being a self-taught programmer with no computer science background. Andrew brings a penchant for writing guides, troubleshooting, and translating technobabble."
 organizations: 
     - path
     - chtc

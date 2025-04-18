@@ -9,6 +9,8 @@ is_facilitator: 1
 #website: ""
 linkedinurl: ""
 weight: 5
+path:
+    description: "Mats Rynge is a Senior Computer Scientist in the Scitech group at the University of Southern California’s Information Sciences Institute. His work focuses on developing and supporting research cyberinfrastructure, including the PATh Facility, the OSPool, and the Pegasus Workflow Management System. He also helps guide cyberinfrastructure for NSF Major Facilities through the CI Compass project."
 organizations: 
     - path
     - osg

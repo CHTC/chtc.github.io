@@ -4,6 +4,7 @@ institution: "University of Wisconsin–Madison"
 is_facilitator: 1
 weight: 5
 status: Staff
+description: "Amber is a computational solid state chemist who dabbles in Julia code. She has taught a broad range of students, from high schoolers to academic researchers, and she aims to make computing accessible to researchers of all backgrounds."
 organizations: 
   - chtc
   - osg

@@ -5,7 +5,8 @@ institution: "University of Wisconsin - Madison"
 is_facilitator: 1
 weight: 5
 status: Staff
-organizations: 
+description: "Danny is a computational biologist turned research computing facilitator. He works with researchers to design and run scalable, high-throughput computing workflows—and is especially committed to making these tools more accessible to the life sciences."
+organizations:
     - path
     - chtc
     - osg

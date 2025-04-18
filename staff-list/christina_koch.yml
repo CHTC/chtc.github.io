@@ -8,7 +8,7 @@ website: https://www.cs.wisc.edu/staff/koch-christina/
 is_facilitator: 1
 status: Staff
 linkedinurl: ""
-weight: 5
+weight: 4
 chtc:
     title: Lead Research Computing Facilitator
 pelican:
@@ -18,6 +18,8 @@ osg:
     title: OSG Research Facilitation Lead
     promoted: true
     weight: 7
+path:
+    description: "Christina is a mathematician who strayed into the world of teaching computing skills to researchers and hasn't looked back. She believes computing is for everyone (not just people who have done it for a long time) and loves to facilitate 'lightbulb' moments where someone learns something new."
 organizations: 
     - path
     - chtc
