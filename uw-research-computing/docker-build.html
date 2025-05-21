@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/docker-build" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-05-21T19:32:40+00:00" />
+<meta property="article:published_time" content="2025-05-21T19:40:28+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Build a Docker Container Image" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-05-21T19:32:40+00:00","datePublished":"2025-05-21T19:32:40+00:00","description":"Linux containers are a way to build a self-contained environment that includes software, libraries, and other tools. CHTC currently supports running jobs inside Docker containers. This guide describes how to build a Docker image that you can use for running jobs in CHTC. For information on using this image for jobs, see our Docker Jobs guide.","headline":"Build a Docker Container Image","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/docker-build"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/docker-build"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-05-21T19:40:28+00:00","datePublished":"2025-05-21T19:40:28+00:00","description":"Linux containers are a way to build a self-contained environment that includes software, libraries, and other tools. CHTC currently supports running jobs inside Docker containers. This guide describes how to build a Docker image that you can use for running jobs in CHTC. For information on using this image for jobs, see our Docker Jobs guide.","headline":"Build a Docker Container Image","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/docker-build"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/docker-build"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -499,6 +499,22 @@ your status bar, and running <code>docker info</code> shouldn’t indicate any e
 <p>Replace <code>username</code> with your Docker Hub username and replace
 <code>imagename</code> and <code>tag</code> with the values of your choice. Note the <code>.</code> at the end
 of the command (to indicate “the current directory”).</p>
+
+<blockquote class="tip-header">
+  <h3 id="building-on-macos--arm">Building on MacOS / ARM</h3>
+</blockquote>
+
+<blockquote class="tip">
+  <p>If you are using a MacOS computer, particularly with an M# chip which uses 
+the ARM architecture, you will need to use a special option to make sure
+the Docker container is compatible with CHTC systems:</p>
+
+  <pre class="term"><code>$ docker build --platform linux/amd64 -t username/imagename:tag .
+</code></pre>
+
+  <p>Otherwise, HTCondor may fail to pull or launch the container when it starts
+the job.</p>
+</blockquote>
 
 <p>If you get errors, try to determine what you may need to add or change
 to your Dockerfile and then run the build command again. Debugging a Docker
