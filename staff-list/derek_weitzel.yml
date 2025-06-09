@@ -6,10 +6,12 @@ title: "Institutional PI"
 institution: "University of Nebraska-Lincoln"
 status: Staff
 website: "https://derekweitzel.com"
-description: Derek Weitzel is an Assistant Research Professor at the Univeristy of Nebraska-Lincoln's Computer Science and Engineering Department.
+description: Derek Weitzel is an Assistant Research Professor at the Univeristy of Nebraska-Lincoln's School of Computing.
 osg:
-    title: Software Integration Developer
+    title: OSG-LHC Lead
     website: https://github.com/djw8605
+    promoted: true
+    weight: 8
 organizations: 
     - path
     - osg
