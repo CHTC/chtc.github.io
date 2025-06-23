@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-06-19T22:00:04+00:00" />
+<meta property="article:published_time" content="2025-06-23T13:49:46+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Scale Beyond Local HTC Capacity" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-06-19T22:00:04+00:00","datePublished":"2025-06-19T22:00:04+00:00","description":"This guide provides an introduction to running jobs outside of CHTC: why using these resources is beneficial, what resources are available, and how to use them.","headline":"Scale Beyond Local HTC Capacity","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-06-23T13:49:46+00:00","datePublished":"2025-06-23T13:49:46+00:00","description":"This guide provides an introduction to running jobs outside of CHTC: why using these resources is beneficial, what resources are available, and how to use them.","headline":"Scale Beyond Local HTC Capacity","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -251,115 +251,134 @@
 using these resources is beneficial, what resources are available, and
 how to use them.</p>
 
-<h1 id="contents">Contents</h1>
+<div class="d-flex flex-column mb-5">
 
-<ol>
-  <li><a href="#why">Why run on additional resources outside CHTC?</a>
-    <ul>
-      <li><a href="#uw">The UW Grid</a></li>
-      <li><a href="#osg">The OSG Consortium</a></li>
-    </ul>
-  </li>
-  <li><a href="#job">Job Qualifications</a></li>
-  <li><a href="#submit">Submitting Jobs to Run Beyond CHTC</a></li>
-</ol>
+<h2>Table of Contents</h2>
 
-<p><span name="why"></span></p>
+<div class="uw-sidebar-box me-auto">
+<div class="uw-directory">
 
-<h1 id="1-why-run-on-additional-resources-outside-chtc"><strong>1. Why run on additional resources outside CHTC?</strong></h1>
+      <ul>
+        <li><a href="#why-run-on-additional-capacity-outside-chtc">Why run on additional capacity outside CHTC?</a></li>
+        <li><a href="#is-this-capacity-for-you">Is this capacity for you?</a></li>
+        <li><a href="#external-computing-capacity-available-from-chtc">External computing capacity accessible from CHTC</a></li>
+        <li><a href="#how-to-use-external-capacity">How to use external capacity</a>
+          <ul>
+            <li><a href="#testing-jobs-outside-chtc">Testing jobs outside CHTC</a></li>
+          </ul>
+        </li>
+        <li><a href="#things-to-consider">Things to consider</a></li>
+        <li><a href="#related-pages">Related Pages</a></li>
+      </ul>
+
+    </div>
+</div>
+</div>
+
+<h2 id="why-run-on-additional-capacity-outside-chtc">Why run on additional capacity outside CHTC?</h2>
 
 <p>Running on other resources in addition to CHTC has one huge benefit:
-size! The UW Grid and OSG include thousands of computers,
-addition to what's already available in CHTC, including specialized 
-hardware resources like GPUs. Most CHTC users who run
-on CHTC, the UW Grid, and the OSG can get more than 100,000 computer
-hours (more than 11 years of computing!) in a single day. Read on to
-learn more about these resources.</p>
+<strong>size!</strong></p>
 
-<p><span name="uw"></span></p>
+<p>In addition to what’s available at CHTC, UW-Madison groups and the national OSG Consortium make 
+thousands of computers available for high throughput computing, including specialized 
+hardware resources like GPUs.</p>
 
-<h2 id="a-uw-grid">A. UW Grid</h2>
+<p>Most CHTC users who submit jobs to CHTC, campus pools, and the OSPool can get more than 100,000 computer
+hours (more than 11 years of computing!) in a single day.</p>
 
-<p>What we call the "UW Grid" is a collection of all the groups and
-centers on campus that run their own high throughput computing pool that
+<!--to do: cool graphic or link to story about OSPool user?-->
+
+<h2 id="is-this-capacity-for-you">Is this capacity for you?</h2>
+
+<p>Many jobs on CHTC’s HTC system would benefit from extra computing capacity! We make 
+the following recommendations to decide if your jobs would be a good fit.</p>
+
+<table>
+<tr>
+  <th>Job Length</th>
+  <td>10-24 hours (per job)</td>
+  <td>Your job should complete in under 10 hours
+    — either it finishes in that amount of time, or it
+    <a href="checkpointing">self-checkpoints</a> at least that frequently. If you would like to implement
+    self-checkpointing for a longer code, we are happy to provide resources 
+    and guidance. </td>
+</tr>
+<tr>
+  <th>Data Size</th>
+  <td>Up to 20GB input/output per job</td>
+  <td>This covers input files that would normally be 
+	transferred out of a <code>/home</code> directory or using an <code>osdf:///</code> URL from 
+	the  <code>/staging</code> directory.</td>
+</tr>
+<tr>
+  <th>Software</th>
+  <td>An Apptainer container (recommended)</td>
+  <td>Almost any software that runs in CHTC will run outside CHTC, but the best 
+  scenario is using a container to maintain a consistent software environment.</td>
+</tr>
+</table>
+
+<p>If you have large data files, long jobs, or questions about containers,
+please <a href="mailto:chtc@cs.wisc.edu">contact us</a>!</p>
+
+<h2 id="external-computing-capacity-accessible-from-chtc">External computing capacity accessible from CHTC</h2>
+
+<h3 id="uw-campus-pools">UW Campus Pools</h3>
+
+<p>CHTC has connections with other groups and centers 
+on campus that run their own high throughput computing pool that
 uses HTCondor. Some of these groups include departments (Biochemistry,
 Statistics) or large physics projects (IceCube, CMS). Through agreements
 with these groups, jobs submitted in CHTC can opt into running on these
-other campus pools if there is space.</p>
+other campus pools if they are not fully utilized by their owners.</p>
 
-<p><span name="osg"></span></p>
+<h3 id="open-science-pool-ospool">Open Science Pool (OSPool)</h3>
 
-<h2 id="b-uw-madisons-osg-pool">B. UW-Madison’s OSG Pool</h2>
+<p>As the home for the <a href="https://path-cc.io/">PATh project</a>, CHTC operates a 
+national high throughput computing pool called the 
+<a href="https://osg-htc.org/services/ospool/">Open Science Pool</a>, composed of 
+computing capacity contributed by campuses, national labs, and other institutions 
+across and beyond the United States. CHTC users submitting from a CHTC Access Point can 
+opt into allowing their jobs to utilize this national pool.</p>
 
-<p>CHTC maintains an OSG pool for the campus community, which includes 
-resources contributed by campuses, national labs, and other institutions 
-across and beyond the US.</p>
-
-<p><span name="job"></span></p>
-
-<h1 id="2-job-qualifications"><strong>2. Job Qualifications</strong></h1>
-
-<p>Not all jobs will run well outside of CHTC. Because these jobs are
-running all over the campus or country, on computers that don't belong
-to us, they have two major requirements:</p>
-
-<ul>
-  <li>
-    <p><strong>Moderate Data Sizes</strong>: We can support input file sizes of up to 
-20 GB per file per job. This covers input files that would normally be 
-transferred out of a <code>/home</code> directory or use SQUID, in addition to larger 
-files up to 20GB. Outputs per job can be of similar sizes. If your input or 
-output files are larger than 1GB, or you have any other questions about 
-handling data on resources beyond CHTC, please <a href="mailto:chtc@cs.wisc.edu">contact us</a>!</p>
-  </li>
-  <li>
-    <p><strong>Short or interruptable jobs</strong>: Your job can complete in under 10 hours
--- either it finishes in that amount of time, or it
-self-checkpoints at least that frequently. If you would like to implement
-self-checkpointing for a longer code, we are happy to provide resources 
-and guidance.</p>
-  </li>
-  <li>
-    <p><strong>No files in <code>/staging/groups</code></strong>: We are currently unable to transfer files from
-<code>/staging/groups</code> to resources outside of CHTC. If you want to use these
-files, please transfer them to your individual <code>/staging</code> directory first, then use
-the <code>osdf:///</code> file transfer plugin as described in <a href="file-avail-largedata">our guides</a>.</p>
-  </li>
-</ul>
-
-<p><span name="submit"></span></p>
-
-<h1 id="3-submitting-jobs-to-run-beyond-chtc"><strong>3. Submitting Jobs to Run Beyond CHTC</strong></h1>
+<h2 id="how-to-use-external-capacity">How to use external capacity</h2>
 
 <p>If your jobs meet the characteristics above and you would like to use
-either the UW Grid or OS Pool to run jobs, in addition to CHTC, you can add
+external HTC pools to run jobs, in addition to CHTC, you can add
 the following to your submit file:</p>
 
 <table class="gtable">
   <tbody>
     <tr>
       <td><code>want_campus_pools = true</code></td>
-      <td>Also send jobs to other HTCondor Pools on campus (UW Grid)<br />Good for jobs that are less than ~8 hours, on average, or checkpointing jobs.</td>
+      <td>Opts into sending jobs to other HTCondor Pools on campus.<br />Good for jobs that are less than ~12 hours, on average, or jobs with checkpointing.</td>
     </tr>
     <tr>
       <td><code>want_ospool = true</code></td>
-      <td>Also send jobs to the OS Pool. <br /> Good for jobs that are less than ~8 hours, on average, or checkpointing jobs.</td>
+      <td>Opts into sending jobs to the OS Pool. <br /> Good for jobs that are less than ~12 hours, on average, or jobs with checkpointing</td>
     </tr>
   </tbody>
 </table>
 
-<p>To guarantee maximum efficiency, <strong>please do the following steps
-whenever submitting a new type of job to the UW Grid or OSG:</strong></p>
+<p><span name="testing"></span></p>
+
+<h3 id="testing-jobs-outside-chtc">Testing jobs outside CHTC</h3>
+
+<p>To guarantee maximum efficiency, please do the following steps
+whenever submitting a new type of job beyond CHTC.</p>
 
 <ol>
   <li>
-    <p><strong>Test Your Jobs:</strong> You should run a small test (anywhere from
-10-100 jobs) outside CHTC before submitting your full workflow. To
+    <p><strong>Run test jobs:</strong> You should run set of test jobs (anywhere from
+10-2000 jobs) outside CHTC before submitting your full workflow. To
 do this, take a job submission that you know runs successfully on
-CHTC. Then add the following options in the submit file + submit the
+CHTC. Add the following options in the submit file and submit the
 test jobs:</p>
 
     <pre><code class="language-{.sub}">requirements = (Poolname =!= "CHTC")
+want_campus_pools = true
+want_ospool = true
 </code></pre>
 
     <p>(If your submit file already has a <code>requirements = </code> line, you can
@@ -367,18 +386,56 @@ appending the <code>Poolname</code> requirement by using a double ampersand
 (<code>&amp;&amp;</code>) and then the additional requirement.)</p>
   </li>
   <li>
-    <p><strong>Troubleshooting:</strong> If your jobs don't run successfully on the UW
+    <p><strong>Identify problems:</strong> If your jobs don't run successfully on the UW
 Grid or OS Pool, please <a href="get-help.html">get in touch with a research computing
 facilitator</a>.</p>
   </li>
   <li>
-    <p><strong>Scaling Up:</strong> Once you have tested your jobs and they seem to be
+    <p><strong>Scale up:</strong> Once you have tested your jobs and they seem to be
 running successfully, you are ready to submit a full batch of jobs
 that uses CHTC and the UW Grid/OS Pool. <strong>REMOVE</strong> the <code>Poolname</code>
 requirement from the test jobs but leave the <code>want_campus_pools</code> and
 <code>want_ospool</code> lines.</p>
   </li>
 </ol>
+
+<h2 id="things-to-consider">Things to consider</h2>
+
+<h3 id="containers">Containers</h3>
+
+<p>Containers are the best way to ensure a consistent software environment for 
+your jobs when running inside and outside CHTC. We generally recommend using
+Apptainer, since the OSPool provides the best support for Apptainer containers.</p>
+
+<ul>
+  <li><strong>Already using Apptainer?</strong> Great! No changes needed.</li>
+  <li><strong>Already using Docker?</strong> Convert your container to the apptainer format and use 
+staging and and <code>osdf:///</code> URL to send it to your jobs. See 
+<a href="apptainer-build#converting-a-docker-image-to-an-apptainer-container-image">this guide</a> for details.</li>
+  <li><strong>Not using containers at all?</strong> <a href="apptainer-htc">Check out our docs</a> or 
+<a href="get-help">talk to CHTC facilitators</a> about the best approach for your code.</li>
+</ul>
+
+<h3 id="data">Data</h3>
+
+<p>If you are transferring your data to jobs:</p>
+
+<ul>
+  <li>from <code>/home</code>, using normal HTCondor file transfer</li>
+  <li>from an individual <code>/staging</code> directory, using an <code>osdf:///</code> URL.</li>
+</ul>
+
+<p>You can use capacity outside of CHTC. If you are using a different method to 
+access your files, <a href="get-help">contact the facilitation team</a> about how you might 
+run your work outside CHTC.</p>
+
+<h2 id="related-pages">Related Pages</h2>
+
+<ul>
+  <li><a href="htc-job-file-transfer">Use and transfer data in jobs on the HTC system</a></li>
+  <li><a href="apptainer-htc">Use Apptainer Containers </a></li>
+  <li><a href="apptainer-build#converting-a-docker-image-to-an-apptainer-container-image">Convert docker to apptainer</a></li>
+</ul>
 
         </div>
         <div class="col-3 d-none d-lg-block">
