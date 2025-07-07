@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc-known-issues" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-07-03T22:16:32+00:00" />
+<meta property="article:published_time" content="2025-07-07T20:22:48+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Known Issues on the HTC" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-03T22:16:32+00:00","datePublished":"2025-07-03T22:16:32+00:00","description":"This page documents some common and known issues encountered on the HTC system. While this page can be beneficial in troubleshooting, it does not contain a comprehensive list of errors.","headline":"Known Issues on the HTC","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-known-issues"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-known-issues"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-07T20:22:48+00:00","datePublished":"2025-07-07T20:22:48+00:00","description":"This page documents some common and known issues encountered on the HTC system. While this page can be beneficial in troubleshooting, it does not contain a comprehensive list of errors.","headline":"Known Issues on the HTC","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-known-issues"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-known-issues"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -262,6 +262,7 @@
         <li><a href="#general-when-submitting-a-job-it-doesnt-run-goes-on-hold-and-shows-the-error-job-credentials-are-not-available">[General] When submitting a job, it doesn’t run / goes on hold and shows the error “Job credentials are not available”.</a></li>
         <li><a href="#containers-when-building-an-apptainer-apt-commands-in-the-post-block-fail-to-run">[Containers] When building an Apptainer, “apt” commands in the %post block fail to run.</a></li>
         <li><a href="#containers-when-attempting-to-run-a-docker-container-it-fails-with-the-error-message-fatal-tini-7-exec-myexecutablesh-failed-exec-format-error">[Containers] When attempting to run a Docker container, it fails with the error message “[FATAL tini (7)] exec ./myExecutable.sh failed: Exec format error”.</a></li>
+        <li><a href="#gpus-my-gpu-job-has-been-in-the-queue-for-a-long-period-of-time-and-is-not-starting">[Container] My interactive Apptainer job is failing with the error message, “Can’t open master pty Bad file descriptor”.</a></li>
         <li><a href="#gpus-my-gpu-job-has-been-in-the-queue-for-a-long-period-of-time-and-is-not-starting">[GPUs] My GPU job has been in the queue for a long period of time and is not starting.</a></li>
       </ol>
 
@@ -313,13 +314,24 @@ From: ubuntu:22.04
 
 <hr width="100%" size="2" />
 
-<h3 style="color:#c5050c" id="gpus-my-gpu-job-has-been-in-the-queue-for-a-long-period-of-time-and-is-not-starting">[GPU] My GPU job has been in the queue for a long period of time and is not starting. </h3>
+<h3 style="color:#c5050c" id="gpus-my-gpu-job-has-been-in-the-queue-for-a-long-period-of-time-and-is-not-starting">[Container] My interactive Apptainer job is failing with the error message, "Can't open master pty Bad file descriptor". </h3>
 
 <h4 id="cause-3">Cause:</h4>
-<p>Jobs default to using CentOS9, but most GPU nodes are currently running CentOS8.</p>
+<p>Interactive Apptainer jobs are incompatible with CentOS7 machines.</p>
 <h4 id="solution-3">Solution:</h4>
 <p>To your submit file, add the following line and resubmit:</p>
 <pre><code>requirements = (OpSysMajorVer &gt; 7)
+</code></pre>
+
+<hr width="100%" size="2" />
+
+<h3 style="color:#c5050c" id="gpus-my-gpu-job-has-been-in-the-queue-for-a-long-period-of-time-and-is-not-starting">[GPU] My GPU job has been in the queue for a long period of time and is not starting. </h3>
+
+<h4 id="cause-4">Cause:</h4>
+<p>To use our shared use GPU machines, you must opt into the GPU Lab.</p>
+<h4 id="solution-4">Solution:</h4>
+<p>To your submit file, add the following line and resubmit:</p>
+<pre><code>+WantGPULab = true
 </code></pre>
 
 <p><br /></p>
