@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/user-expectations" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-07-15T20:49:41+00:00" />
+<meta property="article:published_time" content="2025-07-15T20:50:11+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Policies and Expectations for Using CHTC" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-15T20:49:41+00:00","datePublished":"2025-07-15T20:49:41+00:00","description":"This page lists important policies and expectations for using CHTC computing and data services. Our goal is to support a community of users and a variety of research. If an individual user is taking action that negatively impacts our services, we reserve the right to deactivate their account or remove files without notice.","headline":"Policies and Expectations for Using CHTC","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/user-expectations"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/user-expectations"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-15T20:50:11+00:00","datePublished":"2025-07-15T20:50:11+00:00","description":"This page lists important policies and expectations for using CHTC computing and data services. Our goal is to support a community of users and a variety of research. If an individual user is taking action that negatively impacts our services, we reserve the right to deactivate their account or remove files without notice.","headline":"Policies and Expectations for Using CHTC","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/user-expectations"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/user-expectations"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -67,8 +67,8 @@
 
 </head>
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-
-    
+    <div id="navbar">
+        
 
 <div class="container-fluid">
     <div class="row justify-content-between bg-primary"  role="navigation">
@@ -91,12 +91,12 @@
 </div>
 
 
-    
-    
+        
+        
 
 
 
-    
+        
 
 
     
@@ -237,9 +237,9 @@
 </div>
 
 
+    </div>
     <main id="main" style="min-height: 60vh;">
-        <main id="main" style="min-height: 60vh;">
-    <div class="container-xxl mb-5">
+        <div class="container-xxl mb-5">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-9 mw-1000">
 
@@ -341,11 +341,23 @@ your research.</strong>  User priorities naturally reset over time.</p>
 
 
 
-    <div id="guide-sidebar">
-        
-        
-        
-    </div>
+
+<div id="guide-sidebar">
+    
+</div>
+<script>
+  // Set the height of the sidebar to fill the viewport minus the height of the main content area
+  const updateSidebarHeight = () => {
+    const navHeight = document.getElementById("navbar").clientHeight;
+		console.log(navHeight, window.innerHeight - navHeight);
+    document.getElementById("guide-sidebar").style.height = `${window.innerHeight - navHeight}px`;
+  };
+
+  // Initial call to set the sidebar height
+  updateSidebarHeight();
+  // Add event listener to update the sidebar height on window resize
+  window.addEventListener("resize", updateSidebarHeight);
+</script>
 
 
 
@@ -353,7 +365,7 @@ your research.</strong>  User priorities naturally reset over time.</p>
     </div>
 </div>
 
-</main>
+
     </main>
     <footer id="colophon" class="uw-footer">
     <div class="uw-footer-content">

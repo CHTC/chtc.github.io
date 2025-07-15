@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/account-details" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-07-15T20:49:41+00:00" />
+<meta property="article:published_time" content="2025-07-15T20:50:11+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="How to Request a CHTC Account" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-15T20:49:41+00:00","datePublished":"2025-07-15T20:49:41+00:00","description":"The following sections detail the processes for requesting a new CHTC account, or for continuing to use an existing CHTC account. Use of CHTC services are free to use in support of University of Wisconsin - Madison’s research and teaching mission.","headline":"How to Request a CHTC Account","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/account-details"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/account-details"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-15T20:50:11+00:00","datePublished":"2025-07-15T20:50:11+00:00","description":"The following sections detail the processes for requesting a new CHTC account, or for continuing to use an existing CHTC account. Use of CHTC services are free to use in support of University of Wisconsin - Madison’s research and teaching mission.","headline":"How to Request a CHTC Account","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/account-details"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/account-details"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -67,8 +67,8 @@
 
 </head>
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-
-    
+    <div id="navbar">
+        
 
 <div class="container-fluid">
     <div class="row justify-content-between bg-primary"  role="navigation">
@@ -91,12 +91,12 @@
 </div>
 
 
-    
-    
+        
+        
 
 
 
-    
+        
 
 
     
@@ -237,9 +237,9 @@
 </div>
 
 
+    </div>
     <main id="main" style="min-height: 60vh;">
-        <main id="main" style="min-height: 60vh;">
-    <div class="container-xxl mb-5">
+        <div class="container-xxl mb-5">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-9 mw-1000">
 
@@ -309,11 +309,23 @@ to maintain your data and important files in a location that is not CHTC’s fil
 
 
 
-    <div id="guide-sidebar">
-        
-        
-        
-    </div>
+
+<div id="guide-sidebar">
+    
+</div>
+<script>
+  // Set the height of the sidebar to fill the viewport minus the height of the main content area
+  const updateSidebarHeight = () => {
+    const navHeight = document.getElementById("navbar").clientHeight;
+		console.log(navHeight, window.innerHeight - navHeight);
+    document.getElementById("guide-sidebar").style.height = `${window.innerHeight - navHeight}px`;
+  };
+
+  // Initial call to set the sidebar height
+  updateSidebarHeight();
+  // Add event listener to update the sidebar height on window resize
+  window.addEventListener("resize", updateSidebarHeight);
+</script>
 
 
 
@@ -321,7 +333,7 @@ to maintain your data and important files in a location that is not CHTC’s fil
     </div>
 </div>
 
-</main>
+
     </main>
     <footer id="colophon" class="uw-footer">
     <div class="uw-footer-content">
