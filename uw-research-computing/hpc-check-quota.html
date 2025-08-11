@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Simple Example of a DAGMan workflow</title>
+<title>Check Disk Quota and Usage</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Simple Example of a DAGMan workflow | CHTC</title>
+<title>Check Disk Quota and Usage | CHTC</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Simple Example of a DAGMan workflow" />
+<meta property="og:title" content="Check Disk Quota and Usage" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="This guide walks you step-by-step through the construction and submission of a simple DAGMan workflow. We recommend this guide if you are interested in automating your job submissions." />
-<meta property="og:description" content="This guide walks you step-by-step through the construction and submission of a simple DAGMan workflow. We recommend this guide if you are interested in automating your job submissions." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/htc/dagman-simple-example" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc/dagman-simple-example" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/hpc-check-quota" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc-check-quota" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-08-11T14:28:30+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Simple Example of a DAGMan workflow" />
+<meta property="twitter:title" content="Check Disk Quota and Usage" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-11T14:28:30+00:00","datePublished":"2025-08-11T14:28:30+00:00","description":"This guide walks you step-by-step through the construction and submission of a simple DAGMan workflow. We recommend this guide if you are interested in automating your job submissions.","headline":"Simple Example of a DAGMan workflow","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc/dagman-simple-example"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc/dagman-simple-example"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-11T14:28:30+00:00","datePublished":"2025-08-11T14:28:30+00:00","description":"Introduction","headline":"Check Disk Quota and Usage","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-check-quota"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-check-quota"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -244,12 +244,12 @@
         <div class="col-12 col-lg-9 mw-1000">
 
             <h1 class="uw-mini-bar mb-4">
-    Simple Example of a DAGMan workflow
+    Check Disk Quota and Usage
 </h1>
 
-            <p>This guide walks you step-by-step through the construction and submission of a
-simple DAGMan workflow.
-We recommend this guide if you are interested in automating your job submissions.</p>
+            <h2 id="introduction">Introduction</h2>
+
+<p>This guide shows you how to check the amount of disk space and number of files you are using in your <code>/home</code> and <code>/scratch</code> directories. You can also check your limit on your disk space and number of files (i.e., your “quota”). This guide will help you manage your disk space and give tips on what do when you’ve reached your quota.</p>
 
 <div class="d-flex flex-column mb-5">
 
@@ -258,238 +258,146 @@ We recommend this guide if you are interested in automating your job submissions
 <div class="uw-sidebar-box me-auto">
 <div class="uw-directory">
 
-      <ol>
-        <li><a href="#1-introduction">Introduction</a></li>
-        <li><a href="#2-structure-of-the-dag">Structure of the DAG</a></li>
-        <li><a href="#3-the-minimal-dag-input-file">The Minimal DAG Input File</a></li>
-        <li><a href="#4-the-submit-files">The Submit Files</a></li>
-        <li><a href="#5-running-the-simple-dag">Running the Simple DAG</a></li>
-        <li><a href="#6-monitoring-the-simple-dag">Monitoring the Simple DAG</a></li>
-        <li><a href="#7-wrapping-up">Wrapping Up</a></li>
-      </ol>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#default-quotas">Default quotas</a></li>
+        <li><a href="#check-your-quota">Check your quota</a></li>
+        <li><a href="#check-your-message-of-the-day-motd">Check your Message of the Day (MOTD)</a></li>
+        <li><a href="#check-the-size-of-a-directory-and-its-contents">Check the size of a directory and its contents</a></li>
+        <li><a href="#what-to-do-when-youve-reached-your-quota">What to do when you’ve reached your quota</a></li>
+        <li><a href="#related-pages">Related pages</a></li>
+      </ul>
 
     </div>
 </div>
 </div>
 
-<p>For the full details on various DAGMan features, see the HTCondor manual pages:</p>
+<h2 id="default-quotas">Default quotas</h2>
 
-<ul>
-  <li><a href="https://htcondor.readthedocs.io/en/latest/automated-workflows/index.html">HTCondor’s DAGMan Documentation</a></li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Data location</th>
+      <th><strong><code>/home</code></strong></th>
+      <th><strong><code>/scratch</code></strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Default quota (disk)</td>
+      <td>30 GB</td>
+      <td>100 GB</td>
+    </tr>
+    <tr>
+      <td>Default quota (number of items)</td>
+      <td>250,000 items</td>
+      <td>250,000 items</td>
+    </tr>
+    <tr>
+      <td>Purpose</td>
+      <td>Repeatedly used files<br />(templates, source code, software, reference data)</td>
+      <td>Working data<br />(inputs, outputs, logs, stderr, stdout)</td>
+    </tr>
+  </tbody>
+</table>
 
-<h2 id="1-introduction">1. Introduction</h2>
+<p style="text-align: center; margin-bottom: 0; font-weight: bold;">Need more quota?</p>
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" style="text-align: center" href="quota-request">Fill out our quota request form</a>
+	</div>
+</div>
 
-<p>Consider the case of two HTCondor jobs that use the submit files <code>A.sub</code> and <code>B.sub</code>.
-Let’s say that <code>A.sub</code> generates an output file (<code>output.txt</code>) that <code>B.sub</code> will analyze.
-To run this workflow manually, we would</p>
+<h2 id="check-your-quota">Check your quota</h2>
+
+<p>For the most up-to-date information about your quota, use the <code>get_quotas</code> command.</p>
+<pre class="term"><code>get_quotas
+</code></pre>
+
+<p>This will print a table with your <code>/home</code> and <code>/scratch</code> quotas. An example output is shown below.</p>
+
+<pre class="term"><code>[user@spark-login ~]$ get_quotas
+Path            Disk_Used(GB)  Disk_Limit(GB)  Files_Used  File_Limit
+/home/user      6.08254        30              150372      250000
+/scratch/user   2.33743        100             22          250000
+</code></pre>
+
+<p>To print the quota for a path in <code>/home</code>, <code>/scratch</code>, and <code>/software</code> that you have access to, (i.e., a group directory), use the <code>-p</code> option:</p>
+
+<pre class="term"><code>get_quotas -p &lt;path to directory&gt;
+</code></pre>
+
+<p>An example output of the <code>get_quotas</code> command with the <code>-p</code> option is shown below:</p>
+
+<pre class="term"><code>[user@spark-login ~]$ get_quotas -p /software/groups/example_group
+Path                            Disk_Used(GB)  Disk_Limit(GB)  Files_Used  File_Limit
+/software/groups/example_group  0.000433144    100             3           1000
+</code></pre>
+
+<h2 id="check-your-message-of-the-day-motd">Check your Message of the Day (MOTD)</h2>
+
+<p>Your quota is also printed upon login. See below for an example:</p>
+
+<pre class="term"><code>_____________________________________________________________________
+ #####  #     # #######  #####  Issues?  Email chtc@cs.wisc.edu
+#     # #     #    #    #     # Unauthorized use prohibited by:
+#       #     #    #    #       WI Statutes: s. 947.0125
+#       #######    #    #       U.S. Code: 18 USC 1030
+#       #     #    #    #       U.S. Code: 18 USC 2510-2522
+#     # #     #    #    #     # U.S. Code: 18 USC 2701-2712
+ #####  #     #    #     #####  U.S. Code: 18 USC § 1831
+For off campus ssh access use https://www.doit.wisc.edu/network/vpn/
+_____________________________________________________________________
+
+        Online office hours are available twice a week:
+            Tuesdays, 10:30am - 12pm (Central time)
+            Thursdays, 3:00 - 4:30pm (Central time)
+
+ == NOTICE: THIS NODE IS ON PUPPET ENVIRONMENT "puppet8" ==
+
+Filesystem quota report (last updated 01:01 PM)
+Storage           Used (GB)    Limit (GB)    Files (#)    File Cap (#)    Quota (%)
+--------------  -----------  ------------  -----------  --------------  -----------
+/home/user             6.08            30       150372          250000        20.28
+/scratch/user          2.34           100           22          250001         2.34
+</code></pre>
+
+<p>However, we recommend <a href="#check-your-quota">using the <code>get_quotas</code> command</a> for the most up-to-date information.</p>
+
+<h2 id="check-the-size-of-a-directory-and-its-contents">Check the size of a directory and its contents</h2>
+
+<p>If you want to check the size of specific directories and their contents, you can do this with the <code>ncdu</code> utility.</p>
+
+<pre class="term"><code>[user@spark-login ~]$ ncdu /home/username
+[user@spark-login ~]$ ncdu /scratch/username
+</code></pre>
+
+<p>When <code>ncdu</code> has finished running, the output will give you a total file count and allow you to navigate between subdirectories for even more details. Type <code>q </code>when you’re ready to exit the output viewer.</p>
+
+<h2 id="what-to-do-when-youve-reached-your-quota">What to do when you’ve reached your quota</h2>
+
+<p>When you’ve reached your quota, you may encounter error messages such as <code>Disk quota exceeded</code>. When you encounter the error message, we recommend the following steps:</p>
 
 <ol>
-  <li>Submit the first HTCondor job with <code>condor_submit A.sub</code>.</li>
-  <li>Wait for the first HTCondor job to complete successfully.</li>
-  <li>Submit the second HTCondor job with <code>condor_submit B.sub</code>.</li>
+  <li>Check your quota with <code>get_quotas</code>. At which data location did you reach your quota? Did you reach your disk quota or your items quota?</li>
+  <li>If possible, remove any files you no longer need from the system.</li>
+  <li>If you still need more disk space, <a href="quota-request">request more quota.</a></li>
 </ol>
 
-<p>If the first HTCondor job using <code>A.sub</code> is fairly short, then manually running this workflow is not a big deal. 
-But if the first HTCondor job takes a long time to complete (maybe takes several hours to run, or has to wait for special resources), 
-this can be very inconvenient.
-Instead, we can use DAGMan to automatically submit <code>B.sub</code> once the first HTCondor job using <code>A.sub</code> has completed successfully.
-This guide walks through the process of creating such a DAGMan workflow.</p>
-
-<h2 id="2-structure-of-the-dag">2. Structure of the DAG</h2>
-
-<p>In this scenario, our workflow could be described as a DAG consisting of two nodes (<code>A.sub</code> and <code>B.sub</code>) connected by a single edge (<code>output.txt</code>).
-To represent this relationship, we will define nodes <code>A</code> and <code>B</code> - corresponding to <code>A.sub</code> and <code>B.sub</code>, respectively - and connect them with a line pointing from <code>A</code> and <code>B</code>, like in this figure:</p>
-
-<p><img src="../../assets/simple-DAG_fig.png" alt="Node A with arrow pointing to Node B" /></p>
-
-<p>In order to use DAGMan to run this workflow, we need to communicate this structure to DAGMan via the <code>.dag</code> input file.</p>
-
-<h2 id="3-the-minimal-dag-input-file">3. The Minimal DAG Input File</h2>
-
-<p>Let’s call the input file <code>simple.dag</code>.
-At minimum, the contents of the <code>simple.dag</code> input file are</p>
-
-<pre class="file"><code># simple.dag
-
-# Define the DAG jobs
-JOB A A.sub
-JOB B B.sub
-
-# Define the connections
-PARENT A CHILD B
-</code></pre>
-
-<p>In a DAGMan input file, a node is defined using the <code>JOB</code> keyword, followed by the name of the node and the name of the corresponding submit file.
-In this case, we have created a node named <code>A</code> and instructed DAGMan to use the submit file <code>A.sub</code> for executing that node.
-We have similarly created node <code>B</code> and instructed DAGMan to use the submit file <code>B.sub</code>. 
-(While there is no requirement that the name of the node match the name of the corresponding submit file, it is convenient to use a consistent naming scheme.)</p>
-
-<p>To connect the nodes, we use the <code>PARENT .. CHILD ..</code> syntax. 
-Since node <code>B</code> requires that node <code>A</code> has completed successfully, we say that node <code>A</code> is the <code>PARENT</code> while node <code>B</code> is the <code>CHILD</code>.
-Note that we do not need to define <em>why</em> node <code>B</code> is dependent on node <code>A</code>, only that it is.</p>
-
-<h2 id="4-the-submit-files">4. The Submit Files</h2>
-
-<p>Now let’s define simple examples of the submit files <code>A.sub</code> and <code>B.sub</code>.</p>
-
-<h3 id="node-a">Node A</h3>
-
-<p>First, the submit file <code>A.sub</code> uses the executable <code>A.sh</code>, which will generate the file called <code>output.txt</code>.
-We have explicitly told HTCondor to transfer back this file by using the <code>transfer_output_files</code> command.</p>
-
-<pre class="sub"><code># A.sub
-
-executable = A.sh
-
-log = A.log
-output = A.out
-error = A.err
-
-transfer_output_files = output.txt
-
-request_cpus = 1
-request_memory = 1GB
-request_disk = 1GB
-
-queue
-</code></pre>
-
-<p>The executable file simply saves the hostname of the machine running the script:</p>
-
-<pre class="file"><code>#!/bin/bash
-
-# A.sh
-hostname &gt; output.txt
-
-sleep 1m  # so we can see the job in "running" status
-</code></pre>
-
-<h3 id="node-b">Node B</h3>
-
-<p>Second, the submit file <code>B.sub</code> uses the executable <code>B.sh</code> to print a message using the contents of the <code>output.txt</code> file generated by <code>A.sh</code>.
-We have explicitly told HTCondor to transfer <code>output.txt</code> as an <em>input</em> file for this job, using the <code>transfer_input_files</code> command. 
-Thus we have finally defined the “edge” that connects nodes <code>A</code> and <code>B</code>: the use of <code>output.txt</code>.</p>
-
-<pre class="sub"><code># B.sub
-
-executable = B.sh
-
-log = B.log
-output = B.out
-error = B.err
-
-transfer_input_files = output.txt
-
-request_cpus = 1
-request_memory = 1GB
-request_disk = 1GB
-
-queue
-</code></pre>
-
-<p>The executable file contains the command for printing the desired message, which will be printed to <code>B.out</code>.</p>
-
-<pre class="file"><code>#!/bin/bash
-
-# B.sh
-echo "The previous job was executed on the following machine:"
-cat output.txt
-
-sleep 1m  # so we can see the job in "running" status
-</code></pre>
-
-<h3 id="the-directory-structure">The directory structure</h3>
-
-<p>Based on the contents of <code>simple.dag</code>, DAGMan is expecting that the submit files <code>A.sub</code> and <code>B.sub</code> are in the same directory as <code>simple.dag</code>.
-The submit files in turn are expecting <code>A.sh</code> and <code>B.sh</code> be in the same directory as <code>A.sub</code> and <code>B.sub</code>.
-Thus, we have the following directory structure:</p>
-
-<pre class="term"><code>DAG_simple/
-|-- A.sh
-|-- A.sub
-|-- B.sh
-|-- B.sub
-|-- simple.dag
-</code></pre>
-
-<p>It is possible to organize each job into its own directory, but for now we will use this simple, flat organization.</p>
-
-<h2 id="5-running-the-simple-dag">5. Running the Simple DAG</h2>
-
-<p>To run the DAG workflow described by <code>simple.dag</code>, we use the HTCondor command <code>condor_submit_dag</code>:</p>
-
-<pre class="term"><code>condor_submit_dag simple.dag
-</code></pre>
-
-<p>The DAGMan utility will then parse the input file and generate an assortment of related files that it will use for monitoring and managing your workflow.
-Here is the output of running the above command:</p>
-
-<pre class="term"><code>[user@login DAG_simple]$ condor_submit_dag simple.dag
-
-Loading classad userMap 'checkpoint_destination_map' ts=1699037029 from /etc/condor/checkpoint-destination-mapfile
------------------------------------------------------------------------
-File for submitting this DAG to HTCondor           : simple.dag.condor.sub
-Log of DAGMan debugging messages                 : simple.dag.dagman.out
-Log of HTCondor library output                     : simple.dag.lib.out
-Log of HTCondor library error messages             : simple.dag.lib.err
-Log of the life of condor_dagman itself          : simple.dag.dagman.log
-
-Submitting job(s).
-1 job(s) submitted to cluster 562265.
------------------------------------------------------------------------
-</code></pre>
-
-<p>The output shows the list of standard files that are created with every DAG submission along with brief descriptions. 
-A couple of additional files, some of them temporary, will be created during the lifetime of the DAG.</p>
-
-<h2 id="6-monitoring-the-simple-dag">6. Monitoring the Simple DAG</h2>
-
-<p>You can see the status of the DAG in your queue just like with any other HTCondor job submission.</p>
-
-<pre class="term"><code>[user@login DAG_simple]$ condor_q
-
--- Schedd: ap2002.chtc.wisc.edu : &lt;128.105.68.92:9618?... @ 12/14/23 11:26:51
-OWNER       BATCH_NAME           SUBMITTED   DONE   RUN    IDLE  TOTAL JOB_IDS
-user        simple.dag+562265  12/14 11:26      _      _      1      2 562279.0
-</code></pre>
-
-<p>There are a couple of things to note about the <code>condor_q</code> output:</p>
-
-<ul>
-  <li>The <code>BATCH_NAME</code> for the DAGMan job is the name of the input DAG file, <code>simple.dag</code>, plus the Job ID of the DAGMan scheduler job (<code>562265</code> in this case): <code>simple.dag+562265</code>.</li>
-  <li>The total number of jobs for <code>simple.dag+562265</code> corresponds to the total number of nodes in the DAG (2).</li>
-  <li>Only 1 node is listed as “Idle”, meaning that DAGMan has only submitted 1 job so far. This is consistent with the fact that node <code>A</code> has to complete before DAGMan can submit the job for node <code>B</code>.</li>
-</ul>
-
-<blockquote>
-  <p>Note that if you are very quick to run your <code>condor_q</code> command after running your <code>condor_submit_dag</code> command, then you may see only the DAGMan scheduler job. It may take a few seconds for DAGMan to start up and submit the HTCondor job associated with the first node.</p>
+<blockquote class="tip-header">
+  <h3 id="️-chtc-is-not-a-storage-service">⚠️ CHTC is not a storage service</h3>
 </blockquote>
 
-<p>To see more detailed information about the DAG workflow, use <code>condor_q -nob -dag</code>.
-For example,</p>
+<blockquote class="tip">
+  <p>CHTC data locations are intended for temporarily storing files used in <strong>active calculations only</strong>. Once you are done with the files, please remove them from the system to clear disk space.<br /><br />
+<strong>We do not back up any of the data you place on our system. It is your responsibility to back up your own files.</strong></p>
+</blockquote>
 
-<pre class="term"><code>[user@login DAG_simple]$ condor_q -dag -nob
+<h2 id="related-pages">Related pages</h2>
 
--- Schedd: ap2002.chtc.wisc.edu : &lt;128.105.68.92:9618?... @ 12/14/23 11:27:03
- ID        OWNER/NODENAME      SUBMITTED     RUN_TIME ST PRI SIZE CMD
-562265.0   user                12/14 11:26   0+00:00:37 R  0    0.5 condor_dagman -p 0 -f -l . -Loc
-562279.0    |-A                12/14 11:26   0+00:00:00 I  0    0.0 A.sh
-</code></pre>
-
-<p>In this case, the first entry is the DAGMan scheduler job that you created when you first submitted the DAG. 
-The following entries correspond to the nodes whose jobs are currently in the queue.
-Nodes that have not yet been submitted by DAGMan or that have completed and thus left the queue will not show up in your <code>condor_q</code> output.</p>
-
-<h2 id="7-wrapping-up">7. Wrapping Up</h2>
-
-<p>After waiting enough time, this simple DAG workflow should complete without any issues.
-But of course, that will not be the case for every DAG, especially as you start to create your own.
-DAGMan has a lot more features for managing and submitting DAG workflows, ranging from how to handle errors, combining DAG workflows, and restarting failed DAG workflows.</p>
-
-<p>For now, we recommend that you continue exploring DAGMan by going through our <a href="tutorial-dagman-intermediate">Intermediate DAGMan Tutorial</a>. There is also our guide <a href="dagman-workflows">Overview: Submit Workflows with HTCondor’s DAGMan</a>, which contains links to more resources in the <a href="dagman-workflows#more-resources">More Resources</a> section.</p>
-
-<p>Finally, the definitive guide to DAGMan and DAG workflows is <a href="https://htcondor.readthedocs.io/en/latest/automated-workflows/index.html">HTCondor’s DAGMan Documentation</a>.</p>
+<ul>
+  <li><a href="hpc-overview">HPC System Overview</a></li>
+</ul>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -501,7 +409,7 @@ DAGMan has a lot more features for managing and submitting DAG workflows, rangin
 <div id="guide-sidebar">
     
         
-                <h6 class="mt-5">HTC guides</h6>
+                <h6 class="mt-5">HPC guides</h6>
         
         
         <div class="accordion accordion-flush">
@@ -509,40 +417,34 @@ DAGMan has a lot more features for managing and submitting DAG workflows, rangin
             
                 <div class="accordion-item">
                         
-                        <span class="accordion-header mt-0" id="get-startedhtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#get-startedhtc-guides-collapse" aria-expanded="false" aria-controls="get-startedhtc-guides">
+                        <span class="accordion-header mt-0" id="get-startedhpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#get-startedhpc-guides-collapse" aria-expanded="false" aria-controls="get-startedhpc-guides">
                                 Get started
                             </button>
                         </span>
-                        <div id="get-startedhtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="get-startedhtc-guides" data-bs-parent="#guide-sidebar">
+                        <div id="get-startedhpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="get-startedhpc-guides" data-bs-parent="#guide-sidebar">
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-overview#main">System overview</a>
+        <a class="" href="/uw-research-computing/hpc-overview#main">System overview</a>
     </div>
 
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-roadmap#main">Roadmap to getting started</a>
+        <a class="" href="/uw-research-computing/connecting#main">Log in to CHTC</a>
     </div>
 
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/connecting#main">Log into CHTC</a>
+        <a class="" href="/uw-research-computing/configure-ssh#main">Automate CHTC login</a>
     </div>
 
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/basic-shell-commands#main">Quick reference: Basic shell commands</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htcondor-quick-ref#main">Quick reference: HTCondor commands</a>
+        <a class="" href="/uw-research-computing/basic-shell-commands#main">Basic shell commands</a>
     </div>
 
                             
@@ -552,90 +454,22 @@ DAGMan has a lot more features for managing and submitting DAG workflows, rangin
             
                 <div class="accordion-item">
                         
-                        <span class="accordion-header mt-0" id="submit-jobshtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#submit-jobshtc-guides-collapse" aria-expanded="false" aria-controls="submit-jobshtc-guides">
+                        <span class="accordion-header mt-0" id="submit-jobshpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#submit-jobshpc-guides-collapse" aria-expanded="false" aria-controls="submit-jobshpc-guides">
                                 Submit jobs
                             </button>
                         </span>
-                        <div id="submit-jobshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="submit-jobshtc-guides" data-bs-parent="#guide-sidebar">
+                        <div id="submit-jobshpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="submit-jobshpc-guides" data-bs-parent="#guide-sidebar">
                             
                                 
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Submit jobs using HTCondor 
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htcondor-job-submission#main">Job submission basics</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/multiple-jobs#main">Submit multiple jobs</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/multiple-job-dirs#main">Submit multiple jobs in different directories</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/inter-submit#main">Submit an interactive job</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/condor_q#main">Monitor your job</a>
-    </div>
-
-        
+        <a class="" href="/uw-research-computing/hpc-job-submission#main">Submitting and managing jobs using SLURM</a>
     </div>
 
                             
                                 
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Arguments and shell scripting 
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-basic-scripting#main">Basic scripting and job submission with arguments</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-passing-arguments#main">Practice: Pass arguments from the submit file to the executable script</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-passing-arguments-multiple#main">Practice: Pass multiple arguments to multiple jobs with one submit file</a>
-    </div>
-
-        
+        <a class="" href="/uw-research-computing/hpc-job-monitoring#main">Reviewing job information using SLURM</a>
     </div>
 
                             
@@ -645,28 +479,16 @@ DAGMan has a lot more features for managing and submitting DAG workflows, rangin
             
                 <div class="accordion-item">
                         
-                        <span class="accordion-header mt-0" id="manage-datahtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#manage-datahtc-guides-collapse" aria-expanded="false" aria-controls="manage-datahtc-guides">
+                        <span class="accordion-header mt-0" id="manage-datahpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#manage-datahpc-guides-collapse" aria-expanded="false" aria-controls="manage-datahpc-guides">
                                 Manage data
                             </button>
                         </span>
-                        <div id="manage-datahtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="manage-datahtc-guides" data-bs-parent="#guide-sidebar">
+                        <div id="manage-datahpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="manage-datahpc-guides" data-bs-parent="#guide-sidebar">
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-job-file-transfer#main">Use and transfer data in jobs on the HTC system </a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/file-avail-largedata#main">Manage Large Data in HTC Jobs</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/check-quota#main">Check disk quota and usage</a>
+        <a class="fw-bolder" href="/uw-research-computing/hpc-check-quota#main">Check disk quota and usage</a>
     </div>
 
                             
@@ -674,7 +496,7 @@ DAGMan has a lot more features for managing and submitting DAG workflows, rangin
     <div class="document-link-wrapper" style="background-color: #d3d3d3;">
     <span style="font-size: .8rem;">
       <i class="bi bi-folder me-2"></i>
-      Transfer files to/from CHTC 
+      Transfer files to/from CHTC
     </span>
     </div>
     <div class="list-group ps-4 border-start bg-light">
@@ -696,13 +518,6 @@ DAGMan has a lot more features for managing and submitting DAG workflows, rangin
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/globus#main">Globus</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
         <a class="" href="/uw-research-computing/github-remote-access#main">Private GitHub repo</a>
     </div>
 
@@ -716,22 +531,16 @@ DAGMan has a lot more features for managing and submitting DAG workflows, rangin
             
                 <div class="accordion-item">
                         
-                        <span class="accordion-header mt-0" id="softwarehtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#softwarehtc-guides-collapse" aria-expanded="false" aria-controls="softwarehtc-guides">
+                        <span class="accordion-header mt-0" id="softwarehpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#softwarehpc-guides-collapse" aria-expanded="false" aria-controls="softwarehpc-guides">
                                 Software
                             </button>
                         </span>
-                        <div id="softwarehtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="softwarehtc-guides" data-bs-parent="#guide-sidebar">
+                        <div id="softwarehpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="softwarehpc-guides" data-bs-parent="#guide-sidebar">
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/software-overview-htc#main">Overview</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/software-overview-htc#quickstart#main">Quickstart</a>
+        <a class="" href="/uw-research-computing/hpc-software#main">Overview and Policies</a>
     </div>
 
                             
@@ -739,17 +548,7 @@ DAGMan has a lot more features for managing and submitting DAG workflows, rangin
     <div class="document-link-wrapper" style="background-color: #d3d3d3;">
     <span style="font-size: .8rem;">
       <i class="bi bi-folder me-2"></i>
-      Containers 
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Build a software environment with containers 
+      Spack
     </span>
     </div>
     <div class="list-group ps-4 border-start bg-light">
@@ -757,98 +556,31 @@ DAGMan has a lot more features for managing and submitting DAG workflows, rangin
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/software-overview-htc#containers#main">What are containers?</a>
+        <a class="" href="/uw-research-computing/hpc-spack-setup#main">Set up</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/apptainer-build#main">Apptainer/Singularity</a>
+        <a class="" href="/uw-research-computing/hpc-spack-install#main">Install software</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/docker-build#main">Docker</a>
+        <a class="" href="/uw-research-computing/hpc-spack-modules#main">Create custom modules</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="https://github.com/CHTC/recipes/tree/main/software#main">Recipes repository</a>
+        <a class="" href="/uw-research-computing/hpc-el9-spack#main">Recreate Spack installs on a new operating system</a>
     </div>
 
         
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-docker-to-apptainer#main">Convert Docker images to Apptainer/Singularity images</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/apptainer-htc#main">Use Apptainer containers</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/docker-jobs#main">Use Docker containers</a>
-    </div>
-
-        
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/inter-submit#main">Compile software in an interactive job</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/licensed-software#main">Licensed software and modules</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-modules#main">Use software available in modules</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-modules-transition-to-el9#main">HTC modules transition to EL9</a>
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="workflowshtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#workflowshtc-guides-collapse" aria-expanded="false" aria-controls="workflowshtc-guides">
-                                Workflows
-                            </button>
-                        </span>
-                        <div id="workflowshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="workflowshtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/checkpointing#main">Checkpoint jobs</a>
     </div>
 
                             
@@ -856,7 +588,7 @@ DAGMan has a lot more features for managing and submitting DAG workflows, rangin
     <div class="document-link-wrapper" style="background-color: #d3d3d3;">
     <span style="font-size: .8rem;">
       <i class="bi bi-folder me-2"></i>
-      DAGMan workflow manager 
+      Containers
     </span>
     </div>
     <div class="list-group ps-4 border-start bg-light">
@@ -864,21 +596,14 @@ DAGMan has a lot more features for managing and submitting DAG workflows, rangin
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc/dagman-workflows#main">Submit workflows with DAGman</a>
+        <a class="" href="/uw-research-computing/apptainer-hpc#main">Use Apptainer containers</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="fw-bolder" href="/uw-research-computing/htc/dagman-simple-example#main">Practice: Run a simple DAGMan workflow</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc/tutorial-dagman-intermediate#main">Practice: Run an diamond DAGMan workflow</a>
+        <a class="" href="/uw-research-computing/apptainer-build#main">Build an Apptainer container</a>
     </div>
 
         
@@ -891,77 +616,16 @@ DAGMan has a lot more features for managing and submitting DAG workflows, rangin
             
                 <div class="accordion-item">
                         
-                        <span class="accordion-header mt-0" id="special-use-caseshtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-caseshtc-guides-collapse" aria-expanded="false" aria-controls="special-use-caseshtc-guides">
-                                Special use cases
-                            </button>
-                        </span>
-                        <div id="special-use-caseshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="special-use-caseshtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/gpu-jobs#main">Use GPUs</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/scaling-htc#main">Scale beyond local HTC capacity</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/high-memory-jobs#main">Submit high memory jobs</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/machine-learning-htc#main">Machine learning jobs</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/os-request-htc#main">Custom Linux versions</a>
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="troubleshootinghtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshootinghtc-guides-collapse" aria-expanded="false" aria-controls="troubleshootinghtc-guides">
+                        <span class="accordion-header mt-0" id="troubleshootinghpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshootinghpc-guides-collapse" aria-expanded="false" aria-controls="troubleshootinghpc-guides">
                                 Troubleshooting
                             </button>
                         </span>
-                        <div id="troubleshootinghtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="troubleshootinghtc-guides" data-bs-parent="#guide-sidebar">
+                        <div id="troubleshootinghpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="troubleshootinghpc-guides" data-bs-parent="#guide-sidebar">
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="http://status.chtc.wisc.edu#main">Status page</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-known-issues#main">Known issues</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/dos-unix#main">Windows/Linux incompatibility</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/get-help.html#main">Get help</a>
+        <a class="" href="/uw-research-computing/hpc-known-issues#main">Known issues on the HPC</a>
     </div>
 
                             
@@ -971,28 +635,28 @@ DAGMan has a lot more features for managing and submitting DAG workflows, rangin
             
                 <div class="accordion-item">
                         
-                        <span class="accordion-header mt-0" id="external-resourceshtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#external-resourceshtc-guides-collapse" aria-expanded="false" aria-controls="external-resourceshtc-guides">
-                                External Resources
+                        <span class="accordion-header mt-0" id="external-resourceshpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#external-resourceshpc-guides-collapse" aria-expanded="false" aria-controls="external-resourceshpc-guides">
+                                External resources
                             </button>
                         </span>
-                        <div id="external-resourceshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="external-resourceshtc-guides" data-bs-parent="#guide-sidebar">
+                        <div id="external-resourceshpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="external-resourceshpc-guides" data-bs-parent="#guide-sidebar">
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="https://htcondor.org/manual/#main">HTCondor manual</a>
+        <a class="" href="http://slurm.schedmd.com/#main">Slurm manual</a>
     </div>
 
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="https://software-carpentry.org/lessons/#main">Software Carpentry</a>
+        <a class="" href="http://software-carpentry.org/lessons/#main">Software Carpentry</a>
     </div>
 
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="https://sts.doit.wisc.edu/workshops/#main">UW-Madison software training for students</a>
+        <a class="" href="http://www.doit.wisc.edu/training/student/#main">UW-Madison software training for students</a>
     </div>
 
                             

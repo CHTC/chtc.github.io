@@ -26,18 +26,18 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Check Disk Quota and Usage" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The following commands will allow you to monitor the amount of disk space you are using in your home directory on the access point and to determine the amount of disk space you have been allotted (your quota)." />
-<meta property="og:description" content="The following commands will allow you to monitor the amount of disk space you are using in your home directory on the access point and to determine the amount of disk space you have been allotted (your quota)." />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
 <link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/check-quota" />
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/check-quota" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-11T14:22:08+00:00" />
+<meta property="article:published_time" content="2025-08-11T14:28:30+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Check Disk Quota and Usage" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-11T14:22:08+00:00","datePublished":"2025-08-11T14:22:08+00:00","description":"The following commands will allow you to monitor the amount of disk space you are using in your home directory on the access point and to determine the amount of disk space you have been allotted (your quota).","headline":"Check Disk Quota and Usage","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/check-quota"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/check-quota"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-11T14:28:30+00:00","datePublished":"2025-08-11T14:28:30+00:00","description":"Introduction","headline":"Check Disk Quota and Usage","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/check-quota"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/check-quota"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -247,88 +247,218 @@
     Check Disk Quota and Usage
 </h1>
 
-            <p>The following commands will allow you to monitor the amount of disk
-space you are using in your home directory on the access point and to determine the
-amount of disk space you have been allotted (your quota).</p>
+            <h2 id="introduction">Introduction</h2>
 
-<p>The default quota allotment in your <code>/home</code> directory is 20 GB with a hard
-limit of 30 GB (at which point you cannot write more files).</p>
+<p>This guide shows you how to check the amount of disk space and number of files you are using on the Access Point in your <code>/home</code> and <code>/staging</code> directories. You can also check your limit on your disk space and number of files (i.e., your “quota”). This guide will help you manage your disk space and give tips on what do when you’ve reached your quota.</p>
 
-<p><strong>Note: The CHTC access points are not backed up, so you should
-copy completed jobs to a secure location as soon as a batch completes,
-and then delete them on the submit node in order to make room for future
-jobs.</strong> Disk space provided is intended for <em>active</em> calculations only, not permanent storage.
-If you need more disk space to run a single batch or concurrent
-batches of jobs, please contact us (<a href="get-help.html">Get Help!</a>). We have multiple ways of dealing with large disk space requirements to make things easier for you.</p>
+<div class="d-flex flex-column mb-5">
 
-<p>If you wish to change your quotas, please see <a href="quota-request">Request a Quota Change</a>.</p>
+<h2>Table of Contents</h2>
 
-<h2 id="1-checking-your-home-quota-and-usage"><strong>1. Checking Your <code>/home</code> Quota and Usage</strong></h2>
+<div class="uw-sidebar-box me-auto">
+<div class="uw-directory">
+
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#default-quotas">Default quotas</a></li>
+        <li><a href="#check-your-quota">Check your quota</a></li>
+        <li><a href="#other-ways-to-check-your-quota">Other ways to check your quota</a></li>
+        <li><a href="#check-the-size-of-a-directory-and-its-contents">Check the size of a directory and its contents</a></li>
+        <li><a href="#what-to-do-when-youve-reached-your-quota">What to do when you’ve reached your quota</a></li>
+        <li><a href="#related-pages">Related pages</a></li>
+      </ul>
+
+    </div>
+</div>
+</div>
+
+<h2 id="default-quotas">Default quotas</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data location</th>
+      <th><strong><code>/home</code></strong></th>
+      <th><strong><code>/staging</code></strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Default quota (disk)</td>
+      <td>40 GB</td>
+      <td>100 GB</td>
+    </tr>
+    <tr>
+      <td>Default quota (number of items)</td>
+      <td>none</td>
+      <td>1000 items</td>
+    </tr>
+    <tr>
+      <td>Purpose</td>
+      <td>Default file system, handles most files</td>
+      <td>Stages large files/containers for file transfer into jobs</td>
+    </tr>
+    <tr>
+      <td>Recommended location for</td>
+      <td>Many, small files (&lt;1 GB)</td>
+      <td>Few, large files (&gt;1 GB)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Read more about the differences between the <code>/home</code> and <code>/staging</code> file system in <a href="htc-job-file-transfer#data-storage-locations">this guide</a>.</p>
+
+<p style="text-align: center; margin-bottom: 0; font-weight: bold;">Need a <code>/staging</code> directory? Need a higher quota?</p>
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" style="text-align: center" href="quota-request">Fill out our quota request form</a>
+	</div>
+</div>
+
+<h2 id="check-your-quota">Check your quota</h2>
+
+<p>For the most up-to-date information about your quota, use the <code>get_quotas</code> command on the Access Point.</p>
+<pre class="term"><code>get_quotas
+</code></pre>
+
+<p>This will print a table with your <code>/home</code> and <code>/staging</code> quotas. An example output is shown below.</p>
+
+<pre class="term"><code>[user@ap2002 ~]$ get_quotas
+Path            Disk_Used(GB)  Disk_Limit(GB)  Files_Used  File_Limit
+/home/user      16.0711        40              8039        N/A
+/staging/user   13.4731        100             12          1000
+</code></pre>
+
+<p>To print the quota for any path in <code>/staging</code>, <code>/software</code>, and <code>/projects</code> that you have access to, (i.e., a group directory), use the <code>-p</code> option:</p>
+
+<pre class="term"><code>get_quotas -p &lt;path to directory&gt;
+</code></pre>
+
+<p>An example output of the <code>get_quotas</code> command with the <code>-p</code> option is shown below:</p>
+
+<pre class="term"><code>[user@ap2002 ~]$ get_quotas -p /staging/groups/example_group
+Path                           Disk_Used(GB)  Disk_Limit(GB)  Files_Used  File_Limit
+/staging/groups/example_group  0.000433144    100             3           1000
+</code></pre>
+
+<h2 id="other-ways-to-check-your-quota">Other ways to check your quota</h2>
+
+<h3 id="option-1-check-your-home-quota-with-quota--vs">Option 1: Check your <code>/home</code> quota with <code>quota -vs</code></h3>
 
 <p>From any directory location within your <code>/home</code> directory, use the command
 <code>quota -vs</code>. See the example below:</p>
 
-<pre class="term"><code>[alice@submit]$ quota -vs
-Disk quotas for user alice (uid 20384): 
+<pre class="term"><code>[user@ap2002 ~]$ quota -vs
+Disk quotas for user user (uid 20384): 
      Filesystem   space   quota   limit   grace   files   quota   limit   grace
-      /dev/sdb1  12690M  20480M  30720M            161k       0       0        
+       /dev/md9  16457M  40960M  51200M            8039       0       0      
 </code></pre>
 
 <p>The output will list your total data usage under <code>space</code>, your soft
 <code>quota</code>, and your hard <code>limit</code> at which point your jobs will no longer
-be allowed to save data. Each value is given in 1-kilobyte
-blocks, so you can divide each number by 1024 to get megabytes (MB), and
-again for gigabytes (GB). (It also lists information for number of <code>files</code>, but
-we don’t typically allocate disk space in <code>/home</code> by file count.)</p>
+be allowed to save data. It also lists information for number of <code>files</code>, but
+there is no quota for number of files in <code>/home</code>.</p>
 
-<h2 id="2-checking-your-staging-quota-and-usage"><strong>2. Checking Your <code>/staging</code> Quota and Usage</strong></h2>
-<p>Users may have a <code>/staging</code> directory, meant for staging large files and data intended for
-job submission. See our <a href="file-avail-largedata">Managing Large Data in HTC Jobs</a> guide for
-more information.</p>
+<h3 id="option-2-check-your-message-of-the-day-motd">Option 2: Check your Message of the Day (MOTD)</h3>
 
-<p>To check your <code>/staging</code> quota, use the command <code>get_quotas /staging/username</code>.</p>
+<p>Your quota is also printed upon the first time you log on to the Access Point that day. See below for an example:</p>
 
-<pre class="term"><code>[alice@submit]$ get_quotas /staging/alice
-Path            Quota(GB)  Items  Disk_Usage(GB)  Items_Usage
-/staging/alice  20         5      3.18969         5
+<pre class="term"><code>_____________________________________________________________________
+ #####  #     # #######  #####  Issues?  Email chtc@cs.wisc.edu
+#     # #     #    #    #     # Unauthorized use prohibited by:
+#       #     #    #    #       WI Statutes: s. 947.0125
+#       #######    #    #       U.S. Code: 18 USC 1030
+#       #     #    #    #       U.S. Code: 18 USC 2510-2522
+#     # #     #    #    #     # U.S. Code: 18 USC 2701-2712
+ #####  #     #    #     #####  U.S. Code: 18 USC § 1831
+For off campus ssh access use https://www.doit.wisc.edu/network/vpn/
+_____________________________________________________________________
+
+         Online office hours are available twice a week:
+            Tuesdays, 10:30am - 12pm (Central time)
+            Thursdays, 3:00 - 4:30pm (Central time)
+
+     IMPORTANT: CHTC does NOT back up any user data. Remember to back up your data regularly!
+ == NOTICE: THIS NODE IS ON PUPPET ENVIRONMENT "puppet8" ==
+
+Filesystem quota report (last updated 10:33 AM)
+Storage               Used (GB)    Limit (GB)    Files (#)    File Cap (#)    Quota (%)
+------------------  -----------  ------------  -----------  --------------  -----------
+/home/user                29.38            40           94               0        73.46
+/staging/user             50.23          1000          110           10000         5.02
 </code></pre>
 
-<p>Your <code>/staging</code> directory has a disk and item quota. In the example above, the disk quota is
-20 GB, and the items quota is 5 items. The current usage is printed in the following columns;
-in the example, the user has used 3.19 GB and 5 items.</p>
+<p>However, we recommend <a href="#check-your-quota">using the <code>get_quotas</code> command</a> for the most up-to-date information.</p>
 
-<p>To request a quota increase, <a href="quota-request">fill out our quota request form</a>.</p>
+<h2 id="check-the-size-of-a-directory-and-its-contents">Check the size of a directory and its contents</h2>
 
-<h2 id="3-checking-the-size-of-directories-and-contents"><strong>3. Checking the Size of Directories and Contents</strong></h2>
+<p>If you want to check the size of specific directories and their contents, you can do this with the <code>du</code> command.</p>
 
-<p>Move to the directory you’d like to check and type <code>du</code> . After several
+<p>Move to the directory you’d like to check and type <code>du</code>. After several
 moments (longer if the contents of your directory are large), the command
 will add up the sizes of directory contents and output the total size of
-each contained directory in units of kilobytes with the total size of
+each contained directory in units of kilobytes (KB) with the total size of
 that directory listed last. See the example below:</p>
 
-<pre class="term"><code>[alice@submit]$ du ./
+<pre class="term"><code>[user@ap2002 ~]$ du ./
 4096    ./dir/subdir/file.txt
 4096    ./dir/subdir
 7140    ./dir
 74688   .
 </code></pre>
 
-<p>As for quota usage above, you can divide each value by 1024 to get
-megabytes, and again for gigabytes.</p>
+<p>You can divide each value by 1024 to get megabytes, and again for gigabytes. Below are extra options for the <code>du</code> command.</p>
 
-<p>Using <code>du</code> with the <code>-h</code> or <code>--human-readable</code> flags will display the
-same values with only two significant digits and a K, M, or G to denote
-the byte units. The <code>-s</code> or <code>--summarize</code> flags will total up the size
-of the current directory without listing the size of directory contents
-. You can also specify which directory you'd like to query, without
-moving to it, by adding the relative filepath after the flags. See the
-below example from the <code>home</code> directory which contains the directory
-<code>dir</code>:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Usage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>du -h</code> or <code>du --human-readable</code></td>
+      <td>Prints disk usage in a human-readable format.<br />(K, M, G denote kilo-, mega-, and gigabytes, respectively.)</td>
+    </tr>
+    <tr>
+      <td><code>du -s</code> or <code>du --summarize</code></td>
+      <td>Prints total disk usage of the directory without printing its contents.</td>
+    </tr>
+    <tr>
+      <td><code>du &lt;path/to/directory&gt;</code></td>
+      <td>Prints disk usage of the specified directory.</td>
+    </tr>
+  </tbody>
+</table>
 
-<pre class="term"><code>[alice@submit]$ du -sh dir
-7.1K    dir
-</code></pre>
+<h2 id="what-to-do-when-youve-reached-your-quota">What to do when you’ve reached your quota</h2>
+
+<p>When you’ve reached your quota, you may encounter error messages such as <code>Disk quota exceeded</code>. When you encounter the error message, we recommend the following steps:</p>
+
+<ol>
+  <li>Check your quota with <code>get_quotas</code>. At which data location did you reach your quota? Did you reach your disk quota or your items quota?</li>
+  <li>If possible, remove any files you no longer need from the system.</li>
+  <li>If you’ve reached your quota for the <strong>number of files</strong> in <code>/staging</code>, we recommend compressing your dataset into zip files or tarballs, because <code>/staging</code> is intended for storing few, large files. <a href="file-avail-largedata#reduce-file-counts">Read more about this here.</a></li>
+  <li>If you still need more disk space, <a href="quota-request">request a higher quota.</a></li>
+</ol>
+
+<blockquote class="tip-header">
+  <h3 id="️-chtc-is-not-a-storage-service">⚠️ CHTC is not a storage service</h3>
+</blockquote>
+
+<blockquote class="tip">
+  <p>CHTC data locations are intended for temporarily storing files used in <strong>active calculations only</strong>. Once you are done with the files, please remove them from the system to clear disk space.<br /><br />
+<strong>We do not back up any of the data you place on our system. It is your responsibility to back up your own files.</strong></p>
+</blockquote>
+
+<h2 id="related-pages">Related pages</h2>
+
+<ul>
+  <li><a href="htc-job-file-transfer">Use and transfer data in jobs on the HTC system</a></li>
+  <li><a href="file-avail-largedata">Manage large data in <code>/staging</code></a></li>
+  <li><a href="quota-request">Request a Quota Change</a></li>
+</ul>
 
         </div>
         <div class="col-3 d-none d-lg-block">
