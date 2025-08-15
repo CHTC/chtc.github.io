@@ -226,14 +226,14 @@ The Center for High Throughput Computing Fellows Program
 
       <h2 id="featured-fellow">Featured Fellow</h2>
 
-      <div id="wil-cram" class="bg-white team-card justify-content-center mb-3 flex-grow-1">
+      <div id="patrick-brophy" class="bg-white team-card justify-content-center mb-3 flex-grow-1">
     <div class="uw-card-content shadow">
         <div class="row">
             <div class="col-3">
                 <div class="overflow-hidden d-flex justify-content-center">
                     
                     
-                    <img src="/staff-list/images/wil_cram.jpg" alt="Headshot for Wil Cram" />
+                    <img src="/staff-list/images/patrick_brophy.jpg" alt="Headshot for Patrick Brophy" />
                     
                 </div>
             </div>
@@ -242,27 +242,34 @@ The Center for High Throughput Computing Fellows Program
                     <div>
                         <h2 class="uw-mini-bar mb-0 mt-3">
                             
-                            Wil Cram
+                            Patrick Brophy
                             
                         </h2>
-                        <div><h6 class="mt-2">Mentor(s):</h6> Greg Thain</div>
+                        <div><h6 class="mt-2">Mentor(s):</h6> Haoming Meng</div>
                     </div>
                 </div>
             </div>
             <div class="col-12">
-                <h4 class="mt-3">Schedd performance analysis for human</h4>
+                <h4 class="mt-3">Expanded Pelican Origin Monitoring</h4>
                 <div class="pt-2">
-                    <p>The condor_schedd is a single threaded program, and when it is overloaded, 
-it is difficult for administrators to understand why.  There are some
-statistics about what it is doing, but there is no clear way to present
-this information in a useful way to an administrator. Students working 
-on this project would build visualizations of complex data, and work
-with end users and facilitators to tune output for real world human 
-consumption.</p>
+                    <p>The Pelican origin service is responsible for exporting objects in the backend
+storage to the data federation.  As it is the “entry point” for the data, understanding
+the load on the origin and its activities is key to keeping the federation healthy.<br />
+Pelican takes monitoring data from the web server component and feeds it into the popular
+Prometheus software to store time series about the activity.  This project would focus on:</p>
+<ul>
+  <li>Implementing new monitoring probes to complement the existing information.</li>
+  <li>Forwarding the raw, unsummarized data to an ElasticSearch database for further analysis.</li>
+  <li>Designing visualizations to provide administrators with an overview of the origin’s activities.</li>
+  <li>Implementing alerts when there are health issues with the origin.</li>
+</ul>
+
+<p>After a successful summer, the student fellow will gain skills in using the Go 
+language, the Prometheus monitoring system (and other Cloud Native technologies), and web design.</p>
 
                 </div>
                 <div>
-                    <a class="btn btn-primary" href="./reports/2024/wil-cram">Read Final Report</a>
+                    <a class="btn btn-primary" href="./reports/2024/patrick-brophy">Read Final Report</a>
                 </div>
             </div>
         </div>
