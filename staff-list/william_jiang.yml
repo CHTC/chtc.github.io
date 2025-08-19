@@ -1,0 +1,28 @@
+name: William Jiang
+title: Fellow
+institution: Morgridge Institute for Research
+status: Past
+organizations:
+  - chtc
+  - pelican
+image: images/william_jiang.png
+
+
+fellowship:
+  name: Integrating Pelican and Globus
+  description: |
+    The Pelican Platform is an open-source software platform designed to create
+    data federations by unifying diverse data repositories (e.g. POSIX
+    filesystems, S3) under a single architecture. It differs from the Globus
+    project, whose main goal is to facilitate peer-to-peer data transfer, and it
+    thus lacks the means to plug into cluster scheduling frameworks like HTCondor.
+
+    This project focused on bridging the gap between Pelican and Globus by
+    integrating Globus transfer capabilities into Pelican. This will allow users
+    to leverage Globus's robust data transfer features while benefiting from
+    Pelican's unified data access model. The integration involved developing a
+    Globus backend for Pelican and enabling seamless data transfers between
+    Pelican-managed repositories and external systems via Globus.
+
+
+  mentor: Emma Turetsky and Justin Hiemstra

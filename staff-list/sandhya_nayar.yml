@@ -1,0 +1,29 @@
+name: Sandhya Nayar
+title: Fellow
+institution: Morgridge Institute for Research
+status: Past
+organizations:
+  - chtc
+image: images/sandhya_nayar.jpg
+
+
+fellowship:
+  name: Smart Aggregation and Indexing with the Archive Librarian
+  description: |
+    HTCondor saves large amounts of useful data about finished jobs
+    that can help administrators, facilitators, and researchers
+    who are trying to utilize historical job data. Currently,
+    condor_history manually parses through flat files to get users
+    their data; this makes it significantly harder to use, especially
+    for older jobs, with no easy way to create useful aggregates.
+    
+    This project focused on the creation of the “Archive Librarian” service,
+    to index job records from the HTCondor history archive and
+    improve the usability of historical job data. Each job's “address”,
+    which is the combination of an offset and file metadata of a
+    historical archive file, is stored in a database. This allows
+    the librarian to directly locate job records and avoid using a
+    sequential scan. The database also stores relevant job attributes
+    that researchers commonly rely on, enabling future support for
+    complicated queries and aggregate statistics.
+  mentor: Cole Bollig and Todd Tannenbaum

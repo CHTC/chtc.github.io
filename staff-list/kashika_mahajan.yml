@@ -1,0 +1,27 @@
+name: Kashika Mahajan
+title: Fellow
+institution: Morgridge Institute for Research
+status: Past
+organizations:
+  - chtc
+image: images/kashika_mahajan.png
+
+
+fellowship:
+  name: Research Facilitation Project
+  description: |
+    Researchers often have a hard time quickly figuring out how their
+    computational workloads are doing. The way cluster data is currently
+    shown through the system can be overwhelming and hard to
+    interpret, especially for someone who isn't deeply familiar with
+    how everything works. It's not always obvious whether their jobs
+    are running smoothly, stuck, or underperforming.
+
+    That's what this project set out to fix. We wanted to build tools
+    that make it easier for researchers to understand what's going on
+    with their jobs, without having to dig through complicated logs
+    or system outputs. A big part of the process was also figuring
+    out what information researchers actually care about most, and
+    how we could present that in a way that's simple, useful, and
+    clear.
+  mentor: Andrew Owen and Ian Ross
