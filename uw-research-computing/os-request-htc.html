@@ -26,18 +26,18 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Use Custom Linux Versions in CHTC" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="By default, CHTC-managed submit servers automatically add a job requirement that requires jobs to run on servers running our primary operating system unless otherwise specified by the user. There are two options to override this default:" />
-<meta property="og:description" content="By default, CHTC-managed submit servers automatically add a job requirement that requires jobs to run on servers running our primary operating system unless otherwise specified by the user. There are two options to override this default:" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
 <link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/os-request-htc" />
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/os-request-htc" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-19T18:23:09+00:00" />
+<meta property="article:published_time" content="2025-08-21T21:37:57+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Use Custom Linux Versions in CHTC" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-19T18:23:09+00:00","datePublished":"2025-08-19T18:23:09+00:00","description":"By default, CHTC-managed submit servers automatically add a job requirement that requires jobs to run on servers running our primary operating system unless otherwise specified by the user. There are two options to override this default:","headline":"Use Custom Linux Versions in CHTC","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/os-request-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/os-request-htc"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-21T21:37:57+00:00","datePublished":"2025-08-21T21:37:57+00:00","description":"Introduction","headline":"Use Custom Linux Versions in CHTC","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/os-request-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/os-request-htc"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -247,86 +247,90 @@
     Use Custom Linux Versions in CHTC
 </h1>
 
-            <p>By default, CHTC-managed submit servers automatically add a job 
-requirement that requires jobs to run on servers running our primary operating system unless otherwise specified by the user. There are two options to override this
-default:</p>
+            <h2 id="introduction">Introduction</h2>
+
+<p>Sometimes, software and packages have dependencies or require libraries only available on certain operating systems. Without these dependencies/libraries, your software won’t work, and your jobs won’t run. If you know which operating system your software and jobs need, this guide shows you how to request specific operating systems on CHTC systems.</p>
+
+<div class="d-flex flex-column mb-5">
+
+<h2>Table of Contents</h2>
+
+<div class="uw-sidebar-box me-auto">
+<div class="uw-directory">
+
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#option-1-use-a-container-recommended">Option 1: Use a container (recommended)</a></li>
+        <li><a href="#option-2-request-an-operating-system-version">Option 2: Request an operating system version</a></li>
+      </ul>
+
+    </div>
+</div>
+</div>
+
+<h2 id="option-1-use-a-container-recommended">Option 1: Use a container (recommended)</h2>
+
+<p>We recommend using containers to create your software environment, which includes the operating system. <strong>This allows you to run on nearly any node in the HTC system!</strong></p>
 
 <ol>
-  <li><a href="#option-1-using-a-container-recommended">Using a Container (recommended)</a></li>
-  <li><a href="#option-2-requesting-a-specific-operating-system">Requesting a Specific
-Operating System</a>.</li>
+  <li>Start by reading our <a href="https://chtc.cs.wisc.edu/uw-research-computing/software-overview-htc">container guide</a>.</li>
+  <li>Find a trusted, existing container on <a href="https://hub.docker.com/">Docker Hub</a> or a <a href="https://github.com/CHTC/recipes">recipe</a> for your software.</li>
+  <li>Alternatively, start with a base container with the desired Linux operating system, and develop a recipe.</li>
 </ol>
 
-<h2 id="option-1-using-a-container-recommended">Option 1: Using a Container (Recommended)</h2>
+<p>Note that the default Linux containers on Docker Hub are often missing commonly installed packages (i.e., vim, wget, git). Our collaborators in OSG Services maintain a few curated containers with a greater selection of installed tools that can be seen here: <a href="https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/#base">Base Linux Containers</a></p>
 
-<p>Using a container to provide a base version of Linux will allow you to 
-run on any nodes in the HTC system, and not limit you to a subset of nodes.</p>
+<h2 id="option-2-request-an-operating-system-version">Option 2: Request an operating system version</h2>
 
-<p>After finding a container with the desired version of Linux, just follow our instructions 
-for <a href="docker-jobs.html">Docker</a> or <a href="apptainer-htc.html">Singularity/Apptainer</a> jobs.</p>
+<p>You can require a specific operating system version (or versions) for your jobs. This option restricts you to operating systems used by CHTC, and the number of nodes running that operating system.</p>
 
-<p>Note that the default Linux containers on Docker Hub are often missing commonly installed 
-packages. Our collaborators in OSG Services maintain a few curated containers with a 
-greater selection of installed tools that 
-can be seen here: <a href="https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/#base">Base Linux Containers</a></p>
-
-<h2 id="option-2-requesting-a-specific-operating-system">Option 2: Requesting a Specific Operating System</h2>
-
-<p>At any time, you can require a specific operating system 
-version (or versions) for your jobs. This option is more limiting because 
-you are restricted to operating systems used by CHTC, and the number of nodes 
-running that operating system.</p>
-
-<h3 id="require-centos-stream-8-previous-default-or-centos-stream-9">Require CentOS Stream 8 (previous default) or CentOS Stream 9</h3>
-
-<p>To request that your jobs run on servers with CentOS 8 <strong>only</strong>, add the
-following line to your submit file:</p>
-
-<pre><code class="language-{.sub}">chtc_want_el8 = true
+<p>You can see the current list of machines and their operating system by running the following command and viewing the summary table:</p>
+<pre class="term"><code>condor_status -compact
 </code></pre>
 
-<p>To request that your jobs run on servers with CentOS 9 <strong>only</strong>, add 
-the following line to your submit file:</p>
+<p>To request that your jobs run on machines of a certain version, add this line to your submit file:</p>
 
-<pre><code class="language-{.sub}">chtc_want_el9 = true 
+<pre><code>requirements = (OpSysMajorVer == 9)
 </code></pre>
 
-<blockquote>
-  <p>Note that after May 1, 2024, CentOS9 will be the default and CentOS8 will be phased out 
-by the middle of summer 2024. If you think your code relies on CentOS8, make sure to 
-see our <a href="htc-el8-to-el9-transition.html">transition guide</a> or talk to the facilitation 
-team about a long-term strategy for running your work.</p>
-</blockquote>
+<p>In this example, we are requesting machines that only use an Enterprise Linux Operating System of Version 9 (EL9). You can modify this statement to request other operating systems or add other lines to your requirements.</p>
 
-<h3 id="use-both-centos-stream-8-previous-default-and-centos-stream-9-current-default">Use Both CentOS Stream 8 (previous default) and CentOS Stream 9 (current default)</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Example</th>
+      <th>Use</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>requirements = (OpSysMajorVer == 9) || (OpSysMajorVer == 10)</code></td>
+      <td>Request EL9 <em>or</em> EL10 machines</td>
+    </tr>
+    <tr>
+      <td><code>requirements = (OpSysMajorVer &gt;= 9)</code></td>
+      <td>Request machines with EL9 or greater operating system version (inclusive)</td>
+    </tr>
+    <tr>
+      <td><code>requirements = (OpSysMajorVer &gt; 9)</code></td>
+      <td>Request machines an operating system greater than EL9 (exclusive)</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>To request that your jobs run on computers running <strong>either</strong> version of 
-CentOS Linux, add the following requirements line to your submit file:</p>
-
-<pre><code class="language-{.sub}">requirements = (OpSysMajorVer == 8) || (OpSysMajorVer == 9)
-</code></pre>
-<blockquote>
-  <p>Note: these requirements are not necessary for jobs that use Docker containers; 
-these jobs will run on servers with any operating system automatically.</p>
-</blockquote>
-
-<p>The advantage of this option is that you may be able to access a
-larger number of computers in CHTC. Note that code compiled on a
-newer version of Linux may not run older versions of Linux. Make
-sure to test your jobs specifically on both CentOS Stream 8 and CentOS Stream 9
-before using the option above.</p>
+<p>Note that code compiled on a newer version of Linux may not run older versions of Linux. Make sure to test your jobs on each operating system before using the option above.</p>
 
 <p>Does your job already have a requirements statement? If so, you can
 add the requirements above to the pre-existing requirements by using
 the characters <code>&amp;&amp;</code>. For example, if your jobs already require large
 data staging:</p>
 
-<pre><code class="language-{.submit}">requirements = (Target.HasCHTCStaging == true) 
+<pre><code>requirements = (Target.HasCHTCStaging == true) 
 </code></pre>
 
 <p>You can add the requirements for using both operating system versions like so:</p>
 
-<pre><code class="language-{.sub}">requirements = (Target.HasCHTCStaging == true) &amp;&amp; ((OpSysMajorVer == 8) || (OpSysMajorVer == 9))
+<pre><code>requirements = (Target.HasCHTCStaging == true) &amp;&amp; ((OpSysMajorVer == 9) || (OpSysMajorVer == 10))
 </code></pre>
 
 
