@@ -8,6 +8,7 @@ image: images/sandhya_nayar.jpg
 
 
 fellowship:
+  year: 2025
   name: Smart Aggregation and Indexing with the Archive Librarian
   description: |
     HTCondor saves large amounts of useful data about finished jobs

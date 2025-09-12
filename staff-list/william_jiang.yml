@@ -9,6 +9,7 @@ image: images/william_jiang.png
 
 
 fellowship:
+  year: 2025
   name: Integrating Pelican and Globus
   description: |
     The Pelican Platform is an open-source software platform designed to create

@@ -8,6 +8,7 @@ image: images/kristina_zhao.jpg
 
 
 fellowship:
+  year: 2024
   name: Integrating PyTorch and Pelican
   description: |
     PyTorch is one of the most popular machine learning frameworks. 

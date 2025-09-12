@@ -7,6 +7,7 @@ organizations:
 image: images/pratham_patel.jpg
 
 fellowship:
+  year: 2024
   name: Enhancing container image build system
   description: |
     Container images are a widely used technology to package and distribute 

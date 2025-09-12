@@ -7,6 +7,7 @@ organizations:
 image: images/thinh_nguyen.jpg
 
 fellowship:
+  year: 2024
   name: ML for failure classification in the OSPool
   description: |
     The OSPool runs hundreds of thousands of jobs every day on dozens of 
