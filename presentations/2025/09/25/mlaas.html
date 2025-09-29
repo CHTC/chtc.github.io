@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Checkpointing Jobs</title>
+<title>MLaaS</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Checkpointing Jobs | CHTC</title>
+<title>MLaaS | CHTC</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Checkpointing Jobs" />
+<meta property="og:title" content="MLaaS" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="What is Checkpointing?" />
-<meta property="og:description" content="What is Checkpointing?" />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/checkpointing" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/checkpointing" />
+<meta name="description" content="PI Yushun Dong discusses the MLaaS project: Secure Machine Learning as a Service for Collaborative Scientific Research. The project aims to establish a secure framework to protect the three stakeholders in collaborative scientific computing environments: the model owner, the data provider, and the model user." />
+<meta property="og:description" content="PI Yushun Dong discusses the MLaaS project: Secure Machine Learning as a Service for Collaborative Scientific Research. The project aims to establish a secure framework to protect the three stakeholders in collaborative scientific computing environments: the model owner, the data provider, and the model user." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/presentations/2025/09/25/mlaas" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/presentations/2025/09/25/mlaas" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-09-29T20:14:01+00:00" />
+<meta property="article:published_time" content="2025-09-25T12:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Checkpointing Jobs" />
+<meta property="twitter:title" content="MLaaS" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-09-29T20:14:01+00:00","datePublished":"2025-09-29T20:14:01+00:00","description":"What is Checkpointing?","headline":"Checkpointing Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/checkpointing"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/checkpointing"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-09-25T12:00:00+00:00","datePublished":"2025-09-25T12:00:00+00:00","description":"PI Yushun Dong discusses the MLaaS project: Secure Machine Learning as a Service for Collaborative Scientific Research. The project aims to establish a secure framework to protect the three stakeholders in collaborative scientific computing environments: the model owner, the data provider, and the model user.","headline":"MLaaS","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/presentations/2025/09/25/mlaas"},"url":"https://chtc.cs.wisc.edu/presentations/2025/09/25/mlaas"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -55,7 +55,7 @@
 <link type="text/css" href="/assets/fonts/fonts.0.0.1.css" rel="stylesheet">
 <link type="text/css" href="/assets/css/style-v12.css" rel="stylesheet">
 
-<link type="text/css" href="/assets/css/research-style.css" rel="stylesheet">
+
 
 <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'')})(document.documentElement)</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -97,7 +97,7 @@
             <div class="row">
                 <div class="col-auto pe-0">
                     
-                    <a class="uw-global-name-link" href="/" aria-label="University home page">Go to CHTC Home</a>
+                    <a class="uw-global-name-link" href="/uw-research-computing" aria-label="UW Research Computing Homepage">Go to UW Research Computing Home</a>
                     
                 </div>
                 <div class="col-auto d-flex">
@@ -112,13 +112,8 @@
         
         
 
-
-
-        
-
-
     
-    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">UW-Research Computing<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
+    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">Menu<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
 <div id="uw-top-menus" class="uw-is-visible uw-horizontal" aria-hidden="false">
     <div class="uw-main-nav">
         <nav class="uw-nav-menu uw-nav-menu-reverse" aria-label="Main Menu">
@@ -130,8 +125,8 @@
                     
 
 
-<li id="home">
-    <a href="/uw-research-computing/index.html" aria-current="page">Home</a>
+<li id="uw-research-computing">
+    <a href="/uw-research-computing/index.html" aria-current="page">Research Computing</a>
 </li>
 
 
@@ -139,17 +134,17 @@
                     
 
 
-<li id="get-started">
-    <a href="/uw-research-computing/form.html" aria-current="page">Get Started</a>
+<li id="technologies">
+    <a href="/technologies.html" aria-current="page">Technologies</a>
 </li>
 
 
                 
                     
 
-<li id="menu-how-tos" class="uw-dropdown">
-    <a href="/uw-research-computing/how-tos.html" role="button" aria-haspopup="true" aria-expanded="false">
-        How To's
+<li id="community" class="uw-dropdown">
+    <a href="" role="button" aria-haspopup="true" aria-expanded="false">
+        Community
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -157,23 +152,19 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="How To's submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="Community submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/user-expectations.html">User Expectations</a>
+            <a href="/news.html">News</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/htc/guides.html">HTC Guides</a>
+            <a href="/events.html">Events</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/hpc/guides.html">HPC Guides</a>
-        </li>
-    
-        <li>
-            <a href="/uw-research-computing/cite-chtc.html">Cite CHTC Resources</a>
+            <a href="/presentations.html">Presentations</a>
         </li>
     
     </ul>    
@@ -182,27 +173,9 @@
                 
                     
 
-
-<li id="get-help">
-    <a href="/uw-research-computing/get-help.html" aria-current="page">Get Help</a>
-</li>
-
-
-                
-                    
-
-
-<li id="status-page">
-    <a href="https://status.chtc.wisc.edu/" aria-current="page">System Status</a>
-</li>
-
-
-                
-                    
-
-<li id="menu-other-resources" class="uw-dropdown">
-    <a href="/uw-research-computing/other-resources.html" role="button" aria-haspopup="true" aria-expanded="false">
-        Other Resources
+<li id="about" class="uw-dropdown">
+    <a href="/about.html" role="button" aria-haspopup="true" aria-expanded="false">
+        About
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -210,31 +183,31 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="Other Resources submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="About submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/bioinformatics-cafe">Bioinformatics Cafe</a>
+            <a href="/approach.html">Our Approach</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/gpu-lab.html">CHTC GPU Lab</a>
+            <a href="/htc.html">What is HTC?</a>
         </li>
     
         <li>
-            <a href="https://htcondor.org/manual/">HTCondor Project</a>
+            <a href="/projects.html">Our Customers</a>
         </li>
     
         <li>
-            <a href="http://www.neos-server.org/">NEOS Optimization Service</a>
+            <a href="/people.html">Staff</a>
         </li>
     
         <li>
-            <a href="http://www.osg-htc.org/">OSG Consortium</a>
+            <a href="/jobs.html">Open Positions</a>
         </li>
     
         <li>
-            <a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a>
+            <a href="/research.html">Research</a>
         </li>
     
     </ul>    
@@ -255,688 +228,62 @@
 </div>
 
 
+
+        
+
     </div>
     <main id="main" style="min-height: 60vh;">
-        <div class="container-xxl mb-5">
-    <div class="row justify-content-center">
-        <div class="col-12 col-lg-9 mw-1000">
-
-            <h1 class="uw-mini-bar mb-4">
-    Checkpointing Jobs
-</h1>
-
-            <h1 id="what-is-checkpointing">What is Checkpointing?</h1>
-
-<p>Checkpointing is a technique that provides fault tolerance for a user’s analysis. It consists of saving snapshots of a job’s progress so the job can be restarted without losing its progress and having to restart from the beginning. We highly encourage checkpointing as a solution for jobs that will exceed the 72 hour maximum default runtime on the HTC system.</p>
-
-<p>This section is about jobs capable of periodically saving checkpoint information, and how to make HTCondor store that information safely, in case it’s needed to continue the job on another machine or at a later time.</p>
-
-<p>There are two types of checkpointing: exit driven and eviction driven. In a vast majority of cases, <strong>exit driven checkpointing</strong> is preferred over eviction driven checkpointing. Therefore, this guide will focus on how to utilize exit driven checkpointing for your analysis.</p>
-
-<p>Note that not all software, programs, or code are capable of creating checkpoint files and knowing how to resume from them. Consult the manual for your software or program to determine if it supports checkpointing features. Some manuals will refer this ability as “checkpoint” features, as the ability to “resume” mid-analysis if a job is interrupted, or as “checkpoint/restart” capabilities. Contact a Research Computing Facilitator if you would like help determining if your software, program, or code is able to checkpoint.</p>
-
-<h1 id="why-checkpoint">Why Checkpoint?</h1>
-
-<p>Checkpointing allows a job to automatically resume from approximately where it left off instead of having to start over if interrupted. This behavior is advantageous for jobs limited by a maximum runtime policy (72 hours on the HTC system). It is also advantageous for jobs submitted to backfill resources with no runtime guarantee (e.g. for <a href="https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc.html"><code>want_campus_pools</code> or <code>want_ospool</code> jobs</a>) where the compute resources may also be more prone to hardware or networking failures.</p>
-
-<p>For example, checkpointing jobs that are limited by a runtime policy can enable HTCondor to exit a job and automatically requeue it to avoid hitting the maximum runtime limit. By using checkpointing, jobs circumvent hitting the maximum runtime limit and can run for extended periods of time until the completion of the analysis. This behavior avoids costly setbacks that may be caused by losing results mid-way through an analysis due to hitting a runtime limit.</p>
-
-<h1 id="process-of-exit-driven-checkpointing">Process of Exit Driven Checkpointing</h1>
-
-<p>Using exit driven checkpointing, a job is specified to time out after a user-specified amount of time with an exit code value of 85 (more on this below). Upon hitting this time limit, HTCondor transfers any checkpoint files listed in the submit file attribute <code>transfer_checkpoint_files</code> to a directory called <code>/spool</code>. This directory acts as a storage location for these files in case the job is interrupted. HTCondor then knows that jobs with exit code <code>85</code> should be automatically requeued, and will transfer the checkpoint files in <code>/spool</code> to your job’s working directory prior to restarting your executable.</p>
-
-<p>The process of exit driven checkpointing relies heavily on the use of exit codes to determine the next appropriate steps for HTCondor to take with a job. In general, exit codes are used to report system responses, such as when an analysis is running, encountered an error, or successfully completes. HTCondor recognizes exit code <code>85</code> as checkpointing jobs and therefore will know to handle these jobs differently than non-checkpoiting jobs.</p>
-
-<h1 id="requirements-for-exit-driven-checkpointing">Requirements for Exit Driven Checkpointing</h1>
-
-<p>Requirements for your code or software:</p>
-
-<ul>
-  <li><em>Checkpoint</em>: The software, program, or code you are using must be able to generate checkpoint files (i.e. snapshots of the progress made thus far) and know how to resume from them.</li>
-  <li><em>Resume</em>: This means your code must be able to recognize checkpoint files and know to resume from them instead of the original input data when the code is restarted.</li>
-  <li><em>Exit</em>: Jobs should exit with an exit code value of <code>85</code> after successfully creating checkpoint files. Additionally, jobs need to be able to exit with a non-<code>85</code> value if they encounter an error or write the writing the final outputs.</li>
-</ul>
-
-<p><strong>In some cases, these requirements can be achieved by using a wrapper script.</strong> This means that your executable may be a script, rather than the code that is writing the checkpoint. An example wrapper script that enables some of these behaviors is below.</p>
-
-<p>Contact a Research Computing Facilitator for help determining if your job is capable of using checkpointing.</p>
-
-<h1 id="changes-to-the-submit-file">Changes to the Submit File</h1>
-
-<p>Several modifications to the submit file are needed to enable HTCondor’s checkpointing feature.</p>
-
-<ul>
-  <li>The line <code>checkpoint_exit_code = 85</code> must be added. HTCondor recognizes code <code>85</code> as a checkpoint job. This means HTCondor knows to end a job with this code but to then to requeue it repeatedly until the analysis completes.</li>
-  <li>The value of <code>when_to_transfer_output</code> should be set to <code>ON_EXIT</code>.</li>
-  <li>The name of the checkpoint files or directories to be transferred to <code>/spool</code> should be specified using <code>transfer_checkpoint_files</code>.</li>
-</ul>
-
-<p><strong>Optional</strong> 
-In some cases, it is necessary to write a wrapper script to tell a job when to timeout and exit. In cases such as this, the executable will need to be changed to the name of that wrapper script. An example of a wrapper script that enables a job to checkout and exit with the proper exit codes can be found below.</p>
-
-<p>An example submit file for an exit driven checkpointing job looks like:</p>
-
-<pre><code># exit-driven-example.submit
-
-executable                  = exit-driven.sh
-arguments                   = argument1 argument2
-
-checkpoint_exit_code        = 85
-transfer_checkpoint_files   = my_output.txt, temp_dir, temp_file.txt
-+is_resumable = true
-
-should_transfer_files       = yes
-when_to_transfer_output     = ON_EXIT
-
-output                      = example.out
-error                       = example.err
-log                         = example.log
-
-cpu                         = 1
-request_disk                = 2 GB
-request_memory              = 2 GB 
-
-queue 1
-</code></pre>
-
-<h1 id="example-wrapper-script-for-checkpointing-job">Example Wrapper Script for Checkpointing Job</h1>
-
-<p>As previously described, it may be necessary to use a wrapper script to tell your job when and how to exit as it checkpoints. An example of a wrapper script that tells a job to exit every 4 hours looks like:</p>
-
-<pre><code>#!/bin/bash
- 
-timeout 4h do_science arg1 arg2
- 
-timeout_exit_status=$?
- 
-if [ $timeout_exit_status -eq 124 ]; then
-    exit 85
-fi
- 
-exit $timeout_exit_status
-</code></pre>
-
-<p>Let’s take a moment to understand what each section of this wrapper script is doing:</p>
-
-<pre><code>#!/bin/bash
-
-timeout 4h do_science argument1 argument2
-# The `timeout` command will stop the job after 4 hours (4h). 
-# This number can be increased or decreased depending on how frequent your code/software/program 
-# is creating checkpoint files and how long it takes to create/resume from these files. 
-# Replace `do_science argument1 argument2` with the execution command and arguments for your job.
-
-timeout_exit_status=$?
-# Uses the bash notation of `$?` to call the exit value of the last executed command 
-# and to save it in a variable called `timeout_exit_status`. 
-
-
-
-if [ $timeout_exit_status -eq 124 ]; then
-    exit 85
-fi
-
-exit $timeout_exit_status
-
-# Programs typically have an exit code of `124` while they are actively running. 
-# The portion above replaces exit code `124` with code `85`. HTCondor recognizes 
-# code `85` and knows to end a job with this code once the time specified by `timeout`
-# has been reached. Upon exiting, HTCondor saves the files from jobs with exit code `85` 
-# in the temporary directory within `/spool`.  Once the files have been transferred,
-# HTCondor automatically requeues that job and fetches the files found in `/spool`. 
-# If an exit code of `124` is not observed (for example if the program is done running 
-# or has encountered an error), HTCondor will end the job and will not automaticlally requeue it.
-
-</code></pre>
-
-<p>The ideal timeout frequency for a job is every 1-5 hours with a maximum of 10 hours. For jobs that checkpoint and timeout in under an hour, it is possible that a job may spend more time with checkpointing procedures than moving forward with the analysis. After 10 hours, jobs that checkpoint and timeout are less able to take advantage of <a href="scaling-htc.html">submitting jobs outside of CHTC</a> to run on other campus resources or on the OSPool.</p>
-
-<h1 id="checking-the-progress-of-checkpointing-jobs">Checking the Progress of Checkpointing Jobs</h1>
-
-<p>Always test a single checkpointing job before scaling up to identify odd or unintentional behaviors in your analysis.</p>
-
-<p>To determine if your job is successfully creating and saving checkpoint files, you can investigate checkpoint files once they have been transferred to <code>/spool</code>.</p>
-
-<p>You can explore the checkpointed files in <code>/spool</code> by navigating to <code>/var/lib/condor/spool</code>. The directories in this folder are the last four digits of a job’s cluster ID with leading zeros removed. Sub folders are labeled with the process ID for each job. For example, to investigate the checkpoint files for <code>17870068.220</code>, the files in <code>/spool</code> would be found in folder <code>68</code> in a subdirectory called <code>220</code>.</p>
-
-<p>It is also possible to intentionally evict a running job and have it rematch to an execute server to test if your code is successfully resuming from checkpoint files or not. To test this, use <code>condor_vacate_job &lt;JobID&gt;</code>. This command will evict your job intentionally and have it return to “Idle” state in the queue. This job will begin running once it rematches to an execute server, allowing you to test if your job is correctly resuming from checkpoint files or incorrectly starting over with the analysis.</p>
-
-<h1 id="more-information">More Information</h1>
-
-<p>More information on checkpointing HTCondor jobs can be found in HTCondor’s manual: https://htcondor.readthedocs.io/en/latest/users-manual/self-checkpointing-applications.html This documentation contains additional features available to checkpointing jobs, as well as additional examples such as a python checkpointing job.</p>
-
-        </div>
-        <div class="col-3 d-none d-lg-block">
-            
-
-
-
-
-<div id="guide-sidebar">
-    
         
-                <h6 class="mt-5">HTC guides</h6>
-        
-        
-        <div class="accordion accordion-flush">
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="get-startedhtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#get-startedhtc-guides-collapse" aria-expanded="false" aria-controls="get-startedhtc-guides">
-                                Get started
-                            </button>
-                        </span>
-                        <div id="get-startedhtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="get-startedhtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-overview#main">System overview</a>
-    </div>
 
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-roadmap#main">Roadmap to getting started</a>
-    </div>
+<div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-9 col-xl-8 fs-5">
+        <div class="event-header pt-4">
+            <div class="row my-3">
+                <h1>MLaaS</h1>
+            </div>
 
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/connecting#main">Log into CHTC</a>
-    </div>
+            
+            <div class="row">
+                <div class="flex justify-content-center" style="display: flex;">
+                    <iframe
+                        src="https://www.youtube.com/embed/SIuGvZjt7mk"
+                        width="720"
+                        height="480"
+                        frameborder="0"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+            </div>
+            
 
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/basic-shell-commands#main">Quick reference: Basic shell commands</a>
-    </div>
+            <div class="mb-3 d-flex flex-row justify-content-between">
+                <h4 class="text-muted">
+                    Yushun Dong  at CICI Presentation Series
+                </h4>
+                <h4 class="text-muted">September 25, 2025</h4>
+            </div>
 
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htcondor-quick-ref#main">Quick reference: HTCondor commands</a>
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="submit-jobshtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#submit-jobshtc-guides-collapse" aria-expanded="false" aria-controls="submit-jobshtc-guides">
-                                Submit jobs
-                            </button>
-                        </span>
-                        <div id="submit-jobshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="submit-jobshtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Submit jobs using HTCondor 
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htcondor-job-submission#main">Job submission basics</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/multiple-jobs#main">Submit multiple jobs</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/multiple-job-dirs#main">Submit multiple jobs in different directories</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/inter-submit#main">Submit an interactive job</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/condor_q#main">Monitor your job</a>
-    </div>
-
-        
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Arguments and shell scripting 
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-basic-scripting#main">Basic scripting and job submission with arguments</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-passing-arguments#main">Practice: Pass arguments from the submit file to the executable script</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-passing-arguments-multiple#main">Practice: Pass multiple arguments to multiple jobs with one submit file</a>
-    </div>
-
-        
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="manage-datahtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#manage-datahtc-guides-collapse" aria-expanded="false" aria-controls="manage-datahtc-guides">
-                                Manage data
-                            </button>
-                        </span>
-                        <div id="manage-datahtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="manage-datahtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-job-file-transfer#main">Use and transfer data in jobs on the HTC system </a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/file-avail-largedata#main">Manage Large Data in HTC Jobs</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/check-quota#main">Check disk quota and usage</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Transfer files to/from CHTC 
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/transfer-files-computer#main">Local computer</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/transfer-data-researchdrive#main">ResearchDrive</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/globus#main">Globus</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/github-remote-access#main">Private GitHub repo</a>
-    </div>
-
-        
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="softwarehtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#softwarehtc-guides-collapse" aria-expanded="false" aria-controls="softwarehtc-guides">
-                                Software
-                            </button>
-                        </span>
-                        <div id="softwarehtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="softwarehtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/software-overview-htc#main">Overview</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/software-overview-htc#quickstart#main">Quickstart</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Containers 
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Build a software environment with containers 
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/software-overview-htc#containers#main">What are containers?</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/apptainer-build#main">Apptainer/Singularity</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/docker-build#main">Docker</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="https://github.com/CHTC/recipes/tree/main/software#main">Recipes repository</a>
-    </div>
-
-        
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-docker-to-apptainer#main">Convert Docker images to Apptainer/Singularity images</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/apptainer-htc#main">Use Apptainer containers</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/docker-jobs#main">Use Docker containers</a>
-    </div>
-
-        
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/inter-submit#main">Compile software in an interactive job</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/licensed-software#main">Licensed software and modules</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-modules#main">Use software available in modules</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-modules-transition-to-el9#main">HTC modules transition to EL9</a>
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="workflowshtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#workflowshtc-guides-collapse" aria-expanded="false" aria-controls="workflowshtc-guides">
-                                Workflows
-                            </button>
-                        </span>
-                        <div id="workflowshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="workflowshtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="fw-bolder" href="/uw-research-computing/checkpointing#main">Checkpoint jobs</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      DAGMan workflow manager 
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc/dagman-workflows#main">Submit workflows with DAGman</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc/dagman-simple-example#main">Practice: Run a simple DAGMan workflow</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc/tutorial-dagman-intermediate#main">Practice: Run an diamond DAGMan workflow</a>
-    </div>
-
-        
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="special-use-caseshtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-caseshtc-guides-collapse" aria-expanded="false" aria-controls="special-use-caseshtc-guides">
-                                Special use cases
-                            </button>
-                        </span>
-                        <div id="special-use-caseshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="special-use-caseshtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/gpu-jobs#main">Use GPUs</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/scaling-htc#main">Scale beyond local HTC capacity</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/high-memory-jobs#main">Submit high memory jobs</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/machine-learning-htc#main">Machine learning jobs</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/os-request-htc#main">Custom Linux versions</a>
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="troubleshootinghtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshootinghtc-guides-collapse" aria-expanded="false" aria-controls="troubleshootinghtc-guides">
-                                Troubleshooting
-                            </button>
-                        </span>
-                        <div id="troubleshootinghtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="troubleshootinghtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="http://status.chtc.wisc.edu#main">Status page</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-known-issues#main">Known issues</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/dos-unix#main">Windows/Linux incompatibility</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/get-help.html#main">Get help</a>
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="external-resourceshtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#external-resourceshtc-guides-collapse" aria-expanded="false" aria-controls="external-resourceshtc-guides">
-                                External Resources
-                            </button>
-                        </span>
-                        <div id="external-resourceshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="external-resourceshtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="https://htcondor.org/manual/#main">HTCondor manual</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="https://software-carpentry.org/lessons/#main">Software Carpentry</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="https://sts.doit.wisc.edu/workshops/#main">UW-Madison software training for students</a>
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-        </div>
-    
-</div>
-<script>
-  // Set the height of the sidebar to fill the viewport minus the height of the main content area
-  const updateSidebarHeight = () => {
-    const navHeight = document.getElementById("navbar").clientHeight;
-		console.log(navHeight, window.innerHeight - navHeight);
-    document.getElementById("guide-sidebar").style.height = `${window.innerHeight - navHeight}px`;
-  };
-
-  // Initial call to set the sidebar height
-  updateSidebarHeight();
-  // Add event listener to update the sidebar height on window resize
-  window.addEventListener("resize", updateSidebarHeight);
-</script>
+            <p>PI Yushun Dong discusses the MLaaS project: Secure Machine Learning as a Service for Collaborative Scientific Research. The project aims to establish a secure framework to protect the three stakeholders in collaborative scientific computing environments: the model owner, the data provider, and the model user.</p>
 
 
+            <div>
+            
+                <span class="tag-badge badge">Data</span>
+            
+                <span class="tag-badge badge">AI</span>
+            
+                <span class="tag-badge badge">Cybersecurity</span>
+            
+            </div>
 
+
+            <h4 class="h4 mt-3 mb-0">Associated Links</h2>
+            <ul>
+                
+            </ul>
         </div>
     </div>
 </div>
-
-
     </main>
     <footer id="colophon" class="uw-footer">
     <div class="uw-footer-content">
