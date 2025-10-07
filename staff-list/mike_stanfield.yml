@@ -7,8 +7,6 @@ title: "OSG Information Security Officer"
 institution: "Indiana University"
 osg:
     title: OSG Information Security Officer
-    promoted: true
-    weight: 6
 organizations: 
     - path
     - osg
