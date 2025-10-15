@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-10-13T18:16:01+00:00" />
+<meta property="article:published_time" content="2025-10-15T18:11:03+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Practice: Submit HTC Jobs using HTCondor" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-10-13T18:16:01+00:00","datePublished":"2025-10-13T18:16:01+00:00","description":"Purpose","headline":"Practice: Submit HTC Jobs using HTCondor","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-10-15T18:11:03+00:00","datePublished":"2025-10-15T18:11:03+00:00","description":"Purpose","headline":"Practice: Submit HTC Jobs using HTCondor","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -298,6 +298,7 @@
 <blockquote class="tip">
   <p>You can follow along with the job submission tutorial outlined in this guide in video format.</p>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/d5siupeu2kE?si=32FUkZyceV9ROfb1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+  <p>You may notice that the example in the video is slightly different—it uses <code>executable</code> and <code>arguments</code> in the submit file instead of <code>shell</code>. This is reflects an older submit convention, however, either case still works!</p>
 </blockquote>
 
 <h3 id="prepare-job-executable-and-submit-file-on-an-access-point">Prepare job executable and submit file on an Access Point</h3>
@@ -319,8 +320,32 @@ echo "Hello CHTC from Job $1 running on `whoami`@`hostname`"
 sleep 180
 </code></pre>
 
-    <p>This script would be run locally on our terminal by typing <code>hello-world.sh &lt;FirstArgument&gt;</code>.
-However, to run it on CHTC, we will use our HTCondor submit file to run the <code>hello-world.sh</code> executable and to automatically pass different arguments to our script.</p>
+    <p>Let’s test this script locally. First, let’s add <em>executable</em> permissions to the script with the <code>chmod</code> command, which allows us to execute the code.</p>
+
+    <pre class="term"><code>chmod +x hello-world.sh
+</code></pre>
+
+    <p>Test the code by typing the following line:</p>
+    <pre class="term"><code>./hello-world.sh 0
+</code></pre>
+
+    <p>You should see a message printed to the terminal, like so:</p>
+
+    <pre class="term"><code>[alice@ap2002 hello-world]$ ./hello-world.sh 0
+Hello CHTC from Job 0 running on alice@ap2002
+</code></pre>
+
+    <p>The terminal will pause for 3 minutes, as specified by <code>sleep 180</code> in our script. Cancel the pause time by pressing <code>CTRL + C</code>. Now we’ve successfully run the script locally!</p>
+
+    <p>However, to run it on CHTC, we will use our HTCondor submit file to run the <code>hello-world.sh</code> executable and to automatically pass different arguments to our script.</p>
+
+    <blockquote class="tip-header">
+      <h3 id="️-do-not-test-your-full-workload-directly-on-the-access-points">⚠️ Do not test your full workload directly on the Access Points!</h3>
+    </blockquote>
+
+    <blockquote class="tip">
+      <p>Simple scripts, such as this example, which use few compute resources, are safe to test, but <strong>any script or executable that requires computing power or excessive memory should be tested inside of a job.</strong></p>
+    </blockquote>
   </li>
   <li>
     <p>Prepare your HTCondor submit file, which you will use to tell HTCondor what job to run and how to run it.
@@ -328,40 +353,38 @@ Copy the text below, and paste it into file called <code>hello-world.sub</code>.
 This is the file you will submit to HTCondor to describe your jobs (known as the submit file).</p>
 
     <pre class="sub"><code># hello-world.sub
-# My HTCondor submit file
    
 # Specify your executable (single binary or a script that runs several
 #  commands) and arguments to be passed to jobs. 
 #  $(Process) will be a integer number for each job, starting with "0"
 #  and increasing for the relevant number of jobs.
-executable = hello-world.sh
-arguments = $(Process)
+shell = ./hello-world.sh $(Process)
    		
-# Specify the name of the log, standard error, and standard output (or "screen output") files. Wherever you see $(Cluster), HTCondor will insert the 
+# Specify the name of the log, standard error, and standard output (or
+# "screen output") files. Wherever you see $(Cluster), HTCondor will insert the 
 #  queue number assigned to this set of jobs at the time of submission.
 log = hello-world_$(Cluster)_$(Process).log
 error = hello-world_$(Cluster)_$(Process).err
 output = hello-world_$(Cluster)_$(Process).out
    
-# This line *would* be used if there were any other files
-# needed for the executable to use.
-# transfer_input_files = file1,/absolute/pathto/file2,etc
+# Transfer our executable script
+transfer_input_files = hello-world.sh
    
-# Tell HTCondor requirements (e.g., operating system) your job needs, 
-# what amount of compute resources each job will need on the computer where it runs.
+# Requirements (e.g., operating system) your job needs, what amount of
+# compute resources each job will need on the computer where it runs.
 request_cpus = 1
 request_memory = 1GB
 request_disk = 5GB
    
-# Tell HTCondor to run 3 instances of our job:
+# Run 3 instances of our job:
 queue 3
 </code></pre>
 
-    <p>By using the “$1” variable in our hello-world.sh executable, we are telling HTCondor to fetch the value of the argument in the first position in the submit file and to insert it in location of “$1” in our executable file.</p>
+    <p>By using the “<code>$1</code>” variable in our hello-world.sh executable, we are telling HTCondor to fetch the value of the argument in the first position in the submit file and to insert it in location of “$1” in our executable file.</p>
 
-    <p>Therefore, when HTCondor runs this executable, it will pass the $(Process) value for each job and hello-world.sh will insert that value for “$1” in hello-world.sh.</p>
+    <p>Therefore, when HTCondor runs this executable, it will pass the <code>$(Process)</code> value for each job and hello-world.sh will insert that value for “$1” in hello-world.sh.</p>
 
-    <p>More information on special variables like “$1”, “$2”, and “$@” can be found <a href="https://swcarpentry.github.io/shell-novice/06-script.html">here</a>.</p>
+    <p>More information on special variables like “<code>$1"</code>, “<code>$2</code>”, and “<code>$@</code>” can be found <a href="https://swcarpentry.github.io/shell-novice/06-script.html">here</a>.</p>
   </li>
   <li>
     <p>Now, submit your job to HTCondor’s queue using <code>condor_submit</code>:</p>
@@ -448,7 +471,7 @@ An excerpt from hello-world_36062145_0.log produced due the submission of the 3 
 
 <h2 id="important-workflow-elements">Important Workflow Elements</h2>
 
-<p><strong>A. Removing Jobs</strong></p>
+<h3 id="removing-jobs">Removing Jobs</h3>
 
 <p>To remove a specific job, use <code>condor_rm &lt;JobID, ClusterID, Username&gt;</code>. 
 Example:</p>
@@ -456,16 +479,14 @@ Example:</p>
 <pre class="term"><code>[alice@ap2002]$ condor_rm 845638.0
 </code></pre>
 
-<p><strong>B. Importance of Testing &amp; Resource Optimization</strong></p>
+<h3 id="test-and-optimize-resources">Test and Optimize Resources</h3>
 
 <ol>
   <li>
-    <p><strong>Examine Job Success</strong> Within the log file, you can see information about the completion of each job, including a system error code (as seen in “return value 0”).
-You can use this code, as well as information in your “.err” file and other output files, to determine what issues your job(s) may have had, if any.</p>
+    <p><strong>Examine Job Success</strong>. Within the log file, you can see information about the completion of each job, including a system error code (as seen in “return value 0”). You can use this code, as well as information in your “.err” file and other output files, to determine what issues your job(s) may have had, if any.</p>
   </li>
   <li>
-    <p><strong>Improve Efficiency</strong> Researchers with input and output files greater than 1GB, should store them in their <code>/staging</code> directory instead of <code>/home</code> to improve file transfer efficiency.
-See our data transfer guides to learn more.</p>
+    <p><strong>Improve Efficiency</strong>. Researchers with input and output files greater than 1GB, should store them in their <code>/staging</code> directory instead of <code>/home</code> to improve file transfer efficiency. See our <a href="htc-job-file-transfer">data transfer guides</a> to learn more.</p>
   </li>
   <li>
     <p><strong>Get the Right Resource Requests</strong>
@@ -499,7 +520,42 @@ When you request too much, your jobs may not match to as many available “slots
   </li>
 </ol>
 
-<h2 id="you-have-the-basics-now-you-are-ready-to-run-your-own-jobs">You have the basics, now you are ready to run your OWN jobs!</h2>
+<h2 id="use-shell-or-executablearguments-in-your-submit-file">Use <code>shell</code> or <code>executable</code>/<code>arguments</code> in your submit file</h2>
+
+<p>You can either use <code>shell</code> or <code>executable</code> and <code>arguments</code> in your submit file to specify how to run your jobs.</p>
+
+<h3 id="option-1-submit-with-shell">Option 1: Submit with <code>shell</code></h3>
+
+<p>You can use <code>shell</code> to specify the whole command you want to run.</p>
+
+<pre><code>shell = ./hello-world.sh $(Process)
+transfer_input_files = hello-world.sh
+</code></pre>
+
+<p>When using <code>shell</code>, consider:</p>
+
+<ul>
+  <li><strong>Do you need to transfer your executable?</strong> You may need to add your executable script (i.e., <code>hello-world.sh</code>) in the <code>transfer_input_files</code> line, as HTCondor does not have the ability to autodetect scripts to be transferred.</li>
+  <li>If you are using <code>./</code> to execute your code, as in the example above, <strong>ensure your shell script has executable permissions</strong> with the <code>chmod +x &lt;script&gt;</code> command.</li>
+  <li>Alternatively, <strong>you may use a shell like <code>bash</code> to execute your code</strong>, (i.e., <code>shell = bash hello-world.sh 0</code>). When you use this option, you do not have to give your shell script executable permissions.</li>
+  <li><strong>Keep your <code>shell</code> script simple</strong>; quoting and special characters may throw errors. If you need complex scripting, we recommend writing a wrapper script.</li>
+</ul>
+
+<h3 id="option-2-executable-and-arguments">Option 2: <code>executable</code> and <code>arguments</code></h3>
+
+<p>In this convention, you break your command into two parts—the executable and the arguments.</p>
+
+<pre><code>executable = hello-world.sh
+arguments = $(Process)
+</code></pre>
+
+<p>When using this option:</p>
+
+<ul>
+  <li><strong>HTCondor will transfer your executable by default.</strong> You do not need to list your executable in <code>transfer_input_files</code>.</li>
+  <li>You do not have to add a <code>./</code> or <code>/bin/bash</code> to the beginning of your <code>executable</code> line.</li>
+  <li>You do not have to give your <code>executable</code> script executable permissions.</li>
+</ul>
 
         </div>
         <div class="col-3 d-none d-lg-block">
