@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Simple Example of a DAGMan workflow</title>
+<title>Request variable memory</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Simple Example of a DAGMan workflow | CHTC</title>
+<title>Request variable memory | CHTC</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Simple Example of a DAGMan workflow" />
+<meta property="og:title" content="Request variable memory" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="This guide walks you step-by-step through the construction and submission of a simple DAGMan workflow. We recommend this guide if you are interested in automating your job submissions." />
-<meta property="og:description" content="This guide walks you step-by-step through the construction and submission of a simple DAGMan workflow. We recommend this guide if you are interested in automating your job submissions." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/htc/dagman-simple-example" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc/dagman-simple-example" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/variable-memory" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/variable-memory" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-10-21T19:58:51+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Simple Example of a DAGMan workflow" />
+<meta property="twitter:title" content="Request variable memory" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-10-21T19:58:51+00:00","datePublished":"2025-10-21T19:58:51+00:00","description":"This guide walks you step-by-step through the construction and submission of a simple DAGMan workflow. We recommend this guide if you are interested in automating your job submissions.","headline":"Simple Example of a DAGMan workflow","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc/dagman-simple-example"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc/dagman-simple-example"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-10-21T19:58:51+00:00","datePublished":"2025-10-21T19:58:51+00:00","description":"Introduction","headline":"Request variable memory","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/variable-memory"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/variable-memory"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -266,12 +266,12 @@
         <div class="col-12 col-lg-9 mw-1000">
 
             <h1 class="uw-mini-bar mb-4">
-    Simple Example of a DAGMan workflow
+    Request variable memory
 </h1>
 
-            <p>This guide walks you step-by-step through the construction and submission of a
-simple DAGMan workflow.
-We recommend this guide if you are interested in automating your job submissions.</p>
+            <h2 id="introduction">Introduction</h2>
+
+<p><strong>This page outlines strategies for requesting variable amounts of memory in jobs.</strong> This guide is for users whose memory usage for a list of jobs may spike unexpectedly or vary depending on inputs or other conditions.</p>
 
 <div class="d-flex flex-column mb-5">
 
@@ -280,238 +280,71 @@ We recommend this guide if you are interested in automating your job submissions
 <div class="uw-sidebar-box me-auto">
 <div class="uw-directory">
 
-      <ol>
-        <li><a href="#1-introduction">Introduction</a></li>
-        <li><a href="#2-structure-of-the-dag">Structure of the DAG</a></li>
-        <li><a href="#3-the-minimal-dag-input-file">The Minimal DAG Input File</a></li>
-        <li><a href="#4-the-submit-files">The Submit Files</a></li>
-        <li><a href="#5-running-the-simple-dag">Running the Simple DAG</a></li>
-        <li><a href="#6-monitoring-the-simple-dag">Monitoring the Simple DAG</a></li>
-        <li><a href="#7-wrapping-up">Wrapping Up</a></li>
-      </ol>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#why-you-should-care-about-memory-usage">Why you should care about memory usage</a></li>
+        <li><a href="#use-retry_request_memory">Use <code>retry_request_memory</code></a></li>
+        <li><a href="#related-pages">Related pages</a></li>
+      </ul>
 
     </div>
 </div>
 </div>
 
-<p>For the full details on various DAGMan features, see the HTCondor manual pages:</p>
+<p>If your job has ever gone on hold for exceeding memory use, you’ve probably solved it by increasing your <code>request_memory</code> attribute in your submit file. You might even always over-request memory, just to be on the safe side.</p>
+
+<h2 id="why-you-should-care-about-memory-usage">Why you should care about memory usage</h2>
+
+<p>Because CHTC is a shared resource, correctly requesting the resources that you require for your jobs to function ensures that both you and other users have a good experience on the system.</p>
 
 <ul>
-  <li><a href="https://htcondor.readthedocs.io/en/latest/automated-workflows/index.html">HTCondor’s DAGMan Documentation</a></li>
+  <li>
+    <p><strong>Over-requesting memory</strong> may cause your jobs to <strong>wait in idle</strong> for longer than needed, since HTCondor needs to find and allocate these larger resource requests for your jobs. And resources unused by your job could be used for others’ jobs.</p>
+  </li>
+  <li>
+    <p><strong>Under-requesting memory</strong> may cause your jobs to <strong>go on hold</strong> when they do exceed the memory allocated to your job. Whatever work by your job will be lost but the computing time will still affect your priority.</p>
+  </li>
 </ul>
 
-<h2 id="1-introduction">1. Introduction</h2>
+<p>But what if only a <strong>fraction</strong> of your jobs needs more memory than the rest of the list of jobs? How can you get the throughput you need without over-requesting memory?</p>
 
-<p>Consider the case of two HTCondor jobs that use the submit files <code>A.sub</code> and <code>B.sub</code>.
-Let’s say that <code>A.sub</code> generates an output file (<code>output.txt</code>) that <code>B.sub</code> will analyze.
-To run this workflow manually, we would</p>
+<h2 id="use-retry_request_memory">Use <code>retry_request_memory</code></h2>
 
-<ol>
-  <li>Submit the first HTCondor job with <code>condor_submit A.sub</code>.</li>
-  <li>Wait for the first HTCondor job to complete successfully.</li>
-  <li>Submit the second HTCondor job with <code>condor_submit B.sub</code>.</li>
-</ol>
+<p>This submit file option is good for jobs where a <strong>few of the jobs have unexpected spikes in memory usage</strong>. To use this feature, add this line to your submit file:</p>
 
-<p>If the first HTCondor job using <code>A.sub</code> is fairly short, then manually running this workflow is not a big deal. 
-But if the first HTCondor job takes a long time to complete (maybe takes several hours to run, or has to wait for special resources), 
-this can be very inconvenient.
-Instead, we can use DAGMan to automatically submit <code>B.sub</code> once the first HTCondor job using <code>A.sub</code> has completed successfully.
-This guide walks through the process of creating such a DAGMan workflow.</p>
-
-<h2 id="2-structure-of-the-dag">2. Structure of the DAG</h2>
-
-<p>In this scenario, our workflow could be described as a DAG consisting of two nodes (<code>A.sub</code> and <code>B.sub</code>) connected by a single edge (<code>output.txt</code>).
-To represent this relationship, we will define nodes <code>A</code> and <code>B</code> - corresponding to <code>A.sub</code> and <code>B.sub</code>, respectively - and connect them with a line pointing from <code>A</code> and <code>B</code>, like in this figure:</p>
-
-<p><img src="../../assets/simple-DAG_fig.png" alt="Node A with arrow pointing to Node B" /></p>
-
-<p>In order to use DAGMan to run this workflow, we need to communicate this structure to DAGMan via the <code>.dag</code> input file.</p>
-
-<h2 id="3-the-minimal-dag-input-file">3. The Minimal DAG Input File</h2>
-
-<p>Let’s call the input file <code>simple.dag</code>.
-At minimum, the contents of the <code>simple.dag</code> input file are</p>
-
-<pre class="file"><code># simple.dag
-
-# Define the DAG jobs
-JOB A A.sub
-JOB B B.sub
-
-# Define the connections
-PARENT A CHILD B
+<pre><code>retry_request_memory = &lt;memory&gt;
 </code></pre>
 
-<p>In a DAGMan input file, a node is defined using the <code>JOB</code> keyword, followed by the name of the node and the name of the corresponding submit file.
-In this case, we have created a node named <code>A</code> and instructed DAGMan to use the submit file <code>A.sub</code> for executing that node.
-We have similarly created node <code>B</code> and instructed DAGMan to use the submit file <code>B.sub</code>. 
-(While there is no requirement that the name of the node match the name of the corresponding submit file, it is convenient to use a consistent naming scheme.)</p>
+<p>If your job is evicted because it uses more memory than allocated, the <code>retry_request_memory</code> option tells HTCondor to retry the job with the specified increased memory.</p>
 
-<p>To connect the nodes, we use the <code>PARENT .. CHILD ..</code> syntax. 
-Since node <code>B</code> requires that node <code>A</code> has completed successfully, we say that node <code>A</code> is the <code>PARENT</code> while node <code>B</code> is the <code>CHILD</code>.
-Note that we do not need to define <em>why</em> node <code>B</code> is dependent on node <code>A</code>, only that it is.</p>
+<p>For example, if you use these lines in your submit file:</p>
 
-<h2 id="4-the-submit-files">4. The Submit Files</h2>
-
-<p>Now let’s define simple examples of the submit files <code>A.sub</code> and <code>B.sub</code>.</p>
-
-<h3 id="node-a">Node A</h3>
-
-<p>First, the submit file <code>A.sub</code> uses the executable <code>A.sh</code>, which will generate the file called <code>output.txt</code>.
-We have explicitly told HTCondor to transfer back this file by using the <code>transfer_output_files</code> command.</p>
-
-<pre class="sub"><code># A.sub
-
-executable = A.sh
-
-log = A.log
-output = A.out
-error = A.err
-
-transfer_output_files = output.txt
-
-request_cpus = 1
-request_memory = 1GB
-request_disk = 1GB
-
-queue
+<pre><code>request_memory = 1 GB
+retry_request_memory = 4 GB
 </code></pre>
 
-<p>The executable file simply saves the hostname of the machine running the script:</p>
+<p>Each job generated in this submission will request 1 GB of memory. If the job is evicted because it uses more than 1 GB of memory, the job will be restarted with 4 GB of memory.</p>
 
-<pre class="file"><code>#!/bin/bash
+<p>You may also use expressions:</p>
 
-# A.sh
-hostname &gt; output.txt
-
-sleep 1m  # so we can see the job in "running" status
+<pre><code>request_memory = 1 GB
+retry_request_memory = RequestMemory*4
 </code></pre>
 
-<h3 id="node-b">Node B</h3>
-
-<p>Second, the submit file <code>B.sub</code> uses the executable <code>B.sh</code> to print a message using the contents of the <code>output.txt</code> file generated by <code>A.sh</code>.
-We have explicitly told HTCondor to transfer <code>output.txt</code> as an <em>input</em> file for this job, using the <code>transfer_input_files</code> command. 
-Thus we have finally defined the “edge” that connects nodes <code>A</code> and <code>B</code>: the use of <code>output.txt</code>.</p>
-
-<pre class="sub"><code># B.sub
-
-executable = B.sh
-
-log = B.log
-output = B.out
-error = B.err
-
-transfer_input_files = output.txt
-
-request_cpus = 1
-request_memory = 1GB
-request_disk = 1GB
-
-queue
-</code></pre>
-
-<p>The executable file contains the command for printing the desired message, which will be printed to <code>B.out</code>.</p>
-
-<pre class="file"><code>#!/bin/bash
-
-# B.sh
-echo "The previous job was executed on the following machine:"
-cat output.txt
-
-sleep 1m  # so we can see the job in "running" status
-</code></pre>
-
-<h3 id="the-directory-structure">The directory structure</h3>
-
-<p>Based on the contents of <code>simple.dag</code>, DAGMan is expecting that the submit files <code>A.sub</code> and <code>B.sub</code> are in the same directory as <code>simple.dag</code>.
-The submit files in turn are expecting <code>A.sh</code> and <code>B.sh</code> be in the same directory as <code>A.sub</code> and <code>B.sub</code>.
-Thus, we have the following directory structure:</p>
-
-<pre class="term"><code>DAG_simple/
-|-- A.sh
-|-- A.sub
-|-- B.sh
-|-- B.sub
-|-- simple.dag
-</code></pre>
-
-<p>It is possible to organize each job into its own directory, but for now we will use this simple, flat organization.</p>
-
-<h2 id="5-running-the-simple-dag">5. Running the Simple DAG</h2>
-
-<p>To run the DAG workflow described by <code>simple.dag</code>, we use the HTCondor command <code>condor_submit_dag</code>:</p>
-
-<pre class="term"><code>condor_submit_dag simple.dag
-</code></pre>
-
-<p>The DAGMan utility will then parse the input file and generate an assortment of related files that it will use for monitoring and managing your workflow.
-Here is the output of running the above command:</p>
-
-<pre class="term"><code>[user@login DAG_simple]$ condor_submit_dag simple.dag
-
-Loading classad userMap 'checkpoint_destination_map' ts=1699037029 from /etc/condor/checkpoint-destination-mapfile
------------------------------------------------------------------------
-File for submitting this DAG to HTCondor           : simple.dag.condor.sub
-Log of DAGMan debugging messages                 : simple.dag.dagman.out
-Log of HTCondor library output                     : simple.dag.lib.out
-Log of HTCondor library error messages             : simple.dag.lib.err
-Log of the life of condor_dagman itself          : simple.dag.dagman.log
-
-Submitting job(s).
-1 job(s) submitted to cluster 562265.
------------------------------------------------------------------------
-</code></pre>
-
-<p>The output shows the list of standard files that are created with every DAG submission along with brief descriptions. 
-A couple of additional files, some of them temporary, will be created during the lifetime of the DAG.</p>
-
-<h2 id="6-monitoring-the-simple-dag">6. Monitoring the Simple DAG</h2>
-
-<p>You can see the status of the DAG in your queue just like with any other HTCondor job submission.</p>
-
-<pre class="term"><code>[user@login DAG_simple]$ condor_q
-
--- Schedd: ap2002.chtc.wisc.edu : &lt;128.105.68.92:9618?... @ 12/14/23 11:26:51
-OWNER       BATCH_NAME           SUBMITTED   DONE   RUN    IDLE  TOTAL JOB_IDS
-user        simple.dag+562265  12/14 11:26      _      _      1      2 562279.0
-</code></pre>
-
-<p>There are a couple of things to note about the <code>condor_q</code> output:</p>
+<p>When using expressions:</p>
 
 <ul>
-  <li>The <code>BATCH_NAME</code> for the DAGMan job is the name of the input DAG file, <code>simple.dag</code>, plus the Job ID of the DAGMan scheduler job (<code>562265</code> in this case): <code>simple.dag+562265</code>.</li>
-  <li>The total number of jobs for <code>simple.dag+562265</code> corresponds to the total number of nodes in the DAG (2).</li>
-  <li>Only 1 node is listed as “Idle”, meaning that DAGMan has only submitted 1 job so far. This is consistent with the fact that node <code>A</code> has to complete before DAGMan can submit the job for node <code>B</code>.</li>
+  <li>We recommend <em>only</em> multiplying by integers.</li>
+  <li>Expressions using addition operators or floating point numbers are not recommended.</li>
 </ul>
 
-<blockquote>
-  <p>Note that if you are very quick to run your <code>condor_q</code> command after running your <code>condor_submit_dag</code> command, then you may see only the DAGMan scheduler job. It may take a few seconds for DAGMan to start up and submit the HTCondor job associated with the first node.</p>
-</blockquote>
+<h2 id="related-pages">Related pages</h2>
 
-<p>To see more detailed information about the DAG workflow, use <code>condor_q -nob -dag</code>.
-For example,</p>
-
-<pre class="term"><code>[user@login DAG_simple]$ condor_q -dag -nob
-
--- Schedd: ap2002.chtc.wisc.edu : &lt;128.105.68.92:9618?... @ 12/14/23 11:27:03
- ID        OWNER/NODENAME      SUBMITTED     RUN_TIME ST PRI SIZE CMD
-562265.0   user                12/14 11:26   0+00:00:37 R  0    0.5 condor_dagman -p 0 -f -l . -Loc
-562279.0    |-A                12/14 11:26   0+00:00:00 I  0    0.0 A.sh
-</code></pre>
-
-<p>In this case, the first entry is the DAGMan scheduler job that you created when you first submitted the DAG. 
-The following entries correspond to the nodes whose jobs are currently in the queue.
-Nodes that have not yet been submitted by DAGMan or that have completed and thus left the queue will not show up in your <code>condor_q</code> output.</p>
-
-<h2 id="7-wrapping-up">7. Wrapping Up</h2>
-
-<p>After waiting enough time, this simple DAG workflow should complete without any issues.
-But of course, that will not be the case for every DAG, especially as you start to create your own.
-DAGMan has a lot more features for managing and submitting DAG workflows, ranging from how to handle errors, combining DAG workflows, and restarting failed DAG workflows.</p>
-
-<p>For now, we recommend that you continue exploring DAGMan by going through our <a href="tutorial-dagman-intermediate">Intermediate DAGMan Tutorial</a>. There is also our guide <a href="dagman-workflows">Overview: Submit Workflows with HTCondor’s DAGMan</a>, which contains links to more resources in the <a href="dagman-workflows#more-resources">More Resources</a> section.</p>
-
-<p>Finally, the definitive guide to DAGMan and DAG workflows is <a href="https://htcondor.readthedocs.io/en/latest/automated-workflows/index.html">HTCondor’s DAGMan Documentation</a>.</p>
+<ul>
+  <li><a href="https://htcondor.readthedocs.io/en/main/man-pages/condor_submit.html#retry_request_memory">HTCondor manual reference</a></li>
+  <li><a href="htcondor-job-submission">Job submission basics</a></li>
+  <li><a href="condor_q">Monitor your job</a></li>
+</ul>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -893,7 +726,7 @@ DAGMan has a lot more features for managing and submitting DAG workflows, rangin
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="fw-bolder" href="/uw-research-computing/htc/dagman-simple-example#main">Practice: Run a simple DAGMan workflow</a>
+        <a class="" href="/uw-research-computing/htc/dagman-simple-example#main">Practice: Run a simple DAGMan workflow</a>
     </div>
 
         
@@ -977,7 +810,7 @@ DAGMan has a lot more features for managing and submitting DAG workflows, rangin
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/variable-memory#main">Request variable memory</a>
+        <a class="fw-bolder" href="/uw-research-computing/variable-memory#main">Request variable memory</a>
     </div>
 
                             
