@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sign In for Office Hours</title>
+<title>Create and manage custom modules</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Sign In for Office Hours | CHTC</title>
+<title>Create and manage custom modules | CHTC</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Sign In for Office Hours" />
+<meta property="og:title" content="Create and manage custom modules" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="&lt;!–" />
-<meta property="og:description" content="&lt;!–" />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/sign-in" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/sign-in" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/hpc-custom-modules" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc-custom-modules" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-11-18T22:41:37+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Sign In for Office Hours" />
+<meta property="twitter:title" content="Create and manage custom modules" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-11-18T22:41:37+00:00","datePublished":"2025-11-18T22:41:37+00:00","description":"&lt;!–","headline":"Sign In for Office Hours","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/sign-in"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/sign-in"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-11-18T22:41:37+00:00","datePublished":"2025-11-18T22:41:37+00:00","description":"Introduction","headline":"Create and manage custom modules","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-custom-modules"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-custom-modules"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -263,23 +263,503 @@
     <main id="main" style="min-height: 60vh;">
         <div class="container-xxl mb-5">
     <div class="row justify-content-center">
-        <div class="col mw-1000">
+        <div class="col-12 col-lg-9 mw-1000">
+
             <h1 class="uw-mini-bar mb-4">
-    Sign In for Office Hours
+    Create and manage custom modules
 </h1>
 
-            <!-- 
-<meta http-equiv="refresh" content="0; URL=https://forms.gle/yGdBpLR1vCadEC8r5">
-<meta name="keywords" content="automatic redirection">
+            <h2 id="introduction">Introduction</h2>
 
- -->
-<div align="center">
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe58ORPB0ZDtvbimDMtVj1bnbozZ3SGRtvLRqHSzX7byG4dvA/viewform?embedded=true" width="800" height="1500" frameborder="0" marginheight="0" marginwidth="0" display="block" margin="auto">Loading…</iframe>
+<p>CHTC uses the <a href="https://tacc.utexas.edu/research/tacc-research/lmod/">module system</a>, which allows users to load and manage their software environments on the HPC system. Experienced HPC users who use a range of software environments can create and manage their own custom modules, which makes it easier to switch between different environments for different types of jobs.</p>
+
+<blockquote class="tip-header">
+  <h3 id="️-caution-you-may-break-your-hpc-environment-if-you-do-not-know-what-you-are-doing">⚠️ Caution: You may break your HPC environment if you do not know what you are doing.</h3>
+</blockquote>
+<blockquote class="tip">
+
+  <p>To create custom modules, <strong>we recommend that you have <em>strong</em> foundational knowledge</strong> in:</p>
+  <ul>
+    <li>File systems (e.g., <code>/home</code> vs. <code>/scratch</code>, directory structure)</li>
+    <li>Software installation (e.g., Linux package management, libraries, using compilers)</li>
+    <li>Environment variables (e.g., <code>PATH</code>, <code>LD_LIBRARY_PATH</code>)</li>
+  </ul>
+
+  <p>If you are unfamiliar with these concepts, we recommend <a href="get-help">asking for help</a> before you try creating custom modules on your own.</p>
+</blockquote>
+
+<div class="d-flex flex-column mb-5">
+
+<h2>Table of Contents</h2>
+
+<div class="uw-sidebar-box me-auto">
+<div class="uw-directory">
+
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#why-create-custom-modules">Why create custom modules?</a></li>
+        <li><a href="#before-you-start">Before you start</a></li>
+        <li><a href="#create-your-own-modules">Create your own modules</a>
+          <ul>
+            <li><a href="#create-directories-for-your-module-files">Create directories for your module files</a></li>
+            <li><a href="#create-a-custom-module-file">Create a custom module file</a></li>
+          </ul>
+        </li>
+        <li><a href="#use-your-custom-modules">Use your custom modules</a></li>
+        <li><a href="#related-pages">Related pages</a></li>
+      </ul>
+
+    </div>
 </div>
+</div>
+
+<h2 id="why-create-custom-modules">Why create custom modules?</h2>
+
+<p>Custom modules are a convenient way to “load” and “unload” software environments on the HPC cluster, allowing you to switch between different software or versions of software without having to manually modify your environment variables.</p>
+
+<p>For example, loading and unloading the <code>matlab</code> module modifies <code>LD_LIBRARY_PATH</code> and <code>PATH</code> environment variables:</p>
+
+<pre class="term"><code>[netid@spark-login ~]$ env | grep -i matlab
+
+[netid@spark-login ~]$ module load matlab
+
+[netid@spark-login ~]$ env | grep -i matlab
+
+__LMOD_REF_COUNT_PATH=/software/chtc/manual/el9/installs/matlab/R2024a:1;/software/chtc/manual/el9/installs/matlab/R2024a/bin/glnxa64:1;/software/chtc/manual/el9/installs/matlab/R2024a/bin:1;/home/netid/spack/bin:1;/home/netid/.local/bin:1;/home/netid/bin:1;/usr/local/bin:1;/usr/bin:1;/usr/local/sbin:1;/usr/sbin:1;/opt/puppetlabs/bin:1
+LOADEDMODULES=matlab/R2024a
+LD_LIBRARY_PATH=/software/chtc/manual/el9/installs/matlab/R2024a/extern/bin/glnxa64
+PATH=/software/chtc/manual/el9/installs/matlab/R2024a:/software/chtc/manual/el9/installs/matlab/R2024a/bin/glnxa64:/software/chtc/manual/el9/installs/matlab/R2024a/bin:/home/netid/spack/bin:/home/netid/.local/bin:/home/netid/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin
+_LMFILES_=/software/chtc/manual/el9/modules/matlab/R2024a
+__LMOD_REF_COUNT_LD_LIBRARY_PATH=/software/chtc/manual/el9/installs/matlab/R2024a/extern/bin/glnxa64:1
+
+[netid@spark-login ~]$ module unload matlab
+
+[netid@spark-login ~]$ env | grep -i matlab
+
+</code></pre>
+
+<p>Custom modules may be a good option if you</p>
+<ul>
+  <li>Use different software stacks in different jobs</li>
+  <li>Manage custom installations for a group</li>
+  <li>Want to keep your default environment variables simple and uncluttered</li>
+</ul>
+
+<h2 id="before-you-start">Before you start</h2>
+
+<p>Make sure that you already have your software installed on the system.</p>
+
+<blockquote class="tip-header">
+  <h3 id="-follow-along">📝 Follow along</h3>
+</blockquote>
+<blockquote class="tip">
+  <p>In this guide, we’ll be using <a href="https://julialang.org/">Julia</a> as an example.</p>
+
+  <p>If you’d like to follow along, use the commands below to install Julia 1.12.1 in your <code>/home</code> directory on <code>spark-login</code>.</p>
+
+  <pre class="term"><code>cd $HOME
+wget https://julialang-s3.julialang.org/bin/linux/x64/1.12/julia-1.12.1-linux-x86_64.tar.gz
+tar -xzf julia-1.12.1-linux-x86_64.tar.gz
+</code></pre>
+  <p>You should now have a <code>julia-1.12.1</code> directory in your <code>/home</code> directory.</p>
+</blockquote>
+
+<h2 id="create-your-own-modules">Create your own modules</h2>
+
+<h3 id="create-directories-for-your-module-files">Create directories for your module files</h3>
+
+<p>In your <code>/home</code> directory, create a directory for your custom module files.</p>
+
+<pre class="term"><code>mkdir -p ~/custom_modules
+</code></pre>
+
+<blockquote class="tip-header">
+  <h3 id="️-only-put-module-files-in-this-directory">⚠️ Only put module files in this directory!</h3>
+</blockquote>
+<blockquote class="tip">
+  <p>You can <em>only</em> put module files in this directory. Do not put any other types of files here, or it may break your module setup.</p>
+</blockquote>
+
+<p>Next, create a subdirectory for the software you want to create a module for. <strong>Do not put the version number in the directory name.</strong> For example:</p>
+
+<pre class="term"><code>mkdir -p ~/custom_modules/julia
+</code></pre>
+
+<h3 id="create-a-custom-module-file">Create a custom module file</h3>
+
+<p>In the subdirectory for your software, create a new file with a name in the following format:</p>
+
+<p><code>&lt;version&gt;.lua</code></p>
+
+<p>For example, for Julia 1.12.1, you should create a file called <code>1.12.1.lua</code>.</p>
+
+<p>The module file is written in the <a href="https://www.lua.org/">Lua programming language</a>. The module file contains information about our module and how to load it.</p>
+
+<p>Below is an example module file, <code>1.12.1.lua</code>:</p>
+
+<pre><code>help([[
+Julia 1.12.1
+]])
+whatis("Name: Julia")
+whatis("Version: 1.12.1")
+whatis("Keywords: Julia")
+whatis("URL: https://julialang.org/")
+whatis("Description: The Julia programming language and CLI.")
+
+prepend_path("PATH","/home/NetID/julia-1.12.1/bin")
+</code></pre>
+
+<table>
+  <thead>
+    <tr>
+      <th>Module file options</th>
+      <th>What it does</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>prepend_path("&lt;PATH&gt;","&lt;value&gt;")</code></td>
+      <td>Prepends <code>&lt;value&gt;</code> to the <code>&lt;PATH&gt;</code> variable. Use this to point to the location of executables, or load libraries into <code>LD_LIBRARY_PATH</code>.</td>
+    </tr>
+    <tr>
+      <td><code>setenv("&lt;variable&gt;", "&lt;value&gt;")</code></td>
+      <td>Sets the environment variable <code>&lt;variable&gt;</code> to the given <code>&lt;value</code>&gt;</td>
+    </tr>
+    <tr>
+      <td><code>whatis()</code></td>
+      <td>Provides information about the module to users. Use this to also provide help text or simple instructions.</td>
+    </tr>
+    <tr>
+      <td><code>help([[]])</code></td>
+      <td>Printed when a user uses the command <code>module help &lt;module name&gt;</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Visit the <a href="https://lmod.readthedocs.io/en/latest/015_writing_modules.html">official documentation</a> on more guidance for writing module files.</p>
+
+<h2 id="use-your-custom-modules">Use your custom modules</h2>
+
+<p>To use your custom module, you need to tell the module system where to look for your custom module files. Use the <code>module use</code> command to point to the parent directory (not the software directory) for your custom modules.</p>
+
+<pre class="term"><code>module use ~/custom_modules
+</code></pre>
+
+<p>Now when you use <code>module avail</code>, you should see your custom module listed. You can now use <code>module load</code> to load your custom module!</p>
+
+<blockquote class="tip-header">
+  <h3 id="-tip">💡 Tip</h3>
+</blockquote>
+
+<blockquote class="tip">
+  <p>To save yourself from using the <code>module use</code> command every time you log into the HPC system, append the <code>module use</code> command to your <code>.bashrc</code> file.</p>
+</blockquote>
+
+<h2 id="related-pages">Related pages</h2>
+
+<ul>
+  <li><a href="https://lmod.readthedocs.io/en/latest/">Lmod official documentation</a>
+    <ul>
+      <li><a href="https://lmod.readthedocs.io/en/latest/015_writing_modules.html">An introduction to writing modulefiles</a></li>
+      <li><a href="https://lmod.readthedocs.io/en/latest/020_advanced.html">Advanced user guide for personal modulefiles</a></li>
+    </ul>
+  </li>
+  <li><a href="hpc-software">Software overview and policies</a></li>
+</ul>
+
+        </div>
+        <div class="col-3 d-none d-lg-block">
+            
+
+
+
+
+<div id="guide-sidebar">
+    
+        
+                <h6 class="mt-5">HPC guides</h6>
+        
+        
+        <div class="accordion accordion-flush">
+            
+            
+                <div class="accordion-item">
+                        
+                        <span class="accordion-header mt-0" id="get-startedhpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#get-startedhpc-guides-collapse" aria-expanded="false" aria-controls="get-startedhpc-guides">
+                                Get started
+                            </button>
+                        </span>
+                        <div id="get-startedhpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="get-startedhpc-guides" data-bs-parent="#guide-sidebar">
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-overview#main">System overview</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/connecting#main">Log in to CHTC</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/configure-ssh#main">Automate CHTC login</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/basic-shell-commands#main">Basic shell commands</a>
+    </div>
+
+                            
+                        </div>
+                    </div>
+            
+            
+                <div class="accordion-item">
+                        
+                        <span class="accordion-header mt-0" id="submit-jobshpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#submit-jobshpc-guides-collapse" aria-expanded="false" aria-controls="submit-jobshpc-guides">
+                                Submit jobs
+                            </button>
+                        </span>
+                        <div id="submit-jobshpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="submit-jobshpc-guides" data-bs-parent="#guide-sidebar">
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-job-submission#main">Submitting and managing jobs using SLURM</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-job-monitoring#main">Reviewing job information using SLURM</a>
+    </div>
+
+                            
+                        </div>
+                    </div>
+            
+            
+                <div class="accordion-item">
+                        
+                        <span class="accordion-header mt-0" id="manage-datahpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#manage-datahpc-guides-collapse" aria-expanded="false" aria-controls="manage-datahpc-guides">
+                                Manage data
+                            </button>
+                        </span>
+                        <div id="manage-datahpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="manage-datahpc-guides" data-bs-parent="#guide-sidebar">
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-check-quota#main">Check disk quota and usage</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Transfer files to/from CHTC
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/transfer-files-computer#main">Local computer</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/transfer-data-researchdrive#main">ResearchDrive</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/github-remote-access#main">Private GitHub repo</a>
+    </div>
+
+        
+    </div>
+
+                            
+                        </div>
+                    </div>
+            
+            
+                <div class="accordion-item">
+                        
+                        <span class="accordion-header mt-0" id="softwarehpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#softwarehpc-guides-collapse" aria-expanded="false" aria-controls="softwarehpc-guides">
+                                Software
+                            </button>
+                        </span>
+                        <div id="softwarehpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="softwarehpc-guides" data-bs-parent="#guide-sidebar">
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-software#main">Overview and Policies</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="fw-bolder" href="/uw-research-computing/hpc-custom-modules#main">Create and manage custom modules</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Spack
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-spack-setup#main">Set up</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-spack-install#main">Install software</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-spack-modules#main">Create custom Spack modules</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-el9-spack#main">Recreate Spack installs on a new operating system</a>
+    </div>
+
+        
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Containers
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/apptainer-hpc#main">Use Apptainer containers</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/apptainer-build#main">Build an Apptainer container</a>
+    </div>
+
+        
+    </div>
+
+                            
+                        </div>
+                    </div>
+            
+            
+                <div class="accordion-item">
+                        
+                        <span class="accordion-header mt-0" id="troubleshootinghpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshootinghpc-guides-collapse" aria-expanded="false" aria-controls="troubleshootinghpc-guides">
+                                Troubleshooting
+                            </button>
+                        </span>
+                        <div id="troubleshootinghpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="troubleshootinghpc-guides" data-bs-parent="#guide-sidebar">
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-known-issues#main">Known issues on the HPC</a>
+    </div>
+
+                            
+                        </div>
+                    </div>
+            
+            
+                <div class="accordion-item">
+                        
+                        <span class="accordion-header mt-0" id="external-resourceshpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#external-resourceshpc-guides-collapse" aria-expanded="false" aria-controls="external-resourceshpc-guides">
+                                External resources
+                            </button>
+                        </span>
+                        <div id="external-resourceshpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="external-resourceshpc-guides" data-bs-parent="#guide-sidebar">
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="http://slurm.schedmd.com/#main">Slurm manual</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="http://software-carpentry.org/lessons/#main">Software Carpentry</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="http://www.doit.wisc.edu/training/student/#main">UW-Madison software training for students</a>
+    </div>
+
+                            
+                        </div>
+                    </div>
+            
+        </div>
+    
+</div>
+<script>
+  // Set the height of the sidebar to fill the viewport minus the height of the main content area
+  const updateSidebarHeight = () => {
+    const navHeight = document.getElementById("navbar").clientHeight;
+		console.log(navHeight, window.innerHeight - navHeight);
+    document.getElementById("guide-sidebar").style.height = `${window.innerHeight - navHeight}px`;
+  };
+
+  // Initial call to set the sidebar height
+  updateSidebarHeight();
+  // Add event listener to update the sidebar height on window resize
+  window.addEventListener("resize", updateSidebarHeight);
+</script>
+
+
 
         </div>
     </div>
 </div>
+
 
     </main>
     <footer id="colophon" class="uw-footer">

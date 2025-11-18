@@ -26,18 +26,18 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Use Licensed Software" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="This guide describes when and how to run jobs that use licensed software in CHTC’s high throughput compute (HTC) system." />
-<meta property="og:description" content="This guide describes when and how to run jobs that use licensed software in CHTC’s high throughput compute (HTC) system." />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
 <link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/licensed-software" />
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/licensed-software" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-11-17T21:11:27+00:00" />
+<meta property="article:published_time" content="2025-11-18T22:41:37+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Use Licensed Software" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-11-17T21:11:27+00:00","datePublished":"2025-11-17T21:11:27+00:00","description":"This guide describes when and how to run jobs that use licensed software in CHTC’s high throughput compute (HTC) system.","headline":"Use Licensed Software","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/licensed-software"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/licensed-software"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-11-18T22:41:37+00:00","datePublished":"2025-11-18T22:41:37+00:00","description":"Introduction","headline":"Use Licensed Software","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/licensed-software"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/licensed-software"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -269,233 +269,228 @@
     Use Licensed Software
 </h1>
 
-            <p>This guide describes when and how to run jobs that use licensed software in
-CHTC’s high throughput compute (HTC) system.</p>
+            <h2 id="introduction">Introduction</h2>
 
-<p><strong>To best understand the below information, users should already have an
-understanding of:</strong></p>
+<p>This guide describes how to run jobs that use licensed software in CHTC’s high throughput computing (HTC) system.</p>
 
-<ul>
-  <li>Using the command line to: navigate within directories,
-create/copy/move/delete files and directories, and run their
-intended programs (aka "executables").</li>
-  <li><a href="helloworld.html">The CHTC's Intro to Running HTCondor Jobs</a></li>
-</ul>
+<div class="d-flex flex-column mb-5">
 
-<h1 id="overview">Overview</h1>
+<h2>Table of Contents</h2>
 
-<p>Once you know that you need to use a licensed software program on our
-HTC system, you will need to do the following:</p>
+<div class="uw-sidebar-box me-auto">
+<div class="uw-directory">
 
-<ul>
-  <li><a href="#access">View Licensed Software in the HTC System</a></li>
-  <li><a href="#submission">Submit Jobs Using Software Modules</a>
-    <ol>
-      <li><a href="#script">Create a script that loads the correct software
-module.</a></li>
-      <li><a href="#submit">Make sure your submit file has certain key
-requirements</a></li>
-    </ol>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#policies">Policies</a></li>
+        <li><a href="#how-to-use-licensed-software">How to use licensed software</a></li>
+        <li><a href="#licensed-software-on-the-htc-system">Licensed software on the HTC system</a></li>
+        <li><a href="#modules">Modules</a></li>
+        <li><a href="#submit-file-requirements">Submit file requirements</a></li>
+        <li><a href="#related-pages">Related pages</a></li>
+      </ul>
+
+    </div>
+</div>
+</div>
+
+<h2 id="policies">Policies</h2>
+
+<p>Users install and manage their own software installations via <a href="software-overview-htc">containers</a> or <a href="inter-submit">portable installations</a>. CHTC’s research computing facilitators are available to <a href="get-help">help</a> through this process.</p>
+
+<p>Some software programs require paid licenses, which may require additional support. <em>Installation of licensed programs is by request to and at the discretion of CHTC staff.</em></p>
+
+<p><strong>We recommend using a free or open-source software alternative whenever possible</strong>, as some software licenses restrict the amount of computing that can contribute to your research.</p>
+
+<p>Jobs using licensed software are incompatible with external capacity like the OSPool or campus pools.</p>
+
+<h2 id="how-to-use-licensed-software">How to use licensed software</h2>
+
+<ol>
+  <li><strong>Find your <a href="#licensed-software-on-the-htc-system">licensed software</a></strong> in the table. For most cases, you will need to <a href="(mailto:chtc@cs.wisc.edu)">request access</a> to the licensed software.</li>
+  <li><strong><a href="software-overview-htc#containers">Build a container</a> or <a href="#modules">use the module system</a></strong> to prepare your software and scripts, depending on your licensed software.</li>
+  <li><strong>Modify your submit file.</strong>
+    <ul>
+      <li>Add the right <a href="#submit-file-requirements"><code>concurrency_limits</code></a> to your submit file.</li>
+      <li>Add <code>requirements = (HasChtcSoftware == true)</code>.</li>
+    </ul>
   </li>
-</ul>
+</ol>
 
-<p><span name="policies"></span></p>
+<h2 id="licensed-software-on-the-htc-system">Licensed software on the HTC system</h2>
 
-<h1 id="a-chtcs-licensed-software-policies-on-the-htc-system">A. CHTC's Licensed Software Policies on the HTC System</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Software</th>
+      <th>Limit name</th>
+      <th>Pool limit</th>
+      <th>Use via</th>
+      <th>Allowed users</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABAQUS</td>
+      <td><code>ABAQUS</code></td>
+      <td>50</td>
+      <td>module</td>
+      <td>Must belong to an approved research group.</td>
+    </tr>
+    <tr>
+      <td>ANSYS</td>
+      <td><code>ANSYS_RESEARCH</code></td>
+      <td>20</td>
+      <td>module</td>
+      <td>Must belong to an approved research group.</td>
+    </tr>
+    <tr>
+      <td>COMSOL (Physics)</td>
+      <td><code>COMSOL_PHYSICS</code></td>
+      <td>2</td>
+      <td>module</td>
+      <td>Must belong to the Physics department.</td>
+    </tr>
+    <tr>
+      <td>Gurobi</td>
+      <td><code>GUROBI</code></td>
+      <td>4096</td>
+      <td><a href="https://github.com/CHTC/recipes/tree/main/software/Gurobi">container</a></td>
+      <td><a href="get-help">Contact CHTC.</a></td>
+    </tr>
+    <tr>
+      <td>Lumerical</td>
+      <td><code>LUMERICAL</code></td>
+      <td>3</td>
+      <td><a href="https://optics.ansys.com/hc/en-us/articles/12325704816659-Dockerfile-support">container</a></td>
+      <td>Must belong to an approved research group.</td>
+    </tr>
+    <tr>
+      <td>MATLAB</td>
+      <td><code>MATLAB</code></td>
+      <td>10000</td>
+      <td><a href="https://github.com/CHTC/recipes/tree/main/software/Matlab">container</a></td>
+      <td>Must use our MATLAB container recipes. Does not need approval.</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>Our typical practice for software support in CHTC is for users to
-install and manage their own software installations. We have multiple
-guides to help users with <a href="howto_overview.html">common software
-programs</a> and additional support is always
-available through <a href="get-help.html">CHTC's research computing
-facilitators</a>.</p>
+<blockquote>
+  <p>If you need access to these licensed software, contact us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.</p>
+</blockquote>
 
-<p>However, certain software programs require paid licenses which can make
-it challenging for individual users to install the software and use the
-licenses correctly. As such, we provide support for software
-installation and use on our high throughput system. Installation of
-licensed programs is by request to and at the discretion of CHTC staff.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Unsupported licensed software</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Gaussian</td>
+      <td>Requires third-party assistance.</td>
+    </tr>
+    <tr>
+      <td>Mathematica</td>
+      <td>Incompatible.</td>
+    </tr>
+    <tr>
+      <td>VASP</td>
+      <td>Requires third-party assistance. HPC system recommended.</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>We always recommend using a free or open-source software alternative
-whenever possible, as certain software licenses restrict the amount of
-computing that can contribute to your research.</p>
+<h2 id="modules">Modules</h2>
 
-<p><span name="access"></span></p>
+<h3 id="see-available-modules">See available modules</h3>
 
-<h1 id="b-viewing-licensed-software-on-the-htc-system">B. Viewing Licensed Software on the HTC System</h1>
-
-<p>Software with paid licenses that has been installed on the high
-throughput (HTC) system is accessible through software "modules",
-which are tools to access and activate a software installation. To see
-which software programs are available on the HTC system, run the
-following command on an HTC submit server:</p>
+<p>For licensed software accessible through the module system, you can see the available modules and versions of the software by running this command on the Access Point.</p>
 
 <pre class="term"><code>[alice@submit]$ module avail
 </code></pre>
 
-<blockquote>
-  <p>Note: you should never run a program directly on the submit server.
-Jobs that use licensed software/modules should always be submitted as
-HTCondor jobs as <a href="#submission">described below</a>.</p>
-</blockquote>
+<h3 id="use-and-load-modules-in-your-executable-script">Use and load modules in your executable script</h3>
 
-<p>Note that not all software modules are available to all CHTC users. Some
-programs like <code>ansys</code> have a campus or shared license which makes them
-available to all CHTC users. Other software, like <code>lumerical</code> and
-<code>abaqus</code>, is licensed to a specific group and is only available to
-members of that group.</p>
-
-<p><span name="submission"></span></p>
-
-<h1 id="c-submitting-jobs-using-licensed-software-modules">C. Submitting Jobs Using Licensed Software Modules</h1>
-
-<p>The following sections describe how to create a bash script executable
-and HTCondor submit file to run jobs that use software accessible via
-the modules.</p>
-
-<p><span name="script"></span></p>
-
-<h2 id="1-script-for-running-jobs-with-modules"><strong>1. Script For Running Jobs with Modules</strong></h2>
-
-<p>To run a job that uses a licensed software installation on the HTC
-system, you need to write a script that loads the software module and
-then runs the program, like so:</p>
+<p>For jobs that use licensed software in modules, load the module in your executable script. Below is an example.</p>
 
 <pre class="file"><code>#!/bin/bash
 
 # Commands to enable modules, and then load an appropriate software module
 export PATH
 . /etc/profile.d/modules.sh
-module load software
-
-# For Lumerical (the license requires a home directory)
-export HOME=$_CONDOR_SCRATCH_DIR
+module load &lt;software&gt;
 
 # Command to run your software from the command line
 cmd -options input.file
 </code></pre>
 
-<p>Replace <code>software</code> with the name of the software module you want to use,
+<p>Replace <code>&lt;software&gt;</code> with the name of the software module you want to use,
 found via the <code>module avail</code> command described <a href="#access">above</a>. Replace
 the final command with the syntax to run your software, with the
 appropriate options.</p>
 
-<p>For example, to run a Comsol job, the script might look like this:</p>
+<p>For example, to run a COMSOL job, the script might look like this:</p>
 
 <pre class="file"><code>#!/bin/bash
 
 export PATH
 . /etc/profile.d/modules.sh
-module load COMSOL/5.4
+module load COMSOL
 
 comsol batch -inputfile test.mph -outputfile test-results.mph
 </code></pre>
 
-<p><span name="submit"></span></p>
+<h2 id="submit-file-requirements">Submit file requirements</h2>
 
-<h2 id="2-submit-file-requirements"><strong>2. Submit File Requirements</strong></h2>
-
-<p>There are several important requirements to consider when writing a
-submit file for jobs that use our licensed software modules. They are
-shown in the sample submit file below and include:</p>
+<p>When using licensed software managed by CHTC you must add the following to your submit file.</p>
 
 <ul>
   <li>
-    <p><strong>Require access to the modules.</strong> To ensure that your job will have
-access to CHTC software modules you must include the following in
-your submit file.</p>
+    <p><strong>Require CHTC Software</strong>. This ensures that your job will run on machines that have access to CHTC software modules and licenses.</p>
 
-    <pre><code class="language-{.sub}">requirements = (HasChtcSoftware == true)
+    <pre><code>requirements = (HasChtcSoftware == true)
 </code></pre>
   </li>
   <li>
-    <p><strong>Add a concurrency limit.</strong> For software with limited licenses, we have 
-implemented concurrency limits, which control the number of jobs running 
-at once in the HTC system. If your software is in the table below, use 
-the concurrency limit name in your submit file like this:</p>
+    <p><strong>Add a concurrency limit.</strong> This “checks out” a license for your job. If the maximum number of licenses are checked out, your job will stay in idle until a license is available. This prevents job errors stemming from unavailable licenses. To your submit file, add:</p>
 
-    <p><code>concurrency_limits = LIMIT_NAME:num_of_licenses_used</code></p>
+    <pre><code>concurrency_limits = LIMIT_NAME:num_of_licenses_used
+</code></pre>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Software</th>
-          <th>Limit Name</th>
-          <th>Limit</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>ABAQUS</td>
-          <td>ABAQUS</td>
-          <td>50</td>
-        </tr>
-        <tr>
-          <td>ANSYS</td>
-          <td>ANSYS_RESEARCH</td>
-          <td>20</td>
-        </tr>
-        <tr>
-          <td>COMSOL (Physics)</td>
-          <td>COMSOL_PHYSICS</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <td>Lumerical</td>
-          <td>LUMERICAL</td>
-          <td>3</td>
-        </tr>
-      </tbody>
-    </table>
+    <p>See the <a href="#licensed-software-on-the-htc-system">table above</a> for <code>LIMIT_NAME</code>.</p>
 
-    <p>So if you were planning to run a job that used one ANSYS license, you would 
-use:</p>
+    <p>For example, to run a job that uses one ANSYS license, use:</p>
 
     <pre><code>concurrency_limits = ANSYS_RESEARCH:1
 </code></pre>
+
+    <blockquote class="tip-header">
+      <h3 id="how-many-licenses-should-i-specify-in-concurrency_limits">How many licenses should I specify in <code>concurrency_limits</code>?</h3>
+    </blockquote>
+    <blockquote class="tip">
+      <p>For most jobs, you will only need to check out <strong>one</strong> license.</p>
+
+      <p>However, some workflows and software check out multiple licenses for different processes (such as using the R bindings for Gurobi). Please be aware of your job’s behavior, and specify the correct number of licenses to the best of your ability.</p>
+    </blockquote>
   </li>
-  <li><strong>Request accurate CPUs and memory.</strong> Run at least one test job and
+  <li>
+    <p><strong>Request accurate CPUs and memory.</strong> Run at least one test job and
 look at the log file produced by HTCondor to determine how much
 memory and disk space your jobs actually use. We recommend
 requesting the smallest number of CPUs where your job will finish in
-1-2 days.</li>
-  <li><strong>The script you wrote above (shown as <code>run_job.sh</code> below) should be
-your submit file "executable"</strong>, and any input files should be
-listed in <strong>transfer_input_files</strong>.</li>
+1-2 days.</p>
+  </li>
 </ul>
 
-<p>A sample submit file is given below:</p>
+<h2 id="related-pages">Related pages</h2>
 
-<pre><code class="language-{.sub}"># software.sub
-# A sample submit file for running a single job using software modules
-
-universe = vanilla
-log = job_$(Cluster).log
-output = job_$(Cluster).out
-error = job_$(Cluster).err
-
-# the executable should be the script you wrote above
-executable = run_job.sh
-# arguments = (if you want to pass any to the shell script)
-should_transfer_files = YES
-when_to_transfer_output = ON_EXIT
-transfer_input_files = (this should be a comma separate list of input files if needed)
-
-# Requirement for accessing new set of software modules
-requirements = ( HasChtcSoftware == true ) 
-
-# If required, add the concurrency limit for your software and uncomment
-# concurrency_limits = LIMIT_NAME:num_of_licenses_used
-
-request_cpus = 1
-request_memory = 2GB
-request_disk = 2GB
-
-queue
-</code></pre>
-
-<p>After the submit file is complete, you can submit your jobs using
-<code>condor_submit</code>.</p>
+<ul>
+  <li><a href="software-overview-htc">Software overview</a></li>
+  <li><a href="https://github.com/CHTC/recipes">Recipes</a></li>
+  <li><a href="get-help">Get help</a></li>
+</ul>
 
         </div>
         <div class="col-3 d-none d-lg-block">
