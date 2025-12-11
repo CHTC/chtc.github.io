@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sign In for Office Hours</title>
+<title>Tip of the Month - New Feature for Submitting Jobs with HTCondor</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,24 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Sign In for Office Hours | CHTC</title>
+<title>Tip of the Month - New Feature for Submitting Jobs with HTCondor | CHTC</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Sign In for Office Hours" />
+<meta property="og:title" content="Tip of the Month - New Feature for Submitting Jobs with HTCondor" />
+<meta name="author" content="Facilitation Team" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="&lt;!–" />
-<meta property="og:description" content="&lt;!–" />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/sign-in" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/sign-in" />
+<meta name="description" content="There’s a new feature for submitting jobs with HTCondor. Now you can use shell = instead of using executable and arguments!" />
+<meta property="og:description" content="There’s a new feature for submitting jobs with HTCondor. Now you can use shell = instead of using executable and arguments!" />
+<link rel="canonical" href="https://htcondor.org/2025-12-09-tip-submitting-jobs-with-HTCondor.html" />
+<meta property="og:url" content="https://htcondor.org/2025-12-09-tip-submitting-jobs-with-HTCondor.html" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-12-11T16:20:00+00:00" />
+<meta property="article:published_time" content="2025-12-09T00:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Sign In for Office Hours" />
+<meta property="twitter:title" content="Tip of the Month - New Feature for Submitting Jobs with HTCondor" />
 <meta name="twitter:site" content="@chtc_uw" />
+<meta name="twitter:creator" content="@Facilitation Team" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-12-11T16:20:00+00:00","datePublished":"2025-12-11T16:20:00+00:00","description":"&lt;!–","headline":"Sign In for Office Hours","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/sign-in"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/sign-in"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Facilitation Team"},"dateModified":"2025-12-09T00:00:00+00:00","datePublished":"2025-12-09T00:00:00+00:00","description":"There’s a new feature for submitting jobs with HTCondor. Now you can use shell = instead of using executable and arguments!","headline":"Tip of the Month - New Feature for Submitting Jobs with HTCondor","mainEntityOfPage":{"@type":"WebPage","@id":"https://htcondor.org/2025-12-09-tip-submitting-jobs-with-HTCondor.html"},"url":"https://htcondor.org/2025-12-09-tip-submitting-jobs-with-HTCondor.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -55,7 +57,7 @@
 <link type="text/css" href="/assets/fonts/fonts.0.0.1.css" rel="stylesheet">
 <link type="text/css" href="/assets/css/style-v12.css" rel="stylesheet">
 
-<link type="text/css" href="/assets/css/research-style.css" rel="stylesheet">
+
 
 <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'')})(document.documentElement)</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -97,7 +99,7 @@
             <div class="row">
                 <div class="col-auto pe-0">
                     
-                    <a class="uw-global-name-link" href="/" aria-label="University home page">Go to CHTC Home</a>
+                    <a class="uw-global-name-link" href="/uw-research-computing" aria-label="UW Research Computing Homepage">Go to UW Research Computing Home</a>
                     
                 </div>
                 <div class="col-auto d-flex">
@@ -112,13 +114,8 @@
         
         
 
-
-
-        
-
-
     
-    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">UW-Research Computing<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
+    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">Menu<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
 <div id="uw-top-menus" class="uw-is-visible uw-horizontal" aria-hidden="false">
     <div class="uw-main-nav">
         <nav class="uw-nav-menu uw-nav-menu-reverse" aria-label="Main Menu">
@@ -130,8 +127,8 @@
                     
 
 
-<li id="home">
-    <a href="/uw-research-computing/index.html" aria-current="page">Home</a>
+<li id="uw-research-computing">
+    <a href="/uw-research-computing/index.html" aria-current="page">Research Computing</a>
 </li>
 
 
@@ -139,17 +136,17 @@
                     
 
 
-<li id="get-started">
-    <a href="/uw-research-computing/form.html" aria-current="page">Get Started</a>
+<li id="technologies">
+    <a href="/technologies.html" aria-current="page">Technologies</a>
 </li>
 
 
                 
                     
 
-<li id="menu-how-tos" class="uw-dropdown">
-    <a href="/uw-research-computing/how-tos.html" role="button" aria-haspopup="true" aria-expanded="false">
-        How To's
+<li id="community" class="uw-dropdown">
+    <a href="" role="button" aria-haspopup="true" aria-expanded="false">
+        Community
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -157,23 +154,19 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="How To's submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="Community submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/user-expectations.html">User Expectations</a>
+            <a href="/news.html">News</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/htc/guides.html">HTC Guides</a>
+            <a href="/events.html">Events</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/hpc/guides.html">HPC Guides</a>
-        </li>
-    
-        <li>
-            <a href="/uw-research-computing/cite-chtc.html">Cite CHTC Resources</a>
+            <a href="/presentations.html">Presentations</a>
         </li>
     
     </ul>    
@@ -182,27 +175,9 @@
                 
                     
 
-
-<li id="get-help">
-    <a href="/uw-research-computing/get-help.html" aria-current="page">Get Help</a>
-</li>
-
-
-                
-                    
-
-
-<li id="status-page">
-    <a href="https://status.chtc.wisc.edu/" aria-current="page">System Status</a>
-</li>
-
-
-                
-                    
-
-<li id="menu-other-resources" class="uw-dropdown">
-    <a href="/uw-research-computing/other-resources.html" role="button" aria-haspopup="true" aria-expanded="false">
-        Other Resources
+<li id="about" class="uw-dropdown">
+    <a href="/about.html" role="button" aria-haspopup="true" aria-expanded="false">
+        About
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -210,35 +185,31 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="Other Resources submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="About submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="https://community.chtc.wisc.edu/">CHTC Community Forum</a>
+            <a href="/approach.html">Our Approach</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/bioinformatics-cafe">Bioinformatics Cafe</a>
+            <a href="/htc.html">What is HTC?</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/gpu-lab.html">CHTC GPU Lab</a>
+            <a href="/projects.html">Our Customers</a>
         </li>
     
         <li>
-            <a href="https://htcondor.org/manual/">HTCondor Project</a>
+            <a href="/people.html">Staff</a>
         </li>
     
         <li>
-            <a href="http://www.neos-server.org/">NEOS Optimization Service</a>
+            <a href="/jobs.html">Open Positions</a>
         </li>
     
         <li>
-            <a href="http://www.osg-htc.org/">OSG Consortium</a>
-        </li>
-    
-        <li>
-            <a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a>
+            <a href="/research.html">Research</a>
         </li>
     
     </ul>    
@@ -259,23 +230,69 @@
 </div>
 
 
+
+        
+
     </div>
     <main id="main" style="min-height: 60vh;">
-        <div class="container-xxl mb-5">
+        <!-- This Layout is used for news articles. Different from character_optimized by adding author tags. -->
+
+
+<div class="container-xxl">
     <div class="row justify-content-center">
-        <div class="col mw-1000">
+        <div class="col-12 col-sm-11 col-md-9 col-lg-8">
             <h1 class="uw-mini-bar mb-4">
-    Sign In for Office Hours
-</h1>
+                Tip of the Month - New Feature for Submitting Jobs with HTCondor
+            </h1>
+            <div class="text-dark d-flex flex-row justify-content-between mb-3">
+                
+                    <h4 class="mt-0">
+                        Facilitation Team
+                    </h4>
+                
+                <h4 class="mt-0">
+                    Dec 09, 2025
+                </h4>
+            </div>
+            <p><strong>There’s a new feature for submitting jobs with HTCondor.</strong> 
+Now you can use shell = <your script=""> instead of using executable and arguments!</your></p>
 
-            <!-- 
-<meta http-equiv="refresh" content="0; URL=https://forms.gle/yGdBpLR1vCadEC8r5">
-<meta name="keywords" content="automatic redirection">
+<p>Before:</p>
 
- -->
-<div align="center">
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe58ORPB0ZDtvbimDMtVj1bnbozZ3SGRtvLRqHSzX7byG4dvA/viewform?embedded=true" width="800" height="1500" frameborder="0" marginheight="0" marginwidth="0" display="block" margin="auto">Loading…</iframe>
-</div>
+<pre><code>executable = hello-world.sh
+arguments = $(Process)
+</code></pre>
+
+<p>After:</p>
+
+<pre><code>shell = ./hello-world.sh $(Process)
+</code></pre>
+
+<p><strong>Notable differences</strong></p>
+
+<ol>
+  <li>
+    <p>You will have to add your executable (i.e., hello-world.sh to your list of files in transfer_input_files), since HTCondor can’t automatically detect your executable.</p>
+  </li>
+  <li>
+    <p>Your executable must have executable permissions. You can achieve this by running the chmod +x command, i.e., chmod +x hello-world.sh. This will prevent a “Permission denied” error.</p>
+  </li>
+  <li>
+    <p>An alternate solution to (2): Use shell = bash hello-world.sh$(Process).</p>
+  </li>
+</ol>
+
+<p><strong>Read more and try it!</strong></p>
+
+<ul>
+  <li>
+    <p>Read about the new shell option in our guides: <a href="https://chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission#use-shell-or-executablearguments-in-your-submit-file">Practice: Submit HTC Jobs using HTCondor</a></p>
+  </li>
+  <li>
+    <p>Try using shell and let us know how it goes for you! Happy computing!</p>
+  </li>
+</ul>
+
 
         </div>
     </div>
