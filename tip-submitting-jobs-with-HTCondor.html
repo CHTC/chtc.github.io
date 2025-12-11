@@ -275,10 +275,10 @@ arguments = $(Process)
     <p>You will have to add your executable (i.e., hello-world.sh to your list of files in transfer_input_files), since HTCondor can’t automatically detect your executable.</p>
   </li>
   <li>
-    <p>Your executable must have executable permissions. You can achieve this by running the chmod +x command, i.e., chmod +x hello-world.sh. This will prevent a “Permission denied” error.</p>
+    <p>Your executable must have executable permissions. You can achieve this by running the <code>chmod +x</code> command, i.e., <code>chmod +x hello-world.sh</code>. This will prevent a “Permission denied” error.</p>
   </li>
   <li>
-    <p>An alternate solution to (2): Use shell = bash hello-world.sh$(Process).</p>
+    <p>An alternate solution to (2): Use <code>shell = bash hello-world.sh $(Process)</code>.</p>
   </li>
 </ol>
 
