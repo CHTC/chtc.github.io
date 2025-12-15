@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Use Apptainer Containers</title>
+<title>Use Custom Software in Jobs Using Apptainer</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Use Apptainer Containers | CHTC</title>
+<title>Use Custom Software in Jobs Using Apptainer | CHTC</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Use Apptainer Containers" />
+<meta property="og:title" content="Use Custom Software in Jobs Using Apptainer" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Introduction" />
-<meta property="og:description" content="Introduction" />
+<meta name="description" content="Linux containers are a way to build a self-contained environment that includes software, libraries, and other tools. This guide shows how to submit jobs that use Apptainer containers." />
+<meta property="og:description" content="Linux containers are a way to build a self-contained environment that includes software, libraries, and other tools. This guide shows how to submit jobs that use Apptainer containers." />
 <link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc" />
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-12-15T17:18:57+00:00" />
+<meta property="article:published_time" content="2025-12-15T17:34:17+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Use Apptainer Containers" />
+<meta property="twitter:title" content="Use Custom Software in Jobs Using Apptainer" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-12-15T17:18:57+00:00","datePublished":"2025-12-15T17:18:57+00:00","description":"Introduction","headline":"Use Apptainer Containers","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-12-15T17:34:17+00:00","datePublished":"2025-12-15T17:34:17+00:00","description":"Linux containers are a way to build a self-contained environment that includes software, libraries, and other tools. This guide shows how to submit jobs that use Apptainer containers.","headline":"Use Custom Software in Jobs Using Apptainer","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -266,15 +266,16 @@
         <div class="col-12 col-lg-9 mw-1000">
 
             <h1 class="uw-mini-bar mb-4">
-    Use Apptainer Containers
+    Use Custom Software in Jobs Using Apptainer
 </h1>
 
-            <h2 id="introduction">Introduction</h2>
+            <p>Linux containers are a way to build a self-contained environment that
+includes software, libraries, and other tools. This guide shows how to
+submit jobs that use Apptainer containers.</p>
 
-<p>HTCondor supports the use of Apptainer (formerly known as Singularity) environments for jobs on the High Throughput Computing system.</p>
+<h2 id="introduction">Introduction</h2>
 
-<p>Similar to Docker containers, Apptainer environments allow users to prepare portable software and computing environments that can be sent to many jobs. 
-This means your jobs will run in a more consistent environment that is easily reproducible by others.</p>
+<p>HTCondor supports the use of Apptainer (formerly known as Singularity) container environments for jobs on the High Throughput Computing system.</p>
 
 <p>Container jobs are able to take advantage of more of CHTC’s High Throughput resources because the operating system where the job is running does not need to match the operating system where the container was built.</p>
 
@@ -285,39 +286,47 @@ This means your jobs will run in a more consistent environment that is easily re
 <div class="uw-sidebar-box me-auto">
 <div class="uw-directory">
 
-      <p><a href="#quickstart">Quickstart</a></p>
-
       <ul>
-        <li><a href="#use-an-existing-container">Use an existing container</a></li>
-        <li><a href="#build-your-own-container">Build your own container</a></li>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#start-here">Start Here</a></li>
+        <li><a href="#use-an-apptainer-container-in-htc-jobs">Use an Apptainer Container in HTC Jobs</a></li>
+        <li><a href="#build-your-own-apptainer-container">Build your own apptainer container</a>
+          <ul>
+            <li><a href="#create-a-definition-file">Create a Definition File</a></li>
+            <li><a href="#start-an-interactive-build-job">Start an Interactive Build Job</a></li>
+            <li><a href="#build-your-container">Build Your Container</a></li>
+            <li><a href="#test-your-container">Test Your Container</a></li>
+            <li><a href="#move-the-container-sif-file-to-staging">Move the Container .sif File to Staging</a></li>
+          </ul>
+        </li>
+        <li><a href="#suggestions-for-testing">Suggestions for testing</a></li>
+        <li><a href="#more-details-about-htcondor-and-apptainer">More details about HTCondor and Apptainer</a></li>
+        <li><a href="#related-pages">Related pages</a></li>
       </ul>
-
-      <p><a href="#create-a-definition-file">Create a Definition File</a></p>
-
-      <p><a href="#start-an-interactive-build-job">Start an Interactive Build Job</a></p>
-
-      <p><a href="#build-your-container">Build Your Container</a></p>
-
-      <p><a href="#test-your-container">Test Your Container</a></p>
-
-      <p><a href="#move-the-container-sif-file-to-staging">Move the Container .sif File to Staging</a></p>
-
-      <p><a href="#use-an-apptainer-container-in-htc-jobs">Use an Apptainer Container in HTC Jobs</a></p>
 
     </div>
 </div>
 </div>
 
-<h2 id="quickstart-">Quickstart <a name="quickstart"></a></h2>
+<h2 id="start-here">Start Here</h2>
 
-<h3 id="use-an-existing-container">Use an existing container</h3>
+<p>To run a job using an Apptainer container, you will need access to an Apptainer 
+image file, usually with the suffix <code>.sif</code>.</p>
 
-<p>If you or a group member have already created the Apptainer <code>.sif</code> file, or are using a container from reputable sources such as the <a href="https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/">OSG</a>, follow these steps to use it in an HTCondor job.</p>
+<p><strong>If you have an existing <code>.sif</code> file</strong>, go straight to <a href="#use-an-apptainer-container-in-htc-jobs">Use an Apptainer Container in HTC Jobs</a>.</p>
 
-<h4 id="1-add-the-container-sif-file-to-your-submit-file-">1. Add the container <code>.sif</code> file to your submit file <a name="quickstart-use-submit"></a></h4>
+<p><strong>If you do not have an existing <code>.sif</code> container</strong>, you can create one in two ways:</p>
+<ul>
+  <li><em>If you have no container to start from:</em> <a href="#build-your-own-apptainer-container">Build your own Apptainer container</a></li>
+  <li><em>If you have an existing Docker container image</em>: <a href="htc-docker-to-apptainer.html">Convert Docker Images to Apptainer Images</a></li>
+</ul>
 
-<p>If the <code>.sif</code> file is <strong>in a <code>/home</code> directory</strong>:</p>
+<p>Once you have created the <code>.sif</code> file by using one of the above methods
+ready, circle back to <a href="#use-an-apptainer-container-in-htc-jobs">Use an Apptainer Container in HTC Jobs</a>.</p>
 
+<p>«««&lt; HEAD
+For more details about using Apptainer, see <a href="#suggestions-for-testing">Suggestions for testing</a> and <a href="#more-details-about-htcondor-and-apptainer">More details about HTCondor and Apptainer</a>. 
+=======</p>
 <pre><code>container_image = path/to/my-container.sif
 </code></pre>
 
@@ -574,30 +583,46 @@ We encourage you to request a <code>/staging</code> directory, especially if you
 See our <a href="file-avail-largedata.html">Managing Large Data in Jobs</a> guide for more information on using staging.</p>
 
 <p><a href="#quickstart-build-move">Jump back to Quickstart</a></p>
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <blockquote>
+          <blockquote>
+            <blockquote>
+              <p>master</p>
+            </blockquote>
+          </blockquote>
+        </blockquote>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
 
 <h2 id="use-an-apptainer-container-in-htc-jobs">Use an Apptainer Container in HTC Jobs</h2>
 
-<p>Now that you have the container image saved in the form of the <code>.sif</code> file, you can use it as the environment for running your HTCondor jobs.
-In your submit file, specify the image file using the <code>container_image</code> command.
-HTCondor will automatically transfer the <code>.sif</code> file and automatically execute your <code>executable</code> file inside of the container; you do not need to include any <code>apptainer</code> commands in your <code>executable</code> file.</p>
+<p>If you or a group member have already created the Apptainer <code>.sif</code> file, or are using a container from reputable sources such as the <a href="https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/">OSG</a>, add one of these options to your HTCondor submit file 
+to add it to your HTC job:</p>
 
-<p>If the <code>.sif</code> file is located on the login server, you can use</p>
+<ul>
+  <li>
+    <p><strong>Option 1: If the <code>.sif</code> file is in a <code>/home</code> directory</strong>:</p>
 
-<pre><code>container_image = my-container.sif
+    <pre><code>  container_image = path/to/my-container.sif
 </code></pre>
+  </li>
+  <li>
+    <p><strong>Option 2 (Recommended): If the <code>.sif</code> file is in a <code>/staging</code> directory</strong>:</p>
 
-<p>although we generally don’t recommend this, since <code>.sif</code> files are large and should instead be located in <a href="file-avail-largedata.html">staging</a>.</p>
-
-<p>Therefore, we recommend using</p>
-
-<pre><code>container_image = osdf:///chtc/staging/path/to/my-container.sif
+    <pre><code>  container_image = osdf:///chtc/staging/path/to/my-container.sif
 </code></pre>
+  </li>
+</ul>
 
 <p>The full submit file otherwise looks like normal, for example:</p>
 
 <pre><code># apptainer.sub
-
-# Provide HTCondor with the name of your .sif file and universe information
+# Provide HTCondor with the name of your .sif file and
 container_image = osdf:///chtc/staging/path/to/my-container.sif
 
 executable = myExecutable.sh
@@ -619,46 +644,270 @@ request_disk = 10GB
 queue
 </code></pre>
 
-<p>Then use <code>condor_submit</code> with the name of your submit file:</p>
+<p>More details about how HTCondor integrates with Apptainer are in <a href="#more-details-about-htcondor-and-apptainer">More details about HTCondor and Apptainer</a>.</p>
 
-<pre class="term"><code>condor_submit apptainer.sub
+<h2 id="build-your-own-apptainer-container">Build your own Apptainer container</h2>
+
+<p>If you need to build your own Apptainer container (<code>.sif</code> file), the
+process looks like this:</p>
+
+<!-- TBD: graphic -->
+
+<ol>
+  <li><strong>Create a definition file.</strong> The definition file describes a starting software environment in the first two lines and then what to add to it.</li>
+  <li><strong>Start an interactive job for building.</strong> We require that you build containers while in an interactive build job.</li>
+  <li><strong>Build the container.</strong> To build a container, Apptainer uses the instructions in the <code>.def</code> file to create a <code>.sif</code> file. The <code>.sif</code> file is the compressed collection of all the files that comprise the container.</li>
+  <li><strong>(Optional): Test the container.</strong> Once the image (<code>.sif</code> file) is created, it is important to test it to make sure you have all software, packages, and libraries installed correctly.</li>
+  <li><strong>Move the container to a persistent location.</strong> We recommend placing the image file into your <code>/staging</code> folder.</li>
+</ol>
+
+<h3 id="create-a-definition-file-1">Create a definition file</h3>
+
+<p>To create your own container using Apptainer, you will need to create a definition (<code>.def</code>) file. CHTC provides example definition files in the <code>software</code> folder of our <a href="https://github.com/CHTC/recipes/tree/main/software">Recipes GitHub repository</a>.</p>
+
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="https://github.com/CHTC/recipes">CHTC Software Build Recipes</a>
+	</div>
+</div>
+
+<p>We strongly recommend that you use one of the existing examples as the starting point for creating your own container.</p>
+
+<p>For the purposes of this guide, we will call 
+the definition file <code>image.def</code>.</p>
+
+<blockquote class="tip-header">
+  <h3 id="-learn-more-about-definition-files">📖 Learn More About Definition Files</h3>
+</blockquote>
+
+<blockquote class="tip">
+  <p>For more details about the definition file see: 
+<a href="apptainer-build.html#the-apptainer-definition-file">The Apptainer Definition File</a></p>
+</blockquote>
+
+<h3 id="start-an-interactive-build-job-1">Start an interactive build job</h3>
+
+<p>Building a container can be a computationally intense process, so 
+we require that you build containers while in an interactive build job.</p>
+
+<!-- On the High Throughput system, you can run the following commands to start an 
+interactive job that includes your definition file: 
+
+```
+chtc-submit-apptainer-build -build image.def
+condor_submit -i apptainer-build.sub
+```
+{:.term} -->
+
+<p>Create a file that looks like this (called <code>apptainer-build.sub</code> below):</p>
+
+<pre><code>log = $(job_name).log
+
+transfer_input_files = image.def
+
++IsBuildJob = True
+
+request_cpus = 8
+request_memory = 16GB
+request_disk = 30GB
+
+queue
 </code></pre>
 
-<p><a href="#quickstart-use-submit">Jump back to Quickstart</a></p>
+<p>Note that this submit file assumes you have a definition file named <code>image.def</code> in the same directory as the submit file.</p>
 
-<blockquote>
-  <p>From the user’s perspective, a container job is practically identical to a regular job.
+<p>To start the interactive job, run:</p>
+<pre class="term"><code>condor_submit -i apptainer-build.sub
+</code></pre>
+
+<h3 id="build-your-container-1">Build your container</h3>
+
+<p>Once the interactive build job starts, confirm that your <code>image.def</code> was transferred to the current directory, by running the <code>ls</code> command.</p>
+
+<p>To build your container, run this command:</p>
+
+<pre class="term"><code>apptainer build my-container.sif image.def
+</code></pre>
+
+<p>«««&lt; HEAD
+Feel free to rename the <code>.sif</code> file as you desire; for the purposes of this guide we are using <code>my-container.sif</code>.</p>
+
+<p>As the command runs, a variety of information will be printed to the terminal regarding the container build process.
+Unless something goes wrong, this information can be safely ignored.
+Once the command has finished running, you should see <code>INFO:    Build complete: my-container.sif</code>.
+Using the <code>ls</code> command, you should now see the container file <code>my-container.sif</code>.</p>
+
+<pre class="term"><code>ls
+</code></pre>
+
+<blockquote class="tip-header">
+  <h3 id="troubleshooting-tip-killed-jobs">Troubleshooting Tip: Killed Jobs</h3>
+</blockquote>
+<blockquote class="tip">
+
+  <p>Your interactive job may fail abruptly during the build step.
+The most common reason is that your interactive job ran out of disk space. 
+<strong>Try increasing the value of <code>request_disk</code> in the submit file.</strong></p>
+
+  <p>You can see the exact reason the job was interrupted by running <code>condor_q -hold</code> or by looking in the <code>.log</code>.</p>
+</blockquote>
+
+<blockquote class="tip-header">
+  <h3 id="troubleshooting-tip-error-messages">Troubleshooting Tip: Error Messages</h3>
+</blockquote>
+<blockquote class="tip">
+
+  <p>If the build command fails, examine the output for error messages that may explain why the build was unsuccessful.
+Common errors include:</p>
+  <ul>
+    <li>Typos</li>
+    <li>Missing dependencies
+Search the internet for the error message as a starting point for troubleshooting software installation. You can also <a href="get-help">reach out</a> to us for help.</li>
+  </ul>
+</blockquote>
+
+<p>For more information on building Apptainer containers, see our <a href="apptainer-build.html">Building an Apptainer Container</a> guide.</p>
+
+<h3 id="test-your-container-1">Test your container</h3>
+
+<p>Once your container builds successfully, we highly encourage you to immediately test the container while still in the interactive build session.</p>
+
+<p>To test your container, use the command</p>
+
+<pre class="term"><code>apptainer shell -e my-container.sif
+</code></pre>
+
+<p>You should see your command prompt change to <code>Apptainer&gt;</code>.</p>
+
+<p>When you are finished running commands inside the container, run the command <code>exit</code> to exit the container.</p>
+
+<pre class="term"><code>exit
+</code></pre>
+
+<p>Your prompt should change back to something like <code>[username@build4000 ~]$</code>.</p>
+
+<p>For more details about testing, see <a href="#suggestions-for-testing">Suggestions for testing</a>.</p>
+
+<h3 id="move-the-container-sif-file-to-staging-1">Move the container .sif file to staging</h3>
+
+<p>Since Apptainer <code>.sif</code> files are routinely more than 1GB in size, we recommend that you transfer <code>my-container.sif</code> to your <code>/staging</code> directory.
+It is usually easiest to move the container file directly to staging while still in the interactive build job:</p>
+
+<pre class="term"><code>mv my-container.sif /staging/$USER
+</code></pre>
+
+<p>If you do not have a <code>/staging</code> directory, you can skip this step and the <code>.sif</code> file will be automatically transferred back to the login server when you exit the interactive job.</p>
+
+<p>We encourage you to request a <code>/staging</code> directory, especially if you plan on running many jobs using this container.
+See our <a href="file-avail-largedata.html">Managing Large Data in Jobs</a> guide for more information on using staging.</p>
+
+<p>At this point, you can use the container in jobs, as described <a href="#use-an-apptainer-container-in-htc-jobs">above</a>.</p>
+
+<h2 id="suggestions-for-testing">Suggestions for testing</h2>
+
+<p>As always with the High Throughput system, we recommend submitting a single test 
+job and confirming that your job behaves as expected.
+If there are issues with the job, you may need to modify your executable, or even (re)build your own container.</p>
+
+<p>In an interactive job, run:</p>
+<pre class="term"><code>apptainer shell -e my-container.sif
+</code></pre>
+
+<p>The <code>shell</code> command logs you into a terminal “inside” the container, with access to the libraries, packages, and programs that were installed in the container following the instructions in your <code>image.def</code> file.
+(The <code>-e</code> option is used to prevent this terminal from trying to use the host system’s programs.)</p>
+
+<p>While “inside” the container, try to run your program(s) that you installed in the container. 
+Typically it is easiest to try to print your program’s “help” text, e.g., <code>my-program --help</code>. 
+If using a programming language such as <code>python3</code> or <code>R</code>, try to start an interactive code session and load the packages that you installed.</p>
+
+<p>If you installed your program in a custom location, consider using <code>ls</code> to verify the files are in the right location. 
+You may need to manually set the <code>PATH</code> environment variable to point to the location of your program’s executable binaries.
+For example,</p>
+
+<pre class="term"><code>export PATH=/opt/my-program/bin:$PATH
+</code></pre>
+
+<p>Consult the “Special Considerations” section of our <a href="apptainer-build.html#special-considerations-for-building-your-container">Building an Apptainer Container</a> guide for additional information on setting up and testing your container.</p>
+
+<p>Also see the section <a href="#more-details-about-htcondor-and-apptainer">below</a> for how to fully emulate the behavior of an 
+HTCondor job interactively.</p>
+
+<h2 id="more-details-about-htcondor-and-apptainer">More details about HTCondor and Apptainer</h2>
+
+<p>From the user’s perspective, a container job is practically identical to a regular job.
 The main difference is that instead of running on the execute point’s default operation system, the job is run inside the container.</p>
 
-  <p>When you submit a job to HTCondor using a submit file with <code>container_image</code> set, HTCondor automatically handles the process of obtaining and running the container.
-The process looks roughly like</p>
+<p>When you submit a job to HTCondor using a submit file with <code>container_image</code> set, HTCondor automatically handles the process of obtaining and running the container. You do not need to include any <code>apptainer</code> commands in your <code>executable</code> file. The process looks roughly like</p>
 
-  <ul>
-    <li>Claim machine that satisifies submit file requirements</li>
-    <li>Pull (or transfer) the container image</li>
-    <li>Transfer input files, executable to working directory</li>
-    <li>Run the executable script inside the container, as the submit user, with key directories mounted inside (such as the working directory, /staging directories, etc.)</li>
-    <li>Transfer output files back to the submit server</li>
-  </ul>
+<ul>
+  <li>Claim machine that satisifies submit file requirements</li>
+  <li>Pull (or transfer) the container image</li>
+  <li>Transfer input files, executable to working directory</li>
+  <li>Run the executable script inside the container, as the submit user, with key directories mounted inside (such as the working directory, /staging directories, etc.)</li>
+  <li>Transfer output files back to the submit server</li>
+</ul>
 
-  <p>For testing purposes, you can replicate the behavior of a container job with the following command.
+<p>For testing purposes, you can replicate the behavior of a container job with the following command.
 First, start an interactive job.
 Then run this command but change <code>my-container.sif</code> and <code>myExecutable.sh</code> to the names of the <code>.sif</code> and <code>.sh</code> files that you are using:</p>
 
-  <pre class="term"><code>apptainer exec \
-        --scratch /tmp \
-        --scratch /var/tmp \
-        --workdir $(pwd) \
-        --pwd $(pwd) \
-        --bind $(pwd) \
-        --no-home \
-        --containall \
-        my-container.sif \
-        /bin/bash myExecutable.sh 1&gt; job.out 2&gt; job.err
+<pre class="term"><code>apptainer exec \
+         --scratch /tmp \
+         --scratch /var/tmp \
+         --workdir $(pwd) \
+         --pwd $(pwd) \
+         --bind $(pwd) \
+         --no-home \
+         --containall \
+         my-container.sif \
+         /bin/bash myExecutable.sh 1&gt; job.out 2&gt; job.err
 </code></pre>
 
+<p>The container image can be placed in multiple locations in CHTC and still used in the job. 
+If the <code>.sif</code> file is located on the login server, you can use</p>
+
+<pre><code>container_image = my-container.sif
+</code></pre>
+
+<p>although we generally don’t recommend this, since <code>.sif</code> files are large and should instead be located in <a href="file-avail-largedata.html">staging</a>.</p>
+
+<p>Therefore, we recommend using</p>
+
+<pre><code>container_image = file:///staging/path/to/my-container.sif
+</code></pre>
+
+<p>If you are using <code>want_campus_pools</code> or <code>want_ospool</code> as described in our <a href="scale-htc.html">Scale Beyond Local HTC Capacity</a> guide, then you should instead use:</p>
+
+<pre><code>container_image = osdf:///chtc/staging/path/to/my-container.sif
+</code></pre>
+
+<h1 id="to-enable-transferring-of-the-sif-file-via-the-osdf-to-compute-capacity-beyond-chtc">to enable transferring of the <code>.sif</code> file via the <a href="https://osg-htc.org/services/osdf.html">OSDF</a> to compute capacity beyond CHTC.</h1>
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <blockquote>
+          <blockquote>
+            <blockquote>
+              <p>master</p>
+            </blockquote>
+          </blockquote>
+        </blockquote>
+      </blockquote>
+    </blockquote>
+  </blockquote>
 </blockquote>
 
+<h2 id="related-pages">Related Pages</h2>
+
+<ul>
+  <li><a href="apptainer-build">Building an Apptainer Container</a></li>
+  <li><a href="htc-docker-to-apptainer.html">Convert Docker Images to Apptainer Images</a></li>
+  <li><a href="apptainer-htc-advanced-example">Advanced Apptainer Example - SUMO</a></li>
+  <li><a href="apptainer-hpc.html">Using Apptainer Containers on HPC</a></li>
+  <li><a href="docker-jobs">Running HTC Jobs Using Docker Containers</a></li>
+  <li><a href="software-overview-htc">Overview: How to Use Software</a></li>
+</ul>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -899,12 +1148,6 @@ Then run this command but change <code>my-container.sif</code> and <code>myExecu
 
                             
                                 
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/software-overview-htc#quickstart#main">Quickstart</a>
-    </div>
-
-                            
-                                
     <div class="document-link-wrapper" style="background-color: #d3d3d3;">
     <span style="font-size: .8rem;">
       <i class="bi bi-folder me-2"></i>
@@ -915,10 +1158,17 @@ Then run this command but change <code>my-container.sif</code> and <code>myExecu
         
             
             
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/software-overview-htc#container-overview#main">What are containers?</a>
+    </div>
+
+        
+            
+            
     <div class="document-link-wrapper" style="background-color: #d3d3d3;">
     <span style="font-size: .8rem;">
       <i class="bi bi-folder me-2"></i>
-      Build a software environment with containers 
+      Using software in Apptainer containers
     </span>
     </div>
     <div class="list-group ps-4 border-start bg-light">
@@ -926,21 +1176,58 @@ Then run this command but change <code>my-container.sif</code> and <code>myExecu
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/software-overview-htc#containers#main">What are containers?</a>
+        <a class="fw-bolder" href="/uw-research-computing/apptainer-htc#main">Use Apptainer containers</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/apptainer-build#main">Apptainer/Singularity</a>
+        <a class="" href="/uw-research-computing/apptainer-build#main">More about Apptainer containers</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/docker-build#main">Docker</a>
+        <a class="" href="/uw-research-computing/htc-docker-to-apptainer#main">Convert Docker images to Apptainer/Singularity images</a>
+    </div>
+
+        
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Using software in Docker containers
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/docker-jobs#main">Use Docker containers</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/docker-build#main">More about Docker containers</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/docker-test#main">Reference: Explore and test Docker containers</a>
+    </div>
+
+        
     </div>
 
         
@@ -953,52 +1240,37 @@ Then run this command but change <code>my-container.sif</code> and <code>myExecu
         
     </div>
 
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-docker-to-apptainer#main">Convert Docker images to Apptainer/Singularity images</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="fw-bolder" href="/uw-research-computing/apptainer-htc#main">Use Apptainer containers</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/docker-jobs#main">Use Docker containers</a>
-    </div>
-
-        
-    </div>
-
                             
                                 
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Other Modes of Software Use
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
     <div class="document-link-wrapper bg-light">
         <a class="" href="/uw-research-computing/inter-submit#main">Compile software in an interactive job</a>
     </div>
 
-                            
-                                
+        
+            
+            
     <div class="document-link-wrapper bg-light">
         <a class="" href="/uw-research-computing/licensed-software#main">Licensed software and modules</a>
     </div>
 
-                            
-                                
+        
+            
+            
     <div class="document-link-wrapper bg-light">
         <a class="" href="/uw-research-computing/htc-modules#main">Use software available in modules</a>
     </div>
 
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-modules-transition-to-el9#main">HTC modules transition to EL9</a>
+        
     </div>
 
                             

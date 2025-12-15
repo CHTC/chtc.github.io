@@ -26,18 +26,18 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Create a Portable Python Installation with Miniconda" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Quickstart: Conda Option A (recommended) Build a container with Conda packages installed inside: How to build your own container Example container recipes for Conda Use your container in your HTC jobs Option B Create your own portable copy of your Conda packages: Follow the instructions in our guide This approach may be sensitive to the operating system of the execution point. We recommend building a container instead, but are keeping these instructions as a backup." />
-<meta property="og:description" content="Quickstart: Conda Option A (recommended) Build a container with Conda packages installed inside: How to build your own container Example container recipes for Conda Use your container in your HTC jobs Option B Create your own portable copy of your Conda packages: Follow the instructions in our guide This approach may be sensitive to the operating system of the execution point. We recommend building a container instead, but are keeping these instructions as a backup." />
+<meta name="description" content="Quickstart: Conda Option A - Container (recommended) Build a container with Conda packages installed inside. Start by reviewing the container build instructions for either Apptainer or Docker. Then, when following the build instructions, use the example recipes for either a .def or Dockerfile, respectively. How to build your own container: Apptainer / Docker Tips and tricks, container recipes: Example container recipes for Conda Use your container in your HTC jobs: Apptainer / Docker Option B - “Packed” Conda Env Create your own portable copy of your Conda packages: This approach is sensitive to the operating system of the execution point. We recommend building a container instead, but are keeping these instructions as a backup." />
+<meta property="og:description" content="Quickstart: Conda Option A - Container (recommended) Build a container with Conda packages installed inside. Start by reviewing the container build instructions for either Apptainer or Docker. Then, when following the build instructions, use the example recipes for either a .def or Dockerfile, respectively. How to build your own container: Apptainer / Docker Tips and tricks, container recipes: Example container recipes for Conda Use your container in your HTC jobs: Apptainer / Docker Option B - “Packed” Conda Env Create your own portable copy of your Conda packages: This approach is sensitive to the operating system of the execution point. We recommend building a container instead, but are keeping these instructions as a backup." />
 <link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/conda-installation" />
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/conda-installation" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-12-15T17:18:57+00:00" />
+<meta property="article:published_time" content="2025-12-15T17:34:17+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Create a Portable Python Installation with Miniconda" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-12-15T17:18:57+00:00","datePublished":"2025-12-15T17:18:57+00:00","description":"Quickstart: Conda Option A (recommended) Build a container with Conda packages installed inside: How to build your own container Example container recipes for Conda Use your container in your HTC jobs Option B Create your own portable copy of your Conda packages: Follow the instructions in our guide This approach may be sensitive to the operating system of the execution point. We recommend building a container instead, but are keeping these instructions as a backup.","headline":"Create a Portable Python Installation with Miniconda","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/conda-installation"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/conda-installation"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-12-15T17:34:17+00:00","datePublished":"2025-12-15T17:34:17+00:00","description":"Quickstart: Conda Option A - Container (recommended) Build a container with Conda packages installed inside. Start by reviewing the container build instructions for either Apptainer or Docker. Then, when following the build instructions, use the example recipes for either a .def or Dockerfile, respectively. How to build your own container: Apptainer / Docker Tips and tricks, container recipes: Example container recipes for Conda Use your container in your HTC jobs: Apptainer / Docker Option B - “Packed” Conda Env Create your own portable copy of your Conda packages: This approach is sensitive to the operating system of the execution point. We recommend building a container instead, but are keeping these instructions as a backup.","headline":"Create a Portable Python Installation with Miniconda","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/conda-installation"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/conda-installation"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -271,41 +271,44 @@
 
             <h2 id="quickstart-conda">Quickstart: Conda</h2>
 
-<h3 id="option-a-recommended">Option A (recommended)</h3>
+<h3 id="option-a---container-recommended">Option A - Container (recommended)</h3>
 
-<p>Build a container with Conda packages installed inside:</p>
+<p>Build a container with Conda packages installed inside. Start by reviewing 
+the container build instructions for either Apptainer or Docker. Then, when 
+following the build instructions, use the example recipes for either a 
+<code>.def</code> or <code>Dockerfile</code>, respectively.</p>
 
 <ol>
-  <li><a href="software-overview-htc.html#build-your-own-container">How to build your own container</a></li>
-  <li><a href="https://github.com/CHTC/recipes/tree/main/software/Conda">Example container recipes for Conda</a></li>
-  <li><a href="software-overview-htc.html#use-an-existing-container">Use your container in your HTC jobs</a></li>
+  <li>How to build your own container: <a href="apptainer-htc#use-an-apptainer-container-in-htc-jobs">Apptainer</a> / <a href="docker-build">Docker</a></li>
+  <li>Tips and tricks, container recipes: <a href="https://github.com/CHTC/recipes/tree/main/software/Conda">Example container recipes for Conda</a></li>
+  <li>Use your container in your HTC jobs: <a href="software-overview-htc.html#use-an-existing-container">Apptainer</a> / <a href="docker-jobs.html#use-a-docker-container-in-a-job">Docker</a></li>
 </ol>
 
-<h3 id="option-b">Option B</h3>
+<!-- replace this eventually with conda walkthrough -->
+
+<h3 id="option-b---packed-conda-env">Option B - “Packed” Conda Env</h3>
 
 <p>Create your own portable copy of your Conda packages:</p>
 
-<ol>
-  <li>Follow the instructions in <a href="conda-installation.html#option-b-create-your-own-portable-copy">our guide</a></li>
-</ol>
-
 <blockquote>
-  <p>This approach may be sensitive to the operating system of the execution point. 
+  <p>This approach is sensitive to the operating system of the execution point. 
 We recommend building a container instead, but are keeping these instructions as a backup.</p>
 </blockquote>
 
 <!--more-->
 
-<h2 id="more-information">More information</h2>
+<!--
+## More information
 
-<p>The above instructions are intended for if you have package(s) that need to be installed using <code>conda install</code>. 
+The above instructions are intended for if you have package(s) that need to be installed using `conda install`. 
 Miniconda can be used to install Python and R and corresponding packages. 
-But if you only need to install Python or R, and do not otherwise need to use a <code>conda install</code> command to set up the packages, 
-you should see the instructions specifically for setting up <a href="software-overview-htc.html#quickstart">Python or R</a> because there is less chance of obscure errors when building your container.</p>
+But if you only need to install Python or R, and do not otherwise need to use a `conda install` command to set up the packages, 
+you should see the instructions specifically for setting up [Python or R](software-overview-htc.html#quickstart) because there is less chance of obscure errors when building your container.
 
-<p>When building or using a Miniconda container, you do not need to create or activate a conda environment.
-For the build process, you skip directly to the <code>conda install</code> commands you want to run.
-Similarly, when executing a script in a Miniconda container, the packages are loaded when the container starts.</p>
+When building or using a Miniconda container, you do not need to create or activate a conda environment.
+For the build process, you skip directly to the `conda install` commands you want to run.
+Similarly, when executing a script in a Miniconda container, the packages are loaded when the container starts.
+-->
 
 <h3 id="executable">Executable</h3>
 
@@ -911,12 +914,6 @@ transfer_input_files = Miniconda3-latest-Linux-x86_64.sh, script.py, other_input
 
                             
                                 
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/software-overview-htc#quickstart#main">Quickstart</a>
-    </div>
-
-                            
-                                
     <div class="document-link-wrapper" style="background-color: #d3d3d3;">
     <span style="font-size: .8rem;">
       <i class="bi bi-folder me-2"></i>
@@ -927,10 +924,17 @@ transfer_input_files = Miniconda3-latest-Linux-x86_64.sh, script.py, other_input
         
             
             
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/software-overview-htc#container-overview#main">What are containers?</a>
+    </div>
+
+        
+            
+            
     <div class="document-link-wrapper" style="background-color: #d3d3d3;">
     <span style="font-size: .8rem;">
       <i class="bi bi-folder me-2"></i>
-      Build a software environment with containers 
+      Using software in Apptainer containers
     </span>
     </div>
     <div class="list-group ps-4 border-start bg-light">
@@ -938,21 +942,58 @@ transfer_input_files = Miniconda3-latest-Linux-x86_64.sh, script.py, other_input
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/software-overview-htc#containers#main">What are containers?</a>
+        <a class="" href="/uw-research-computing/apptainer-htc#main">Use Apptainer containers</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/apptainer-build#main">Apptainer/Singularity</a>
+        <a class="" href="/uw-research-computing/apptainer-build#main">More about Apptainer containers</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/docker-build#main">Docker</a>
+        <a class="" href="/uw-research-computing/htc-docker-to-apptainer#main">Convert Docker images to Apptainer/Singularity images</a>
+    </div>
+
+        
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Using software in Docker containers
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/docker-jobs#main">Use Docker containers</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/docker-build#main">More about Docker containers</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/docker-test#main">Reference: Explore and test Docker containers</a>
+    </div>
+
+        
     </div>
 
         
@@ -965,52 +1006,37 @@ transfer_input_files = Miniconda3-latest-Linux-x86_64.sh, script.py, other_input
         
     </div>
 
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-docker-to-apptainer#main">Convert Docker images to Apptainer/Singularity images</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/apptainer-htc#main">Use Apptainer containers</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/docker-jobs#main">Use Docker containers</a>
-    </div>
-
-        
-    </div>
-
                             
                                 
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Other Modes of Software Use
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
     <div class="document-link-wrapper bg-light">
         <a class="" href="/uw-research-computing/inter-submit#main">Compile software in an interactive job</a>
     </div>
 
-                            
-                                
+        
+            
+            
     <div class="document-link-wrapper bg-light">
         <a class="" href="/uw-research-computing/licensed-software#main">Licensed software and modules</a>
     </div>
 
-                            
-                                
+        
+            
+            
     <div class="document-link-wrapper bg-light">
         <a class="" href="/uw-research-computing/htc-modules#main">Use software available in modules</a>
     </div>
 
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-modules-transition-to-el9#main">HTC modules transition to EL9</a>
+        
     </div>
 
                             

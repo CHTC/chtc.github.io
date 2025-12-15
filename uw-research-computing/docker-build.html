@@ -26,18 +26,18 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Build a Docker Container Image" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Linux containers are a way to build a self-contained environment that includes software, libraries, and other tools. CHTC currently supports running jobs inside Docker containers. This guide describes how to build a Docker image that you can use for running jobs in CHTC. For information on using this image for jobs, see our Docker Jobs guide." />
-<meta property="og:description" content="Linux containers are a way to build a self-contained environment that includes software, libraries, and other tools. CHTC currently supports running jobs inside Docker containers. This guide describes how to build a Docker image that you can use for running jobs in CHTC. For information on using this image for jobs, see our Docker Jobs guide." />
+<meta name="description" content="This guide describes how to build a Docker image that you can use for running jobs in CHTC or sharing a common software environment with collaborators. For information on using a Docker container image in jobs, see our Docker Jobs guide." />
+<meta property="og:description" content="This guide describes how to build a Docker image that you can use for running jobs in CHTC or sharing a common software environment with collaborators. For information on using a Docker container image in jobs, see our Docker Jobs guide." />
 <link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/docker-build" />
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/docker-build" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-12-15T17:18:57+00:00" />
+<meta property="article:published_time" content="2025-12-15T17:34:17+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Build a Docker Container Image" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-12-15T17:18:57+00:00","datePublished":"2025-12-15T17:18:57+00:00","description":"Linux containers are a way to build a self-contained environment that includes software, libraries, and other tools. CHTC currently supports running jobs inside Docker containers. This guide describes how to build a Docker image that you can use for running jobs in CHTC. For information on using this image for jobs, see our Docker Jobs guide.","headline":"Build a Docker Container Image","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/docker-build"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/docker-build"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-12-15T17:34:17+00:00","datePublished":"2025-12-15T17:34:17+00:00","description":"This guide describes how to build a Docker image that you can use for running jobs in CHTC or sharing a common software environment with collaborators. For information on using a Docker container image in jobs, see our Docker Jobs guide.","headline":"Build a Docker Container Image","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/docker-build"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/docker-build"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -269,14 +269,30 @@
     Build a Docker Container Image
 </h1>
 
-            <p>Linux containers are a way to build a self-contained environment that
-includes software, libraries, and other tools. CHTC currently supports
-running jobs inside <a href="https://www.docker.com/what-docker">Docker</a>
-containers. This guide describes how to build a Docker image
-that you can use for running jobs in CHTC. For information on using 
-this image for jobs, see our <a href="docker-jobs.html">Docker Jobs guide</a>.</p>
+            <p>This guide describes how to build a Docker image
+that you can use for running jobs in CHTC or sharing a common 
+software environment with collaborators. For information on using 
+a Docker container image in jobs, see our <a href="docker-jobs.html">Docker Jobs guide</a>.</p>
 
-<h1 id="overview">Overview</h1>
+<div class="d-flex flex-column mb-5">
+
+<h2>Table of Contents</h2>
+
+<div class="uw-sidebar-box me-auto">
+<div class="uw-directory">
+
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#step-by-step-build-instructions">Step by Step Build Instructions</a></li>
+        <li><a href="$examples">Examples</a></li>
+        <li><a href="#related-pages">Related pages</a></li>
+      </ul>
+
+    </div>
+</div>
+</div>
+
+<h2 id="overview">Overview</h2>
 
 <p><strong>Note that all the steps below should be run on your own computer, not
 in CHTC.</strong></p>
@@ -293,20 +309,13 @@ called a “Dockerfile”. This file has commands that allow you to:</p>
 
 <p>You can then “build” an image from this
 file, test it locally, and push it to DockerHub, where
-<a href="https://htcondor.org">HTCondor</a> can then use the image to build containers to run jobs in. 
+<a href="https://htcondor.org">HTCondor</a> can then use the image to run jobs in. 
 Different versions of the image can be labeled with different version 
 “tags”.</p>
 
-<p>This guide has:</p>
+<h2 id="step-by-step-build-instructions">Step by Step Build Instructions</h2>
 
-<ol>
-  <li><a href="#a-step-by-step-instructions">Step by Step Instructions</a></li>
-  <li><a href="#b-examples">Examples</a></li>
-</ol>
-
-<h1 id="a-step-by-step-instructions">A. Step by Step Instructions</h1>
-
-<h2 id="1-set-up-docker-on-your-computer">1. Set Up Docker on Your Computer</h2>
+<h3 id="1-set-up-docker-on-your-computer">1. Set Up Docker on Your Computer</h3>
 
 <p>If you haven’t already, create a DockerHub account and install 
 Docker on your computer. You’ll want to look for the <a href="https://store.docker.com/search?type=edition&amp;offering=community">Docker Community
@@ -318,13 +327,13 @@ computers toolbars. In order to actually use Docker, you’ll need to
 open a command line program (like Terminal, or Command Prompt) and run 
 commands there.</p>
 
-<h2 id="2-explore-docker-containers-optional">2. Explore Docker Containers (optional)</h2>
+<h3 id="2-explore-docker-containers-optional">2. Explore Docker Containers (optional)</h3>
 
 <p>If you have never used Docker before, we recommend exploring a pre-existing container 
 and testing out installation steps interactively before creating a Dockerfile. See the 
 first half of this guide: <a href="docker-test.html">Exploring and Testing a Docker Container</a></p>
 
-<h2 id="3-create-a-dockerfile">3. Create a Dockerfile</h2>
+<h3 id="3-create-a-dockerfile">3. Create a Dockerfile</h3>
 
 <p>A Dockerfile is a plain text file with keywords that add elements to a 
 Docker image. There are many keywords that can be used in a Dockerfile (documented on
@@ -338,14 +347,14 @@ subset of these keywords following this basic outline:</p>
   <li>Environment: What variables (if any) are set as part of the software installation?</li>
 </ul>
 
-<h3 id="create-the-file">Create the file</h3>
+<h4 id="create-the-file">Create the file</h4>
 
 <p>Create a blank text file named <code>Dockerfile</code>. If you are planning on making
 multiple images for different parts of your workflow, 
 you should create a separate folder for each 
 new image with the a <code>Dockerfile</code> inside each of them.</p>
 
-<h3>Choose a base image with <code class="h3">FROM</code></h3>
+<h4>Choose a base image with <code class="h3">FROM</code></h4>
 
 <p>Usually you don’t want to start building your image from scratch. 
 Instead you’ll want to choose a “base” image to add things to.</p>
@@ -397,7 +406,7 @@ in <code>FROM</code> statements.</p>
   <li><a href="https://hub.docker.com/r/pytorch/pytorch">PyTorch</a></li>
 </ul>
 
-<h3>Install packaged software with <code class="h3">RUN</code></h3>
+<h4>Install packaged software with <code class="h3">RUN</code></h4>
 
 <p>The next step is the most challenging. We need to add commands to the
 Dockerfile to install the desired software. There are a few standard ways to
@@ -466,7 +475,7 @@ RUN cd /tmp \
 RUN install2.r --error rjags
 </code></pre>
 
-<h3>Set up the environment with <code class="h3">ENV</code></h3>
+<h4>Set up the environment with <code class="h3">ENV</code></h4>
 
 <p>Your software might rely on certain environment variables being set correctly.</p>
 
@@ -488,7 +497,7 @@ could use</p>
     LANGUAGE=en_US.UTF-8
 </code></pre>
 
-<h2 id="4-build-name-and-tag-the-image">4. Build, Name, and Tag the Image</h2>
+<h3 id="4-build-name-and-tag-the-image">4. Build, Name, and Tag the Image</h3>
 
 <p>So far we haven’t actually created the image – we’ve just been
 listing instructions for <em>how</em> to build the image in the Dockerfile.
@@ -542,7 +551,7 @@ the job.</p>
 to your Dockerfile and then run the build command again. Debugging a Docker
 build is largely the same as debugging any software installation process.</p>
 
-<h2 id="5-test-locally">5. Test Locally</h2>
+<h3 id="5-test-locally">5. Test Locally</h3>
 
 <p>This page describes how to interact with your new Docker image on your
 own computer, before trying to run a job with it in CHTC:</p>
@@ -551,7 +560,7 @@ own computer, before trying to run a job with it in CHTC:</p>
   <li><a href="docker-test.html">Exploring a Docker Container on Your Computer</a></li>
 </ul>
 
-<h2 id="6-push-to-dockerhub">6. Push to DockerHub</h2>
+<h3 id="6-push-to-dockerhub">6. Push to DockerHub</h3>
 
 <p>Once your image has been successfully built and tested, you
 can push it to DockerHub so that it will be available to run jobs in
@@ -592,20 +601,27 @@ names you want to use:</p>
 container image along with the file archive of the container image itself.</p>
 </blockquote>
 
-<h2 id="7-running-jobs">7. Running Jobs</h2>
+<h3 id="7-running-jobs">7. Running Jobs</h3>
 
 <p>Once your Docker image is on Docker Hub, you can use it to run 
 jobs on CHTC’s HTC system. See this guide for more details:</p>
 
 <ul>
-  <li><a href="docker-jobs.html">Running Docker Jobs in CHTC</a></li>
+  <li><a href="docker-jobs.html">Running HTC Jobs Using Docker Containers</a></li>
 </ul>
 
-<h1 id="b-examples">B. Examples</h1>
+<h2 id="examples">Examples</h2>
 
-<p>This section holds various example <code>Dockerfile</code> that cover more advanced use cases.</p>
+<p>This section holds various example <code>Dockerfile</code> that cover more advanced use cases. 
+There are even more examples in our CHTC Recipes repository:</p>
 
-<h2 id="installing-a-custom-python-package-from-github">Installing a Custom Python Package from GitHub</h2>
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="https://github.com/CHTC/recipes/tree/main/software">CHTC Recipes</a>
+	</div>
+</div>
+
+<h3 id="installing-a-custom-python-package-from-github">Installing a Custom Python Package from GitHub</h3>
 
 <p>Suppose you have a custom Python package hosted on GitHub, but not available 
 on PyPI.
@@ -619,7 +635,7 @@ RUN pip3 install git+https://github.com/&lt;RepositoryOwner&gt;/&lt;RepositoryNa
 <p>where you would replace <code>&lt;RepositoryOwner&gt;</code> and <code>&lt;RepositoryName&gt;</code> with your
 desired targets.</p>
 
-<h2 id="qiime">QIIME</h2>
+<h3 id="qiime">QIIME</h3>
 
 <p>This <code>Dockerfile</code> installs <a href="https://qiime2.org/">QIIME2</a> based on
 <a href="https://docs.qiime2.org/2017.11/install/native/">these instructions</a>.
@@ -640,6 +656,13 @@ RUN cd /tmp \
  &amp;&amp; conda update conda \
  &amp;&amp; conda create -n qiime2-2017.10 --file https://data.qiime2.org/distro/core/qiime2-2017.10-conda-linux-64.txt
 </code></pre>
+
+<h2 id="related-pages">Related Pages</h2>
+
+<ul>
+  <li><a href="docker-jobs.html">Running HTC Jobs Using Docker Containers</a></li>
+  <li><a href="docker-test.html">Explore and Test Docker Containers</a></li>
+</ul>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -880,12 +903,6 @@ RUN cd /tmp \
 
                             
                                 
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/software-overview-htc#quickstart#main">Quickstart</a>
-    </div>
-
-                            
-                                
     <div class="document-link-wrapper" style="background-color: #d3d3d3;">
     <span style="font-size: .8rem;">
       <i class="bi bi-folder me-2"></i>
@@ -896,10 +913,17 @@ RUN cd /tmp \
         
             
             
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/software-overview-htc#container-overview#main">What are containers?</a>
+    </div>
+
+        
+            
+            
     <div class="document-link-wrapper" style="background-color: #d3d3d3;">
     <span style="font-size: .8rem;">
       <i class="bi bi-folder me-2"></i>
-      Build a software environment with containers 
+      Using software in Apptainer containers
     </span>
     </div>
     <div class="list-group ps-4 border-start bg-light">
@@ -907,21 +931,58 @@ RUN cd /tmp \
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/software-overview-htc#containers#main">What are containers?</a>
+        <a class="" href="/uw-research-computing/apptainer-htc#main">Use Apptainer containers</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/apptainer-build#main">Apptainer/Singularity</a>
+        <a class="" href="/uw-research-computing/apptainer-build#main">More about Apptainer containers</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="fw-bolder" href="/uw-research-computing/docker-build#main">Docker</a>
+        <a class="" href="/uw-research-computing/htc-docker-to-apptainer#main">Convert Docker images to Apptainer/Singularity images</a>
+    </div>
+
+        
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Using software in Docker containers
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/docker-jobs#main">Use Docker containers</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="fw-bolder" href="/uw-research-computing/docker-build#main">More about Docker containers</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/docker-test#main">Reference: Explore and test Docker containers</a>
+    </div>
+
+        
     </div>
 
         
@@ -934,52 +995,37 @@ RUN cd /tmp \
         
     </div>
 
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-docker-to-apptainer#main">Convert Docker images to Apptainer/Singularity images</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/apptainer-htc#main">Use Apptainer containers</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/docker-jobs#main">Use Docker containers</a>
-    </div>
-
-        
-    </div>
-
                             
                                 
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Other Modes of Software Use
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
     <div class="document-link-wrapper bg-light">
         <a class="" href="/uw-research-computing/inter-submit#main">Compile software in an interactive job</a>
     </div>
 
-                            
-                                
+        
+            
+            
     <div class="document-link-wrapper bg-light">
         <a class="" href="/uw-research-computing/licensed-software#main">Licensed software and modules</a>
     </div>
 
-                            
-                                
+        
+            
+            
     <div class="document-link-wrapper bg-light">
         <a class="" href="/uw-research-computing/htc-modules#main">Use software available in modules</a>
     </div>
 
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-modules-transition-to-el9#main">HTC modules transition to EL9</a>
+        
     </div>
 
                             

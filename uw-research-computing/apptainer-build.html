@@ -26,18 +26,18 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Building an Apptainer Container" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="This guide describes the general process for creating an Apptainer container. Specifically, we discuss the components of the “definition file” and how that file is used to construct or “build” the container itself." />
-<meta property="og:description" content="This guide describes the general process for creating an Apptainer container. Specifically, we discuss the components of the “definition file” and how that file is used to construct or “build” the container itself." />
+<meta name="description" content="This guide describes the general process for creating an Apptainer container. Specifically, we discuss the components of the “definition file” and how that file is used to construct or “build” the container itself. Use this guide as a reference to help customize the contents of your container. For a step-by-step tutorial of how to build a container, see Use Custom Software in Jobs Using Apptainer." />
+<meta property="og:description" content="This guide describes the general process for creating an Apptainer container. Specifically, we discuss the components of the “definition file” and how that file is used to construct or “build” the container itself. Use this guide as a reference to help customize the contents of your container. For a step-by-step tutorial of how to build a container, see Use Custom Software in Jobs Using Apptainer." />
 <link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/apptainer-build" />
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/apptainer-build" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-12-15T17:18:57+00:00" />
+<meta property="article:published_time" content="2025-12-15T17:34:17+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Building an Apptainer Container" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-12-15T17:18:57+00:00","datePublished":"2025-12-15T17:18:57+00:00","description":"This guide describes the general process for creating an Apptainer container. Specifically, we discuss the components of the “definition file” and how that file is used to construct or “build” the container itself.","headline":"Building an Apptainer Container","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/apptainer-build"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/apptainer-build"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-12-15T17:34:17+00:00","datePublished":"2025-12-15T17:34:17+00:00","description":"This guide describes the general process for creating an Apptainer container. Specifically, we discuss the components of the “definition file” and how that file is used to construct or “build” the container itself. Use this guide as a reference to help customize the contents of your container. For a step-by-step tutorial of how to build a container, see Use Custom Software in Jobs Using Apptainer.","headline":"Building an Apptainer Container","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/apptainer-build"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/apptainer-build"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -270,14 +270,8 @@
 </h1>
 
             <p>This guide describes the general process for creating an Apptainer container. 
-Specifically, we discuss the components of the “definition file” and how that file is used to construct or “build” the container itself.</p>
-
-<p>For instructions on using and building Apptainer containers</p>
-
-<ul>
-  <li>on the High Throughput system: <a href="apptainer-htc.html">Using Apptainer Containers</a>.</li>
-  <li>on the High Performance system: <a href="apptainer-hpc.html">Using Apptainer Containers on HPC</a>.</li>
-</ul>
+Specifically, we discuss the components of the “definition file” and how that file is used to construct or “build” the container itself. <strong>Use this guide as a reference to help customize the contents of your container.</strong> For a step-by-step tutorial of 
+how to build a container, see <a href="apptainer-htc.html">Use Custom Software in Jobs Using Apptainer</a>.</p>
 
 <div class="d-flex flex-column mb-5">
 
@@ -286,26 +280,12 @@ Specifically, we discuss the components of the “definition file” and how tha
 <div class="uw-sidebar-box me-auto">
 <div class="uw-directory">
 
-      <p><a href="#the-apptainer-definition-file">The Apptainer Definition File</a></p>
-
       <ul>
-        <li><a href="#header-section">Header section</a></li>
-        <li><a href="#files-section">Files section</a></li>
-        <li><a href="#post-section">Post section</a></li>
-        <li><a href="#environment-section">Environment section</a></li>
-        <li><a href="#labels-section">Labels section</a></li>
-        <li><a href="#help-section">Help section</a></li>
+        <li><a href="#the-apptainer-definition-file">The Apptainer definition file</a></li>
+        <li><a href="#creating-a-definition-file">Creating a definition file</a></li>
+        <li><a href="#the-apptainer-container-image">The Apptainer container image</a></li>
+        <li><a href="#special-considerations-for-building-your-container">Special considerations for building your container</a></li>
       </ul>
-
-      <p><a href="#the-apptainer-container-image">The Apptainer Container Image</a></p>
-
-      <ul>
-        <li><a href="#building-the-container">Building the container</a></li>
-        <li><a href="#converting-a-docker-image-to-an-apptainer-container-image">Converting a Docker image to an Apptainer container image</a></li>
-        <li><a href="#testing-the-container-interactively">Testing the container interactively</a></li>
-      </ul>
-
-      <p><a href="#special-considerations-for-building-your-container">Special Considerations for Building Your Container</a></p>
 
     </div>
 </div>
@@ -439,9 +419,14 @@ Environment variables can be set as well, but they will only be active during th
 <p>For example, if using an <code>ubuntu</code> based container, then you should be able to use the <code>apt</code> package manager to install your program’s dependencies.</p>
 
 <pre><code>%post
+    chmod 777 /tmp
     apt update -y
     apt install -y gcc make wget
 </code></pre>
+
+<blockquote>
+  <p>The <code>chmod 777 /tmp</code> is a specific workaround for building containers on the HTC system at CHTC. <strong>Do not use this</strong> line if you are using Apptainer to build containers <strong>on a different system</strong>.</p>
+</blockquote>
 
 <p>Note that we have used the <code>-y</code> option for <code>apt</code> to pre-emptively agree to update <code>apt</code> and to install the <code>gcc</code>, <code>make</code>, and <code>wget</code> packages. 
 Otherwise, the <code>apt</code> command will prompt you to confirm the executions via the command line. 
@@ -533,7 +518,47 @@ This can make it easier for yourself and others to interact and use the containe
 
 <p>For an existing container, you can inspect the help text with the command <code>apptainer run-help my-container.sif</code>.</p>
 
-<h2 id="the-apptainer-container-image">The Apptainer Container Image</h2>
+<h2 id="creating-a-definition-file">Creating a definition file</h2>
+
+<p>Here is general process for creating your own definition file for building your custom container:</p>
+
+<ol>
+  <li>
+    <p><strong>Consult your software’s documentation</strong></p>
+
+    <p>Determine the requirements for installing the software you want to use.
+In particular you are looking for (a) the operating systems it is compatible with and (b) the prerequisite libraries or packages.</p>
+  </li>
+  <li>
+    <p><strong>Choose a base container</strong></p>
+
+    <p>The base container should at minimum use an operating system compatible with your software. 
+Ideally the container you choose also has many of the prerequisite libraries/programs already installed.</p>
+  </li>
+  <li>
+    <p><strong>Customize your definition file</strong></p>
+
+    <p>In addition to examples in this guide, see our <a href="apptainer-htc-advanced-example.html">Advanced Apptainer Example - SUMO</a> guide for an example of how to customize
+a definition file for your software.</p>
+  </li>
+</ol>
+
+<p>Remember that the <code>.def</code> file contains the <em>instructions</em> for creating your container and is not itself the container. 
+To use the software defined within the <code>.def</code> file, you will need to first “build” the container and create the <code>.sif</code> file, as described in the following sections.</p>
+
+<blockquote class="tip-header">
+  <h3 id="-reference-chtcs-recipes-repository">📝 Reference: CHTC’s “Recipes” Repository</h3>
+</blockquote>
+
+<blockquote class="tip">
+  <p>To see multiple examples of Apptainer definition files for different
+softwares, check out the software section of CHTC’s “recipes” repository:</p>
+  <ul>
+    <li><a href="https://github.com/CHTC/recipes/tree/main/software">CHTC software recipes</a></li>
+  </ul>
+</blockquote>
+
+<h2 id="the-apptainer-container-image">The Apptainer container image</h2>
 
 <p>The actual container image, which can be executed by Apptainer as a stand-alone operating system, is stored in a <code>.sif</code> file.* 
 The instructions for constructing the <code>.sif</code> file are provided by the <code>.def</code> definition file, as described above.
@@ -670,6 +695,16 @@ On CHTC systems, the following should address this issue:</p>
     <p>If this does not address the issue, examine the error messages and consult the program documentation for how configure the program to use an alternate location for cache or temporary directories.</p>
   </li>
 </ul>
+
+<h2 id="related-pages">Related Pages</h2>
+
+<ul>
+  <li><a href="apptainer-htc-advanced-example.html">Advanced Apptainer Example - SUMO</a></li>
+  <li><a href="htc-docker-to-apptainer.html">Convert Docker Images to Apptainer Images</a></li>
+  <li><a href="apptainer-htc.html">Use Custom Software in Jobs Using Apptainer</a></li>
+  <li><a href="apptainer-hpc.html">Using Apptainer Containers on HPC</a></li>
+</ul>
+
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -910,12 +945,6 @@ On CHTC systems, the following should address this issue:</p>
 
                             
                                 
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/software-overview-htc#quickstart#main">Quickstart</a>
-    </div>
-
-                            
-                                
     <div class="document-link-wrapper" style="background-color: #d3d3d3;">
     <span style="font-size: .8rem;">
       <i class="bi bi-folder me-2"></i>
@@ -926,10 +955,17 @@ On CHTC systems, the following should address this issue:</p>
         
             
             
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/software-overview-htc#container-overview#main">What are containers?</a>
+    </div>
+
+        
+            
+            
     <div class="document-link-wrapper" style="background-color: #d3d3d3;">
     <span style="font-size: .8rem;">
       <i class="bi bi-folder me-2"></i>
-      Build a software environment with containers 
+      Using software in Apptainer containers
     </span>
     </div>
     <div class="list-group ps-4 border-start bg-light">
@@ -937,21 +973,58 @@ On CHTC systems, the following should address this issue:</p>
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/software-overview-htc#containers#main">What are containers?</a>
+        <a class="" href="/uw-research-computing/apptainer-htc#main">Use Apptainer containers</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="fw-bolder" href="/uw-research-computing/apptainer-build#main">Apptainer/Singularity</a>
+        <a class="fw-bolder" href="/uw-research-computing/apptainer-build#main">More about Apptainer containers</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/docker-build#main">Docker</a>
+        <a class="" href="/uw-research-computing/htc-docker-to-apptainer#main">Convert Docker images to Apptainer/Singularity images</a>
+    </div>
+
+        
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Using software in Docker containers
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/docker-jobs#main">Use Docker containers</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/docker-build#main">More about Docker containers</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/docker-test#main">Reference: Explore and test Docker containers</a>
+    </div>
+
+        
     </div>
 
         
@@ -964,52 +1037,37 @@ On CHTC systems, the following should address this issue:</p>
         
     </div>
 
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-docker-to-apptainer#main">Convert Docker images to Apptainer/Singularity images</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/apptainer-htc#main">Use Apptainer containers</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/docker-jobs#main">Use Docker containers</a>
-    </div>
-
-        
-    </div>
-
                             
                                 
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Other Modes of Software Use
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
     <div class="document-link-wrapper bg-light">
         <a class="" href="/uw-research-computing/inter-submit#main">Compile software in an interactive job</a>
     </div>
 
-                            
-                                
+        
+            
+            
     <div class="document-link-wrapper bg-light">
         <a class="" href="/uw-research-computing/licensed-software#main">Licensed software and modules</a>
     </div>
 
-                            
-                                
+        
+            
+            
     <div class="document-link-wrapper bg-light">
         <a class="" href="/uw-research-computing/htc-modules#main">Use software available in modules</a>
     </div>
 
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-modules-transition-to-el9#main">HTC modules transition to EL9</a>
+        
     </div>
 
                             

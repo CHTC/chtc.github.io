@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/software-overview-htc" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-12-15T17:18:57+00:00" />
+<meta property="article:published_time" content="2025-12-15T17:34:17+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Overview: How to Use Software" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-12-15T17:18:57+00:00","datePublished":"2025-12-15T17:18:57+00:00","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"Overview: How to Use Software","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/software-overview-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/software-overview-htc"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-12-15T17:34:17+00:00","datePublished":"2025-12-15T17:34:17+00:00","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"Overview: How to Use Software","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/software-overview-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/software-overview-htc"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -282,20 +282,44 @@ This guide introduces how to build software in a container (our recommended stra
 <div class="uw-sidebar-box me-auto">
 <div class="uw-directory">
 
-      <p><a href="#quickstart">Quickstart</a></p>
-
-      <p><a href="#recipes">Recipes</a></p>
-
-      <p><a href="#containers">Containers</a></p>
+      <ul>
+        <li><a href="#start-here">Start here</a></li>
+        <li><a href="#quickstart-by-software-type">Quickstart by software type</a></li>
+        <li><a href="#what-approach-should-i-use">What approach should I use?</a></li>
+        <li><a href="#container-overview">Container Overview</a></li>
+        <li><a href="#related-pages">Related pages</a></li>
+      </ul>
 
     </div>
 </div>
 </div>
 
-<h2 id="quickstart">Quickstart</h2>
+<h2 id="start-here">Start Here</h2>
 
-<p>Click the link in the table below to jump to the instructions for the language/program/software that you want to use.
-More information is provided in the <a href="https://github.com/CHTC/recipes">CHTC Recipes Repository</a> and the <a href="#containers">Containers</a> sections.</p>
+<p>For most CHTC users, we recommend using a container for your software environment. 
+A container is a portable, self-contained operating system and can be easily executed on different computers. When building the container you can choose the operating system you want to use, and can install programs as if you were the owner of the computer.</p>
+
+<p style="text-align:center"><img src="/images/container-analogy-infographic2.png" width="800" /></p>
+
+<p>In general, if you have not used containers before, we recommend using Apptainer 
+containers.</p>
+
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="apptainer-htc.html">Use Custom Software in Jobs Using Apptainer</a>
+	</div>
+</div>
+
+<ul>
+  <li>For more specific guidance about <em>your</em> software, see: <a href="#quickstart-by-software-type">Quickstart by software type</a></li>
+  <li>For more guidance in whether jumping right into Apptainer is best for you: 
+ <a href="#what-approach-should-i-use">What approach should I use?</a></li>
+  <li>To learn more about containers in general see: <a href="#container-overview">Containers</a></li>
+</ul>
+
+<h2 id="quickstart-by-software-type">Quickstart by software type</h2>
+
+<p>Click the link in the table below to jump to the instructions for the language/program/software that you want to use, and then click on “More Information.”</p>
 
 <div class="shadow p-3 border rounded">
     <div class="row gx-1">
@@ -349,26 +373,27 @@ More information is provided in the <a href="https://github.com/CHTC/recipes">CH
             <div class="excerpt" id="create-a-portable-python-installation-with-miniconda" style="display: block;">
                 <h2 id="quickstart-conda">Quickstart: Conda</h2>
 
-<h3 id="option-a-recommended">Option A (recommended)</h3>
+<h3 id="option-a---container-recommended">Option A - Container (recommended)</h3>
 
-<p>Build a container with Conda packages installed inside:</p>
+<p>Build a container with Conda packages installed inside. Start by reviewing 
+the container build instructions for either Apptainer or Docker. Then, when 
+following the build instructions, use the example recipes for either a 
+<code>.def</code> or <code>Dockerfile</code>, respectively.</p>
 
 <ol>
-  <li><a href="software-overview-htc.html#build-your-own-container">How to build your own container</a></li>
-  <li><a href="https://github.com/CHTC/recipes/tree/main/software/Conda">Example container recipes for Conda</a></li>
-  <li><a href="software-overview-htc.html#use-an-existing-container">Use your container in your HTC jobs</a></li>
+  <li>How to build your own container: <a href="apptainer-htc#use-an-apptainer-container-in-htc-jobs">Apptainer</a> / <a href="docker-build">Docker</a></li>
+  <li>Tips and tricks, container recipes: <a href="https://github.com/CHTC/recipes/tree/main/software/Conda">Example container recipes for Conda</a></li>
+  <li>Use your container in your HTC jobs: <a href="software-overview-htc.html#use-an-existing-container">Apptainer</a> / <a href="docker-jobs.html#use-a-docker-container-in-a-job">Docker</a></li>
 </ol>
 
-<h3 id="option-b">Option B</h3>
+<!-- replace this eventually with conda walkthrough -->
+
+<h3 id="option-b---packed-conda-env">Option B - “Packed” Conda Env</h3>
 
 <p>Create your own portable copy of your Conda packages:</p>
 
-<ol>
-  <li>Follow the instructions in <a href="conda-installation.html#option-b-create-your-own-portable-copy">our guide</a></li>
-</ol>
-
 <blockquote>
-  <p>This approach may be sensitive to the operating system of the execution point. 
+  <p>This approach is sensitive to the operating system of the execution point. 
 We recommend building a container instead, but are keeping these instructions as a backup.</p>
 </blockquote>
 
@@ -412,17 +437,21 @@ java -jar program.jar
             <div class="excerpt" id="running-julia-jobs" style="display: none;">
                 <h2 id="quickstart-julia">Quickstart: Julia</h2>
 
-<h3 id="option-a-recommended">Option A (recommended)</h3>
+<h3 id="option-a---container-recommended">Option A - Container (recommended)</h3>
 
-<p>Build a container with Julia &amp; packages installed inside:</p>
+<p>Build (or find) a container with Julia &amp; packages installed inside. 
+Start by reviewing 
+the container build instructions for either Apptainer or Docker. Then, when 
+following the build instructions, use the example recipes for either a 
+<code>.def</code> or <code>Dockerfile</code>, respectively.</p>
 
 <ol>
-  <li><a href="software-overview-htc.html#build-your-own-container">How to build your own container</a></li>
-  <li><a href="https://github.com/CHTC/recipes/tree/main/software/Julia">Example container recipes for Julia</a></li>
-  <li><a href="software-overview-htc.html#use-an-existing-container">Use your container in your HTC jobs</a></li>
+  <li>How to build your own container: <a href="apptainer-htc#use-an-apptainer-container-in-htc-jobs">Apptainer</a> / <a href="docker-build">Docker</a></li>
+  <li>Tips and tricks, container recipes: <a href="https://github.com/CHTC/recipes/tree/main/software/Julia">Example container recipes for Julia</a></li>
+  <li>Use your container in your HTC jobs: <a href="software-overview-htc.html#use-an-existing-container">Apptainer</a> / <a href="docker-jobs.html#use-a-docker-container-in-a-job">Docker</a></li>
 </ol>
 
-<h3 id="option-b">Option B</h3>
+<h3 id="option-b---portable-binary">Option B - Portable Binary</h3>
 
 <p>Use a portable copy of Julia and create your own portable copy of your Julia packages:</p>
 
@@ -442,13 +471,21 @@ We recommend building a container instead, but are keeping these instructions as
             <div class="excerpt" id="running-matlab-jobs" style="display: none;">
                 <h2 id="quickstart-matlab">Quickstart: Matlab</h2>
 
-<p>Build a container with Matlab &amp; toolboxes installed inside:</p>
+<p>Build a container with Matlab &amp; toolboxes installed inside. 
+Start by reviewing 
+the container build instructions for either Apptainer or Docker. Then, when 
+following the build instructions, use the example recipes for either a 
+<code>.def</code> or <code>Dockerfile</code>, respectively.</p>
+
+<h3 id="useful-links">Useful links</h3>
 
 <ol>
-  <li><a href="software-overview-htc.html#build-your-own-container">How to build your own container</a></li>
-  <li><a href="https://github.com/CHTC/recipes/tree/main/software/Matlab">Example container recipes for Matlab</a></li>
-  <li><a href="software-overview-htc.html#use-an-existing-container">Use your container in your HTC jobs</a></li>
+  <li>How to build your own container: <a href="apptainer-htc#use-an-apptainer-container-in-htc-jobs">Apptainer</a></li>
+  <li>Tips and tricks, container recipes: <a href="https://github.com/CHTC/recipes/tree/main/software/Matlab">Example container recipes for Matlab</a></li>
+  <li>Use your container in your HTC jobs: <a href="software-overview-htc.html#use-an-existing-container">Apptainer</a> / <a href="docker-jobs.html#use-a-docker-container-in-a-job">Docker</a></li>
 </ol>
+
+<h3 id="needed-submit-file-option">Needed submit file option</h3>
 
 <blockquote>
   <p><strong>Note</strong>: Because Matlab is a licensed software, you <strong>must</strong> add the following line to your submit file:</p>
@@ -466,17 +503,20 @@ We recommend building a container instead, but are keeping these instructions as
             <div class="excerpt" id="running-python-jobs" style="display: none;">
                 <h2 id="quickstart-python">Quickstart: Python</h2>
 
-<h3 id="option-a-recommended">Option A (recommended)</h3>
+<h3 id="option-a---your-container-recommended">Option A - Your Container (recommended)</h3>
 
-<p>Build a container with Python &amp; packages installed inside:</p>
+<p>Build a container with Python &amp; packages installed inside. Start by reviewing 
+the container build instructions for either Apptainer or Docker. Then, when 
+following the build instructions, use the example recipes for either a 
+<code>.def</code> or <code>Dockerfile</code>, respectively.</p>
 
 <ol>
-  <li><a href="software-overview-htc.html#build-your-own-container">How to build your own container</a></li>
-  <li><a href="https://github.com/CHTC/recipes/tree/main/software/Python/">Example container recipes for Python</a></li>
-  <li><a href="software-overview-htc.html#use-an-existing-container">Use your container in your HTC jobs</a></li>
+  <li>How to build your own container: <a href="apptainer-htc#use-an-apptainer-container-in-htc-jobs">Apptainer</a> / <a href="docker-build">Docker</a></li>
+  <li>Tips and tricks, container recipes: <a href="https://github.com/CHTC/recipes/tree/main/software/Python/">Example container recipes for Python</a></li>
+  <li>Use your container in your HTC jobs: <a href="software-overview-htc.html#use-an-existing-container">Apptainer</a> / <a href="docker-jobs.html#use-a-docker-container-in-a-job">Docker</a></li>
 </ol>
 
-<h4 id="option-b">Option B</h4>
+<h4 id="option-b---existing-container">Option B - Existing Container</h4>
 
 <p>Use an existing container with a base installation of Python:</p>
 
@@ -485,7 +525,7 @@ We recommend building a container instead, but are keeping these instructions as
 <a href="https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/#base">OSG Base Containers</a>
 or
 <a href="https://hub.docker.com/_/python">DockerHub Python Containers</a>.</li>
-  <li><a href="software-overview-htc.html#use-an-existing-container">Use the container in your HTC jobs</a></li>
+  <li>Use the container in your HTC jobs: <a href="software-overview-htc.html#use-an-existing-container">Apptainer</a> / <a href="docker-jobs.html#use-a-docker-container-in-a-job">Docker</a></li>
 </ol>
 
 
@@ -495,17 +535,20 @@ or
             <div class="excerpt" id="running-r-jobs" style="display: none;">
                 <h2 id="quickstart-r">Quickstart: R</h2>
 
-<h4 id="option-a-recommended">Option A (recommended)</h4>
+<h3 id="option-a---your-container-recommended">Option A - Your Container (recommended)</h3>
 
-<p>Build a container with R &amp; packages installed inside:</p>
+<p>Build a container with R &amp; packages installed inside. Start by reviewing 
+the container build instructions for either Apptainer or Docker. Then, when 
+following the build instructions, use the example recipes for either a 
+<code>.def</code> or <code>Dockerfile</code>, respectively.</p>
 
 <ol>
-  <li><a href="software-overview-htc.html#build-your-own-container">How to build your own container</a></li>
-  <li><a href="https://github.com/CHTC/recipes/tree/main/software/R/">Example container recipes for R</a></li>
-  <li><a href="software-overview-htc.html#use-an-existing-container">Use your container in your HTC jobs</a></li>
+  <li>How to build your own container: <a href="apptainer-htc#use-an-apptainer-container-in-htc-jobs">Apptainer</a> / <a href="docker-build">Docker</a></li>
+  <li>Tips and tricks, container recipes: <a href="https://github.com/CHTC/recipes/tree/main/software/R/">Example container recipes for R</a></li>
+  <li>Use your container in your HTC jobs: <a href="software-overview-htc.html#use-an-existing-container">Apptainer</a> / <a href="docker-jobs.html#use-a-docker-container-in-a-job">Docker</a></li>
 </ol>
 
-<h4 id="option-b">Option B</h4>
+<h3 id="option-b---existing-container">Option B - Existing Container</h3>
 
 <p>Use an existing container with a base installation of R:</p>
 
@@ -514,7 +557,7 @@ or
 <a href="https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/#:~:text=R%20(opensciencegrid/osgvo%2Dr)">OSG R containers</a>
 or 
 <a href="https://rocker-project.org/images/">Rocker R containers</a>.</li>
-  <li><a href="#use-an-existing-container">Use the container in your HTC jobs</a></li>
+  <li>Use the container in your HTC jobs: <a href="software-overview-htc.html#use-an-existing-container">Apptainer</a> / <a href="docker-jobs.html#use-a-docker-container-in-a-job">Docker</a></li>
 </ol>
 
 
@@ -524,23 +567,46 @@ or
     </div>
 </div>
 
-<hr />
+<h2 id="what-approach-should-i-use">What approach should I use?</h2>
 
-<h2 id="recipes">Recipes</h2>
+<p>We recommend using containers for jobs in CHTC for a number of reasons, detailed 
+<a href="#why-use-containers">below</a>.</p>
 
-<p>CHTC provides specific examples for software and workflows for use on our systems in our “Recipes” repository on Github: 
-<a href="https://github.com/CHTC/recipes">https://github.com/CHTC/recipes</a>.</p>
+<p>There are two container implementations we support, Docker and Apptainer.</p>
 
-<p>Links to specific recipes are used in the <a href="#software">Software</a> section for certain softwares and coding languages.</p>
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="docker-jobs.html">Use Docker in Jobs</a>
+		<a class="btn btn-primary" href="apptainer-htc.html">Use Apptainer in Jobs</a>
+	</div>
+</div>
 
-<hr />
+<p>We recommend using Apptainer as a first choice because you can build the container 
+on our servers and it has some features that allow it to be used on a greater variety 
+of computing nodes.</p>
 
-<h2 id="containers">Containers</h2>
+<p>However, there are many good reasons to use Docker (or Apptainer) depending on your 
+circumstances. Here is a list of things to consider when deciding which path to take.</p>
 
-<p>Many of the recipes in our Recipes repository involve building your own container. 
-In this section, we provide a brief introduction into how to use containers for setting up your own software to run on the High Throughput system.</p>
+<ul>
+  <li>If your software has an existing Docker or Apptainer/Singularity implementation, use that.</li>
+  <li>If you or your group have an existing Docker container, use Docker.</li>
+  <li>If you already know how to use Docker or Apptainer/Singularity, use whichever you are familiar with.</li>
+  <li>If you want to create a container that can run both on CHTC and your own computer, use Docker.</li>
+  <li>If you want to create a container that you and collaborators can use on your own computers and CHTC, use Docker.</li>
+  <li>If you want to keep your container more private, use Apptainer.</li>
+</ul>
 
-<h3 id="what-is-a-container">What is a Container?</h3>
+<p>In certain cases, it is reasonable to use a non-container option for software installation, especially when using a package manager like <code>conda</code>.</p>
+
+<p>If you are not sure what to choose, talk to the facilitation team! That’s why we’re here.</p>
+
+<h2 id="container-overview">Container overview</h2>
+
+<p>In this section, we provide a brief introduction into what containers are, 
+why we recommend them, and a big picture view of how to use them on our High Throughput system.</p>
+
+<h3 id="what-is-a-container">What is a container?</h3>
 
 <p><em>“A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.”</em> 
 – <a href="https://www.docker.com/resources/what-container/">Docker</a></p>
@@ -569,7 +635,89 @@ When we talk about building or moving or distributing a container, we’re actua
 When a container is “running” or “executed”, the container image is used to create the run time environment for executing the programs installed inside of it.</p>
 </blockquote>
 
-<h3 id="container-technologies">Container Technologies</h3>
+<h3 id="why-use-containers">Why use containers?</h3>
+
+<p>We recognize that learning about containers is its own challenge! However, we have found 
+in the long run, that containers provide the best long-term user experience when running 
+jobs in CHTC, including:</p>
+
+<ul>
+  <li>a consistent environment no matter what computer your job runs on</li>
+  <li>a consistent environment with stable software versions (good for reproducibility)</li>
+  <li>ability to fully customize the software installation</li>
+</ul>
+
+<p>Our goal is to make finding or building your container as easy as possible, so you 
+can have most of these benefits, without too much pain.</p>
+
+<h3 id="using-containers-on-chtc">Using containers on CHTC</h3>
+
+<p>If you have a container, adding it to your job is easy! It’s just one more line 
+in the submit file. The challenge is usually getting a container that has what you need. 
+There are typically two ways of doing so:</p>
+
+<ol>
+  <li>Find an existing container</li>
+  <li>Build your own container image</li>
+</ol>
+
+<h4 id="find-an-existing-container-image">Find an existing container image</h4>
+
+<p>These tips from 
+<a href="https://carpentries-incubator.github.io/docker-introduction/docker-hub.html">Software Carpentry’s Docker materials</a> 
+are a good starting point for choosing useful, trusted container images online.</p>
+
+<blockquote>
+  <p>These are some indicators that a container image on Docker Hub is consistently maintained, functional and secure:</p>
+  <ul>
+    <li>The container image is updated regularly.</li>
+    <li>The container image associated with a well established company, community, or other group that is well-known.</li>
+    <li>There is a Dockerfile or other listing of what has been installed to the container image.</li>
+    <li>The container image page has documentation on how to use the container image.</li>
+  </ul>
+</blockquote>
+
+<h4 id="build-your-own-container-image">Build your own container image</h4>
+
+<p>To build your own container, the process will include:</p>
+
+<ol>
+  <li>Writing a build file, called either a <code>Dockerfile</code> or definition (<code>.def</code>) file.
+    <ul>
+      <li>Consult your software’s documentation</li>
+      <li>Choose an existing base container</li>
+      <li>Add the details needed for your software</li>
+      <li>Leverage CHTC’s <a href="https://github.com/CHTC/recipes">recipes repository</a></li>
+    </ul>
+  </li>
+  <li>(If using Apptainer: starting an interactive session on a CHTC build server)</li>
+  <li>Running a command to “build” the container image, using your build file as the 
+template for doing so</li>
+  <li>Running a command to put the container in a location where you can use it in your jobs.</li>
+</ol>
+
+<p>These guides talk about how to do the above steps for either Apptainer or Docker.</p>
+<ul>
+  <li><a href="apptainer-htc">Use Custom Software in Jobs Using Apptainer</a></li>
+  <li><a href="docker-jobs">Running HTC Jobs Using Docker Containers</a></li>
+</ul>
+
+<blockquote>
+  <p>A common question is whether the software installation process is repeated each time a container is used. 
+The answer is “no”. 
+The software installation process only occurs when the container is actually being built.
+Once the container has been built, no changes can be made to the container when being used (on CHTC systems).</p>
+</blockquote>
+
+<h3 id="container-build-recipes">Container build recipes</h3>
+
+<p>If you need to create your own build file, CHTC provides many specific examples 
+in our “Recipes” repository on Github: 
+<a href="https://github.com/CHTC/recipes">https://github.com/CHTC/recipes</a>.</p>
+
+<p>Links to specific recipes are used in the <a href="#software">Software</a> section for certain softwares and coding languages.</p>
+
+<h3 id="container-technologies">Container technologies</h3>
 
 <p>There are two container technologies supported by CHTC: <a href="https://www.docker.com/">Docker</a> and <a href="https://apptainer.org/">Apptainer</a>.
 Here we briefly discuss the advantages of each.</p>
@@ -600,121 +748,13 @@ As long as you have the container image file, you can use Apptainer to run your 
 and HTCondor will use a copy of it to create the software environment for executing your job.
 You can use Apptainer to build the container image file on CHTC servers, so there is no need to install the container software on your own computer.</p>
 
-<h3 id="use-an-existing-container">Use an Existing Container</h3>
+<h2 id="related-pages">Related Pages</h2>
 
-<p>If you or a colleague have already built a container for use on CHTC, it is fairly straightforward to modify your jobs to use the container environment as discussed below.</p>
-
-<h4 id="use-a-docker-container">Use a Docker container</h4>
-
-<p><em>Full Guide</em>: <a href="docker-jobs.html">Running HTC Jobs Using Docker Containers</a></p>
-
-<p>If the container you want to use is hosted on Docker Hub, find the container “address” and provide it in your submit file.
-The address typically has the convention of <code>user/repository:tag</code>, though official repositories such as Python are just <code>repository:tag</code>.
-In your submit file, use</p>
-
-<pre class="sub"><code>container_image = docker://user/repository:tag
-</code></pre>
-
-<p>If the container you want to use is hosted in a different container registry, there should still be a container “address” to use,
-but now there will be a website prefix.</p>
-
-<pre class="sub"><code>container_image = docker://registry_address/user/repository:tag
-</code></pre>
-
-<p>For example, to use a container from the <a href="https://catalog.ngc.nvidia.com/containers">NVIDIA Container Registry</a> (<code>nvcr</code>), 
-you would have <code>docker://nvcr.io/nvidia/repository:tag</code>.</p>
-
-<p><a href="#top">Back to Top</a></p>
-
-<h4 id="use-an-apptainer-container">Use an Apptainer container</h4>
-
-<p><em>Full Guide</em>: <a href="apptainer-htc.html">Use Apptainer Containers</a></p>
-
-<p>For historical reasons, the Apptainer container file has the file extension <code>.sif</code>. 
-The syntax for giving HTCondor the name of the container file depends on where it is located on the CHTC system.</p>
-
-<p>If the <code>.sif</code> file is in a <strong><code>/home</code> directory</strong>:</p>
-
-<pre class="sub"><code>container_image = path/to/my-container.sif
-</code></pre>
-
-<p>If the <code>.sif</code> file is in a <strong><code>/staging</code> directory</strong>:</p>
-
-<pre class="sub"><code>container_image = file:///staging/path/to/my-container.sif
-</code></pre>
-
-<p>If the <code>.sif</code> file is <strong>in a <code>/staging</code> directory AND you are using <code>want_campus_pools</code> or <code>want_ospool</code></strong>:</p>
-
-<pre class="sub"><code>container_image = osdf:///chtc/staging/path/to/my-container.sif
-</code></pre>
-
-<p><a href="#top">Back to Top</a></p>
-
-<h3 id="build-your-own-container">Build Your Own Container</h3>
-
-<p>You can build your own container with the operating system and software that you want to use.
-The general process is the same whether you are using Docker or Apptainer.</p>
-
-<ol>
-  <li>
-    <p><strong>Consult your software’s documentation</strong></p>
-
-    <p>Determine the requirements for installing the software you want to use.
-In particular you are looking for (a) the operating systems it is compatible with and (b) the prerequisite libraries or packages.</p>
-  </li>
-  <li>
-    <p><strong>Choose a base container</strong></p>
-
-    <p>The base container should at minimum use an operating system compatible with your software. 
-Ideally the container you choose also has many of the prerequisite libraries/programs already installed.</p>
-  </li>
-  <li>
-    <p><strong>Create your own definition file</strong></p>
-
-    <p>The definition file contains the installation commands needed to set up your software.
-(The structure of the container “definition” file differs between Docker and Apptainer, but it is fairly straightforward to translate between the two.)</p>
-  </li>
-  <li>
-    <p><strong>Build the container</strong></p>
-
-    <p>Once the definition file has been written, you must “build” the container. 
-The computer you use to build the container will run through the installation commands, almost as if you were actually installing the software on that computer,
-but will save the results into the container file(s) for later use.</p>
-  </li>
-  <li>
-    <p><strong>Distribute the container</strong></p>
-
-    <p>To use the container on CHTC servers, you’ll need to distribute the container to right location.
-For Docker containers, this means “pushing” the container to Docker Hub or similar container registry.
-For Apptainer containers, this typically means copying the container <code>.sif</code> file to the <a href="file-avail-largedata.html">/staging system</a>.</p>
-  </li>
-</ol>
-
-<p>You can then use the container following the <a href="#use-an-existing-container">instructions above</a>.</p>
-
-<blockquote>
-  <p>A common question is whether the software installation process is repeated each time a container is used. 
-The answer is “no”. 
-The software installation process only occurs when the container is actually being built.
-Once the container has been built, no changes can be made to the container when being used (on CHTC systems).</p>
-</blockquote>
-
-<h4 id="build-your-own-docker-container">Build your own Docker container</h4>
-
-<p>Please follow the instructions in our guide <a href="docker-build.html">Build a Docker Container Image</a> to build your own container using Docker.
-As mentioned above, you will need to have Docker installed on your own computer.
-This is so that you can push the completed container to Docker Hub.</p>
-
-<p><em>You are unable to push containers from CHTC to Docker Hub, so please do not build Docker containers using CHTC!</em></p>
-
-<h4 id="build-your-own-apptainer-container">Build your own Apptainer container</h4>
-
-<p>Please follow the instructions in our guide <a href="apptainer-htc.html">Use Apptainer Containers</a> to build your own container using Apptainer.
-You can use CHTC servers to build the container, so there is no need to install any software on your computer.</p>
-
-<p><a href="#top">Back to Top</a></p>
-
-<hr />
+<ul>
+  <li><a href="apptainer-htc">Use Custom Software in Jobs Using Apptainer</a></li>
+  <li><a href="docker-jobs">Running HTC Jobs Using Docker Containers</a></li>
+  <li><a href="apptainer-hpc.html">Using Apptainer Containers on HPC</a></li>
+</ul>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -955,12 +995,6 @@ You can use CHTC servers to build the container, so there is no need to install 
 
                             
                                 
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/software-overview-htc#quickstart#main">Quickstart</a>
-    </div>
-
-                            
-                                
     <div class="document-link-wrapper" style="background-color: #d3d3d3;">
     <span style="font-size: .8rem;">
       <i class="bi bi-folder me-2"></i>
@@ -971,10 +1005,17 @@ You can use CHTC servers to build the container, so there is no need to install 
         
             
             
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/software-overview-htc#container-overview#main">What are containers?</a>
+    </div>
+
+        
+            
+            
     <div class="document-link-wrapper" style="background-color: #d3d3d3;">
     <span style="font-size: .8rem;">
       <i class="bi bi-folder me-2"></i>
-      Build a software environment with containers 
+      Using software in Apptainer containers
     </span>
     </div>
     <div class="list-group ps-4 border-start bg-light">
@@ -982,21 +1023,58 @@ You can use CHTC servers to build the container, so there is no need to install 
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/software-overview-htc#containers#main">What are containers?</a>
+        <a class="" href="/uw-research-computing/apptainer-htc#main">Use Apptainer containers</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/apptainer-build#main">Apptainer/Singularity</a>
+        <a class="" href="/uw-research-computing/apptainer-build#main">More about Apptainer containers</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/docker-build#main">Docker</a>
+        <a class="" href="/uw-research-computing/htc-docker-to-apptainer#main">Convert Docker images to Apptainer/Singularity images</a>
+    </div>
+
+        
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Using software in Docker containers
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/docker-jobs#main">Use Docker containers</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/docker-build#main">More about Docker containers</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/docker-test#main">Reference: Explore and test Docker containers</a>
+    </div>
+
+        
     </div>
 
         
@@ -1009,52 +1087,37 @@ You can use CHTC servers to build the container, so there is no need to install 
         
     </div>
 
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-docker-to-apptainer#main">Convert Docker images to Apptainer/Singularity images</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/apptainer-htc#main">Use Apptainer containers</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/docker-jobs#main">Use Docker containers</a>
-    </div>
-
-        
-    </div>
-
                             
                                 
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Other Modes of Software Use
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
     <div class="document-link-wrapper bg-light">
         <a class="" href="/uw-research-computing/inter-submit#main">Compile software in an interactive job</a>
     </div>
 
-                            
-                                
+        
+            
+            
     <div class="document-link-wrapper bg-light">
         <a class="" href="/uw-research-computing/licensed-software#main">Licensed software and modules</a>
     </div>
 
-                            
-                                
+        
+            
+            
     <div class="document-link-wrapper bg-light">
         <a class="" href="/uw-research-computing/htc-modules#main">Use software available in modules</a>
     </div>
 
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-modules-transition-to-el9#main">HTC modules transition to EL9</a>
+        
     </div>
 
                             
