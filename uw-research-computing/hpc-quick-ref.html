@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Using Software in a Container on the HPC Cluster</title>
+<title>Quick reference: Slurm and HPC commands</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Using Software in a Container on the HPC Cluster | CHTC</title>
+<title>Quick reference: Slurm and HPC commands | CHTC</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Using Software in a Container on the HPC Cluster" />
+<meta property="og:title" content="Quick reference: Slurm and HPC commands" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="DEPRECATED" />
-<meta property="og:description" content="DEPRECATED" />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/singularity-hpc" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/singularity-hpc" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/hpc-quick-ref" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc-quick-ref" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2026-01-02T16:32:55+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Using Software in a Container on the HPC Cluster" />
+<meta property="twitter:title" content="Quick reference: Slurm and HPC commands" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-01-02T16:32:55+00:00","datePublished":"2026-01-02T16:32:55+00:00","description":"DEPRECATED","headline":"Using Software in a Container on the HPC Cluster","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/singularity-hpc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/singularity-hpc"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-01-02T16:32:55+00:00","datePublished":"2026-01-02T16:32:55+00:00","description":"Introduction","headline":"Quick reference: Slurm and HPC commands","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-quick-ref"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-quick-ref"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -266,134 +266,277 @@
         <div class="col-12 col-lg-9 mw-1000">
 
             <h1 class="uw-mini-bar mb-4">
-    Using Software in a Container on the HPC Cluster
+    Quick reference: Slurm and HPC commands
 </h1>
 
-            <h2 id="deprecated">DEPRECATED</h2>
+            <h2 id="introduction">Introduction</h2>
 
-<p>See instead our “Using Apptainer Containers on HPC” guide: <a href="https://chtc.cs.wisc.edu/uw-research-computing/apptainer-hpc">https://chtc.cs.wisc.edu/uw-research-computing/apptainer-hpc</a>.</p>
+<p>This page lists common Slurm commands and options for jobs. Users familiar with Slurm and job submission on CHTC’s High Performance Computing (HPC) system can use this page as a quick reference. For users who are just starting out, we suggest reading the full guides to understand the full context of each command or option.</p>
 
-<h2 id="overview">Overview</h2>
+<div class="d-flex flex-column mb-5">
 
-<p>Software that is packaged in a "container" can
-be run on the HPC cluster. This guide assumes that you are starting with 
-an existing Docker container and shows how to use it to run a job on the HPC cluster.</p>
+<h2>Table of Contents</h2>
 
-<p>Note that you may need to install a version of MPI to your container 
-when it is initially created. See the <a href="#notes">notes</a> about this below.</p>
+<div class="uw-sidebar-box me-auto">
+<div class="uw-directory">
 
-<p>The two steps to run a container on the HPC cluster:</p>
-<ol>
-  <li><a href="#image">Convert the container to a Singularity image file</a></li>
-  <li><a href="#command">Run a job that uses the container</a></li>
-</ol>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#submit-jobs">Submit jobs</a></li>
+        <li><a href="#monitor-jobs">Monitor jobs</a></li>
+        <li><a href="#machine-information">Machine information</a></li>
+        <li><a href="#modules">Modules</a></li>
+        <li><a href="#check-quotas">Check quotas</a></li>
+        <li><a href="#related-pages">Related pages</a></li>
+      </ul>
 
-<p><span name="notes"></span>
-Notes about MPI and Containers
-==================</p>
+    </div>
+</div>
+</div>
 
-<p>There are two ways to run a Singularity container integrated with MPI: <code>hybrid</code> 
-mode and <code>bind</code> mode.</p>
+<blockquote>
+  <p><strong>Please note the following!</strong></p>
 
-<p>In <code>hybrid</code> mode, the container has its own copy of MPI <strong>that is compatible 
-with a version of MPI already installed on the cluster</strong>.</p>
+  <ul>
+    <li>Bracketed items (<code>&lt;&gt;</code>) denote where to place your input. 
+Do not include the brackets in your command.</li>
+    <li>All commands should be entered on a single line.</li>
+  </ul>
+</blockquote>
 
-<p>In <code>bind</code> mode, the code in the container has been compiled with MPI that 
-exists outside the container and there is no MPI installation in the container itself. 
-Again, <strong>the version of MPI used needs to be compatible with one already installed
-on the cluster.</strong></p>
+<h2 id="submit-jobs">Submit jobs</h2>
 
-<p>This will be relevant in how the job is executed later on: <a href="#command">Using Singularity Container Images</a></p>
+<p>See our <a href="hpc-job-submission">job submission</a> guide for more information.</p>
 
-<p><span name="image"></span></p>
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Use</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>sbatch &lt;executable.sh&gt;</code></td>
+      <td>submits job(s) as specified by <code>executable.sh</code>.</td>
+      <td><strong>We recommend using <code>sbatch</code> over the other methods.</strong></td>
+    </tr>
+    <tr>
+      <td><code>srun --mpi=pmix -n4 -N1 -p int --pty bash</code></td>
+      <td>submits an interactive job (intended for simple testing/compiling)</td>
+      <td>The example uses 4 cores, 1 node, and submits to the <em>interactive</em> partition</td>
+    </tr>
+    <tr>
+      <td><code>scancel &lt;job_ID&gt;</code></td>
+      <td>removes the job(s) associated with <code>job_ID</code>.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>scontrol hold &lt;job_ID&gt;</code></td>
+      <td>holds the job(s) associated with <code>job_ID</code> and leaves it in the queue.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>scontrol release &lt;job_ID&gt;</code></td>
+      <td>releases the held job associated with <code>job_ID</code> to the queue.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
-<h1 id="1-convert-container-to-singularity-format"><strong>1. Convert Container to Singularity Format</strong></h1>
+<h3 id="submit-jobs-using-salloc">Submit jobs using <code>salloc</code></h3>
 
-<p>We assume that there is a Docker container (either found
-or created by you) online that you want to use. To use this container 
-on the HPC cluster, it needs to be converted to a Singularity-format
-image file. To do this:</p>
+<p>We recommend using <code>sbatch</code> to submit jobs (see above) instead of <code>salloc</code>. See <a href="hpc-job-submission#for-running-mpi-code">this guide</a> for more information.</p>
 
-<ol>
-  <li>Log in to one of the HPC cluster log in nodes.</li>
-  <li>Start an interactive job:
-    <pre><code> [alice@login]$ srun -n4 -N1 -p int --pty bash
-</code></pre>
-  </li>
-  <li>Once the interactive job starts, you’ll need to unset a shell environment
-variable that prevents download of the Docker container.
-    <pre><code>[alice@int]$ unset HTTPS_PROXY
-</code></pre>
-  </li>
-  <li>Then, save the Docker container to a Singularity image.
-    <pre class="term"><code> [alice@int]$ singularity build /software/alice/name.simg docker://user/image:version
-</code></pre>
+<table class="command-table">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Use</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>salloc -n4 -N1 -p int </code></td>
+      <td>requests an allocation for a job</td>
+      <td>The example uses 4 cores, 1 node, and submits to the <em>interactive</em> partition</td>
+    </tr>
+    <tr>
+      <td><code>srun --mpi=pmix &lt;/path/to/mpi/script&gt;</code></td>
+      <td>executes a script using allocated resources (<code>salloc</code>)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>srun --mpi=pmix --pty bash</code></td>
+      <td>submits an interactive job using allocated resources (<code>salloc</code>)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>echo $SLURM_JOB_ID</code></td>
+      <td>check to see if you are currently using an allocation. If so, a job ID is returned.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>exit</code></td>
+      <td>end your allocation</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
-    <p>For example, if user "Alice" wanted to use the "Fenics" container
- provided on DockerHub,
- and save it to a file named <code>fenics.simg</code>, she would run:</p>
+<h2 id="monitor-jobs">Monitor jobs</h2>
 
-    <pre class="term"><code> [alice@int]$ singularity build /software/alice/fenics.simg docker://fenicsproject/stable:latest
-</code></pre>
+<p>Use these commands to monitor your submitted jobs.</p>
 
-    <blockquote>
-      <p>This command will by default, pull the initial Docker container from 
-Docker Hub. If your Docker container is stored elsewhere, or you are 
-starting with a Singularity image, contact CHTC staff for specific instructions.</p>
-    </blockquote>
-  </li>
-  <li>Once the Singularity command completes, type <code>exit</code> to leave the interactive job.</li>
-</ol>
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Use</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>squeue --me</code></td>
+      <td>displays status of your submitted jobs</td>
+    </tr>
+    <tr>
+      <td><code>squeue -u &lt;username&gt;</code></td>
+      <td>displays status of your submitted jobs by username</td>
+    </tr>
+    <tr>
+      <td><code>squeue -p &lt;partition&gt;</code></td>
+      <td>displays status of your submitted jobs by partition</td>
+    </tr>
+    <tr>
+      <td><code>seff &lt;job_ID&gt;</code></td>
+      <td>view job performance</td>
+    </tr>
+  </tbody>
+</table>
 
-<p><span name="command"></span></p>
+<h3 id="view-job-information-with-sacct">View job information with <code>sacct</code></h3>
 
-<h1 id="2-using-singularity-container-images"><strong>2. Using Singularity Container Images</strong></h1>
+<p><code>sacct</code> displays information about job(s) from the SLURM database. The table below displays options to filter information. Multiple options may be combined.</p>
 
-<p>To use a Singularity container in a job, the SLURM submit file will remain mostly the
-same; what will change is the job’s primary command at the end of the
-file. This command will run your primary program inside the container
-file you've downloaded. The main MPI command will still be part of the 
-singularity command:</p>
+<table class="command-table">
+  <tbody>
+    <tr>
+      <td><code>sacct --jobs &lt;job_ID&gt;,&lt;job_ID&gt;</code></td>
+      <td>filters by <code>job_ID</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>sacct --start=&lt;YYYY-MM-DD&gt;</code></td>
+      <td>filters jobs starting from date <code>YYYY-MM-DD</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>sacct --end=&lt;YYYY-MM-DD&gt;</code></td>
+      <td>filters jobs ending by date <code>YYYY-MM-DD</code>.</td>
+      <td>Should be used with <code>--start</code>, since the default option only returns jobs from the current day.</td>
+    </tr>
+  </tbody>
+</table>
 
-<pre><code class="language-{.sub}">#!/bin/sh
-#SBATCH options
+<h2 id="machine-information">Machine information</h2>
 
-module load MPI/version
-mpirun -np ## singularity exec /path/to/container/file command-to-run
-</code></pre>
+<p>These commands display information about the machines that execute jobs.</p>
 
-<p>For example, if Alice wanted to run a script she had written
-(<code>poisson.py</code>) inside the downloaded fenics container, using 40 cores, she would use the
-following command at the end of her submit file:</p>
+<table class="command-table">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Use</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>sinfo</code></td>
+      <td>displays information about nodes</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>sinfo -n &lt;node&gt;</code></td>
+      <td>displays information about specified node</td>
+      <td>Example: <code>sinfo -n spark-a006</code></td>
+    </tr>
+    <tr>
+      <td><code>sinfo -p &lt;partition&gt;</code></td>
+      <td>displays information about specified partition</td>
+      <td>Example: <code>sinfo -p pre</code></td>
+    </tr>
+  </tbody>
+</table>
 
-<pre><code class="language-{.sub}">mpirun -np 40 singularity exec /software/alice/fenics.simg ./poisson.py
-</code></pre>
+<h2 id="modules">Modules</h2>
 
-<p>The example shown above uses the “hybrid” model for running MPI, which assumes 
-that there is a copy of MPI installed <strong>in the container</strong> that matches what already 
-exists on the cluster.</p>
+<p>These commands access software in the module system. Read <a href="hpc-software#2-using-pre-installed-software-in-modules">this guide</a> for more information.</p>
 
-<p>If your container does <strong>not</strong> have it’s own copy of MPI installed, you need 
-to use the “bind” model for running MPI which requires an additional flag and 
-the location of the main MPI directory:</p>
+<table class="command-table">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Use</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>module avail</code></td>
+      <td>displays available software modules</td>
+    </tr>
+    <tr>
+      <td><code>module spider &lt;keyword&gt;</code></td>
+      <td>searches for <code>&lt;keyword&gt;</code> in available modules</td>
+    </tr>
+    <tr>
+      <td><code>module load &lt;module&gt;</code></td>
+      <td>loads <code>&lt;module&gt;</code></td>
+    </tr>
+    <tr>
+      <td><code>module unload &lt;module&gt;</code></td>
+      <td>unloads <code>&lt;module&gt;</code></td>
+    </tr>
+    <tr>
+      <td><code>module list</code></td>
+      <td>shows all currently loaded modules</td>
+    </tr>
+    <tr>
+      <td><code>module purge</code></td>
+      <td>unloads all modules</td>
+    </tr>
+  </tbody>
+</table>
 
-<pre><code class="language-{.sub}">#!/bin/sh
-#SBATCH options
+<h2 id="check-quotas">Check quotas</h2>
 
-module load MPI/version
-mpirun -np ## singularity exec --bind /path/to/cluster/MPI/dir/ /path/to/container/file command-to-run
-</code></pre>
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Use</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>get_quotas</code></td>
+      <td>shows your <code>/home</code> and <code>/scratch</code> disk and files quota</td>
+    </tr>
+    <tr>
+      <td><code>get_quotas -p &lt;path&gt;</code></td>
+      <td>shows the disk and files quota for a specified path, such as a group directory</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>On CHTC’s cluster, the GCC based version of OpenMPI is installed at the path:
-` /software/chtc/easybuild/v2/software/OpenMPI/4.0.5-GCC-9.3.0/`
-So the command(s) to run the “Alice” example above would be:</p>
+<h2 id="related-pages">Related pages</h2>
 
-<pre><code class="language-{.sub}">MPI_DIR=/software/chtc/easybuild/v2/software/OpenMPI/4.0.5-GCC-9.3.0/
-mpirun -np 40 singularity exec --bind $MPI_DIR /software/alice/fenics.simg ./poisson.py
-</code></pre>
-
-<p>More details on the difference between using the “hybrid” and “bind” model 
-for MPI and Singularity is here: https://sylabs.io/guides/3.8/user-guide/mpi.html</p>
+<ul>
+  <li><a href="https://slurm.schedmd.com/">Slurm documentation</a></li>
+</ul>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -403,6 +546,275 @@ for MPI and Singularity is here: https://sylabs.io/guides/3.8/user-guide/mpi.htm
 
 
 <div id="guide-sidebar">
+    
+        
+                <h6 class="mt-5">HPC guides</h6>
+        
+        
+        <div class="accordion accordion-flush">
+            
+            
+                <div class="accordion-item">
+                        
+                        <span class="accordion-header mt-0" id="get-startedhpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#get-startedhpc-guides-collapse" aria-expanded="false" aria-controls="get-startedhpc-guides">
+                                Get started
+                            </button>
+                        </span>
+                        <div id="get-startedhpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="get-startedhpc-guides" data-bs-parent="#guide-sidebar">
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-overview#main">System overview</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/connecting#main">Log in to CHTC</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/configure-ssh#main">Automate CHTC login</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/basic-shell-commands#main">Quick reference: Basic shell commands</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="fw-bolder" href="/uw-research-computing/hpc-quick-ref#main">Quick reference: HPC and SLURM commands</a>
+    </div>
+
+                            
+                        </div>
+                    </div>
+            
+            
+                <div class="accordion-item">
+                        
+                        <span class="accordion-header mt-0" id="submit-jobshpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#submit-jobshpc-guides-collapse" aria-expanded="false" aria-controls="submit-jobshpc-guides">
+                                Submit jobs
+                            </button>
+                        </span>
+                        <div id="submit-jobshpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="submit-jobshpc-guides" data-bs-parent="#guide-sidebar">
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-job-submission#main">Submitting and managing jobs using SLURM</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-job-monitoring#main">Reviewing job information using SLURM</a>
+    </div>
+
+                            
+                        </div>
+                    </div>
+            
+            
+                <div class="accordion-item">
+                        
+                        <span class="accordion-header mt-0" id="manage-datahpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#manage-datahpc-guides-collapse" aria-expanded="false" aria-controls="manage-datahpc-guides">
+                                Manage data
+                            </button>
+                        </span>
+                        <div id="manage-datahpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="manage-datahpc-guides" data-bs-parent="#guide-sidebar">
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-check-quota#main">Check disk quota and usage</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Transfer files to/from CHTC
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/transfer-files-computer#main">Local computer</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/transfer-data-researchdrive#main">ResearchDrive</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/github-remote-access#main">Private GitHub repo</a>
+    </div>
+
+        
+    </div>
+
+                            
+                        </div>
+                    </div>
+            
+            
+                <div class="accordion-item">
+                        
+                        <span class="accordion-header mt-0" id="softwarehpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#softwarehpc-guides-collapse" aria-expanded="false" aria-controls="softwarehpc-guides">
+                                Software
+                            </button>
+                        </span>
+                        <div id="softwarehpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="softwarehpc-guides" data-bs-parent="#guide-sidebar">
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-software#main">Overview and Policies</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-custom-modules#main">Create and manage custom modules</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Spack
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-spack-setup#main">Set up</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-spack-install#main">Install software</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-spack-modules#main">Create custom Spack modules</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-el9-spack#main">Recreate Spack installs on a new operating system</a>
+    </div>
+
+        
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Containers
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/apptainer-hpc#main">Use Apptainer containers</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/apptainer-build#main">Build an Apptainer container</a>
+    </div>
+
+        
+    </div>
+
+                            
+                        </div>
+                    </div>
+            
+            
+                <div class="accordion-item">
+                        
+                        <span class="accordion-header mt-0" id="troubleshootinghpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshootinghpc-guides-collapse" aria-expanded="false" aria-controls="troubleshootinghpc-guides">
+                                Troubleshooting
+                            </button>
+                        </span>
+                        <div id="troubleshootinghpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="troubleshootinghpc-guides" data-bs-parent="#guide-sidebar">
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-known-issues#main">Known issues on the HPC</a>
+    </div>
+
+                            
+                        </div>
+                    </div>
+            
+            
+                <div class="accordion-item">
+                        
+                        <span class="accordion-header mt-0" id="external-resourceshpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#external-resourceshpc-guides-collapse" aria-expanded="false" aria-controls="external-resourceshpc-guides">
+                                External resources
+                            </button>
+                        </span>
+                        <div id="external-resourceshpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="external-resourceshpc-guides" data-bs-parent="#guide-sidebar">
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="http://slurm.schedmd.com/#main">Slurm manual</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="http://software-carpentry.org/lessons/#main">Software Carpentry</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="http://www.doit.wisc.edu/training/student/#main">UW-Madison software training for students</a>
+    </div>
+
+                            
+                        </div>
+                    </div>
+            
+        </div>
     
 </div>
 <script>
