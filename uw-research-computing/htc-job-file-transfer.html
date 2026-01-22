@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc-job-file-transfer" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-01-21T22:52:59+00:00" />
+<meta property="article:published_time" content="2026-01-22T21:14:50+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Use and transfer data in jobs on the HTC system" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-01-21T22:52:59+00:00","datePublished":"2026-01-21T22:52:59+00:00","description":"Introduction","headline":"Use and transfer data in jobs on the HTC system","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-job-file-transfer"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-job-file-transfer"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-01-22T21:14:50+00:00","datePublished":"2026-01-22T21:14:50+00:00","description":"Introduction","headline":"Use and transfer data in jobs on the HTC system","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-job-file-transfer"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-job-file-transfer"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -506,7 +506,8 @@ requirements = (HasCHTCStaging == true)
 
   <p>The caching mechanism enables faster transfers for frequently used files/containers. However, older versions of frequently modified files may be transferred instead of the latest version.</p>
 
-  <p><strong>If you are changing the contents of the input files frequently, you should rename the file or change its path to ensure the new version is transferred.</strong></p>
+  <p><strong>If you change the contents of the input file, then you should rename the file or change its path to ensure the new version is transferred.</strong>
+Failing to do so may result in the old version, or worse, a corrupted version.</p>
 </blockquote>
 
 <h2 id="transfer-output-data-from-jobs">Transfer output data from jobs</h2>
