@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Create Custom Modules Using Spack</title>
+<title>Use Licensed Software</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Create Custom Modules Using Spack | CHTC</title>
+<title>Use Licensed Software | CHTC</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Create Custom Modules Using Spack" />
+<meta property="og:title" content="Use Licensed Software" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="CHTC uses Spack (https://github.com/spack/spack) for installing and managing software packages on the HPC cluster for all users to use, via the module command. Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software’s dependencies (similar to Conda and Miniconda)." />
-<meta property="og:description" content="CHTC uses Spack (https://github.com/spack/spack) for installing and managing software packages on the HPC cluster for all users to use, via the module command. Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software’s dependencies (similar to Conda and Miniconda)." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-modules" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-modules" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/cst" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/cst" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2026-02-25T22:37:56+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Create Custom Modules Using Spack" />
+<meta property="twitter:title" content="Use Licensed Software" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-25T22:37:56+00:00","datePublished":"2026-02-25T22:37:56+00:00","description":"CHTC uses Spack (https://github.com/spack/spack) for installing and managing software packages on the HPC cluster for all users to use, via the module command. Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software’s dependencies (similar to Conda and Miniconda).","headline":"Create Custom Modules Using Spack","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-modules"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-modules"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-25T22:37:56+00:00","datePublished":"2026-02-25T22:37:56+00:00","description":"Introduction","headline":"Use Licensed Software","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/cst"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/cst"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -264,137 +264,55 @@
         <div class="container-xxl mb-5">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-9 mw-1000">
+
             <h1 class="uw-mini-bar mb-4">
-    Create Custom Modules Using Spack
+    Use Licensed Software
 </h1>
 
-            <p>CHTC uses Spack (<a href="https://github.com/spack/spack">https://github.com/spack/spack</a>) for installing and managing software packages on the HPC cluster for all users to use, via the <code>module</code> command. Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software’s dependencies (similar to Conda and Miniconda).</p>
+            <h2 id="introduction">Introduction</h2>
 
-<p><strong>This guide describes how to create and use custom personal and shared modules for software packages installed using Spack.</strong> For instructions on how to install software using Spack for you and/or your research group, see our guide <a href="hpc-spack-install.html">Installing Software Using Spack</a>.</p>
+<p>This guide describes how to run jobs that use CST 2025 on CHTC’s high throughput computing (HTC) system.</p>
 
-<h1 id="contents">Contents</h1>
+<div class="d-flex flex-column mb-5">
 
-<ol>
-  <li><a href="#1-location-of-the-module-files">Location of the Module Files</a></li>
-  <li><a href="#2-using-custom-modules">Using Custom Modules</a></li>
-  <li><a href="#3-creating-custom-modules-using-spack">Creating Custom Modules Using Spack</a></li>
-  <li><a href="#4-working-with-multiple-environments">Working with Multiple Environments</a></li>
-  <li><a href="#5-using-hierarchy-based-modules">Using Hierarchy Based Modules</a></li>
-</ol>
+<h2>Table of Contents</h2>
 
-<h1 id="1-location-of-the-module-files">1. Location of the Module Files</h1>
+<div class="uw-sidebar-box me-auto">
+<div class="uw-directory">
 
-<p>In order to load a software package using the <code>module</code> command, there must be a corresponding “module file” containing the information that the <code>module</code> command needs in order to load the software package. Spack will automatically generate the required content of the module files, but Spack will need to know where these module files should be saved. Similarly, the <code>module</code> command will need to know where the module files are stored.</p>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#running-cst">Running CST</a></li>
+        <li><a href="#related-pages">Related pages</a></li>
+      </ul>
 
-<p>If you followed the instructions in <a href="hpc-spack-setup.html">Setting Up Spack on HPC</a>, then <strong>the default location of your module files is <code>/home/yourNetID/spack_modules</code></strong> where <code>yourNetID</code> is your NetID.</p>
+    </div>
+</div>
+</div>
 
-<blockquote>
-  <p><strong>If you are using a shared installation of Spack for a group</strong>, and if the person who set up the installation followed the instructions in <a href="hpc-spack-setup.html">Setting Up Spack on HPC</a>, then the default location of the shared module files is likely <code>/home/groups/yourGroupName/spack_modules</code>. You can confirm this by running the command <code>spack config get modules | grep -A 2 'roots'</code> and examining the listed paths (make sure you do not have a Spack environment activated when you do so). If the paths are <code>/home/$user/spack_modules</code>, then you should follow the instructions in <a href="hpc-spack-setup.html#iii-updating-location-of-module-files">iii. Updating location of module files</a> in <a href="hpc-spack-setup.html">Setting Up Spack on HPC</a> before proceeding.</p>
-</blockquote>
+<h2 id="prerequisites">Prerequisites</h2>
 
-<h1 id="2-using-custom-modules">2. Using Custom Modules</h1>
+<p>You must belong to an approved research group in the ECE department. Contact <a href="mailto:chtc@cs.wisc.edu">CHTC facilitators</a> for more information.</p>
 
-<p>Spack will automatically create module files for the packages that you explicitly install, in the location described above.</p>
+<h2 id="running-cst">Running CST</h2>
 
-<p>To update the <code>module</code> command with the default location of the new module files, run the command</p>
+<p>In your submit file, add:</p>
 
-<pre class="term"><code>module use ~/spack_modules
+<pre><code>container_image = /software/groups/ece_cst/cst2025.sif
+transfer_container = false
+requirements = (HasCHTCSoftware == true)
 </code></pre>
 
-<blockquote>
-  <p>For a group installation of Spack, you’ll need to modify the <code>module use</code> command to specify the path to your group’s directory. The following should work if your group followed our instructions when setting up Spack:</p>
+<p>In your executable script, to run CST, use:</p>
 
-  <pre class="term"><code>module use /home/groups/yourGroupName/spack_modules
-</code></pre>
-</blockquote>
-
-<p>Now if you run <code>module avail</code> you should see the your custom modules listed in the first section, with the system modules listed in the following section. You can then use the <code>module load</code> command as usual to load your custom module for use in the current terminal session.</p>
-
-<p><em><strong>Note</strong>: Spack will not automatically create module files for the “upstream” dependencies (packages already installed on the system). If your <code>module load</code> test does not work, follow the instructions in the next section to generate these additional module files.</em></p>
-
-<p>To have your custom modules found automatically by the <code>module</code> command, add the above <code>module use</code> command to the end of your <code>~/.bash_profile</code> file.</p>
-
-<h1 id="3-creating-custom-modules-using-spack">3. Creating Custom Modules Using Spack</h1>
-
-<p>You may need to manually create the custom module files, especially after editing any of the modules configuration for Spack. To create the module files, first activate the desired environment with</p>
-
-<pre class="term"><code>spack env activate yourEnvironmentName
+<pre><code>cst_design_environment &lt;arguments&gt;
 </code></pre>
 
-<p>(where you should replace <code>yourEnvironmentName</code> with the your environment name) and then enter the following command:</p>
-
-<pre class="term"><code>spack module tcl refresh
-</code></pre>
-
-<p>Spack will print out a list of all the packages installed in the current environment, and you’ll be asked to confirm if you wish to create module files for all of these packages.</p>
-
-<p>To remove old module files, or to update the directory structure, add the option <code>--delete-tree</code>, i.e.</p>
-
-<pre class="term"><code>spack module tcl refresh --delete-tree
-</code></pre>
-
-<p>If you tried to load a module but received the error(s) <em>‘Executing this command requires loading “{module file}” which failed while processing the following…‘</em>, then you will need to generate the “upstream” module files in order to use your desired module. In this case, the following command should resolve the issue:</p>
-
-<pre class="term"><code>spack module tcl refresh --upstream-modules
-</code></pre>
-
-<blockquote>
-  <p><strong>Note</strong>: You should only run this command inside of an activated Spack environment, otherwise you will be prompted to create module files for ALL Spack packages, including those installed system-wide, regardless of whether they are required dependencies!</p>
-</blockquote>
-
-<p>Lastly, note that Spack will not directly create module files for software installed independently of Spack (for example, using <code>pip install</code>).</p>
-
-<h1 id="4-working-with-multiple-environments">4. Working with Multiple Environments</h1>
-
-<p>If you have more than one Spack environment that you wish to create modules for, we recommend that you modify the above procedure in order to better organize the list of modules.</p>
-
-<p>For each environment that you wish to create module files for, activate the environment and then edit the configuration so that the module files are saved into a sub-directory named for that environment. For example,</p>
-
-<pre class="term"><code>spack env activate my-first-env
-spack config add modules:default:roots:tcl:/home/\$user/spack_modules/my-first-env
-</code></pre>
-
-<p>first activates <code>my-first-env</code> and then updates the configuration to save the module files to <code>/home/yourNetID/spack_modules/my-first-env</code>.</p>
-
-<blockquote>
-  <p>For a group installation of Spack, you should instead specify the path to your group’s directory. For example,</p>
-
-  <pre class="term"><code>spack env activate my-first-env
-spack config add modules:default:roots:tcl:/home/groups/yourGroupName/spack_modules/my-first-env
-</code></pre>
-
-  <p>You should similarly modify the following commands to account for the different paths.</p>
-</blockquote>
-
-<p>Repeat the process for your other environments.</p>
-
-<p>To use the modules for a particular environment, run the <code>module use</code> command but specify the path to the environment’s subdirectory. Continuing with our example,</p>
-
-<pre class="term"><code>module use ~/spack_modules/my-first-env
-</code></pre>
-
-<p>will update the <code>module</code> command with the location of the modules for using <code>my-first-env</code>.</p>
-
-<p>If you want to switch environments, we recommend that you “unuse” the first environment and then “use” the second, i.e.</p>
-
-<pre class="term"><code>module unuse ~/spack_modules/my-first-env
-module use ~/spack_modules/my-second-env
-</code></pre>
-
-<p>While you can have more than one environment in “use” by the <code>module</code> command, this increases the chance of loading modules with conflicting dependencies that could result in unexpected behavior.</p>
-
-<h1 id="5-using-hierarchy-based-modules">5. Using Hierarchy Based Modules</h1>
-
-<p>There are two “flavors” of the <code>module</code> system: <code>tcl</code> and <code>lmod</code>. We use <code>tcl</code> for managing the system modules, and have recommended using <code>tcl</code> throughout this guide. The main difference between the two “flavors” of modules is that <code>tcl</code> uses a “flat” directory structure (all the module files are located in the same central directory) whereas <code>lmod</code> uses a “hierarchy” directory structure (where the module files are grouped by their compiler or MPI version). The hierarchal structure of <code>lmod</code> can be very useful in organizing duplicate module files that differ only by how they were compiled.</p>
-
-<p>To use the <code>lmod</code> style module files, you should first edit your modules configuration to enable <code>lmod</code> and disable <code>tcl</code>, then refresh your module files.</p>
-
-<pre class="term"><code>spack config add 'modules:default:enable:lmod'
-spack config remove 'modules:default:enable:tcl'
-spack module refresh lmod --delete-tree
-</code></pre>
-
-<p>More advanced options regarding the naming and structure of the <code>lmod</code> module files can be configured by editing the <code>modules.yaml</code> (described in  <a href="hpc-spack-setup.html#iii-updating-location-of-module-files">iii. Updating location of module files</a> in <a href="hpc-spack-setup.html">Setting Up Spack on HPC</a>). See the Spack documentation for more information on how to configure module files: https://spack.readthedocs.io/en/latest/module_file_support.html#.</p>
+<h2 id="related-pages">Related pages</h2>
+<ul>
+  <li><a href="licensed-software">Licensed software</a></li>
+</ul>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -406,7 +324,7 @@ spack module refresh lmod --delete-tree
 <div id="guide-sidebar">
     
         
-                <h6 class="mt-5">HPC guides</h6>
+                <h6 class="mt-5">HTC guides</h6>
         
         
         <div class="accordion accordion-flush">
@@ -414,28 +332,28 @@ spack module refresh lmod --delete-tree
             
                 <div class="accordion-item">
                         
-                        <span class="accordion-header mt-0" id="get-startedhpc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#get-startedhpc-guides-collapse" aria-expanded="false" aria-controls="get-startedhpc-guides">
+                        <span class="accordion-header mt-0" id="get-startedhtc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#get-startedhtc-guides-collapse" aria-expanded="false" aria-controls="get-startedhtc-guides">
                                 Get started
                             </button>
                         </span>
-                        <div id="get-startedhpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="get-startedhpc-guides" data-bs-parent="#guide-sidebar">
+                        <div id="get-startedhtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="get-startedhtc-guides" data-bs-parent="#guide-sidebar">
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-overview#main">System overview</a>
+        <a class="" href="/uw-research-computing/htc-overview#main">System overview</a>
     </div>
 
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/connecting#main">Log in to CHTC</a>
+        <a class="" href="/uw-research-computing/htc-roadmap#main">Roadmap to getting started</a>
     </div>
 
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/configure-ssh#main">Automate CHTC login</a>
+        <a class="" href="/uw-research-computing/connecting#main">Log into CHTC</a>
     </div>
 
                             
@@ -447,7 +365,7 @@ spack module refresh lmod --delete-tree
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-quick-ref#main">Quick reference: HPC and SLURM commands</a>
+        <a class="" href="/uw-research-computing/htcondor-quick-ref#main">Quick reference: HTCondor commands</a>
     </div>
 
                             
@@ -457,30 +375,18 @@ spack module refresh lmod --delete-tree
             
                 <div class="accordion-item">
                         
-                        <span class="accordion-header mt-0" id="submit-jobshpc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#submit-jobshpc-guides-collapse" aria-expanded="false" aria-controls="submit-jobshpc-guides">
+                        <span class="accordion-header mt-0" id="submit-jobshtc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#submit-jobshtc-guides-collapse" aria-expanded="false" aria-controls="submit-jobshtc-guides">
                                 Submit jobs
                             </button>
                         </span>
-                        <div id="submit-jobshpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="submit-jobshpc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-job-submission#main">Submitting and managing jobs using SLURM</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-job-monitoring#main">Reviewing job information using SLURM</a>
-    </div>
-
+                        <div id="submit-jobshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="submit-jobshtc-guides" data-bs-parent="#guide-sidebar">
                             
                                 
     <div class="document-link-wrapper" style="background-color: #d3d3d3;">
     <span style="font-size: .8rem;">
       <i class="bi bi-folder me-2"></i>
-      Open OnDemand
+      Submit jobs using HTCondor 
     </span>
     </div>
     <div class="list-group ps-4 border-start bg-light">
@@ -488,14 +394,68 @@ spack module refresh lmod --delete-tree
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/ood#main">Overview</a>
+        <a class="" href="/uw-research-computing/htcondor-job-submission#main">Job submission basics</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/ood-job-composer#main">Job Composer</a>
+        <a class="" href="/uw-research-computing/multiple-jobs#main">Submit multiple jobs</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/multiple-job-dirs#main">Submit multiple jobs in different directories</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/inter-submit#main">Submit an interactive job</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/condor_q#main">Monitor your job</a>
+    </div>
+
+        
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Arguments and shell scripting 
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/htc-basic-scripting#main">Basic scripting and job submission with arguments</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/htc-passing-arguments#main">Practice: Pass arguments from the submit file to the executable script</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/htc-passing-arguments-multiple#main">Practice: Pass multiple arguments to multiple jobs with one submit file</a>
     </div>
 
         
@@ -508,16 +468,28 @@ spack module refresh lmod --delete-tree
             
                 <div class="accordion-item">
                         
-                        <span class="accordion-header mt-0" id="manage-datahpc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#manage-datahpc-guides-collapse" aria-expanded="false" aria-controls="manage-datahpc-guides">
+                        <span class="accordion-header mt-0" id="manage-datahtc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#manage-datahtc-guides-collapse" aria-expanded="false" aria-controls="manage-datahtc-guides">
                                 Manage data
                             </button>
                         </span>
-                        <div id="manage-datahpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="manage-datahpc-guides" data-bs-parent="#guide-sidebar">
+                        <div id="manage-datahtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="manage-datahtc-guides" data-bs-parent="#guide-sidebar">
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-check-quota#main">Check disk quota and usage</a>
+        <a class="" href="/uw-research-computing/htc-job-file-transfer#main">Use and transfer data in jobs on the HTC system </a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/file-avail-largedata#main">Manage Large Data in HTC Jobs</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/check-quota#main">Check disk quota and usage</a>
     </div>
 
                             
@@ -525,7 +497,7 @@ spack module refresh lmod --delete-tree
     <div class="document-link-wrapper" style="background-color: #d3d3d3;">
     <span style="font-size: .8rem;">
       <i class="bi bi-folder me-2"></i>
-      Transfer files to/from CHTC
+      Transfer files to/from CHTC 
     </span>
     </div>
     <div class="list-group ps-4 border-start bg-light">
@@ -547,6 +519,13 @@ spack module refresh lmod --delete-tree
             
             
     <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/globus#main">Globus</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
         <a class="" href="/uw-research-computing/github-remote-access#main">Private GitHub repo</a>
     </div>
 
@@ -560,22 +539,16 @@ spack module refresh lmod --delete-tree
             
                 <div class="accordion-item">
                         
-                        <span class="accordion-header mt-0" id="softwarehpc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#softwarehpc-guides-collapse" aria-expanded="false" aria-controls="softwarehpc-guides">
+                        <span class="accordion-header mt-0" id="softwarehtc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#softwarehtc-guides-collapse" aria-expanded="false" aria-controls="softwarehtc-guides">
                                 Software
                             </button>
                         </span>
-                        <div id="softwarehpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="softwarehpc-guides" data-bs-parent="#guide-sidebar">
+                        <div id="softwarehtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="softwarehtc-guides" data-bs-parent="#guide-sidebar">
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-software#main">Overview and Policies</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-custom-modules#main">Create and manage custom modules</a>
+        <a class="" href="/uw-research-computing/software-overview-htc#main">Overview</a>
     </div>
 
                             
@@ -583,7 +556,7 @@ spack module refresh lmod --delete-tree
     <div class="document-link-wrapper" style="background-color: #d3d3d3;">
     <span style="font-size: .8rem;">
       <i class="bi bi-folder me-2"></i>
-      Spack
+      Containers 
     </span>
     </div>
     <div class="list-group ps-4 border-start bg-light">
@@ -591,28 +564,82 @@ spack module refresh lmod --delete-tree
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-spack-setup#main">Set up</a>
+        <a class="" href="/uw-research-computing/software-overview-htc#container-overview#main">What are containers?</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Using software in Apptainer containers
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/apptainer-htc#main">Use Apptainer containers</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-spack-install#main">Install software</a>
+        <a class="" href="/uw-research-computing/apptainer-build#main">More about Apptainer containers</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="fw-bolder" href="/uw-research-computing/hpc-spack-modules#main">Create custom Spack modules</a>
+        <a class="" href="/uw-research-computing/htc-docker-to-apptainer#main">Convert Docker images to Apptainer/Singularity images</a>
+    </div>
+
+        
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Using software in Docker containers
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/docker-jobs#main">Use Docker containers</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-el9-spack#main">Recreate Spack installs on a new operating system</a>
+        <a class="" href="/uw-research-computing/docker-build#main">More about Docker containers</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/docker-test#main">Reference: Explore and test Docker containers</a>
+    </div>
+
+        
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="https://github.com/CHTC/recipes/tree/main/software#main">Recipes repository</a>
     </div>
 
         
@@ -623,7 +650,7 @@ spack module refresh lmod --delete-tree
     <div class="document-link-wrapper" style="background-color: #d3d3d3;">
     <span style="font-size: .8rem;">
       <i class="bi bi-folder me-2"></i>
-      Containers
+      Other Modes of Software Use
     </span>
     </div>
     <div class="list-group ps-4 border-start bg-light">
@@ -631,14 +658,21 @@ spack module refresh lmod --delete-tree
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/apptainer-hpc#main">Use Apptainer containers</a>
+        <a class="" href="/uw-research-computing/inter-submit#main">Compile software in an interactive job</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/apptainer-build#main">Build an Apptainer container</a>
+        <a class="" href="/uw-research-computing/licensed-software#main">Licensed software and modules</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/htc-modules#main">Use software available in modules</a>
     </div>
 
         
@@ -651,16 +685,135 @@ spack module refresh lmod --delete-tree
             
                 <div class="accordion-item">
                         
-                        <span class="accordion-header mt-0" id="troubleshootinghpc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshootinghpc-guides-collapse" aria-expanded="false" aria-controls="troubleshootinghpc-guides">
+                        <span class="accordion-header mt-0" id="workflowshtc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#workflowshtc-guides-collapse" aria-expanded="false" aria-controls="workflowshtc-guides">
+                                Workflows
+                            </button>
+                        </span>
+                        <div id="workflowshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="workflowshtc-guides" data-bs-parent="#guide-sidebar">
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/checkpointing#main">Checkpoint jobs</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      DAGMan workflow manager 
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/htc/dagman-workflows#main">Submit workflows with DAGman</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/htc/dagman-simple-example#main">Practice: Run a simple DAGMan workflow</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/htc/tutorial-dagman-intermediate#main">Practice: Run an diamond DAGMan workflow</a>
+    </div>
+
+        
+    </div>
+
+                            
+                        </div>
+                    </div>
+            
+            
+                <div class="accordion-item">
+                        
+                        <span class="accordion-header mt-0" id="special-use-caseshtc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-caseshtc-guides-collapse" aria-expanded="false" aria-controls="special-use-caseshtc-guides">
+                                Special use cases
+                            </button>
+                        </span>
+                        <div id="special-use-caseshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="special-use-caseshtc-guides" data-bs-parent="#guide-sidebar">
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/gpu-jobs#main">Use GPUs</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/scaling-htc#main">Scale beyond local HTC capacity</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/high-memory-jobs#main">Submit high memory jobs</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/machine-learning-htc#main">Machine learning jobs</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/os-request-htc#main">Custom Linux versions</a>
+    </div>
+
+                            
+                        </div>
+                    </div>
+            
+            
+                <div class="accordion-item">
+                        
+                        <span class="accordion-header mt-0" id="troubleshootinghtc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshootinghtc-guides-collapse" aria-expanded="false" aria-controls="troubleshootinghtc-guides">
                                 Troubleshooting
                             </button>
                         </span>
-                        <div id="troubleshootinghpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="troubleshootinghpc-guides" data-bs-parent="#guide-sidebar">
+                        <div id="troubleshootinghtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="troubleshootinghtc-guides" data-bs-parent="#guide-sidebar">
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-known-issues#main">Known issues on the HPC</a>
+        <a class="" href="http://status.chtc.wisc.edu#main">Status page</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/htc-known-issues#main">Known issues</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/variable-memory#main">Request variable memory</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/dos-unix#main">Windows/Linux incompatibility</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/get-help.html#main">Get help</a>
     </div>
 
                             
@@ -670,28 +823,28 @@ spack module refresh lmod --delete-tree
             
                 <div class="accordion-item">
                         
-                        <span class="accordion-header mt-0" id="external-resourceshpc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#external-resourceshpc-guides-collapse" aria-expanded="false" aria-controls="external-resourceshpc-guides">
-                                External resources
+                        <span class="accordion-header mt-0" id="external-resourceshtc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#external-resourceshtc-guides-collapse" aria-expanded="false" aria-controls="external-resourceshtc-guides">
+                                External Resources
                             </button>
                         </span>
-                        <div id="external-resourceshpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="external-resourceshpc-guides" data-bs-parent="#guide-sidebar">
+                        <div id="external-resourceshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="external-resourceshtc-guides" data-bs-parent="#guide-sidebar">
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="http://slurm.schedmd.com/#main">Slurm manual</a>
+        <a class="" href="https://htcondor.org/manual/#main">HTCondor manual</a>
     </div>
 
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="http://software-carpentry.org/lessons/#main">Software Carpentry</a>
+        <a class="" href="https://software-carpentry.org/lessons/#main">Software Carpentry</a>
     </div>
 
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="http://www.doit.wisc.edu/training/student/#main">UW-Madison software training for students</a>
+        <a class="" href="https://sts.doit.wisc.edu/workshops/#main">UW-Madison software training for students</a>
     </div>
 
                             
@@ -720,6 +873,7 @@ spack module refresh lmod --delete-tree
         </div>
     </div>
 </div>
+
 
     </main>
     <footer id="colophon" class="uw-footer">
