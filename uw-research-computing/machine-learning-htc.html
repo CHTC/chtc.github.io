@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Run Machine Learning Jobs</title>
+<title>Machine learning/AI workflows on the HTC system</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Run Machine Learning Jobs | CHTC</title>
+<title>Machine learning/AI workflows on the HTC system | CHTC</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Run Machine Learning Jobs" />
+<meta property="og:title" content="Machine learning/AI workflows on the HTC system" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="This guide provides some of our recommendations for success in running machine learning (specifically deep learning) jobs in CHTC." />
-<meta property="og:description" content="This guide provides some of our recommendations for success in running machine learning (specifically deep learning) jobs in CHTC." />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
 <link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/machine-learning-htc" />
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/machine-learning-htc" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-02-27T21:01:39+00:00" />
+<meta property="article:published_time" content="2026-03-03T19:52:28+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Run Machine Learning Jobs" />
+<meta property="twitter:title" content="Machine learning/AI workflows on the HTC system" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-27T21:01:39+00:00","datePublished":"2026-02-27T21:01:39+00:00","description":"This guide provides some of our recommendations for success in running machine learning (specifically deep learning) jobs in CHTC.","headline":"Run Machine Learning Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/machine-learning-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/machine-learning-htc"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-03-03T19:52:28+00:00","datePublished":"2026-03-03T19:52:28+00:00","description":"Introduction","headline":"Machine learning/AI workflows on the HTC system","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/machine-learning-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/machine-learning-htc"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -266,112 +266,115 @@
         <div class="col-12 col-lg-9 mw-1000">
 
             <h1 class="uw-mini-bar mb-4">
-    Run Machine Learning Jobs
+    Machine learning/AI workflows on the HTC system
 </h1>
 
-            <p>This guide provides some of our recommendations for success 
-in running machine learning (specifically deep learning) jobs in CHTC.</p>
+            <h2 id="introduction">Introduction</h2>
 
-<blockquote>
-  <p>This is a new <em>how-to</em> guide on the CHTC website. Recommendations and 
-feedback are welcome via email (chtc@cs.wisc.edu) or by creating an 
-issue on the CHTC website Github repository: <a href="https://github.com/CHTC/chtc-website-source/issues/new">Create an issue</a></p>
-</blockquote>
+<p>This guide provides some of our recommendations for success in running machine learning and AI workflows on the HTC system.</p>
 
-<h1 id="overview">Overview</h1>
+<p style="text-align:center"><img src="/images/researcher-to-ai-proficiency.png" alt="Flowchart illustrating three stages to getting AI workflows running on the HTC system: (1) Develop and test, (2) Distribute work, (3) Improve workflow" width="700px" /></p>
 
-<p>It is important to understand the needs of a machine learning job before submitting 
-it and have a plan for managing software. This guide covers:</p>
+<p>There are <strong>three stages</strong> to getting your ML/AI workflow running smoothly on the HTC system:</p>
 
 <ol>
-  <li><a href="#1-job-requirements">Considering job requirements</a></li>
-  <li><a href="#2-software-options">Recommendations for managing software</a></li>
+  <li><strong>Developing and testing</strong> your code</li>
+  <li><strong>Distributing your work</strong> on the HTC system</li>
+  <li><strong>Improving</strong> your workflow</li>
 </ol>
 
-<h1 id="1-job-requirements">1. Job Requirements</h1>
+<p>This guide will provide general recommendations for each stage.</p>
 
-<p>Before digging into the nuts and bolts of software installation in the next section, 
-it is important to first consider a few other job requirements that might apply to 
-your machine learning job.</p>
+<div class="d-flex flex-column mb-5">
 
-<h2 id="a-do-you-need-gpus">A. Do you need GPUs?</h2>
+<h2>Table of Contents</h2>
 
-<p>CHTC has about 4 publicly available GPUs and thousands of CPUs. When possible, using 
-CPUs will allow your jobs to start more quickly and to have many running at once. For 
-certain calculations, GPUs may provide a different advantage as some machine learning 
-algorithms are optimized to run significantly faster on GPUs. Consider whether you 
-would benefit from running one or two long-running calculations on a GPU or if your 
-work is better suited to running many jobs on CHTC’s available CPUs.</p>
+<div class="uw-sidebar-box me-auto">
+<div class="uw-directory">
 
-<p>If you need GPUs for your jobs, you can see a summary of available GPUs in CHTC and 
-how to access them here:</p>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#develop-and-test">Develop and test</a>
+          <ul>
+            <li><a href="#create-your-software-environment">Create your software environment</a></li>
+          </ul>
+        </li>
+        <li><a href="#distribute-your-work">Distribute your work</a>
+          <ul>
+            <li><a href="#gpu-versus-cpu-availability">GPU versus CPU availability</a></li>
+            <li><a href="#data-size">Data size</a></li>
+            <li><a href="#job-lengthduration">Job length/duration</a></li>
+            <li><a href="#test-your-workflow">Test your workflow</a></li>
+            <li><a href="#get-more-throughput-by-submitting-multiple-jobs">Get more throughput by submitting multiple jobs</a></li>
+          </ul>
+        </li>
+        <li><a href="#improve-your-workflow">Improve your workflow</a></li>
+        <li><a href="#gotchas-and-tips">Gotchas and tips</a>
+          <ul>
+            <li><a href="#cuda-capability">CUDA capability</a></li>
+          </ul>
+        </li>
+        <li><a href="#related-pages">Related pages</a></li>
+      </ul>
 
+    </div>
+</div>
+</div>
+
+<h2 id="develop-and-test">Develop and test</h2>
+
+<p>In this stage, you are developing your code and scripts to be used on the HTC system. You should aim to create a <strong>minimally viable workflow</strong> that can run on a local machine while <strong>laying a foundation for distributed work</strong> that will accomplish your science.</p>
+
+<p>Take hyperparameter tuning, for example. Your desired workflow might look something like this:</p>
+
+<p style="text-align:center"><img src="/images/hyperparameter-tuning.png" alt="Flowchart illustrating a hyperparameter tuning workflow." width="500px" /></p>
+
+<p>Instead of developing your scripts to run entire workflow as a single job, you should develop scripts for sections of your workflow. In our example of hyperparameter tuning, we’ll want to focus on developing scripts for the <em>training</em> step. Why?</p>
+
+<p>If we develop a general training workflow, we can <strong>reuse the same scripts to submit multiple training tasks</strong>. This is an example of <em>high throughput computing</em>!</p>
+
+<p>For other steps, like pre-processing and post-processing, we can submit them as separate jobs or scripts managed by <a href="uw-research-computing/htc/dagman-workflows">DAGMan</a>.</p>
+
+<h3 id="create-your-software-environment">Create your software environment</h3>
+
+<p>Before we start anything, we need to consider our software environment. We recommend running all ML/AI workflows will run inside a <a href="software-overview-htc">container</a> software environment.</p>
+
+<p>Each software stack is different, so we encourage users to manage their own software environments and build their own containers.</p>
+
+<p>Be aware that CHTC does not provide consultation services for code development.</p>
+
+<blockquote class="tip-header">
+  <h3 id="write-down-your-software-environment">Write down your software environment</h3>
+</blockquote>
+
+<blockquote class="tip">
+  <p>Write down what you need to run your software environment, including but not limited to:</p>
+  <ul>
+    <li>Software (e.g., Python, R)</li>
+    <li>Packages (e.g., matplotlib, Pytorch, pandas)</li>
+    <li>Dependencies and libraries (e.g., specific versions of GLIBC, libxc)</li>
+    <li>Environment variables</li>
+    <li>CUDA library version (if applicable)</li>
+  </ul>
+</blockquote>
+
+<p>Next, you’ll need to build your software environment in a new container or use an existing container with your environment.</p>
+
+<h4 id="docker-containers">Docker containers</h4>
+
+<p>Docker is a commonly-used container engine, with many existing containers distributed on Docker Hub.</p>
+
+<p>To see how you can use Docker containers to run jobs in CHTC, see our guides:</p>
 <ul>
-  <li><a href="gpu-jobs.html">GPUs in CHTC</a></li>
-</ul>
-
-<p>Note that you may need to use different versions of your software, depending on whether or 
-not you are using GPUs, as shown in the <a href="#2-software-options">software section of this guide</a>.</p>
-
-<h2 id="b-how-big-is-your-data">B. How big is your data?</h2>
-
-<p>CHTC’s usual data recommendations apply for machine learning jobs. If your job is using 
-an input data set larger than a few hundred MB or generating output files larger than 
-a few GB, you will likely need to use our large data 
-file share. Contact the CHTC Research Computing Facilitators to get access and 
-read about the large data location here:</p>
-
-<ul>
-  <li><a href="file-avail-largedata.html">Managing Large Data in HTC Jobs</a></li>
-</ul>
-
-<h2 id="c-how-long-does-your-job-run">C. How long does your job run?</h2>
-
-<p>CHTC’s default job length is 72 hours. If your task is long enough that you will 
-encounter this limit, contact the CHTC Research Computing Facilitators (chtc@cs.wisc.edu) 
-for potential work arounds.</p>
-
-<h2 id="d-how-many-jobs-do-you-want-to-submit">D. How many jobs do you want to submit?</h2>
-
-<p>Do you have the ability to break your work into many independent pieces? If so, 
-you can take advantage of CHTC’s capability to run many independent jobs at once, 
-especially when each job is using a CPU. See our guide for running multiple jobs here:</p>
-
-<ul>
-  <li><a href="multiple-jobs.html">Submitting Multiple Jobs Using HTCondor</a></li>
-</ul>
-
-<h1 id="2-software-options">2. Software Options</h1>
-
-<p>Many of the tools used for machine learning, specifically deep learning and 
-convolutional neural networks, have enough dependencies that our usual installation 
-processes work less reliably. The following options are the best way to handle the complexity 
-of these software tools.</p>
-
-<p>Please be aware of which CUDA library version you are using to run your code.</p>
-
-<h2 id="a-using-docker-containers">A. Using Docker Containers</h2>
-
-<p>CHTC’s HTC system has the ability to run jobs using Docker containers, which package 
-up a whole system (and software) environment in a consistent, reproducible, portable 
-format. When possible, we recommend using standard, publicly available 
-Docker containers to run machine learning jobs in CHTC.</p>
-
-<p>To see how you can use Docker containers to run jobs in CHTC, see:</p>
-<ul>
-  <li><a href="docker-jobs.html">Docker Jobs in CHTC</a></li>
+  <li><a href="docker-jobs">Docker Jobs in CHTC</a></li>
   <li><a href="https://github.com/CHTC/templates-GPUs">GPU/Machine Learning Job Examples on Github</a></li>
-</ul>
-
-<p>You can also test and examine containers on your own computer:</p>
-<ul>
-  <li><a href="docker-test.html">Exploring and Testing Docker Containers</a></li>
 </ul>
 
 <p>Some machine learning frameworks publish ready-to-go Docker images:</p>
 <ul>
   <li><a href="https://hub.docker.com/r/tensorflow/tensorflow">Tensorflow on Docker Hub</a> - the “Overview” on that page describes how to choose an image.</li>
-  <li><a href="https://hub.docker.com/r/pytorch/pytorch/tags">Pytorch on Docker Hub</a> - we recommend choosing the most recently published image that ends in <code>-runtime</code>.</li>
+  <li><a href="https://hub.docker.com/r/pytorch/pytorch/tags">Pytorch on Docker Hub</a> - we recommend choosing an image that ends in <code>-runtime</code>.</li>
+  <li><a href="https://catalog.ngc.nvidia.com/orgs/nvidia/containers/cuda/tags">NVIDIA CUDA Docker images</a></li>
 </ul>
 
 <p>If you can not find a Docker container with exactly the tools you need, you can build your 
@@ -382,17 +385,133 @@ test your own Docker container, see this guide:</p>
   <li><a href="docker-build.html">Building Docker Containers</a></li>
 </ul>
 
-<h2 id="b-using-conda">B. Using Conda</h2>
+<h4 id="apptainer-containers">Apptainer containers</h4>
+
+<p>CHTC also supports Apptainer, another container engine. We recommend new users try Apptainer, since Apptainer is already installed on CHTC machines, and users don’t need to download it, unlike Docker.</p>
+
+<ul>
+  <li><a href="apptainer-htc">Use and build Apptainer containers</a></li>
+  <li><a href="apptainer-build">Additional considerations on building Apptainer containers</a></li>
+  <li><a href="https://github.com/CHTC/recipes/tree/main/software">Software recipes</a></li>
+</ul>
+
+<h4 id="conda-environments">Conda environments</h4>
 
 <p>The Python package manager conda is a popular tool for installing and 
-managing machine learning tools.
-See <a href="conda-installation.html">this guide</a> for information on how 
-to use conda to provide dependencies for CHTC jobs.</p>
+managing machine learning tools. You can build a conda environment in Docker or Apptainer containers.</p>
 
-<p>Note that when installing TensorFlow using <code>conda</code>, it is important to install 
-not the generic <code>tensorflow</code> package, but <code>tensorflow-gpu</code>. This ensures that 
-the installation will include the <code>cudatoolkit</code> and <code>cudnn</code> dependencies
-required for TensorFlow ‘s GPU capability.</p>
+<p><a href="https://github.com/CHTC/recipes/tree/main/software/Conda">See our conda recipes here.</a></p>
+
+<h2 id="distribute-your-work">Distribute your work</h2>
+
+<p>After getting your software stack set up, the next step is to figure out how to effectively utilize the available resources to run your workflow. This section outlines available resources and considerations for your workflow.</p>
+
+<h3 id="gpu-versus-cpu-availability">GPU versus CPU availability</h3>
+
+<p>CHTC has ~150 shared use GPUs that are in high demand. This means that your jobs may take minutes to hours to start, depending on resource requests. <strong>The more resources (and more specific GPUs) you request, the longer your job may take to start.</strong></p>
+
+<p>One alternative is to use CPUs. CHTC has over 1000 CPUs! When possible, use CPUs. In general, jobs that use only CPUs (&lt;20 CPUs) start more quickly and allow you to have more of these types of jobs running simultaneously.</p>
+
+<p>For certain calculations, GPUs may provide different advantages, since some machine learning algorithms are optimized to run significantly faster on GPUs. Consider whether you would benefit from running one or two long-running calculations on a GPU or if your work is better suited to running many jobs on CHTC’s available CPUs.</p>
+
+<p>You may need to use different versions of your software, depending on whether or 
+not you are using GPUs, as shown in the <a href="#2-software-options">software section of this guide</a>.</p>
+
+<p>See our <a href="gpu-jobs">GPU guide</a> for a summary of available GPUs.</p>
+
+<h3 id="data-size">Data size</h3>
+
+<p>Most machine learning/AI workflows require large datasets. If your job is using input data greater than 1 GB, you will need to stage the large datasets with our <code>/staging</code> file system or through ResearchDrive.</p>
+
+<p><strong>If you have a large dataset that has lots of small files (&lt;1 GB each)</strong>, you should transfer the dataset as one large file (i.e., <code>.zip</code> or <code>.tar.gz</code>). Do not transfer a directory from <code>/staging</code> recursively. This ensures efficient file transfer and decreases the load on the system.</p>
+
+<p>Read our data transfer guides:</p>
+
+<ul>
+  <li><a href="htc-job-file-transfer">Use and transfer data in jobs on the HTC system</a></li>
+  <li><a href="file-avail-largedata">Managing Large Data in HTC Jobs</a></li>
+  <li><a href="htc-uwdf-researchdrive">Directly transfer files between ResearchDrive and your jobs</a></li>
+</ul>
+
+<h3 id="job-lengthduration">Job length/duration</h3>
+
+<p><strong>For CPU-only jobs</strong>, CHTC’s default job length is 72 hours.</p>
+
+<p><strong>For GPU jobs</strong>, the default job length is <code>medium</code>, which runs for a maximum duration of 24 hours. Read our <a href="gpu-jobs">GPU job guide</a> for more information about GPU job length.</p>
+
+<table class="gtable">
+  <thead>
+    <tr>
+      <th>Job type</th>
+      <th>Maximum runtime</th>
+      <th>Per-user limitation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Short</td>
+      <td>12 hrs</td>
+      <td>2/3 of CHTC GPU Lab GPUs</td>
+    </tr>
+    <tr>
+      <td>Medium</td>
+      <td>24 hrs</td>
+      <td>1/3 of CHTC GPU Lab GPUs</td>
+    </tr>
+    <tr>
+      <td>Long</td>
+      <td>7 days</td>
+      <td>up to 4 GPUs in use</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>If you need longer runtimes, contact CHTC staff <a href="get-help">get-help</a> and/or consider implementing <a href="checkpointing">checkpointing</a> into your jobs.</p>
+
+<h3 id="test-your-workflow">Test your workflow</h3>
+
+<p>Before you submitting your workflow, <strong>you should always test with a single job first</strong>. This will allow you to catch any bugs and errors in a manageable way, as well as reducing the usage of computational resources on failed jobs.</p>
+
+<p>While every workflow looks different, follow our guidelines for development and testing.</p>
+
+<ol>
+  <li><strong>Consider runtime, disk space, memory, and GPU needs.</strong> The more (or specific) resources you need, the less of these jobs you will be able to have running at a time. Consider developing your scripts to use fewer or more generalized resources.</li>
+  <li><strong>Test with a subset of your data.</strong> Instead of using a large dataset (especially those &gt;100 GB), use a smaller dataset to reduce resource usage and time to test.</li>
+</ol>
+
+<h3 id="get-more-throughput-by-submitting-multiple-jobs">Get more throughput by submitting multiple jobs</h3>
+
+<p>Do you have the ability to break your work into many independent pieces? (e.g., hyperparameter tuning, inference) If so, you can take advantage of CHTC’s capability to run many independent jobs at once, especially when each job is using a CPU. See <a href="multiple-jobs.html">our guide for running multiple jobs</a>.</p>
+
+<h2 id="improve-your-workflow">Improve your workflow</h2>
+
+<p>Once you’ve gotten a subset of your workflow going, it’s time to refine and improve your workflow! This section highlights how to get more out of the available resources (“do more with less”), monitor and organize runs, and/or create ensembles of models.</p>
+
+<ul>
+  <li>Use automated workflows to manage your tasks (e.g. using <a href="htc/dagman-workflows">DAGMan</a>)</li>
+  <li>Monitor your training with <a href="https://wandb.ai/site/">Weights and Biases</a>—however, be aware of API key leakage.</li>
+  <li>Use <a href="checkpointing">checkpointing</a> to shorten your jobs and <a href="#job-lengthduration">increase the number of jobs</a> you can have running concurrently. This also makes your job resilient against job eviction and machine issues.</li>
+</ul>
+
+<h2 id="gotchas-and-tips">Gotchas and tips</h2>
+
+<ul>
+  <li>Check your job logs, especially during testing, to understand your usage (memory, CPU, disk, GPU memory). Use these values to optimize your resource requests.</li>
+  <li>If your job is using the conda environment but not utilizing the GPU, check that you are specifying the gpu-specific version of <code>pytorch/tensorflow</code>.</li>
+  <li>Unsure about something? <a href="get-help">Ask for help or give us feedback!</a></li>
+</ul>
+
+<h3 id="cuda-capability">CUDA capability</h3>
+
+<p>The CUDA capability is a number that corresponds to the computational capability of NVIDIA devices and loosely correlates with GPU generation. There are considerations between versions of CUDA and capability. See <a href="https://en.wikipedia.org/wiki/CUDA#GPUs_supported">Wikipedia</a> for a matrix of compatibility.</p>
+
+<h2 id="related-pages">Related pages</h2>
+
+<ul>
+  <li><a href="gpu-jobs">Use GPUs</a></li>
+  <li><a href="https://github.com/CHTC/recipes/tree/main/software">CHTC Recipes</a></li>
+  <li><a href="checkpointing">Checkpoint jobs</a></li>
+</ul>
 
         </div>
         <div class="col-3 d-none d-lg-block">
