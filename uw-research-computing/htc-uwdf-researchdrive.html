@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc-uwdf-researchdrive" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-04-06T15:55:09+00:00" />
+<meta property="article:published_time" content="2026-04-06T16:07:35+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Directly transfer files between ResearchDrive and your jobs" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-04-06T15:55:09+00:00","datePublished":"2026-04-06T15:55:09+00:00","description":"Introduction","headline":"Directly transfer files between ResearchDrive and your jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-uwdf-researchdrive"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-uwdf-researchdrive"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-04-06T16:07:35+00:00","datePublished":"2026-04-06T16:07:35+00:00","description":"Introduction","headline":"Directly transfer files between ResearchDrive and your jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-uwdf-researchdrive"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-uwdf-researchdrive"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -280,17 +280,7 @@
 
             <h2 id="introduction">Introduction</h2>
 
-<p>CHTC is launching a pilot program in which users can directly transfer files between ResearchDrive and their jobs. This can remove the additional step of uploading or downloading data to and from CHTC data storage locations.</p>
-
-<blockquote class="tip-header">
-  <h3 id="️-uwdfresearchdrive-pilot-program">⚗️ UWDF/ResearchDrive Pilot Program</h3>
-</blockquote>
-
-<blockquote class="tip">
-  <p>Currently the UWDF/ResearchDrive feature is in its pilot phase and is not yet widely available to CHTC users. This file transfer feature is still under testing and may have occasional issues or bugs.</p>
-
-  <p>If you are interested in testing this feature, contact us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.</p>
-</blockquote>
+<p>CHTC has partnered with <a href="https://it.wisc.edu/services/researchdrive/">ResearchDrive</a> to offer a feature where users can directly transfer files between ResearchDrive and their jobs. This can remove the additional step of uploading or downloading data to and from CHTC data storage locations.</p>
 
 <div class="d-flex flex-column mb-5">
 
@@ -319,9 +309,9 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>Users can transfer files directly between <a href="https://it.wisc.edu/services/researchdrive/">ResearchDrive</a> and their jobs by using the UW Data Federation (UWDF) and the <a href="https://docs.pelicanplatform.org/about-pelican">Pelican Platform</a> (which also powers the <code>osdf:///</code> file transfer plugin). This integration can remove the additional step of uploading or downloading data to and from CHTC data storage locations, saving time and disk space.</p>
+<p>Users can transfer files directly between <a href="https://it.wisc.edu/services/researchdrive/">ResearchDrive</a> and their jobs by using the UW Data Federation (UWDF) and the <a href="https://docs.pelicanplatform.org/about-pelican">Pelican Platform</a> (which also powers the <code>osdf:///</code> file transfer plugin). This integration removes the additional step of uploading or downloading data to and from CHTC data storage locations, saving time and disk space.</p>
 
-<p>In this way, ResearchDrive behaves as a “staging” location for data to be used in jobs.</p>
+<p>ResearchDrive behaves as a “staging” location for data to be used in jobs.</p>
 
 <p style="text-align:center"><img src="/images/uwdf-researchdrive-diagram.png" width="800px" alt="A diagram illustrating data transfer between CHTC data spaces, ResearchDrive, and Execution Points (where jobs are run)." /></p>
 <caption>
@@ -348,11 +338,11 @@
 
 <h2 id="enable-chtc-integration-for-your-pis-researchdrive">Enable CHTC integration for your PI’s ResearchDrive</h2>
 
-<p>To use this feature, we will need to integrate your PI’s ResearchDrive with CHTC systems. The PI should send an email to us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> giving permission for this integration, as well as a list of CHTC users who are allowed to use this integration. Once we have this permission, we will complete the integration process within 3-5 business days. You will be notified when this integration is ready to use.</p>
+<p>To use this feature, we will need to integrate your PI’s ResearchDrive with CHTC systems. The PI should send an email to <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> giving permission for this integration. Once we have this permission, we will complete the integration process within 3-5 business days. The PI will be notified when this integration is ready to use.</p>
 
 <h2 id="transfer-input-files-from-researchdrive-to-jobs">Transfer input files from ResearchDrive to jobs</h2>
 
-<p>Any file you place in the “CHTC” directory in the top-level directory of your PI’s ResearchDrive is accessible to your CHTC jobs. Your jobs are unable to access any data outside of this directory.</p>
+<p>Any file you place in the “CHTC” directory in the top-level directory of your PI’s ResearchDrive is accessible to your CHTC jobs. Your jobs are unable to access any data outside of this directory, including any symlinks pointing to files outside of this directory. Because the integration allows many CHTC jobs to read/write into the ResearchDrive, this limits the scope of any accidental actions or bugs.</p>
 
 <p>To transfer input files from ResearchDrive to your jobs, specify input files with the <code>pelican://</code> plugin:</p>
 
@@ -399,9 +389,10 @@ transfer_input_files = $(ResearchDrive)/inputfile1.txt
 
 <h2 id="related-pages">Related pages</h2>
 <ul>
-  <li><a href="/uw-research-computing/htc-job-file-transfer">Use and transfer data in jobs on the HTC system</a></li>
-  <li><a href="/uw-research-computing/file-avail-largedata">Manage large data in HTC jobs</a></li>
-  <li><a href="/uw-research-computing/transfer-data-researchdrive">Transfer files between CHTC and ResearchDrive</a></li>
+  <li><a href="https://it.wisc.edu/services/researchdrive/">Research Storage (ResearchDrive)</a></li>
+  <li><a href="htc-job-file-transfer">Use and transfer data in jobs on the HTC system</a></li>
+  <li><a href="file-avail-largedata">Manage large data in HTC jobs</a></li>
+  <li><a href="transfer-data-researchdrive">Transfer files between CHTC and ResearchDrive</a></li>
 </ul>
 
         </div>
@@ -584,6 +575,12 @@ transfer_input_files = $(ResearchDrive)/inputfile1.txt
 
                             
                                 
+    <div class="document-link-wrapper bg-light">
+        <a class="fw-bolder" href="/uw-research-computing/htc-uwdf-researchdrive#main">Directly transfer files between ResearchDrive and your jobs</a>
+    </div>
+
+                            
+                                
     <div class="document-link-wrapper" style="background-color: #d3d3d3;">
     <span style="font-size: .8rem;">
       <i class="bi bi-folder me-2"></i>
@@ -602,7 +599,7 @@ transfer_input_files = $(ResearchDrive)/inputfile1.txt
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/transfer-data-researchdrive#main">ResearchDrive</a>
+        <a class="" href="/uw-research-computing/transfer-data-researchdrive#main">ResearchDrive (via smbclient)</a>
     </div>
 
         

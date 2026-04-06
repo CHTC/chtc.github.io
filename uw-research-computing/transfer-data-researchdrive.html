@@ -26,18 +26,18 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Transfer Files Between CHTC and ResearchDrive" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Introduction This guide shows how to transfer (upload/download) files between CHTC’s file systems and ResearchDrive, a shared data storage service for research at UW Madison. The instructions in this guide may also work for accessing other data services on campus from CHTC; contact us if you would like to know more." />
-<meta property="og:description" content="Introduction This guide shows how to transfer (upload/download) files between CHTC’s file systems and ResearchDrive, a shared data storage service for research at UW Madison. The instructions in this guide may also work for accessing other data services on campus from CHTC; contact us if you would like to know more." />
+<meta name="description" content="Introduction This guide shows how to transfer (upload/download) files between CHTC’s file systems and ResearchDrive, a shared data storage service for research at UW Madison. The instructions in this guide may also work for accessing other data services on campus from CHTC that interface with the smbclient tool. For UWDF/ResearchDrive integration, see this page." />
+<meta property="og:description" content="Introduction This guide shows how to transfer (upload/download) files between CHTC’s file systems and ResearchDrive, a shared data storage service for research at UW Madison. The instructions in this guide may also work for accessing other data services on campus from CHTC that interface with the smbclient tool. For UWDF/ResearchDrive integration, see this page." />
 <link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/transfer-data-researchdrive" />
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/transfer-data-researchdrive" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-04-06T15:55:09+00:00" />
+<meta property="article:published_time" content="2026-04-06T16:07:35+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Transfer Files Between CHTC and ResearchDrive" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-04-06T15:55:09+00:00","datePublished":"2026-04-06T15:55:09+00:00","description":"Introduction This guide shows how to transfer (upload/download) files between CHTC’s file systems and ResearchDrive, a shared data storage service for research at UW Madison. The instructions in this guide may also work for accessing other data services on campus from CHTC; contact us if you would like to know more.","headline":"Transfer Files Between CHTC and ResearchDrive","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/transfer-data-researchdrive"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/transfer-data-researchdrive"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-04-06T16:07:35+00:00","datePublished":"2026-04-06T16:07:35+00:00","description":"Introduction This guide shows how to transfer (upload/download) files between CHTC’s file systems and ResearchDrive, a shared data storage service for research at UW Madison. The instructions in this guide may also work for accessing other data services on campus from CHTC that interface with the smbclient tool. For UWDF/ResearchDrive integration, see this page.","headline":"Transfer Files Between CHTC and ResearchDrive","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/transfer-data-researchdrive"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/transfer-data-researchdrive"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -279,7 +279,7 @@
 </h1>
 
             <h2 id="introduction">Introduction</h2>
-<p>This guide shows how to transfer (upload/download) files between CHTC’s file systems and <a href="https://it.wisc.edu/services/researchdrive/">ResearchDrive</a>, a shared data storage service for research at UW Madison. The instructions in this guide may also work for accessing other data services on campus from CHTC; contact us if you would like to know more.</p>
+<p>This guide shows how to transfer (upload/download) files between CHTC’s file systems and <a href="https://it.wisc.edu/services/researchdrive/">ResearchDrive</a>, a shared data storage service for research at UW Madison. The instructions in this guide may also work for accessing other data services on campus from CHTC that interface with the <code>smbclient</code> tool. For UWDF/ResearchDrive integration, <a href="htc-uwdf-researchdrive">see this page</a>.</p>
 
 <div class="d-flex flex-column mb-5">
 
@@ -291,8 +291,8 @@
       <ul>
         <li><a href="#introduction">Introduction</a></li>
         <li><a href="#before-you-transfer">Before you transfer</a></li>
-        <li><a href="#transfer-files">Transfer Files</a></li>
-        <li><a href="#transfer-a-batch-of-files">Transfer a Batch of Files</a></li>
+        <li><a href="#transfer-files">Transfer files</a></li>
+        <li><a href="#transfer-a-batch-of-files">Transfer a batch of files</a></li>
         <li><a href="#related-pages">Related pages</a></li>
       </ul>
 
@@ -302,12 +302,13 @@
 
 <h2 id="before-you-transfer">Before you transfer</h2>
 
-<p>In order to follow the steps in this guide, you need access to a <strong>ResearchDrive share</strong>, either as PI or member of your PI’s group, as well as a <strong>CHTC account</strong>. In what follows, 
-we assume that you are transferring files to and from our HTC system, but you can 
-use the same process to transfer files to and from the HPC cluster if you first log 
-in to one of the HPC login nodes.</p>
+<p>You will need:</p>
+<ul>
+  <li>Access to your PI’s ResearchDrive</li>
+  <li>A CHTC account</li>
+</ul>
 
-<h2 id="transfer-files">Transfer Files</h2>
+<h2 id="transfer-files">Transfer files</h2>
 
 <p>To transfer data between ResearchDrive and CHTC, do the following:</p>
 
@@ -361,7 +362,7 @@ like to get or put files.</li>
   <li><strong>Finish:</strong> Once you are done moving files, you can type <code>exit</code> to leave the connection to ResearchDrive.</li>
 </ol>
 
-<h2 id="transfer-a-batch-of-files">Transfer a Batch of Files</h2>
+<h2 id="transfer-a-batch-of-files">Transfer a batch of files</h2>
 
 <p>The steps described above work well for transferring a single file, or tar archive of 
 many files, at a time and is best for transferring a few files in a session. However, 
@@ -407,6 +408,7 @@ then use either <code>mget</code> or <code>mput</code> for your file transfer.</
 <ul>
   <li><a href="connecting">Log in to CHTC</a></li>
   <li><a href="transfer-files-computer">Transfer files between CHTC and your Computer</a></li>
+  <li><a href="htc-uwdf-researchdrive">Directly transfer files between ResearchDrive and your jobs</a></li>
 </ul>
 
         </div>
@@ -589,6 +591,12 @@ then use either <code>mget</code> or <code>mput</code> for your file transfer.</
 
                             
                                 
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/htc-uwdf-researchdrive#main">Directly transfer files between ResearchDrive and your jobs</a>
+    </div>
+
+                            
+                                
     <div class="document-link-wrapper" style="background-color: #d3d3d3;">
     <span style="font-size: .8rem;">
       <i class="bi bi-folder me-2"></i>
@@ -607,7 +615,7 @@ then use either <code>mget</code> or <code>mput</code> for your file transfer.</
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="fw-bolder" href="/uw-research-computing/transfer-data-researchdrive#main">ResearchDrive</a>
+        <a class="fw-bolder" href="/uw-research-computing/transfer-data-researchdrive#main">ResearchDrive (via smbclient)</a>
     </div>
 
         
