@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Check Disk Quota and Usage</title>
+<title>Monitor your jobs</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Check Disk Quota and Usage | CHTC</title>
+<title>Monitor your jobs | CHTC</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Check Disk Quota and Usage" />
+<meta property="og:title" content="Monitor your jobs" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Introduction" />
 <meta property="og:description" content="Introduction" />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/check-quota" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/check-quota" />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/htc-monitor-jobs" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc-monitor-jobs" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2026-04-21T16:19:36+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Check Disk Quota and Usage" />
+<meta property="twitter:title" content="Monitor your jobs" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-04-21T16:19:36+00:00","datePublished":"2026-04-21T16:19:36+00:00","description":"Introduction","headline":"Check Disk Quota and Usage","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/check-quota"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/check-quota"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-04-21T16:19:36+00:00","datePublished":"2026-04-21T16:19:36+00:00","description":"Introduction","headline":"Monitor your jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-monitor-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-monitor-jobs"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -275,12 +275,12 @@
         <div class="col-12 col-lg-9 mw-1000">
 
             <h1 class="uw-mini-bar mb-4">
-    Check Disk Quota and Usage
+    Monitor your jobs
 </h1>
 
             <h2 id="introduction">Introduction</h2>
 
-<p>This guide shows you how to check the amount of disk space and number of files you are using on the Access Point in your <code>/home</code> and <code>/staging</code> directories. You can also check your limit on your disk space and number of files (i.e., your “quota”). This guide will help you manage your disk space and give tips on what do when you’ve reached your quota.</p>
+<p>This guide outlines how to monitor your jobs. Use this guide to check on your jobs’ statuses, check on their standard output/error messages, or connect to a running job.</p>
 
 <div class="d-flex flex-column mb-5">
 
@@ -291,11 +291,10 @@
 
       <ul>
         <li><a href="#introduction">Introduction</a></li>
-        <li><a href="#default-quotas">Default quotas</a></li>
-        <li><a href="#check-your-quota">Check your quota</a></li>
-        <li><a href="#other-ways-to-check-your-quota">Other ways to check your quota</a></li>
-        <li><a href="#check-the-size-of-a-directory-and-its-contents">Check the size of a directory and its contents</a></li>
-        <li><a href="#what-to-do-when-youve-reached-your-quota">What to do when you’ve reached your quota</a></li>
+        <li><a href="#watch-your-jobs-with-condor_watch_q">Watch your jobs with <code>condor_watch_q</code></a></li>
+        <li><a href="#check-your-jobs-status-with-condor_q">Check your jobs’ status with <code>condor_q</code></a></li>
+        <li><a href="#check-the-your-jobs-progress-with-condor_tail">Check the your jobs’ progress with <code>condor_tail</code></a></li>
+        <li><a href="#connect-to-your-job-with-condor_ssh_to_job">Connect to your job with <code>condor_ssh_to_job</code></a></li>
         <li><a href="#related-pages">Related pages</a></li>
       </ul>
 
@@ -303,192 +302,177 @@
 </div>
 </div>
 
-<h2 id="default-quotas">Default quotas</h2>
+<h2 id="watch-your-jobs-with-condor_watch_q">Watch your jobs with <code>condor_watch_q</code></h2>
 
-<table>
+<p>For a real-time view of your jobs’ status, run the <code>condor_watch_q</code> tool. For example:</p>
+
+<pre class="term"><code>[netid@ap2002 ~]$ condor_watch_q
+BATCH    IDLE  INPUT  RUN  DONE  TOTAL  JOB_IDS
+4839429    -      -    1     -      1   4839429.0               [====================]
+4839838    1      6    -     3     10   4839838.1 ... 4839838.9 [--&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;######]
+
+Total Progress: [-----&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;=====###################]
+
+Total: 11 jobs; 3 completed, 1 idle, 7 running
+
+Updated at 2026-04-06 16:13:39
+Press any key to exit
+</code></pre>
+
+<p><code>condor_watch_q</code> updates every second with color-coded output on your terminal by reading your HTCondor log file (specified by the <code>log</code> attribute in your submit file).</p>
+
+<h2 id="check-your-jobs-status-with-condor_q">Check your jobs’ status with <code>condor_q</code></h2>
+
+<p>To check the status of your jobs, use the command <code>condor_q</code> on the Access Point. For example:</p>
+
+<pre class="term"><code>[netid@ap2002]$ condor_q
+
+-- Schedd: ap2002.chtc.wisc.edu : &lt;128.104.101.92:9618?... @ 04/14/23 15:35:17
+OWNER     BATCH_NAME     SUBMITTED   DONE   RUN    IDLE  TOTAL JOB_IDS
+netid ID: 3606214       4/14 12:31      2     1       _      3 36062145.0-2
+   
+3 jobs; 2 completed, 0 removed, 0 idle, 1 running, 0 held, 0 suspended
+</code></pre>
+
+<h3 id="condor_q-options"><code>condor_q</code> options</h3>
+
+<p>Additional options are available for the <code>condor_q</code> command. See the table below.</p>
+
+<table class="command-table">
   <thead>
     <tr>
-      <th>Data location</th>
-      <th><strong><code>/home</code></strong></th>
-      <th><strong><code>/staging</code></strong></th>
+      <th>Command</th>
+      <th>Use</th>
+      <th>Notes</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Default quota (disk)</td>
-      <td>40 GB</td>
-      <td>100 GB</td>
+      <td><code>condor_q</code></td>
+      <td>displays status of your submitted jobs; jobs are batched by default</td>
+      <td> </td>
     </tr>
     <tr>
-      <td>Default quota (number of items)</td>
-      <td>none</td>
-      <td>1000 items</td>
+      <td><code>condor_q -nobatch</code></td>
+      <td>displays status of your submitted jobs without the batched view</td>
+      <td> </td>
     </tr>
     <tr>
-      <td>Purpose</td>
-      <td>Default file system, handles most files</td>
-      <td>Stages large files/containers for file transfer into jobs</td>
+      <td><code>condor_q &lt;job_ID&gt;</code></td>
+      <td>displays status of the job(s) associated with <code>job_ID</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td>Recommended location for</td>
-      <td>Many, small files (&lt;1 GB)</td>
-      <td>Few, large files (&gt;1 GB)</td>
+      <td><code>condor_q -l &lt;job_ID&gt;</code></td>
+      <td>lists all attributes of the job(s) associated with <code>job_ID</code></td>
+      <td>This will generate a lot of output; don’t use for more than one job at a time!</td>
+    </tr>
+    <tr>
+      <td><code>condor_q -hold &lt;job_ID&gt;</code></td>
+      <td>displays the hold reason for job(s) associated with <code>job_ID</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>condor_q -better-analyze &lt;job_ID&gt;</code></td>
+      <td>displays <em>simulated</em> results of the matching process associated with the job</td>
+      <td>This is a <em>starting point</em> for troubleshooting jobs sitting in the idle state.</td>
+    </tr>
+    <tr>
+      <td><code>condor_q -run</code></td>
+      <td>displays your running jobs</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>condor_q -dag</code></td>
+      <td>organizes the <code>condor_q</code> output by DAGs</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>condor_q -af &lt;attribute1&gt; &lt;attribute2&gt;</code></td>
+      <td>displays specific attributes of jobs.</td>
+      <td>See the attributes from <code>condor_q -l</code> or <a href="https://htcondor.readthedocs.io/en/latest/classad-attributes/job-classad-attributes.html">HTCondor job attributes</a>.</td>
     </tr>
   </tbody>
 </table>
 
-<p>Read more about the differences between the <code>/home</code> and <code>/staging</code> file system in <a href="htc-job-file-transfer#data-storage-locations">this guide</a>.</p>
+<blockquote class="tip-header">
+  <h3 id="-do-not-run-watch-condor_q">⛔ Do not run <code>watch condor_q</code></h3>
+</blockquote>
 
-<p style="text-align: center; margin-bottom: 0; font-weight: bold;">Need a <code>/staging</code> directory? Need a higher quota?</p>
-<div class="d-flex mb-3">
-	<div class="p-3 m-auto">
-		<a class="btn btn-primary" style="text-align: center" href="quota-request">Fill out our quota request form</a>
-	</div>
-</div>
+<blockquote class="tip">
+  <p>Do not run <code>watch condor_q</code> or any equivalent command that queries <code>condor_q</code> in high frequency. This will overwhelm the scheduler and reduce operational efficiency for all users.</p>
 
-<h2 id="check-your-quota">Check your quota</h2>
+  <p>Use <code>condor_watch_q</code> instead, or <a href="get-help">contact us</a> for help on addressing your specific needs.</p>
+</blockquote>
 
-<p>For the most up-to-date information about your quota, use the <code>get_quotas</code> command on the Access Point.</p>
-<pre class="term"><code>get_quotas
+<h2 id="check-the-your-jobs-progress-with-condor_tail">Check the your jobs’ progress with <code>condor_tail</code></h2>
+
+<p>To check on the progress of currently running jobs, you can use <code>condor_tail &lt;job_ID&gt;</code> to read the last few lines of a file in your job’s scratch directory. For example:</p>
+
+<pre class="term"><code>[netid@ap2002 ~]$ condor_tail 4839838.6
+inflating: data/8724.jpg
+  inflating: data/8725.jpg
+  inflating: data/8726.jpg
+  inflating: data/8727.jpg
+  inflating: data/8728.jpg
 </code></pre>
 
-<p>This will print a table with your <code>/home</code> and <code>/staging</code> quotas. An example output is shown below.</p>
-
-<pre class="term"><code>[user@ap2002 ~]$ get_quotas
-Path            Disk_Used(GB)  Disk_Limit(GB)  Files_Used  File_Limit
-/home/user      16.0711        40              8039        N/A
-/staging/user   13.4731        100             12          1000
-</code></pre>
-
-<p>To print the quota for any path in <code>/staging</code>, <code>/software</code>, and <code>/projects</code> that you have access to, (i.e., a group directory), use the <code>-p</code> option:</p>
-
-<pre class="term"><code>get_quotas -p &lt;path to directory&gt;
-</code></pre>
-
-<p>An example output of the <code>get_quotas</code> command with the <code>-p</code> option is shown below:</p>
-
-<pre class="term"><code>[user@ap2002 ~]$ get_quotas -p /staging/groups/example_group
-Path                           Disk_Used(GB)  Disk_Limit(GB)  Files_Used  File_Limit
-/staging/groups/example_group  0.000433144    100             3           1000
-</code></pre>
-
-<h2 id="other-ways-to-check-your-quota">Other ways to check your quota</h2>
-
-<h3 id="option-1-check-your-home-quota-with-quota--vs">Option 1: Check your <code>/home</code> quota with <code>quota -vs</code></h3>
-
-<p>From any directory location within your <code>/home</code> directory, use the command
-<code>quota -vs</code>. See the example below:</p>
-
-<pre class="term"><code>[user@ap2002 ~]$ quota -vs
-Disk quotas for user user (uid 20384): 
-     Filesystem   space   quota   limit   grace   files   quota   limit   grace
-       /dev/md9  16457M  40960M  51200M            8039       0       0      
-</code></pre>
-
-<p>The output will list your total data usage under <code>space</code>, your soft
-<code>quota</code>, and your hard <code>limit</code> at which point your jobs will no longer
-be allowed to save data. It also lists information for number of <code>files</code>, but
-there is no quota for number of files in <code>/home</code>.</p>
-
-<h3 id="option-2-check-your-message-of-the-day-motd">Option 2: Check your Message of the Day (MOTD)</h3>
-
-<p>Your quota is also printed upon the first time you log on to the Access Point that day. See below for an example:</p>
-
-<pre class="term"><code>_____________________________________________________________________
- #####  #     # #######  #####  Issues?  Email chtc@cs.wisc.edu
-#     # #     #    #    #     # Unauthorized use prohibited by:
-#       #     #    #    #       WI Statutes: s. 947.0125
-#       #######    #    #       U.S. Code: 18 USC 1030
-#       #     #    #    #       U.S. Code: 18 USC 2510-2522
-#     # #     #    #    #     # U.S. Code: 18 USC 2701-2712
- #####  #     #    #     #####  U.S. Code: 18 USC § 1831
-For off campus ssh access use https://www.doit.wisc.edu/network/vpn/
-_____________________________________________________________________
-
-         Online office hours are available twice a week:
-            Tuesdays, 10:30am - 12pm (Central time)
-            Thursdays, 3:00 - 4:30pm (Central time)
-
-     IMPORTANT: CHTC does NOT back up any user data. Remember to back up your data regularly!
- == NOTICE: THIS NODE IS ON PUPPET ENVIRONMENT "puppet8" ==
-
-Filesystem quota report (last updated 10:33 AM)
-Storage               Used (GB)    Limit (GB)    Files (#)    File Cap (#)    Quota (%)
-------------------  -----------  ------------  -----------  --------------  -----------
-/home/user                29.38            40           94               0        73.46
-/staging/user             50.23          1000          110           10000         5.02
-</code></pre>
-
-<p>However, we recommend <a href="#check-your-quota">using the <code>get_quotas</code> command</a> for the most up-to-date information.</p>
-
-<h2 id="check-the-size-of-a-directory-and-its-contents">Check the size of a directory and its contents</h2>
-
-<p>If you want to check the size of specific directories and their contents, you can do this with the <code>du</code> command.</p>
-
-<p>Move to the directory you’d like to check and type <code>du</code>. After several
-moments (longer if the contents of your directory are large), the command
-will add up the sizes of directory contents and output the total size of
-each contained directory in units of kilobytes (KB) with the total size of
-that directory listed last. See the example below:</p>
-
-<pre class="term"><code>[user@ap2002 ~]$ du ./
-4096    ./dir/subdir/file.txt
-4096    ./dir/subdir
-7140    ./dir
-74688   .
-</code></pre>
-
-<p>You can divide each value by 1024 to get megabytes, and again for gigabytes. Below are extra options for the <code>du</code> command.</p>
+<p>By default, <code>condor_tail</code> prints the standard output.</p>
 
 <table>
   <thead>
     <tr>
       <th>Command</th>
-      <th>Usage</th>
+      <th>Use</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><code>du -h</code> or <code>du --human-readable</code></td>
-      <td>Prints disk usage in a human-readable format.<br />(K, M, G denote kilo-, mega-, and gigabytes, respectively.)</td>
+      <td><code>condor_tail &lt;job_ID&gt;</code></td>
+      <td>print the last few lines of the standard output</td>
     </tr>
     <tr>
-      <td><code>du -s</code> or <code>du --summarize</code></td>
-      <td>Prints total disk usage of the directory without printing its contents.</td>
+      <td><code>condor_tail -stderr &lt;job_ID&gt;</code></td>
+      <td>print the last few lines of the standard error</td>
     </tr>
     <tr>
-      <td><code>du &lt;path/to/directory&gt;</code></td>
-      <td>Prints disk usage of the specified directory.</td>
+      <td><code>condor_tail &lt;job_ID&gt; &lt;filename&gt;</code></td>
+      <td>print the last few lines of <code>&lt;filename&gt;</code> in the job’s scratch directory</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="what-to-do-when-youve-reached-your-quota">What to do when you’ve reached your quota</h2>
+<h2 id="connect-to-your-job-with-condor_ssh_to_job">Connect to your job with <code>condor_ssh_to_job</code></h2>
 
-<p>When you’ve reached your quota, you may encounter error messages such as <code>Disk quota exceeded</code>. When you encounter the error message, we recommend the following steps:</p>
+<p>You can connect to a currently running job by using <code>condor_ssh_to_job</code>. When you’re done with the session, type <code>exit</code> to return to the Access Point.</p>
 
-<ol>
-  <li>Check your quota with <code>get_quotas</code>. At which data location did you reach your quota? Did you reach your disk quota or your items quota?</li>
-  <li>If possible, remove any files you no longer need from the system.</li>
-  <li>If you’ve reached your quota for the <strong>number of files</strong> in <code>/staging</code>, we recommend compressing your dataset into zip files or tarballs, because <code>/staging</code> is intended for storing few, large files. <a href="file-avail-largedata#reduce-file-counts">Read more about this here.</a></li>
-  <li>If you still need more disk space, <a href="quota-request">request a higher quota.</a></li>
-</ol>
+<pre class="term"><code>[netid@ap2002 ~]$ condor_ssh_to_job 4839849.0
+Welcome to slot1_135@e4031.chtc.wisc.edu!
+Your condor job is running with pid(s) 3406940.
+ == NOTICE: THIS NODE IS ON PUPPET ENVIRONMENT "puppet8" ==
+
+[netid@e4031 scratch]$ exit
+logout
+Connection to condor-job.e4031.chtc.wisc.edu closed.
+</code></pre>
 
 <blockquote class="tip-header">
-  <h3 id="️-chtc-is-not-a-storage-service">⚠️ CHTC is not a storage service</h3>
+  <h3 id="️-policy-for-condor_ssh_to_job">⚠️ Policy for <code>condor_ssh_to_job</code></h3>
 </blockquote>
 
 <blockquote class="tip">
-  <p>CHTC data locations are intended for temporarily storing files used in <strong>active calculations only</strong>. Once you are done with the files, please remove them from the system to clear disk space.<br /><br />
-<strong>We do not back up any of the data you place on our system. It is your responsibility to back up your own files.</strong></p>
+  <p>This tool is intended for quick checks and troubleshooting. This is NOT intended for interactive job submission. For interactive jobs, use the <code>-i</code> flag, i.e.,</p>
+
+  <p><code>condor_submit -i &lt;submit_file&gt;</code>.</p>
+
+  <p><strong><code>condor_ssh_to_job</code> is NOT available for GPU jobs on CHTC’s shared GPU machines. See <a href="htc-interactive-gpu-jobs">our interactive GPU jobs guide</a> for more details.</strong></p>
 </blockquote>
 
 <h2 id="related-pages">Related pages</h2>
-
 <ul>
-  <li><a href="htc-job-file-transfer">Use and transfer data in jobs on the HTC system</a></li>
-  <li><a href="file-avail-largedata">Manage large data in <code>/staging</code></a></li>
-  <li><a href="quota-request">Request a Quota Change</a></li>
+  <li><a href="htcondor-job-submission">Job submission basics</a></li>
+  <li><a href="htcondor-quick-ref">Quick reference: HTCondor commands</a></li>
+  <li><a href="htc-interactive-gpu-jobs">Interactive GPU jobs</a></li>
 </ul>
 
         </div>
@@ -599,7 +583,7 @@ that directory listed last. See the example below:</p>
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-monitor-jobs#main">Monitor your jobs</a>
+        <a class="fw-bolder" href="/uw-research-computing/htc-monitor-jobs#main">Monitor your jobs</a>
     </div>
 
         
@@ -666,7 +650,7 @@ that directory listed last. See the example below:</p>
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="fw-bolder" href="/uw-research-computing/check-quota#main">Check disk quota and usage</a>
+        <a class="" href="/uw-research-computing/check-quota#main">Check disk quota and usage</a>
     </div>
 
                             

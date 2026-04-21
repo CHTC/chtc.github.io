@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/gpu-jobs" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-04-20T15:10:27+00:00" />
+<meta property="article:published_time" content="2026-04-21T16:19:36+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Use GPUs" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-04-20T15:10:27+00:00","datePublished":"2026-04-20T15:10:27+00:00","description":"Overview","headline":"Use GPUs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/gpu-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/gpu-jobs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-04-21T16:19:36+00:00","datePublished":"2026-04-21T16:19:36+00:00","description":"Overview","headline":"Use GPUs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/gpu-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/gpu-jobs"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -291,13 +291,55 @@ For researchers who have problems that are well-suited to GPU
 processing, it is possible to run jobs that use GPUs in CHTC. Read on to
 determine:</p>
 
+<blockquote class="tip-header">
+  <h3 id="-interactive-gpu-policy-starting-april-22-2026">📢 Interactive GPU policy starting April 22, 2026</h3>
+</blockquote>
+
+<blockquote class="tip">
+  <p><code>condor_ssh_to_job</code> will be unavailable for jobs running on CHTC’s shared GPU machines.</p>
+
+  <details>
+<summary>What’s staying the same</summary>
 <ul>
-  <li><a href="#a-available-chtc-gpus">Available CHTC GPUs</a></li>
-  <li><a href="#b-submit-jobs-using-gpus-in-chtc">Submit jobs using GPUs in CHTC</a></li>
-  <li><a href="#c-gpu-capacity-beyond-the-chtc-gpu-lab">GPU capacity beyond the CHTC GPU Lab</a></li>
-  <li><a href="#d-using-condor_status-to-explore-chtc-gpus">Using condor_status to explore GPUs</a></li>
-  <li><a href="#e-prepare-software-using-gpus">Prepare software using GPUs</a></li>
+<li>If your group has owned or prioritized access to GPUs, you can still to connect to running jobs on said GPUs using <code>condor_ssh_to_job</code>.</li>
+<li>All users can still submit interactive GPU jobs using the <code>condor_submit -i command</code>.</li>
 </ul>
+</details>
+
+  <details>
+<summary>Why we are making the change</summary>
+<ul><li>Some users have been using the <code>condor_ssh_to_job</code> functionality to submit long-running sleep jobs, then connect periodically to run interactive commands while leaving the GPU unused for long periods of time. This usage pattern by others limits YOUR throughput, particularly for high-end GPUs, so we are removing this functionality from our shared use GPUs. </li></ul>
+</details>
+
+  <details>
+<summary>What you can do</summary>
+<ul>
+<li>You can <a href="htc-interactive-gpu-jobs">run interactive jobs on general use GPUs</a>.</li>
+<li>Check-in on the output of your jobs while they are running by using <code>condor_tail</code>. <a href="htc-monitor-jobs">See our documentation</a>.</li>
+</ul>
+</details>
+
+  <p>If you have questions or comments specifically about this change in policy, please fill out our <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9yJNyuZcI9j8m4VR8JbZf6Zj3hO4wNbkydd6he2vEtwYJNQ/viewform?usp=preview">feedback form</a>.</p>
+</blockquote>
+
+<div class="d-flex flex-column mb-5">
+
+<h2>Table of Contents</h2>
+
+<div class="uw-sidebar-box me-auto">
+<div class="uw-directory">
+
+      <ul>
+        <li><a href="#a-available-chtc-gpus">Available CHTC GPUs</a></li>
+        <li><a href="#b-submit-jobs-using-gpus-in-chtc">Submit jobs using GPUs in CHTC</a></li>
+        <li><a href="#c-gpu-capacity-beyond-the-chtc-gpu-lab">GPU capacity beyond the CHTC GPU Lab</a></li>
+        <li><a href="#d-using-condor_status-to-explore-chtc-gpus">Using condor_status to explore GPUs</a></li>
+        <li><a href="#e-prepare-software-using-gpus">Prepare software using GPUs</a></li>
+      </ul>
+
+    </div>
+</div>
+</div>
 
 <h1 id="a-available-chtc-gpus">A. Available CHTC GPUs</h1>
 
@@ -442,8 +484,9 @@ the capacity of the GPU Lab to run their work.</p>
   </tbody>
 </table>
 
-<p>There are a certain number of slots in the GPU Lab reserved for interactive use. Interactive 
-jobs that use GPU Lab servers are restricted to using a single GPU and a 4 hour runtime.</p>
+<h3 id="interactive-gpu-jobs">Interactive GPU jobs</h3>
+<p>There are a certain number of slots in the GPU Lab reserved for interactive use.
+Learn more about <a href="htc-interactive-gpu-jobs">interactive GPU jobs</a>.</p>
 
 <h2 id="2-other-capacity">2. Other Capacity</h2>
 
@@ -526,7 +569,7 @@ at chtc@cs.wisc.edu if you believe you need to use this option.</li>
 
 <p>A  sample submit file is shown below. There are also example submit files and 
 job scripts in this <a href="https://github.com/CHTC/templates-GPUs">GPU Job Templates repository</a> 
-in CHTC’s Github organization.</p>
+in CHTC’s Github organization. This submit file is also suitable for <a href="htc-interactive-gpu-jobs">interactive GPU jobs</a>.</p>
 
 <pre class="sub"><code># gpu-lab.sub
 # sample submit file for GPU Lab jobs
@@ -732,6 +775,12 @@ our <a href="docker-jobs.html">Docker guide</a> for how to use Docker in CHTC.</
 <a href="https://hub.docker.com/r/nvidia/cuda/tags?page=1&amp;name=12.1.1-devel">“nvidia/cuda” containers with a tag beginning with “12.1.1-devel”</a>
 for best integration with our system.</p>
 
+<h1 id="related-pages">Related Pages</h1>
+<ul>
+  <li><a href="htc-interactive-gpu-jobs">Interactive GPU Jobs</a></li>
+  <li><a href="machine-learning-htc">Machine learning jobs</a></li>
+</ul>
+
         </div>
         <div class="col-3 d-none d-lg-block">
             
@@ -840,7 +889,7 @@ for best integration with our system.</p>
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/condor_q#main">Monitor your job</a>
+        <a class="" href="/uw-research-computing/htc-monitor-jobs#main">Monitor your jobs</a>
     </div>
 
         
@@ -1171,6 +1220,12 @@ for best integration with our system.</p>
                                 
     <div class="document-link-wrapper bg-light">
         <a class="fw-bolder" href="/uw-research-computing/gpu-jobs#main">Use GPUs</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/htc-interactive-gpu-jobs#main">Interactive GPU Jobs</a>
     </div>
 
                             
