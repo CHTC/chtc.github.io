@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Using Dask at CHTC</title>
+<title>Security Policies for Using CHTC</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Using Dask at CHTC | CHTC</title>
+<title>Security Policies for Using CHTC | CHTC</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Using Dask at CHTC" />
+<meta property="og:title" content="Security Policies for Using CHTC" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Dask is a Python library for parallel computing. Though it is not the traditional HTCondor workflow, it is possible to use Dask on the CHTC pool through a special adapter package provided by CHTC. This guide describes the situations in which you should consider using Dask instead of the traditional workflow, and will point you toward the documentation for the adapter package (which will guide you through actually using it)." />
-<meta property="og:description" content="Dask is a Python library for parallel computing. Though it is not the traditional HTCondor workflow, it is possible to use Dask on the CHTC pool through a special adapter package provided by CHTC. This guide describes the situations in which you should consider using Dask instead of the traditional workflow, and will point you toward the documentation for the adapter package (which will guide you through actually using it)." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/dask" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/dask" />
+<meta name="description" content="For the full list of usage policies, see Policies and Expectations for Using CHTC" />
+<meta property="og:description" content="For the full list of usage policies, see Policies and Expectations for Using CHTC" />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/security" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/security" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2026-04-30T22:16:33+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Using Dask at CHTC" />
+<meta property="twitter:title" content="Security Policies for Using CHTC" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-04-30T22:16:33+00:00","datePublished":"2026-04-30T22:16:33+00:00","description":"Dask is a Python library for parallel computing. Though it is not the traditional HTCondor workflow, it is possible to use Dask on the CHTC pool through a special adapter package provided by CHTC. This guide describes the situations in which you should consider using Dask instead of the traditional workflow, and will point you toward the documentation for the adapter package (which will guide you through actually using it).","headline":"Using Dask at CHTC","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/dask"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/dask"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-04-30T22:16:33+00:00","datePublished":"2026-04-30T22:16:33+00:00","description":"For the full list of usage policies, see Policies and Expectations for Using CHTC","headline":"Security Policies for Using CHTC","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/security"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/security"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -275,94 +275,166 @@
         <div class="col-12 col-lg-9 mw-1000">
 
             <h1 class="uw-mini-bar mb-4">
-    Using Dask at CHTC
+    Security Policies for Using CHTC
 </h1>
 
-            <p><a href="https://docs.dask.org/en/latest/">Dask</a> 
-is a Python library for parallel computing.
-Though it is not the 
-<a href="helloworld.html">traditional HTCondor workflow</a>, it is possible to use
-Dask on the CHTC pool through a special adapter package provided by CHTC.
-This guide describes the situations in which you should consider using
-Dask instead of the traditional workflow, and will point you toward the
-documentation for the adapter package (which will guide you through
-actually using it).</p>
+            <p><em>For the full list of usage policies, see <a href="user-expectations">Policies and Expectations for Using CHTC</a></em></p>
 
-<blockquote>
-  <p>This is a new <em>how-to</em> guide on the CHTC website. Recommendations and 
-feedback are welcome via email (<a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>) or by creating an 
-issue on the CHTC website GitHub repository: <a href="https://github.com/CHTC/chtc-website-source/issues/new">Create an issue</a></p>
-</blockquote>
-
-<h2 id="what-is-dask">What is Dask?</h2>
-
-<p><a href="https://docs.dask.org/en/latest/">Dask</a> 
-is a Python library that can “scale up” Python code in two ways:</p>
-<ul>
-  <li>“Low-level” parallelism, through transparently-parallel calculations on familiar interfaces like <code>numpy</code> arrays.</li>
-  <li>“High-level” parallelism, through an explicit run-functions-in-parallel interface.</li>
-</ul>
-
-<p>Both kinds of parallelism can be useful, depending on your work.
-For example, Dask could be used to perform data analysis on a single multi-TB
-dataframe stored in distributed memory, as if it was all stored locally.
-It could also be used to run thousands of independent simulations across
-a cluster, aggregating their results locally as they finish.
-Dask can also smoothly handle cases between these extremes (perhaps each of your
-independent simulations also needs a large amount of memory?).</p>
-
-<p>Dask also “scales down”: it runs the same way on your laptop as it does on
-a cluster thereby providing a smooth transition between running on
-local resources and running on something like the CHTC pool.</p>
-
-<h2 id="when-should-i-use-dask-at-chtc">When should I use Dask at CHTC?</h2>
-
-<p>Several use cased are described below for considering the use of Dask for parallelism 
-in CHTC instead of the <a href="helloworld.html">traditional HTCondor workflow</a> 
-of creating jobs and DAGs:</p>
+<p><strong>Users of CHTC agree to follow cybersecurity policies</strong> to ensure the security of CHTC servers.
+This includes</p>
 
 <ul>
-  <li>You are already using Dask for parallelism and want to smoothly scale
-up your computing resources. Note that many foundational libraries in the
-scientific Python ecosystem, like <a href="https://xarray.pydata.org/en/stable/">xarray</a>,
-now use Dask internally.</li>
-  <li>You are already using something like 
-<a href="https://docs.python.org/3/library/multiprocessing.html">multiprocessing</a> or
-<a href="https://joblib.readthedocs.io/en/latest/">joblib</a>
-for high-level parallelism. 
-Dask’s high-level parallelism interface is fairly similar to these libraries,
-and switching from them to Dask should not involve too much work.</li>
-  <li>You can make your overall workflow more efficient by adjusting it based
-on intermediate results.
-For example,
-<a href="https://ml.dask.org/hyper-parameter-search.html#adaptive-hyperparameter-optimization">adaptive hyperparameter optimization</a>
-can be significantly more efficient than something like a random grid search,
-but requires a “controller” to guide the process at every step.</li>
-  <li>You want to operate on single arrays or dataframes that are larger 
-than can be stored in the memory of a single average CHTC worker 
-(more than a few GB). Dask can store this kind of data in “chunks” on workers
-and seamlessly perform calculations on the chunks in parallel.</li>
-  <li>You want your workflow to “scale down” to local resources. Being able to run
-your workflow locally may make developing and testing it easier.</li>
-  <li>You want a more interactive way of using the CHTC pool. 
-The adapter package provides tools for running Jupyter Notebooks on the
-CHTC pool, connected to your Dask cluster.
-This can be useful for debugging or inspecting the progress of your workflows.</li>
+  <li>instructions detailed in this guide,</li>
+  <li><a href="https://www.wisconsin.edu/regents/policies/acceptable-use-of-information-technology-resources/">Universities of Wisconsin cybersecurity policies</a>,</li>
+  <li>any applicable local, state, or federal laws.</li>
 </ul>
 
-<p>You may also be interested in Dask’s own 
-<a href="https://docs.dask.org/en/latest/why.html">“Why Dask?”</a> page.</p>
+<p>These policies apply to any “AI agents” acting on the user’s behalf.</p>
 
-<p>If you are unsure whether you should use Dask or the traditional workflow,
-please get in touch with a research computing facilitator by emailing 
-<a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> to set up a consultation.</p>
+<h2 id="highlights">Highlights</h2>
 
-<h2 id="how-do-i-use-dask-at-chtc">How do I use Dask at CHTC?</h2>
+<ol>
+  <li>Do not use untrusted software or programs on CHTC.
+<a href="#trust-your-software"><em>more info</em></a></li>
+  <li>Do not share your login credentials with anyone else.
+<a href="#login-credentials"><em>more info</em></a></li>
+  <li>Do not hack or willingly compromise the security of CHTC.
+<a href="#hacking"><em>more info</em></a></li>
+  <li>Report known or suspected security issues to CHTC staff.
+<a href="#reporting"><em>more info</em></a></li>
+  <li>Do not store unencrypted secrets on CHTC.
+<a href="#unencrypted-secrets"><em>more info</em></a></li>
+</ol>
 
-<p>Dask integration with the CHTC pool is provided by the
-<a href="https://dask-chtc.readthedocs.io/">Dask-CHTC</a> package.
-See that package’s <a href="https://dask-chtc.readthedocs.io/">documentation</a> 
-for details on how to get started.</p>
+<p>The importance of these policies is discussed at the end of this page.
+<a href="#why-security-matters"><em>more info</em></a></p>
+
+<h2 id="trust-your-software">Trust your software</h2>
+
+<p><strong>Do not use untrusted software or programs on CHTC</strong>.</p>
+
+<p>Make sure that the software you want to use on CHTC comes from a trusted source.
+A common attack is to embed malicious code into innocent-sounding software.</p>
+
+<ul>
+  <li>For “major” programs, always go to straight to the source:
+the developer’s website or Git repository</li>
+  <li>For specialized programs, check the authorship - who wrote the code?
+Are they a recognized name in your field?</li>
+</ul>
+
+<p>CHTC facilitators are happy to help you verify the authenticity of software that you want to use.</p>
+
+<p>If you ran software on CHTC that you believe might be compromised, please report it as described in the <a href="#reporting">Reporting</a> section below.</p>
+
+<h2 id="login-credentials">Login credentials</h2>
+
+<p><strong>Do not share your login credentials</strong>.</p>
+
+<p>Your login credentials for CHTC use your university NetID.</p>
+
+<p>These same NetID credentials give you access to <strong>all</strong> personal and private information recorded by the University, including</p>
+
+<ul>
+  <li>email</li>
+  <li>personal address</li>
+  <li>banking information</li>
+</ul>
+
+<p><strong>If your NetID is compromised, email <a href="mailto:help@doit.wisc.edu">help@doit.wisc.edu</a></strong>.</p>
+
+<p>If you believe your compromised NetID was used to access a CHTC service,
+please report the incident to use as described below in the <a href="#reporting">Reporting</a> section.</p>
+
+<h2 id="hacking">Hacking</h2>
+
+<p><strong>Do not hack or willing compromise the security of CHTC</strong>.</p>
+
+<p>Hacking or otherwise compromising system security is strictly forbidden,
+<strong>regardless of the intent or purpose</strong>.</p>
+
+<p>Obviously, we don’t want any users to hack CHTC for malicious purposes.
+But even a well-meaning “ethical” hacker can open up the system to third-party (malicious) actors.</p>
+
+<p>If you think there is an exploit that can be used on CHTC systems, <strong>report it, don’t use it!</strong>
+See the <a href="#reporting">Reporting</a> section below for more information.</p>
+
+<h2 id="reporting">Reporting</h2>
+
+<p><strong>Report known or suspected security issues to CHTC staff</strong>.</p>
+
+<p>When in doubt, please report the issue.
+Early reporting helps staff respond quickly to limit the impact of potential security threats.</p>
+
+<p><strong>To report a security issue to CHTC</strong>, please email us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> and use <code>Security Report</code> in the subject.</p>
+
+<p>In your email, please include:</p>
+
+<ul>
+  <li>The “who, what, when, and where” of the security incident</li>
+  <li>Your name, email, and NetID</li>
+  <li>Your affiliation with CHTC (research group, department, etc.)</li>
+  <li>Any additional questions or concerns</li>
+</ul>
+
+<p><strong>To report a security issue to campus</strong>, please email <a href="mailto:help@doit.wisc.edu">help@doit.wisc.edu</a>.</p>
+
+<p>For more information on reporting issues to campus IT, see the <a href="https://it.wisc.edu/about/division-of-information-technology/enterprise-information-security-services/office-of-cybersecurity/reporting-an-incident-to-it-security/">Office of Cybersecurity’s Reporting page</a>.</p>
+
+<h3 id="example-report---netid-compromise">Example report - NetID compromise</h3>
+
+<pre><code class="language-text">To: chtc@cs.wisc.edu
+Subject: Security Report - NetID compromise
+
+Dear CHTC staff,
+
+I believe that my NetID has been compromised.
+
+Yesterday at &lt;time&gt;, someone used my NetID to login to CHTC &lt;server&gt; to submit jobs, with JobIDs &lt;list of IDs&gt;.
+I have already informed campus IT at help@doit.wisc.edu of the issue.
+
+My name is Jordan Doe, my NetID is "jdoe4".
+I'm part of Prof. B. Badger's lab in the Department of Computer Sciences. 
+</code></pre>
+
+<h3 id="example-report---linux-exploit">Example report - Linux exploit</h3>
+
+<pre><code class="language-text">To: chtc@cs.wisc.edu
+Subject: Security Report - Linux exploit
+
+Dear CHTC staff,
+
+I found a security exploit online that I think may apply to CHTC servers.
+
+The exploit is described at &lt;link&gt; and allows a user to access another user's data.
+Letting you know in case you weren't already aware of it.
+
+My name is Jordan Doe, my NetID is "jdoe4".
+I'm part of Prof. B. Badger's lab in the Department of Computer Sciences. 
+</code></pre>
+
+<h2 id="unencrypted-secrets">Unencrypted secrets</h2>
+
+<p><strong>Do not store unencrypted secrets on CHTC</strong>.</p>
+
+<p>A “secret” is something that gives you privileged access to another service.</p>
+
+<p>If the secret is stored as plain text (unencrypted), then anyone who can access that file can impersonate you!
+Here, “anyone” can be a system administrator or a malicious actor who has gained root access to the server.</p>
+
+<p>You should always encrypt the secret (usually with a password) so that only you can access the information.</p>
+
+<h2 id="why-security-matters">Why security matters</h2>
+
+<p>Our goal is to make it convenient for you, the researcher, to use CHTC resources to advance your research.</p>
+
+<p>At the same time, however, we have to make sure that these resources are not used for malicious purposes,
+and to make sure that your research is not leaked or otherwise compromised.</p>
+
+<p>By following the above policies, you help ensure the security of everyone who uses CHTC.</p>
+
+<p>Please feel free to reach out to the facilitation team for any issues or concerns regarding our security policies.</p>
+
 
         </div>
         <div class="col-3 d-none d-lg-block">
