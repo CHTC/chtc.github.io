@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Install Software Using Spack</title>
+<title>Practice Building Apptainer Containers on CHTC</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Install Software Using Spack | CHTC</title>
+<title>Practice Building Apptainer Containers on CHTC | CHTC</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Install Software Using Spack" />
+<meta property="og:title" content="Practice Building Apptainer Containers on CHTC" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="CHTC uses Spack (https://github.com/spack/spack) for installing and managing software packages on the HPC cluster for all users to use, via the module command. Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software’s dependencies (similar to Conda and Miniconda)." />
-<meta property="og:description" content="CHTC uses Spack (https://github.com/spack/spack) for installing and managing software packages on the HPC cluster for all users to use, via the module command. Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software’s dependencies (similar to Conda and Miniconda)." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-install" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-install" />
+<meta name="description" content="Container images are one of the most useful ways to make HTC workflows portable and reproducible on CHTC. This guide walks through the basics of building Apptainer containers on CHTC with two examples - a conda environment and installing Linux system packages." />
+<meta property="og:description" content="Container images are one of the most useful ways to make HTC workflows portable and reproducible on CHTC. This guide walks through the basics of building Apptainer containers on CHTC with two examples - a conda environment and installing Linux system packages." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/hello-containers" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hello-containers" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2026-05-13T20:25:45+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Install Software Using Spack" />
+<meta property="twitter:title" content="Practice Building Apptainer Containers on CHTC" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-05-13T20:25:45+00:00","datePublished":"2026-05-13T20:25:45+00:00","description":"CHTC uses Spack (https://github.com/spack/spack) for installing and managing software packages on the HPC cluster for all users to use, via the module command. Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software’s dependencies (similar to Conda and Miniconda).","headline":"Install Software Using Spack","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-install"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-spack-install"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-05-13T20:25:45+00:00","datePublished":"2026-05-13T20:25:45+00:00","description":"Container images are one of the most useful ways to make HTC workflows portable and reproducible on CHTC. This guide walks through the basics of building Apptainer containers on CHTC with two examples - a conda environment and installing Linux system packages.","headline":"Practice Building Apptainer Containers on CHTC","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hello-containers"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hello-containers"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -273,348 +273,273 @@
         <div class="container-xxl mb-5">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-9 mw-1000">
+
             <h1 class="uw-mini-bar mb-4">
-    Install Software Using Spack
+    Practice Building Apptainer Containers on CHTC
 </h1>
 
-            <p>CHTC uses Spack (<a href="https://github.com/spack/spack">https://github.com/spack/spack</a>) for installing and managing software packages on the HPC cluster for all users to use, via the <code>module</code> command. Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software’s dependencies (similar to Conda and Miniconda).</p>
+            <p>Container images are one of the most useful ways to make HTC workflows portable and reproducible on CHTC. This guide walks through the basics of building Apptainer containers on CHTC with two examples - a conda environment and installing Linux system packages.</p>
 
-<p><strong>This guide describes how to install and manage software using Spack, including how to install and use a specific compiler.</strong></p>
-
-<p><strong>This guide assumes you or your group has already set up your local installation of Spack.</strong> If you have not installed Spack, follow the instructions in <a href="hpc-spack-setup.html">Setting Up Spack on HPC</a>.</p>
-
-<h1 id="contents">Contents</h1>
-
-<ol>
-  <li><a href="#1-installing-software-using-spack">Installing Software Using Spack</a></li>
-  <li><a href="#2-using-software-installed-in-spack">Using Software Installed in Spack</a></li>
-  <li><a href="#3-installing-and-using-a-specific-compiler">Installing and Using a Specific Compiler</a></li>
-</ol>
-
-<h1 id="1-installing-software-using-spack">1. Installing Software Using Spack</h1>
-
-<p>Once your local installation of Spack has been properly configured, you are now ready to install software using Spack.</p>
-
-<p>Check the documentation for the program you want to install to see if they have instructions for installation using Spack. Even if your program can’t be installed using Spack, you can still use it to install the dependencies that your program needs.</p>
-
-<blockquote>
-  <p><strong>Note</strong>: For a group installation of Spack, you will not be able to modify or remove the packages installed by a different user. We recommend that you consult with the rest of your group for permission before proceeding.</p>
-</blockquote>
-
-<h2 id="a-start-an-interactive-job">A. Start an Interactive Job</h2>
-
-<p>Before creating a Spack environment or installing packages using Spack, <strong>first start an interactive Slurm job</strong>:</p>
-
-<pre class="term"><code>srun --mpi=pmix -n4 -N1 -t 240 -p int --pty bash
-</code></pre>
-
-<p>For more information on interactive Slurm jobs, see our guide <a href="hpc-job-submission.html#for-simple-testing-or-compiling">Submitting and Managing Jobs Using SLURM</a>.</p>
-
-<blockquote>
-  <p>When creating an environment, Spack automatically detects the hardware of the machine being used at the time and configures the packages as such.
-Since the login server uses newer hardware than the execute servers, creating an environment on the login server (not in an interactive job) is a bad idea.</p>
-</blockquote>
-
-<h2 id="b-creating-and-using-a-spack-environment">B. Creating and Using a Spack Environment</h2>
-
-<p>Software installations with Spack should be done inside of a Spack environment, to help manage the shell and the paths to access programs and libraries needed for a particular software installation.</p>
-
-<p>To create a Spack environment, run the command</p>
-
-<pre class="term"><code>spack env create yourEnvironmentName
-</code></pre>
-
-<p>where you should replace <code>yourEnvironmentName</code> with your desired name for the environment. You can then activate the environment with</p>
-
-<pre class="term"><code>spack env activate yourEnvironmentName
-</code></pre>
-
-<p>You will need to activate the environment when you wish to use the software that was installed in that environment.</p>
-
-<blockquote>
-  <p>You can see a list of your available environments using</p>
-
-  <pre class="term"><code>spack env list
-</code></pre>
-
-  <p>and you can see which environment you are currently using with</p>
-
-  <pre class="term"><code>spack env status
-</code></pre>
-
-  <p>To deactivate the environment, run</p>
-
-  <pre class="term"><code>spack env deactivate
-</code></pre>
-
-  <p>or close the terminal session.</p>
-</blockquote>
-
-<h2 id="c-finding-program-packages-in-spack">C. Finding Program Packages in Spack</h2>
-
-<p>Once inside an active Spack environment, you can run the following command to see what packages are installed in the current environment</p>
-
-<pre class="term"><code>spack find
-</code></pre>
-
-<p>For a new environment, this will show that there are no programs installed.  The output of this command will update after you install program packages in the environment.</p>
-
-<p>To search for packages to install using Spack, use the command</p>
-
-<pre class="term"><code>spack list nameOfProgram
-</code></pre>
-
-<p>where you should replace <code>nameOfProgram</code> with the program that you are interested in finding. Spack will search for the package and print out a list of all the packages that match that name. (The first time you run this command may take several minutes while Spack downloads a current list of packages that can be installed.)</p>
-
-<p>To learn more about an available package, use the exact name of the program and run</p>
-
-<pre class="term"><code>spack info exactNameOfProgram
-</code></pre>
-
-<p>This will print out information about the program, including a short description of the program, a link to the developer’s website, and the available versions of the program and its dependencies.</p>
-
-<h2 id="d-adding-package-specifications-to-the-environment">D. Adding Package Specifications to the Environment</h2>
-
-<p>Once you find the packages that you want to install, add their specifications to the environment using</p>
-
-<pre class="term"><code>spack add exactNameOfProgram
-</code></pre>
-
-<p>Spack will automatically decide which version of the program to use at installation time based on the other packages that you’ve added.</p>
-
-<p>If you want a specific version of a package, you can specify it by appending <code>@=</code> to the end of the package name, followed by the version number. For example,</p>
-
-<pre class="term"><code>spack add python@=3.10
-</code></pre>
-
-<p>will tell the environment that you want to install version 3.10 of Python. There are additional ways of defining specifications for package versions, the compiler to be used, and dependencies. The <a href="https://spack.readthedocs.io/en/latest/basic_usage.html#specs-dependencies">documentation for Spack</a> provides the details on how this is done.</p>
-
-<p><em>If you need to install a compiler, or need to use a specific compiler to install the desired packages, see section <a href="#3-installing-and-using-a-specific-compiler">3. Installing and Using a Specific Compiler</a>.</em></p>
-
-<h2 id="e-installing-packages-in-an-environment">E. Installing Packages in an Environment</h2>
-
-<p>Once you have identified the package(s) you would like to install and have added the specifications to your environment,</p>
-
-<h3 id="i-create-the-local-scratch-directory">i. Create the local scratch directory</h3>
-
-<p>Using the default configuration from <a href="hpc-spack-setup.html">Setting Up Spack on HPC</a>, Spack will try to use the machine’s local disk space for staging and compiling files before transferring the finished results to the final installation directory.  Using this space will greatly improve the speed of the installation process. Create the local directory with the command</p>
-
-<pre class="term"><code>mkdir /local/yourNetID/spack_build
-</code></pre>
-
-<p>where you should replace <code>yourNetID</code> with your NetID. At the end of the session, remember to delete this directory so that other people can use the disk space in their jobs.</p>
-
-<blockquote>
-  <p>If the directory already exists, that means you forgot to remove it after one of your previous Spack installation sessions.  Simply remove the directory and make it again.</p>
-
-  <pre class="term"><code>rm -rf /local/yourNetID/spack_build
-mkdir /local/yourNetID/spack_build
-</code></pre>
-</blockquote>
-
-<h3 id="ii-check-the-programspackages-to-be-installed">ii. Check the programs/packages to be installed</h3>
-
-<p>If you’ve added the installation specifications to the environment, then you can check the installation plan using the command</p>
-
-<pre class="term"><code>spack spec -lI
-</code></pre>
-
-<p>(the first letter after the hyphen is a lowercase “L” and the second letter is an uppercase “i”).</p>
-
-<blockquote>
-  <p>This command identifies what dependencies Spack needs in order to install your desired packages along with how it will obtain them.  Assuming their are no problems, then it will print a list of the packages and their dependencies, where entries that begin with a green <code>[+]</code> have already been installed somewhere in your local Spack installation, while those that begin with a green <code>[^]</code> are referencing the system installation, and those beginning with a gray <code>-</code> will need to be downloaded and installed.</p>
-</blockquote>
-
-<p><strong>Most users should see a bunch of packages with a green <code>[^]</code> in the first column.</strong>
-If you do not, then there are several possible explanations:</p>
+<!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
 
 <ul>
-  <li>The package only has a couple dependencies</li>
-  <li>You are not in an interactive Slurm job before running the command <a href="#a-start-an-interactive-job">as discussed previously</a></li>
-  <li>You are installing packages using a <a href="#3-installing-and-using-a-specific-compiler">custom compiler</a></li>
-  <li>There is an issue with your Spack configuration from <a href="hpc-spack-setup.html">Set Up Spack on HPC</a></li>
+  <li><a href="#before-you-start">Before you start</a></li>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#example-a--conda-install-numpy-and-pandas">Example A — <strong>Conda Install (<code>numpy</code> and <code>pandas</code>)</strong></a></li>
+  <li><a href="#example-b--install-via-apt-get">Example B — <strong>Install via <code>apt-get</code></strong></a></li>
+  <li><a href="#running-jobs-using-these-containers">Running Jobs Using These Containers</a></li>
+  <li><a href="#common-tips--best-practices">Common Tips &amp; Best Practices</a></li>
+  <li><a href="#related-pages">Related Pages</a></li>
 </ul>
 
-<p>If you are satisfied with the results, then you can proceed to install the programs.</p>
+<!-- TOC end -->
 
-<h3 id="iii-install-the-environment-packages">iii. Install the environment packages</h3>
+<h2 id="before-you-start">Before you start</h2>
 
-<p>Assuming that you are in an interactive Slurm session and have activated the desired environment containing the package specifications, you can run</p>
+<p>Before getting started, you’ll need to make sure you have the following:</p>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />A CHTC account on <code>ap2001</code> or <code>ap2002</code> or another HTC node.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />A <code>/staging</code> directory with at least 10 GB of free space</li>
+</ul>
 
-<pre class="term"><code>spack install -j 4
+<h2 id="overview">Overview</h2>
+
+<ul>
+  <li>Apptainer containers are self-contained images (<code>.sif</code> files) you can run in CHTC jobs.</li>
+  <li>You <em>must</em> build them in an interactive build job on CHTC, <em>not</em> on the login node.</li>
+  <li>Once built, put the <code>.sif</code> file in your <code>/staging</code> folder and reference it in your HTCondor submit file.</li>
+  <li>The submit file below shows how to use your built container in a job.</li>
+</ul>
+
+<pre><code class="language-text">container_image = osdf:///chtc/staging/path/to/my-container.sif
+
+executable = run.sh
+log = job.log
+error = job.err
+output = job.out
+
+request_cpus = 2
+request_memory = 4GB
+request_disk = 8GB
+
+queue
 </code></pre>
 
-<p>to install the packages inside of the Spack environment, where the number that comes after <code>-j</code> needs to match the number that you noted from when you started the interactive session (the one after <code>-n</code> when you ran the <code>srun</code> command for the interactive session). You can also add the <code>-v</code> option to have the installation be verbose, which will cause Spack to print the compile and make outputs in addition to the standard Spack output.</p>
+<h3 id="steps-to-build-containers">Steps to build containers</h3>
 
-<p>Depending on the number and complexity of the programs you are installing, and how much can be bootstrapped from the system installation, the installation step can take anywhere from several minutes to several hours.</p>
+<p>To build a container:</p>
 
-<blockquote>
-  <p>If something goes wrong or your connection is interrupted, the installation process can be resumed at a later time without having to start over from the beginning. Make sure that you are in an interactive Slurm session and that you have activated the Spack environment, then simply rerun the <code>spack install</code> command again.</p>
+<ol>
+  <li><strong>Write a definition file (<code>.def</code>):</strong> describes base image and install steps.</li>
+  <li><strong>Write a build job submit file:</strong> that includes <code>+IsBuildJob = true</code>.</li>
+  <li><strong>Submit an interactive build job:</strong> use HTCondor with <code>condor_submit -i build.sub</code>.</li>
+  <li><strong>Run <code>apptainer build</code> inside the interactive job.</strong></li>
+  <li><strong>Test the image locally in the interactive build session.</strong></li>
+  <li><strong>Move the <code>.sif</code> to <code>/staging/your-user</code>.</strong></li>
+</ol>
+
+<p>We will go through these six steps for each example below.</p>
+
+<h2 id="example-a--conda-install-numpy-and-pandas">Example A — <strong>Conda install (<code>numpy</code> and <code>pandas</code>)</strong></h2>
+
+<p>This example shows how to include Python and a conda-installed package in your container.</p>
+
+<h3 id="write-the-container-definition-file-conda-np-pddef">Write the container definition file: <code>conda-np-pd.def</code></h3>
+
+<p>For this example, we will create a container that includes <code>numpy</code> and <code>pandas</code> installed via <code>conda</code>. We will start from the <a href="https://github.com/CHTC/recipes/tree/main/"><strong>CHTC Recipes repo</strong></a> example for <a href="https://github.com/CHTC/recipes/tree/main/software/Conda/base-conda">conda base</a> installations. You can find the <a href="https://github.com/CHTC/recipes/blob/main/software/Conda/base-conda/base-conda.def">template definition file in the recipes repo</a>.</p>
+
+<p>Create an apptainer definition file called <code>conda-np-pd.def</code>:</p>
+<pre><code class="language-text">Bootstrap: docker
+From: continuumio/miniconda3
+
+%post
+    conda install -y -c conda-forge numpy pandas
+</code></pre>
+
+<p>✔ This starts from a miniconda base and installs <code>numpy</code> and <code>pandas</code> into the <code>base</code> conda environment.
+✔ The packages are ready to use as soon as the container starts up.</p>
+
+<h3 id="create-the-container-build-job">Create the container build job</h3>
+
+<p>Create an apptainer build job submit file (<code>build-conda.sub</code>):</p>
+
+<pre><code class="language-text">log = build-conda.log
+
+transfer_input_files = conda-np-pd.def
+
++IsBuildJob = True
+
+request_cpus = 8
+request_memory = 16GB
+request_disk = 30GB
+
+queue
+</code></pre>
+
+<p>Submit the build job as an interactive session:</p>
+
+<pre><code class="language-bash">condor_submit -i build-conda.sub
+</code></pre>
+
+<h3 id="build-the-apptainer-container-conda-np-pdsif">Build the Apptainer container: <code>conda-np-pd.sif</code></h3>
+
+<p>Once interactive shell starts, build the apptainer container using the <code>apptainer build</code> command:</p>
+
+<pre><code class="language-bash">apptainer build conda-np-pd.sif conda-np-pd.def
+</code></pre>
+
+<h3 id="test-the-container-within-the-build-session">Test the container within the build session</h3>
+
+<p>Test your newly build apptainer container using the <code>apptainer shell</code> command:</p>
+
+<pre><code class="language-bash">apptainer shell conda-np-pd.sif
+python -c "import numpy; import pandas;"
+</code></pre>
+
+<h3 id="store-your-apptainer-container-in-staging">Store your apptainer container in <code>/staging</code>:</h3>
+
+<p>Exit out of the apptainer shell and move to staging:</p>
+
+<pre><code class="language-bash">exit
+mv conda-np-pd.sif /staging/$USER/conda-np-pd.sif
+</code></pre>
+
+<blockquote class="tip-header">
+  <h3 id="️-containers-should-always-be-stored-in-staging">⚠️ containers should always be stored in <code>/staging</code></h3>
 </blockquote>
 
-<h3 id="iv-finishing-the-installation">iv. Finishing the installation</h3>
-
-<p>After the installation has successfully finished, you should be able to see that the programs have been installed by running</p>
-
-<pre class="term"><code>spack find
-</code></pre>
-
-<p>which should list the programs under the compiler heading used for installing the programs.</p>
-
-<p>You may need to deactivate and reactivate the environment in order to properly use the programs that have been installed.</p>
-
-<pre class="term"><code>spack env deactivate
-spack env activate yourEnvironmentName
-</code></pre>
-
-<p>Once you are satisfied that the programs have been installed properly, you can remove packages that are build-only (not used for running the packages you installed) using the command</p>
-
-<pre class="term"><code>spack gc
-</code></pre>
-
-<p>Finally, remove the local build directory that Spack used during the installation with</p>
-
-<pre class="term"><code>rm -rf /local/yourNetID/spack_build
-</code></pre>
-
-<p>and then enter <code>exit</code> to end the interactive session.</p>
-
-<p>To use the packages that you installed, follow the instructions in the next section, <a href="#2-using-software-installed-in-spack">2. Using Software Installed in Spack</a>. If you want to create custom modules using the installed packages, see our guide <a href="hpc-spack-modules.html">Creating Custom Modules Using Spack</a>.</p>
-
-<h2 id="f-removing-an-environment-and-uninstalling-unneeded-packages">F. Removing an Environment and Uninstalling Unneeded Packages</h2>
-
-<p>You may find it necessary to remove a Spack environment, or packages installed using Spack. To uninstall a package, simply run</p>
-
-<pre class="term"><code>spack uninstall yourPackageName
-</code></pre>
-
-<p>where you should replace <code>yourPackageName</code> with the name of the package that you want to remove. This command will only work for packages that you ‘added’ to the Spack environment, as described above.</p>
-
-<p>To remove an environment, first make sure that you have deactivated the environment with</p>
-
-<pre class="term"><code>spack env deactivate
-</code></pre>
-
-<p>and then run</p>
-
-<pre class="term"><code>spack env rm yourEnvironmentName
-</code></pre>
-
-<p>where you should replace <code>yourEnvironmentName</code> with the name of the environment that you want to remove. Note that this will not necessarily remove the packages that were installed in the environment! After the environment has been removed, you can uninstall the packages that are no longer needed using the command</p>
-
-<pre class="term"><code>spack gc
-</code></pre>
-
-<h1 id="2-using-software-installed-in-spack">2. Using Software Installed in Spack</h1>
-
-<p>If your account is configured correctly for using Spack, and the software has been installed inside of a Spack environment, then to use the software all you need to do is activate the corresponding environment. Simply use the command</p>
-
-<pre class="term"><code>spack env activate yourEnvironmentName 
-</code></pre>
-
-<p>and Spack will update your shell accordingly. (Remember that you can see the available Spack environments by running the command <code>spack env list</code>). Once the environment has been activated, you should be able to use the packages just as normal. You can confirm you are using a command installed using Spack by running</p>
-
-<pre class="term"><code>which nameOfYourCommand
-</code></pre>
-
-<p>where you replace <code>nameOfYourCommand</code> with the name of the command. The command will output a path, and you should see something like <code>spack/var/spack/environments/yourEnvironmentName/</code> in that path.</p>
-
-<p><strong>For submitting jobs using Slurm</strong>, you will need to make sure that you activate the Spack environment near the beginning of your <code>sbatch</code> file before the <code>srun</code> command. For example,</p>
-
-<pre><code>#!/bin/sh
-# This file is called submit-script.sh
-#SBATCH --partition=shared       # default "shared", if not specified
-#SBATCH --time=0-04:30:00        # run time in days-hh:mm:ss
-#SBATCH --nodes=1                # require 1 nodes
-#SBATCH --ntasks-per-node=64     # cpus per node (by default, "ntasks"="cpus")
-#SBATCH --mem-per-cpu=4000       # RAM per node in megabytes
-#SBATCH --error=job.%J.err
-#SBATCH --output=job.%J.out
-
-# v---Remember to activate your Spack environment!! 
-spack env activate yourEnvironmentName
-
-srun --mpi=pmix -n 64 /home/username/mpiprogram
-</code></pre>
-
-<p>When you submit this job to Slurm and it executes the commands in the <code>sbatch</code> file, it will first activate the Spack environment, and then your program will be run using the programs that are installed inside that environment.</p>
-
-<blockquote>
-  <p>Some programs include explicit <code>module load</code> commands in their execution, which may override the paths provided by the Spack environment. If your program appears to use the system versions of the packages instead of the versions installed in your Spack environment, you may need to remove or modify these explicit commands. Consult your program’s documentation for how to do so. You may want to create your own custom modules and modify your program to explicitly load your custom modules. See <a href="hpc-spack-modules.html">Creating Custom Modules Using Spack</a> for more information on how to create your own modules using Spack.</p>
+<blockquote class="tip">
+  <p>Containers are large and often reused files. Storing them in your <code>/staging</code> directory avoids repeated transfers from your home directory, saving time and resources when running jobs.</p>
 </blockquote>
 
-<h1 id="3-installing-and-using-a-specific-compiler">3. Installing and Using a Specific Compiler</h1>
+<h2 id="example-b--install-via-apt-get">Example B — <strong>Install via <code>apt-get</code></strong></h2>
 
-<p>By default, Spack will attempt to compile packages it installs using one of the system compilers, most likely with GCC version 11.3.0. Some programs, however, may need to be compiled using a specific compiler, or require that their dependencies be built using a specific compiler. While this is possible using Spack, the process for installing and using a compiler is a bit more complicated than that for installing “regular” packages as was described above.</p>
+<p>This example shows installing system packages <em>directly</em> inside the container using <code>apt-get</code>.</p>
 
-<p>In brief, you will first create a separate environment for installing the compiler. Then you will add that compiler to the list of available compilers that Spack can use. Finally, you can install your desired packages as in a new environment, but you will need to specify which compiler to use.</p>
+<h3 id="write-the-container-definition-file-apt-cowsaydef">Write the container definition file: <code>apt-cowsay.def</code></h3>
 
-<h2 id="a-install-the-compiler-in-its-own-environment">A. Install the Compiler in its Own Environment</h2>
+<p>For this example, we will create a container that includes <code>cowsay</code> installed via the ubuntu <code>apt-get</code> package manager. We will start with an existing <code>Ubuntu 22.04</code> <a href="https://hub.docker.com/layers/library/ubuntu/22.04/images/sha256-14be402d3f1eeeb5e7da73d3260322c68e7b51c88388f53e88eb21d6450bd520">Docker Hub container</a>. We will specify this base image using the <code>Bootstrap: docker</code> and <code>From: ubuntu:22.04</code> definition file syntax.</p>
 
-<h3 id="i-identify-the-compiler-and-version">i. Identify the compiler and version</h3>
+<p>Create an apptainer definition file called <code>apt-cowsay.def</code>:</p>
 
-<p>The first step is to identify the compiler and version you need for your program. Consult your program’s documentation for the requirements that it has. Then follow the instructions in <a href="#c-finding-program-packages-in-spack">C. Finding Program Packages in Spack</a> to find the package name and confirm the version is available.</p>
+<pre><code class="language-text">Bootstrap: docker
+From: ubuntu:22.04
 
-<h3 id="ii-create-the-compilers-environment">ii. Create the compiler’s environment</h3>
+%post
+    apt-get update -y
+    apt-get install -y cowsay
 
-<p>Next, create and activate an environment for installing the desired compiler. For example,</p>
-
-<pre class="term"><code>spack env create compilerName_compilerVersion
-spack env activate compilerName_compilerVersion
 </code></pre>
 
-<p>where you should replace <code>compilerName</code> and <code>compilerVersion</code> with the name and version of the desired compiler.</p>
+<p>✔ Base image is <code>ubuntu:22.04</code> and system packages install at build time.</p>
 
-<h3 id="iii-add-the-compiler-specification-to-its-environment">iii. Add the compiler specification to its environment</h3>
+<h3 id="create-the-container-build-job-1">Create the container build job</h3>
 
-<p>Once you’ve activated the environment, add the exact specification for the compiler to the Spack environment with</p>
+<p>Create an apptainer build job submit file (<code>build-apt.sub</code>):</p>
 
-<pre class="term"><code>spack add compilerName@=compilerVersion
+<pre><code class="language-text">log = build-apt.log
+
+transfer_input_files = apt-cowsay.def
+
++IsBuildJob = True
+
+request_cpus = 8
+request_memory = 16GB
+request_disk = 30GB
+
+queue
 </code></pre>
 
-<p>where you need to replace <code>compilerName</code> and <code>compilerVersion</code> with the name and version of the compiler that you identified above.</p>
+<p>Submit the build job as an interactive session:</p>
 
-<h3 id="iv-install-the-compiler-in-its-environment">iv. Install the compiler in its environment</h3>
-
-<p>Next, follow the instructions in <a href="#e-installing-packages-in-an-environment">E. Installing Packages in an Environment</a> to install the desired compiler in this environment. Installing the compiler may take several hours, so consider increasing the number of threads to speed up the installation.</p>
-
-<h2 id="b-add-the-compiler-to-spack">B. Add the Compiler to Spack</h2>
-
-<h3 id="i-identify-the-compilers-installation-path">i. Identify the compiler’s installation path</h3>
-
-<p>After installing the compiler, you need to find its location. First, activate the compiler’s environment with <code>spack env activate compilerName_compilerVersion</code>. Next, use the following command to save the path to the compiler as the shell variable <code>compilerPath</code>:</p>
-
-<pre class="term"><code>compilerPath=$(spack location -i compilerName@=compilerVersion)
+<pre><code class="language-bash">condor_submit -i build-apt.sub
 </code></pre>
 
-<p>where you need to replace <code>compilerName</code> and <code>compilerVersion</code> with the name and version of the compiler that you installed. You can see print out the path using the command <code>echo $compilerPath</code>.</p>
+<h3 id="build-the-apptainer-container-apt-cowsaysif">Build the Apptainer container: <code>apt-cowsay.sif</code></h3>
 
-<h3 id="ii-give-the-compilers-path-to-spack">ii. Give the compiler’s path to Spack</h3>
+<p>Once interactive shell starts, build the apptainer container using the <code>apptainer build</code> command:</p>
 
-<p>Now that you know where the compiler is installed, deactivate the environment with <code>spack env deactivate</code>. Then run the following command to tell Spack to add the compiler to its list of available compilers:</p>
-
-<pre class="term"><code>spack compiler add $compilerPath
+<pre><code class="language-bash">apptainer build apt-cowsay.sif apt-cowsay.def
 </code></pre>
 
-<h3 id="iii-confirm-compiler-has-been-added-to-spack">iii. Confirm compiler has been added to Spack</h3>
+<h3 id="test-the-container-within-the-build-session-1">Test the container within the build session</h3>
 
-<p>The command</p>
+<p>Test your newly build apptainer container using the <code>apptainer shell</code> command:</p>
 
-<pre class="term"><code>spack compiler list
+<pre><code class="language-bash">apptainer shell apt-cowsay.sif 
+cowsay "Hello from apt!"
 </code></pre>
 
-<p>will print out the list of compilers that Spack can use, and should now show <code>compilerName@compilerVersion</code> in the results.</p>
+<h3 id="store-your-apptainer-container-in-staging-1">Store your apptainer container in <code>/staging</code>:</h3>
 
-<h2 id="c-install-packages-using-the-new-compiler">C. Install Packages Using the New Compiler</h2>
+<p>Exit out of the apptainer shell and move to staging:</p>
 
-<p>Once the compiler has been installed and recognized by Spack, you can now create and activate a new environment for installing your desired packages, following the instructions in <a href="#1-installing-software-using-spack">Installing Software Using Spack</a>.</p>
-
-<p><strong>To make sure the packages are installed using your desired compiler</strong>, you need to include the compiler when you add the package specification to the environment (<a href="#d-adding-package-specifications-to-the-environment">D. Adding Package Specifications to the Environment</a>). To include the compiler in the specification, you need to add the symbol <code>%</code> followed by the compiler name and version to the end of the <code>spack add</code> command. For example,</p>
-
-<pre class="term"><code>spack add python@=3.10 %gcc@=9.5.0
+<pre><code class="language-bash">exit
+mv apt-cowsay.sif /staging/$USER
 </code></pre>
 
-<p>will use GCC version 9.5.0 to compile Python 3.10 when installing the package. As a general rule, you should use the same compiler for installing all of your packages within an environment, unless your program’s installation instructions say otherwise.</p>
+<blockquote class="tip-header">
+  <h3 id="️-containers-should-always-be-stored-in-staging-1">⚠️ Containers should always be stored in <code>/staging</code></h3>
+</blockquote>
+
+<blockquote class="tip">
+  <p>Containers are large and often reused files. Storing them in your <code>/staging</code> directory avoids repeated transfers from your home directory, saving time and resources when running jobs.</p>
+</blockquote>
+
+<h2 id="running-jobs-using-these-containers">Running jobs using these containers</h2>
+
+<p>Once built, your HTCondor job <code>run.sh</code> can simply invoke the installed tools:</p>
+
+<h3 id="example-runsh">Example <code>run.sh</code></h3>
+
+<pre><code class="language-text">#!/bin/bash
+echo "Running inside container"
+cowsay "CHTC says hi"
+</code></pre>
+
+<h3 id="example-runsub">Example <code>run.sub</code></h3>
+
+<pre><code class="language-text">container_image = osdf:///chtc/staging/path/to/my-container.sif
+
+executable = run.sh
+log = job.log
+error = job.err
+output = job.out
+
+request_cpus = 2
+request_memory = 4GB
+request_disk = 8GB
+
+queue
+</code></pre>
+
+<blockquote class="tip-header">
+  <h3 id="remember-to-use-the-osdf-protocol-whenever-using-containers-staging">Remember to use the <code>osdf:///</code> protocol whenever using containers <code>/staging</code></h3>
+</blockquote>
+
+<blockquote class="tip">
+  <p>The OSDF protocol allows HTCondor to more efficiently transfer large container files stored in <code>/staging</code>, improving job startup times and reducing unnecessary data movement.</p>
+
+  <p><strong>Note</strong> If your container is stored elsewhere (e.g., your group <code>/staging/groups/</code> directory), please use the <code>file:///</code> protocol instead.</p>
+
+  <p>For more information about these protocols, see the <a href="https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata#main">CHTC - Manage large data in /staging</a>.</p>
+</blockquote>
+
+<h2 id="common-tips--best-practices">Common tips &amp; best practices</h2>
+
+<ul>
+  <li><strong>Always place the <code>.sif</code> in <code>/staging</code></strong> to leverage CHTC’s storage and avoid unnecessary transfers.</li>
+  <li><strong>Request enough disk space</strong> in your submit file to transfer the container.</li>
+  <li>Use the existing <a href="https://github.com/CHTC/recipes/tree/main/software"><strong>CHTC Recipes repo</strong></a> as templates for common installations.</li>
+</ul>
+
+<h2 id="related-pages">Related pages</h2>
+
+<ul>
+  <li><a href="https://chtc.cs.wisc.edu/uw-research-computing/apptainer-build">Building an apptainer Container</a></li>
+  <li><a href="https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc">Using Apptainer Containers on CHTC</a></li>
+  <li><a href="https://github.com/CHTC/recipes/tree/main/software">CHTC Software Container Recipe Repo</a></li>
+</ul>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -626,7 +551,7 @@ spack env activate compilerName_compilerVersion
 <div id="guide-sidebar">
     
         
-                <h6 class="mt-5">HPC guides</h6>
+                <h6 class="mt-5">HTC guides</h6>
         
         
         <div class="accordion accordion-flush">
@@ -634,28 +559,28 @@ spack env activate compilerName_compilerVersion
             
                 <div class="accordion-item">
                         
-                        <span class="accordion-header mt-0" id="get-startedhpc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#get-startedhpc-guides-collapse" aria-expanded="false" aria-controls="get-startedhpc-guides">
+                        <span class="accordion-header mt-0" id="get-startedhtc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#get-startedhtc-guides-collapse" aria-expanded="false" aria-controls="get-startedhtc-guides">
                                 Get started
                             </button>
                         </span>
-                        <div id="get-startedhpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="get-startedhpc-guides" data-bs-parent="#guide-sidebar">
+                        <div id="get-startedhtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="get-startedhtc-guides" data-bs-parent="#guide-sidebar">
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-overview#main">System overview</a>
+        <a class="" href="/uw-research-computing/htc-overview#main">System overview</a>
     </div>
 
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/connecting#main">Log in to CHTC</a>
+        <a class="" href="/uw-research-computing/htc-roadmap#main">Roadmap to getting started</a>
     </div>
 
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/configure-ssh#main">Automate CHTC login</a>
+        <a class="" href="/uw-research-computing/connecting#main">Log into CHTC</a>
     </div>
 
                             
@@ -667,7 +592,7 @@ spack env activate compilerName_compilerVersion
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-quick-ref#main">Quick reference: HPC and SLURM commands</a>
+        <a class="" href="/uw-research-computing/htcondor-quick-ref#main">Quick reference: HTCondor commands</a>
     </div>
 
                             
@@ -677,30 +602,18 @@ spack env activate compilerName_compilerVersion
             
                 <div class="accordion-item">
                         
-                        <span class="accordion-header mt-0" id="submit-jobshpc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#submit-jobshpc-guides-collapse" aria-expanded="false" aria-controls="submit-jobshpc-guides">
+                        <span class="accordion-header mt-0" id="submit-jobshtc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#submit-jobshtc-guides-collapse" aria-expanded="false" aria-controls="submit-jobshtc-guides">
                                 Submit jobs
                             </button>
                         </span>
-                        <div id="submit-jobshpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="submit-jobshpc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-job-submission#main">Submitting and managing jobs using SLURM</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-job-monitoring#main">Reviewing job information using SLURM</a>
-    </div>
-
+                        <div id="submit-jobshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="submit-jobshtc-guides" data-bs-parent="#guide-sidebar">
                             
                                 
     <div class="document-link-wrapper" style="background-color: #d3d3d3;">
     <span style="font-size: .8rem;">
       <i class="bi bi-folder me-2"></i>
-      Open OnDemand
+      Submit jobs using HTCondor 
     </span>
     </div>
     <div class="list-group ps-4 border-start bg-light">
@@ -708,14 +621,61 @@ spack env activate compilerName_compilerVersion
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/ood#main">Overview</a>
+        <a class="" href="/uw-research-computing/htcondor-job-submission#main">Job submission basics</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/ood-job-composer#main">Job Composer</a>
+        <a class="" href="/uw-research-computing/multiple-jobs#main">Submit multiple jobs</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/inter-submit#main">Submit an interactive job</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/htc-monitor-jobs#main">Monitor your jobs</a>
+    </div>
+
+        
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Arguments and shell scripting 
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/htc-basic-scripting#main">Basic scripting and job submission with arguments</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/htc-passing-arguments#main">Practice: Pass arguments from the submit file to the executable script</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/htc-passing-arguments-multiple#main">Practice: Pass multiple arguments to multiple jobs with one submit file</a>
     </div>
 
         
@@ -728,16 +688,34 @@ spack env activate compilerName_compilerVersion
             
                 <div class="accordion-item">
                         
-                        <span class="accordion-header mt-0" id="manage-datahpc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#manage-datahpc-guides-collapse" aria-expanded="false" aria-controls="manage-datahpc-guides">
+                        <span class="accordion-header mt-0" id="manage-datahtc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#manage-datahtc-guides-collapse" aria-expanded="false" aria-controls="manage-datahtc-guides">
                                 Manage data
                             </button>
                         </span>
-                        <div id="manage-datahpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="manage-datahpc-guides" data-bs-parent="#guide-sidebar">
+                        <div id="manage-datahtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="manage-datahtc-guides" data-bs-parent="#guide-sidebar">
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-check-quota#main">Check disk quota and usage</a>
+        <a class="" href="/uw-research-computing/htc-job-file-transfer#main">Use and transfer data in jobs on the HTC system </a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/file-avail-largedata#main">Manage Large Data in HTC Jobs</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/check-quota#main">Check disk quota and usage</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/htc-uwdf-researchdrive#main">Directly transfer files between ResearchDrive and your jobs</a>
     </div>
 
                             
@@ -745,7 +723,7 @@ spack env activate compilerName_compilerVersion
     <div class="document-link-wrapper" style="background-color: #d3d3d3;">
     <span style="font-size: .8rem;">
       <i class="bi bi-folder me-2"></i>
-      Transfer files to/from CHTC
+      Transfer files to/from CHTC 
     </span>
     </div>
     <div class="list-group ps-4 border-start bg-light">
@@ -760,7 +738,14 @@ spack env activate compilerName_compilerVersion
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/transfer-data-researchdrive#main">ResearchDrive</a>
+        <a class="" href="/uw-research-computing/transfer-data-researchdrive#main">ResearchDrive (via smbclient)</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/globus#main">Globus</a>
     </div>
 
         
@@ -780,22 +765,16 @@ spack env activate compilerName_compilerVersion
             
                 <div class="accordion-item">
                         
-                        <span class="accordion-header mt-0" id="softwarehpc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#softwarehpc-guides-collapse" aria-expanded="false" aria-controls="softwarehpc-guides">
+                        <span class="accordion-header mt-0" id="softwarehtc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#softwarehtc-guides-collapse" aria-expanded="false" aria-controls="softwarehtc-guides">
                                 Software
                             </button>
                         </span>
-                        <div id="softwarehpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="softwarehpc-guides" data-bs-parent="#guide-sidebar">
+                        <div id="softwarehtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="softwarehtc-guides" data-bs-parent="#guide-sidebar">
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-software#main">Overview and Policies</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-custom-modules#main">Create and manage custom modules</a>
+        <a class="" href="/uw-research-computing/software-overview-htc#main">Overview</a>
     </div>
 
                             
@@ -803,7 +782,7 @@ spack env activate compilerName_compilerVersion
     <div class="document-link-wrapper" style="background-color: #d3d3d3;">
     <span style="font-size: .8rem;">
       <i class="bi bi-folder me-2"></i>
-      Spack
+      Containers 
     </span>
     </div>
     <div class="list-group ps-4 border-start bg-light">
@@ -811,28 +790,82 @@ spack env activate compilerName_compilerVersion
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-spack-setup#main">Set up</a>
+        <a class="" href="/uw-research-computing/software-overview-htc#container-overview#main">What are containers?</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Using software in Apptainer containers
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/apptainer-htc#main">Use Apptainer containers</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="fw-bolder" href="/uw-research-computing/hpc-spack-install#main">Install software</a>
+        <a class="" href="/uw-research-computing/apptainer-build#main">More about Apptainer containers</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-spack-modules#main">Create custom Spack modules</a>
+        <a class="" href="/uw-research-computing/htc-docker-to-apptainer#main">Convert Docker images to Apptainer/Singularity images</a>
+    </div>
+
+        
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Using software in Docker containers
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/docker-jobs#main">Use Docker containers</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-el9-spack#main">Recreate Spack installs on a new operating system</a>
+        <a class="" href="/uw-research-computing/docker-build#main">More about Docker containers</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/docker-test#main">Reference: Explore and test Docker containers</a>
+    </div>
+
+        
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="https://github.com/CHTC/recipes/tree/main/software#main">Recipes repository</a>
     </div>
 
         
@@ -843,7 +876,7 @@ spack env activate compilerName_compilerVersion
     <div class="document-link-wrapper" style="background-color: #d3d3d3;">
     <span style="font-size: .8rem;">
       <i class="bi bi-folder me-2"></i>
-      Containers
+      Other Modes of Software Use
     </span>
     </div>
     <div class="list-group ps-4 border-start bg-light">
@@ -851,14 +884,21 @@ spack env activate compilerName_compilerVersion
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/apptainer-hpc#main">Use Apptainer containers</a>
+        <a class="" href="/uw-research-computing/inter-submit#main">Compile software in an interactive job</a>
     </div>
 
         
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/apptainer-build#main">Build an Apptainer container</a>
+        <a class="" href="/uw-research-computing/licensed-software#main">Licensed software and modules</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/htc-modules#main">Use software available in modules</a>
     </div>
 
         
@@ -871,16 +911,141 @@ spack env activate compilerName_compilerVersion
             
                 <div class="accordion-item">
                         
-                        <span class="accordion-header mt-0" id="troubleshootinghpc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshootinghpc-guides-collapse" aria-expanded="false" aria-controls="troubleshootinghpc-guides">
+                        <span class="accordion-header mt-0" id="workflowshtc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#workflowshtc-guides-collapse" aria-expanded="false" aria-controls="workflowshtc-guides">
+                                Workflows
+                            </button>
+                        </span>
+                        <div id="workflowshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="workflowshtc-guides" data-bs-parent="#guide-sidebar">
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/checkpointing#main">Checkpoint jobs</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      DAGMan workflow manager 
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/htc/dagman-workflows#main">Submit workflows with DAGman</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/htc/dagman-simple-example#main">Practice: Run a simple DAGMan workflow</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/htc/tutorial-dagman-intermediate#main">Practice: Run an diamond DAGMan workflow</a>
+    </div>
+
+        
+    </div>
+
+                            
+                        </div>
+                    </div>
+            
+            
+                <div class="accordion-item">
+                        
+                        <span class="accordion-header mt-0" id="special-use-caseshtc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-caseshtc-guides-collapse" aria-expanded="false" aria-controls="special-use-caseshtc-guides">
+                                Special use cases
+                            </button>
+                        </span>
+                        <div id="special-use-caseshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="special-use-caseshtc-guides" data-bs-parent="#guide-sidebar">
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/gpu-jobs#main">Use GPUs</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/htc-interactive-gpu-jobs#main">Interactive GPU Jobs</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/scaling-htc#main">Scale beyond local HTC capacity</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/high-memory-jobs#main">Submit high memory jobs</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/machine-learning-htc#main">Machine learning jobs</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/os-request-htc#main">Custom Linux versions</a>
+    </div>
+
+                            
+                        </div>
+                    </div>
+            
+            
+                <div class="accordion-item">
+                        
+                        <span class="accordion-header mt-0" id="troubleshootinghtc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshootinghtc-guides-collapse" aria-expanded="false" aria-controls="troubleshootinghtc-guides">
                                 Troubleshooting
                             </button>
                         </span>
-                        <div id="troubleshootinghpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="troubleshootinghpc-guides" data-bs-parent="#guide-sidebar">
+                        <div id="troubleshootinghtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="troubleshootinghtc-guides" data-bs-parent="#guide-sidebar">
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-known-issues#main">Known issues on the HPC</a>
+        <a class="" href="http://status.chtc.wisc.edu#main">Status page</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/htc-known-issues#main">Known issues</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/variable-memory#main">Request variable memory</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/dos-unix#main">Windows/Linux incompatibility</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/get-help.html#main">Get help</a>
     </div>
 
                             
@@ -890,28 +1055,28 @@ spack env activate compilerName_compilerVersion
             
                 <div class="accordion-item">
                         
-                        <span class="accordion-header mt-0" id="external-resourceshpc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#external-resourceshpc-guides-collapse" aria-expanded="false" aria-controls="external-resourceshpc-guides">
-                                External resources
+                        <span class="accordion-header mt-0" id="external-resourceshtc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#external-resourceshtc-guides-collapse" aria-expanded="false" aria-controls="external-resourceshtc-guides">
+                                External Resources
                             </button>
                         </span>
-                        <div id="external-resourceshpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="external-resourceshpc-guides" data-bs-parent="#guide-sidebar">
+                        <div id="external-resourceshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="external-resourceshtc-guides" data-bs-parent="#guide-sidebar">
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="http://slurm.schedmd.com/#main">Slurm manual</a>
+        <a class="" href="https://htcondor.org/manual/#main">HTCondor manual</a>
     </div>
 
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="http://software-carpentry.org/lessons/#main">Software Carpentry</a>
+        <a class="" href="https://software-carpentry.org/lessons/#main">Software Carpentry</a>
     </div>
 
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="http://www.doit.wisc.edu/training/student/#main">UW-Madison software training for students</a>
+        <a class="" href="https://sts.doit.wisc.edu/workshops/#main">UW-Madison software training for students</a>
     </div>
 
                             
@@ -940,6 +1105,7 @@ spack env activate compilerName_compilerVersion
         </div>
     </div>
 </div>
+
 
     </main>
     <footer id="colophon" class="uw-footer">
