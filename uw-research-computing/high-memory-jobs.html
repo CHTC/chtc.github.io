@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/high-memory-jobs" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-05-14T14:32:53+00:00" />
+<meta property="article:published_time" content="2026-05-14T15:49:31+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Submit High Memory Jobs" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-05-14T14:32:53+00:00","datePublished":"2026-05-14T14:32:53+00:00","description":"The examples and information in the below guide areuseful ONLY if: you already have an account on a CHTC-administered submit server your jobs will use more than ~120 GB of memory","headline":"Submit High Memory Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/high-memory-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/high-memory-jobs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-05-14T15:49:31+00:00","datePublished":"2026-05-14T15:49:31+00:00","description":"The examples and information in the below guide areuseful ONLY if: you already have an account on a CHTC-administered submit server your jobs will use more than ~120 GB of memory","headline":"Submit High Memory Jobs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/high-memory-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/high-memory-jobs"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -116,6 +116,10 @@
 
         
 
+
+    <div class="alert alert-warning text-center mb-0 rounded-0" role="alert">
+        <b>HTC users</b>: From May 15 - June 15, we are transitioning users' personal /staging directories. See how you're affected and what you should do on <a href="/uw-research-computing/staging-transition">staging transition page</a>.
+    </div>
 
     
     <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">UW-Research Computing<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
@@ -481,16 +485,13 @@ these resources to your submit file.</li>
 
 <pre><code class="language-{.sub}">### Example submit file for a single staging-dependent job
 
-universe = vanilla
-
 # Files for the below lines will all be somewhere within /home/username,
-# and not within /staging/username
+# and not within /staging/u/username
 log = run_myprogram.log
 executable = run_Trinity.sh
 output = $(Cluster).out
 error = $(Cluster).err
 transfer_input_files = trinityrnaseq-2.0.1.tar.gz
-should_transfer_files = YES
 
 # Require execute servers that have large data staging
 Requirements = (Target.HasCHTCStaging == true)
@@ -540,7 +541,7 @@ your <a href="#submit">submit file</a>.</li>
 <pre class="file"><code>#!/bin/bash
 # Copy input data from /staging to the present directory of the job
 # and un-tar/un-zip them.  
-cp /staging/username/reads.tar.gz ./
+cp /staging/u/username/reads.tar.gz ./
 tar -xzvf reads.tar.gz
 rm reads.tar.gz
 
@@ -559,7 +560,7 @@ Trinity --seqType fq --left reads_1.fq \
 # Trinity will write output to the working directory by default, 
 # so when the job finishes, it needs to be moved back to /staging
 tar -czvf trinity_out_dir.tar.gz trinity_out_dir
-cp trinity_out_dir.tar.gz trinity_stdout.txt /staging/username/
+cp trinity_out_dir.tar.gz trinity_stdout.txt /staging/u/username/
 rm reads_*.fq trinity_out_dir.tar.gz trinity_stdout.txt
 
 ### END

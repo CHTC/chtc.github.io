@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc-overview" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-05-14T14:32:53+00:00" />
+<meta property="article:published_time" content="2026-05-14T15:49:31+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="System Overview" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-05-14T14:32:53+00:00","datePublished":"2026-05-14T14:32:53+00:00","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"System Overview","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-overview"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-overview"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-05-14T15:49:31+00:00","datePublished":"2026-05-14T15:49:31+00:00","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"System Overview","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-overview"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-overview"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -116,6 +116,10 @@
 
         
 
+
+    <div class="alert alert-warning text-center mb-0 rounded-0" role="alert">
+        <b>HTC users</b>: From May 15 - June 15, we are transitioning users' personal /staging directories. See how you're affected and what you should do on <a href="/uw-research-computing/staging-transition">staging transition page</a>.
+    </div>
 
     
     <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">UW-Research Computing<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
@@ -454,8 +458,8 @@ Disk quotas for user alice (uid 20384):
 
 <h3 id="check-staging-quota-and-usage">Check <code>/staging</code> Quota and Usage</h3>
 
-<p>To see your <code>/staging</code> quota and usage, use the <code>get_quotas &lt;NetID&gt;</code> command. For example,</p>
-<pre class="term"><code>[NetID@ap2001 ~]$ get_quotas /staging/NetID
+<p>To see your <code>/staging</code> quota and usage, use the <code>get_quotas</code> command. For example,</p>
+<pre class="term"><code>[NetID@ap2001 ~]$ get_quotas
 </code></pre>
 
 <p>If the output of this command is blank, it means you do not have a <code>/staging</code> directory. Contact CHTC staff to request one at any time.</p>
@@ -466,8 +470,8 @@ Disk quotas for user alice (uid 20384):
 <p>Alternatively, the <code>ncdu</code> command can also be used to see how many 
 files and directories are contained in a given path:</p>
 
-<pre class="term"><code>[NetID@ap2001 ~]$ ncdu /home/NetID
-[NetID@ap2001 ~]$ ncdu /staging/NetID
+<pre class="term"><code>[NetID@ap2001 ~]$ ncdu /home/username
+[NetID@ap2001 ~]$ ncdu /staging/u/username
 </code></pre>
 
 <p>When <code>ncdu</code> has finished running, the output will give you a total file

@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc-job-file-transfer" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-05-14T14:32:53+00:00" />
+<meta property="article:published_time" content="2026-05-14T15:49:31+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Use and transfer data in jobs on the HTC system" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-05-14T14:32:53+00:00","datePublished":"2026-05-14T14:32:53+00:00","description":"Introduction","headline":"Use and transfer data in jobs on the HTC system","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-job-file-transfer"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-job-file-transfer"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-05-14T15:49:31+00:00","datePublished":"2026-05-14T15:49:31+00:00","description":"Introduction","headline":"Use and transfer data in jobs on the HTC system","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-job-file-transfer"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-job-file-transfer"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -116,6 +116,10 @@
 
         
 
+
+    <div class="alert alert-warning text-center mb-0 rounded-0" role="alert">
+        <b>HTC users</b>: From May 15 - June 15, we are transitioning users' personal /staging directories. See how you're affected and what you should do on <a href="/uw-research-computing/staging-transition">staging transition page</a>.
+    </div>
 
     
     <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">UW-Research Computing<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
@@ -429,13 +433,6 @@ desired output directories prior to their transfer/delivery.</li>
 
 <p>The data management mechanisms behind <code>/home</code> and <code>/staging</code> are different and are optimized to handle different file sizes and numbers of files. It’s important to place your files in the correct location to improve the efficiency at which your data is handled and maintain the stability of the HTC file systems.</p>
 
-<p style="text-align: center; margin-bottom: 0; font-weight: bold;">Need a <code>/staging</code> directory?</p>
-<div class="d-flex mb-3">
-	<div class="p-3 m-auto">
-		<a class="btn btn-primary" style="text-align: center" href="quota-request">Request one here</a>
-	</div>
-</div>
-
 <h2 id="transfer-input-data-to-jobs-with-transfer_input_files">Transfer input data to jobs with <code>transfer_input_files</code></h2>
 
 <p>To transfer files to jobs, we must specify these files with <code>transfer_input_files</code> in the HTCondor job submit file. The syntax you use will depend on its location and file size.</p>
@@ -457,12 +454,12 @@ desired output directories prior to their transfer/delivery.</li>
     <tr>
       <td>1 - 30 GB</td>
       <td><code>/staging</code></td>
-      <td><code>transfer_input_files = osdf:///chtc/staging/NetID/input.txt</code></td>
+      <td><code>transfer_input_files = osdf:///chtc/staging/u/username/input.txt</code></td>
     </tr>
     <tr>
       <td>30 - 100 GB</td>
       <td><code>/staging</code></td>
-      <td><code>transfer_input_files = file:///staging/NetID/input.txt</code></td>
+      <td><code>transfer_input_files = file:///staging/u/username/input.txt</code></td>
     </tr>
     <tr>
       <td>1 - 100 GB</td>
@@ -488,7 +485,7 @@ desired output directories prior to their transfer/delivery.</li>
 
 <pre class="sub"><code># My job submit file
 
-transfer_input_files = file1, osdf:///chtc/staging/username/file2, file:///staging/username/file3, dir1, dir2/
+transfer_input_files = file1, osdf:///chtc/staging/u/username/file2, file:///staging/u/username/file3, dir1, dir2/
 
 requirements = (HasCHTCStaging == true)
 
@@ -535,7 +532,7 @@ Failing to do so may result in the old version, or worse, a corrupted version.</
 <h3 id="transfer-files-to-other-locations-with-transfer_output_remaps">Transfer files to other locations with <code>transfer_output_remaps</code></h3>
 
 <p>To transfer files back to <code>/staging</code> or a specific directory in <code>/home</code>, you will need an additional line in your HTCondor submit file, with each item separated by a semicolon (;):</p>
-<pre class="sub"><code>transfer_output_remaps = "output_file = osdf:///chtc/staging/NetID/output1.txt; output_file2 = /home/netid/outputs/output_file2"
+<pre class="sub"><code>transfer_output_remaps = "output_file = osdf:///chtc/staging/u/username/output1.txt; output_file2 = /home/u/username/outputs/output_file2"
 </code></pre>
 
 <p>In this example above, <code>output_file</code> is remapped to the staging directory using the <code>file:///</code> transfer protocol and simultaneously renamed <code>output1.txt</code>. In addition, <code>output_file2</code> is transferred to a different directory on <code>/home</code>. The last output file, <code>output_file3</code> is transferred back to the original directory from where the job was submitted from. Ensure you have the right file transfer syntax (<code>osdf:///</code> or <code>file:///</code> depending on the anticipated file size).</p>
@@ -546,7 +543,7 @@ Failing to do so may result in the old version, or worse, a corrupted version.</
 
 <p>If you want to transfer <em>all</em> files to a specific destination, use <code>output_destination</code>:</p>
 
-<pre class="sub"><code>output_destination = osdf:///chtc/staging/netid/
+<pre class="sub"><code>output_destination = osdf:///chtc/staging/u/username/
 </code></pre>
 
 <p>Do not use <code>output_destination</code> and <code>transfer_output_remaps</code> simultaneously.</p>
@@ -557,7 +554,7 @@ Failing to do so may result in the old version, or worse, a corrupted version.</
 
 <p>To transfer and unpack files, append a <code>?pack=auto</code> at the end of the plugin path of the compressed object to be transferred.</p>
 
-<pre><code>transfer_input_files = osdf:///chtc/staging/netid/filename.tar.gz?pack=auto, input1.txt, input2.txt
+<pre><code>transfer_input_files = osdf:///chtc/staging/u/username/filename.tar.gz?pack=auto, input1.txt, input2.txt
 </code></pre>
 
 <p>This feature is only availble for Pelican-based plugins (<code>osdf://</code>, <code>pelican://</code>) and is not available for <code>file://</code> or normal file transfers. This feature is also not recommended for compressed files larger than 30 GB.</p>

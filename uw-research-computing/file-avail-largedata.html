@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-05-14T14:32:53+00:00" />
+<meta property="article:published_time" content="2026-05-14T15:49:31+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Manage large data in /staging" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-05-14T14:32:53+00:00","datePublished":"2026-05-14T14:32:53+00:00","description":"Introduction","headline":"Manage large data in /staging","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-05-14T15:49:31+00:00","datePublished":"2026-05-14T15:49:31+00:00","description":"Introduction","headline":"Manage large data in /staging","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -116,6 +116,10 @@
 
         
 
+
+    <div class="alert alert-warning text-center mb-0 rounded-0" role="alert">
+        <b>HTC users</b>: From May 15 - June 15, we are transitioning users' personal /staging directories. See how you're affected and what you should do on <a href="/uw-research-computing/staging-transition">staging transition page</a>.
+    </div>
 
     
     <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">UW-Research Computing<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
@@ -383,7 +387,7 @@ create and manage files, and use scripts.</li>
         </li>
         <li><a href="#stage-large-data">Stage large data</a>
           <ul>
-            <li><a href="#request-a-staging-directory">Request a <code>/staging</code> directory</a></li>
+            <li><a href="#your-personal-staging-directory">Your personal <code>/staging</code> directory</a></li>
             <li><a href="#reduce-file-counts">Reduce file counts</a></li>
             <li><a href="#use-the-transfer-server">Use the transfer server</a></li>
             <li><a href="#remove-files-after-jobs-complete">Remove files after jobs complete</a></li>
@@ -436,19 +440,39 @@ instructions for using <code>/staging</code> written in this guide.</p>
 <p>In order to stage large data for use on CHTC’s HTC system, users must:</p>
 
 <ol>
-  <li><strong>Request a <code>/staging</code> directory</strong>: Use our quota request form.</li>
   <li><strong>Reduce file counts</strong>: Combine and compress files that are used together.</li>
   <li><strong>Transfer files to the HTC system via the transfer server</strong>: Upload your data via our dedicated file transfer server.</li>
   <li><strong>Remove files after jobs complete</strong>: Our data staging space is quota-controlled and not backed up.</li>
 </ol>
 
-<h3 id="request-a-staging-directory">Request a <code>/staging</code> directory</h3>
+<h3 id="your-personal-staging-directory">Your personal <code>/staging</code> directory</h3>
 
-<p>Any one with a CHTC account whose data meets the intended use above can request space in our large data staging area by filling out a quota request form. The default quota is 100 GB / 1000 items; if a larger quota is needed, request a higher quota. The created directory will exist at this path: <code>/staging/username</code></p>
+<p>Each user should have a personal <code>/staging</code> directory. The created directory will exist in an alphabetized subdirectory based on the <strong>first letter</strong> of your NetID. For example:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>NetID</th>
+      <th>Path to your personal <code>/staging</code> directory</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>alice</code></td>
+      <td><code>/staging/a/alice</code></td>
+    </tr>
+    <tr>
+      <td><code>bucky</code></td>
+      <td><code>/staging/b/bucky</code></td>
+    </tr>
+  </tbody>
+</table>
 
 <p>We can also create group or shared spaces by request.</p>
 
-<p style="text-align: center; margin-bottom: 0; font-weight: bold;">Need a <code>/staging</code> directory or higher quota?</p>
+<p>The default quota is 100 GB / 1000 items; if a larger quota is needed, request a higher quota.</p>
+
+<p style="text-align: center; margin-bottom: 0; font-weight: bold;">Need a group <code>/staging</code> directory or higher quota?</p>
 <div class="d-flex mb-3">
 	<div class="p-3 m-auto">
 		<a class="btn btn-primary" style="text-align: center" href="quota-request">Quota request form</a>
@@ -457,7 +481,7 @@ instructions for using <code>/staging</code> written in this guide.</p>
 
 <h3 id="reduce-file-counts">Reduce file counts</h3>
 
-<p>The file system backing our <code>/staging</code>space is optimized to handle small numbers of large files. If your job requires many small files, we recommend placing these files in the <code>/home</code> directory or compressing multiple files into a single zip file or tarball. See <a href="htc-job-file-transfer#data-storage-locations">this table</a> for more information on the differences between <code>/staging</code> and <code>/home</code>.</p>
+<p>The file system backing our <code>/staging</code> space is optimized to handle small numbers of large files. If your job requires many small files, we recommend placing these files in the <code>/home</code> directory or compressing multiple files into a single zip file or tarball. See <a href="htc-job-file-transfer#data-storage-locations">this table</a> for more information on the differences between <code>/staging</code> and <code>/home</code>.</p>
 
 <p>Data placed in our large data <code>/staging</code> location should be stored in as few files as possible (ideally, one file per job), and will be used by a job only after being copied from <code>/staging</code> into the job working directory. Similarly, large output should first be written to the job’s working directory then compressed in to a single file before being copied to <code>/staging</code> at the end of the job.</p>
 
@@ -471,7 +495,7 @@ instructions for using <code>/staging</code> written in this guide.</p>
 <p>Uploading or downloading data to <code>/staging</code> should only be performed via CHTC’s transfer server, <code>transfer.chtc.wisc.edu</code>, and <strong>not via a CHTC Access Point.</strong></p>
 
 <p>For example, you can use <code>scp</code> to transfer files into your <code>/staging</code> directory:</p>
-<pre class="term"><code>$ scp large.file netid@transfer.chtc.wisc.edu:/staging/netid/ 
+<pre class="term"><code>$ scp large.file username@transfer.chtc.wisc.edu:/staging/u/username/ 
 </code></pre>
 
 <h3 id="remove-files-after-jobs-complete">Remove files after jobs complete</h3>
@@ -487,7 +511,7 @@ mechanisms as uploaded files (as above).</p>
 <p>Staged files should be specified in the job submit file using the <code>osdf:///</code> or <code>file:///</code> syntax,
 depending on the size of the files to be transferred. <a href="htc-job-file-transfer#transfer-input-data-to-jobs-with-transfer_input_files">See this table for more information</a>.</p>
 
-<pre class="sub"><code>transfer_input_files = osdf:///chtc/staging/username/file1, file:///staging/username/file2, file3 
+<pre class="sub"><code>transfer_input_files = osdf:///chtc/staging/u/username/file1, file:///staging/u/username/file2, file3 
 </code></pre>
 
 <h3 id="transfer-large-output-files">Transfer large output files</h3>
@@ -497,7 +521,7 @@ depending on the size of the files to be transferred. <a href="htc-job-file-tran
 <p>Large outputs should be transferred to staging using the same file transfer protocols in HTCondor’s <code>transfer_output_remaps</code> or <code>output_destination</code> option:</p>
 
 <pre class="sub"><code>transfer_output_files = file1, file2, file3
-transfer_output_remaps = "file1 = osdf:///chtc/staging/username/file1; file2 = file:///staging/username/file2"
+transfer_output_remaps = "file1 = osdf:///chtc/staging/u/username/file1; file2 = file:///staging/u/username/file2"
 </code></pre>
 
 <p>In the example above, <code>file1</code> and <code>file2</code> are transferred to <code>/staging</code> via two different file transfer protocols (which depends on their file size), and <code>file3</code> is transferred to the submit directory on <code>/home</code>.</p>
@@ -529,14 +553,14 @@ within the user’s <code>/home</code> directory:</p>
 
 <pre><code class="language-{.sub}">### Example submit file for a single job that stages large data
 # Files for the below lines MUST all be somewhere within /home/username,
-# and not within /staging/username
+# and not within /staging/u/username
 
 executable = run_myprogram.sh
 log = myprogram.log
 output = $(Cluster).out
 error = $(Cluster).err
 
-transfer_input_files = osdf:///chtc/staging/username/myprogram, file:///staging/username/largedata.tar.gz
+transfer_input_files = osdf:///chtc/staging/u/username/myprogram, file:///staging/u/username/largedata.tar.gz
 
 # IMPORTANT! Require execute servers that can access /staging
 Requirements = (Target.HasCHTCStaging == true)
