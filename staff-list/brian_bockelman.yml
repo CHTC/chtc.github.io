@@ -16,8 +16,12 @@ osg:
 pelican:
     title: Principal Investigator
     weight: 1
+fabaid: 
+    title: Principal Investigator
+    weight: 1
 organizations: 
     - path
     - chtc
     - osg
     - pelican
+    - fabaid
