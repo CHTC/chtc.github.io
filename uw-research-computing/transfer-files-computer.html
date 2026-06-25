@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-06-25T19:02:09+00:00" />
+<meta property="article:published_time" content="2026-06-25T20:26:52+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Transfer Files between CHTC and your Computer" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-06-25T19:02:09+00:00","datePublished":"2026-06-25T19:02:09+00:00","description":"Introduction This guide shows how to transfer (upload/download) files between a local computer and CHTC’s file systems. Two options are presented: the scp command line utility, and a file transfer program. Additionally, we present tarballs as a way to transfer multiple files easily.","headline":"Transfer Files between CHTC and your Computer","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-06-25T20:26:52+00:00","datePublished":"2026-06-25T20:26:52+00:00","description":"Introduction This guide shows how to transfer (upload/download) files between a local computer and CHTC’s file systems. Two options are presented: the scp command line utility, and a file transfer program. Additionally, we present tarballs as a way to transfer multiple files easily.","headline":"Transfer Files between CHTC and your Computer","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -320,10 +320,19 @@
 <p>On Mac, Linux, or modern Windows (10+) systems, you can use the "Terminal" application and
 the <code>scp</code> command to copy files between your computer and CHTC servers.</p>
 
-<p><strong>Upload files from your computer to CHTC</strong></p>
+<h3 id="upload-files-from-your-computer-to-chtc">Upload files from your computer to CHTC</h3>
 
-<p>First, open the "Terminal" application and navigate to the directory with the files or directories you want to transfer using the <a href="basic-shell-commands#navigate-directories"><code>cd</code> command</a>. Then, use this
-command to copy these files to CHTC:</p>
+<p>First, open the “Terminal” application and navigate to the directory with the files or directories you want to transfer using the <code>cd</code> command or opening it from your computer’s file browser.</p>
+
+<blockquote class="tip-header">
+  <h3 id="️-demo-open-a-folder-on-the-terminal-from-file-explorer">🎞️ Demo: Open a folder on the terminal from File Explorer</h3>
+</blockquote>
+<blockquote class="tip">
+  <p>Right-click the folder background and select “Open in Terminal”. Similar methods are available on <a href="https://support.apple.com/guide/terminal/open-new-terminal-windows-and-tabs-trmlb20c7888/mac">MacOS</a> and Linux computers.</p>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/FIkTC46fMbo?si=KOHXBOp2YKsSflIm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+</blockquote>
+
+<p>Then, use this command to copy these files to CHTC:</p>
 
 <pre class="term"><code>scp file username@hostname:/home/username
 </code></pre>
@@ -331,22 +340,37 @@ command to copy these files to CHTC:</p>
 <p>If you would like these files to end up in a different directory inside
 your home directory, just add it to the path at the end of the command.</p>
 
-<p><strong>Download files from CHTC to your computer</strong></p>
+<p style="text-align:center"><img src="/images/scp01.png" width="800px" alt="The scp command explained. The first argument is the source, and the second argument is the destination." /></p>
+<caption>Diagram of the scp command. Replace the source with the name of your file, and destination with where you'd like the file to be copied.</caption>
 
-<p>Open the "Terminal" application. Do NOT log into CHTC. Instead,
+<blockquote class="tip-header">
+  <h3 id="️-demo-upload-a-file-to-chtc-with-the-scp-command">🎞️ Demo: Upload a file to CHTC with the scp command</h3>
+</blockquote>
+<blockquote class="tip">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/YCs40UW6rSo?si=aaXDrh4ERy4EJBn_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+</blockquote>
+
+<h3 id="download-files-from-chtc-to-your-computer">Download files from CHTC to your computer</h3>
+
+<p>Open the “Terminal” application on your computer. Do NOT log into CHTC. Instead,
 navigate to where you want the files to go on your computer. Then, use
 this command to copy these files there:</p>
 
 <pre class="term"><code>scp username@hostname:/home/username/file ./
 </code></pre>
 
-<p>For transferring many files, it will be easiest to create a compressed tarball
-(.tar.gz file) of your files and transfer that instead of each file
-individually.</p>
+<blockquote class="tip-header">
+  <h3 id="️-demo-download-a-file-from-chtc-with-the-scp-command">🎞️ Demo: Download a file from CHTC with the scp command</h3>
+</blockquote>
+<blockquote class="tip">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/4Ri1w1f7u2g?si=wNIu6WXZe8I3t7Dm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+</blockquote>
+
+<p>For transferring many files, it will be easiest to <a href="#transfer-multiple-files-using-tarballs">create a compressed tarball (.tar.gz file)</a> of your files and transfer that instead of each file individually.</p>
 
 <h2 id="option-2-transfer-files-with-a-file-transfer-program">Option 2: Transfer files with a file transfer program</h2>
 
-<p>Windows and Mac users can also use special programs to help them
+<p>Users can download programs with a graphical user interface to help them
 transfer files between their computers and CHTC. For Windows, we
 recommend <a href="https://winscp.net/eng/download.php">WinSCP</a>. It requires the
 same information as Putty (hostname, username), and once it's set up,
@@ -362,18 +386,29 @@ and drop the files.</p>
 
 <h2 id="transfer-multiple-files-using-tarballs">Transfer multiple files using tarballs</h2>
 
-<p>If you are transferring many files, we recommend compressing them
+<p>If you are transferring many files and/or large data, we recommend compressing them
 into a single file. Move all the files you need into a separate directory, and use the "tar" command to compress them:</p>
 
-<pre class="term"><code>tar czf data_files.tar.gz file_directory/
+<pre class="term"><code>tar -czf data_files.tar.gz file_directory/
 </code></pre>
+
+<p style="text-align:center"><img src="/images/tar01.png" width="800px" alt="The tar compression command explained. The first argument is the tarball to be created, and the second argument is the directory or list of files to be compressed." /></p>
+<caption>Diagram of the tar compression command. The first argument (blue) is the name of the tar.gz to be created, and the second argument (green) is the directory of files to be compressed.</caption>
+<p><br /></p>
 
 <p>Afterwards, you may transfer the single tarball file as usual.</p>
 
 <p>To untar files, use the tar command again:</p>
 
-<pre class="term"><code>tar xzf data_files.tar.gz
+<pre class="term"><code>tar -xzf data_files.tar.gz
 </code></pre>
+
+<blockquote class="tip-header">
+  <h3 id="️-demo-tar-and-upload-multiple-files-to-chtc">🎞️ Demo: Tar and upload multiple files to CHTC</h3>
+</blockquote>
+<blockquote class="tip">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/2s29VCayOEE?si=tTqf-hegZXWchryd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+</blockquote>
 
 <h2 id="related-pages">Related pages</h2>
 <ul>
