@@ -1,0 +1,13 @@
+name: "Peter Couvares"
+image: "images/peter_couvares.jpeg"
+title: "OSG Executive Director"
+website:
+institution: "LIGO Laboratory - Caltech"
+promoted: true
+weight: 2
+osg:
+  title: OSG Executive Director
+  promoted: true
+  weight: 2
+organizations:
+  - osg
