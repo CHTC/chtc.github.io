@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-07-01T21:18:18+00:00" />
+<meta property="article:published_time" content="2026-07-03T17:48:55+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Submitting Multiple Jobs Using HTCondor" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-01T21:18:18+00:00","datePublished":"2026-07-01T21:18:18+00:00","description":"Introduction","headline":"Submitting Multiple Jobs Using HTCondor","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-03T17:48:55+00:00","datePublished":"2026-07-03T17:48:55+00:00","description":"Introduction","headline":"Submitting Multiple Jobs Using HTCondor","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -300,6 +300,7 @@
         <li><a href="#option-2-submit-multiple-jobs-that-iterate-over-variables-with-queue-variable-from-list">Option 2: Submit multiple jobs that iterate over variables with <code>queue &lt;variable&gt; from &lt;list&gt;</code></a>
           <ul>
             <li><a href="#use-multiple-variables-for-each-job">Use multiple variables for each job</a></li>
+            <li><a href="#transfer-varying-number-of-files-per-job">Transfer varying number of files per job</a></li>
           </ul>
         </li>
         <li><a href="#option-3-organize-jobs-into-individual-directories">Option 3: Organize jobs into individual directories</a>
@@ -451,7 +452,7 @@ queue state from parameters.txt
 
 <p>Let’s say we need to add a year as an additional input parameter for our jobs. We can modify your <code>parameters.txt</code> file:</p>
 
-<pre class="term"><code>illinois.data, 1995
+<pre class="file"><code>illinois.data, 1995
 illinois.data, 2005
 nebraska.data, 1999
 nebraska.data, 2005
@@ -474,6 +475,84 @@ transfer_input_files = $(state)
 
 queue state, year from parameters.txt
 </code></pre>
+
+<h2 id="transfer-varying-number-of-files-per-job">Transfer varying number of files per job</h2>
+
+<p>This is example is useful when you need to transfer a different number of files for each job.</p>
+
+<h3 id="example-queue-start-end-files-from-parameterstxt">Example: <code>queue start, end, files from parameters.txt</code></h3>
+
+<p>Let’s say you need to transfer multiple state data files per job, but the number of these files will vary. List the files you need to transfer at the very end of each row of <code>parameters.txt</code>.</p>
+
+<pre><code>1995, 2000, illinois.data
+1995, 2000, illinois.data, nebraska.data
+1995, 2000, illinois.data, wisconsin.data
+1995, 2000, illinois.data, nebraska.data, wisconsin.data
+</code></pre>
+
+<p>Modify the <code>queue</code> statement to define three variables named <code>start</code>, <code>end</code>, and <code>files</code>:</p>
+
+<pre><code>queue start, end, files from parameters.txt
+</code></pre>
+
+<p><code>$(start)</code> and <code>$(end)</code> will take on the first two values in the list, while <code>$(files)</code> will take on the value of the <strong>entire line after</strong> the second value.</p>
+
+<p>See the below table for the values each variable is assigned over the different jobs in the submission. Note how <code>$(files)</code> now is a comma-delimited list of files.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Job <code>$(Process)</code></th>
+      <th><code>$(start)</code></th>
+      <th><code>$(end)</code></th>
+      <th><code>$(files)</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1995</td>
+      <td>2000</td>
+      <td>illinois.data</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1995</td>
+      <td>2000</td>
+      <td>illinois.data, nebraska.data</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>1995</td>
+      <td>2000</td>
+      <td>illinois.data, wisconsin.data</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>1995</td>
+      <td>2000</td>
+      <td>illinois.data, nebraska.data, wisconsin.data</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You can then use <code>$(files)</code> in the submit file to transfer a list of files:</p>
+
+<pre class="sub"><code>executable = compare_states
+arguments = $(start) $(end) --file-type ".data"
+transfer_input_files = $(files)
+
+... remaining submit details ...
+
+queue start, end, files from parameters.txt
+</code></pre>
+
+<blockquote class="tip-header">
+  <h3 id="️-you-should-only-define-one-list-of-values-that-varies-in-length">⚠️ You should only define one list of values that varies in length</h3>
+</blockquote>
+<blockquote class="tip">
+  <p>Due to the way HTCondor parses the lists (i.e., <code>parameters.txt</code>), <strong>you should only have one list of values that varies in length for each job submission</strong>. This list of variables must always be at the end of the list file.</p>
+</blockquote>
 
 <h2 id="option-3-organize-jobs-into-individual-directories">Option 3: Organize jobs into individual directories</h2>
 
