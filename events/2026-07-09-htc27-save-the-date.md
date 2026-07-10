@@ -18,16 +18,16 @@ banner:
   - path: https://raw.githubusercontent.com/CHTC/events/main/images/images/HTC27_logo.png
     alt: Logo
 sidebar: |
-Who
+  Who
   Researchers, campuses, scientific collaborations, facilitators, administrators and professionals interested in the HTCondor Software Suite and high-throughput computing or the OSG Consortium resources or services (including the OSPool, the Open Science Data Federation, the Pelican Platform, or the PATh Facility.
 
-When
+  When
   Tuesday, June 8th- Friday, June 11th 
 
-Where
+  Where
   Fluno Center on the University of Wisconsin-Madison campus and Online via Zoom.
 
-Registration
+  Registration
   Registration details and link coming soon
 
 ---
