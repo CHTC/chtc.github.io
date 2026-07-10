@@ -17,9 +17,9 @@ image:
 banner:
   - path: https://raw.githubusercontent.com/CHTC/events/main/images/images/HTC27_logo.png
     alt: Logo
-sidebar: |
+sidebar:
   Who
-  Researchers, campuses, scientific collaborations, facilitators, administrators and professionals interested in the HTCondor Software Suite and high-throughput computing or the OSG Consortium resources or services (including the OSPool, the Open Science Data Federation, the Pelican Platform, or the PATh Facility.
+  Researchers, campuses, scientific collaborations, facilitators, administrators and professionals interested in the HTCondor Software Suite and high-throughput  computing or the OSG Consortium resources or services (including the OSPool, the Open Science Data Federation, the Pelican Platform, or the PATh Facility.
 
   When
   Tuesday, June 8th- Friday, June 11th 
