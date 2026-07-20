@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Submitting Multiple Jobs Using HTCondor</title>
+<title>Connect to CHTC with VS Code</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Submitting Multiple Jobs Using HTCondor | CHTC</title>
+<title>Connect to CHTC with VS Code | CHTC</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Submitting Multiple Jobs Using HTCondor" />
+<meta property="og:title" content="Connect to CHTC with VS Code" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Introduction" />
-<meta property="og:description" content="Introduction" />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs" />
+<meta name="description" content="Introduction VS Code and similar Integrated Development Environment (IDE) programs make it easy to develop and manage coding projects. This familiar interface can also make it easier to login and interact with CHTC. This guide explains how to connect to CHTC using VS Code, best practices for using the interface, and how to troubleshoot issues. Table of Contents Introduction Requirements Initial set-up Connect again Use VS Code on CHTC Troubleshooting Other IDEs Related pages Requirements VS Code or similar IDE installed on your local computer Login access to the HTC or HPC system (requires a CHTC account) Confirm access Before starting, make sure that you can login to CHTC “normally” via a plain terminal, as described in our Log in to CHTC guide. Initial set-up Install the “Remote-SSH” extension Add access point as a new SSH host Log in Log in with the file viewer Install the Remote-SSH extension Open VS Code and navigate to the “Extensions” menu. (Click on the “View” menu and select “Extensions”, or use the Ctrl+Shift+X shortcut.) Search for the “Remote - SSH” extension, it will likely be the first extension listed. The publisher should be “Microsoft”. Install this extension. Add access point as a new SSH host Use the “Command Palette” (go to View &gt; Command Palette or use the keyboard shortcut: CTRL + SHIFT + P), then search for the “Remote-SSH: Add New SSH Host” command. You will be prompted to enter your SSH command. Enter the same command that you would normally use to log in to your access point. For example, if your NetID is bbadger and you are logging into ap2002, use ssh bbadger@ap2002.chtc.wisc.edu You will then be prompted to choose an SSH configuration file that you wish to update. Several options will be provided for you; select the location you wish to save the SSH settings. If you want to save the settings to a different location, then you will need to specify that location in the VS Code settings. Go to the settings menu and search for “Remote.SSH: Config File”, then enter the desired absolute path in the text box. Then repeat the above instructions and this location will be the only available choice. Log in After adding the access point as a host, VS Code will automatically log you in. VS Code will ask you to confirm the authenticity of the host; enter “yes” to confirm and proceed. (Contact the facilitation team if you want to verify the authenticity.) You’ll be prompted for a password. Enter your NetID password. You’ll be prompted to complete DUO authentication; either (a) enter 1 to receive a push notification to your DUO app, or (b) enter the current sequence from your app or fob. The rest of the process should be automatic, as VS Code sets things up in your personal directory to work with VS Code. You are successful in the first login if there are no error messages. You should also see “SSH: server_name” in the very bottom left corner of the window. Log in with the file viewer To see your files on the access point via VS Code, you will need to log in a second time. Open the “Explorer” toolbar and click the “Open Folder” button. A pop-up interface will prompt you to provide a path; just hit the enter key to accept the default value (your home directory). You will be prompted to log in again - do so. The window will refresh, after which you should be able to see your home directory in the file explorer. Connect again This assumes that you’ve already completed the initial set-up on the current device! Option 1: “Open Recent” Option 2: “Connect to Host” Option 1: Open recent If the connection to CHTC was a recent session, you should be able to find it in the “Open Recent” menu. You can find the “Open Recent” menu on the VS Code start-up page, under “File &gt; Open Recent”, searching for “File: Open Recent” in the command palette, or using the keyboard shortcut Ctrl+R. Option 2: Connect to host If the connection to CHTC is not in your recents list, you can also find it in the “Connect to Host” menu. You can find the “Connect to Host” menu clicking the “&gt;&lt;” icon in the very bottom left corner of the window, or searching for “Remote-SSH: Connect to Host” in the command palette. Select or search for the access point from this menu. If you don’t see the access point in the menu, you probably need to follow the instructions in Initial set-up again. Once you’ve connected to your access point, open the “Explorer” toolbar and click the “Open Folder” button. Hit the enter key to accept the default value (your home directory) or navigate to only have access to a sub-directory. Use VS Code on CHTC VS Code is connected to the access point. To run calculations, you will still need to submit a job! ⚠️ Intensive work Do not run intensive commands or scripts via the VS Code connection to CHTC. (This includes anything your AI Agent may run!) Find and edit files If you’ve set up the file viewer (“explorer”), then you can find and edit files that are on the access point just like you would with VS Code and the files on your computer. Submit jobs Regardless of whether you are using HTCondor or Slurm, you will still need to submit jobs via the terminal. To access the built-in terminal with VS Code, go to “Terminal” and click “New Terminal”, use the Ctrl+\` keyboard shortcut, or right-click a file or directory and select “Open in integrated terminal”. This will open a terminal in your VS Code window. In this terminal window, you can run the usual HTCondor or Slurm commands for submitting jobs and interacting with the system as usual. Remember to cd into the correct directory first! ⚠️ Interactive jobs When you submit an interactive job via the terminal, only that terminal is connected to the interactive job. The rest of the VS Code interface (including new terminals) are still connected to the access point! Extensions If there are extensions you want to use in the remote session, you may need to install them again through the “Extensions” toolbar. Avoid installing extensions that use a lot of computing power (e.g., that cause your computer to run more slowly), as this will cause the login server to run more slowly as well. HTCondor VS Code Extension HTCondor provides a VS Code extension. You can find the extension by searching for “Htcondor”, published by htcondor. Current features include syntax highlighting for submit files, documentation tooltips on hover over submit commands, and submit file templates. Create a file that ends with .sub and test it out! This extension is not fully developed. Contact the facilitation team if you have feedback about the extension. AI integration VS Code supports integration with AI Agents. We do not discourage you from from using AI Agents, but you must supervise them responsibly. You are ultimately responsible for anything your AI Agent does on the access point! For more guidance on working with AI Agents on the access point, see our guide here: AI Agents on CHTC Troubleshooting The most common issue is not being able to log in. Intervention Notes Confirm regular login access If you can’t login with a plain terminal, you won’t be able to using VS Code “Kill VS Code Server on Host” Built-in command that attempts to login and automatically shut-down VS Code on the remote server “Uninstall VS Code Server from Host” Built-in command that attempts to login, shut-down, and uninstall VS Code on the remote server Manual clean-up You login with a plain terminal to shut-down and uninstall VS Code from the remote server Ask for help If nothing else works, ask a facilitator for help! When you connect to the access point, VS Code installs a “remote server” on the access point, allowing you to use VS Code to write and manipulate files directly. Most issues occur when there is a problem connecting to or restarting this remote server. “Kill VS Code Server on Host” In VS Code, use the command palette and search for the command Remote-SSH: Kill VS Code Server on Host and select the server that you are having issues connecting to. You will be prompted to log in to the access point and VS Code will automatically run the necessary commands before logging out again. This command can only work if you are able to login to the access point with a plain terminal. “Uninstall VS Code Server from Host” In VS Code, use the command palette and search for the command Remote-SSH: Uninstall VS Code Server from Host and select the server that you are having issues connecting to. You will be prompted to log in to the access point and VS Code will automatically run the necessary commands before logging out again. This can only work if you are able to login to the access point with a plain terminal. The next time you login with VS Code, it should automatically set up what it needs to work. Manual clean-up VS Code isn’t always able to clean-up after itself like it should, in which case a manual clean-up may fix the problem. Log in to the access point using a plain terminal. Then, run the following command: kill -9 $(ps aux | grep VS Code-server | grep $USER | grep -v grep | awk &#39;{print $2}&#39;) This command looks for leftover processes from your VS Code on the server and then removes (“kill”) them. (If you don’t have any VS Code processes running on the server, then you may get the help text for the kill command.) Next, remove the VS Code directory from your home directory: rm -rf ~/.vscode-server This removes the items that VS Code automatically uploaded to set up the remote server, which may be responsible for causing problems. The next time you try to connect with VS Code, it should automatically set up what it needs to work. Lots of files If you have a lot of files in your directory on the access point, then VS Code may struggle to list and scan those files for the file viewer. If this is causing problems, here are some things to try: Reduce the number of files on the server. Open a specific directory in the file viewer, instead of the default home directory. (“Connect to host” then “Open Folder” and select a sub-directory in the dialog.) Configure VS Code to ignore the directories that contain a lot of files. Other IDEs If the program you want to use is a derivative of VS Code (e.g., Google’s Antigravity), then the Remote SSH extension is likely already built-in. The instructions in this guide should map nearly perfectly to that program. Other IDE programs usually include an equivalent feature. There should be instructions in the program’s documentation about the process. Look for “remote server” or “ssh” or the like. The overall process should be similar. The facilitation team may be able to help you figure out the process, but keep in mind that we do not explicitly support these tools. Related pages Log in to CHTC Transfer Files between CHTC and your Computer VS Code Remote SSH manual" />
+<meta property="og:description" content="Introduction VS Code and similar Integrated Development Environment (IDE) programs make it easy to develop and manage coding projects. This familiar interface can also make it easier to login and interact with CHTC. This guide explains how to connect to CHTC using VS Code, best practices for using the interface, and how to troubleshoot issues. Table of Contents Introduction Requirements Initial set-up Connect again Use VS Code on CHTC Troubleshooting Other IDEs Related pages Requirements VS Code or similar IDE installed on your local computer Login access to the HTC or HPC system (requires a CHTC account) Confirm access Before starting, make sure that you can login to CHTC “normally” via a plain terminal, as described in our Log in to CHTC guide. Initial set-up Install the “Remote-SSH” extension Add access point as a new SSH host Log in Log in with the file viewer Install the Remote-SSH extension Open VS Code and navigate to the “Extensions” menu. (Click on the “View” menu and select “Extensions”, or use the Ctrl+Shift+X shortcut.) Search for the “Remote - SSH” extension, it will likely be the first extension listed. The publisher should be “Microsoft”. Install this extension. Add access point as a new SSH host Use the “Command Palette” (go to View &gt; Command Palette or use the keyboard shortcut: CTRL + SHIFT + P), then search for the “Remote-SSH: Add New SSH Host” command. You will be prompted to enter your SSH command. Enter the same command that you would normally use to log in to your access point. For example, if your NetID is bbadger and you are logging into ap2002, use ssh bbadger@ap2002.chtc.wisc.edu You will then be prompted to choose an SSH configuration file that you wish to update. Several options will be provided for you; select the location you wish to save the SSH settings. If you want to save the settings to a different location, then you will need to specify that location in the VS Code settings. Go to the settings menu and search for “Remote.SSH: Config File”, then enter the desired absolute path in the text box. Then repeat the above instructions and this location will be the only available choice. Log in After adding the access point as a host, VS Code will automatically log you in. VS Code will ask you to confirm the authenticity of the host; enter “yes” to confirm and proceed. (Contact the facilitation team if you want to verify the authenticity.) You’ll be prompted for a password. Enter your NetID password. You’ll be prompted to complete DUO authentication; either (a) enter 1 to receive a push notification to your DUO app, or (b) enter the current sequence from your app or fob. The rest of the process should be automatic, as VS Code sets things up in your personal directory to work with VS Code. You are successful in the first login if there are no error messages. You should also see “SSH: server_name” in the very bottom left corner of the window. Log in with the file viewer To see your files on the access point via VS Code, you will need to log in a second time. Open the “Explorer” toolbar and click the “Open Folder” button. A pop-up interface will prompt you to provide a path; just hit the enter key to accept the default value (your home directory). You will be prompted to log in again - do so. The window will refresh, after which you should be able to see your home directory in the file explorer. Connect again This assumes that you’ve already completed the initial set-up on the current device! Option 1: “Open Recent” Option 2: “Connect to Host” Option 1: Open recent If the connection to CHTC was a recent session, you should be able to find it in the “Open Recent” menu. You can find the “Open Recent” menu on the VS Code start-up page, under “File &gt; Open Recent”, searching for “File: Open Recent” in the command palette, or using the keyboard shortcut Ctrl+R. Option 2: Connect to host If the connection to CHTC is not in your recents list, you can also find it in the “Connect to Host” menu. You can find the “Connect to Host” menu clicking the “&gt;&lt;” icon in the very bottom left corner of the window, or searching for “Remote-SSH: Connect to Host” in the command palette. Select or search for the access point from this menu. If you don’t see the access point in the menu, you probably need to follow the instructions in Initial set-up again. Once you’ve connected to your access point, open the “Explorer” toolbar and click the “Open Folder” button. Hit the enter key to accept the default value (your home directory) or navigate to only have access to a sub-directory. Use VS Code on CHTC VS Code is connected to the access point. To run calculations, you will still need to submit a job! ⚠️ Intensive work Do not run intensive commands or scripts via the VS Code connection to CHTC. (This includes anything your AI Agent may run!) Find and edit files If you’ve set up the file viewer (“explorer”), then you can find and edit files that are on the access point just like you would with VS Code and the files on your computer. Submit jobs Regardless of whether you are using HTCondor or Slurm, you will still need to submit jobs via the terminal. To access the built-in terminal with VS Code, go to “Terminal” and click “New Terminal”, use the Ctrl+\` keyboard shortcut, or right-click a file or directory and select “Open in integrated terminal”. This will open a terminal in your VS Code window. In this terminal window, you can run the usual HTCondor or Slurm commands for submitting jobs and interacting with the system as usual. Remember to cd into the correct directory first! ⚠️ Interactive jobs When you submit an interactive job via the terminal, only that terminal is connected to the interactive job. The rest of the VS Code interface (including new terminals) are still connected to the access point! Extensions If there are extensions you want to use in the remote session, you may need to install them again through the “Extensions” toolbar. Avoid installing extensions that use a lot of computing power (e.g., that cause your computer to run more slowly), as this will cause the login server to run more slowly as well. HTCondor VS Code Extension HTCondor provides a VS Code extension. You can find the extension by searching for “Htcondor”, published by htcondor. Current features include syntax highlighting for submit files, documentation tooltips on hover over submit commands, and submit file templates. Create a file that ends with .sub and test it out! This extension is not fully developed. Contact the facilitation team if you have feedback about the extension. AI integration VS Code supports integration with AI Agents. We do not discourage you from from using AI Agents, but you must supervise them responsibly. You are ultimately responsible for anything your AI Agent does on the access point! For more guidance on working with AI Agents on the access point, see our guide here: AI Agents on CHTC Troubleshooting The most common issue is not being able to log in. Intervention Notes Confirm regular login access If you can’t login with a plain terminal, you won’t be able to using VS Code “Kill VS Code Server on Host” Built-in command that attempts to login and automatically shut-down VS Code on the remote server “Uninstall VS Code Server from Host” Built-in command that attempts to login, shut-down, and uninstall VS Code on the remote server Manual clean-up You login with a plain terminal to shut-down and uninstall VS Code from the remote server Ask for help If nothing else works, ask a facilitator for help! When you connect to the access point, VS Code installs a “remote server” on the access point, allowing you to use VS Code to write and manipulate files directly. Most issues occur when there is a problem connecting to or restarting this remote server. “Kill VS Code Server on Host” In VS Code, use the command palette and search for the command Remote-SSH: Kill VS Code Server on Host and select the server that you are having issues connecting to. You will be prompted to log in to the access point and VS Code will automatically run the necessary commands before logging out again. This command can only work if you are able to login to the access point with a plain terminal. “Uninstall VS Code Server from Host” In VS Code, use the command palette and search for the command Remote-SSH: Uninstall VS Code Server from Host and select the server that you are having issues connecting to. You will be prompted to log in to the access point and VS Code will automatically run the necessary commands before logging out again. This can only work if you are able to login to the access point with a plain terminal. The next time you login with VS Code, it should automatically set up what it needs to work. Manual clean-up VS Code isn’t always able to clean-up after itself like it should, in which case a manual clean-up may fix the problem. Log in to the access point using a plain terminal. Then, run the following command: kill -9 $(ps aux | grep VS Code-server | grep $USER | grep -v grep | awk &#39;{print $2}&#39;) This command looks for leftover processes from your VS Code on the server and then removes (“kill”) them. (If you don’t have any VS Code processes running on the server, then you may get the help text for the kill command.) Next, remove the VS Code directory from your home directory: rm -rf ~/.vscode-server This removes the items that VS Code automatically uploaded to set up the remote server, which may be responsible for causing problems. The next time you try to connect with VS Code, it should automatically set up what it needs to work. Lots of files If you have a lot of files in your directory on the access point, then VS Code may struggle to list and scan those files for the file viewer. If this is causing problems, here are some things to try: Reduce the number of files on the server. Open a specific directory in the file viewer, instead of the default home directory. (“Connect to host” then “Open Folder” and select a sub-directory in the dialog.) Configure VS Code to ignore the directories that contain a lot of files. Other IDEs If the program you want to use is a derivative of VS Code (e.g., Google’s Antigravity), then the Remote SSH extension is likely already built-in. The instructions in this guide should map nearly perfectly to that program. Other IDE programs usually include an equivalent feature. There should be instructions in the program’s documentation about the process. Look for “remote server” or “ssh” or the like. The overall process should be similar. The facilitation team may be able to help you figure out the process, but keep in mind that we do not explicitly support these tools. Related pages Log in to CHTC Transfer Files between CHTC and your Computer VS Code Remote SSH manual" />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/vs-code" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/vs-code" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2026-07-20T19:26:09+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Submitting Multiple Jobs Using HTCondor" />
+<meta property="twitter:title" content="Connect to CHTC with VS Code" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-20T19:26:09+00:00","datePublished":"2026-07-20T19:26:09+00:00","description":"Introduction","headline":"Submitting Multiple Jobs Using HTCondor","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-20T19:26:09+00:00","datePublished":"2026-07-20T19:26:09+00:00","description":"Introduction VS Code and similar Integrated Development Environment (IDE) programs make it easy to develop and manage coding projects. This familiar interface can also make it easier to login and interact with CHTC. This guide explains how to connect to CHTC using VS Code, best practices for using the interface, and how to troubleshoot issues. Table of Contents Introduction Requirements Initial set-up Connect again Use VS Code on CHTC Troubleshooting Other IDEs Related pages Requirements VS Code or similar IDE installed on your local computer Login access to the HTC or HPC system (requires a CHTC account) Confirm access Before starting, make sure that you can login to CHTC “normally” via a plain terminal, as described in our Log in to CHTC guide. Initial set-up Install the “Remote-SSH” extension Add access point as a new SSH host Log in Log in with the file viewer Install the Remote-SSH extension Open VS Code and navigate to the “Extensions” menu. (Click on the “View” menu and select “Extensions”, or use the Ctrl+Shift+X shortcut.) Search for the “Remote - SSH” extension, it will likely be the first extension listed. The publisher should be “Microsoft”. Install this extension. Add access point as a new SSH host Use the “Command Palette” (go to View &gt; Command Palette or use the keyboard shortcut: CTRL + SHIFT + P), then search for the “Remote-SSH: Add New SSH Host” command. You will be prompted to enter your SSH command. Enter the same command that you would normally use to log in to your access point. For example, if your NetID is bbadger and you are logging into ap2002, use ssh bbadger@ap2002.chtc.wisc.edu You will then be prompted to choose an SSH configuration file that you wish to update. Several options will be provided for you; select the location you wish to save the SSH settings. If you want to save the settings to a different location, then you will need to specify that location in the VS Code settings. Go to the settings menu and search for “Remote.SSH: Config File”, then enter the desired absolute path in the text box. Then repeat the above instructions and this location will be the only available choice. Log in After adding the access point as a host, VS Code will automatically log you in. VS Code will ask you to confirm the authenticity of the host; enter “yes” to confirm and proceed. (Contact the facilitation team if you want to verify the authenticity.) You’ll be prompted for a password. Enter your NetID password. You’ll be prompted to complete DUO authentication; either (a) enter 1 to receive a push notification to your DUO app, or (b) enter the current sequence from your app or fob. The rest of the process should be automatic, as VS Code sets things up in your personal directory to work with VS Code. You are successful in the first login if there are no error messages. You should also see “SSH: server_name” in the very bottom left corner of the window. Log in with the file viewer To see your files on the access point via VS Code, you will need to log in a second time. Open the “Explorer” toolbar and click the “Open Folder” button. A pop-up interface will prompt you to provide a path; just hit the enter key to accept the default value (your home directory). You will be prompted to log in again - do so. The window will refresh, after which you should be able to see your home directory in the file explorer. Connect again This assumes that you’ve already completed the initial set-up on the current device! Option 1: “Open Recent” Option 2: “Connect to Host” Option 1: Open recent If the connection to CHTC was a recent session, you should be able to find it in the “Open Recent” menu. You can find the “Open Recent” menu on the VS Code start-up page, under “File &gt; Open Recent”, searching for “File: Open Recent” in the command palette, or using the keyboard shortcut Ctrl+R. Option 2: Connect to host If the connection to CHTC is not in your recents list, you can also find it in the “Connect to Host” menu. You can find the “Connect to Host” menu clicking the “&gt;&lt;” icon in the very bottom left corner of the window, or searching for “Remote-SSH: Connect to Host” in the command palette. Select or search for the access point from this menu. If you don’t see the access point in the menu, you probably need to follow the instructions in Initial set-up again. Once you’ve connected to your access point, open the “Explorer” toolbar and click the “Open Folder” button. Hit the enter key to accept the default value (your home directory) or navigate to only have access to a sub-directory. Use VS Code on CHTC VS Code is connected to the access point. To run calculations, you will still need to submit a job! ⚠️ Intensive work Do not run intensive commands or scripts via the VS Code connection to CHTC. (This includes anything your AI Agent may run!) Find and edit files If you’ve set up the file viewer (“explorer”), then you can find and edit files that are on the access point just like you would with VS Code and the files on your computer. Submit jobs Regardless of whether you are using HTCondor or Slurm, you will still need to submit jobs via the terminal. To access the built-in terminal with VS Code, go to “Terminal” and click “New Terminal”, use the Ctrl+\\` keyboard shortcut, or right-click a file or directory and select “Open in integrated terminal”. This will open a terminal in your VS Code window. In this terminal window, you can run the usual HTCondor or Slurm commands for submitting jobs and interacting with the system as usual. Remember to cd into the correct directory first! ⚠️ Interactive jobs When you submit an interactive job via the terminal, only that terminal is connected to the interactive job. The rest of the VS Code interface (including new terminals) are still connected to the access point! Extensions If there are extensions you want to use in the remote session, you may need to install them again through the “Extensions” toolbar. Avoid installing extensions that use a lot of computing power (e.g., that cause your computer to run more slowly), as this will cause the login server to run more slowly as well. HTCondor VS Code Extension HTCondor provides a VS Code extension. You can find the extension by searching for “Htcondor”, published by htcondor. Current features include syntax highlighting for submit files, documentation tooltips on hover over submit commands, and submit file templates. Create a file that ends with .sub and test it out! This extension is not fully developed. Contact the facilitation team if you have feedback about the extension. AI integration VS Code supports integration with AI Agents. We do not discourage you from from using AI Agents, but you must supervise them responsibly. You are ultimately responsible for anything your AI Agent does on the access point! For more guidance on working with AI Agents on the access point, see our guide here: AI Agents on CHTC Troubleshooting The most common issue is not being able to log in. Intervention Notes Confirm regular login access If you can’t login with a plain terminal, you won’t be able to using VS Code “Kill VS Code Server on Host” Built-in command that attempts to login and automatically shut-down VS Code on the remote server “Uninstall VS Code Server from Host” Built-in command that attempts to login, shut-down, and uninstall VS Code on the remote server Manual clean-up You login with a plain terminal to shut-down and uninstall VS Code from the remote server Ask for help If nothing else works, ask a facilitator for help! When you connect to the access point, VS Code installs a “remote server” on the access point, allowing you to use VS Code to write and manipulate files directly. Most issues occur when there is a problem connecting to or restarting this remote server. “Kill VS Code Server on Host” In VS Code, use the command palette and search for the command Remote-SSH: Kill VS Code Server on Host and select the server that you are having issues connecting to. You will be prompted to log in to the access point and VS Code will automatically run the necessary commands before logging out again. This command can only work if you are able to login to the access point with a plain terminal. “Uninstall VS Code Server from Host” In VS Code, use the command palette and search for the command Remote-SSH: Uninstall VS Code Server from Host and select the server that you are having issues connecting to. You will be prompted to log in to the access point and VS Code will automatically run the necessary commands before logging out again. This can only work if you are able to login to the access point with a plain terminal. The next time you login with VS Code, it should automatically set up what it needs to work. Manual clean-up VS Code isn’t always able to clean-up after itself like it should, in which case a manual clean-up may fix the problem. Log in to the access point using a plain terminal. Then, run the following command: kill -9 $(ps aux | grep VS Code-server | grep $USER | grep -v grep | awk &#39;{print $2}&#39;) This command looks for leftover processes from your VS Code on the server and then removes (“kill”) them. (If you don’t have any VS Code processes running on the server, then you may get the help text for the kill command.) Next, remove the VS Code directory from your home directory: rm -rf ~/.vscode-server This removes the items that VS Code automatically uploaded to set up the remote server, which may be responsible for causing problems. The next time you try to connect with VS Code, it should automatically set up what it needs to work. Lots of files If you have a lot of files in your directory on the access point, then VS Code may struggle to list and scan those files for the file viewer. If this is causing problems, here are some things to try: Reduce the number of files on the server. Open a specific directory in the file viewer, instead of the default home directory. (“Connect to host” then “Open Folder” and select a sub-directory in the dialog.) Configure VS Code to ignore the directories that contain a lot of files. Other IDEs If the program you want to use is a derivative of VS Code (e.g., Google’s Antigravity), then the Remote SSH extension is likely already built-in. The instructions in this guide should map nearly perfectly to that program. Other IDE programs usually include an equivalent feature. There should be instructions in the program’s documentation about the process. Look for “remote server” or “ssh” or the like. The overall process should be similar. The facilitation team may be able to help you figure out the process, but keep in mind that we do not explicitly support these tools. Related pages Log in to CHTC Transfer Files between CHTC and your Computer VS Code Remote SSH manual","headline":"Connect to CHTC with VS Code","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/vs-code"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/vs-code"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -279,12 +279,14 @@
         <div class="col-12 col-lg-9 mw-1000">
 
             <h1 class="uw-mini-bar mb-4">
-    Submitting Multiple Jobs Using HTCondor
+    Connect to CHTC with VS Code
 </h1>
 
             <h2 id="introduction">Introduction</h2>
+<p>VS Code and similar Integrated Development Environment (IDE) programs make it easy to develop and manage coding projects.
+This familiar interface can also make it easier to login and interact with CHTC.</p>
 
-<p>This guide shows you how to write a submit file to submit multiple jobs. This option is great for  submitting high throughput workloads, such as iterating over multiple datasets or parameters.</p>
+<p>This guide explains how to connect to CHTC using VS Code, best practices for using the interface, and how to troubleshoot issues.</p>
 
 <div class="d-flex flex-column mb-5">
 
@@ -295,20 +297,12 @@
 
       <ul>
         <li><a href="#introduction">Introduction</a></li>
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#option-1-submit-n-number-of-jobs-with-queue-n">Option 1: Submit N number of jobs with <code>queue &lt;N&gt;</code></a></li>
-        <li><a href="#option-2-submit-multiple-jobs-that-iterate-over-variables-with-queue-variable-from-list">Option 2: Submit multiple jobs that iterate over variables with <code>queue &lt;variable&gt; from &lt;list&gt;</code></a>
-          <ul>
-            <li><a href="#use-multiple-variables-for-each-job">Use multiple variables for each job</a></li>
-            <li><a href="#transfer-varying-number-of-files-per-job">Transfer varying number of files per job</a></li>
-          </ul>
-        </li>
-        <li><a href="#option-3-organize-jobs-into-individual-directories">Option 3: Organize jobs into individual directories</a>
-          <ul>
-            <li><a href="#example-submit-multiple-jobs-in-different-directories-with-queue-variable-from-list">Example: Submit multiple jobs in different directories with <code>queue &lt;variable&gt; from &lt;list&gt;</code> </a></li>
-            <li><a href="#example-submit-multiple-jobs-in-different-directories-with-queue-variable-matching-pattern">Example: Submit multiple jobs in different directories with <code>queue &lt;variable&gt; matching &lt;pattern&gt;</code> </a></li>
-          </ul>
-        </li>
+        <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#initial-set-up">Initial set-up</a></li>
+        <li><a href="#connect-again">Connect again</a></li>
+        <li><a href="#use-vs-code-on-chtc">Use VS Code on CHTC</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#other-ides">Other IDEs</a></li>
         <li><a href="#related-pages">Related pages</a></li>
       </ul>
 
@@ -316,364 +310,310 @@
 </div>
 </div>
 
-<h2 id="overview">Overview</h2>
-
-<p>HTCondor has tooling for submitting many jobs from a single submit file. Instead of writing a script to write 1000 <code>.sub</code> files, you can write <strong>just one <code>.sub</code> file and submit it once</strong>. Using this option also ensures reliable operation of the the login nodes.</p>
-
-<blockquote class="tip-header">
-  <h3 id="-considerations">💭 Considerations</h3>
-</blockquote>
-
-<blockquote class="tip">
-  <p>The hardware of the submit server can be overwhelmed if there are a significant number of jobs submitted at once or rapidly starting and finishing. Plan ahead for the following scenarios:</p>
-
-  <ol>
-    <li><strong>If you plan to submit 10,000+ jobs at a time</strong>, add <code>max_idle = 10000</code> to your submit file.</li>
-    <li>If you plan to submit 1000+ jobs, please make sure that each job has a minimum run time of 5 minutes (on average). <strong>If your calculations are shorter than 5 minutes</strong>, then modify your workflow to run multiple calculations per job.</li>
-  </ol>
-</blockquote>
-
-<p>We recommend submitting multiple jobs by using one of these options:</p>
-
-<ol>
-  <li><a href="#queueN"><strong><code>queue &lt;N&gt;</code></strong></a>. Submit <em>N</em> number of jobs. Useful for performing replications, looping through files named with numbers, and looping through a matrix where each job uses information from a specific row or column.</li>
-  <li><a href="#variables"><strong><code>queue &lt;var&gt; from &lt;list&gt;</code></strong></a>. Loops through a list of file names, parameters, etc. as defined in separate text file. This is the <strong>most flexible option</strong>.</li>
-  <li><a href="#initialdir"><strong>Organize Jobs Into Individual Directories</strong></a>. Great for pipelines using the same scripts but need outputs to be separated in their own directories.</li>
-</ol>
-
-<blockquote class="tip-header">
-  <h3 id="️-avoid-using-htcondors-default-variables">⚠️ Avoid using HTCondor’s default variables</h3>
-</blockquote>
-<blockquote class="tip">
-  <p>The examples below will include the use of <code>$(variable_name)</code> to specify details like input file names, file locations (aka paths), etc. When selecting a custom variable name, <strong>avoid</strong> default HTCondor submit file variables:</p>
-  <ul>
-    <li><code>Cluster</code> or <code>ClusterID</code></li>
-    <li><code>Process</code> or <code>ProcID</code></li>
-    <li><code>batch_name</code></li>
-    <li><code>output</code></li>
-    <li><code>input</code></li>
-    <li><code>arguments</code></li>
-  </ul>
-</blockquote>
-
-<h2 id="option-1-submit-n-number-of-jobs-with-queue-n">Option 1: Submit N number of jobs with <code>queue &lt;N&gt;</code></h2>
-
-<p>Use <code>queue N</code> to submit <em>N</em> number of jobs. Each job will be assigned a unique <code>Process</code> number from <code>0</code> to <code>N-1</code>. Because the <code>Process</code> variable is unique for each job, it can be used in the submit file to create unique filenames or paths for each job.</p>
-
-<h3 id="example-queue-10">Example: <code>queue 10</code></h3>
-
-<pre class="sub"><code>batch_name = job_$(Cluster)
-
-shell = echo $(Process)
-
-log = $(batch_name).log
-error = $(batch_name)_$(Process).err
-output = $(batch_name)_$(Process).out
-
-request_cpus = 1
-request_memory = 10 MB
-request_disk = 10 MB
-
-queue 10
-</code></pre>
+<h2 id="requirements">Requirements</h2>
 
 <ul>
-  <li>This submit file will create 10 jobs, each numbered <code>0</code> through <code>9</code>. This number replaces every instance of <code>$(Process)</code>, including the command in <code>shell</code>, or the filenames of the standard output/standard error files.</li>
-  <li><code>$(Cluster)</code> is populated with the unique job ID generated upon submission.</li>
-  <li><code>$(batch_name)</code> is a default submit file option. Its value is displayed when running <code>condor_q</code>.</li>
+  <li>VS Code or similar IDE installed on your local computer</li>
+  <li>Login access to the HTC or HPC system (requires a <a href="form.md">CHTC account</a>)</li>
 </ul>
 
 <blockquote class="tip-header">
-  <h3 id="-start-process-at-1">💡 Start <code>$(Process)</code> at 1</h3>
+  <h3 id="confirm-access">Confirm access</h3>
 </blockquote>
+
 <blockquote class="tip">
-  <p>If you prefer starting <code>$(Process)</code> at <code>1</code> instead of <code>0</code>, add this to your submit file:</p>
-  <pre class="sub"><code>plusone = $(Process) + 1
-NewProcess = $INT(plusone,%d)
-
-shell = echo $(NewProcess)
-
-... remaining submit details ...
-
-queue 10
-</code></pre>
-
-  <p>Now, the custom variable <code>$(NewProcess)</code> can be used and will range from <code>1</code> to <code>10</code>.</p>
+  <p>Before starting, make sure that you can login to CHTC “normally” via a plain terminal, as described in our <a href="connecting.md">Log in to CHTC guide</a>.</p>
 </blockquote>
 
-<h2 id="option-2-submit-multiple-jobs-that-iterate-over-variables-with-queue-variable-from-list">Option 2: Submit multiple jobs that iterate over variables with <code>queue &lt;variable&gt; from &lt;list&gt;</code></h2>
+<h2 id="initial-set-up">Initial set-up</h2>
 
-<p>This is the most flexible option and is useful especially for a <strong>list of parameters or files</strong>. Use the <code>queue &lt;variable&gt; from &lt;list&gt;</code> syntax to submit multiple jobs from a list (like a <code>for</code> loop).</p>
+<ol>
+  <li><a href="#install-the-remote-ssh-extension">Install the “Remote-SSH” extension</a></li>
+  <li><a href="#add-access-point-as-a-new-ssh-host">Add access point as a new SSH host</a></li>
+  <li><a href="#log-in">Log in</a></li>
+  <li><a href="#log-in-with-the-file-viewer">Log in with the file viewer</a></li>
+</ol>
 
-<h3 id="example-queue-state-from-parameterstxt">Example: <code>queue state from parameters.txt</code></h3>
+<h3 id="install-the-remote-ssh-extension">Install the Remote-SSH extension</h3>
 
-<p>Suppose you need to run an analysis (<code>compare_states</code>) on three different data files (<code>illinois.data</code>, <code>nebraska.data</code>, <code>wisconsin.data</code>). Each analysis needs to be submitted as a separate job.</p>
+<p>Open VS Code and navigate to the “Extensions” menu.
+(Click on the “View” menu and select “Extensions”, or use the <code>Ctrl</code>+<code>Shift</code>+<code>X</code> shortcut.)</p>
 
-<p>First, we create a list of the <code>.data</code> files we want to iterate over, called <code>parameters.txt</code>:</p>
-<pre><code>illinois.data
-nebraska.data
-wisconsin.data
+<p>Search for the “Remote - SSH” extension, it will likely be the first extension listed. 
+<strong>The publisher should be <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">“Microsoft”</a>.</strong>
+Install this extension.</p>
+
+<h3 id="add-access-point-as-a-new-ssh-host">Add access point as a new SSH host</h3>
+
+<p>Use the “Command Palette” (go to <em>View</em> &gt; <em>Command Palette</em> or use the keyboard shortcut: <code>CTRL</code> + <code>SHIFT</code> + <code>P</code>), then search for the “Remote-SSH: Add New SSH Host” command.</p>
+
+<p>You will be prompted to enter your SSH command.
+Enter the same command that you would normally use to log in to your access point.</p>
+
+<p>For example, if your NetID is <code>bbadger</code> and you are logging into <code>ap2002</code>, use</p>
+
+<pre class="term"><code>ssh bbadger@ap2002.chtc.wisc.edu
 </code></pre>
 
-<p>Next, in the submit file, following the pattern <code>queue &lt;var&gt; from &lt;list&gt;</code>, replace <code>&lt;var&gt;</code> with a custom variable name like <code>state</code> and replace <code>&lt;list&gt;</code> with <code>parameters.txt</code>, our list of files:</p>
+<p>You will then be prompted to choose an SSH configuration file that you wish to update.
+Several options will be provided for you; select the location you wish to save the SSH settings.</p>
 
-<pre class="sub"><code>queue state from parameters.txt
-</code></pre>
+<blockquote>
+  <p>If you want to save the settings to a different location, then you will need to specify that location in the VS Code settings.
+Go to the settings menu and search for “Remote.SSH: Config File”, then enter the desired absolute path in the text box.
+Then repeat the above instructions and this location will be the only available choice.</p>
+</blockquote>
 
-<p>For each line in <code>parameters.txt</code>, HTCondor will submit a job and the variable 
-<code>$(state)</code> can be used anywhere in the submit file to represent the name of the <code>.data</code> file 
-to be used by that job. For the first job, <code>$(state)</code> will be <code>illinois.data</code>, for the 
-second job <code>$(state)</code> will be <code>nebraska.data</code>, and so on. For example:</p>
+<h3 id="log-in">Log in</h3>
 
-<pre class="sub"><code>executable = compare_states
-arguments = $(state)
-transfer_input_files = $(state)
+<p>After adding the access point as a host, VS Code will automatically log you in.</p>
 
-... remaining submit details ...
+<ol>
+  <li>VS Code will ask you to confirm the authenticity of the host; enter “yes” to confirm and proceed.
+(<a href="get-help">Contact the facilitation team</a> if you want to verify the authenticity.)</li>
+  <li>You’ll be prompted for a password. Enter your NetID password.</li>
+  <li>You’ll be prompted to complete DUO authentication; either (a) enter <code>1</code> to receive a push notification to your DUO app, or (b) enter the current sequence from your app or fob.</li>
+</ol>
 
-queue state from parameters.txt
-</code></pre>
+<p>The rest of the process should be automatic, as VS Code sets things up in your personal directory to work with VS Code.</p>
+
+<p>You are successful in the first login if there are no error messages.
+You should also see “SSH: server_name” in the very bottom left corner of the window.</p>
+
+<h3 id="log-in-with-the-file-viewer">Log in with the file viewer</h3>
+
+<p>To see your files on the access point via VS Code, you will need to log in a second time.</p>
+
+<p>Open the “Explorer” toolbar and click the “Open Folder” button.
+A pop-up interface will prompt you to provide a path; just hit the enter key to accept the default value (your home directory).</p>
+
+<p>You will be prompted to log in again - do so.
+The window will refresh, after which you should be able to see your home directory in the file explorer.</p>
+
+<h2 id="connect-again">Connect again</h2>
+
+<blockquote>
+  <p>This assumes that you’ve already completed the initial set-up on the current device!</p>
+</blockquote>
+
+<ul>
+  <li>Option 1: <a href="#option-1-open-recent">“Open Recent”</a></li>
+  <li>Option 2: <a href="#option-2-connect-to-host">“Connect to Host”</a></li>
+</ul>
+
+<h3 id="option-1-open-recent">Option 1: Open recent</h3>
+
+<p>If the connection to CHTC was a recent session, you should be able to find it in the “Open Recent” menu.</p>
+
+<p>You can find the “Open Recent” menu</p>
+
+<ul>
+  <li>on the VS Code start-up page,</li>
+  <li>under “File &gt; Open Recent”,</li>
+  <li>searching for “File: Open Recent” in the command palette, or</li>
+  <li>using the keyboard shortcut <code>Ctrl</code>+<code>R</code>.</li>
+</ul>
+
+<h3 id="option-2-connect-to-host">Option 2: Connect to host</h3>
+
+<p>If the connection to CHTC is not in your recents list, you can also find it in the “Connect to Host” menu.</p>
+
+<p>You can find the “Connect to Host” menu</p>
+
+<ul>
+  <li>clicking the “&gt;&lt;” icon in the very bottom left corner of the window, or</li>
+  <li>searching for “Remote-SSH: Connect to Host” in the command palette.</li>
+</ul>
+
+<p>Select or search for the access point from this menu.
+If you don’t see the access point in the menu, you probably need to follow the instructions in <a href="#initial-set-up">Initial set-up</a> again.</p>
+
+<p>Once you’ve connected to your access point, open the “Explorer” toolbar and click the “Open Folder” button.
+Hit the enter key to accept the default value (your home directory) or navigate to only have access to a sub-directory.</p>
+
+<h2 id="use-vs-code-on-chtc">Use VS Code on CHTC</h2>
+
+<p>VS Code is connected to the <strong>access point</strong>.</p>
+
+<p>To run calculations, you will still need to submit a job!</p>
 
 <blockquote class="tip-header">
-  <h3 id="-create-your-list-with-bash-scripting">💡 Create your list with bash scripting</h3>
+  <h3 id="️-intensive-work">⚠️ Intensive work</h3>
 </blockquote>
+
 <blockquote class="tip">
-  <p>You can quickly create lists using bash scripting. In the example above, use:</p>
-  <pre class="term"><code>ls *.data &gt; parameters.txt
-</code></pre>
-  <p>in the directory containing the .data files to quickly create your list.</p>
+  <p>Do not run intensive commands or scripts via the VS Code connection to CHTC.
+(This includes anything your AI Agent may run!)</p>
 </blockquote>
 
-<h2 id="use-multiple-variables-for-each-job">Use multiple variables for each job</h2>
+<h3 id="find-and-edit-files">Find and edit files</h3>
 
-<p><code>queue &lt;var&gt; from &lt;list&gt;</code> works with multiple variables, delimited by commas.</p>
+<p>If you’ve set up the file viewer (“explorer”), then you can find and edit files that are on the access point just like you would with VS Code and the files on your computer.</p>
 
-<h3 id="example-queue-state-year-from-parameterstxt">Example: <code>queue state, year from parameters.txt</code></h3>
+<h3 id="submit-jobs">Submit jobs</h3>
 
-<p>Let’s say we need to add a year as an additional input parameter for our jobs. We can modify your <code>parameters.txt</code> file:</p>
+<p>Regardless of whether you are using HTCondor or Slurm, you will still need to submit jobs via the terminal.</p>
 
-<pre class="file"><code>illinois.data, 1995
-illinois.data, 2005
-nebraska.data, 1999
-nebraska.data, 2005
-wisconsin.data, 2000
-wisconsin.data, 2015
-</code></pre>
+<p>To access the built-in terminal with VS Code,</p>
 
-<p>Modify the <code>queue</code> statement to define two variables named <code>state</code> and <code>year</code>:</p>
+<ul>
+  <li>go to “Terminal” and click “New Terminal”,</li>
+  <li>use the <code>Ctrl</code>+<code>\</code>` keyboard shortcut, or</li>
+  <li>right-click a file or directory and select “Open in integrated terminal”.</li>
+</ul>
 
-<pre><code>queue state, year from parameters.txt
-</code></pre>
+<p>This will open a terminal in your VS Code window.</p>
 
-<p>The variables <code>$(state)</code> and <code>$(year)</code> can be used in the submit file:</p>
+<p>In this terminal window, you can run the usual HTCondor or Slurm commands for submitting jobs and interacting with the system as usual.
+Remember to <code>cd</code> into the correct directory first!</p>
 
-<pre class="sub"><code>executable = compare_states
-arguments = $(state) $(year)
-transfer_input_files = $(state)
+<blockquote class="tip-header">
+  <h3 id="️-interactive-jobs">⚠️ Interactive jobs</h3>
+</blockquote>
 
-... remaining submit details ...
+<blockquote class="tip">
+  <p>When you submit an interactive job via the terminal, <strong>only that terminal</strong> is connected to the interactive job.
+The rest of the VS Code interface (including new terminals) are still connected to the access point!</p>
+</blockquote>
 
-queue state, year from parameters.txt
-</code></pre>
+<h3 id="extensions">Extensions</h3>
 
-<h2 id="transfer-varying-number-of-files-per-job">Transfer varying number of files per job</h2>
+<p>If there are extensions you want to use in the remote session, you may need to install them again through the “Extensions” toolbar.</p>
 
-<p>This is example is useful when you need to transfer a different number of files for each job.</p>
+<p>Avoid installing extensions that use a lot of computing power (e.g., that cause your computer to run more slowly), as this will cause the login server to run more slowly as well.</p>
 
-<h3 id="example-queue-start-end-files-from-parameterstxt">Example: <code>queue start, end, files from parameters.txt</code></h3>
+<h3 id="htcondor-vs-code-extension">HTCondor VS Code Extension</h3>
 
-<p>Let’s say you need to transfer multiple state data files per job, but the number of these files will vary. List the files you need to transfer at the very end of each row of <code>parameters.txt</code>.</p>
+<p>HTCondor provides a VS Code extension.</p>
 
-<pre><code>1995, 2000, illinois.data
-1995, 2000, illinois.data, nebraska.data
-1995, 2000, illinois.data, wisconsin.data
-1995, 2000, illinois.data, nebraska.data, wisconsin.data
-</code></pre>
+<p>You can find the extension by searching for “Htcondor”, <strong>published by htcondor</strong>.</p>
 
-<p>Modify the <code>queue</code> statement to define three variables named <code>start</code>, <code>end</code>, and <code>files</code>:</p>
+<p>Current features include syntax highlighting for submit files, documentation tooltips on hover over submit commands, and submit file templates.
+Create a file that ends with <code>.sub</code> and test it out!</p>
 
-<pre><code>queue start, end, files from parameters.txt
-</code></pre>
+<p>This extension is not fully developed. 
+<a href="get-help">Contact the facilitation team</a> if you have feedback about the extension.</p>
 
-<p><code>$(start)</code> and <code>$(end)</code> will take on the first two values in the list, while <code>$(files)</code> will take on the value of the <strong>entire line after</strong> the second value.</p>
+<h3 id="ai-integration">AI integration</h3>
 
-<p>See the below table for the values each variable is assigned over the different jobs in the submission. Note how <code>$(files)</code> now is a comma-delimited list of files.</p>
+<p>VS Code supports integration with AI Agents.</p>
+
+<p>We do not discourage you from from using AI Agents, but you must supervise them responsibly.
+<strong>You are ultimately responsible for anything your AI Agent does on the access point!</strong></p>
+
+<p>For more guidance on working with AI Agents on the access point, see our guide here:</p>
+
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="https://chtc.cs.wisc.edu/uw-research-computing/agent-recommendations">AI Agents on CHTC</a>
+	</div>
+</div>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p>The most common issue is not being able to log in.</p>
 
 <table>
   <thead>
     <tr>
-      <th>Job <code>$(Process)</code></th>
-      <th><code>$(start)</code></th>
-      <th><code>$(end)</code></th>
-      <th><code>$(files)</code></th>
+      <th>Intervention</th>
+      <th>Notes</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
-      <td>1995</td>
-      <td>2000</td>
-      <td>illinois.data</td>
+      <td>Confirm regular login access</td>
+      <td>If you can’t login with a plain terminal, you won’t be able to using VS Code</td>
     </tr>
     <tr>
-      <td>1</td>
-      <td>1995</td>
-      <td>2000</td>
-      <td>illinois.data, nebraska.data</td>
+      <td><a href="#kill-vs-code-server-on-host">“Kill VS Code Server on Host”</a></td>
+      <td>Built-in command that attempts to login and automatically shut-down VS Code on the remote server</td>
     </tr>
     <tr>
-      <td>2</td>
-      <td>1995</td>
-      <td>2000</td>
-      <td>illinois.data, wisconsin.data</td>
+      <td>“<a href="#uninstall-vs-code-server-from-host">Uninstall VS Code Server from Host”</a></td>
+      <td>Built-in command that attempts to login, shut-down, and uninstall VS Code on the remote server</td>
     </tr>
     <tr>
-      <td>3</td>
-      <td>1995</td>
-      <td>2000</td>
-      <td>illinois.data, nebraska.data, wisconsin.data</td>
+      <td><a href="#manual-clean-up">Manual clean-up</a></td>
+      <td>You login with a plain terminal to shut-down and uninstall VS Code from the remote server</td>
+    </tr>
+    <tr>
+      <td>Ask for help</td>
+      <td>If nothing else works, <a href="get-help">ask a facilitator for help</a>!</td>
     </tr>
   </tbody>
 </table>
 
-<p>You can then use <code>$(files)</code> in the submit file to transfer a list of files:</p>
+<p>When you connect to the access point, VS Code installs a “remote server” on the access point, allowing you to use VS Code to write and manipulate files directly.
+Most issues occur when there is a problem connecting to or restarting this remote server.</p>
 
-<pre class="sub"><code>executable = compare_states
-arguments = $(start) $(end) --file-type ".data"
-transfer_input_files = $(files)
+<h3 id="kill-vs-code-server-on-host">“Kill VS Code Server on Host”</h3>
 
-... remaining submit details ...
+<p>In VS Code, use the command palette and search for the command <code>Remote-SSH: Kill VS Code Server on Host</code> and select the server that you are having issues connecting to.
+You will be prompted to log in to the access point and VS Code will automatically run the necessary commands before logging out again.</p>
 
-queue start, end, files from parameters.txt
+<p>This command can only work if you are able to login to the access point with a plain terminal.</p>
+
+<h3 id="uninstall-vs-code-server-from-host">“Uninstall VS Code Server from Host”</h3>
+
+<p>In VS Code, use the command palette and search for the command <code>Remote-SSH: Uninstall VS Code Server from Host</code> and select the server that you are having issues connecting to.
+You will be prompted to log in to the access point and VS Code will automatically run the necessary commands before logging out again.</p>
+
+<p>This can only work if you are able to login to the access point with a plain terminal.</p>
+
+<p>The next time you login with VS Code, it should automatically set up what it needs to work.</p>
+
+<h3 id="manual-clean-up">Manual clean-up</h3>
+
+<p>VS Code isn’t always able to clean-up after itself like it should, in which case a manual clean-up may fix the problem.</p>
+
+<p>Log in to the access point using a plain terminal.
+Then, run the following command:</p>
+
+<pre class="term"><code>kill -9 $(ps aux | grep VS Code-server | grep $USER | grep -v grep | awk '{print $2}')
 </code></pre>
 
-<blockquote class="tip-header">
-  <h3 id="️-you-should-only-define-one-list-of-values-that-varies-in-length">⚠️ You should only define one list of values that varies in length</h3>
-</blockquote>
-<blockquote class="tip">
-  <p>Due to the way HTCondor parses the lists (i.e., <code>parameters.txt</code>), <strong>you should only have one list of values that varies in length for each job submission</strong>. This list of variables must always be at the end of the list file.</p>
-</blockquote>
+<p>This command looks for leftover processes from your VS Code on the server and then removes (“kill”) them.
+(If you don’t have any VS Code processes running on the server, then you may get the help text for the <code>kill</code> command.)</p>
 
-<h2 id="option-3-organize-jobs-into-individual-directories">Option 3: Organize jobs into individual directories</h2>
+<p>Next, remove the VS Code directory from your home directory:</p>
 
-<h3 id="example-submit-multiple-jobs-in-different-directories-with-queue-variable-from-list">Example: Submit multiple jobs in different directories with <code>queue &lt;variable&gt; from &lt;list&gt;</code></h3>
-
-<p>Suppose there’s a directory for each state you want to analyze, and each of those directories has
-its own input file named <code>input.data</code>:</p>
-
-<pre class="term"><code>[netid@ap2001 state-analysis]$ tree
-.
-├── compare_states
-├── compare_states.sub
-├── illinois/
-│   └── input.data
-├── nebraska/
-│   └── input.data
-└── wisconsin/
-    └── input.data
+<pre class="term"><code>rm -rf ~/.vscode-server
 </code></pre>
 
-<p>We will use the HTCondor submit file attribute <code>initialdir</code> to define the specific directory from which each job in the batch will start. By default, <code>initialdir</code> is set to the directory from which the <code>condor_submit</code> command is executed.</p>
+<p>This removes the items that VS Code automatically uploaded to set up the remote server, which may be responsible for causing problems.
+The next time you try to connect with VS Code, it should automatically set up what it needs to work.</p>
 
-<p>In this example, the default <code>initialdir</code> would be the <code>state-analysis</code> directory, but we want to change it to <code>illinois</code>, <code>nebraska</code>, and <code>wisconsin</code> for each job.</p>
+<h3 id="lots-of-files">Lots of files</h3>
 
-<p>First, we create a text file called <code>state-dirs.txt</code> with a list of our initial directories:</p>
+<p>If you have a lot of files in your directory on the access point, then VS Code may struggle to list and scan those files for the file viewer.</p>
 
-<pre><code>illinois
-nebraska
-wisconsin
-</code></pre>
+<p>If this is causing problems, here are some things to try:</p>
 
-<p>Then we modify our submit file and add the <code>initialdir</code> attribute:</p>
-<pre class="sub"><code>initialdir = $(state_dir)
-executable = compare_states
-transfer_input_files = input.data
+<ul>
+  <li>Reduce the number of files on the server.</li>
+  <li>Open a specific directory in the file viewer, instead of the default home directory. (“Connect to host” then “Open Folder” and select a sub-directory in the dialog.)</li>
+  <li>Configure VS Code to ignore the directories that contain a lot of files.</li>
+</ul>
 
-... remaining submit details ...
+<h2 id="other-ides">Other IDEs</h2>
 
-queue state_dir from state-dirs.txt
-</code></pre>
+<p>If the program you want to use is a derivative of VS Code (e.g., Google’s Antigravity), then the Remote SSH extension is likely already built-in.
+The instructions in this guide should map nearly perfectly to that program.</p>
 
-<p>In this example, HTCondor creates a job for each directory in <code>state-dirs.txt</code> and uses that directory as the <code>initialdir</code> from which the job will be submitted. As a result, <code>transfer_input_files = input.data</code> can be used without specifying the path to this <code>input.data</code> file. Any output generated by the job will then be placed in the individual state directories.</p>
+<p>Other IDE programs usually include an equivalent feature. 
+There should be instructions in the program’s documentation about the process.
+Look for “remote server” or “ssh” or the like. 
+The overall process should be similar.</p>
 
-<blockquote class="tip-header">
-  <h3 id="️-differences-in-executable-and-shell-when-using-initialdir">⚠️ Differences in <code>executable</code> and <code>shell</code> when using <code>initialdir</code></h3>
-</blockquote>
-<blockquote class="tip">
-  <p><code>initialdir</code> only changes the input and output file path (including the HTCondor <code>log</code>, <code>error</code>, and 
-<code>output</code> files), not the <code>executable</code>, which is in the same working directory as the submit file (<code>compare_states.sub</code>).</p>
-  <ul>
-    <li>If you are using <code>executable</code>, your executable should be in the <strong>same directory</strong> as the submit file.</li>
-    <li>If you are using <code>shell</code>, you will need to transfer in your executable, which means it must be <strong>relative to the initial working directory</strong>. Example submit file:</li>
-  </ul>
-
-  <pre><code>initialdir = $(state_dir)
-shell = ./compare_states
-transfer_input_files = input.data, ../compare_states
-
-... remaining submit details ...
-
-queue state_dir from state-dirs.txt
-</code></pre>
-</blockquote>
-
-<h3 id="example-submit-multiple-jobs-in-different-directories-with-queue-variable-matching-pattern">Example: Submit multiple jobs in different directories with <code>queue &lt;variable&gt; matching &lt;pattern&gt;</code></h3>
-
-<p>Suppose there’s a directory for each state you want to analyze, and each of those directories (all prefixed with <code>state_</code>) has its own input file named <code>input.data</code>:</p>
-
-<pre class="term"><code>[netid@ap2001 state-analysis]$ tree
-.
-├── compare_states
-├── compare_states.sub
-├── state_illinois/
-│   └── input.data
-├── state_nebraska/
-│   └── input.data
-└── state_wisconsin/
-    └── input.data
-</code></pre>
-
-<p>We can use <code>queue &lt;variable&gt; matching &lt;pattern&gt;</code> and <code>initialdir</code> to submit multiple jobs in their individual directories. Read the previous section to learn more about <code>initialdir</code>.</p>
-
-<pre class="sub"><code>initialdir = $(state_dir)
-executable = compare_states
-transfer_input_files = input.data
-
-... remaining submit details ...
-
-queue state_dir matching state_*
-</code></pre>
-
-<blockquote class="tip-header">
-  <h3 id="️-when-variable-is-a-directory">⚠️ When <code>&lt;variable&gt;</code> is a directory</h3>
-</blockquote>
-<blockquote class="tip">
-  <p>When your custom <code>&lt;variable&gt;</code> is a directory, be careful when calling it in your submit file, because its value will also include the <code>/</code>.</p>
-
-  <p>In the example above, <code>$(state_dir)</code> will take the value <code>state_wisconsin/</code>. If you specify:</p>
-  <pre><code>output = $(state_dir).out
-</code></pre>
-
-  <p>Instead of getting the output file <code>state_wisconsin.out</code>, you’ll create a hidden <code>.out</code> file in a <code>state_wisconsin/</code> subdirectory:</p>
-
-  <pre class="term"><code>[netid@ap2001 state-analysis]$ tree -a state_wisconsin
-state_wisconsin
-    ├── state_wisconsin
-    │   ├── .err
-    │   ├── .log
-    │   └── .out
-    └── input.data
-</code></pre>
-
-  <p><strong>When <code>&lt;variable&gt;</code> is a directory, we recommend using it <em>only</em> in <code>initialdir</code>.</strong></p>
-</blockquote>
+<p>The facilitation team may be able to help you figure out the process, but keep in mind that we do not explicitly support these tools.</p>
 
 <h2 id="related-pages">Related pages</h2>
+
 <ul>
-  <li><a href="htcondor-job-submission">Job submission basics</a></li>
-  <li><a href="htc-basic-scripting">Basic scripting and job submission with arguments</a></li>
-  <li><a href="basic-shell-commands">Quick reference: Basic shell commands</a></li>
-  <li><a href="https://htcondor.readthedocs.io/en/latest/users-manual/submitting-a-job.html">HTCondor manual: Submitting a Job</a></li>
+  <li><a href="connecting.md">Log in to CHTC</a></li>
+  <li><a href="transfer-files-computer.md">Transfer Files between CHTC and your Computer</a></li>
+  <li><a href="https://code.visualstudio.com/docs/remote/ssh">VS Code Remote SSH manual</a></li>
 </ul>
 
         </div>
@@ -739,7 +679,7 @@ state_wisconsin
                             
                                 
     <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/vs-code#main">Connect to CHTC with VS Code</a>
+        <a class="fw-bolder" href="/uw-research-computing/vs-code#main">Connect to CHTC with VS Code</a>
     </div>
 
                             
@@ -775,7 +715,7 @@ state_wisconsin
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="fw-bolder" href="/uw-research-computing/multiple-jobs#main">Submit multiple jobs</a>
+        <a class="" href="/uw-research-computing/multiple-jobs#main">Submit multiple jobs</a>
     </div>
 
         
@@ -1224,6 +1164,307 @@ state_wisconsin
                                 
     <div class="document-link-wrapper bg-light">
         <a class="" href="https://sts.doit.wisc.edu/workshops/#main">UW-Madison software training for students</a>
+    </div>
+
+                            
+                        </div>
+                    </div>
+            
+        </div>
+    
+        
+                <h6 class="mt-5">HPC guides</h6>
+        
+        
+        <div class="accordion accordion-flush">
+            
+            
+                <div class="accordion-item">
+                        
+                        <span class="accordion-header mt-0" id="get-startedhpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#get-startedhpc-guides-collapse" aria-expanded="false" aria-controls="get-startedhpc-guides">
+                                Get started
+                            </button>
+                        </span>
+                        <div id="get-startedhpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="get-startedhpc-guides" data-bs-parent="#guide-sidebar">
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-overview#main">System overview</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/connecting#main">Log in to CHTC</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/configure-ssh#main">Automate CHTC login</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/basic-shell-commands#main">Quick reference: Basic shell commands</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-quick-ref#main">Quick reference: HPC and SLURM commands</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="fw-bolder" href="/uw-research-computing/vs-code#main">Connect to CHTC with VS Code</a>
+    </div>
+
+                            
+                        </div>
+                    </div>
+            
+            
+                <div class="accordion-item">
+                        
+                        <span class="accordion-header mt-0" id="submit-jobshpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#submit-jobshpc-guides-collapse" aria-expanded="false" aria-controls="submit-jobshpc-guides">
+                                Submit jobs
+                            </button>
+                        </span>
+                        <div id="submit-jobshpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="submit-jobshpc-guides" data-bs-parent="#guide-sidebar">
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-job-submission#main">Submitting and managing jobs using SLURM</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-job-monitoring#main">Reviewing job information using SLURM</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Open OnDemand
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/ood#main">Overview</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/ood-job-composer#main">Job Composer</a>
+    </div>
+
+        
+    </div>
+
+                            
+                        </div>
+                    </div>
+            
+            
+                <div class="accordion-item">
+                        
+                        <span class="accordion-header mt-0" id="manage-datahpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#manage-datahpc-guides-collapse" aria-expanded="false" aria-controls="manage-datahpc-guides">
+                                Manage data
+                            </button>
+                        </span>
+                        <div id="manage-datahpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="manage-datahpc-guides" data-bs-parent="#guide-sidebar">
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-check-quota#main">Check disk quota and usage</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Transfer files to/from CHTC
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/transfer-files-computer#main">Local computer</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/transfer-data-researchdrive#main">ResearchDrive</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/github-remote-access#main">Private GitHub repo</a>
+    </div>
+
+        
+    </div>
+
+                            
+                        </div>
+                    </div>
+            
+            
+                <div class="accordion-item">
+                        
+                        <span class="accordion-header mt-0" id="softwarehpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#softwarehpc-guides-collapse" aria-expanded="false" aria-controls="softwarehpc-guides">
+                                Software
+                            </button>
+                        </span>
+                        <div id="softwarehpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="softwarehpc-guides" data-bs-parent="#guide-sidebar">
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-software#main">Overview and Policies</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-custom-modules#main">Create and manage custom modules</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Spack
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-spack-setup#main">Set up</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-spack-install#main">Install software</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-spack-modules#main">Create custom Spack modules</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-el9-spack#main">Recreate Spack installs on a new operating system</a>
+    </div>
+
+        
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      Containers
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/apptainer-hpc#main">Use Apptainer containers</a>
+    </div>
+
+        
+            
+            
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/apptainer-build#main">Build an Apptainer container</a>
+    </div>
+
+        
+    </div>
+
+                            
+                        </div>
+                    </div>
+            
+            
+                <div class="accordion-item">
+                        
+                        <span class="accordion-header mt-0" id="troubleshootinghpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshootinghpc-guides-collapse" aria-expanded="false" aria-controls="troubleshootinghpc-guides">
+                                Troubleshooting
+                            </button>
+                        </span>
+                        <div id="troubleshootinghpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="troubleshootinghpc-guides" data-bs-parent="#guide-sidebar">
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="/uw-research-computing/hpc-known-issues#main">Known issues on the HPC</a>
+    </div>
+
+                            
+                        </div>
+                    </div>
+            
+            
+                <div class="accordion-item">
+                        
+                        <span class="accordion-header mt-0" id="external-resourceshpc-guides">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#external-resourceshpc-guides-collapse" aria-expanded="false" aria-controls="external-resourceshpc-guides">
+                                External resources
+                            </button>
+                        </span>
+                        <div id="external-resourceshpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="external-resourceshpc-guides" data-bs-parent="#guide-sidebar">
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="http://slurm.schedmd.com/#main">Slurm manual</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="http://software-carpentry.org/lessons/#main">Software Carpentry</a>
+    </div>
+
+                            
+                                
+    <div class="document-link-wrapper bg-light">
+        <a class="" href="http://www.doit.wisc.edu/training/student/#main">UW-Madison software training for students</a>
     </div>
 
                             
