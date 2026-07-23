@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Basic scripting in R script</title>
+<title>NSF announces $83M investment in integrated data systems and services to advance AI-driven science and strengthen U.S. research infrastructure</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,26 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Basic scripting in R script | CHTC</title>
+<title>NSF announces $83M investment in integrated data systems and services to advance AI-driven science and strengthen U.S. research infrastructure | CHTC</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Basic scripting in R script" />
+<meta property="og:title" content="NSF announces $83M investment in integrated data systems and services to advance AI-driven science and strengthen U.S. research infrastructure" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Code Our executable written in R, echo-next.R: args &lt;- commandArgs(trailingOnly = TRUE) filename &lt;- args[1] cat(filename,&quot;\n&quot;) The output of commandArgs is a vector – if you have multiple arguments, you can reference each item using R’s usual notation (args[1], args[2], etc.). See R documentation on commandArgs for details. We can use the script on the command line, assuming R is installed and on the PATH: [user@login]$ Rscript echo-next.R data.csv data.csv Wrapper script We can now write a wrapper script! This script checks that one argument is passed, and also allows room for pre- and post-processing in this simple workflow. Our wrapper script written in bash, wrapper.sh: #!/bin/bash # Check if an argument is provided if [ $# -ne 1 ]; then echo &#39;Please use one argument. Usage: wrapper.sh [arg]&#39; exit 1 fi # Set filename variable to the first argument to the bash script filename=$1 echo &#39;Pre-processing could go here.&#39; # Run code Rscript echo-next.R ${filename} echo &#39;Post-processing could go here.&#39; Ensure wrapper.sh is executable with chmod +x wrapper.sh before running it on the command line: [user@login]$ chmod +x wrapper.sh [user@login]$ ./wrapper.sh Please use one argument. Usage: wrapper.sh [arg] [user@login]$ ./wrapper.sh data.csv Pre-processing could go here. data.csv Post-processing could go here. Passing arguments with the HTCondor submit file Now that we’ve understood how arguments work in R and how to write simple wrapper scripts that pass those arguments, we can pass arguments in HTCondor’s submit file by specifying the arguments attribute, as shown in this excerpt: # Create custom variable called &quot;data&quot; data = data.csv # Specify the executable &amp; arguments executable = wrapper.sh arguments = $(data)" />
-<meta property="og:description" content="Code Our executable written in R, echo-next.R: args &lt;- commandArgs(trailingOnly = TRUE) filename &lt;- args[1] cat(filename,&quot;\n&quot;) The output of commandArgs is a vector – if you have multiple arguments, you can reference each item using R’s usual notation (args[1], args[2], etc.). See R documentation on commandArgs for details. We can use the script on the command line, assuming R is installed and on the PATH: [user@login]$ Rscript echo-next.R data.csv data.csv Wrapper script We can now write a wrapper script! This script checks that one argument is passed, and also allows room for pre- and post-processing in this simple workflow. Our wrapper script written in bash, wrapper.sh: #!/bin/bash # Check if an argument is provided if [ $# -ne 1 ]; then echo &#39;Please use one argument. Usage: wrapper.sh [arg]&#39; exit 1 fi # Set filename variable to the first argument to the bash script filename=$1 echo &#39;Pre-processing could go here.&#39; # Run code Rscript echo-next.R ${filename} echo &#39;Post-processing could go here.&#39; Ensure wrapper.sh is executable with chmod +x wrapper.sh before running it on the command line: [user@login]$ chmod +x wrapper.sh [user@login]$ ./wrapper.sh Please use one argument. Usage: wrapper.sh [arg] [user@login]$ ./wrapper.sh data.csv Pre-processing could go here. data.csv Post-processing could go here. Passing arguments with the HTCondor submit file Now that we’ve understood how arguments work in R and how to write simple wrapper scripts that pass those arguments, we can pass arguments in HTCondor’s submit file by specifying the arguments attribute, as shown in this excerpt: # Create custom variable called &quot;data&quot; data = data.csv # Specify the executable &amp; arguments executable = wrapper.sh arguments = $(data)" />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/htc-basic-scripting-r" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc-basic-scripting-r" />
+<meta name="description" content="The U.S. National Science Foundation today announced $83 million in awards through the Integrated Data Systems and Services (IDSS) program. The awards will expand access to data infrastructure resources that researchers can use alongside computing and artificial intelligence resources to accelerate scientific discovery and innovation." />
+<meta property="og:description" content="The U.S. National Science Foundation today announced $83 million in awards through the Integrated Data Systems and Services (IDSS) program. The awards will expand access to data infrastructure resources that researchers can use alongside computing and artificial intelligence resources to accelerate scientific discovery and innovation." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/2026-07-23-nsf-announces-83m-investment-integrated-data-systems.html" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/2026-07-23-nsf-announces-83m-investment-integrated-data-systems.html" />
 <meta property="og:site_name" content="CHTC" />
+<meta property="og:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/idss-announcement-graphic.jpg" />
+<meta property="og:image:alt" content="Announcement Banner, Credit: U.S. National Science Foundation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-07-23T18:59:48+00:00" />
+<meta property="article:published_time" content="2026-07-23T00:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Basic scripting in R script" />
+<meta property="twitter:image" content="https://raw.githubusercontent.com/CHTC/Articles/main/images/idss-announcement-graphic.jpg" />
+<meta name="twitter:image:alt" content="Announcement Banner, Credit: U.S. National Science Foundation" />
+<meta property="twitter:title" content="NSF announces $83M investment in integrated data systems and services to advance AI-driven science and strengthen U.S. research infrastructure" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T18:59:48+00:00","datePublished":"2026-07-23T18:59:48+00:00","description":"Code Our executable written in R, echo-next.R: args &lt;- commandArgs(trailingOnly = TRUE) filename &lt;- args[1] cat(filename,&quot;\\n&quot;) The output of commandArgs is a vector – if you have multiple arguments, you can reference each item using R’s usual notation (args[1], args[2], etc.). See R documentation on commandArgs for details. We can use the script on the command line, assuming R is installed and on the PATH: [user@login]$ Rscript echo-next.R data.csv data.csv Wrapper script We can now write a wrapper script! This script checks that one argument is passed, and also allows room for pre- and post-processing in this simple workflow. Our wrapper script written in bash, wrapper.sh: #!/bin/bash # Check if an argument is provided if [ $# -ne 1 ]; then echo &#39;Please use one argument. Usage: wrapper.sh [arg]&#39; exit 1 fi # Set filename variable to the first argument to the bash script filename=$1 echo &#39;Pre-processing could go here.&#39; # Run code Rscript echo-next.R ${filename} echo &#39;Post-processing could go here.&#39; Ensure wrapper.sh is executable with chmod +x wrapper.sh before running it on the command line: [user@login]$ chmod +x wrapper.sh [user@login]$ ./wrapper.sh Please use one argument. Usage: wrapper.sh [arg] [user@login]$ ./wrapper.sh data.csv Pre-processing could go here. data.csv Post-processing could go here. Passing arguments with the HTCondor submit file Now that we’ve understood how arguments work in R and how to write simple wrapper scripts that pass those arguments, we can pass arguments in HTCondor’s submit file by specifying the arguments attribute, as shown in this excerpt: # Create custom variable called &quot;data&quot; data = data.csv # Specify the executable &amp; arguments executable = wrapper.sh arguments = $(data)","headline":"Basic scripting in R script","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-basic-scripting-r"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-basic-scripting-r"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T00:00:00+00:00","datePublished":"2026-07-23T00:00:00+00:00","description":"The U.S. National Science Foundation today announced $83 million in awards through the Integrated Data Systems and Services (IDSS) program. The awards will expand access to data infrastructure resources that researchers can use alongside computing and artificial intelligence resources to accelerate scientific discovery and innovation.","headline":"NSF announces $83M investment in integrated data systems and services to advance AI-driven science and strengthen U.S. research infrastructure","image":{"alt":"Announcement Banner, Credit: U.S. National Science Foundation","url":"https://raw.githubusercontent.com/CHTC/Articles/main/images/idss-announcement-graphic.jpg","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/2026-07-23-nsf-announces-83m-investment-integrated-data-systems.html"},"url":"https://chtc.cs.wisc.edu/2026-07-23-nsf-announces-83m-investment-integrated-data-systems.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -55,7 +59,7 @@
 <link type="text/css" href="/assets/fonts/fonts.0.0.1.css" rel="stylesheet">
 <link type="text/css" href="/assets/css/style-v12.css" rel="stylesheet">
 
-<link type="text/css" href="/assets/css/research-style.css" rel="stylesheet">
+
 
 <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'')})(document.documentElement)</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -97,7 +101,7 @@
             <div class="row">
                 <div class="col-auto pe-0">
                     
-                    <a class="uw-global-name-link" href="/" aria-label="University home page">Go to CHTC Home</a>
+                    <a class="uw-global-name-link" href="/uw-research-computing/user-portal" aria-label="UW Research Computing User Portal">Go to User Portal</a>
                     
                 </div>
                 <div class="col-auto d-flex">
@@ -112,17 +116,8 @@
         
         
 
-
-
-        
-
-
-    <div class="alert alert-warning text-center mb-0 rounded-0" role="alert">
-        <b>HTC users</b>: From May 15 - August 1, we are transitioning users' personal /staging directories. See how you're affected and what you should do on <a href="/uw-research-computing/staging-transition">staging transition page</a>.
-    </div>
-
     
-    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">UW-Research Computing<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
+    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">Menu<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
 <div id="uw-top-menus" class="uw-is-visible uw-horizontal" aria-hidden="false">
     <div class="uw-main-nav">
         <nav class="uw-nav-menu uw-nav-menu-reverse" aria-label="Main Menu">
@@ -142,36 +137,9 @@
                 
                     
 
-
-<li id="home">
-    <a href="/uw-research-computing/index.html" aria-current="page">Home</a>
-</li>
-
-
-                
-                    
-
-
-<li id="get-started">
-    <a href="/uw-research-computing/form.html" aria-current="page">Get Started</a>
-</li>
-
-
-                
-                    
-
-
-<li id="user-portal">
-    <a href="/uw-research-computing/user-portal" aria-current="page">User Portal</a>
-</li>
-
-
-                
-                    
-
-<li id="menu-how-tos" class="uw-dropdown">
-    <a href="/uw-research-computing/how-tos.html" role="button" aria-haspopup="true" aria-expanded="false">
-        How To's
+<li id="uw-research-computing" class="uw-dropdown">
+    <a href="" role="button" aria-haspopup="true" aria-expanded="false">
+        Research Computing
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -179,23 +147,19 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="How To's submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="Research Computing submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/user-expectations.html">User Expectations</a>
+            <a href="/uw-research-computing/index.html">Research Computing Services</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/htc/guides.html">HTC Guides</a>
+            <a href="/faculty-resources.html">Resources for Faculty</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/hpc/guides.html">HPC Guides</a>
-        </li>
-    
-        <li>
-            <a href="/uw-research-computing/cite-chtc.html">Cite CHTC Resources</a>
+            <a href="/uw-research-computing/user-portal">User Portal</a>
         </li>
     
     </ul>    
@@ -205,17 +169,17 @@
                     
 
 
-<li id="get-help">
-    <a href="/uw-research-computing/get-help.html" aria-current="page">Get Help</a>
+<li id="technologies">
+    <a href="/technologies.html" aria-current="page">Technologies</a>
 </li>
 
 
                 
                     
 
-<li id="menu-other-resources" class="uw-dropdown">
-    <a href="/uw-research-computing/other-resources.html" role="button" aria-haspopup="true" aria-expanded="false">
-        Other Resources
+<li id="community" class="uw-dropdown">
+    <a href="" role="button" aria-haspopup="true" aria-expanded="false">
+        Community
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -223,35 +187,66 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="Other Resources submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="Community submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="https://community.chtc.wisc.edu/">CHTC Community Forum</a>
+            <a href="/news.html">News</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/bioinformatics-cafe">Bioinformatics Cafe</a>
+            <a href="/events.html">Events</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/gpu-lab.html">CHTC GPU Lab</a>
+            <a href="/presentations.html">Presentations</a>
+        </li>
+    
+    </ul>    
+
+
+                
+                    
+
+<li id="about" class="uw-dropdown">
+    <a href="/about.html" role="button" aria-haspopup="true" aria-expanded="false">
+        About
+        <svg aria-hidden="true" class="uw-caret" focusable="false">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
+        </svg>
+        <svg aria-hidden="true" class="uw-caret" focusable="false">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
+        </svg>
+    </a>
+    <ul aria-hidden="true" aria-label="About submenu" class="uw-child-menu">
+
+    
+        <li>
+            <a href="/talk-to-us.html">Talk To Us</a>
         </li>
     
         <li>
-            <a href="https://htcondor.org/manual/">HTCondor Project</a>
+            <a href="/approach.html">Our Approach</a>
         </li>
     
         <li>
-            <a href="http://www.neos-server.org/">NEOS Optimization Service</a>
+            <a href="/htc.html">What is HTC?</a>
         </li>
     
         <li>
-            <a href="http://www.osg-htc.org/">OSG Consortium</a>
+            <a href="/projects.html">Our Customers</a>
         </li>
     
         <li>
-            <a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a>
+            <a href="/people.html">Staff</a>
+        </li>
+    
+        <li>
+            <a href="/jobs.html">Open Positions</a>
+        </li>
+    
+        <li>
+            <a href="/research.html">Research</a>
         </li>
     
     </ul>    
@@ -272,656 +267,55 @@
 </div>
 
 
+
+        
+
     </div>
     <main id="main" style="min-height: 60vh;">
-        <div class="container-xxl mb-5">
+        <!-- This Layout is used for news articles. Different from character_optimized by adding author tags. -->
+
+
+<div class="container-xxl">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-9 mw-1000">
-
+        <div class="col-12 col-sm-11 col-md-9 col-lg-8">
             <h1 class="uw-mini-bar mb-4">
-    Basic scripting in R script
-</h1>
+                NSF announces $83M investment in integrated data systems and services to advance AI-driven science and strengthen U.S. research infrastructure
+            </h1>
+            <div class="text-dark d-flex flex-row justify-content-between mb-3">
+                
+                <h4 class="mt-0">
+                    Jul 23, 2026
+                </h4>
+            </div>
+            <p>The U.S. National Science Foundation today announced $83 million in awards through the <a href="https://www.nsf.gov/funding/opportunities/idss-integrated-data-systems-services">Integrated Data Systems and Services (IDSS) program</a>. The awards will expand access to data infrastructure resources that researchers can use alongside computing and artificial intelligence resources to accelerate scientific discovery and innovation.</p>
 
-            <h3 id="code">Code</h3>
-<p>Our executable written in R, <code>echo-next.R</code>:</p>
-<pre><code>args &lt;- commandArgs(trailingOnly = TRUE)
-filename &lt;- args[1]
-cat(filename,"\n")
-</code></pre>
+<p>IDSS supports national priorities to strengthen U.S. leadership in AI, build an AI-ready workforce and ensure researchers have the tools and infrastructure needed to compete globally. The program advances a national AI research ecosystem by connecting scientific data with computing, instruments, software and AI resources, complementing the NSF-led <a href="https://www.nsf.gov/focus-areas/ai/nairr">National Artificial Intelligence Research Resource (NAIRR)</a> and other cyberinfrastructure investments. These investments also support the White House’s Genesis Mission by strengthening the data infrastructure that enables researchers to make discoveries, use AI and advanced computing and accelerate innovation across the U.S. research enterprise.</p>
 
-<p>The output of <code>commandArgs</code> is a vector – if you have multiple arguments, you can reference each 
-item using R’s usual notation (<code>args[1]</code>, <code>args[2]</code>, etc.). 
-See <a href="https://search.r-project.org/CRAN/refmans/R.utils/html/commandArgs.html">R documentation on commandArgs</a> for details.</p>
+<p>“America’s leadership in artificial intelligence depends not only on advanced computing resources but also on the data infrastructure that enables researchers to discover, access, share and analyze scientific data at scale,” said Brian Stone, performing the duties of the NSF director. “These investments provide foundational capabilities that empower scientists and engineers to drive transformative AI-enabled discovery, accelerate innovation and strengthen national competitiveness.”</p>
 
-<p>We can use the script on the command line, assuming R is installed and on the <code>PATH</code>:</p>
-<pre class="term"><code>[user@login]$ Rscript echo-next.R data.csv
-data.csv
-</code></pre>
+<p>The IDSS program invests in national-scale data systems that advance data-intensive and AI-driven science, engineering research, innovation and education. Because data is essential for scientific discovery, these investments will improve how scientific data is collected, stored, shared and analyzed across NSF facilities, research centers and national laboratories.</p>
 
-<h3 id="wrapper-script">Wrapper script</h3>
+<p>The awards also connect data systems, AI models and computing resources so they work together more effectively, while creating shared platforms that make it easier for researchers to find, use and reuse data across different projects and fields. In addition, they provide access to AI tools and advanced computing systems that help researchers use AI more effectively in their work.</p>
 
-<p>We can now write a wrapper script! This script checks that one argument is passed, and also allows room for pre- and post-processing in this simple workflow.</p>
+<p>Collectively, these investments will enable scientists to focus on generating new insights from data rather than managing underlying infrastructure. The IDSS awards and project descriptions are provided below.</p>
 
-<p>Our wrapper script written in bash, <code>wrapper.sh</code>:</p>
-<pre><code>#!/bin/bash
+<p><strong>Category I: National-Scale Integrated Data Systems and Services</strong></p>
 
-# Check if an argument is provided
-if [ $# -ne 1 ]; then
-    echo 'Please use one argument. Usage: wrapper.sh [arg]'
-    exit 1
-fi
+<blockquote>
+  <ul>
+    <li><a href="https://fabaid.io/">Fabric for AI-Driven Science (FabAID)</a>, led by the Morgridge Institute for Research in Madison, Wisconsin, will build a national data fabric that connects repositories, computing resources and cyberinfrastructure, including NAIRR, to streamline access and curation of large-scale scientific datasets for AI-driven research.</li>
+  </ul>
+</blockquote>
 
-# Set filename variable to the first argument to the bash script
-filename=$1
+<p><em>Excerpt from July 22, 2026 NSF press release. Read the full press release here: 
+<a href="https://www.nsf.gov/news/nsf-announces-83m-investment-integrated-data-systems">https://www.nsf.gov/news/nsf-announces-83m-investment-integrated-data-systems</a></em></p>
 
-echo 'Pre-processing could go here.'
-
-# Run code
-Rscript echo-next.R ${filename}
-
-echo 'Post-processing could go here.'
-</code></pre>
-
-<p>Ensure <code>wrapper.sh</code> is executable with <code>chmod +x wrapper.sh</code> before running it on the command line:</p>
-<pre class="term"><code>[user@login]$ chmod +x wrapper.sh
-[user@login]$ ./wrapper.sh
-Please use one argument. Usage: wrapper.sh [arg]
-[user@login]$ ./wrapper.sh data.csv
-Pre-processing could go here.
-data.csv
-Post-processing could go here.
-</code></pre>
-
-<h3 id="passing-arguments-with-the-htcondor-submit-file">Passing arguments with the HTCondor submit file</h3>
-
-<p>Now that we’ve understood how arguments work in R and how to write simple wrapper scripts that pass those arguments, we can pass arguments in HTCondor’s submit file by specifying the <code>arguments</code> attribute, as shown in this excerpt:</p>
-
-<pre><code># Create custom variable called "data"
-data = data.csv
-
-# Specify the executable &amp; arguments
-executable = wrapper.sh
-arguments = $(data)
-</code></pre>
-<!--more-->
-
-        </div>
-        <div class="col-3 d-none d-lg-block">
-            
-
-
-
-
-<div id="guide-sidebar">
-    
-        
-                <h6 class="mt-5">HTC guides</h6>
-        
-        
-        <div class="accordion accordion-flush">
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="get-startedhtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#get-startedhtc-guides-collapse" aria-expanded="false" aria-controls="get-startedhtc-guides">
-                                Get started
-                            </button>
-                        </span>
-                        <div id="get-startedhtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="get-startedhtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-overview#main">System overview</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-roadmap#main">Roadmap to getting started</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/connecting#main">Log into CHTC</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/basic-shell-commands#main">Quick reference: Basic shell commands</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htcondor-quick-ref#main">Quick reference: HTCondor commands</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/condor-submit-quick-ref#main">Quick reference: HTCondor submit file options</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/vs-code#main">Connect to CHTC with VS Code</a>
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="submit-jobshtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#submit-jobshtc-guides-collapse" aria-expanded="false" aria-controls="submit-jobshtc-guides">
-                                Submit jobs
-                            </button>
-                        </span>
-                        <div id="submit-jobshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="submit-jobshtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Submit jobs using HTCondor 
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htcondor-job-submission#main">Job submission basics</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/multiple-jobs#main">Submit multiple jobs</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/inter-submit#main">Submit an interactive job</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-monitor-jobs#main">Monitor your jobs</a>
-    </div>
-
-        
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Arguments and shell scripting 
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-basic-scripting#main">Basic scripting and job submission with arguments</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-passing-arguments#main">Practice: Pass arguments from the submit file to the executable script</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-passing-arguments-multiple#main">Practice: Pass multiple arguments to multiple jobs with one submit file</a>
-    </div>
-
-        
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="manage-datahtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#manage-datahtc-guides-collapse" aria-expanded="false" aria-controls="manage-datahtc-guides">
-                                Manage data
-                            </button>
-                        </span>
-                        <div id="manage-datahtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="manage-datahtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-job-file-transfer#main">Use and transfer data in jobs on the HTC system </a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/file-avail-largedata#main">Manage Large Data in HTC Jobs</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/check-quota#main">Check disk quota and usage</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-uwdf-researchdrive#main">Directly transfer files between ResearchDrive and your jobs</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Transfer files to/from CHTC 
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/transfer-files-computer#main">Local computer</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/transfer-data-researchdrive#main">ResearchDrive (via smbclient)</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/globus#main">Globus</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/github-remote-access#main">Private GitHub repo</a>
-    </div>
-
-        
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="softwarehtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#softwarehtc-guides-collapse" aria-expanded="false" aria-controls="softwarehtc-guides">
-                                Software
-                            </button>
-                        </span>
-                        <div id="softwarehtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="softwarehtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/software-overview-htc#main">Overview</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Containers 
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/software-overview-htc#container-overview#main">What are containers?</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Using software in Apptainer containers
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/apptainer-htc#main">Use Apptainer containers</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/apptainer-build#main">More about Apptainer containers</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-docker-to-apptainer#main">Convert Docker images to Apptainer/Singularity images</a>
-    </div>
-
-        
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Using software in Docker containers
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/docker-jobs#main">Use Docker containers</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/docker-build#main">More about Docker containers</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/docker-test#main">Reference: Explore and test Docker containers</a>
-    </div>
-
-        
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="https://github.com/CHTC/recipes/tree/main/software#main">Recipes repository</a>
-    </div>
-
-        
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Other Modes of Software Use
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/inter-submit#main">Compile software in an interactive job</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/licensed-software#main">Licensed software and modules</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-modules#main">Use software available in modules</a>
-    </div>
-
-        
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="workflowshtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#workflowshtc-guides-collapse" aria-expanded="false" aria-controls="workflowshtc-guides">
-                                Workflows
-                            </button>
-                        </span>
-                        <div id="workflowshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="workflowshtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/checkpointing#main">Checkpoint jobs</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      DAGMan workflow manager 
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc/dagman-workflows#main">Submit workflows with DAGman</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc/dagman-simple-example#main">Practice: Run a simple DAGMan workflow</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc/tutorial-dagman-intermediate#main">Practice: Run an diamond DAGMan workflow</a>
-    </div>
-
-        
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="special-use-caseshtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-caseshtc-guides-collapse" aria-expanded="false" aria-controls="special-use-caseshtc-guides">
-                                Special use cases
-                            </button>
-                        </span>
-                        <div id="special-use-caseshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="special-use-caseshtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/gpu-jobs#main">Use GPUs</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-interactive-gpu-jobs#main">Interactive GPU Jobs</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/scaling-htc#main">Scale beyond local HTC capacity</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/high-memory-jobs#main">Submit high memory jobs</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/machine-learning-htc#main">Machine learning jobs</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/os-request-htc#main">Custom Linux versions</a>
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="troubleshootinghtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshootinghtc-guides-collapse" aria-expanded="false" aria-controls="troubleshootinghtc-guides">
-                                Troubleshooting
-                            </button>
-                        </span>
-                        <div id="troubleshootinghtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="troubleshootinghtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="http://status.chtc.wisc.edu#main">Status page</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-known-issues#main">Known issues</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/variable-memory#main">Request variable memory</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/dos-unix#main">Windows/Linux incompatibility</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/get-help.html#main">Get help</a>
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="external-resourceshtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#external-resourceshtc-guides-collapse" aria-expanded="false" aria-controls="external-resourceshtc-guides">
-                                External Resources
-                            </button>
-                        </span>
-                        <div id="external-resourceshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="external-resourceshtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="https://htcondor.org/manual/#main">HTCondor manual</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="https://software-carpentry.org/lessons/#main">Software Carpentry</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="https://sts.doit.wisc.edu/workshops/#main">UW-Madison software training for students</a>
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-        </div>
-    
-</div>
-<script>
-  // Set the height of the sidebar to fill the viewport minus the height of the main content area
-  const updateSidebarHeight = () => {
-    const navHeight = document.getElementById("navbar").clientHeight;
-		console.log(navHeight, window.innerHeight - navHeight);
-    document.getElementById("guide-sidebar").style.height = `${window.innerHeight - navHeight}px`;
-  };
-
-  // Initial call to set the sidebar height
-  updateSidebarHeight();
-  // Add event listener to update the sidebar height on window resize
-  window.addEventListener("resize", updateSidebarHeight);
-</script>
-
+<p><em>FabAID <a href="https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2609485">(Award # OAC-2331480)</a> is among a group of awards the NSF is funding through its Integrated Data Systems and Services program, an initiative that “supports national priorities to strengthen U.S. leadership in AI.”</em></p>
 
 
         </div>
     </div>
 </div>
-
 
     </main>
     <footer id="colophon" class="uw-footer">
