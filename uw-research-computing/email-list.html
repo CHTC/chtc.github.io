@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Getting a Submit Node</title>
+<title>Sign up for our email list!</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Getting a Submit Node | CHTC</title>
+<title>Sign up for our email list! | CHTC</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Getting a Submit Node" />
+<meta property="og:title" content="Sign up for our email list!" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="In order to submit jobs to our campus-wide collection of resources, you will need access to a submit node. There are several options for getting access to a submit node:" />
-<meta property="og:description" content="In order to submit jobs to our campus-wide collection of resources, you will need access to a submit node. There are several options for getting access to a submit node:" />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/get-submit-node" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/get-submit-node" />
+<meta name="description" content="Stay up-to-date with CHTC announcements, events, resources, and other research computing opportunities by signing up for our email list." />
+<meta property="og:description" content="Stay up-to-date with CHTC announcements, events, resources, and other research computing opportunities by signing up for our email list." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/email-list" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/email-list" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2026-09-03T22:08:05+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Getting a Submit Node" />
+<meta property="twitter:title" content="Sign up for our email list!" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-09-03T22:08:05+00:00","datePublished":"2026-09-03T22:08:05+00:00","description":"In order to submit jobs to our campus-wide collection of resources, you will need access to a submit node. There are several options for getting access to a submit node:","headline":"Getting a Submit Node","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/get-submit-node"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/get-submit-node"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-09-03T22:08:05+00:00","datePublished":"2026-09-03T22:08:05+00:00","description":"Stay up-to-date with CHTC announcements, events, resources, and other research computing opportunities by signing up for our email list.","headline":"Sign up for our email list!","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/email-list"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/email-list"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -276,96 +276,42 @@
     <main id="main" style="min-height: 60vh;">
         <div class="container-xxl mb-5">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-9 mw-1000">
-
+        <div class="col mw-1000">
             <h1 class="uw-mini-bar mb-4">
-    Getting a Submit Node
+    Sign up for our email list!
 </h1>
 
-            <p>In order to submit jobs to our campus-wide collection of resources, you
-will need access to a submit node. There are several options for getting
-access to a submit node:</p>
+            <p>Stay up-to-date with CHTC announcements, events, resources, and other research computing opportunities by signing up for our email list.</p>
+
+<p>We send 1-3 emails a month through this email list.</p>
+
+<p>Important system-wide notices and alerts are sent separately through a different email list.</p>
+
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="https://groups.google.com/a/g-groups.wisc.edu/g/chtc-announcements/membership">Manage your email subscription</a>
+	</div>
+</div>
+
+<h2 id="how-to-sign-up">How to sign up</h2>
 
 <ol>
-  <li><strong><a href="use-submit-node.html">Use ours</a>.</strong> We operate a submit node that
-is shared by many researchers. This is a great way to get started
-quickly, and it is sufficient if you do not need to run tens of
-thousands of jobs with heavy data transfer requirements.</li>
-  <li><strong>Use your department's.</strong> Perhaps your department already has its
-own submit node, in which case you can contact your local
-administrator for an account. You will still need to provide all the
-info requested on the <a href="get-started.html">getting started</a> form, so
-we can set up things on our end. The benefits of using a
-departmental or group submit node are: access to data on local file
-systems; limited impact from other, potentially new users; and,
-greater scalability in the number of simultaneous jobs you can run,
-as well as the amount of data you can transfer.</li>
-  <li>
-    <p><strong>Set up a new submit node on a server.</strong> If you do not already have
-one and need access to data on local file systems, or if you believe
-that you will have a significant job and/or data volume, getting
-your own submit node is probably the best way to go. Here's an
-example system configuration that we've found works well for a
-variety of submit work loads. You can expect to spend around
-$4,000 - $5,000 for such a system.</p>
-
-    <p><strong>Typical submit node configuration</strong></p>
-
-    <ul>
-      <li>A 1U rack-mount enclosure, like a Dell PowerEdge 410.</li>
-      <li>Two processors with 12 cores total, for example Intel Xeon
-E5645, 2.4GHz 6-core processors</li>
-      <li>24GB of 1.3 GHz RAM</li>
-      <li>Two drives for the operating system. 500GB each is enough. You
-can use mirroring or a RAID configuration like RAID-6 for
-reliability.</li>
-      <li>Two or more 2-3TB drives for data, depending on your needs.</li>
-    </ul>
-  </li>
-  <li><strong>Use your desktop.</strong> Depending on your department's level of
-system adminstration support, you may be able to have HTCondor
-installed on your desktop and configured to submit into our campus
-resources. Another option that is under development is
-<a href="https://osg-bosco.github.io/docs/">Bosco</a>, a
-user-installable software package that lets you submit jobs into
-resources managed by HTCondor, PBS or SGE.</li>
+  <li>Go to the <a href="https://groups.google.com/a/g-groups.wisc.edu/g/chtc-announcements/">chtc-announcements Google Groups page</a>.</li>
+  <li>Click on the <strong>Join Group</strong> button near the top.</li>
+  <li>Keep or change your notification preferences (we recommend “Each email” — we email only a few times per month) and click <strong>Join group</strong> to confirm.</li>
 </ol>
 
-<p>Still not sure what option is right for you? No worries. This is one of
-the topics we discuss in our initial consultation. To schedule an
-initial consultation, fill out our <a href="get-started.html">getting started</a>
-form.</p>
+<h2 id="how-to-unsubscribe">How to unsubscribe</h2>
 
-        </div>
-        <div class="col-3 d-none d-lg-block">
-            
-
-
-
-
-<div id="guide-sidebar">
-    
-</div>
-<script>
-  // Set the height of the sidebar to fill the viewport minus the height of the main content area
-  const updateSidebarHeight = () => {
-    const navHeight = document.getElementById("navbar").clientHeight;
-		console.log(navHeight, window.innerHeight - navHeight);
-    document.getElementById("guide-sidebar").style.height = `${window.innerHeight - navHeight}px`;
-  };
-
-  // Initial call to set the sidebar height
-  updateSidebarHeight();
-  // Add event listener to update the sidebar height on window resize
-  window.addEventListener("resize", updateSidebarHeight);
-</script>
-
-
+<ol>
+  <li>Go to the <a href="https://groups.google.com/a/g-groups.wisc.edu/g/chtc-announcements/membership">chtc-announcements Google Groups membership page</a>.</li>
+  <li>Click on the <strong>Leave group</strong> button near the top.</li>
+  <li>Confirm by clicking <strong>Yes, leave group</strong>.</li>
+</ol>
 
         </div>
     </div>
 </div>
-
 
     </main>
     <footer id="colophon" class="uw-footer">
