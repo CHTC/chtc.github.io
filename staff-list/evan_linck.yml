@@ -1,0 +1,11 @@
+name: Evan Linck
+title: Research Computing Facilitator
+institution: "University of Wisconsin–Madison"
+is_facilitator: 1
+weight: 5
+status: Staff
+description: "Evan is a researcher whose path has wound through data science, astronomy, and public policy. His goal is to meet researchers—from students to senior academics—where they are and help them gain the technical skills that expand what's possible in their work."
+organizations:
+  - chtc
+  - fabaid
+image: images/evan_linck.jpg
