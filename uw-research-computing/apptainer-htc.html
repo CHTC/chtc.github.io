@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-09-16T17:52:17+00:00" />
+<meta property="article:published_time" content="2026-09-16T22:48:39+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Use Custom Software in Jobs Using Apptainer" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-09-16T17:52:17+00:00","datePublished":"2026-09-16T17:52:17+00:00","description":"Linux containers are a way to build a self-contained environment that includes software, libraries, and other tools. This guide shows how to submit jobs that use Apptainer containers.","headline":"Use Custom Software in Jobs Using Apptainer","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-09-16T22:48:39+00:00","datePublished":"2026-09-16T22:48:39+00:00","description":"Linux containers are a way to build a self-contained environment that includes software, libraries, and other tools. This guide shows how to submit jobs that use Apptainer containers.","headline":"Use Custom Software in Jobs Using Apptainer","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -401,6 +401,14 @@ process looks like this:</p>
   <li><strong>Move the container to a persistent location.</strong> We recommend placing the image file into your <code>/staging</code> folder.</li>
 </ol>
 
+<p>You can follow a step by step example of building a container here:</p>
+
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="https://chtc.cs.wisc.edu/uw-research-computing/hello-containers">Practice: Building Apptainer Containers on CHTC</a>
+	</div>
+</div>
+
 <h3 id="create-a-definition-file">Create a definition file</h3>
 
 <p>To create your own container using Apptainer, you will need to create a definition (<code>.def</code>) file. CHTC provides example definition files in the <code>software</code> folder of our <a href="https://github.com/CHTC/recipes/tree/main/software">Recipes GitHub repository</a>.</p>
@@ -640,6 +648,7 @@ If the <code>.sif</code> file is located on the login server, you can use</p>
 <ul>
   <li><a href="apptainer-build">Building an Apptainer Container</a></li>
   <li><a href="htc-docker-to-apptainer.html">Convert Docker Images to Apptainer Images</a></li>
+  <li><a href="hello-containers">Practice Building Apptainer Containers on CHTC</a></li>
   <li><a href="apptainer-htc-advanced-example">Advanced Apptainer Example - SUMO</a></li>
   <li><a href="apptainer-hpc.html">Using Apptainer Containers on HPC</a></li>
   <li><a href="docker-jobs">Running HTC Jobs Using Docker Containers</a></li>
