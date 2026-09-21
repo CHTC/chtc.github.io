@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Recreating Spack Installs on a New Operating System</title>
+<title></title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,21 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Recreating Spack Installs on a New Operating System | CHTC</title>
+<title>CHTC | Center for High Throughput Computing</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Recreating Spack Installs on a New Operating System" />
+<meta property="og:title" content="CHTC" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="If you had a software install on the HPC cluster before June 2024 and need to update it, read through the details in this guide. Unless your code is fairly simple, you will likely need to recompile it." />
-<meta property="og:description" content="If you had a software install on the HPC cluster before June 2024 and need to update it, read through the details in this guide. Unless your code is fairly simple, you will likely need to recompile it." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/hpc-el9-spack" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/hpc-el9-spack" />
+<meta name="description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
+<meta property="og:description" content="UW-Madison team established to bring the power of High Throughput Computing to all fields of research." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/fellowships/reports/2026/snikitha-siddavatam.html" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/fellowships/reports/2026/snikitha-siddavatam.html" />
 <meta property="og:site_name" content="CHTC" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-09-21T19:33:58+00:00" />
+<meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Recreating Spack Installs on a New Operating System" />
+<meta property="twitter:title" content="CHTC" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-09-21T19:33:58+00:00","datePublished":"2026-09-21T19:33:58+00:00","description":"If you had a software install on the HPC cluster before June 2024 and need to update it, read through the details in this guide. Unless your code is fairly simple, you will likely need to recompile it.","headline":"Recreating Spack Installs on a New Operating System","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-el9-spack"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/hpc-el9-spack"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"UW-Madison team established to bring the power of High Throughput Computing to all fields of research.","headline":"CHTC","url":"https://chtc.cs.wisc.edu/fellowships/reports/2026/snikitha-siddavatam.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -55,7 +54,7 @@
 <link type="text/css" href="/assets/fonts/fonts.0.0.1.css" rel="stylesheet">
 <link type="text/css" href="/assets/css/style-v12.css" rel="stylesheet">
 
-<link type="text/css" href="/assets/css/research-style.css" rel="stylesheet">
+
 
 <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'')})(document.documentElement)</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -97,7 +96,7 @@
             <div class="row">
                 <div class="col-auto pe-0">
                     
-                    <a class="uw-global-name-link" href="/" aria-label="University home page">Go to CHTC Home</a>
+                    <a class="uw-global-name-link" href="/uw-research-computing/user-portal" aria-label="UW Research Computing User Portal">Go to User Portal</a>
                     
                 </div>
                 <div class="col-auto d-flex">
@@ -112,17 +111,8 @@
         
         
 
-
-
-        
-
-
-    <!--<div class="alert alert-warning text-center mb-0 rounded-0" role="alert">
-        <b>HTC users</b>: From May 15 - August 31, we are transitioning users' personal /staging directories. See how you're affected and what you should do on <a href="/uw-research-computing/staging-transition">staging transition page</a>.
-    </div>-->
-
     
-    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">UW-Research Computing<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
+    <button id="uw-top-menus-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="uw-top-menus" aria-label="Open menu" aria-expanded="true" aria-controls="uw-top-menus">Menu<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
 <div id="uw-top-menus" class="uw-is-visible uw-horizontal" aria-hidden="false">
     <div class="uw-main-nav">
         <nav class="uw-nav-menu uw-nav-menu-reverse" aria-label="Main Menu">
@@ -142,36 +132,9 @@
                 
                     
 
-
-<li id="home">
-    <a href="/uw-research-computing/index.html" aria-current="page">Home</a>
-</li>
-
-
-                
-                    
-
-
-<li id="get-started">
-    <a href="/uw-research-computing/form.html" aria-current="page">Get Started</a>
-</li>
-
-
-                
-                    
-
-
-<li id="user-portal">
-    <a href="/uw-research-computing/user-portal" aria-current="page">User Portal</a>
-</li>
-
-
-                
-                    
-
-<li id="menu-how-tos" class="uw-dropdown">
-    <a href="/uw-research-computing/how-tos.html" role="button" aria-haspopup="true" aria-expanded="false">
-        How To's
+<li id="uw-research-computing" class="uw-dropdown">
+    <a href="" role="button" aria-haspopup="true" aria-expanded="false">
+        Research Computing
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -179,23 +142,19 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="How To's submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="Research Computing submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="/uw-research-computing/user-expectations.html">User Expectations</a>
+            <a href="/uw-research-computing/index.html">Research Computing Services</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/htc/guides.html">HTC Guides</a>
+            <a href="/faculty-resources.html">Resources for Faculty</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/hpc/guides.html">HPC Guides</a>
-        </li>
-    
-        <li>
-            <a href="/uw-research-computing/cite-chtc.html">Cite CHTC Resources</a>
+            <a href="/uw-research-computing/user-portal">User Portal</a>
         </li>
     
     </ul>    
@@ -205,17 +164,17 @@
                     
 
 
-<li id="get-help">
-    <a href="/uw-research-computing/get-help.html" aria-current="page">Get Help</a>
+<li id="technologies">
+    <a href="/technologies.html" aria-current="page">Technologies</a>
 </li>
 
 
                 
                     
 
-<li id="menu-other-resources" class="uw-dropdown">
-    <a href="/uw-research-computing/other-resources.html" role="button" aria-haspopup="true" aria-expanded="false">
-        Other Resources
+<li id="community" class="uw-dropdown">
+    <a href="" role="button" aria-haspopup="true" aria-expanded="false">
+        Community
         <svg aria-hidden="true" class="uw-caret" focusable="false">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
         </svg>
@@ -223,35 +182,66 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
         </svg>
     </a>
-    <ul aria-hidden="true" aria-label="Other Resources submenu" class="uw-child-menu">
+    <ul aria-hidden="true" aria-label="Community submenu" class="uw-child-menu">
 
     
         <li>
-            <a href="https://community.chtc.wisc.edu/">CHTC Community Forum</a>
+            <a href="/news.html">News</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/bioinformatics-cafe">Bioinformatics Cafe</a>
+            <a href="/events.html">Events</a>
         </li>
     
         <li>
-            <a href="/uw-research-computing/gpu-lab.html">CHTC GPU Lab</a>
+            <a href="/presentations.html">Presentations</a>
+        </li>
+    
+    </ul>    
+
+
+                
+                    
+
+<li id="about" class="uw-dropdown">
+    <a href="/about.html" role="button" aria-haspopup="true" aria-expanded="false">
+        About
+        <svg aria-hidden="true" class="uw-caret" focusable="false">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
+        </svg>
+        <svg aria-hidden="true" class="uw-caret" focusable="false">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
+        </svg>
+    </a>
+    <ul aria-hidden="true" aria-label="About submenu" class="uw-child-menu">
+
+    
+        <li>
+            <a href="/talk-to-us.html">Talk To Us</a>
         </li>
     
         <li>
-            <a href="https://htcondor.org/manual/">HTCondor Project</a>
+            <a href="/approach.html">Our Approach</a>
         </li>
     
         <li>
-            <a href="http://www.neos-server.org/">NEOS Optimization Service</a>
+            <a href="/htc.html">What is HTC?</a>
         </li>
     
         <li>
-            <a href="http://www.osg-htc.org/">OSG Consortium</a>
+            <a href="/projects.html">Our Customers</a>
         </li>
     
         <li>
-            <a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a>
+            <a href="/people.html">Staff</a>
+        </li>
+    
+        <li>
+            <a href="/jobs.html">Open Positions</a>
+        </li>
+    
+        <li>
+            <a href="/research.html">Research</a>
         </li>
     
     </ul>    
@@ -272,624 +262,91 @@
 </div>
 
 
+
+        
+
     </div>
     <main id="main" style="min-height: 60vh;">
-        <div class="container-xxl mb-5">
+        <!-- This Layout is to adhere the page to the optimal char per lines for accessibility -->
+
+
+<div class="container-xxl">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-9 mw-1000">
+        <div class="col-12 col-sm-11 col-md-9 col-lg-8">
             <h1 class="uw-mini-bar mb-4">
-    Recreating Spack Installs on a New Operating System
-</h1>
+                
+            </h1>
+            <h1 id="monte-carlo-estimation-of-π-on-htcondor-understanding-throughput-using-a-standardized-workflow">Monte Carlo Estimation of π on HTCondor: Understanding Throughput Using a Standardized Workflow</h1>
 
-            <p>If you had a software install on the HPC cluster before June 2024 and need to update it, read through 
-the details in this guide. Unless your code is fairly simple, you will likely need to recompile it.</p>
+<h4 id="fellow-snikitha-siddavatam">Fellow: Snikitha Siddavatam</h4>
+<h4 id="mentors-andrew-owen--ian-ross">Mentors: Andrew Owen &amp; Ian Ross</h4>
+<h4 id="fellowship-dates-may-18-2026-to-august-7-2026">Fellowship Dates: May 18, 2026 to August 7, 2026</h4>
 
-<p>If you are installing something on the HPC cluster for the first time, refer to our main software 
-guide to start: <a href="hpc-software">Use HPC Software</a></p>
+<h2 id="background">Background</h2>
 
-<p><strong>Remember to always compile your code/programs in a (interactive) Slurm job! <a href="hpc-job-submission.html#for-simple-testing-or-compiling">How To</a></strong></p>
+<p>High-throughput computing (HTC) systems such as HTCondor let researchers split a large workload into many small, independent jobs that run in parallel across a shared pool of machines. The promise of HTC is throughput: the more jobs a user can move through the system per hour, the faster their science gets done. In practice, however, throughput depends on factors that are hard for users to see or reason about: how many jobs are submitted at once, how resource requests (CPU, memory, disk) affect where jobs can be matched, and how fair-share scheduling adjusts a user’s priority as they consume pool resources. Users routinely over-request memory “to be safe,” which shrinks the set of machines that can run their jobs and slows the whole workload down.</p>
 
-<blockquote>
-  <p>Not only does this help avoid stressing the resources of the login server, but the upgraded login server uses a newer CPU architecture than the worker nodes in the cluster.
-Most compilers auto-detect the CPU architecture and adapt the compilation to use that architecture.
-Attempting to use such compiled code on a different/older CPU architecture can lead to “Illegal instruction” errors, among others.</p>
-</blockquote>
+<p>To study these effects systematically, we need a workload that is simple, massively parallel, and statistically well understood. Monte Carlo estimation of π fits perfectly: each job draws <em>S</em> uniform random points in the unit square and counts how many fall inside the quarter-circle (x² + y² &lt; 1); the fraction converges to π/4, and the estimation error shrinks at the known rate of 1/√N in the total sample count <em>N</em>. While each job produces a different result (each uses a different random seed), every job’s resource usage is identical — the same number of CPUs, the same amount of memory and disk, the same input and output transfer, and the same runtime — so any variation in completion time reflects the behavior of the scheduling system itself rather than the workload.</p>
 
-<h2 id="modules">Modules</h2>
+<h2 id="project-description">Project Description</h2>
 
-<p>Most of the modules on the upgraded cluster have been kept, but with upgraded versions.
-The following table is a comparison of the modules on the old operating system (EL8) versus the new operating system (EL9).
-(Adapted from the output of <code>module avail</code> on the respective servers.)</p>
+<p>This project uses Monte Carlo estimation of π as a standardized benchmark workload for profiling job throughput on HTCondor. We submit <em>J</em> independent jobs, each generating a fixed <em>S</em> = 10,000 samples with an effectively unique random seed derived from its cluster and process IDs, and accumulate results in chronological order of job completion. From each run we measure how the absolute error of the π estimate decreases as the cumulative sample count <em>N</em> grows, and how throughput and per-job turnaround behave as <em>J</em> scales across five orders of magnitude: 10, 100, 1,000, 10,000, and 100,000 jobs. A pipeline of aggregation and plotting scripts cross-references each job’s output file against the HTCondor log, keeps only verifiably completed jobs, and produces convergence, runtime, turnaround, and cross-scale milestone comparisons.</p>
 
-<p>You will likely need to recompile your code to use the new module versions.
-Remember to also update any <code>module load</code> commands that specify a particular version of the module,
-otherwise you may encounter “module(s) are unknown” errors.</p>
+<h3 id="project-scope">Project Scope</h3>
 
-<h3 id="module-comparison">Module comparison</h3>
+<p>The focus of this project is throughput characterization under controlled conditions: all jobs within an experiment request identical CPU, memory, disk, and clock-time limits, so differences in completion time reflect scheduling and pool variation rather than workload differences. We concentrate on (1) scaling behavior as the job count <em>J</em> grows from 10 to 100,000, (2) reproducible completion-time staggering via submit-side assignment of per-job sleep durations from a single seed chain, and (3) how throughput changes as the <code>request_memory</code> value is varied from 500 MB to 64 GB for an otherwise identical workload. We are not focusing on improving the Monte Carlo estimator itself (its 1/√N convergence is a known baseline used for validation), on optimizing single-job performance, or on modifying pool configuration or scheduler internals; the pool is treated as the system under observation, not something we tune.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Module name</th>
-      <th style="text-align: left">Old version (EL8)</th>
-      <th style="text-align: left">New version (EL9)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">abaqus</td>
-      <td style="text-align: left">2018-hotfix-1904</td>
-      <td style="text-align: left"><em>TBD</em></td>
-    </tr>
-    <tr>
-      <td style="text-align: left">ansys</td>
-      <td style="text-align: left">2022r24</td>
-      <td style="text-align: left">2024r1</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">aocc</td>
-      <td style="text-align: left">3.2.0</td>
-      <td style="text-align: left">4.2.0</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">cmake</td>
-      <td style="text-align: left">3.27.7</td>
-      <td style="text-align: left">3.27.9</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">comsol</td>
-      <td style="text-align: left">6.0, 6.1, 6.2</td>
-      <td style="text-align: left">6.2</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">gcc</td>
-      <td style="text-align: left">11.3.0</td>
-      <td style="text-align: left">13.2.0</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">hdf5 (intel-oneapi-mpi)</td>
-      <td style="text-align: left">1.12.2</td>
-      <td style="text-align: left"><em>dropped</em></td>
-    </tr>
-    <tr>
-      <td style="text-align: left">hdf5 (openmpi)</td>
-      <td style="text-align: left">1.12.2</td>
-      <td style="text-align: left">1.14.3</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">intel-oneapi-compilers</td>
-      <td style="text-align: left">2023.2.1</td>
-      <td style="text-align: left">2024.1.0</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">intel-oneapi-mkl</td>
-      <td style="text-align: left">2023.2.0</td>
-      <td style="text-align: left">2024.0.0</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">intel-oneapi-mpi</td>
-      <td style="text-align: left">2021.10.0</td>
-      <td style="text-align: left">2021.12.1</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">intel-tbb</td>
-      <td style="text-align: left">2021.9.0</td>
-      <td style="text-align: left"><em>deprecated</em></td>
-    </tr>
-    <tr>
-      <td style="text-align: left">lmstat.comsol</td>
-      <td style="text-align: left">6.0</td>
-      <td style="text-align: left"><em>TBD</em></td>
-    </tr>
-    <tr>
-      <td style="text-align: left">lumerical-fdtd</td>
-      <td style="text-align: left">2022-r2.4</td>
-      <td style="text-align: left">2024-R1.2</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">matlab</td>
-      <td style="text-align: left">R2021b, R2022b</td>
-      <td style="text-align: left">R2024a</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">mvapich2</td>
-      <td style="text-align: left">2.3.7-1</td>
-      <td style="text-align: left"><em>deprecated</em></td>
-    </tr>
-    <tr>
-      <td style="text-align: left">mvapich</td>
-      <td style="text-align: left"><em>n/a</em></td>
-      <td style="text-align: left">3.0</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">netcdf-c</td>
-      <td style="text-align: left">4.8.1</td>
-      <td style="text-align: left">4.9.2</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">netcdf-cxx4</td>
-      <td style="text-align: left">4.3.1</td>
-      <td style="text-align: left">4.3.1</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">netcdf-fortran</td>
-      <td style="text-align: left">4.5.4</td>
-      <td style="text-align: left">4.6.1</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">openmpi (aocc)</td>
-      <td style="text-align: left">4.1.3</td>
-      <td style="text-align: left"><em>dropped</em></td>
-    </tr>
-    <tr>
-      <td style="text-align: left">openmpi (gcc)</td>
-      <td style="text-align: left">4.1.3</td>
-      <td style="text-align: left">5.0.3</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">patchelf (gcc)</td>
-      <td style="text-align: left">0.17.2</td>
-      <td style="text-align: left">0.17.2</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">patchelf (intel)</td>
-      <td style="text-align: left">0.18.0</td>
-      <td style="text-align: left"><em>dropped</em></td>
-    </tr>
-    <tr>
-      <td style="text-align: left">patchelf (oneapi)</td>
-      <td style="text-align: left">0.18.0</td>
-      <td style="text-align: left">0.17.2</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">petsc</td>
-      <td style="text-align: left">3.18.1</td>
-      <td style="text-align: left">3.21.1</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">pmix</td>
-      <td style="text-align: left"><em>n/a</em></td>
-      <td style="text-align: left">5.0.1</td>
-    </tr>
-  </tbody>
-</table>
+<h3 id="project-challenge">Project Challenge</h3>
 
-<blockquote>
-  <p>Different versions of module packages, or packages that are “dropped” or “deprecated” may be manually installed by the user using <a href="#spack">Spack</a>.</p>
-</blockquote>
+<p>The central challenge is making runs at different scales genuinely comparable. Throughput on a shared pool is not stationary: submitting a large number of jobs lowers the user’s fair-share priority relative to other users, so a 100,000-job run can experience different scheduling conditions than the 10-job run it is being compared against, and priority ideally needs to be reset between experiments. Correctness at scale is also nontrivial: with 100,000 jobs, a job must be counted as done only when both its output file exists at the Access Point and a matching <code>JOB_TERMINATED</code> entry appears in the HTCondor log, and the aggregation pipeline must order tens of thousands of completions by timestamp without double-counting or dropping jobs. The data output itself is a challenge at that scale: each job returns its own small output file to the Access Point, so a 100,000-job run deposits 100,000 files into a single directory, which strains the filesystem, slows every subsequent listing and aggregation pass, and makes it easy for a handful of missing or truncated files to go unnoticed without explicit verification. Finally, reproducibility requires that nothing about the experiment is left to chance inside the jobs: sampling seeds must be provably unique across clusters, and the sleep durations that stagger completions must be regenerable from a single starting seed rather than chosen independently by each job.</p>
 
-<h2 id="spack">Spack</h2>
+<h3 id="project-vision">Project Vision</h3>
 
-<p>Spack is a package manager platform that allows users to install software without admin privileges.
-CHTC also uses Spack to install the software underlying the system-wide modules discussed above.</p>
+<p>The goal is to turn vague intuitions about HTC throughput into measured curves: how fast jobs move through the system at each scale, when each 10% completion milestone is reached, and how much throughput is lost when memory requests are inflated. The impact is practical guidance for pool users (evidence for how to size job counts and resource requests so that workloads finish sooner) and a standardized instrument that facilitators can rerun at any time to observe how the pool’s throughput behavior changes. Because the workload’s statistical behavior is known exactly, the same workflow doubles as an end-to-end validation harness: if the error curve does not fall at 1/√N, something in the pipeline, not the pool, is wrong.</p>
 
-<blockquote>
-  <p>If you have not used Spack before, you can skip this section and go directly to the <a href="hpc-spack-setup.html">Set Up Spack on HPC</a> guide.</p>
-</blockquote>
+<h2 id="project-deliverables">Project Deliverables</h2>
 
-<p>Here is the general process for setting up your software on the upgraded EL9 system; detailed instructions are provided after the general process:</p>
+<p>The project delivers a complete, rerunnable benchmark workflow built around a small set of scripts. The workload itself consists of <code>mc_pi.py</code>, which draws <em>S</em> = 10,000 samples per job using a seed derived uniquely from the HTCondor cluster and process IDs, and <code>mc_pi.sub</code>, the submit description that fixes identical CPU, memory, and disk for every job in an experiment. On the analysis side, <code>aggregate.py</code> cross-references each job’s output file against the HTCondor event log so that only verifiably completed jobs (output present and a matching <code>JOB_TERMINATED</code> entry) are counted, and orders completions chronologically to build the cumulative sample count <em>N</em>. A family of plotting scripts (<code>make_graphs.py</code>, <code>runtime_graph.py</code>, <code>milestone_times.py</code>, <code>milestone_scatter.py</code>, and <code>make_memory_graphs.py</code>) turns the aggregated results into convergence, runtime, turnaround, milestone, and memory-sweep figures.</p>
 
-<ol>
-  <li>
-    <p>Identify the environments you currently have and which you want to reproduce on the upgraded system.</p>
-  </li>
-  <li>
-    <p>Remove your existing Spack folders.</p>
-  </li>
-  <li>
-    <p>Do a clean installation of Spack.</p>
-  </li>
-  <li>
-    <p>In an interactive job, create your Spack environment(s) and install the packages as you did previously.</p>
-  </li>
-  <li>
-    <p>Update your job submission scripts and/or recompile programs as needed to use the new Spack environment(s).</p>
-  </li>
-</ol>
+<p>Beyond the scripts, the deliverables include the measured datasets and figures themselves: complete runs at <em>J</em> = 10, 100, 1,000, 10,000, and 100,000 jobs with per-scale runtime, turnaround, and completion-scatter plots; cross-scale milestone comparisons recording when each 10% completion milestone was reached; and a memory sweep varying <code>request_memory</code> from 500 MB to 64 GB on an otherwise identical 1,000-job workload. A companion visualizer (<code>memory_visualizer.Rmd</code>) provides an interactive summary of the results of this work for others to explore. Links to all scripts and figures are provided at the end of this report.</p>
 
-<p><em>The following instructions assume that you previously installed Spack in your home (<code>~/</code>) directory for individual use.</em></p>
+<h2 id="project-outcome">Project Outcome</h2>
 
-<h4 id="1-identify-your-environments">1. Identify your environments</h4>
+<p>The project established the tools and a first measured baseline for reasoning about throughput on the pool. Where questions about completion-time behavior previously had to be answered from intuition alone, there is now a reusable workflow and a set of reference curves to compare against, even though interpreting any particular run still requires judgment about pool conditions. The runs demonstrate that the workflow ran successfully at every scale tested, from 10 to 100,000 jobs, that the error of the π estimate falls at the expected 1/√N rate (validating the pipeline end to end), and that completion-time behavior at each scale can be summarized in reproducible milestone charts. The memory sweep quantifies the cost of over-requesting: inflating <code>request_memory</code> for an identical workload measurably delays completion by shrinking the set of machines a job can match, giving concrete evidence for the standard facilitation advice to request only what a job actually needs. Notably, the penalty does not grow smoothly with the request size: throughput behaves as a step function of <code>request_memory</code>, holding roughly steady across a range of request values and then dropping sharply once the request crosses a threshold that excludes a large tranche of the pool’s machines.</p>
 
-<p>You can see your Spack environments with</p>
+<p>The practical impact is twofold. For pool users, the results translate directly into guidance on sizing job counts and resource requests so that workloads finish sooner. For facilitators, the workflow is a standardized instrument: because every job has identical resource usage and the workload is statistically well understood, it can be rerun at any time to observe how the pool’s throughput behavior has changed, with the known convergence rate serving as a built-in correctness check.</p>
 
-<pre class="term"><code>spack env list
-</code></pre>
+<h2 id="shortcomings-and-limitations">Shortcomings and Limitations</h2>
 
-<p>Activate an environment that you want to replicate with</p>
+<p>The largest caveat is that the pool is a shared, non-stationary system, and the experiments only partially control for that. Fair-share priority drifts as large runs consume resources, so a 100,000-job run experiences different scheduling conditions than the 10-job run it is compared against; without resetting priority between experiments (which requires administrator action), cross-scale comparisons carry some confounding from the user’s own submission history. Each configuration was also measured over a limited number of runs at particular times of day, so the curves capture the pool’s behavior during those windows rather than a long-run average across varying background load.</p>
 
-<pre class="term"><code>spack env activate environment_name
-</code></pre>
+<p>The results are likewise specific to this workload and this pool. Jobs here are short, CPU-light, and transfer almost no data, so the conclusions say little about workloads dominated by long runtimes, large input transfers, or GPU requests, and the measured memory-request penalties depend on this pool’s particular mix of machine sizes. Finally, the workflow observes the scheduler from the outside: it can measure that throughput changes with scale and memory requests, but it cannot attribute those changes to specific scheduler decisions without access to pool-side logs, which was outside the scope of this project.</p>
 
-<p>Then list your package “specs” with the command</p>
+<h2 id="recommendations-for-next-phase-of-project">Recommendations for Next Phase of Project</h2>
 
-<pre class="term"><code>spack find
-</code></pre>
+<p>The most valuable next step is to turn the workflow from a one-time experiment into a recurring instrument. Because every run is identical and self-validating, the Center could schedule the benchmark to run automatically (for example, weekly at a fixed job count and memory request) and archive the milestone curves over time, building a longitudinal picture of pool throughput that no single measurement window can provide. Pairing those recurring runs with a fair-share priority reset, coordinated with pool administrators, would remove the largest confound identified in this project and make cross-scale comparisons genuinely apples-to-apples.</p>
 
-<p>There is a section “<code>==&gt; Root specs</code>” that lists the package specs you explicity added when you created your environment.
-Save a copy of these specs somewhere safe, so that you can use them to replicate the environment later on.
-You can ignore the “<code>installed packages</code>” section, as that will certainly change on the new system.</p>
+<p>If I had another four weeks as a Fellow, I would extend the sweep dimensions beyond memory: varying <code>request_cpus</code> and <code>request_disk</code> the same way <code>request_memory</code> was varied would complete the picture of how each resource request shapes matchability, and adding a controlled input-transfer payload would test whether the conclusions hold for data-heavier workloads. I would also close the attribution gap by requesting access to pool-side scheduler logs, so that observed throughput changes could be tied to specific matching and decisions rather than inferred from the outside.</p>
 
-<p>Repeat the above steps for each environment you want to replicate on the upgraded system.</p>
+<h2 id="lessons-learned">Lessons Learned</h2>
 
-<h3 id="2-remove-your-existing-spack-folders">2. Remove your existing Spack folders</h3>
+<h3 id="project">Project</h3>
 
-<p>The easiest way to update Spack for the upgraded system is to remove the current Spack installation and reinstall from scratch.</p>
+<p>The deliverables and their limitations point to a single underlying truth: on a shared pool, the workload is the easy part and the system is the experiment. A statistically trivial job like Monte Carlo π becomes scientifically useful precisely because it is boring: with the estimator’s 1/√N behavior known exactly, every surprise in the data can be attributed to the scheduler, the pool, or the pipeline rather than the workload. Any Fellow doing this project would also learn that correctness at scale is a bookkeeping problem before it is a statistics problem: at 100,000 jobs, deciding what counts as a “completed job” (output file present and a matching log entry) matters more than any downstream analysis.</p>
 
-<blockquote>
-  <p>Before proceeding, you may want to make a backup of each folder using</p>
+<p>The second broad lesson is that reproducibility on an HTC system must be designed in from the submit side. Seeds, sleep durations, and resource requests all had to be fixed or derivable before any job started, because anything left to per-job chance becomes unrecoverable noise across tens of thousands of jobs. Conversely, some things cannot be controlled from the user side at all, fair-share priority drift chief among them, and recognizing the boundary between what an experiment can and cannot hold fixed is itself a result.</p>
 
-  <pre class="term"><code>tar -czf folder_name.tar.gz ~/folder_name
-</code></pre>
-</blockquote>
+<h3 id="personal">Personal</h3>
 
-<p>For most users, the following commands should work:</p>
+<p>Executing this project gave me working fluency with the full HTCondor lifecycle: writing submit descriptions, deriving unique seeds from cluster and process IDs, and, most usefully, parsing the HTCondor event log to cross-verify completions, a technique I had not needed before and now consider essential for any large submission. Debugging the aggregation pipeline at the 100,000-job scale taught me to distrust file counts alone and to build verification into data collection rather than bolting it on afterward.</p>
 
-<pre class="term"><code>cd ~/
-rm -rf spack spack_programs spack_modules .spack
-</code></pre>
+<p>On the analysis side, I sharpened a practical workflow for scaling studies: structuring per-scale runs into parallel directory trees (<code>mc_runs_10</code> through <code>mc_runs_100000</code>), writing plotting scripts that operate uniformly across scales, and using R Markdown to keep the analytical model (the memory visualizer) and the measured results in documents that can be regenerated from scratch. Building the visualizer alongside the measurements also changed how I approach experiments generally: having a simple analytical expectation to compare against made it far easier to tell when a measured effect was real and when it was an artifact of the pipeline.</p>
 
-<p>The command may take a while to run.</p>
-
-<h3 id="3-fresh-install-of-spack">3. Fresh install of Spack</h3>
-
-<p>Next, follow the instructions in our guide <a href="hpc-spack-setup.html">Set Up Spack on HPC</a> to do a fresh installation of Spack.
-The commands in the guide have been updated for setting up Spack on the new operating system.</p>
-
-<h3 id="4-recreate-your-environments">4. Recreate your environments</h3>
-
-<p>Follow the instructions in our guide <a href="hpc-spack-install.html">Install Software Using Spack</a> to create your desired environments
-using the “root specs” that you saved earlier.</p>
-
-<p><strong>NOTE</strong>: We’ve made small but important change to this guide: <strong>you should always start an interactive Slurm job before creating or modifying a Spack environment</strong>.
-The login server uses different hardware than the execute servers, and the mismatch leads to Spack using the wrong settings for installing packages.
-Of course, as before, you should only install packages while in interactive Slurm job.</p>
-
-<p>Behind the scenes, we’ve made a few changes to the configuration that will hopefully make the package installation much smoother.</p>
-
-<h3 id="5-update-your-workflow">5. Update your workflow</h3>
-
-<p>Finally, remember to update your workflow to use the new Spack environments and the packages installed therein.</p>
+<h2 id="project-material-links-and-descriptions">Project Material Links and Descriptions</h2>
 
 <ul>
-  <li>
-    <p>If you explicitly provide paths to packages installed using Spack, be sure to update those paths in your compiler configuration or in your job submission script.</p>
-  </li>
-  <li>
-    <p>If you used Spack to provide dependencies for manually compiling a program, remember to recompile the program.</p>
-  </li>
-  <li>
-    <p>If you changed the name of your environment, be sure to update the name in your job submission script.</p>
-  </li>
+  <li><a href="https://github.com/CHTC/2026-Fellows-Projects/tree/main/snikithasiddavatam">My folder in the Fellows GitHub repository</a>, containing all scripts, submit files, per-scale run directories, generated figures, and this report.</li>
 </ul>
-
-
-        </div>
-        <div class="col-3 d-none d-lg-block">
-            
-
-
-
-
-<div id="guide-sidebar">
-    
-        
-                <h6 class="mt-5">HPC guides</h6>
-        
-        
-        <div class="accordion accordion-flush">
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="get-startedhpc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#get-startedhpc-guides-collapse" aria-expanded="false" aria-controls="get-startedhpc-guides">
-                                Get started
-                            </button>
-                        </span>
-                        <div id="get-startedhpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="get-startedhpc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-overview#main">System overview</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/connecting#main">Log in to CHTC</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/configure-ssh#main">Automate CHTC login</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/basic-shell-commands#main">Quick reference: Basic shell commands</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-quick-ref#main">Quick reference: HPC and SLURM commands</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/vs-code#main">Connect to CHTC with VS Code</a>
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="submit-jobshpc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#submit-jobshpc-guides-collapse" aria-expanded="false" aria-controls="submit-jobshpc-guides">
-                                Submit jobs
-                            </button>
-                        </span>
-                        <div id="submit-jobshpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="submit-jobshpc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-job-submission#main">Submitting and managing jobs using SLURM</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-job-monitoring#main">Reviewing job information using SLURM</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Open OnDemand
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/ood#main">Overview</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/ood-job-composer#main">Job Composer</a>
-    </div>
-
-        
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="manage-datahpc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#manage-datahpc-guides-collapse" aria-expanded="false" aria-controls="manage-datahpc-guides">
-                                Manage data
-                            </button>
-                        </span>
-                        <div id="manage-datahpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="manage-datahpc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-check-quota#main">Check disk quota and usage</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Transfer files to/from CHTC
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/transfer-files-computer#main">Local computer</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/transfer-data-researchdrive#main">ResearchDrive</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/github-remote-access#main">Private GitHub repo</a>
-    </div>
-
-        
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="softwarehpc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#softwarehpc-guides-collapse" aria-expanded="false" aria-controls="softwarehpc-guides">
-                                Software
-                            </button>
-                        </span>
-                        <div id="softwarehpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="softwarehpc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-software#main">Overview and Policies</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-custom-modules#main">Create and manage custom modules</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Spack
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-spack-setup#main">Set up</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-spack-install#main">Install software</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-spack-modules#main">Create custom Spack modules</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="fw-bolder" href="/uw-research-computing/hpc-el9-spack#main">Recreate Spack installs on a new operating system</a>
-    </div>
-
-        
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Containers
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/apptainer-hpc#main">Use Apptainer containers</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/apptainer-build#main">Build an Apptainer container</a>
-    </div>
-
-        
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="troubleshootinghpc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshootinghpc-guides-collapse" aria-expanded="false" aria-controls="troubleshootinghpc-guides">
-                                Troubleshooting
-                            </button>
-                        </span>
-                        <div id="troubleshootinghpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="troubleshootinghpc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/hpc-known-issues#main">Known issues on the HPC</a>
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="external-resourceshpc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#external-resourceshpc-guides-collapse" aria-expanded="false" aria-controls="external-resourceshpc-guides">
-                                External resources
-                            </button>
-                        </span>
-                        <div id="external-resourceshpc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="external-resourceshpc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="http://slurm.schedmd.com/#main">Slurm manual</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="http://software-carpentry.org/lessons/#main">Software Carpentry</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="http://www.doit.wisc.edu/training/student/#main">UW-Madison software training for students</a>
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-        </div>
-    
-</div>
-<script>
-  // Set the height of the sidebar to fill the viewport minus the height of the main content area
-  const updateSidebarHeight = () => {
-    const navHeight = document.getElementById("navbar").clientHeight;
-		console.log(navHeight, window.innerHeight - navHeight);
-    document.getElementById("guide-sidebar").style.height = `${window.innerHeight - navHeight}px`;
-  };
-
-  // Initial call to set the sidebar height
-  updateSidebarHeight();
-  // Add event listener to update the sidebar height on window resize
-  window.addEventListener("resize", updateSidebarHeight);
-</script>
-
-
 
         </div>
     </div>

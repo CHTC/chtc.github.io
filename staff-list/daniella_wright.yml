@@ -1,0 +1,28 @@
+name: Daniella Wright
+title: Fellow
+institution: Morgridge Institute for Research
+status: Past
+organizations:
+  - chtc
+image: images/daniella_wright.png
+
+
+fellowship:
+  year: 2026
+  name: Bytes of Knowledge
+  description: |
+    Documentation is an important connection between users and computing
+    resources. Some of the existing CHTC documentation is presented through
+    text-heavy pages containing technical jargon and limited visual guidance,
+    which can make information difficult to navigate and absorb regardless
+    of a user's technical background.
+
+    This project made targeted improvements to CHTC documentation while
+    establishing principles for improving navigation, comprehension, and
+    usability. Work included restructuring the Roadmap to Getting Started
+    and the checkpointing documentation, rewriting explanations using
+    plain-language principles, creating original graphics to visualize
+    technical concepts, and producing video tutorials on connecting to CHTC
+    with VS Code, transferring files, and accessing private GitHub
+    repositories.
+  mentor: Amber Lim and Christina Koch

@@ -1,0 +1,28 @@
+name: Snikitha Siddavatam
+title: Fellow
+institution: Morgridge Institute for Research
+status: Past
+organizations:
+  - chtc
+image: images/default.jpg
+
+
+fellowship:
+  year: 2026
+  name: Monte Carlo Estimation of π on HTCondor
+  description: |
+    The promise of high-throughput computing is throughput: the more jobs a
+    user can move through the system per hour, the faster their science gets
+    done. In practice, throughput depends on factors that are hard for users
+    to see, such as how many jobs are submitted at once, how resource
+    requests affect where jobs can be matched, and how fair-share scheduling
+    adjusts priority over time.
+
+    This project used Monte Carlo estimation of π as a standardized benchmark
+    workload for profiling job throughput on HTCondor. Because every job has
+    identical resource usage and a known convergence rate, variation in
+    completion time reflects the scheduling system rather than the workload.
+    Runs scaled from 10 to 100,000 jobs, and a memory sweep from 500 MB to
+    64 GB quantified how over-requesting memory delays completion, producing
+    a reusable instrument facilitators can rerun to observe pool behavior.
+  mentor: Andrew Owen and Ian Ross
