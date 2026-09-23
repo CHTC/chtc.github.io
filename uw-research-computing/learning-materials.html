@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Basic scripting in Python</title>
+<title>Learning Materials</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Basic scripting in Python | CHTC</title>
+<title>Learning Materials | CHTC</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Basic scripting in Python" />
+<meta property="og:title" content="Learning Materials" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Code Our executable written in Python, echo-next.py: import sys filename = sys.argv[1] print(filename) sys.argv is a list – if you have multiple arguments, you can reference each item in the list using Python’s usual notation (sys.argv[1], sys.argv[2], etc.). See Python documentation on sys.argv for details. We can use the script on the command line, assuming Python is installed and on the PATH: [user@login]$ python3 echo-next.py data.csv data.csv Wrapper script We can now write a wrapper script! This script checks that one argument is passed, and also allows room for pre- and post-processing in this simple workflow. Our wrapper script written in bash, wrapper.sh: #!/bin/bash # Check if an argument is provided if [ $# -ne 1 ]; then echo &#39;Please use one argument. Usage: wrapper.sh [arg]&#39; exit 1 fi # Set filename variable to the first argument to the bash script filename=$1 echo &#39;Pre-processing could go here.&#39; # Run code python3 echo-next.py ${filename} echo &#39;Post-processing could go here.&#39; Ensure wrapper.sh is executable with chmod +x wrapper.sh before running it on the command line: [user@login]$ chmod +x wrapper.sh [user@login]$ ./wrapper.sh Please use one argument. Usage: wrapper.sh [arg] [user@login]$ ./wrapper.sh data.csv Pre-processing could go here. data.csv Post-processing could go here. Passing arguments with the HTCondor submit file Now that we’ve understood how arguments work in Python and how to write simple wrapper scripts that pass those arguments, we can pass arguments in HTCondor’s submit file by specifying the arguments attribute, as shown in this excerpt: # Create custom variable called &quot;data&quot; data = data.csv # Specify the executable &amp; arguments executable = wrapper.sh arguments = $(data)" />
-<meta property="og:description" content="Code Our executable written in Python, echo-next.py: import sys filename = sys.argv[1] print(filename) sys.argv is a list – if you have multiple arguments, you can reference each item in the list using Python’s usual notation (sys.argv[1], sys.argv[2], etc.). See Python documentation on sys.argv for details. We can use the script on the command line, assuming Python is installed and on the PATH: [user@login]$ python3 echo-next.py data.csv data.csv Wrapper script We can now write a wrapper script! This script checks that one argument is passed, and also allows room for pre- and post-processing in this simple workflow. Our wrapper script written in bash, wrapper.sh: #!/bin/bash # Check if an argument is provided if [ $# -ne 1 ]; then echo &#39;Please use one argument. Usage: wrapper.sh [arg]&#39; exit 1 fi # Set filename variable to the first argument to the bash script filename=$1 echo &#39;Pre-processing could go here.&#39; # Run code python3 echo-next.py ${filename} echo &#39;Post-processing could go here.&#39; Ensure wrapper.sh is executable with chmod +x wrapper.sh before running it on the command line: [user@login]$ chmod +x wrapper.sh [user@login]$ ./wrapper.sh Please use one argument. Usage: wrapper.sh [arg] [user@login]$ ./wrapper.sh data.csv Pre-processing could go here. data.csv Post-processing could go here. Passing arguments with the HTCondor submit file Now that we’ve understood how arguments work in Python and how to write simple wrapper scripts that pass those arguments, we can pass arguments in HTCondor’s submit file by specifying the arguments attribute, as shown in this excerpt: # Create custom variable called &quot;data&quot; data = data.csv # Specify the executable &amp; arguments executable = wrapper.sh arguments = $(data)" />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/htc-basic-scripting-python" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htc-basic-scripting-python" />
+<meta name="description" content="A collection of tutorials, workshops, and example repositories for learning high throughput and high performance computing." />
+<meta property="og:description" content="A collection of tutorials, workshops, and example repositories for learning high throughput and high performance computing." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/learning-materials" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/learning-materials" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2026-09-23T14:38:58+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Basic scripting in Python" />
+<meta property="twitter:title" content="Learning Materials" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-09-23T14:38:58+00:00","datePublished":"2026-09-23T14:38:58+00:00","description":"Code Our executable written in Python, echo-next.py: import sys filename = sys.argv[1] print(filename) sys.argv is a list – if you have multiple arguments, you can reference each item in the list using Python’s usual notation (sys.argv[1], sys.argv[2], etc.). See Python documentation on sys.argv for details. We can use the script on the command line, assuming Python is installed and on the PATH: [user@login]$ python3 echo-next.py data.csv data.csv Wrapper script We can now write a wrapper script! This script checks that one argument is passed, and also allows room for pre- and post-processing in this simple workflow. Our wrapper script written in bash, wrapper.sh: #!/bin/bash # Check if an argument is provided if [ $# -ne 1 ]; then echo &#39;Please use one argument. Usage: wrapper.sh [arg]&#39; exit 1 fi # Set filename variable to the first argument to the bash script filename=$1 echo &#39;Pre-processing could go here.&#39; # Run code python3 echo-next.py ${filename} echo &#39;Post-processing could go here.&#39; Ensure wrapper.sh is executable with chmod +x wrapper.sh before running it on the command line: [user@login]$ chmod +x wrapper.sh [user@login]$ ./wrapper.sh Please use one argument. Usage: wrapper.sh [arg] [user@login]$ ./wrapper.sh data.csv Pre-processing could go here. data.csv Post-processing could go here. Passing arguments with the HTCondor submit file Now that we’ve understood how arguments work in Python and how to write simple wrapper scripts that pass those arguments, we can pass arguments in HTCondor’s submit file by specifying the arguments attribute, as shown in this excerpt: # Create custom variable called &quot;data&quot; data = data.csv # Specify the executable &amp; arguments executable = wrapper.sh arguments = $(data)","headline":"Basic scripting in Python","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htc-basic-scripting-python"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htc-basic-scripting-python"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-09-23T14:38:58+00:00","datePublished":"2026-09-23T14:38:58+00:00","description":"A collection of tutorials, workshops, and example repositories for learning high throughput and high performance computing.","headline":"Learning Materials","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/learning-materials"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/learning-materials"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -80,6 +80,8 @@
 
 
 
+
+<script src="/assets/js/pages/learning-materials.js" type="module" defer></script>
 
 
 
@@ -274,654 +276,669 @@
 
     </div>
     <main id="main" style="min-height: 60vh;">
-        <div class="container-xxl mb-5">
-    <div class="row justify-content-center">
-        <div class="col-12 col-lg-9 mw-1000">
+        
 
-            <h1 class="uw-mini-bar mb-4">
-    Basic scripting in Python
+
+
+
+
+
+<div class="container-xxl pt-3" id="learning-materials">
+    <h1 class="uw-mini-bar mb-4">
+    Learning Materials
 </h1>
 
-            <h3 id="code">Code</h3>
-<p>Our executable written in Python, <code>echo-next.py</code>:</p>
-<pre><code>import sys
-filename = sys.argv[1]
-print(filename)
-</code></pre>
 
-<p><code>sys.argv</code> is a list – if you have multiple arguments, you can reference each item in the 
-list using Python’s usual notation (<code>sys.argv[1]</code>, <code>sys.argv[2]</code>, etc.). 
-See <a href="https://docs.python.org/3/library/sys.html#sys.argv">Python documentation on sys.argv</a> for details.</p>
+    <p class="lm-intro">
+        Tutorials, workshop materials, and example repositories for learning how to run
+        your research computing work at scale. Filter by topic using the tags, or search
+        for a keyword.
+    </p>
 
-<p>We can use the script on the command line, assuming Python is installed and on the <code>PATH</code>:</p>
-<pre class="term"><code>[user@login]$ python3 echo-next.py data.csv
-data.csv
-</code></pre>
+    <div class="row">
 
-<h3 id="wrapper-script">Wrapper script</h3>
+        <!-- Sidebar: tag selector -->
+        <div class="col-12 col-lg-3">
+            <button class="btn btn-outline-primary w-100 mb-3 d-lg-none" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#lm-tag-panel"
+                    aria-expanded="false" aria-controls="lm-tag-panel">
+                Browse by tag
+            </button>
 
-<p>We can now write a wrapper script! This script checks that one argument is passed, and also allows room for pre- and post-processing in this simple workflow.</p>
+            <div class="collapse d-lg-block" id="lm-tag-panel">
+                <div class="lm-sidebar mb-4">
+                    <div class="lm-sidebar-header">
+                        <h2 class="h6 mb-0 mt-0">Tags</h2>
+                        <button type="button" class="btn btn-link btn-sm p-0 lm-clear-tags" id="lm-clear-tags" hidden>
+                            Clear
+                        </button>
+                    </div>
 
-<p>Our wrapper script written in bash, <code>wrapper.sh</code>:</p>
-<pre><code>#!/bin/bash
+                    <ul class="lm-tag-list list-unstyled mb-0 ms-0">
+                        
+                        
+                        <li>
+                            <label class="lm-tag-option" for="lm-tag-beginner-friendly">
+                                <input class="form-check-input" type="checkbox"
+                                       id="lm-tag-beginner-friendly"
+                                       value="beginner-friendly"
+                                       data-lm-tag="beginner-friendly">
+                                <span class="lm-tag-name">beginner-friendly</span>
+                                <span class="lm-tag-count" aria-label="2 guides">2</span>
+                            </label>
+                        </li>
+                        
+                        
+                        <li>
+                            <label class="lm-tag-option" for="lm-tag-bioinformatics">
+                                <input class="form-check-input" type="checkbox"
+                                       id="lm-tag-bioinformatics"
+                                       value="bioinformatics"
+                                       data-lm-tag="bioinformatics">
+                                <span class="lm-tag-name">bioinformatics</span>
+                                <span class="lm-tag-count" aria-label="4 guides">4</span>
+                            </label>
+                        </li>
+                        
+                        
+                        <li>
+                            <label class="lm-tag-option" for="lm-tag-chtc-created">
+                                <input class="form-check-input" type="checkbox"
+                                       id="lm-tag-chtc-created"
+                                       value="CHTC-created"
+                                       data-lm-tag="CHTC-created">
+                                <span class="lm-tag-name">CHTC-created</span>
+                                <span class="lm-tag-count" aria-label="8 guides">8</span>
+                            </label>
+                        </li>
+                        
+                        
+                        <li>
+                            <label class="lm-tag-option" for="lm-tag-conda">
+                                <input class="form-check-input" type="checkbox"
+                                       id="lm-tag-conda"
+                                       value="conda"
+                                       data-lm-tag="conda">
+                                <span class="lm-tag-name">conda</span>
+                                <span class="lm-tag-count" aria-label="1 guide">1</span>
+                            </label>
+                        </li>
+                        
+                        
+                        <li>
+                            <label class="lm-tag-option" for="lm-tag-container">
+                                <input class="form-check-input" type="checkbox"
+                                       id="lm-tag-container"
+                                       value="container"
+                                       data-lm-tag="container">
+                                <span class="lm-tag-name">container</span>
+                                <span class="lm-tag-count" aria-label="1 guide">1</span>
+                            </label>
+                        </li>
+                        
+                        
+                        <li>
+                            <label class="lm-tag-option" for="lm-tag-data">
+                                <input class="form-check-input" type="checkbox"
+                                       id="lm-tag-data"
+                                       value="data"
+                                       data-lm-tag="data">
+                                <span class="lm-tag-name">data</span>
+                                <span class="lm-tag-count" aria-label="1 guide">1</span>
+                            </label>
+                        </li>
+                        
+                        
+                        <li>
+                            <label class="lm-tag-option" for="lm-tag-gpu">
+                                <input class="form-check-input" type="checkbox"
+                                       id="lm-tag-gpu"
+                                       value="GPU"
+                                       data-lm-tag="GPU">
+                                <span class="lm-tag-name">GPU</span>
+                                <span class="lm-tag-count" aria-label="2 guides">2</span>
+                            </label>
+                        </li>
+                        
+                        
+                        <li>
+                            <label class="lm-tag-option" for="lm-tag-hpc">
+                                <input class="form-check-input" type="checkbox"
+                                       id="lm-tag-hpc"
+                                       value="HPC"
+                                       data-lm-tag="HPC">
+                                <span class="lm-tag-name">HPC</span>
+                                <span class="lm-tag-count" aria-label="1 guide">1</span>
+                            </label>
+                        </li>
+                        
+                        
+                        <li>
+                            <label class="lm-tag-option" for="lm-tag-htc">
+                                <input class="form-check-input" type="checkbox"
+                                       id="lm-tag-htc"
+                                       value="HTC"
+                                       data-lm-tag="HTC">
+                                <span class="lm-tag-name">HTC</span>
+                                <span class="lm-tag-count" aria-label="8 guides">8</span>
+                            </label>
+                        </li>
+                        
+                        
+                        <li>
+                            <label class="lm-tag-option" for="lm-tag-machine-learning-and-ai">
+                                <input class="form-check-input" type="checkbox"
+                                       id="lm-tag-machine-learning-and-ai"
+                                       value="machine learning and AI"
+                                       data-lm-tag="machine learning and AI">
+                                <span class="lm-tag-name">machine learning and AI</span>
+                                <span class="lm-tag-count" aria-label="1 guide">1</span>
+                            </label>
+                        </li>
+                        
+                        
+                        <li>
+                            <label class="lm-tag-option" for="lm-tag-python">
+                                <input class="form-check-input" type="checkbox"
+                                       id="lm-tag-python"
+                                       value="Python"
+                                       data-lm-tag="Python">
+                                <span class="lm-tag-name">Python</span>
+                                <span class="lm-tag-count" aria-label="1 guide">1</span>
+                            </label>
+                        </li>
+                        
+                        
+                        <li>
+                            <label class="lm-tag-option" for="lm-tag-r">
+                                <input class="form-check-input" type="checkbox"
+                                       id="lm-tag-r"
+                                       value="R"
+                                       data-lm-tag="R">
+                                <span class="lm-tag-name">R</span>
+                                <span class="lm-tag-count" aria-label="1 guide">1</span>
+                            </label>
+                        </li>
+                        
+                        
+                        <li>
+                            <label class="lm-tag-option" for="lm-tag-workflow-managers">
+                                <input class="form-check-input" type="checkbox"
+                                       id="lm-tag-workflow-managers"
+                                       value="workflow managers"
+                                       data-lm-tag="workflow managers">
+                                <span class="lm-tag-name">workflow managers</span>
+                                <span class="lm-tag-count" aria-label="1 guide">1</span>
+                            </label>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-# Check if an argument is provided
-if [ $# -ne 1 ]; then
-    echo 'Please use one argument. Usage: wrapper.sh [arg]'
-    exit 1
-fi
+        <!-- Cards, with filter + sort controls -->
+        <div class="col-12 col-lg-9">
 
-# Set filename variable to the first argument to the bash script
-filename=$1
+            <div class="lm-toolbar">
+                <div class="lm-search">
+                    <label class="visually-hidden" for="lm-search-input">Search learning materials</label>
+                    <i class="bi bi-search lm-search-icon" aria-hidden="true"></i>
+                    <input type="search" class="form-control" id="lm-search-input"
+                           placeholder="Search titles, descriptions, and tags" autocomplete="off">
+                </div>
 
-echo 'Pre-processing could go here.'
+                <div class="lm-sort">
+                    <label class="form-label mb-0" for="lm-sort-select">Sort by</label>
+                    <select class="form-select" id="lm-sort-select">
+                        <option value="updated-desc" selected>Recently updated</option>
+                        <option value="updated-asc">Least recently updated</option>
+                        <option value="title-asc">Title (A&ndash;Z)</option>
+                        <option value="title-desc">Title (Z&ndash;A)</option>
+                    </select>
+                </div>
+            </div>
 
-# Run code
-python3 echo-next.py ${filename}
+            <div class="lm-status">
+                <p class="mb-0 text-muted" id="lm-count" aria-live="polite">
+                    Showing 8 of 8 guides
+                </p>
+                <div id="lm-active-tags" class="lm-active-tags"></div>
+            </div>
 
-echo 'Post-processing could go here.'
-</code></pre>
+            <div class="row" id="lm-grid">
+                
 
-<p>Ensure <code>wrapper.sh</code> is executable with <code>chmod +x wrapper.sh</code> before running it on the command line:</p>
-<pre class="term"><code>[user@login]$ chmod +x wrapper.sh
-[user@login]$ ./wrapper.sh
-Please use one argument. Usage: wrapper.sh [arg]
-[user@login]$ ./wrapper.sh data.csv
-Pre-processing could go here.
-data.csv
-Post-processing could go here.
-</code></pre>
+                
+                
+                
 
-<h3 id="passing-arguments-with-the-htcondor-submit-file">Passing arguments with the HTCondor submit file</h3>
+                <div class="col-12 col-md-6 col-xl-4 mb-4 lm-card-col"
+                     data-tags="bioinformatics|CHTC-created|HTC|GPU"
+                     data-featured="false"
+                     data-updated="2026-09-11"
+                     data-title="Predict Protein Structures with Alphafold3"
+                     data-search="Predict Protein Structures with Alphafold3 AlphaFold3 (AF3) predicts atomic-resolution biomolecular structures for proteins, nucleic acids, and complexes. bioinformatics CHTC-created HTC GPU">
+                    <div class="lm-card">
+                        
+                        <div class="lm-card-head">
+                            <h3 class="lm-card-title">
+                                <a class="stretched-link" href="https://github.com/CHTC/tutorial-CHTC-AF3">Predict Protein Structures with Alphafold3</a>
+                            </h3>
+                        </div>
 
-<p>Now that we’ve understood how arguments work in Python and how to write simple wrapper scripts that pass those arguments, we can pass arguments in HTCondor’s submit file by specifying the <code>arguments</code> attribute, as shown in this excerpt:</p>
+                        <div class="lm-card-description">
+                            <p>AlphaFold3 (AF3) predicts atomic-resolution biomolecular structures
+for proteins, nucleic acids, and complexes.</p>
 
-<pre><code># Create custom variable called "data"
-data = data.csv
+                        </div>
 
-# Specify the executable &amp; arguments
-executable = wrapper.sh
-arguments = $(data)
-</code></pre>
-<!--more-->
+                        <div class="lm-card-tags">
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="bioinformatics">bioinformatics</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="CHTC-created">CHTC-created</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="HTC">HTC</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="GPU">GPU</button>
+                            
+                        </div>
+
+                        <div class="lm-card-footer">
+                            <span class="lm-card-source">
+                                
+                                <i class="bi bi-github lm-card-icon" aria-hidden="true"></i>
+                                
+                            </span>
+                            <span class="lm-card-meta">
+                                
+                                <span class="lm-card-updated">Updated Sep 11, 2026</span>
+                                
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+
+                
+                
+                
+
+                <div class="col-12 col-md-6 col-xl-4 mb-4 lm-card-col"
+                     data-tags="CHTC-created|HTC|bioinformatics"
+                     data-featured="false"
+                     data-updated="2026-04-08"
+                     data-title="Genome Assembly using Nanopore Reads on CHTC"
+                     data-search="Genome Assembly using Nanopore Reads on CHTC A genome assembly workflow for Oxford Nanopore long reads using hifiasm on CHTC&#39;s High Throughput Computing infrastructure. CHTC-created HTC bioinformatics">
+                    <div class="lm-card">
+                        
+                        <div class="lm-card-head">
+                            <h3 class="lm-card-title">
+                                <a class="stretched-link" href="https://github.com/CHTC/tutorial-CHTC-Genome-Assembly">Genome Assembly using Nanopore Reads on CHTC</a>
+                            </h3>
+                        </div>
+
+                        <div class="lm-card-description">
+                            <p>A genome assembly workflow for Oxford Nanopore long reads using hifiasm
+on CHTC’s High Throughput Computing infrastructure.</p>
+
+                        </div>
+
+                        <div class="lm-card-tags">
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="CHTC-created">CHTC-created</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="HTC">HTC</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="bioinformatics">bioinformatics</button>
+                            
+                        </div>
+
+                        <div class="lm-card-footer">
+                            <span class="lm-card-source">
+                                
+                                <i class="bi bi-github lm-card-icon" aria-hidden="true"></i>
+                                
+                            </span>
+                            <span class="lm-card-meta">
+                                
+                                <span class="lm-card-updated">Updated Apr 8, 2026</span>
+                                
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+
+                
+                
+                
+
+                <div class="col-12 col-md-6 col-xl-4 mb-4 lm-card-col"
+                     data-tags="CHTC-created|HTC|HPC|data"
+                     data-featured="false"
+                     data-updated="2026-04-07"
+                     data-title="Using ResearchDrive with CHTC"
+                     data-search="Using ResearchDrive with CHTC Learn how to use the computing power of CHTC with the data you keep in ResearchDrive. CHTC-created HTC HPC data">
+                    <div class="lm-card">
+                        
+                        <div class="lm-card-head">
+                            <h3 class="lm-card-title">
+                                <a class="stretched-link" href="https://github.com/CHTC/tutorial-researchdrive">Using ResearchDrive with CHTC</a>
+                            </h3>
+                        </div>
+
+                        <div class="lm-card-description">
+                            <p>Learn how to use the computing power of CHTC with the data you keep in ResearchDrive.</p>
+
+                        </div>
+
+                        <div class="lm-card-tags">
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="CHTC-created">CHTC-created</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="HTC">HTC</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="HPC">HPC</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="data">data</button>
+                            
+                        </div>
+
+                        <div class="lm-card-footer">
+                            <span class="lm-card-source">
+                                
+                                <i class="bi bi-github lm-card-icon" aria-hidden="true"></i>
+                                
+                            </span>
+                            <span class="lm-card-meta">
+                                
+                                <span class="lm-card-updated">Updated Apr 7, 2026</span>
+                                
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+
+                
+                
+                
+
+                <div class="col-12 col-md-6 col-xl-4 mb-4 lm-card-col"
+                     data-tags="CHTC-created|HTC|GPU|machine learning and AI|Python"
+                     data-featured="false"
+                     data-updated="2026-03-25"
+                     data-title="Cat-Dog Classifier: Run a PyTorch workflow on the HTC system"
+                     data-search="Cat-Dog Classifier: Run a PyTorch workflow on the HTC system Learn how to run PyTorch training and inference workflows with this cat-dog image classifier. Contains example container recipes that you can use as a starting point for your own ML workflows. CHTC-created HTC GPU machine learning and AI Python">
+                    <div class="lm-card">
+                        
+                        <div class="lm-card-head">
+                            <h3 class="lm-card-title">
+                                <a class="stretched-link" href="https://github.com/CHTC/tutorial-pytorch-catdog">Cat-Dog Classifier: Run a PyTorch workflow on the HTC system</a>
+                            </h3>
+                        </div>
+
+                        <div class="lm-card-description">
+                            <p>Learn how to run PyTorch training and inference workflows with this
+cat-dog image classifier. Contains example container recipes that
+you can use as a starting point for your own ML workflows.</p>
+
+                        </div>
+
+                        <div class="lm-card-tags">
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="CHTC-created">CHTC-created</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="HTC">HTC</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="GPU">GPU</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="machine learning and AI">machine learning and AI</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="Python">Python</button>
+                            
+                        </div>
+
+                        <div class="lm-card-footer">
+                            <span class="lm-card-source">
+                                
+                                <i class="bi bi-github lm-card-icon" aria-hidden="true"></i>
+                                
+                            </span>
+                            <span class="lm-card-meta">
+                                
+                                <span class="lm-card-updated">Updated Mar 25, 2026</span>
+                                
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+
+                
+                
+                
+
+                <div class="col-12 col-md-6 col-xl-4 mb-4 lm-card-col"
+                     data-tags="R|CHTC-created|beginner-friendly|HTC"
+                     data-featured="false"
+                     data-updated="2026-03-23"
+                     data-title="Learn How to Deploy R Calculations"
+                     data-search="Learn How to Deploy R Calculations A step-by-step example of transitioning from running R calculations on your computer using RStudio, to running many such calculations on a HTC system. R CHTC-created beginner-friendly HTC">
+                    <div class="lm-card">
+                        
+                        <div class="lm-card-head">
+                            <h3 class="lm-card-title">
+                                <a class="stretched-link" href="https://github.com/chtc/tutorial-rstudio-to-chtc">Learn How to Deploy R Calculations</a>
+                            </h3>
+                        </div>
+
+                        <div class="lm-card-description">
+                            <p>A step-by-step example of transitioning from running R calculations
+on your computer using RStudio, to running many such calculations
+on a HTC system.</p>
+
+                        </div>
+
+                        <div class="lm-card-tags">
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="R">R</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="CHTC-created">CHTC-created</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="beginner-friendly">beginner-friendly</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="HTC">HTC</button>
+                            
+                        </div>
+
+                        <div class="lm-card-footer">
+                            <span class="lm-card-source">
+                                
+                                <i class="bi bi-github lm-card-icon" aria-hidden="true"></i>
+                                
+                            </span>
+                            <span class="lm-card-meta">
+                                
+                                <span class="lm-card-updated">Updated Mar 23, 2026</span>
+                                
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+
+                
+                
+                
+
+                <div class="col-12 col-md-6 col-xl-4 mb-4 lm-card-col"
+                     data-tags="conda|HTC|bioinformatics|CHTC-created|container"
+                     data-featured="false"
+                     data-updated="2026-03-10"
+                     data-title="Build a Conda-based Container for Bioinformatics"
+                     data-search="Build a Conda-based Container for Bioinformatics This tutorial covers the basics of how to use containers to deploy software. While this example is bioinformatics-flavored, the concepts can be applied to any software stack. conda HTC bioinformatics CHTC-created container">
+                    <div class="lm-card">
+                        
+                        <div class="lm-card-head">
+                            <h3 class="lm-card-title">
+                                <a class="stretched-link" href="https://github.com/CHTC/biocafe-containers">Build a Conda-based Container for Bioinformatics</a>
+                            </h3>
+                        </div>
+
+                        <div class="lm-card-description">
+                            <p>This tutorial covers the basics of how to use containers to deploy software.
+While this example is bioinformatics-flavored, the concepts can be applied
+to any software stack.</p>
+
+                        </div>
+
+                        <div class="lm-card-tags">
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="conda">conda</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="HTC">HTC</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="bioinformatics">bioinformatics</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="CHTC-created">CHTC-created</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="container">container</button>
+                            
+                        </div>
+
+                        <div class="lm-card-footer">
+                            <span class="lm-card-source">
+                                
+                                <i class="bi bi-github lm-card-icon" aria-hidden="true"></i>
+                                
+                            </span>
+                            <span class="lm-card-meta">
+                                
+                                <span class="lm-card-updated">Updated Mar 10, 2026</span>
+                                
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+
+                
+                
+                
+
+                <div class="col-12 col-md-6 col-xl-4 mb-4 lm-card-col"
+                     data-tags="CHTC-created|HTC|bioinformatics|beginner-friendly"
+                     data-featured="false"
+                     data-updated="2024-10-02"
+                     data-title="Analyzing Multiple Sequence Files with fastqc"
+                     data-search="Analyzing Multiple Sequence Files with fastqc How to run a set of jobs using different input files, with bioinformatics as the example domain. This process can be applied to any other workflow that processes individual data files. CHTC-created HTC bioinformatics beginner-friendly">
+                    <div class="lm-card">
+                        
+                        <div class="lm-card-head">
+                            <h3 class="lm-card-title">
+                                <a class="stretched-link" href="https://github.com/CHTC/tutorial-fastqc">Analyzing Multiple Sequence Files with fastqc</a>
+                            </h3>
+                        </div>
+
+                        <div class="lm-card-description">
+                            <p>How to run a set of jobs using different input files, with bioinformatics as the
+example domain. This process can be applied to any other workflow that processes individual data files.</p>
+
+                        </div>
+
+                        <div class="lm-card-tags">
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="CHTC-created">CHTC-created</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="HTC">HTC</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="bioinformatics">bioinformatics</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="beginner-friendly">beginner-friendly</button>
+                            
+                        </div>
+
+                        <div class="lm-card-footer">
+                            <span class="lm-card-source">
+                                
+                                <i class="bi bi-github lm-card-icon" aria-hidden="true"></i>
+                                
+                            </span>
+                            <span class="lm-card-meta">
+                                
+                                <span class="lm-card-updated">Updated Oct 2, 2024</span>
+                                
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+
+                
+                
+                
+
+                <div class="col-12 col-md-6 col-xl-4 mb-4 lm-card-col"
+                     data-tags="CHTC-created|HTC|workflow managers"
+                     data-featured="false"
+                     data-updated="2024-09-18"
+                     data-title="Automating Job Submission with HTCondor&#39;s DAGMan"
+                     data-search="Automating Job Submission with HTCondor&#39;s DAGMan HTCondor&#39;s Directed Acyclic Graph Manager (DAGMan) utility enables you to automate the submission of your HTCondor jobs. This tutorial guides you through how to use DAGMan to submit two HTCondor jobs. CHTC-created HTC workflow managers">
+                    <div class="lm-card">
+                        
+                        <div class="lm-card-head">
+                            <h3 class="lm-card-title">
+                                <a class="stretched-link" href="https://github.com/CHTC/tutorial-dagman-intro">Automating Job Submission with HTCondor's DAGMan</a>
+                            </h3>
+                        </div>
+
+                        <div class="lm-card-description">
+                            <p>HTCondor’s Directed Acyclic Graph Manager (DAGMan) utility enables you to automate the submission of
+your HTCondor jobs. This tutorial guides you through how to use DAGMan to submit two HTCondor jobs.</p>
+
+                        </div>
+
+                        <div class="lm-card-tags">
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="CHTC-created">CHTC-created</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="HTC">HTC</button>
+                            
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="workflow managers">workflow managers</button>
+                            
+                        </div>
+
+                        <div class="lm-card-footer">
+                            <span class="lm-card-source">
+                                
+                                <i class="bi bi-github lm-card-icon" aria-hidden="true"></i>
+                                
+                            </span>
+                            <span class="lm-card-meta">
+                                
+                                <span class="lm-card-updated">Updated Sep 18, 2024</span>
+                                
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div id="lm-no-results" class="lm-no-results" hidden>
+                <p class="mb-2"><strong>No learning materials match your filters.</strong></p>
+                <button type="button" class="btn btn-outline-primary btn-sm" id="lm-reset-all">Clear all filters</button>
+            </div>
+
+            
+            <nav id="lm-pagination" class="lm-pagination" aria-label="Learning materials pages" hidden></nav>
 
         </div>
-        <div class="col-3 d-none d-lg-block">
-            
-
-
-
-
-<div id="guide-sidebar">
-    
-        
-                <h6 class="mt-5">HTC guides</h6>
-        
-        
-        <div class="accordion accordion-flush">
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="get-startedhtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#get-startedhtc-guides-collapse" aria-expanded="false" aria-controls="get-startedhtc-guides">
-                                Get started
-                            </button>
-                        </span>
-                        <div id="get-startedhtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="get-startedhtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-overview#main">System overview</a>
     </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-roadmap#main">Roadmap to getting started</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/connecting#main">Log into CHTC</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/basic-shell-commands#main">Quick reference: Basic shell commands</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htcondor-quick-ref#main">Quick reference: HTCondor commands</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/condor-submit-quick-ref#main">Quick reference: HTCondor submit file options</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/vs-code#main">Connect to CHTC with VS Code</a>
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="submit-jobshtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#submit-jobshtc-guides-collapse" aria-expanded="false" aria-controls="submit-jobshtc-guides">
-                                Submit jobs
-                            </button>
-                        </span>
-                        <div id="submit-jobshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="submit-jobshtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Submit jobs using HTCondor 
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htcondor-job-submission#main">Job submission basics</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/multiple-jobs#main">Submit multiple jobs</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/inter-submit#main">Submit an interactive job</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-monitor-jobs#main">Monitor your jobs</a>
-    </div>
-
-        
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Arguments and shell scripting 
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-basic-scripting#main">Basic scripting and job submission with arguments</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-passing-arguments#main">Practice: Pass arguments from the submit file to the executable script</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-passing-arguments-multiple#main">Practice: Pass multiple arguments to multiple jobs with one submit file</a>
-    </div>
-
-        
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="manage-datahtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#manage-datahtc-guides-collapse" aria-expanded="false" aria-controls="manage-datahtc-guides">
-                                Manage data
-                            </button>
-                        </span>
-                        <div id="manage-datahtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="manage-datahtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-job-file-transfer#main">Use and transfer data in jobs on the HTC system </a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/file-avail-largedata#main">Manage Large Data in HTC Jobs</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/check-quota#main">Check disk quota and usage</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-uwdf-researchdrive#main">Directly transfer files between ResearchDrive and your jobs</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Transfer files to/from CHTC 
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/transfer-files-computer#main">Local computer</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/transfer-data-researchdrive#main">ResearchDrive (via smbclient)</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/globus#main">Globus</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/github-remote-access#main">Private GitHub repo</a>
-    </div>
-
-        
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="softwarehtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#softwarehtc-guides-collapse" aria-expanded="false" aria-controls="softwarehtc-guides">
-                                Software
-                            </button>
-                        </span>
-                        <div id="softwarehtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="softwarehtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/software-overview-htc#main">Overview</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Containers 
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/software-overview-htc#container-overview#main">What are containers?</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Using software in Apptainer containers
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/apptainer-htc#main">Use Apptainer containers</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/apptainer-build#main">More about Apptainer containers</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-docker-to-apptainer#main">Convert Docker images to Apptainer/Singularity images</a>
-    </div>
-
-        
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Using software in Docker containers
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/docker-jobs#main">Use Docker containers</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/docker-build#main">More about Docker containers</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/docker-test#main">Reference: Explore and test Docker containers</a>
-    </div>
-
-        
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="https://github.com/CHTC/recipes/tree/main/software#main">Recipes repository</a>
-    </div>
-
-        
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      Other Modes of Software Use
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/inter-submit#main">Compile software in an interactive job</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/licensed-software#main">Licensed software and modules</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-modules#main">Use software available in modules</a>
-    </div>
-
-        
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="workflowshtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#workflowshtc-guides-collapse" aria-expanded="false" aria-controls="workflowshtc-guides">
-                                Workflows
-                            </button>
-                        </span>
-                        <div id="workflowshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="workflowshtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/checkpointing#main">Checkpoint jobs</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-    <span style="font-size: .8rem;">
-      <i class="bi bi-folder me-2"></i>
-      DAGMan workflow manager 
-    </span>
-    </div>
-    <div class="list-group ps-4 border-start bg-light">
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc/dagman-workflows#main">Submit workflows with DAGman</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc/dagman-simple-example#main">Practice: Run a simple DAGMan workflow</a>
-    </div>
-
-        
-            
-            
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc/tutorial-dagman-intermediate#main">Practice: Run an diamond DAGMan workflow</a>
-    </div>
-
-        
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="special-use-caseshtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#special-use-caseshtc-guides-collapse" aria-expanded="false" aria-controls="special-use-caseshtc-guides">
-                                Special use cases
-                            </button>
-                        </span>
-                        <div id="special-use-caseshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="special-use-caseshtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/gpu-jobs#main">Use GPUs</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-interactive-gpu-jobs#main">Interactive GPU Jobs</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/scaling-htc#main">Scale beyond local HTC capacity</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/high-memory-jobs#main">Submit high memory jobs</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/machine-learning-htc#main">Machine learning jobs</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/os-request-htc#main">Custom Linux versions</a>
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="troubleshootinghtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#troubleshootinghtc-guides-collapse" aria-expanded="false" aria-controls="troubleshootinghtc-guides">
-                                Troubleshooting
-                            </button>
-                        </span>
-                        <div id="troubleshootinghtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="troubleshootinghtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="http://status.chtc.wisc.edu#main">Status page</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/htc-known-issues#main">Known issues</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/variable-memory#main">Request variable memory</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/dos-unix#main">Windows/Linux incompatibility</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="/uw-research-computing/get-help.html#main">Get help</a>
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-            
-                <div class="accordion-item">
-                        
-                        <span class="accordion-header mt-0" id="external-resourceshtc-guides">
-                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#external-resourceshtc-guides-collapse" aria-expanded="false" aria-controls="external-resourceshtc-guides">
-                                External Resources
-                            </button>
-                        </span>
-                        <div id="external-resourceshtc-guides-collapse" class="accordion-collapse collapse" aria-labelledby="external-resourceshtc-guides" data-bs-parent="#guide-sidebar">
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="https://htcondor.org/manual/#main">HTCondor manual</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="https://software-carpentry.org/lessons/#main">Software Carpentry</a>
-    </div>
-
-                            
-                                
-    <div class="document-link-wrapper bg-light">
-        <a class="" href="https://sts.doit.wisc.edu/workshops/#main">UW-Madison software training for students</a>
-    </div>
-
-                            
-                        </div>
-                    </div>
-            
-        </div>
-    
 </div>
-<script>
-  // Set the height of the sidebar to fill the viewport minus the height of the main content area
-  const updateSidebarHeight = () => {
-    const navHeight = document.getElementById("navbar").clientHeight;
-		console.log(navHeight, window.innerHeight - navHeight);
-    document.getElementById("guide-sidebar").style.height = `${window.innerHeight - navHeight}px`;
-  };
-
-  // Initial call to set the sidebar height
-  updateSidebarHeight();
-  // Add event listener to update the sidebar height on window resize
-  window.addEventListener("resize", updateSidebarHeight);
-</script>
-
-
-
-        </div>
-    </div>
-</div>
-
 
     </main>
     <footer id="colophon" class="uw-footer">
