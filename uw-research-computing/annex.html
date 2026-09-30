@@ -4,7 +4,7 @@
     
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Use Globus to Transfer Files to and from CHTC</title>
+<title>Adding External Resources with HTCondor Annex</title>
 <script type="text/javascript">
     function resizeIframe(iframe) {
         var newheight;
@@ -22,22 +22,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Use Globus to Transfer Files to and from CHTC | CHTC</title>
+<title>Adding External Resources with HTCondor Annex | CHTC</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Use Globus to Transfer Files to and from CHTC" />
+<meta property="og:title" content="Adding External Resources with HTCondor Annex" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Globus is a data management service that lets you move files files between endpoints, computers that are connected to the Globus file transfer network. Globus is primarily useful when you need to move large amounts of data to or from somewhere that is already providing a Globus endpoint. For example, a collaborator might provide shared data through Globus, or might expect you to send data to them through Globus." />
-<meta property="og:description" content="Globus is a data management service that lets you move files files between endpoints, computers that are connected to the Globus file transfer network. Globus is primarily useful when you need to move large amounts of data to or from somewhere that is already providing a Globus endpoint. For example, a collaborator might provide shared data through Globus, or might expect you to send data to them through Globus." />
-<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/globus" />
-<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/globus" />
+<meta name="description" content="HTCondor Annex lets you use resources from an external HPC allocation to run jobs submitted through your CHTC Access Point. This guide walks through creating an annex, transferring its setup files to Expanse@SDSC, and launching GPU execution points through Slurm." />
+<meta property="og:description" content="HTCondor Annex lets you use resources from an external HPC allocation to run jobs submitted through your CHTC Access Point. This guide walks through creating an annex, transferring its setup files to Expanse@SDSC, and launching GPU execution points through Slurm." />
+<link rel="canonical" href="https://chtc.cs.wisc.edu/uw-research-computing/annex" />
+<meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/annex" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2026-09-30T22:24:04+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Use Globus to Transfer Files to and from CHTC" />
+<meta property="twitter:title" content="Adding External Resources with HTCondor Annex" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-09-30T22:24:04+00:00","datePublished":"2026-09-30T22:24:04+00:00","description":"Globus is a data management service that lets you move files files between endpoints, computers that are connected to the Globus file transfer network. Globus is primarily useful when you need to move large amounts of data to or from somewhere that is already providing a Globus endpoint. For example, a collaborator might provide shared data through Globus, or might expect you to send data to them through Globus.","headline":"Use Globus to Transfer Files to and from CHTC","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/globus"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/globus"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-09-30T22:24:04+00:00","datePublished":"2026-09-30T22:24:04+00:00","description":"HTCondor Annex lets you use resources from an external HPC allocation to run jobs submitted through your CHTC Access Point. This guide walks through creating an annex, transferring its setup files to Expanse@SDSC, and launching GPU execution points through Slurm.","headline":"Adding External Resources with HTCondor Annex","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/annex"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/annex"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -279,101 +279,150 @@
         <div class="col-12 col-lg-9 mw-1000">
 
             <h1 class="uw-mini-bar mb-4">
-    Use Globus to Transfer Files to and from CHTC
+    Adding External Resources with HTCondor Annex
 </h1>
 
-            <p><a href="https://www.globus.org/">Globus</a> is a data management service that lets you
-move files files between <strong>endpoints</strong>, computers that are connected to the
-Globus file transfer network.
-Globus is primarily useful when you need to move large amounts of data to or 
-from somewhere that is already providing a Globus endpoint.
-For example, a collaborator might provide shared data through Globus,
-or might expect you to send data to them through Globus.</p>
+            <p>HTCondor Annex lets you use resources from an external HPC allocation to run jobs submitted through your CHTC Access Point. This guide walks through creating an annex, transferring its setup files to <a href="https://www.sdsc.edu/systems/expanse/">Expanse@SDSC</a>, and launching GPU execution points through Slurm.</p>
 
-<p>This guide will show you how to execute such transfers to and from CHTC using the CHTC
-Globus endpoint, which may be simpler than trying to move the files to your
-own computer first.</p>
+<div class="d-flex flex-column mb-5">
 
-<h2 id="prerequisites">Prerequisites</h2>
+<h2>Table of Contents</h2>
 
-<p>All file transfer via Globus at CHTC requires:</p>
+<div class="uw-sidebar-box me-auto">
+<div class="uw-directory">
 
-<ul>
-  <li>access to a directory in the <a href="file-avail-largedata.html"><code>/staging</code></a> or <code>/projects</code> folders</li>
-  <li>login access to the <code>transfer.chtc.wisc.edu</code> server.</li>
-</ul>
+      <ul>
+        <li><a href="#1-log-in-to-your-access-point">Log in to your Access Point</a></li>
+        <li><a href="#2-prepare-and-submit-your-htcondor-jobs">Prepare and submit your HTCondor jobs</a></li>
+        <li><a href="#3-create-and-transfer-the-annex">Create and transfer the annex</a></li>
+        <li><a href="#4-set-up-the-annex-on-expanse">Set up the annex on Expanse</a></li>
+        <li><a href="#5-configure-the-slurm-job">Configure the Slurm job</a></li>
+        <li><a href="#6-start-the-annex">Start the annex</a></li>
+      </ul>
 
-<p>Contact us at chtc@cs.wisc.edu if you need either of the above.</p>
+    </div>
+</div>
+</div>
 
-<p>You will also need to be able to
-<a href="https://app.globus.org/">log in to the Globus web interface</a>;
-you can use your UW-Madison NetID (if you have one, or similar) by selecting
-University of Wisconsin-Madison from the drop down and pressing “Continue”.</p>
+<blockquote>
+  <p><strong>Under development:</strong> This guide and the HTCondor Annex workflow are actively being developed. Commands and configuration details may change. Please contact the CHTC facilitation team before getting started.</p>
+</blockquote>
 
-<h2 id="using-the-chtc-globus-endpoints">Using the CHTC Globus Endpoints</h2>
+<h1 id="run-htcondor-jobs-on-expanse-with-an-annex">Run HTCondor jobs on Expanse with an Annex</h1>
 
-<p>You can use the Globus web interface to transfer files to and from CHTC.
-In the web interface, you can select two endpoints and then initiate a transfer
-between them.</p>
+<p>Use an HTCondor Annex to make resources from your Expanse allocation available to jobs submitted from your CHTC Access Point. This example creates an annex named <code>my_annex</code> using a Slurm array of 24 jobs, each requesting one GPU, one CPU, and 32 GB of memory.</p>
 
-<p>The first step is to find the CHTC Globus endpoints. They can be found in the Globus web interface 
-by searching endpoints for “CHTC Staging” or “CHTC Projects”.</p>
+<p>You will need accounts on both systems and an Expanse allocation. Replace <code>&lt;netid&gt;</code>, <code>&lt;username&gt;</code>, and <code>&lt;project&gt;</code> with your own information. Use the same annex name throughout.</p>
 
-<p><img src="/images/guides-globus-endpoints.png" alt="CHTC Globus endpoints" /></p>
+<h2 id="1-log-in-to-your-access-point">1. Log in to your Access Point</h2>
 
-<p>Or can be found at these links:</p>
+<pre><code class="language-bash">ssh &lt;netid&gt;@ap2001.chtc.wisc.edu
+</code></pre>
 
-<ul>
-  <li><a href="https://app.globus.org/file-manager/collections/6561bd4c-8dc3-42f2-8442-4907d41265a6/overview">CHTC Staging</a></li>
-  <li><a href="https://app.globus.org/file-manager/collections/66429a34-0a52-47b7-8699-d10804a1b75b/overview">CHTC Projects</a></li>
-</ul>
+<h2 id="2-prepare-and-submit-your-htcondor-jobs">2. Prepare and submit your HTCondor jobs</h2>
 
-<p>If you  need the actual endpoint UUID, it is listed on the above pages near the bottom
-of the “Overview”.</p>
+<p>Add these lines to your submit file (for example, <code>hello.sub</code>), along with your executable, resource requests, and other job settings:</p>
 
-<p>To use an endpoint, you must first <strong>activate</strong> it.
-Activations are usually time-limited, and transfers can only proceed while
-both the source and destination endpoints are activated.
-Activating an endpoint generally requires logging in.
-You should log in using your UW - Madison NetID. 
-You can see how long your activation will last on the endpoint information page
-in the Globus web interface.</p>
+<pre><code class="language-condor">MY.TargetAnnexName = "my_annex"
+MY.WantFlocking = true
+</code></pre>
 
-<p>To begin a file transfer, go to the 
-<a href="https://app.globus.org/file-manager">File Manager</a>.
-In the top-right corner of the page, make sure you are in the “two panel” view.
-Select the two endpoints you want to transfer between
-(they are called “Collections” on this page).
-You should see a directory listing appear in the middle of each of the panes;
-select a directory or file and click “Start” at the bottom of the page to
-move that directory or file to the other endpoint.
-The item will be moved to the currently-selected directory on the other endpoint.</p>
+<blockquote class="tip-header">
+  <h3 id="-want-to-only-use-your-annexed-capacity">💡 Want to <strong>Only</strong> use your Annexed Capacity?</h3>
+</blockquote>
 
-<p>Globus transfers are <em>asynchronous</em>, and you do not need to leave the web
-interface open while they run.
-You will receive emails updates on the progress of the transfer, and you can
-view the status of in-progress and historical transfers
-<a href="https://app.globus.org/activity">on the Activity page</a>.</p>
+<blockquote class="tip">
+  <p>If you would like your job to <strong>only</strong> run on your annexed capacity (and not Open Capacity), add the following to your requirements’ line:</p>
+  <pre><code class="language-condor">(Target.AnnexName == "my_annex")
+</code></pre>
+</blockquote>
 
-<p>You may find some of the “transfer settings”, available by clicking the
-“Transfer &amp; Sync Options” dropdown, useful.
-In particular, <code>sync</code> will help reduce the amount of time it takes to transfer
-when some data has already been transferred.</p>
+<p>Submit your jobs:</p>
 
-<h2 id="running-a-personal-globus-endpoint">Running a Personal Globus Endpoint</h2>
+<pre><code class="language-bash">condor_submit hello.sub
+</code></pre>
 
-<p>The CHTC Globus endpoint is a “Globus Connect Server”, designed for shared use
-on a dedicated machine.
-It is also possible to run 
-<a href="https://www.globus.org/globus-connect-personal">Globus Connect Personal</a>,
-a lighter-weight package that adds a Globus endpoint to your own computer,
-like a laptop or lab computer.
-Installers are available at that link for Mac, Linux, and Windows.</p>
+<h2 id="3-create-and-transfer-the-annex">3. Create and transfer the annex</h2>
 
-<p>We only recommend using Globus Connect Personal if you are also working with
-some other Globus endpoint (not just CHTC and your computer).
-If you are just moving files between CHTC and your own computer, traditional
-file transfer tools like <code>rsync</code> will likely be more efficient.</p>
+<p>On the Access Point, create the annex and copy its tarball to your Expanse home directory:</p>
+
+<pre><code class="language-bash">htcondor annex create my_annex
+</code></pre>
+<p>This will generate a tarball with your annex setup and required files. Transfer it to the HPC cluster you’d like to annex from (for example, <code>expanse</code>):</p>
+<pre><code class="language-bash">scp annex-my_annex.tar &lt;username&gt;@login.expanse.sdsc.edu:~/
+</code></pre>
+
+<h2 id="4-set-up-the-annex-on-expanse">4. Set up the annex on Expanse</h2>
+
+<p>Log in and extract the tarball:</p>
+
+<pre><code class="language-bash">ssh &lt;username&gt;@login.expanse.sdsc.edu
+tar -xvf annex-my_annex.tar
+</code></pre>
+
+<p>From the directory containing the extracted annex scripts, run:</p>
+
+<pre><code class="language-bash">./annex-setup.sh
+</code></pre>
+
+<h2 id="5-configure-the-slurm-job">5. Configure the Slurm job</h2>
+
+<p>Edit <code>hpc.slurm</code> to use your Expanse project account and desired wall time. The example below requests one hour; adjust the array size and resource requests to suit your allocation and workload.</p>
+
+<pre><code class="language-bash">#!/bin/bash
+#SBATCH -J my_annex
+#SBATCH -o %A_%a.out
+#SBATCH -e %A_%a.err
+#SBATCH --array=1-24
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --gpus=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=32G
+#SBATCH --partition=gpu-shared
+#SBATCH --account=&lt;project&gt;
+#SBATCH --time=0-01:00:00
+
+module load gpu
+module load slurm
+
+echo "$(date) $(hostname) Annex job starting"
+export ANNEX_JOBID=${SLURM_JOBID:-pid-$$}
+SCRATCH="${PWD}"
+if [ -f ~/.condor/annex_config ]; then
+    . ~/.condor/annex_config
+fi
+PILOT_DIR="${SCRATCH}/pilot.${ANNEX_JOBID}"
+
+echo "$(date) $(hostname) Performing setup tasks"
+./annex-job-setup.sh "$PILOT_DIR"
+
+# This will block until all of the pilots terminate.
+echo "$(date) $(hostname) Launching EPs"
+if [ -z "$SLURM_JOBID" ]; then
+    ./annex-node.sh "$PILOT_DIR"
+else
+    srun -K0 -W0 ./annex-node.sh "$PILOT_DIR"
+fi
+
+echo "$(date) $(hostname) All EPs have exited, performing cleanup"
+echo "$(date) $(hostname) Removing temporary directory ${PILOT_DIR}"
+rm -fr -- "${PILOT_DIR}"
+echo "$(date) $(hostname) Annex job complete, exiting"
+</code></pre>
+
+<h2 id="6-start-the-annex">6. Start the annex</h2>
+
+<p>From the directory containing the annex scripts, submit the Slurm job:</p>
+
+<pre><code class="language-bash">sbatch hpc.slurm
+</code></pre>
+
+<p>As Slurm starts the array tasks, they launch HTCondor execution points for your annex. Your queued HTCondor jobs can then match these resources when their requirements are satisfied. Actual concurrency depends on resource availability and Slurm limits.</p>
+
+<blockquote>
+  <p><strong>Single-user requirement:</strong> The user who submits HTCondor jobs to the annex must also be the user who creates it. Support for one user creating an annex that multiple users can use is under development; this documentation will be updated when it is available.</p>
+</blockquote>
 
         </div>
         <div class="col-3 d-none d-lg-block">
@@ -591,7 +640,7 @@ file transfer tools like <code>rsync</code> will likely be more efficient.</p>
             
             
     <div class="document-link-wrapper bg-light">
-        <a class="fw-bolder" href="/uw-research-computing/globus#main">Globus</a>
+        <a class="" href="/uw-research-computing/globus#main">Globus</a>
     </div>
 
         
