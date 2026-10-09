@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-10-08T20:22:00+00:00" />
+<meta property="article:published_time" content="2026-10-09T16:16:01+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Practice: Submit HTC Jobs using HTCondor" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-10-08T20:22:00+00:00","datePublished":"2026-10-08T20:22:00+00:00","description":"Purpose","headline":"Practice: Submit HTC Jobs using HTCondor","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-10-09T16:16:01+00:00","datePublished":"2026-10-09T16:16:01+00:00","description":"Purpose","headline":"Practice: Submit HTC Jobs using HTCondor","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -315,7 +315,6 @@
 <blockquote class="tip">
   <p>You can follow along with the job submission tutorial outlined in this guide in video format.</p>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/d5siupeu2kE?si=32FUkZyceV9ROfb1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
-  <p>You may notice that the example in the video is slightly different—it uses <code>executable</code> and <code>arguments</code> in the submit file instead of <code>shell</code>. This is reflects an older submit convention, however, either case still works!</p>
 </blockquote>
 
 <h3 id="prepare-job-executable-and-submit-file-on-an-access-point">Prepare job executable and submit file on an Access Point</h3>
@@ -375,7 +374,8 @@ This is the file you will submit to HTCondor to describe your jobs (known as the
 #  commands) and arguments to be passed to jobs. 
 #  $(Process) will be a integer number for each job, starting with "0"
 #  and increasing for the relevant number of jobs.
-shell = ./hello-world.sh $(Process)
+executable = hello-world.sh
+arguments = $(Process)
    		
 # Specify the name of the log, standard error, and standard output (or
 # "screen output") files. Wherever you see $(Cluster), HTCondor will insert the 
@@ -384,8 +384,8 @@ log = hello-world_$(Cluster)_$(Process).log
 error = hello-world_$(Cluster)_$(Process).err
 output = hello-world_$(Cluster)_$(Process).out
    
-# Transfer our executable script
-transfer_input_files = hello-world.sh
+# Our executable is transferred automatically
+# transfer_input_files = &lt; other input files you'd need goes here &gt;
    
 # Requirements (e.g., operating system) your job needs, what amount of
 # compute resources each job will need on the computer where it runs.
@@ -541,7 +541,23 @@ When you request too much, your jobs may not match to as many available “slots
 
 <p>You can either use <code>shell</code> or <code>executable</code> and <code>arguments</code> in your submit file to specify how to run your jobs.</p>
 
-<h3 id="option-1-submit-with-shell">Option 1: Submit with <code>shell</code></h3>
+<h3 id="option-1-executable-and-arguments">Option 1: <code>executable</code> and <code>arguments</code></h3>
+
+<p>In this convention, you break your command into two parts—the executable and the arguments.</p>
+
+<pre><code>executable = hello-world.sh
+arguments = $(Process)
+</code></pre>
+
+<p>When using this option:</p>
+
+<ul>
+  <li><strong>HTCondor will transfer your executable by default.</strong> You do not need to list your executable in <code>transfer_input_files</code>.</li>
+  <li>You do not have to add a <code>./</code> or <code>/bin/bash</code> to the beginning of your <code>executable</code> line.</li>
+  <li>You do not have to give your <code>executable</code> script executable permissions.</li>
+</ul>
+
+<h3 id="option-2-submit-with-shell">Option 2: Submit with <code>shell</code></h3>
 
 <p>You can use <code>shell</code> to specify the whole command you want to run.</p>
 
@@ -556,22 +572,6 @@ transfer_input_files = hello-world.sh
   <li>If you are using <code>./</code> to execute your code, as in the example above, <strong>ensure your shell script has executable permissions</strong> with the <code>chmod +x &lt;script&gt;</code> command.</li>
   <li>Alternatively, <strong>you may use a shell like <code>bash</code> to execute your code</strong>, (i.e., <code>shell = bash hello-world.sh 0</code>). When you use this option, you do not have to give your shell script executable permissions.</li>
   <li><strong>Keep your <code>shell</code> script simple</strong>; quoting and special characters may throw errors. If you need complex scripting, we recommend writing a wrapper script.</li>
-</ul>
-
-<h3 id="option-2-executable-and-arguments">Option 2: <code>executable</code> and <code>arguments</code></h3>
-
-<p>In this convention, you break your command into two parts—the executable and the arguments.</p>
-
-<pre><code>executable = hello-world.sh
-arguments = $(Process)
-</code></pre>
-
-<p>When using this option:</p>
-
-<ul>
-  <li><strong>HTCondor will transfer your executable by default.</strong> You do not need to list your executable in <code>transfer_input_files</code>.</li>
-  <li>You do not have to add a <code>./</code> or <code>/bin/bash</code> to the beginning of your <code>executable</code> line.</li>
-  <li>You do not have to give your <code>executable</code> script executable permissions.</li>
 </ul>
 
         </div>
