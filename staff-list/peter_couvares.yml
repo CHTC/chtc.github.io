@@ -11,3 +11,4 @@ osg:
   weight: 2
 organizations:
   - osg
+  - path

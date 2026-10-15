@@ -13,5 +13,4 @@ pelican:
     weight: 3
 
 organizations:
-    - path
     - pelican
