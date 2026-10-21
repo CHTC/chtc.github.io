@@ -32,12 +32,12 @@
 <meta property="og:url" content="https://chtc.cs.wisc.edu/uw-research-computing/gpu-jobs" />
 <meta property="og:site_name" content="CHTC" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-10-20T22:49:23+00:00" />
+<meta property="article:published_time" content="2026-10-21T20:15:54+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Use GPUs" />
 <meta name="twitter:site" content="@chtc_uw" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-10-20T22:49:23+00:00","datePublished":"2026-10-20T22:49:23+00:00","description":"Overview","headline":"Use GPUs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/gpu-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/gpu-jobs"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-10-21T20:15:54+00:00","datePublished":"2026-10-21T20:15:54+00:00","description":"Overview","headline":"Use GPUs","mainEntityOfPage":{"@type":"WebPage","@id":"https://chtc.cs.wisc.edu/uw-research-computing/gpu-jobs"},"url":"https://chtc.cs.wisc.edu/uw-research-computing/gpu-jobs"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -345,116 +345,241 @@ determine:</p>
 </div>
 </div>
 
-<h1 id="a-available-chtc-gpus">A. Available CHTC GPUs</h1>
+<h1 id="a-available-gpus">A. Available GPUs</h1>
 
-<h2 id="1-gpu-lab">1. GPU Lab</h2>
+<p>CHTC’s open capacity GPUs are available to any user of the high throughput computing (HTC) system. They are provided by the <a href="gpu-lab.html">CHTC GPU Lab</a>. Researchers also own GPUs on CHTC. When these cards are not in use by their owners, your jobs can run on them if you opt in as backfill. CHTC users can also access GPUs on the OSPool, which has an average of 275 GPUs available per hour. See <a href="#c-gpu-capacity-beyond-the-chtc-gpu-lab">GPU capacity beyond the GPU Lab</a> for details on accessing backfill or the OSPool.</p>
 
-<p>CHTC has a set of GPUs that are available for use by any CHTC user with an 
-account on our high throughput computing (HTC) system
-via the <a href="gpu-lab.html">CHTC GPU Lab</a>, which includes templates and a campus GPU community.</p>
+<style>
+  .gpu-table th, .gpu-table td { padding: 0.3em 0.75em; vertical-align: bottom; }
+  .gpu-table .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .gpu-table .group { text-align: center; border-bottom: 1px solid currentColor; }
+  .gpu-table tfoot td { font-weight: bold; border-top: 2px solid currentColor; }
+</style>
 
-<p>Our expectation is that most, if not all, of CHTC users running GPU jobs should utilize 
-the capacity of the GPU Lab to run their work.</p>
-
-<table class="gtable">
-  <tr>
-    <th>Number of Servers</th>
-    <th>Names</th>
-    <th>GPUs / Server</th>
-    <th>GPU Type (<code>DeviceName</code>)</th>
-    <th>Hardware Generation <code>Capability</code></th>
-    <th>GPU Memory <code>GlobalMemoryMB</code></th>
-  </tr>
-  
-	
-
-  <tr>
-	<td>2</td>
-	<td>gpu2000, gpu2001</td>
-	<td>2</td>
-	<td>Tesla P100-PCIE-16GB</td>
-	<td>6.0</td>
-	<td>16GB</td>
-  </tr>
-  
-	
-
-  <tr>
-	<td>1</td>
-	<td>gpulab2003</td>
-	<td>8</td>
-	<td>NVIDIA GeForce RTX 2080 Ti</td>
-	<td>7.5</td>
-	<td>10GB</td>
-  </tr>
-  
-	
-
-  <tr>
-	<td>2</td>
-	<td>gpulab2004, gpulab2005</td>
-	<td>4</td>
-	<td>NVIDIA A100-SXM4-40GB</td>
-	<td>8.0</td>
-	<td>40GB</td>
-  </tr>
-  
-	
-
-  <tr>
-	<td>8</td>
-	<td>gpu2003 - gpu2010</td>
-	<td>4</td>
-	<td>NVIDIA A100-SXM4-80GB</td>
-	<td>8.0</td>
-	<td>80GB</td>
-  </tr>
-  
-	
-
-  <tr>
-	<td>3</td>
-	<td>gpu4000 - gpu4002</td>
-	<td>10</td>
-	<td>NVIDIA L40</td>
-	<td>8.9</td>
-	<td>45GB</td>
-  </tr>
-  
-	
-
-  <tr>
-	<td></td>
-	<td>gpu4005 - gpu4006</td>
-	<td>8</td>
-	<td>NVIDIA L40S</td>
-	<td>8.9</td>
-	<td>45GB</td>
-  </tr>
-  
-	
-
-  <tr>
-	<td>1</td>
-	<td>gpu4003</td>
-	<td>8</td>
-	<td>NVIDIA H100 80GB HBM3</td>
-	<td>9.0</td>
-	<td>80GB</td>
-  </tr>
-  
-	
-
-  <tr>
-	<td>2</td>
-	<td>gpu4004, hsharma-chtcgpu4000</td>
-	<td>8</td>
-	<td>NVIDIA H200</td>
-	<td>9.0</td>
-	<td>141GB</td>
-  </tr>
-  
+<table class="gtable gpu-table">
+  <thead>
+    <tr>
+      <th rowspan="2">GPU Name</th>
+      <th rowspan="2" class="num">Hardware Generation <br /><small>(<code>GPUs_Capability</code>)</small></th>
+      <th rowspan="2" class="num">GPU Memory (VRAM)<br /><small>(<code>gpus_minimum_memory</code>)<sup>†</sup></small></th>
+      <th colspan="3" class="group">Number of GPUs</th>
+    </tr>
+    <tr>
+      <th class="num">Open capacity</th>
+      <th class="num">Backfill</th>
+      <th class="num">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    
+    <tr>
+      <td>RTX PRO 6000</td>
+      <td class="num">12.0</td>
+      <td class="num"><code>94 GB</code></td>
+      <td class="num">12</td>
+      <td class="num">20</td>
+      <td class="num">32</td>
+    </tr>
+    
+    
+    
+    <tr>
+      <td>H200</td>
+      <td class="num">9.0</td>
+      <td class="num"><code>139 GB</code></td>
+      <td class="num">34</td>
+      <td class="num">26</td>
+      <td class="num">60</td>
+    </tr>
+    
+    
+    <tr>
+      <td>H100 80GB</td>
+      <td class="num">9.0</td>
+      <td class="num"><code>79 GB</code></td>
+      <td class="num">8</td>
+      <td class="num">8</td>
+      <td class="num">16</td>
+    </tr>
+    
+    
+    <tr>
+      <td>L40</td>
+      <td class="num">8.9</td>
+      <td class="num"><code>44 GB</code></td>
+      <td class="num">27</td>
+      <td class="num">57</td>
+      <td class="num">84</td>
+    </tr>
+    
+    
+    <tr>
+      <td>L40S</td>
+      <td class="num">8.9</td>
+      <td class="num"><code>44 GB</code></td>
+      <td class="num">22</td>
+      <td class="num">82</td>
+      <td class="num">104</td>
+    </tr>
+    
+    
+    
+    <tr>
+      <td>A100 80GB</td>
+      <td class="num">8.0</td>
+      <td class="num"><code>79 GB</code></td>
+      <td class="num">16</td>
+      <td class="num">12</td>
+      <td class="num">28</td>
+    </tr>
+    
+    
+    <tr>
+      <td>A100 40GB</td>
+      <td class="num">8.0</td>
+      <td class="num"><code>39 GB</code></td>
+      <td class="num">8</td>
+      <td class="num">20</td>
+      <td class="num">28</td>
+    </tr>
+    
+    
+    <tr>
+      <td>A100 80GB, MIG slice (3g.40gb)<sup>‡</sup></td>
+      <td class="num">8.0</td>
+      <td class="num"><code>39 GB</code></td>
+      <td class="num">8</td>
+      <td class="num">0</td>
+      <td class="num">8</td>
+    </tr>
+    
+    
+    
+    <tr>
+      <td>Quadro RTX 8000</td>
+      <td class="num">7.5</td>
+      <td class="num"><code>47 GB</code></td>
+      <td class="num">1</td>
+      <td class="num">0</td>
+      <td class="num">1</td>
+    </tr>
+    
+    
+    
+    <tr>
+      <td>RTX 2080 Ti</td>
+      <td class="num">7.5</td>
+      <td class="num"><code>10 GB</code></td>
+      <td class="num">19</td>
+      <td class="num">16</td>
+      <td class="num">35</td>
+    </tr>
+    
+    
+    
+    <tr>
+      <td>P100 16GB</td>
+      <td class="num">6.0</td>
+      <td class="num"><code>15 GB</code></td>
+      <td class="num">4</td>
+      <td class="num">4</td>
+      <td class="num">8</td>
+    </tr>
+    
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3">Total, all GPU types</td>
+      <td class="num">159</td>
+      <td class="num">270</td>
+      <td class="num">429</td>
+    </tr>
+  </tfoot>
 </table>
+
+<details>
+  <summary>GPU types available only through backfill</summary>
+  <table class="gtable gpu-table">
+    <thead>
+      <tr>
+        <th>GPU Name</th>
+        <th class="num">Capability</th>
+        <th class="num">Memory<sup>†</sup></th>
+        <th class="num">GPUs</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      
+      
+      <tr>
+        <td>H200 NVL</td>
+        <td class="num">9.0</td>
+        <td class="num"><code>139 GB</code></td>
+        <td class="num">4</td>
+      </tr>
+      
+      
+      
+      
+      
+      
+      <tr>
+        <td>A40</td>
+        <td class="num">8.6</td>
+        <td class="num"><code>44 GB</code></td>
+        <td class="num">8</td>
+      </tr>
+      
+      
+      
+      
+      
+      <tr>
+        <td>A30</td>
+        <td class="num">8.0</td>
+        <td class="num"><code>23 GB</code></td>
+        <td class="num">8</td>
+      </tr>
+      
+      
+      
+      <tr>
+        <td>Quadro RTX 6000</td>
+        <td class="num">7.5</td>
+        <td class="num"><code>23 GB</code></td>
+        <td class="num">1</td>
+      </tr>
+      
+      
+      
+      <tr>
+        <td>GTX 1080 Ti</td>
+        <td class="num">6.1</td>
+        <td class="num"><code>10 GB</code></td>
+        <td class="num">4</td>
+      </tr>
+      
+      
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3">Total</td>
+        <td class="num">25</td>
+      </tr>
+    </tfoot>
+  </table>
+</details>
+
+<p class="table-notes">
+  <sup>†</sup> The largest <code>gpus_minimum_memory</code> value that still matches
+  this GPU. A higher value excludes it. A lower value also matches GPUs with less
+  memory.<br />
+  
+  <sup>‡</sup> A MIG slice is part of one A100 GPU. It has 40&nbsp;GB of memory but
+  about 40% of the computing power of a full A100. Two slices share one A100.
+</p>
 
 <h3 id="special-gpu-lab-policies">Special GPU Lab Policies</h3>
 
@@ -491,11 +616,6 @@ the capacity of the GPU Lab to run their work.</p>
 <h3 id="interactive-gpu-jobs">Interactive GPU jobs</h3>
 <p>There are a certain number of slots in the GPU Lab reserved for interactive use.
 Learn more about <a href="htc-interactive-gpu-jobs">interactive GPU jobs</a>.</p>
-
-<h2 id="2-other-capacity">2. Other Capacity</h2>
-
-<p>There is additional dedicated and backfill GPU capacity available in CHTC and beyond; 
-see <a href="#c-gpu-capacity-beyond-the-chtc-gpu-lab">GPU capacity beyond the GPU Lab</a> for details.</p>
 
 <h1 id="b-submit-jobs-using-gpus-in-chtc">B. Submit Jobs Using GPUs in CHTC</h1>
 
