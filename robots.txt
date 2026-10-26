@@ -2,5 +2,5 @@ User-Agent: *
 Allow: /
 Disallow: /uw-research-computing/staff/
 
-Host: https://chtc-nextjs.demo.chtc.io
-Sitemap: https://chtc-nextjs.demo.chtc.io/sitemap.xml
+Host: https://chtc.cs.wisc.edu
+Sitemap: https://chtc.cs.wisc.edu/sitemap.xml
