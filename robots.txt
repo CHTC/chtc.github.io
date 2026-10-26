@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /uw-research-computing/staff/
+
+Host: https://chtc-nextjs.demo.chtc.io
+Sitemap: https://chtc-nextjs.demo.chtc.io/sitemap.xml
