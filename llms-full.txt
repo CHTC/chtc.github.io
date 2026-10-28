@@ -3031,7 +3031,9 @@ tar -czf data_files.tar.gz file_directory/
 
 ![The tar compression command explained. The first argument is the tarball to be created, and the second argument is the directory or list of files to be compressed.](https://chtc.cs.wisc.edu/images/nextImageExportOptimizer/tar01-opt-1200.WEBP)
 
-Diagram of the tar compression command. The first argument (blue) is the name of the tar.gz to be created, and the second argument (green) is the directory of files to be compressed.  
+Diagram of the tar compression command. The first argument (blue) is the name of the tar.gz to be created, and the second argument (green) is the directory of files to be compressed.
+
+  
 
 Afterwards, you may transfer the single tarball file as usual.
 
@@ -8395,7 +8397,7 @@ All HPC users can access CHTC Open OnDemand. Open OnDemand is currently not avai
 
 ![](https://chtc.cs.wisc.edu/images/uw-research-computing/nextImageExportOptimizer/ood-features-opt-1200.WEBP)
 
-Screenshots of OnDemand features. From left to right: file browser, shell, text editor, job composer.  
+Screenshots of OnDemand features. From left to right: file browser, shell, text editor, job composer.
 
 -   **File browser**. Upload, download, view, and edit files right in your browser. Only text-based files may be edited.
 -   **Active Jobs**. View your currently running jobs.
