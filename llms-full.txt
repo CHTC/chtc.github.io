@@ -6906,7 +6906,7 @@ This guide shows you how to run interactive GPU jobs on CHTC's High Throughput C
 
 CHTC's HTC system is primarily meant for submitting batches of large workloads. However, a few resources are set aside for testing and troubleshooting GPU jobs interactively.
 
-### Availablility
+### Availability
 
 #### Shared GPUs
 
