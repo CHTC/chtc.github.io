@@ -10274,11 +10274,15 @@ Welcome to the **Bioinformatics Café**—a monthly, hands‑on meetup for life�
 
 ### Resources
 
-Get oriented and level up fast:
+##### Get oriented and level up fast
 
--   [Roadmap to getting started on CHTC](https://chtc.cs.wisc.edu/uw-research-computing/htc-roadmap/)
--   [Moving data to/from CHTC](https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer/)
+-   [Roadmap to getting started](https://chtc.cs.wisc.edu/uw-research-computing/htc-roadmap/)
+-   [Learning resources catalog](https://chtc.cs.wisc.edu/uw-research-computing/learning-resources/)
 -   [Containers & reproducible software](https://chtc.cs.wisc.edu/uw-research-computing/software-overview-htc/#quickstart)
+
+##### Databases
+
+-   [Bioinformatics databases](https://bioinformatics.bact.wisc.edu/databases/) hosted by the Bioinformatics Research Support Service in the Department of Bacteriology (open to all researchers)
 
 ![](https://chtc.cs.wisc.edu/uw-research-computing/guide-icons/noun_people_1188645.png)
 
@@ -10328,7 +10332,7 @@ Join CHTC facilitators at the Bioinformatics Café!
 Third Thursday of each month
 
 -   **Time:** 3:00–4:30 PM CST
--   **Location:** Morgridge Hall, **Room 6631**
+-   **Location:** Morgridge Hall, **Room 5621**
 -   **Dates:**
     -   September 17, 2026
     -   October 15, 2026

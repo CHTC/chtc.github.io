@@ -5,4 +5,4 @@
 3:[["children",{"s":"__PAGE__","h":160}]]
 2:[["children",{"s":{"n":"slug","t":"c","k":"archived/hpc-transition-2023","s":["how-tos","hpc","htc","learning-resources","other-resources","user-portal"]},"h":65632,"c":"$Q3"}]]
 1:[["children",{"s":"uw-research-computing","h":131168,"c":"$Q2"}]]
-0:{"b":"w_fCyFdxbvI-a09fXieCA","t":{"t":{"s":"","h":131152,"c":"$Q1"}}}
+0:{"b":"4MkOKDOGGdqvOmIkjLO0W","t":{"t":{"s":"","h":131152,"c":"$Q1"}}}
