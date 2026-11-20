@@ -7659,7 +7659,7 @@ Please sign in before joining the Zoom room. You can find the Zoom link in a Fac
 
 [Sign-in for office hours](https://chtc.cs.wisc.edu/uw-research-computing/sign-in/)
 
-#### Bioinformatics Cafe
+### Bioinformatics Cafe
 
 For CHTC users working in biology, we have a dedicated drop-in and co-working session for you each month - Bioinformatics Cafe!
 
@@ -7670,27 +7670,29 @@ More information here:
 
 [Bioinformatics Cafe](https://chtc.cs.wisc.edu/uw-research-computing/bioinformatics-cafe/)
 
-#### CHTC Events and Office Hours Calendar
+### CHTC Events and Office Hours Calendar
 
 ### Make an appointment
 
-Due to the amount of new user applications this semester, we are reserving consultations for groups that are brand new to CHTC. All other groups/users can come to office hours or email us for support.
+[Email us](mailto:chtc@cs.wisc.edu)
+
+_Due to the amount of new user applications this semester, we are reserving consultations for groups that are brand new to CHTC._ All other groups/users can come to office hours or email us for support.
 
 If you cannot attend office hours and feel a meeting would be beneficial, email us and we will let you know the likely wait time for a consultation.
 
-### Check System Status
-
-Our status page provides information about CHTC system issues, including outages and scheduled maintenance. Major outages and maintenance issues are still communicated via the `chtc-users` email list, but minor issues and updates to ongoing issues will be communicated via the status page.
-
-> If you are experiencing an issue with the system, please check the status page! If you don't see a corresponding incident, feel free to email us.
+### Check the Status Page
 
 [Check System Status](https://status.chtc.wisc.edu)
 
+Our Status page reports system issues, outages, and scheduled maintenance. Major outages and maintenance issues are communicated via the `chtc-users` email list, but minor issues and updates to ongoing issues are communicated via the status page.
+
+**If you are experiencing an issue with the system, please check the status page! If you don't see a corresponding incident, feel free to email us.**
+
 ### Ask the Community
 
-Do you have a question specific to your software or domain? Ask for help or share your knowledge with the CHTC Community! We have a Discourse forum for users to ask questions and connect with each other.
-
 [CHTC Community Forum](https://community.chtc.wisc.edu/)
+
+Do you have a question specific to your software or domain? Ask for help or share your knowledge with the CHTC Community! We have a Discourse forum for users to ask questions and connect with each other.
 
 ### More About Us
 
