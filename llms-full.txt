@@ -12071,7 +12071,7 @@ For other locations, please email us at [chtc@cs.wisc.edu](Mailto:chtc@cs.wisc.e
 The form asks for the current quotas of the folders you wish to change. For individual directories, your quotas are printed on login. For group directories at HTC `/staging`, HPC `/home`, HPC `/scratch`, you can retrieve your quotas using the command
 
 ```
-get_quotas /path/to/group/directory
+get_quotas -p /path/to/group/directory
 ```
 
 ### Quota Request Form
